@@ -239,7 +239,7 @@ const writingSets=[
 const stageInfo=[
  {id:'A1.1',status:'playable',goal:'Handle first meetings and short everyday exchanges',tasks:['Introduce yourself and exchange personal details','Order breakfast, ask prices and find places','Describe family, objects and simple meeting times'],languageSupport:'Story answers in English or Spanish; short practical replies in Spanish.',languageFocus:'Present-tense chunks, ser/estar, tener, agreement and basic questions'},
  {id:'A1.2',status:'playable',goal:'Manage a longer everyday exchange with simple connected sentences',tasks:['Arrange an outing and express likes','Shop for clothes and explain what you need','Describe your home and a typical day'],languageSupport:'Story answers in English or Spanish; supported short Spanish messages.',languageFocus:'Present-tense consolidation, reflexive routines, ir a + infinitive and simple connectors'},
- {id:'A2.1',status:'planned',goal:'Describe familiar experiences and make practical plans',tasks:['Describe a recent trip or weekend','Compare travel options and book a room','Explain simple health needs'],languageSupport:'Plan: English or Spanish comprehension; short linked Spanish responses.',languageFocus:'Common past-event forms, comparisons and future plans'},
+ {id:'A2.1',status:'playable',goal:'Describe familiar experiences and make practical plans',tasks:['Describe a recent trip or weekend','Compare travel options and book a room','Explain simple health needs'],languageSupport:'English or Spanish comprehension; constrained short linked Spanish responses.',languageFocus:'Common past-event forms, comparisons and future plans'},
  {id:'A2.2',status:'planned',goal:'Resolve routine problems and explain a short sequence of events',tasks:['Explain a travel or shopping problem','Describe a past habit and what changed','Write a practical request or invitation'],languageSupport:'Plan: English or Spanish comprehension; scaffolded Spanish paragraphs.',languageFocus:'Past-event versus habitual background, polite requests and sequencing'},
  {id:'B1.1',status:'planned',goal:'Tell a connected story and explain personal choices',tasks:['Narrate an experience with background','Give reasons for a preference','Summarise the main point of a familiar text'],languageSupport:'Plan: move towards Spanish comprehension with vocabulary support.',languageFocus:'Connected past narration, reasons and everyday opinion expressions'},
  {id:'B1.2',status:'planned',goal:'Sustain a familiar discussion and negotiate a solution',tasks:['Discuss advantages and disadvantages','Respond to advice and propose alternatives','Write a coherent account or complaint'],languageSupport:'Plan: Spanish comprehension and supported extended replies.',languageFocus:'Advice, wishes, common subjunctive contexts and cohesive linking'},
@@ -296,5 +296,9 @@ const practice=typeof module!=='undefined'?require('./a1-practice.js'):root.A1Pr
 practice.apply(data);
 const clarity=typeof module!=='undefined'?require('./learner-clarity.js'):root.LearnerClarity;
 clarity.apply(data);
+const a21Factory=typeof module!=='undefined'?require('./a21.js'):root.FriendsA21;
+const a21=a21Factory();data.stageUnits['A2.1']=a21.units;data.lessons.push(...a21.lessons);
+data.listeningPractice.push(...a21.lessons.filter(l=>!l.checkpoint).flatMap(l=>l.questions.filter(q=>q.listening)));
+data.speakingPractice.push(...a21.lessons.flatMap(l=>l.questions.filter(q=>q.type==='speaking')));
 root.Curriculum=data;if(typeof module!=='undefined')module.exports=data;
 })(typeof window==='undefined'?globalThis:window);

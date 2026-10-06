@@ -1,0 +1,567 @@
+(function(root){
+'use strict';
+// Permanent authored IDs: append new slots; never renumber or reuse an existing slot.
+const manifest={
+ "a21u0l0": [
+  "a21u0l0-q1",
+  "a21u0l0-q2",
+  "a21u0l0-q3",
+  "a21u0l0-q4",
+  "a21u0l0-q5",
+  "a21u0l0-q6"
+ ],
+ "a21u0story0": [
+  "a21u0story0-q1",
+  "a21u0story0-q2",
+  "a21u0story0-q3",
+  "a21u0story0-q4",
+  "a21u0story0-q5"
+ ],
+ "a21u0l1": [
+  "a21u0l1-q1",
+  "a21u0l1-q2",
+  "a21u0l1-q3",
+  "a21u0l1-q4",
+  "a21u0l1-q5",
+  "a21u0l1-q6"
+ ],
+ "a21u0story1": [
+  "a21u0story1-q1",
+  "a21u0story1-q2",
+  "a21u0story1-q3",
+  "a21u0story1-q4",
+  "a21u0story1-q5"
+ ],
+ "a21u0l2": [
+  "a21u0l2-q1",
+  "a21u0l2-q2",
+  "a21u0l2-q3",
+  "a21u0l2-q4",
+  "a21u0l2-q5",
+  "a21u0l2-q6"
+ ],
+ "a21u0story2": [
+  "a21u0story2-q1",
+  "a21u0story2-q2",
+  "a21u0story2-q3",
+  "a21u0story2-q4",
+  "a21u0story2-q5"
+ ],
+ "a21u0write": [
+  "a21u0write-q1",
+  "a21u0write-q2",
+  "a21u0write-q3",
+  "a21u0write-q4",
+  "a21u0write-q5"
+ ],
+ "a21u0story3": [
+  "a21u0story3-q1",
+  "a21u0story3-q2",
+  "a21u0story3-q3",
+  "a21u0story3-q4",
+  "a21u0story3-q5"
+ ],
+ "a21u0check": [
+  "a21u0check-q1",
+  "a21u0check-q2",
+  "a21u0check-q3",
+  "a21u0check-q4",
+  "a21u0check-q5",
+  "a21u0check-q6",
+  "a21u0check-q7",
+  "a21u0check-q8",
+  "a21u0check-q9"
+ ],
+ "a21u1l0": [
+  "a21u1l0-q1",
+  "a21u1l0-q2",
+  "a21u1l0-q3",
+  "a21u1l0-q4",
+  "a21u1l0-q5",
+  "a21u1l0-q6"
+ ],
+ "a21u1story0": [
+  "a21u1story0-q1",
+  "a21u1story0-q2",
+  "a21u1story0-q3",
+  "a21u1story0-q4",
+  "a21u1story0-q5"
+ ],
+ "a21u1l1": [
+  "a21u1l1-q1",
+  "a21u1l1-q2",
+  "a21u1l1-q3",
+  "a21u1l1-q4",
+  "a21u1l1-q5",
+  "a21u1l1-q6"
+ ],
+ "a21u1story1": [
+  "a21u1story1-q1",
+  "a21u1story1-q2",
+  "a21u1story1-q3",
+  "a21u1story1-q4",
+  "a21u1story1-q5"
+ ],
+ "a21u1l2": [
+  "a21u1l2-q1",
+  "a21u1l2-q2",
+  "a21u1l2-q3",
+  "a21u1l2-q4",
+  "a21u1l2-q5",
+  "a21u1l2-q6"
+ ],
+ "a21u1story2": [
+  "a21u1story2-q1",
+  "a21u1story2-q2",
+  "a21u1story2-q3",
+  "a21u1story2-q4",
+  "a21u1story2-q5"
+ ],
+ "a21u1write": [
+  "a21u1write-q1",
+  "a21u1write-q2",
+  "a21u1write-q3",
+  "a21u1write-q4",
+  "a21u1write-q5"
+ ],
+ "a21u1story3": [
+  "a21u1story3-q1",
+  "a21u1story3-q2",
+  "a21u1story3-q3",
+  "a21u1story3-q4",
+  "a21u1story3-q5"
+ ],
+ "a21u1check": [
+  "a21u1check-q1",
+  "a21u1check-q2",
+  "a21u1check-q3",
+  "a21u1check-q4",
+  "a21u1check-q5",
+  "a21u1check-q6",
+  "a21u1check-q7",
+  "a21u1check-q8",
+  "a21u1check-q9"
+ ],
+ "a21u2l0": [
+  "a21u2l0-q1",
+  "a21u2l0-q2",
+  "a21u2l0-q3",
+  "a21u2l0-q4",
+  "a21u2l0-q5",
+  "a21u2l0-q6"
+ ],
+ "a21u2story0": [
+  "a21u2story0-q1",
+  "a21u2story0-q2",
+  "a21u2story0-q3",
+  "a21u2story0-q4",
+  "a21u2story0-q5"
+ ],
+ "a21u2l1": [
+  "a21u2l1-q1",
+  "a21u2l1-q2",
+  "a21u2l1-q3",
+  "a21u2l1-q4",
+  "a21u2l1-q5",
+  "a21u2l1-q6"
+ ],
+ "a21u2story1": [
+  "a21u2story1-q1",
+  "a21u2story1-q2",
+  "a21u2story1-q3",
+  "a21u2story1-q4",
+  "a21u2story1-q5"
+ ],
+ "a21u2l2": [
+  "a21u2l2-q1",
+  "a21u2l2-q2",
+  "a21u2l2-q3",
+  "a21u2l2-q4",
+  "a21u2l2-q5",
+  "a21u2l2-q6"
+ ],
+ "a21u2story2": [
+  "a21u2story2-q1",
+  "a21u2story2-q2",
+  "a21u2story2-q3",
+  "a21u2story2-q4",
+  "a21u2story2-q5"
+ ],
+ "a21u2write": [
+  "a21u2write-q1",
+  "a21u2write-q2",
+  "a21u2write-q3",
+  "a21u2write-q4",
+  "a21u2write-q5"
+ ],
+ "a21u2story3": [
+  "a21u2story3-q1",
+  "a21u2story3-q2",
+  "a21u2story3-q3",
+  "a21u2story3-q4",
+  "a21u2story3-q5"
+ ],
+ "a21u2check": [
+  "a21u2check-q1",
+  "a21u2check-q2",
+  "a21u2check-q3",
+  "a21u2check-q4",
+  "a21u2check-q5",
+  "a21u2check-q6",
+  "a21u2check-q7",
+  "a21u2check-q8",
+  "a21u2check-q9"
+ ],
+ "a21u3l0": [
+  "a21u3l0-q1",
+  "a21u3l0-q2",
+  "a21u3l0-q3",
+  "a21u3l0-q4",
+  "a21u3l0-q5",
+  "a21u3l0-q6"
+ ],
+ "a21u3story0": [
+  "a21u3story0-q1",
+  "a21u3story0-q2",
+  "a21u3story0-q3",
+  "a21u3story0-q4",
+  "a21u3story0-q5"
+ ],
+ "a21u3l1": [
+  "a21u3l1-q1",
+  "a21u3l1-q2",
+  "a21u3l1-q3",
+  "a21u3l1-q4",
+  "a21u3l1-q5",
+  "a21u3l1-q6"
+ ],
+ "a21u3story1": [
+  "a21u3story1-q1",
+  "a21u3story1-q2",
+  "a21u3story1-q3",
+  "a21u3story1-q4",
+  "a21u3story1-q5"
+ ],
+ "a21u3l2": [
+  "a21u3l2-q1",
+  "a21u3l2-q2",
+  "a21u3l2-q3",
+  "a21u3l2-q4",
+  "a21u3l2-q5",
+  "a21u3l2-q6"
+ ],
+ "a21u3story2": [
+  "a21u3story2-q1",
+  "a21u3story2-q2",
+  "a21u3story2-q3",
+  "a21u3story2-q4",
+  "a21u3story2-q5"
+ ],
+ "a21u3write": [
+  "a21u3write-q1",
+  "a21u3write-q2",
+  "a21u3write-q3",
+  "a21u3write-q4",
+  "a21u3write-q5"
+ ],
+ "a21u3story3": [
+  "a21u3story3-q1",
+  "a21u3story3-q2",
+  "a21u3story3-q3",
+  "a21u3story3-q4",
+  "a21u3story3-q5"
+ ],
+ "a21u3check": [
+  "a21u3check-q1",
+  "a21u3check-q2",
+  "a21u3check-q3",
+  "a21u3check-q4",
+  "a21u3check-q5",
+  "a21u3check-q6",
+  "a21u3check-q7",
+  "a21u3check-q8",
+  "a21u3check-q9"
+ ],
+ "a21u4l0": [
+  "a21u4l0-q1",
+  "a21u4l0-q2",
+  "a21u4l0-q3",
+  "a21u4l0-q4",
+  "a21u4l0-q5",
+  "a21u4l0-q6"
+ ],
+ "a21u4story0": [
+  "a21u4story0-q1",
+  "a21u4story0-q2",
+  "a21u4story0-q3",
+  "a21u4story0-q4",
+  "a21u4story0-q5"
+ ],
+ "a21u4l1": [
+  "a21u4l1-q1",
+  "a21u4l1-q2",
+  "a21u4l1-q3",
+  "a21u4l1-q4",
+  "a21u4l1-q5",
+  "a21u4l1-q6"
+ ],
+ "a21u4story1": [
+  "a21u4story1-q1",
+  "a21u4story1-q2",
+  "a21u4story1-q3",
+  "a21u4story1-q4",
+  "a21u4story1-q5"
+ ],
+ "a21u4l2": [
+  "a21u4l2-q1",
+  "a21u4l2-q2",
+  "a21u4l2-q3",
+  "a21u4l2-q4",
+  "a21u4l2-q5",
+  "a21u4l2-q6"
+ ],
+ "a21u4story2": [
+  "a21u4story2-q1",
+  "a21u4story2-q2",
+  "a21u4story2-q3",
+  "a21u4story2-q4",
+  "a21u4story2-q5"
+ ],
+ "a21u4write": [
+  "a21u4write-q1",
+  "a21u4write-q2",
+  "a21u4write-q3",
+  "a21u4write-q4",
+  "a21u4write-q5"
+ ],
+ "a21u4story3": [
+  "a21u4story3-q1",
+  "a21u4story3-q2",
+  "a21u4story3-q3",
+  "a21u4story3-q4",
+  "a21u4story3-q5"
+ ],
+ "a21u4check": [
+  "a21u4check-q1",
+  "a21u4check-q2",
+  "a21u4check-q3",
+  "a21u4check-q4",
+  "a21u4check-q5",
+  "a21u4check-q6",
+  "a21u4check-q7",
+  "a21u4check-q8",
+  "a21u4check-q9"
+ ],
+ "a21u5l0": [
+  "a21u5l0-q1",
+  "a21u5l0-q2",
+  "a21u5l0-q3",
+  "a21u5l0-q4",
+  "a21u5l0-q5",
+  "a21u5l0-q6"
+ ],
+ "a21u5story0": [
+  "a21u5story0-q1",
+  "a21u5story0-q2",
+  "a21u5story0-q3",
+  "a21u5story0-q4",
+  "a21u5story0-q5"
+ ],
+ "a21u5l1": [
+  "a21u5l1-q1",
+  "a21u5l1-q2",
+  "a21u5l1-q3",
+  "a21u5l1-q4",
+  "a21u5l1-q5",
+  "a21u5l1-q6"
+ ],
+ "a21u5story1": [
+  "a21u5story1-q1",
+  "a21u5story1-q2",
+  "a21u5story1-q3",
+  "a21u5story1-q4",
+  "a21u5story1-q5"
+ ],
+ "a21u5l2": [
+  "a21u5l2-q1",
+  "a21u5l2-q2",
+  "a21u5l2-q3",
+  "a21u5l2-q4",
+  "a21u5l2-q5",
+  "a21u5l2-q6"
+ ],
+ "a21u5story2": [
+  "a21u5story2-q1",
+  "a21u5story2-q2",
+  "a21u5story2-q3",
+  "a21u5story2-q4",
+  "a21u5story2-q5"
+ ],
+ "a21u5write": [
+  "a21u5write-q1",
+  "a21u5write-q2",
+  "a21u5write-q3",
+  "a21u5write-q4",
+  "a21u5write-q5"
+ ],
+ "a21u5story3": [
+  "a21u5story3-q1",
+  "a21u5story3-q2",
+  "a21u5story3-q3",
+  "a21u5story3-q4",
+  "a21u5story3-q5"
+ ],
+ "a21u5check": [
+  "a21u5check-q1",
+  "a21u5check-q2",
+  "a21u5check-q3",
+  "a21u5check-q4",
+  "a21u5check-q5",
+  "a21u5check-q6",
+  "a21u5check-q7",
+  "a21u5check-q8",
+  "a21u5check-q9"
+ ],
+ "a21u6l0": [
+  "a21u6l0-q1",
+  "a21u6l0-q2",
+  "a21u6l0-q3",
+  "a21u6l0-q4",
+  "a21u6l0-q5",
+  "a21u6l0-q6"
+ ],
+ "a21u6story0": [
+  "a21u6story0-q1",
+  "a21u6story0-q2",
+  "a21u6story0-q3",
+  "a21u6story0-q4",
+  "a21u6story0-q5"
+ ],
+ "a21u6l1": [
+  "a21u6l1-q1",
+  "a21u6l1-q2",
+  "a21u6l1-q3",
+  "a21u6l1-q4",
+  "a21u6l1-q5",
+  "a21u6l1-q6"
+ ],
+ "a21u6story1": [
+  "a21u6story1-q1",
+  "a21u6story1-q2",
+  "a21u6story1-q3",
+  "a21u6story1-q4",
+  "a21u6story1-q5"
+ ],
+ "a21u6l2": [
+  "a21u6l2-q1",
+  "a21u6l2-q2",
+  "a21u6l2-q3",
+  "a21u6l2-q4",
+  "a21u6l2-q5",
+  "a21u6l2-q6"
+ ],
+ "a21u6story2": [
+  "a21u6story2-q1",
+  "a21u6story2-q2",
+  "a21u6story2-q3",
+  "a21u6story2-q4",
+  "a21u6story2-q5"
+ ],
+ "a21u6write": [
+  "a21u6write-q1",
+  "a21u6write-q2",
+  "a21u6write-q3",
+  "a21u6write-q4",
+  "a21u6write-q5"
+ ],
+ "a21u6story3": [
+  "a21u6story3-q1",
+  "a21u6story3-q2",
+  "a21u6story3-q3",
+  "a21u6story3-q4",
+  "a21u6story3-q5"
+ ],
+ "a21u6check": [
+  "a21u6check-q1",
+  "a21u6check-q2",
+  "a21u6check-q3",
+  "a21u6check-q4",
+  "a21u6check-q5",
+  "a21u6check-q6",
+  "a21u6check-q7",
+  "a21u6check-q8",
+  "a21u6check-q9"
+ ],
+ "a21u7l0": [
+  "a21u7l0-q1",
+  "a21u7l0-q2",
+  "a21u7l0-q3",
+  "a21u7l0-q4",
+  "a21u7l0-q5",
+  "a21u7l0-q6"
+ ],
+ "a21u7story0": [
+  "a21u7story0-q1",
+  "a21u7story0-q2",
+  "a21u7story0-q3",
+  "a21u7story0-q4",
+  "a21u7story0-q5"
+ ],
+ "a21u7l1": [
+  "a21u7l1-q1",
+  "a21u7l1-q2",
+  "a21u7l1-q3",
+  "a21u7l1-q4",
+  "a21u7l1-q5",
+  "a21u7l1-q6"
+ ],
+ "a21u7story1": [
+  "a21u7story1-q1",
+  "a21u7story1-q2",
+  "a21u7story1-q3",
+  "a21u7story1-q4",
+  "a21u7story1-q5"
+ ],
+ "a21u7l2": [
+  "a21u7l2-q1",
+  "a21u7l2-q2",
+  "a21u7l2-q3",
+  "a21u7l2-q4",
+  "a21u7l2-q5",
+  "a21u7l2-q6"
+ ],
+ "a21u7story2": [
+  "a21u7story2-q1",
+  "a21u7story2-q2",
+  "a21u7story2-q3",
+  "a21u7story2-q4",
+  "a21u7story2-q5"
+ ],
+ "a21u7write": [
+  "a21u7write-q1",
+  "a21u7write-q2",
+  "a21u7write-q3",
+  "a21u7write-q4",
+  "a21u7write-q5"
+ ],
+ "a21u7story3": [
+  "a21u7story3-q1",
+  "a21u7story3-q2",
+  "a21u7story3-q3",
+  "a21u7story3-q4",
+  "a21u7story3-q5"
+ ],
+ "a21u7check": [
+  "a21u7check-q1",
+  "a21u7check-q2",
+  "a21u7check-q3",
+  "a21u7check-q4",
+  "a21u7check-q5",
+  "a21u7check-q6",
+  "a21u7check-q7",
+  "a21u7check-q8",
+  "a21u7check-q9"
+ ]
+};
+root.FriendsA21Ids=manifest;if(typeof module!=='undefined')module.exports=manifest;
+})(typeof window==='undefined'?globalThis:window);

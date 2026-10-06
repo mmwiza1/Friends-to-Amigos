@@ -1,0 +1,146 @@
+{
+  "method": "Surface forms in positive Spanish teaching models, unit phrase banks and unique stories; excludes distractors, English, accepted variants and checkpoints. Unit coverage is exposure, not a measure of mastery. Inflections are not lemmatised.",
+  "stageStats": [
+    {
+      "stage": "A1.1",
+      "activities": 72,
+      "questions": 416,
+      "units": 8,
+      "stories": 32,
+      "storyWords": {
+        "min": 21,
+        "mean": 28.4,
+        "max": 35
+      },
+      "spanishWriting": 120,
+      "listening": 24,
+      "speaking": 8,
+      "misconceptionExamples": 151
+    },
+    {
+      "stage": "A1.2",
+      "activities": 72,
+      "questions": 416,
+      "units": 8,
+      "stories": 32,
+      "storyWords": {
+        "min": 34,
+        "mean": 48.4,
+        "max": 65
+      },
+      "spanishWriting": 120,
+      "listening": 24,
+      "speaking": 8,
+      "misconceptionExamples": 262
+    },
+    {
+      "stage": "A2.1",
+      "activities": 72,
+      "questions": 416,
+      "units": 8,
+      "stories": 32,
+      "storyWords": {
+        "min": 57,
+        "mean": 63.4,
+        "max": 70
+      },
+      "spanishWriting": 120,
+      "listening": 24,
+      "speaking": 8,
+      "misconceptionExamples": 34
+    }
+  ],
+  "recycling": {
+    "hola": [],
+    "gracias": [
+      "a21-4",
+      "a21-7"
+    ],
+    "por": [
+      "a21-1",
+      "a21-2",
+      "a21-3",
+      "a21-4",
+      "a21-5",
+      "a21-6",
+      "a21-7"
+    ],
+    "favor": [
+      "a21-2",
+      "a21-3",
+      "a21-5",
+      "a21-6"
+    ],
+    "caf\u00e9": [
+      "a21-0",
+      "a21-1",
+      "a21-3",
+      "a21-5",
+      "a21-6",
+      "a21-7"
+    ],
+    "pan": [
+      "a21-0",
+      "a21-5",
+      "a21-7"
+    ],
+    "agua": [
+      "a21-0",
+      "a21-1",
+      "a21-4",
+      "a21-5",
+      "a21-6",
+      "a21-7"
+    ],
+    "hambre": [
+      "a21-0"
+    ],
+    "a\u00f1os": [],
+    "m\u00f3vil": [
+      "a21-1",
+      "a21-2",
+      "a21-5",
+      "a21-6"
+    ],
+    "ordenador": [],
+    "ordenadores": [],
+    "libro": [],
+    "libros": [],
+    "llaves": [],
+    "mesa": [],
+    "parque": [
+      "a21-0",
+      "a21-1",
+      "a21-5",
+      "a21-6"
+    ],
+    "ma\u00f1ana": [
+      "a21-1",
+      "a21-2",
+      "a21-3",
+      "a21-5",
+      "a21-6",
+      "a21-7"
+    ],
+    "porque": [
+      "a21-0",
+      "a21-1",
+      "a21-2",
+      "a21-3",
+      "a21-4",
+      "a21-5",
+      "a21-6",
+      "a21-7"
+    ],
+    "despu\u00e9s": [
+      "a21-0",
+      "a21-1",
+      "a21-2",
+      "a21-3",
+      "a21-4",
+      "a21-5",
+      "a21-6",
+      "a21-7"
+    ]
+  }
+}

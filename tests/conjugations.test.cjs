@@ -6,7 +6,7 @@ const escape=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 const button=(label,action,cls,extra)=>`<button class="${cls}" data-action="${action}" ${extra||''}>${label}</button>`;
 function finish(s,wrong=false){const a=s.games.active;while(s.games.active){const q=a.questions[a.index];a.selected=q.blanks.map(b=>wrong?b.options.find(x=>x!==b.answer):b.answer);G.check(s);const result=G.advance(s,1000+a.index);if(result)return result;}}
 test('208 stable authored game IDs: 104 for each playable stage, no course collisions',()=>{
- assert.equal(B.questions.length,208);for(const stage of C.playableStages)assert.equal(B.questions.filter(q=>q.stage===stage).length,104);
+ assert.equal(B.questions.length,208);for(const stage of ['A1.1','A1.2'])assert.equal(B.questions.filter(q=>q.stage===stage).length,104);
  assert.equal(new Set(B.questions.map(q=>q.id)).size,208);const course=new Set(C.lessons.flatMap(l=>l.questions.map(q=>q.id)));for(const q of B.questions)assert.ok(!course.has(q.id));
  assert.deepEqual(B.questions.map(q=>q.id),JSON.parse(fs.readFileSync('tests/fixtures/conjugations-ids.json','utf8')));
 });
@@ -21,7 +21,7 @@ test('every target form is present in its referenced positive teaching model or 
  for(const f of Object.values(B.definitions)){const l=C.lessons.find(l=>l.id===f.source);const positive=JSON.stringify([l.reading?.text,l.questions.map(q=>[q.answer,q.spanish,q.listening?.transcript])]).toLowerCase();assert.ok(positive.includes(f.answer.toLowerCase()),f.source+': '+f.answer);}
 });
 test('bank varies persons, verbs, contexts and scaffolding; early material has one blank',()=>{
- for(const stage of C.playableStages){const qs=B.questions.filter(q=>q.stage===stage);assert.ok(new Set(qs.flatMap(q=>q.blanks.map(b=>b.verb))).size>=15);assert.ok(new Set(qs.flatMap(q=>q.blanks.map(b=>b.person))).size>=6);assert.ok(qs.some(q=>q.blanks.some(b=>!b.infinitive)));assert.equal(new Set(qs.map(q=>q.unit)).size,8);}
+ for(const stage of ['A1.1','A1.2']){const qs=B.questions.filter(q=>q.stage===stage);assert.ok(new Set(qs.flatMap(q=>q.blanks.map(b=>b.verb))).size>=15);assert.ok(new Set(qs.flatMap(q=>q.blanks.map(b=>b.person))).size>=6);assert.ok(qs.some(q=>q.blanks.some(b=>!b.infinitive)));assert.equal(new Set(qs.map(q=>q.unit)).size,8);}
  assert.ok(B.questions.filter(q=>q.stage==='A1.1'&&q.unit<4).every(q=>q.blanks.length===1));assert.ok(B.questions.some(q=>q.stage==='A1.2'&&q.blanks.length===3));
 });
 test('course completion expands eligibility; viewed/profile stage alone cannot unlock material',()=>{
@@ -36,7 +36,7 @@ test('a new learner needs enough taught material for a varied 10-item round',()=
  assert.equal(G.build(E.fresh(),C),null);assert.equal(G.build(learner('A1.1',0),C),null);assert.equal(G.build(learner('A1.1',1),C).questions.length,10);
 });
 test('100 seeded rounds are unique, balanced and contain only eligible material',()=>{
- for(const stage of C.playableStages){const s=learner(stage),allowed=new Set(G.eligible(s,C).map(q=>q.id));for(let seed=1;seed<=100;seed++){
+ for(const stage of ['A1.1','A1.2']){const s=learner(stage),allowed=new Set(G.eligible(s,C).map(q=>q.id));for(let seed=1;seed<=100;seed++){
   const a=G.build(s,C,'normal',[],rng(seed));assert.equal(a.questions.length,10);assert.equal(new Set(a.questions.map(q=>q.id)).size,10);for(const q of a.questions)assert.ok(allowed.has(q.id));
   const persons=new Set(a.questions.flatMap(q=>q.blanks.map(b=>b.person)));assert.ok(persons.size>=5,'balanced '+seed);assert.ok(new Set(a.questions.flatMap(q=>q.blanks.map(b=>b.verb))).size>=5);
  }}
@@ -115,7 +115,7 @@ test('personal best survives beyond the bounded recent-round window and backup r
  s.games.rounds=Array.from({length:40},(_,i)=>({...perfect,score:5,at:2000+i}));const saved=P.parse(JSON.stringify(s),C,{import:true}).state;assert.equal(saved.games.bests[key],10);const html=V.result({state:saved,C,G,round:saved.games.rounds.at(-1),b:button,esc:escape});assert.match(html,/Best at this unlocked difficulty: 10 \/ 10/);
 });
 test('every authored game question completes through the real check/advance loop',()=>{
- const seen=new Set();for(const stage of C.playableStages){const s=learner(stage);s.games=G.empty();const pool=B.questions.filter(q=>q.stage===stage);
+ const seen=new Set();for(const stage of ['A1.1','A1.2']){const s=learner(stage);s.games=G.empty();const pool=B.questions.filter(q=>q.stage===stage);
   for(let start=0;start<pool.length;start+=10){const questions=pool.slice(start,start+10);if(questions.length<10)questions.push(...pool.slice(0,10-questions.length));s.games.active=G.build(s,C);s.games.active.questions=structuredClone(questions);s.games.active.selected=questions[0].blanks.map(()=>null);const result=finish(s);assert.equal(result.total,10);assert.equal(result.score,10);for(const q of questions)seen.add(q.id);}
  }assert.equal(seen.size,208);
 });

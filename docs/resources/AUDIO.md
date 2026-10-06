@@ -2,7 +2,7 @@
 
 Last reviewed: 2026-10-06
 
-Friends to Amigos now has 48 genuine audio-first comprehension questions across A1.1/A1.2, including every checkpoint. The Spanish transcript is hidden before an attempt, revealed after checking/skip, replayable, and hidden again in review. Content progresses from one familiar detail to alternatives, plans, fit, sequence and reasons. Both choices and short English/Spanish answers are implemented.
+Friends to Amigos now has 72 genuine audio-first comprehension questions across A1.1/A1.2/A2.1, including every checkpoint. The Spanish transcript is hidden before an attempt, revealed after checking/skip, replayable, and hidden again in review. Content progresses from one familiar detail to alternatives, plans, fit, sequence and reasons. Both choices and short English/Spanish answers are implemented.
 
 Playback uses synthetic Spain Spanish through installed local Android/browser TTS voices, with explicit unavailable-voice/skip support. Sixteen self-assessed spoken retrieval models also use optional TTS. No automatic pronunciation assessment or recording exists. An optional local recording path with TTS fallback prepares later curated audio without populating it. Existing compressed success/failure sounds remain unchanged.
 
@@ -175,3 +175,5 @@ Any shipped human recording should pass all of these checks:
 - Attribution and modification history stored with the asset.
 
 For A1, prefer short conversational recordings. For B1+, progressively introduce more natural speed, longer turns, inference and accent variation.
+
+A2.1 adds original synthetic-speech tasks for recent/finished events, transport, bookings and symptoms. No researched human recordings have been incorporated. The existing curated-audio metadata path remains future-ready; recording/licensing/acoustic review remains a separate task.

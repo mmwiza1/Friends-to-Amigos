@@ -27,7 +27,7 @@ Recovery data is exported but never interpreted or rendered as executable conten
 
 `question-ids.js` contains an explicit permanent manifest for the original authored slots. Assembly assigns these names once before reviewed amendments; `a1-practice.js` explicitly names additional media slots. Examples: `u0story0-q2`, `a12u2check-q3`, `u0l1-listen1`, `a12u2l2-speak1`, `placement-q1`, `numbers-q1`, `time-q1`.
 
-There are 871 unique authored IDs: 832 course slots and 39 special-practice/placement questions. Activity IDs and intentional A1.1/A1.2 ordering are unchanged. Checkpoint slots have their own ID even when their content initially shares a source. `sourceQuestionId` is migration provenance, not the primary runtime review key.
+There are 1,287 unique authored course/practice IDs: 1,248 course slots and 39 special-practice/placement questions. The original 871 A1/special-practice IDs remain unchanged; `a21-ids.js` names the 416 appended A2.1 slots. Activity IDs and intentional A1.1/A1.2 ordering are unchanged. Checkpoint slots have their own ID even when their content initially shares a source. `sourceQuestionId` is migration provenance, not the primary runtime review key.
 
 `Engine.reviewKey` uses `question.id`. Prompt text is presentation. Historical unidentified content alone uses a deterministic signature/hash fallback. Reviews are snapshots with the assigned ID; retries/scheduled successes continue using that identity. A wording edit cannot create another review or overwrite an unfinished historical snapshot.
 
@@ -110,3 +110,11 @@ Game IDs use the permanent `conj-a11-001` / `conj-a12-001` namespaces, protected
 Imports validate targets, IDs, unique options, result/selection agreement, bounded counters/timestamps and active shape before adoption. Stored sentence/explanation wording and shuffled options remain snapshots; targets must still belong to the known bank. Unsafe game attempts reject an import; a damaged local attempt is quarantined in recovery without discarding course progress. Optional malformed summary fields default safely. Missing game fields leave old v1/v2 saves usable. Whole-state export includes games on both browser and Android paths.
 
 `games.js` is pure for eligibility/selection and mutates only its optional namespace for checking/advancing. `app.js` alone marks a completed practice day/counts active time through existing engine/session mechanisms. No course answer events, reviews, achievements or placement are manufactured. Native Back delegates to web state as before; games save before returning to the Games tab.
+
+## Optional connected-practice fields (schema remains v2)
+
+`mastery.records` maps safe concept/outcome/verb/tense/person/pattern/form keys to bounded attempts, errors, supported successes, strength, spaced recalls, last/due timestamps and capped recent/session deduplication records. No new evidence is manufactured for legacy users. Positive evidence is session-capped; spaced recall requires a new day and twenty hours. Existing review dates/correction counts remain authoritative for historical mistakes.
+
+`blanks` contains bounded structured phase steps keyed by stage/unit, eight recent target IDs, thirty session summaries and an independent active table snapshot. Rows, selected/shuffled options, typed answers, assistance, results and eligibility are validated. A corrupt local attempt is quarantined; an unsafe import is rejected. Missing namespaces default lazily, without changing v1/v2 saved course attempts or the storage key. Target IDs use a separate permanent namespace, protected by `conjugation-target-ids.json`.
+
+A2.1 activity/question IDs have their own append-only manifests. The whole original A1 lesson payload is additionally hash-protected. Table/game progress never completes a course activity; placement/startStage still chooses required stages without fake completion. The A1 milestone stays available while continuation offers A2.1. Course snapshots, reviews, events, streaks and capabilities preserve their previous structures.
