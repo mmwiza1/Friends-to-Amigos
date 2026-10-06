@@ -9,14 +9,22 @@ test('answer feedback plays the matching recording once and stops the previous c
  class Audio{constructor(src){this.src=src;this.currentTime=0;}play(){played.push(this.src);return Promise.resolve();}pause(){paused.push(this.src);}}
  const a=app({Audio});a.click('continue');a.click('begin');
  a.click('answer',{index:'1'});a.click('check');a.click('check');
- assert.deepEqual(played,['audio/failure.wav']);
+ assert.deepEqual(played,['audio/failure.mp3']);
  a.click('leave');a.click('continue');assert.equal(played.length,1);
  a.click('next');a.click('answer',{index:'0'});a.click('check');
- assert.deepEqual(played,['audio/failure.wav','audio/success.wav']);
- assert.deepEqual(paused,['audio/failure.wav']);
+ assert.deepEqual(played,['audio/failure.mp3','audio/success.mp3']);
+ assert.deepEqual(paused,['audio/failure.mp3']);
 });
 test('unavailable audio does not block answer feedback or progress',async()=>{
  class Audio{play(){return Promise.reject(new Error('Playback blocked'));}pause(){}}
  const a=app({Audio});a.click('continue');a.click('begin');a.click('answer',{index:'1'});a.click('check');
  await Promise.resolve();assert.match(a.el.innerHTML,/Let’s learn from this/);assert.equal(Object.keys(a.state().reviews).length,1);
+});
+
+test('lesson results show the matching happy or sad bull at the pass threshold',()=>{
+ for(const [answer,mood] of [['0','happy'],['1','sad']]){
+  const a=app();a.click('continue');a.click('begin');
+  for(let i=0;i<2;i++){a.click('answer',{index:answer});a.click('check');a.click('next');}
+  assert.match(a.el.innerHTML,new RegExp('lesson-bull '+mood));
+ }
 });
