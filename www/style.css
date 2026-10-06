@@ -17,3 +17,15 @@
 
 button:focus-visible, input:focus-visible, summary:focus-visible {outline:3px solid var(--teal);outline-offset:3px}
 .listening [lang="es"] {white-space:pre-line}
+
+/* System dark theme; the light palette and layout above remain unchanged. */
+@media(prefers-color-scheme:dark){
+ :root{color-scheme:dark;--cream:#151c26;--ink:#f1f4f8;--coral:#ff7669;--teal:#67d1c7;--muted:#b5c0ce;--line:#3b4758}
+ body{background:#10151d}.card,.choice,input,select{background:#202a38;border-color:var(--line)}
+ nav{background:#18212d}.primary,.primary small,.badge{color:#152338}
+ .pill,.choice.selected,.feedback{background:#173d3b;color:var(--ink)}
+ .pill{color:var(--teal)}.feedback.wrong{background:#4b2a2a}.milestone{background:#193735}
+ .notice{background:#263140;color:var(--muted)}.circle{background:#303b4b}.circle.done{color:#152338}
+ progress{background:#374251}progress::-webkit-progress-bar{background:#374251}
+ .danger{color:#ff9b91}.toast{background:#f1f4f8;color:#152338}
+}

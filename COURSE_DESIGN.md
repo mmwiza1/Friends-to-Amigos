@@ -105,3 +105,9 @@ The Learn selector remains ungated for playable stages. Continue respects active
 These remain provisional authoring targets. No later-stage lessons are playable. The A1 audit found no major unresolved gap within this course's stated everyday task scope, but broader A1 proficiency is not certified. Dates/contact information and unfamiliar human conversation are partial, not independently demonstrated.
 
 Freeze the activity/identity contracts and reviewed content as an **A1 v1.0 release candidate**. Do not declare an unconditional stable release solely from simulated tests: native build/device upgrade/storage/TTS checks and a concise Spanish educator/native-speaker review remain release gates. The architecture can support A2.1 next, but complete those gates before expanding content. [BUILD_STATUS.md](BUILD_STATUS.md) distinguishes performed checks from remaining work.
+
+## Mobile path and daily practice (0.4.0)
+
+A1.2 placement defines a starting path with earlier foundations assumed, not marked completed. Optional A1.1 revision remains available; finishing the required path earns the course milestone with actual completion counts and accurate assumed-foundation wording. Ordinary A1.1 learners retain the full A1.1→A1.2 path. No course content or permanent identities changed in this product update.
+
+Today integrates saved-attempt resume, bounded due review, the next required lesson and one short listening/speaking retrieval. It adds no new curriculum or grading. Listening now waits for verified playback start and offers 0.75×/1× replay; self-assessment, finite grading, Spain Spanish and offline voice requirements remain unchanged.

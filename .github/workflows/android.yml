@@ -16,7 +16,6 @@ jobs:
       - run: npm run check
       - run: npm test
   build:
-    if: github.event_name == 'workflow_dispatch'
     needs: checks
     runs-on: ubuntu-latest
     steps:

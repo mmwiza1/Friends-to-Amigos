@@ -1,6 +1,6 @@
 # A1 stability and pedagogical audit
 
-Reviewed 2026-10-06. This records implemented changes and remaining validation, not an independent CEFR assessment.
+Reviewed 2026-10-06. This report records the earlier A1 stability revision; the subsequent mobile update leaves its curriculum unchanged. Current validation is in [BUILD_STATUS.md](../BUILD_STATUS.md). This records implemented changes and remaining validation, not an independent CEFR assessment.
 
 ## Baseline and resulting course
 

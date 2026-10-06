@@ -8,13 +8,16 @@ function app(extra={},initial=null){
  const nodes={app:el,stage:{value:'A2.1'},'check-answer':{disabled:true},importfile:{click(){}}};
  const ctx={console,Date,JSON,Math,String,Number,Object,Array,Set,Map,Blob,
   // Simulated installed voice. Individual failure tests override this explicitly.
-  SpeechSynthesisUtterance:class{constructor(text){this.text=text;}},speechSynthesis:{getVoices:()=>[{lang:'es-ES',localService:true}],cancel(){},speak(){}},
+  SpeechSynthesisUtterance:class{constructor(text){this.text=text;}},speechSynthesis:{getVoices:()=>[{lang:'es-ES',localService:true}],cancel(){},speak(u){u.onstart?.();}},
   URL:{createObjectURL(blob){effects.blobs.push(blob);return 'blob:backup';},revokeObjectURL(){}},
   setInterval:()=>{},setTimeout:()=>{},confirm:()=>true,
   localStorage:{getItem:k=>storage[k]||null,setItem:(k,v)=>storage[k]=v},
   document:{hidden:false,getElementById:id=>nodes[id]||null,addEventListener:()=>{},createElement:tag=>({className:'',textContent:'',remove(){},click(){effects.links.push(this);}}),body:{append(el){effects.toasts.push(el);}}}
  };
- Object.assign(ctx,extra);ctx.window=ctx;ctx.globalThis=ctx;ctx.addEventListener=(name,fn)=>lifecycle[name]=fn;vm.createContext(ctx);
+ Object.assign(ctx,extra);
+ // The current Android wrapper acknowledges actual TTS start by request ID.
+ if(ctx.AndroidSpeech?.speak&&!ctx.AndroidSpeech.listen){ctx.AndroidSpeech={...ctx.AndroidSpeech,isReady:ctx.AndroidSpeech.isReady||(()=>true),listen(text,rate,id){this.speak(text);ctx.FriendsToAmigosSpeechResult(id,true);}};}
+ ctx.window=ctx;ctx.globalThis=ctx;ctx.addEventListener=(name,fn)=>lifecycle[name]=fn;vm.createContext(ctx);
  for(const f of [...fs.readFileSync('www/index.html','utf8').matchAll(/<script src="([^"]+)"/g)].map(m=>m[1]))vm.runInContext(fs.readFileSync('www/'+f,'utf8'),ctx);
  const api={el,ctx,effects,nodes,storage,lifecycle,click:(action,data={})=>handlers.click({target:{closest:()=>({dataset:{action,...data}})}}),
   input:value=>handlers.input({target:{id:'written-answer',value}}),
@@ -88,7 +91,7 @@ test('recall answers cannot be heard before answering; both TTS paths remain ava
  assert.match(a.el.innerHTML,/From memory/);assert.doesNotMatch(a.el.innerHTML,/data-action="speak"/);
  a.answer();a.click('check');assert.match(a.el.innerHTML,/data-action="speak"/);a.click('speak');assert.deepEqual(spoken,['Me llamo Ana']);
  a.click('leave');a.click('lesson',{id:'u0story0'});a.click('speakStory');assert.equal(spoken[1],a.ctx.Curriculum.lessons.find(l=>l.id==='u0story0').reading.text);
- const utterances=[],b=app({SpeechSynthesisUtterance:class{constructor(text){this.text=text;}},speechSynthesis:{getVoices:()=>[{lang:'es-ES'}],cancel(){},speak(u){utterances.push(u);}}});
+ const utterances=[],b=app({SpeechSynthesisUtterance:class{constructor(text){this.text=text;}},speechSynthesis:{getVoices:()=>[{lang:'es-ES'}],cancel(){},speak(u){utterances.push(u);u.onstart?.();}}});
  b.click('begin');b.answer();b.click('check');b.click('speak');assert.equal(utterances[0].lang,'es-ES');assert.equal(utterances[0].text,'Hola');
 });
 test('empty typed input stays unchecked and checked text cannot be altered',()=>{
@@ -191,8 +194,8 @@ test('all 48 listening transcripts are absent from the initial DOM and revealed 
  }
 });
 test('listening plays on browser speech path and replay does not inflate answer statistics',()=>{
- const played=[],a=app({SpeechSynthesisUtterance:class{constructor(text){this.text=text;}},speechSynthesis:{getVoices:()=>[{lang:'es-ES',localService:true}],cancel(){},speak:u=>played.push(u)}}),l=a.ctx.Curriculum.lessons.find(l=>l.id==='a12u1l2');startAt(a,l,5);
- a.click('answer',{index:'0'});assert.equal(a.state().active.selected,null);a.click('listen');a.click('listen');assert.equal(played.length,2);assert.equal(played[0].lang,'es-ES');assert.equal(played[0].rate,.95);
+ const played=[],a=app({SpeechSynthesisUtterance:class{constructor(text){this.text=text;}},speechSynthesis:{getVoices:()=>[{lang:'es-ES',localService:true}],cancel(){},speak:u=>{played.push(u);u.onstart?.();}}}),l=a.ctx.Curriculum.lessons.find(l=>l.id==='a12u1l2');startAt(a,l,5);
+ a.click('answer',{index:'0'});assert.equal(a.state().active.selected,null);a.click('listen');a.click('listen');assert.equal(played.length,2);assert.equal(played[0].lang,'es-ES');assert.equal(played[0].rate,.75);
  a.answer();a.click('check');const count=a.state().events.length;a.click('listen');a.click('check');assert.equal(a.state().events.length,count);
 });
 test('skipped unavailable listening reveals context and queues a scored miss for later review',()=>{
@@ -248,4 +251,54 @@ test('native background/resume events stop media and exclude background time fro
 });
 test('unavailable listening cannot be guessed for credit; only retry or an explicit missed skip is allowed',()=>{
  const a=app({AndroidSpeech:{isReady:()=>false,speak(){throw Error('should not speak');}}}),l=a.ctx.Curriculum.lessons.find(l=>l.id==='u0l1');startAt(a,l,5);a.click('listen');a.click('answer',{index:'0'});a.click('check');assert.equal(a.state().active.selected,null);assert.equal(a.state().active.checked,false);assert.equal(a.state().active.answers.length,5);a.click('skipListening');assert.equal(a.state().active.answers.at(-1),null);assert.match(a.el.innerHTML,/Spanish transcript/);
+});
+
+test('system back saves lessons and returns secondary screens and tabs before allowing Home exit',()=>{
+ const a=app(),back=()=>a.ctx.FriendsToAmigos.handleBack();assert.equal(back(),false);
+ for(const tab of ['Learn','Review','Profile']){a.click('tab',{tab});assert.equal(back(),true);assert.match(a.el.innerHTML,/Today’s session/);assert.equal(back(),false);}
+ a.click('tab',{tab:'Profile'});a.click('achievements');assert.equal(back(),true);assert.match(a.el.innerHTML,/Your profile/);assert.equal(back(),true);assert.equal(back(),false);
+ a.click('topic',{topic:'Greetings'});assert.equal(back(),true);assert.match(a.el.innerHTML,/Today’s session/);
+ a.click('lesson',{id:'u0write'});a.input('hola soy Ana');const before=a.state().active;assert.equal(back(),true);assert.deepEqual(a.state().active,before);assert.equal(back(),false);a.click('continue');assert.match(a.el.innerHTML,/value="hola soy Ana"/);a.click('check');assert.match(a.el.innerHTML,/✓ Correct/);
+});
+test('system back handles review, focused practice, placement and placement result without losing a saved lesson',()=>{
+ const a=app();a.click('begin');a.answer(false);a.click('check');a.click('leave');const saved=a.state().active;
+ a.click('tab',{tab:'Review'});a.click('review');assert.equal(a.ctx.FriendsToAmigos.handleBack(),true);assert.match(a.el.innerHTML,/Review & grow/);assert.deepEqual(a.state().active,saved);
+ a.click('topic',{topic:'Greetings'});a.click('startPractice');assert.equal(a.ctx.FriendsToAmigos.handleBack(),true);assert.match(a.el.innerHTML,/Short practice to strengthen/);assert.equal(a.ctx.FriendsToAmigos.handleBack(),true);
+ a.click('numbers');assert.equal(a.ctx.FriendsToAmigos.handleBack(),true);assert.deepEqual(a.state().active,saved);
+ a.click('tab',{tab:'Profile'});a.click('placement');assert.equal(a.ctx.FriendsToAmigos.handleBack(),true);assert.match(a.el.innerHTML,/Your profile/);
+ a.click('placement');for(let i=0;i<8;i++){a.answer();a.click('check');a.click('next');}assert.match(a.el.innerHTML,/Your suggested starting point/);assert.equal(a.ctx.FriendsToAmigos.handleBack(),true);assert.match(a.el.innerHTML,/Your profile/);assert.deepEqual(a.state().active,saved);
+});
+test('listening controls wait for a real browser start, propagate selected speed and reject stale start callbacks',()=>{
+ const played=[],a=app({speechSynthesis:{getVoices:()=>[{lang:'es-ES',localService:true}],cancel(){},speak:u=>played.push(u)}}),l=a.ctx.Curriculum.lessons.find(l=>l.id==='u0l1');startAt(a,l,5);a.click('listen');assert.equal(a.state().active.audioPlayed,false);a.answer();a.click('check');assert.equal(a.state().active.checked,false);assert.equal(played.length,1);
+ played[0].onerror();assert.match(a.el.innerHTML,/Audio is unavailable/);assert.equal(a.state().active.audioPlayed,false);
+ const eventCount=a.state().events.length;a.click('listenSpeed',{rate:'1'});assert.equal(a.state().events.length,eventCount);a.click('listen');assert.equal(played[1].rate,1);assert.match(a.el.innerHTML,/Starting audio/);played[1].onstart();assert.equal(a.state().active.audioPlayed,true);assert.doesNotMatch(a.el.innerHTML,/Spanish transcript/);a.answer();played.at(-1).onstart();a.click('check');assert.match(a.el.innerHTML,/✓ Correct/);
+ a.click('next');a.click('home');a.click('lesson',{id:'u1l1'});startAt(a,a.ctx.Curriculum.lessons.find(l=>l.id==='u1l1'),5);a.click('listen');const stale=played.at(-1);a.click('leave');a.click('begin');stale.onstart();assert.equal(a.state().active.audioPlayed,false);assert.equal(a.state().active.lesson.id,'u0l0');
+});
+test('bundled playback rejection never unlocks answers; successful TTS fallback does',async()=>{
+ let reject,utterance;class Audio{pause(){}play(){return new Promise((_,r)=>reject=r);}}
+ const a=app({Audio,speechSynthesis:{getVoices:()=>[{lang:'es-ES',localService:true}],cancel(){},speak:u=>utterance=u}}),l=a.ctx.Curriculum.lessons.find(l=>l.id==='u0l1');startAt(a,l,5);vm.runInContext("quiz.questions[quiz.index].listening.audio='audio/learning/sample.mp3'",a.ctx);a.click('listen');assert.equal(a.state().active.audioPlayed,false);reject(Error('missing'));await Promise.resolve();assert.equal(a.state().active.audioPlayed,false);utterance.onerror();assert.equal(a.state().active.audioPlayed,false);a.answer();a.click('check');assert.equal(a.state().active.checked,false);
+ // Retry the same recording: only the fallback onstart grants access.
+ reject(Error('missing'));await Promise.resolve();utterance.onstart();assert.equal(a.state().active.audioPlayed,true);a.input(a.current().accepted?.[0]||a.current().answer);if(a.current().options)a.click('answer',{index:String(a.current().options.indexOf(a.current().answer))});a.click('check');assert.equal(a.state().active.checked,true);
+});
+test('A1.2 placement completes its required path with accurate counts, optional A1.1 revision and no fabricated rewards',()=>{
+ const a=app();a.click('placement');for(let i=0;i<8;i++){a.answer();a.click('check');a.click('next');}a.nodes.stage.value='A1.2';a.click('acceptPlacement');assert.equal(a.state().startStage,'A1.2');assert.equal(a.state().completed.length,0);assert.equal(a.state().capabilities.length,0);assert.equal(a.state().events.filter(e=>e.type==='lesson').length,0);
+ const initial=a.state();initial.completed=a.ctx.Curriculum.lessons.filter(l=>l.stage==='A1.2').map(l=>l.id);const completed=app({},initial);assert.match(completed.el.innerHTML,/completed the Friends to Amigos A1 course/);assert.match(completed.el.innerHTML,/72 activities completed/);assert.match(completed.el.innerHTML,/earlier foundations were assumed/);completed.click('continue');assert.equal(completed.state().active,null);assert.match(completed.el.innerHTML,/Review & grow/);
+ completed.click('tab',{tab:'Learn'});completed.click('viewStage',{stage:'A1.1'});completed.click('lesson',{id:'u0l0'});for(let i=0;i<5;i++){completed.answer();completed.click('check');completed.click('next');}completed.click('home');assert.match(completed.el.innerHTML,/73 activities completed/);assert.equal(completed.state().startStage,'A1.2');completed.click('continue');assert.equal(completed.state().active,null);
+});
+test('Today guides due reviews then next lesson then one media item through existing progress systems',()=>{
+ const seed=app(),s=seed.ctx.Engine.fresh();s.onboarded=true;seed.ctx.Engine.recordAnswer(s,seed.ctx.Curriculum.lessons[0].questions[0],false);const a=app({},s);a.click('today');assert.equal(a.current().id,seed.ctx.Curriculum.lessons[0].questions[0].id);a.answer();a.click('check');a.click('next');assert.match(a.el.innerHTML,/Continue today’s session/);a.click('todayNext');assert.equal(a.state().active.lesson.id,'u0l0');for(let i=0;i<5;i++){a.answer();a.click('check');a.click('next');}a.click('todayNext');const q=a.current();assert.ok(q.listening||q.type==='speaking');a.answer();a.click('check');a.click('next');assert.match(a.el.innerHTML,/Finish today’s session/);a.click('todayNext');assert.match(a.el.innerHTML,/Today’s session/);assert.deepEqual(a.state().completed,['u0l0']);assert.equal(a.state().reviews[s.reviews[Object.keys(s.reviews)[0]].question.id].success,1);
+});
+test('Today skips absent reviews, respects A1.2 placement, and maintains completed courses without new lessons',()=>{
+ const seed=app();for(const stage of ['A1.1','A1.2']){const s=seed.ctx.Engine.fresh();s.onboarded=true;s.startStage=stage;s.stage=stage;const a=app({},s);a.click('today');assert.equal(a.state().active.lesson.stage,stage);assert.equal(a.current().id,seed.ctx.Curriculum.lessons.find(l=>l.stage===stage).questions[0].id);}
+ const s=seed.ctx.Engine.fresh();s.onboarded=true;s.startStage='A1.2';s.stage='A1.2';s.completed=seed.ctx.Curriculum.lessons.filter(l=>l.stage==='A1.2').map(l=>l.id);const a=app({},s);a.click('today');assert.ok(a.current().listening||a.current().type==='speaking');assert.ok(a.current().id.startsWith('a12'));assert.equal(a.state().active,null);a.answer();a.click('check');a.click('next');a.click('todayNext');assert.match(a.el.innerHTML,/72 activities completed/);
+});
+test('Today resumes the exact unfinished snapshot before due reviews or new material',()=>{
+ const a=app();a.click('lesson',{id:'u2write'});a.input('un café con leche');a.click('leave');const saved=a.state().active;assert.match(a.el.innerHTML,/Resume your saved lesson/);a.click('today');assert.deepEqual(a.state().active,saved);assert.match(a.el.innerHTML,/value="un café con leche"/);assert.equal(a.current().id,saved.questions[saved.index].id);
+});
+test('question progress uses current position with accurate labels and never exceeds the final question',()=>{
+ const a=app();a.click('begin');assert.match(a.el.innerHTML,/<progress aria-label="Question 1 of 5" max="5" value="1"/);for(let i=0;i<4;i++){a.answer();a.click('check');a.click('next');}assert.match(a.el.innerHTML,/<progress aria-label="Question 5 of 5" max="5" value="5"/);a.click('leave');a.click('lesson',{id:'u0story0'});assert.doesNotMatch(a.el.innerHTML,/<progress/);a.click('readStory');assert.match(a.el.innerHTML,/Question 1 of 5/);
+});
+
+test('Today maintains the final chapter for a normal A1.1 graduate instead of returning only to beginner chunks',()=>{
+ const seed=app(),s=seed.ctx.Engine.fresh();s.onboarded=true;s.completed=seed.ctx.Curriculum.lessons.map(l=>l.id);const a=app({},s);a.click('today');assert.ok(a.current().id.startsWith('a12'));assert.equal(a.state().active,null);assert.equal(a.state().completed.length,144);
 });

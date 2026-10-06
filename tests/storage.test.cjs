@@ -96,3 +96,16 @@ test('corrupt known story/listening snapshots cannot lose their required context
  }
  const reading=C.lessons.find(l=>l.reading).questions[0];assert.equal(P.question({...reading,reading:false}),null);
 });
+
+test('an actual pre-mobile v2 backup retains all progress and gains its accepted placement starting path',()=>{
+ const old=JSON.parse(fs.readFileSync('tests/fixtures/v2-before-mobile.json','utf8')),result=P.migrateState(old,C),s=result.state;assert.equal(result.migrated,false);assert.equal(s.version,2);assert.equal(s.startStage,'A1.2');for(const key of ['completed','reviews','active','capabilities','events','sessions','name','placement','stage'])assert.deepEqual(s[key],old[key]);assert.deepEqual(P.migrateState(s,C).state,s);assert.deepEqual(P.parse(JSON.stringify(old),C,{import:true}).state,s);
+});
+test('v2 A1.2 placement infers assumed foundations without fake completions, including previous optional revision',()=>{
+ const old=JSON.parse(fs.readFileSync('tests/fixtures/v2-before-mobile.json','utf8'));old.stage='A1.2';old.active=null;const s=P.migrateState(old,C).state;assert.equal(s.startStage,'A1.2');for(const key of ['completed','capabilities','events','reviews','sessions'])assert.deepEqual(s[key],old[key]);assert.deepEqual(P.migrateState(s,C).state,s);
+});
+test('A1.1 users and A1.2 users without accepted placement retain the full normal path',()=>{
+ for(const stage of ['A1.1','A1.2']){const old=E.fresh();delete old.startStage;old.stage=stage;old.placement=null;const s=P.migrateState(old,C).state;assert.equal(s.startStage,'A1.1');assert.equal(s.stage,stage);assert.deepEqual(s.completed,[]);}
+});
+test('explicit starting path survives manual earlier revision and v2 export/import; invalid fields default safely',()=>{
+ const old=E.fresh();old.startStage='A1.2';old.stage='A1.1';old.completed=['u0l0'];old.active=null;const s=P.parse(JSON.stringify(old),C,{import:true}).state;assert.equal(s.startStage,'A1.2');assert.equal(s.stage,'A1.1');assert.deepEqual(s.completed,['u0l0']);assert.deepEqual(P.migrateState(s,C).state,s);for(const value of ['A2.1',false,{},null]){const bad=P.migrateState({...old,startStage:value},C).state;assert.equal(bad.startStage,'A1.1');assert.deepEqual(bad.completed,['u0l0']);}
+});

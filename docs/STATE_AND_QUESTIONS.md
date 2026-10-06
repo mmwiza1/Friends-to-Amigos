@@ -82,3 +82,11 @@ Active snapshots preserve `readingReady`, `modelRevealed`, `audioPlayed` and `au
 Modules use local scripts and small vanilla globals/CommonJS test exports. No runtime dependencies or framework were added. Rendering receives live state getters so import/reset cannot leave stale screen state. The Android bridge retains `speak`, adds readiness/stop/rate support, chooses an installed non-network es-ES voice, and explicitly pauses/resumes WebView timers/learning-time tracking on backgrounding through fta-pause/fta-resume events. Background time is excluded. The browser requires a suitable non-remote voice and can ask for retry while voices initialise.
 
 Known identified story and listening snapshots must retain their reading/audio context. Corrupted snapshots are quarantined on local recovery and rejected on import rather than silently becoming ordinary questions.
+
+## Mobile update: optional v2 starting path
+
+`startStage` is a playable starting stage, separate from the recommended/viewed stage. Choosing placement persists it; A1.2 means assumed earlier foundations, with no synthetic completions/events/capabilities. For an old save without the field, a saved accepted A1.2 stage plus placement result infers A1.2, including learners who revised earlier lessons. Other legacy saves use A1.1. Invalid values are defaulted conservatively. Explicit valid values survive manual revision and import/export. The schema version, discovery key, IDs and old snapshots remain unchanged.
+
+`CoursePath` supplies required lessons, next lesson, completion and Today’s first step. Today queues are transient orchestration over existing quizzes, not another persisted history. Listening speed/loading are transient too; persisted `audioPlayed` records a successful start. A pending request never persists success, and cancelled/stale callbacks cannot unlock a different question.
+
+Native Back delegates to `window.FriendsToAmigos.handleBack()`. Only a literal `true` consumes Back; Home returns false so Android backgrounds the task. Listening uses request IDs and native `UtteranceProgressListener.onStart`, browser utterance `onstart`, or the recording play promise/playing event. Missing/error/timeout/cancel results cannot unlock initial answers.

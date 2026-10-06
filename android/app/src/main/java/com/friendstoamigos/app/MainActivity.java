@@ -5,6 +5,12 @@ import android.app.AlertDialog;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.Voice;
+import android.speech.tts.UtteranceProgressListener;
+import android.os.Build;
+import android.content.res.Configuration;
+import android.view.WindowInsets;
+import android.view.View;
+import org.json.JSONObject;
 import java.util.Comparator;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
@@ -22,9 +28,12 @@ public class MainActivity extends Activity {
     private TextToSpeech speech;
     private volatile boolean speechReady;
     private ValueCallback<Uri[]> fileCallback;
+    private boolean backPending;
     @Override public void onCreate(Bundle saved) {
         super.onCreate(saved);
         web = new WebView(this);
+        applyAppearance();
+        if(Build.VERSION.SDK_INT>=33)getOnBackInvokedDispatcher().registerOnBackInvokedCallback(android.window.OnBackInvokedDispatcher.PRIORITY_DEFAULT,this::handleBack);
         setContentView(web);
         web.getSettings().setJavaScriptEnabled(true);
         web.getSettings().setDomStorageEnabled(true);
@@ -53,6 +62,12 @@ public class MainActivity extends Activity {
         speech=new TextToSpeech(this,status->{
             if(status==TextToSpeech.SUCCESS){
                 speech.setLanguage(new Locale("es","ES"));
+                speech.setOnUtteranceProgressListener(new UtteranceProgressListener(){
+                    @Override public void onStart(String id){speechResult(id,true);}
+                    @Override public void onDone(String id){}
+                    @Override public void onError(String id){speechResult(id,false);}
+                    @Override public void onStop(String id,boolean interrupted){speechResult(id,false);}
+                });
                 // Prefer a deterministic installed voice; never require a network voice.
                 if(speech.getVoices()!=null){
                     Voice voice=speech.getVoices().stream()
@@ -67,7 +82,12 @@ public class MainActivity extends Activity {
             @JavascriptInterface public boolean isReady(){return speechReady;}
             @JavascriptInterface public void stop(){runOnUiThread(()->{if(speech!=null)speech.stop();});}
             @JavascriptInterface public void speak(String text){speakText(text,.85f);}
-            @JavascriptInterface public void speakAtRate(String text,double rate){speakText(text,(float)Math.max(.6,Math.min(1.25,rate)));}
+            @JavascriptInterface public void speakAtRate(String text,double rate){speakText(text,NativePolicy.rate(rate));}
+            @JavascriptInterface public void listen(String text,double rate,String id){runOnUiThread(()->{
+                if(!speechReady){speechResult(id,false);return;}
+                speech.setSpeechRate(NativePolicy.rate(rate));
+                if(speech.speak(text,TextToSpeech.QUEUE_FLUSH,null,id)==TextToSpeech.ERROR)speechResult(id,false);
+            });}
             @JavascriptInterface public void exportProgress(String json){runOnUiThread(()->{
                 exportData=json;
                 Intent intent=new Intent(Intent.ACTION_CREATE_DOCUMENT).addCategory(Intent.CATEGORY_OPENABLE).setType("application/json").putExtra(Intent.EXTRA_TITLE,"friends-to-amigos-progress.json");
@@ -80,6 +100,21 @@ public class MainActivity extends Activity {
         if(speechReady){speech.setSpeechRate(rate);speech.speak(text,TextToSpeech.QUEUE_FLUSH,null,"spanish");}
         else Toast.makeText(MainActivity.this,"Install an offline Spanish (Spain) voice in Android speech settings.",Toast.LENGTH_LONG).show();
     });}
+    private void speechResult(String id,boolean started){
+        if(id==null||!id.startsWith("listen-"))return;
+        runOnUiThread(()->{if(web!=null&&!isDestroyed())web.evaluateJavascript("window.FriendsToAmigosSpeechResult && window.FriendsToAmigosSpeechResult("+JSONObject.quote(id)+","+started+")",null);});
+    }
+    private void applyAppearance(){
+        boolean dark=(getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK)==Configuration.UI_MODE_NIGHT_YES;
+        int background=getColor(R.color.app_background);web.setBackgroundColor(background);
+        getWindow().setStatusBarColor(background);getWindow().setNavigationBarColor(background);
+        getWindow().getDecorView().setSystemUiVisibility(dark?0:View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR|View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
+        web.setOnApplyWindowInsetsListener((view,insets)->{
+            if(Build.VERSION.SDK_INT>=30){android.graphics.Insets bars=insets.getInsets(WindowInsets.Type.systemBars()|WindowInsets.Type.displayCutout());view.setPadding(bars.left,bars.top,bars.right,bars.bottom);}
+            else view.setPadding(insets.getSystemWindowInsetLeft(),insets.getSystemWindowInsetTop(),insets.getSystemWindowInsetRight(),insets.getSystemWindowInsetBottom());
+            return insets;
+        });
+    }
     private String exportData;
     @Override protected void onActivityResult(int request,int result,Intent data){
         super.onActivityResult(request,result,data);
@@ -90,7 +125,11 @@ public class MainActivity extends Activity {
             exportData=null;
         }
     }
-    @Override public void onBackPressed(){web.evaluateJavascript("(() => { const button = document.querySelector('[data-action=leave]') || document.querySelector('[data-action=home]'); if (button) button.click(); })()",null);}
+    private void handleBack(){
+        if(backPending)return;backPending=true;
+        web.evaluateJavascript("Boolean(window.FriendsToAmigos && window.FriendsToAmigos.handleBack())",result->{backPending=false;if(!NativePolicy.handled(result))moveTaskToBack(true);});
+    }
+    @Override public void onBackPressed(){handleBack();}
     @Override protected void onPause(){if(speech!=null)speech.stop();web.evaluateJavascript("window.dispatchEvent(new Event('fta-pause'))",null);web.onPause();web.pauseTimers();super.onPause();}
     @Override protected void onResume(){super.onResume();if(web!=null){web.onResume();web.resumeTimers();web.evaluateJavascript("window.dispatchEvent(new Event('fta-resume'))",null);}}
     @Override protected void onDestroy(){if(speech!=null){speech.stop();speech.shutdown();}web.destroy();super.onDestroy();}
