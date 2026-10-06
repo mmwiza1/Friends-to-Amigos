@@ -53,7 +53,7 @@ npm run audit
 
 Open http://localhost:4173, or open `www/index.html` directly. File-origin storage and offline voice availability depend on the browser. `check` validates syntax, identities, ordering, grading data and future-stage availability. `audit` emits reproducible surface-word recycling statistics, with its limitations stated in the output.
 
-The final suite has **140 individual tests** (29 engine/data, 49 simulated-DOM app, 14 identity/curriculum, 30 storage/migration, 12 speech, 6 mobile/product). It renders and completes all 144 activities/832 course questions, and protects old saves and both export paths. Simulated browser/bridge tests do not establish real Android or acoustic performance. See [BUILD_STATUS.md](BUILD_STATUS.md) for the exact validation boundary.
+The final suite has **141 individual tests** (29 engine/data, 49 simulated-DOM app, 14 identity/curriculum, 30 storage/migration, 12 speech, 7 mobile/product). It renders and completes all 144 activities/832 course questions, and protects old saves and both export paths. Simulated browser/bridge tests do not establish real Android or acoustic performance. See [BUILD_STATUS.md](BUILD_STATUS.md) for the exact validation boundary.
 
 ## Android build
 

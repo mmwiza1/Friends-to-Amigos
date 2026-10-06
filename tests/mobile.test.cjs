@@ -28,3 +28,8 @@ test('Android delegates Back to app state and packages local icons and day/night
  assert.match(fs.readFileSync('android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml','utf8'),/adaptive-icon/);
  const workflow=fs.readFileSync('.github/workflows/android.yml','utf8');assert.match(workflow,/assembleDebug lintDebug testDebugUnitTest/);assert.doesNotMatch(workflow,/if: github.event_name == 'workflow_dispatch'/);
 });
+
+test('base themes support Android 8.0 without referencing the API-27 light navigation attribute',()=>{
+ for(const name of ['values','values-night'])assert.doesNotMatch(fs.readFileSync('android/app/src/main/res/'+name+'/styles.xml','utf8'),/windowLightNavigationBar/);
+ for(const name of ['values-v31','values-night-v31'])assert.match(fs.readFileSync('android/app/src/main/res/'+name+'/styles.xml','utf8'),/windowLightNavigationBar/);
+});

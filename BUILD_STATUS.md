@@ -5,7 +5,7 @@ Mobile/product update 0.4.0, Android version code 4. Baseline: main `d7c8bec143a
 ## Performed JavaScript checks
 
 - `npm run check`: passed; 144 activities, 832 course question slots, 871 permanent authored IDs.
-- `npm test`: passed; 140 individual cases (29 engine, 49 app, 14 identity/curriculum, 30 storage, 12 speech, 6 mobile). The local test wrapper summarises six file groups; direct file runs verify the individual counts.
+- `npm test`: passed; 141 individual cases (29 engine, 49 app, 14 identity/curriculum, 30 storage, 12 speech, 7 mobile). The local test wrapper summarises six file groups; direct file runs verify the individual counts.
 - `node --check`: all 21 JS/CJS files passed.
 - Every playable activity/question renders and completes in the simulated DOM. Historical v1/v2 migration/import, active snapshots, review scheduling and 80% checkpoints remain tested.
 - All seven authored curriculum/identity sources remain byte-for-byte unchanged; persistent ID/order manifests remain unchanged.
