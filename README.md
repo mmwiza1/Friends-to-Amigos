@@ -67,7 +67,7 @@ The APK is `android/app/build/outputs/apk/debug/app-debug.apk`. Version code 4/n
 
 GitHub Actions runs static checks and tests on pushes/PRs. Android build, lint and unit checks now run on pushes/PRs as well as manual runs. The `friends-to-amigos-android` artifact contains the debug APK. A maintainer must preserve the signing key for in-place upgrades. Fresh CI debug keys may not match an already installed APK; do not uninstall a learner's app without first exporting and verifying a backup.
 
-The current workspace has Java 21 but no Gradle, Android SDK, adb or emulator. This revision has not been compiled or exercised on a native device here. GitHub CI provides native validation; see BUILD_STATUS.md for the result. The [physical-device checklist](BUILD_STATUS.md#physical-device-checklist) is a release gate.
+The current workspace has Java 21 but no Gradle, Android SDK, adb or emulator. Native debug build, lint and unit tests passed in GitHub CI. No emulator/physical-device or acoustic tests were performed; see BUILD_STATUS.md for results and the remaining checklist. The [physical-device checklist](BUILD_STATUS.md#physical-device-checklist) is a release gate.
 
 ## Architecture and authorship
 

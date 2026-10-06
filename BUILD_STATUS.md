@@ -14,7 +14,15 @@ Mobile/product update 0.4.0, Android version code 4. Baseline: main `d7c8bec143a
 
 ## Android validation
 
-The local `gradle -p android assembleDebug lintDebug testDebugUnitTest` attempt could not run: Gradle and the Android SDK are unavailable (`gradle: command not found`, exit 127). OpenJDK 21 is present. Downloading tooling through the configured proxy was unavailable. GitHub Actions now runs build, lint and unit tests on pushes/PRs and manual dispatch; the exact CI result will be recorded after validation.
+The local `gradle -p android assembleDebug lintDebug testDebugUnitTest` attempt could not run: Gradle and the Android SDK are unavailable (`gradle: command not found`, exit 127). OpenJDK 21 is present. Downloading tooling through the configured proxy was unavailable. GitHub Actions now runs build, lint and unit tests on pushes/PRs and manual dispatch; [native validation run](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/37496384080) passed on `fa2505a85a68e7a987badf21b9fc50ea1b6dc7b9`:
+
+- `assembleDebug`: passed, APK produced.
+- `lintDebug`: passed with no errors. Non-blocking warnings are retained in the lint report.
+- `testDebugUnitTest`: passed; the native policy test class covers Back-result consumption and rate validation.
+- Gradle 8.9 / Java 17 / Android SDK 35: `BUILD SUCCESSFUL in 47s`.
+- The debug APK and `android-check-reports` artifacts were uploaded. Reports include lint HTML/XML and JUnit test output.
+
+The first validation run identified two API-27 navigation-bar attributes in API-26 base themes. Those attributes now live only in modern qualified themes; the rerun passed without disabling lint or adding a lint baseline. The final documentation commit has identical application/build sources to this validated revision.
 
 No physical-device/emulator or acoustic testing has been performed. A local headless Chromium screenshot attempt failed because required socket operations were sandbox-blocked; dark-mode validation here uses explicit palette contrast and structural checks, not a rendered-device claim.
 
