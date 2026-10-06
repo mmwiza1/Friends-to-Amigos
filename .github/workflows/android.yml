@@ -6,7 +6,7 @@ on:
 permissions:
   contents: read
 jobs:
-  build:
+  checks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,6 +14,12 @@ jobs:
         with:
           node-version: '22'
       - run: npm test
+  build:
+    if: github.event_name == 'workflow_dispatch'
+    needs: checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
           distribution: temurin

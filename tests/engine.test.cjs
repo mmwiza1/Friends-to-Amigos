@@ -1,5 +1,5 @@
 const {test}=require('node:test');const assert=require('node:assert/strict');const E=require('../www/engine.js');const C=require('../www/curriculum.js');
-test('curriculum answers are valid and lesson IDs unique',()=>{assert.equal(new Set(C.lessons.map(l=>l.id)).size,C.lessons.length);for(const q of [...C.lessons.flatMap(l=>l.questions),...C.placement,...C.numbers,...C.time])assert.ok(q.options.includes(q.answer));});
+test('curriculum answers are valid and lesson IDs unique',()=>{assert.equal(new Set(C.lessons.map(l=>l.id)).size,C.lessons.length);for(const q of [...C.lessons.flatMap(l=>l.questions),...C.placement,...C.numbers,...C.time])assert.ok(q.type==='text'?q.accepted.length>0:q.options.includes(q.answer));});
 test('mistakes need three scheduled successes, immediate retries do not count',()=>{const s=E.fresh(),q=C.numbers[0],now=Date.now();E.recordAnswer(s,q,false,now);E.recordAnswer(s,q,true,now+1);assert.equal(s.reviews[q.prompt].success,1);E.recordAnswer(s,q,true,now+2);assert.equal(s.reviews[q.prompt].success,1);E.recordAnswer(s,q,true,now+86400002);assert.equal(s.reviews[q.prompt].corrected,false);E.recordAnswer(s,q,true,now+4*86400000+3);assert.equal(s.reviews[q.prompt].corrected,true);assert.equal(s.events.filter(e=>e.type==='corrected').length,1);});
 test('repeat lesson completion does not inflate totals',()=>{const s=E.fresh(),l=C.lessons[0];E.complete(s,l,1,2);assert.equal(s.completed.length,0);E.complete(s,l,2,2);E.complete(s,l,2,2);assert.equal(s.completed.length,1);assert.equal(s.events.filter(e=>e.type==='lesson').length,1);});
 test('checkpoint capability only unlocked on pass',()=>{const s=E.fresh(),l=C.lessons.find(l=>l.checkpoint);E.complete(s,l,4,6);assert.equal(s.capabilities.length,0);E.complete(s,l,5,6);assert.equal(s.capabilities.length,1);});
@@ -10,11 +10,37 @@ test('every lesson has at least five unique questions and multiword gaps have ma
  for(const lesson of C.lessons){
   assert.ok(lesson.questions.length>=5,lesson.id);
   assert.equal(new Set(lesson.questions.map(q=>q.prompt)).size,lesson.questions.length);
-  assert.ok(lesson.questions.some(q=>q.type==='gap'),lesson.id);
+  if(!lesson.reading&&!lesson.id.endsWith('write'))assert.ok(lesson.questions.some(q=>q.type==='gap'),lesson.id);
   for(const q of lesson.questions.filter(q=>q.type==='gap')){
    const count=(q.sentence.match(/___/g)||[]).length;assert.ok(count===2||count===3);
    for(const option of q.options)assert.equal(option.split(' ').length,count,q.prompt);
    assert.ok(!q.spanish.includes('___'));
   }
  }
+});
+
+test('four stories are interleaved in every unit and mix choice with typed comprehension',()=>{
+ for(let unit=0;unit<C.units.length;unit++){
+  const lessons=C.lessons.filter(l=>l.unit===unit),stories=lessons.filter(l=>l.reading);
+  assert.equal(stories.length,4);
+  for(const story of stories){
+   assert.equal(story.stage,'A1.1');assert.ok(story.reading.text.length>50);
+   assert.equal(story.questions.filter(q=>q.type==='text').length,2);
+   assert.equal(story.questions.filter(q=>q.type==='choice').length,3);
+   const index=lessons.indexOf(story);assert.ok(index>0);assert.ok(!lessons[index-1].reading);
+   for(const q of story.questions.filter(q=>q.type==='text')){
+    assert.equal(q.language,'en-or-es');for(const answer of q.accepted)assert.ok(E.isCorrect(q,answer));
+   }
+  }
+  const writing=lessons.find(l=>l.id.endsWith('write'));
+  assert.equal(writing.questions.length,5);assert.ok(writing.questions.every(q=>q.language==='es'));
+ }
+});
+test('typed grading accepts case, punctuation, spacing, vowel accents, and both story languages',()=>{
+ const q=C.lessons.find(l=>l.id==='u0story0').questions[1];
+ assert.ok(E.isCorrect(q,'  ENGLAND!  '));assert.ok(E.isCorrect(q,'Inglaterra'));
+ assert.ok(!E.isCorrect(q,'not England'));assert.ok(!E.isCorrect(q,''));assert.ok(!E.isCorrect(q,'Spain'));
+ const write=C.lessons.find(l=>l.id==='u0write').questions[1];
+ assert.ok(E.isCorrect(write,'como te llamas'));assert.ok(!E.isCorrect(write,'What is your name?'));
+ assert.notEqual(E.normalizeAnswer('años'),E.normalizeAnswer('anos'));
 });

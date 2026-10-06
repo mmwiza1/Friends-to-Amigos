@@ -3,3 +3,8 @@
 .lesson-bull{width:220px;height:220px;max-width:100%;margin:0 auto 18px;background-image:url("images/lesson-bulls.webp");background-repeat:no-repeat;background-size:200% 100%;}
 .lesson-bull.happy{background-position:left center;}
 .lesson-bull.sad{background-position:right center;}
+
+.story p{font-size:20px;line-height:1.85;}
+.story-reference{margin:12px 0;}
+.story-reference summary{cursor:pointer;color:var(--teal);font-weight:650;padding:12px 0;}
+input:focus-visible{outline:3px solid var(--teal);outline-offset:2px;}
