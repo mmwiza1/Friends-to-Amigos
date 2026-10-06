@@ -42,10 +42,10 @@ const rows=[
  ['volver','present-perfect','compound-irregular','A2.1',7,'a21u7l0',['he vuelto','has vuelto','ha vuelto','hemos vuelto','habéis vuelto','han vuelto'],'Volver has the irregular participle vuelto. Change haber for the person.'],
  ['tomar','preterite','regular-ar','A2.1',7,'a21u7l1',['tomé','tomaste','tomó','tomamos','tomasteis','tomaron']]
 ].filter(r=>r[7]!=='NOT_TABLE');
-const targets=rows.map(([verb,tense,pattern,stage,unit,source,forms,note])=>({id:'table-'+stage.replace('.','').toLowerCase()+'-'+verb+'-'+tense,verb,tense,pattern,stage,unit,source,forms,accepted:forms.map(x=>[x]),note:note||'',requiredActivities:[source],authorship:'original Friends to Amigos'}));
+const targets=rows.map(([verb,tense,pattern,stage,unit,source,forms,note])=>({id:'table-'+stage.replace('.','').toLowerCase()+'-'+verb+'-'+tense,verb,tense,pattern,stage,unit,source,forms,accepted:forms.map(x=>[x]),note:note||'',requiredActivities:[...new Set([source,...(stage==='A1.1'?['u1l2']:tense==='present-perfect'?['a21u0l2']:[])])],authorship:'original Friends to Amigos'}));
 // Related earlier targets are part of a unit's retrieval, never unlocked by this list.
 const unitVerbs={
- 'A1.1':[['llamarse'],['ser','tener','hablar','vivir'],['querer','tener','ser'],['querer','tener','ser'],['ser','tener'],['estar','ser','tener'],['ir','estar'],['desayunar','trabajar','ir']],
+ 'A1.1':[['llamarse'],['llamarse','ser','tener','hablar','vivir'],['querer','tener','ser'],['querer','tener','ser'],['ser','tener'],['estar','ser','tener'],['ir','estar'],['desayunar','trabajar','ir']],
  'A1.2':[['preferir','querer'],['poder','querer','ir'],['quedar','ir','poder'],['necesitar','llevar','querer'],['pagar','llevar','necesitar'],['estar','ser','tener'],['levantarse','ducharse','vestirse','acostarse','desayunar'],['tomar','comer','escuchar','salir','ir']],
  'A2.1':[['visitar','comer','hacer'],['visitar','ir','hacer'],['ser','ir','querer'],['reservar','necesitar','querer'],['llegar','tener','estar'],['tener','estar','necesitar'],['necesitar','poder','tener'],['volver','tomar','ir','llegar','estar']]
 };

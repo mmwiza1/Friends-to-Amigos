@@ -26,7 +26,7 @@ const gameIds=new Set();for(const q of Bank.questions){
  assert.ok(q.requiredActivities.every(id=>C.lessons.some(l=>l.id===id)));
  assert.ok(q.blanks.every(b=>b.options.filter(x=>x===b.answer).length===1&&new Set(b.options).size===b.options.length&&b.explanation&&b.options.filter(x=>x!==b.answer).every(x=>b.mistakes[x])));
 }for(const stage of ['A1.1','A1.2'])assert.ok(Bank.questions.filter(q=>q.stage===stage).length>=100,'Too few authored '+stage+' game items');
-const Targets=require('../www/conjugation-targets');const targetIds=new Set();for(const t of Targets.targets){assert.ok(!targetIds.has(t.id));targetIds.add(t.id);assert.equal(t.forms.length,6);assert.ok(t.forms.every(Boolean));assert.ok(C.playableStages.includes(t.stage));assert.ok(C.lessons.some(l=>l.id===t.source&&l.stage===t.stage&&l.unit===t.unit));assert.ok(Targets.pattern(t));}
+const Targets=require('../www/conjugation-targets');const targetIds=new Set();for(const t of Targets.targets){assert.ok(!targetIds.has(t.id));targetIds.add(t.id);assert.equal(t.forms.length,6);assert.ok(t.forms.every(Boolean));assert.ok(C.playableStages.includes(t.stage));assert.ok(C.lessons.some(l=>l.id===t.source&&l.stage===t.stage&&l.unit===t.unit));assert.ok(Targets.pattern(t));assert.ok(t.requiredActivities.every(id=>C.lessons.some(l=>l.id===id)));}
 function files(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?files(path.join(dir,e.name)):[path.join(dir,e.name)]);}
 for(const file of [...files(path.join(__dirname,'../www')),...files(path.join(__dirname,'../tests')),...files(__dirname)].filter(f=>/\.(js|cjs)$/.test(f)))new vm.Script(fs.readFileSync(file,'utf8'),{filename:file});
 const tokens=text=>(text.normalize('NFC').toLowerCase().match(/[a-záéíóúüñ]+/g)||[]);
