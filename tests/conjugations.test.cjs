@@ -12,7 +12,7 @@ test('208 stable authored game IDs: 104 for each playable stage, no course colli
 });
 test('bank prerequisites, sentences, answer data and educational distractors are structurally valid',()=>{
  const activities=new Set(C.lessons.map(l=>l.id));const sentences=new Set();
- for(const q of B.questions){assert.ok(C.playableStages.includes(q.stage));assert.ok(q.unit>=0&&q.unit<8);assert.ok(q.blanks.length>=1&&q.blanks.length<=3);assert.equal(q.sentence.split('___').length-1,q.blanks.length);assert.ok(q.requiredActivities.length);assert.ok(q.concepts.length);assert.ok(q.explanation.length>20);assert.ok(q.difficulty>=1&&q.difficulty<=4);assert.ok(!sentences.has(q.sentence),q.id);sentences.add(q.sentence);
+ for(const q of B.questions){assert.ok(C.playableStages.includes(q.stage));assert.ok(q.unit>=0&&q.unit<8);assert.ok(q.blanks.length>=1&&q.blanks.length<=3);assert.equal(q.sentence.split('___').length-1,q.blanks.length);assert.ok([0,1,2].every(n=>q.requiredActivities.includes((q.stage==='A1.1'?'u':'a12u')+q.unit+'l'+n)));assert.ok(q.requiredActivities.length);assert.ok(q.concepts.length);assert.ok(q.explanation.length>20);assert.ok(q.difficulty>=1&&q.difficulty<=4);assert.ok(!sentences.has(q.sentence),q.id);sentences.add(q.sentence);
   for(const id of q.requiredActivities){assert.ok(activities.has(id),q.id+': '+id);if(q.stage==='A1.1')assert.ok(!id.startsWith('a12'));}
   for(const b of q.blanks){assert.ok(q.requiredActivities.includes(b.source));assert.ok(b.answer);assert.equal(new Set(b.options).size,b.options.length);assert.equal(b.options.filter(x=>x===b.answer).length,1);assert.ok(b.explanation.length>20);for(const wrong of b.options.filter(x=>x!==b.answer))assert.ok(b.mistakes[wrong]?.length>20);}
  }
@@ -25,7 +25,7 @@ test('bank varies persons, verbs, contexts and scaffolding; early material has o
  assert.ok(B.questions.filter(q=>q.stage==='A1.1'&&q.unit<4).every(q=>q.blanks.length===1));assert.ok(B.questions.some(q=>q.stage==='A1.2'&&q.blanks.length===3));
 });
 test('course completion expands eligibility; viewed/profile stage alone cannot unlock material',()=>{
- const s=learner('A1.1',1);s.stage='A1.2';assert.equal(G.eligible(s,C).length,24);assert.ok(G.eligible(s,C).every(q=>q.stage==='A1.1'&&q.unit<=1));
+ const s=learner('A1.1',1);s.stage='A1.2';assert.equal(G.eligible(s,C).length,23);assert.ok(G.eligible(s,C).every(q=>q.stage==='A1.1'&&q.unit<=1));
  const full=learner('A1.1');assert.equal(G.eligible(full,C).length,104);const late=learner('A1.2',2);assert.equal(G.eligible(late,C).filter(q=>q.stage==='A1.2').length,39);
 });
 test('placement assumes A1.1 foundations without fake completions; A1.2 new forms still require lessons',()=>{
@@ -98,11 +98,15 @@ test('next-difficulty action appears only after real course progress expands eli
  s.completed=C.lessons.filter(l=>l.stage==='A1.1'&&l.unit<=2).map(l=>l.id);assert.ok(V.result({state:s,C,G,round:r,b:button,esc:escape}).includes('Next difficulty'));assert.deepEqual(s.capabilities,[]);
 });
 test('small unlocked pools still choose every available fresh item before recent repeats',()=>{
- const s=learner('A1.1',1),pool=G.eligible(s,C);s.games=G.empty();s.games.recent=pool.slice(0,20).map(q=>q.id);const a=G.build(s,C,'normal',[],rng(5));for(const q of pool.slice(20))assert.ok(a.questions.some(x=>x.id===q.id));assert.equal(a.questions.length,10);
+ const s=learner('A1.1',1),pool=G.eligible(s,C);s.games=G.empty();s.games.recent=pool.slice(0,-4).map(q=>q.id);const a=G.build(s,C,'normal',[],rng(5));for(const q of pool.slice(-4))assert.ok(a.questions.some(x=>x.id===q.id));assert.equal(a.questions.length,10);
 });
 test('later unhinted context sometimes requires choosing both the verb and its person/number',()=>{
  const q=B.questions.find(q=>q.id==='conj-a12-039'),b=q.blanks[0];assert.equal(b.infinitive,null);assert.ok(b.options.includes('soy'));assert.ok(b.options.includes('estoy'));assert.equal(b.answer,'tengo');assert.match(b.mistakes.estoy,/tengo hambre/);
 });
 test('A1.2 normal rounds recycle four eligible foundations alongside six current-stage items',()=>{
  const s=learner('A1.2');for(let seed=1;seed<=30;seed++){const a=G.build(s,C,'normal',[],rng(seed));assert.equal(a.questions.filter(q=>q.stage==='A1.2').length,6);assert.equal(a.questions.filter(q=>q.stage==='A1.1').length,4);}
+});
+test('focused practice targets the incorrect blank rather than the other correct concepts',()=>{
+ const s=learner('A1.2');s.games=G.empty();s.games.active=G.build(s,C,'normal',[],rng(13));const a=s.games.active,target=B.questions.find(q=>q.id==='conj-a12-051');a.questions[0]=structuredClone(target);a.selected=target.blanks.map((b,i)=>i===1?b.options.find(x=>x!==b.answer):b.answer);G.check(s);G.advance(s);const result=finish(s);assert.deepEqual(result.weakTargets,[{verb:'necesitar',person:'yo',concept:'regular-ar'}]);
+ const focused=G.build(s,C,'mistakes',result.mistakes,rng(7));assert.ok(focused.questions.every(q=>q.blanks.some(b=>b.verb==='necesitar'||b.concept==='regular-ar'&&b.person==='yo')));
 });

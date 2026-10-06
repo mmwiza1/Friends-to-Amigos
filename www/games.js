@@ -25,8 +25,9 @@ function build(state,course,mode='normal',mistakes=[],rng=Math.random,now=Date.n
   const maximum=Math.max(...pool.map(q=>q.difficulty));const hard=pool.filter(q=>q.difficulty>=maximum-1);if(hard.length>=10)pool=hard;
  }
  if(mode==='mistakes'){
-  const ids=new Set(mistakes),concepts=new Set(mistakes.flatMap(id=>byId.get(id)?.concepts||[]));
-  const related=info.pool.filter(q=>q.concepts.some(c=>concepts.has(c)));
+  const ids=new Set(mistakes),last=data.rounds.at(-1);
+  const targets=last?.weakTargets?.length?last.weakTargets:mistakes.flatMap(id=>byId.get(id)?.blanks||[]);
+  const related=info.pool.filter(q=>q.blanks.some(b=>targets.some(t=>b.verb===t.verb||b.person===t.person&&b.concept===t.concept&&t.concept.startsWith('regular-'))));
   if(related.length)pool=related; // Focused correction may mix eligible stages.
   if(!ids.size)return null;
  }
@@ -43,10 +44,11 @@ function build(state,course,mode='normal',mistakes=[],rng=Math.random,now=Date.n
   const unseen=candidates.filter(q=>q.blanks.some(b=>!used['person-'+b.person]));
   if(unseen.length)candidates=unseen;
   const weights=candidates.map(q=>{
+   const targets=mode==='mistakes'?(data.rounds.at(-1)?.weakTargets||[]):[],focus=targets.length?1+q.blanks.reduce((sum,b)=>sum+targets.some(t=>t.verb===b.verb&&t.person===b.person)*3,0):1;
    const variety=q.concepts.reduce((factor,c)=>factor/(1+(used[c]||0)*.8),1);
    const verbs=q.blanks.reduce((factor,b)=>factor/(1+(used['verb-'+b.verb]||0)),1);
    const size=1/(1+(used['blanks-'+q.blanks.length]||0)*.25);
-   return weight(q,data,now)*variety*verbs*size;
+   return weight(q,data,now)*variety*verbs*size*focus;
   });
   let ticket=rng()*weights.reduce((a,b)=>a+b,0),index=weights.length-1;
   for(let i=0;i<weights.length;i++){ticket-=weights[i];if(ticket<=0){index=i;break;}}
@@ -71,7 +73,8 @@ function advance(state,now=Date.now()){
  for(let i=0;i<a.questions.length;i++)for(const concept of a.questions[i].concepts){
   const q=a.questions[i],details=a.results[i].details,relevant=q.blanks.map((b,j)=>b.concept===concept||'person-'+b.person===concept?details[j]:null).filter(Boolean),entry=observations[concept]||{attempts:0,correct:0};entry.attempts++;entry.correct+=relevant.every(d=>d.correct)?1:0;observations[concept]=entry;
  }
- const round={observations,mode:a.mode,stage:a.stage,difficulty:a.difficulty,score:a.results.filter(r=>r.correct).length,total:a.questions.length,at:now,mistakes:a.results.filter(r=>!r.correct).map(r=>r.id),concepts:[...new Set(a.questions.flatMap(q=>q.concepts))]};
+ const weakTargets=a.questions.flatMap((q,i)=>q.blanks.filter((b,j)=>!a.results[i].details[j].correct).map(b=>({verb:b.verb,person:b.person,concept:b.concept})));
+ const round={observations,weakTargets,mode:a.mode,stage:a.stage,difficulty:a.difficulty,score:a.results.filter(r=>r.correct).length,total:a.questions.length,at:now,mistakes:a.results.filter(r=>!r.correct).map(r=>r.id),concepts:[...new Set(a.questions.flatMap(q=>q.concepts))]};
  data.rounds=[...data.rounds,round].slice(-40);data.active=null;return round;
 }
 function summary(data,round){return round.concepts.map(id=>{const s=data.concepts[id]||{attempts:0,correct:0};return {id,label:id.startsWith('person-')?Bank.persons[id.slice(7)]:({'regular-ar':'Regular -ar','regular-er':'Regular -er','regular-ir':'Regular -ir','gustar-singular':'Gusta: one thing or activity','gustar-plural':'Gustan: plural things',reflexive:'Daily routine forms',irregular:'Common irregulars',names:'Giving and asking names',prices:'Singular/plural prices',existence:'There is/are'})[id]||id,status:(round.observations?.[id]||s).correct/(round.observations?.[id]||s).attempts>=.8?'Strong today':(round.observations?.[id]||s).correct/(round.observations?.[id]||s).attempts>=.5?'Improving':'Needs more practice',attempts:s.attempts};});}
@@ -83,7 +86,7 @@ function sanitize(raw,state=null,course=null){
   if(known&&object(s)&&validNumber(s.attempts)&&validNumber(s.correct)&&s.correct<=s.attempts&&validNumber(s.streak)&&s.streak<=s.correct&&validTime(s.lastSeen))data[kind][key]={attempts:s.attempts,correct:s.correct,streak:s.streak,lastSeen:s.lastSeen};
  }
  data.recent=Array.isArray(raw.recent)?raw.recent.filter(id=>byId.has(id)).slice(-30):[];
- data.rounds=Array.isArray(raw.rounds)?raw.rounds.filter(r=>object(r)&&['normal','challenge','mistakes'].includes(r.mode)&&['A1.1','A1.2'].includes(r.stage)&&typeof r.difficulty==='string'&&r.difficulty.length<100&&validNumber(r.total)&&r.total>0&&r.total<=10&&validNumber(r.score)&&r.score<=r.total&&validTime(r.at)&&Array.isArray(r.mistakes)&&r.mistakes.every(id=>byId.has(id))&&Array.isArray(r.concepts)&&r.concepts.every(id=>Bank.questions.some(q=>q.concepts.includes(id)))).slice(-40).map(r=>({mode:r.mode,stage:r.stage,difficulty:r.difficulty,score:r.score,total:r.total,at:r.at,mistakes:r.mistakes.slice(),concepts:r.concepts.slice(),...(object(r.observations)?{observations:Object.fromEntries(Object.entries(r.observations).filter(([id,x])=>r.concepts.includes(id)&&object(x)&&validNumber(x.attempts)&&x.attempts>0&&x.attempts<=r.total&&validNumber(x.correct)&&x.correct<=x.attempts).map(([id,x])=>[id,{attempts:x.attempts,correct:x.correct}]))}:{})})):[];
+ data.rounds=Array.isArray(raw.rounds)?raw.rounds.filter(r=>object(r)&&['normal','challenge','mistakes'].includes(r.mode)&&['A1.1','A1.2'].includes(r.stage)&&typeof r.difficulty==='string'&&r.difficulty.length<100&&validNumber(r.total)&&r.total>0&&r.total<=10&&validNumber(r.score)&&r.score<=r.total&&validTime(r.at)&&Array.isArray(r.mistakes)&&r.mistakes.every(id=>byId.has(id))&&Array.isArray(r.concepts)&&r.concepts.every(id=>Bank.questions.some(q=>q.concepts.includes(id)))).slice(-40).map(r=>({mode:r.mode,stage:r.stage,difficulty:r.difficulty,score:r.score,total:r.total,at:r.at,mistakes:r.mistakes.slice(),concepts:r.concepts.slice(),...(Array.isArray(r.weakTargets)?{weakTargets:r.weakTargets.filter(t=>object(t)&&Bank.questions.some(q=>q.blanks.some(b=>b.verb===t.verb&&b.person===t.person&&b.concept===t.concept))).slice(0,30).map(t=>({verb:t.verb,person:t.person,concept:t.concept}))}:{}),...(object(r.observations)?{observations:Object.fromEntries(Object.entries(r.observations).filter(([id,x])=>r.concepts.includes(id)&&object(x)&&validNumber(x.attempts)&&x.attempts>0&&x.attempts<=r.total&&validNumber(x.correct)&&x.correct<=x.attempts).map(([id,x])=>[id,{attempts:x.attempts,correct:x.correct}]))}:{})})):[];
  if(raw.active!==null&&raw.active!==undefined){
   const a=raw.active;let valid=object(a)&&['normal','challenge','mistakes'].includes(a.mode)&&['A1.1','A1.2'].includes(a.stage)&&typeof a.difficulty==='string'&&a.difficulty.length<100&&validTime(a.started)&&Array.isArray(a.questions)&&(a.mode==='mistakes'?a.questions.length>=1&&a.questions.length<=5:a.questions.length===10)&&new Set(a.questions.map(q=>q?.id)).size===a.questions.length&&Number.isInteger(a.index)&&a.index>=0&&a.index<a.questions.length&&typeof a.checked==='boolean'&&Array.isArray(a.results)&&a.results.length===a.index+(a.checked?1:0);
   // Resume the stored wording/options, but accept only known, unchanged targets.
