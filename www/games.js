@@ -19,7 +19,7 @@ function weight(q,data,now=Date.now()){
 function build(state,course,mode='normal',mistakes=[],rng=Math.random,now=Date.now()){
  const data=state.games||empty(),info=available(state,course);let pool=info.pool;
  if(pool.length<10)return null;
- if(info.stage==='A1.2')pool=pool.filter(q=>q.stage==='A1.2');
+ if(info.stage==='A1.1'||mode==='challenge')pool=pool.filter(q=>q.stage===info.stage);
  if(mode==='challenge'){
   if(!info.challenge)return null;
   const maximum=Math.max(...pool.map(q=>q.difficulty));const hard=pool.filter(q=>q.difficulty>=maximum-1);if(hard.length>=10)pool=hard;
@@ -32,7 +32,11 @@ function build(state,course,mode='normal',mistakes=[],rng=Math.random,now=Date.n
  }
  const limit=mode==='mistakes'?Math.min(5,pool.length):10,chosen=[],used={},recent=new Set(data.recent.slice(-30));
  for(let slot=0;slot<limit;slot++){
-  const remaining=pool.filter(q=>!chosen.includes(q));const fresh=remaining.filter(q=>!recent.has(q.id)&&!(mode==='mistakes'&&mistakes.includes(q.id)));
+  let remaining=pool.filter(q=>!chosen.includes(q));
+  // A1.2 normal rounds retain foundations: six current-stage items and
+  // four earlier eligible situations, rather than permanently retiring A1.1.
+  if(mode==='normal'&&info.stage==='A1.2'){const target=slot<6?'A1.2':'A1.1',sameStage=remaining.filter(q=>q.stage===target);if(sameStage.length)remaining=sameStage;}
+  const fresh=remaining.filter(q=>!recent.has(q.id)&&!(mode==='mistakes'&&mistakes.includes(q.id)));
   let candidates=fresh.length?fresh:remaining;
   // Cover available subject persons before repeating them. Multi-blank items
   // can supply several persons; weighting then balances verbs/concepts.

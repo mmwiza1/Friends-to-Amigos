@@ -103,3 +103,6 @@ test('small unlocked pools still choose every available fresh item before recent
 test('later unhinted context sometimes requires choosing both the verb and its person/number',()=>{
  const q=B.questions.find(q=>q.id==='conj-a12-039'),b=q.blanks[0];assert.equal(b.infinitive,null);assert.ok(b.options.includes('soy'));assert.ok(b.options.includes('estoy'));assert.equal(b.answer,'tengo');assert.match(b.mistakes.estoy,/tengo hambre/);
 });
+test('A1.2 normal rounds recycle four eligible foundations alongside six current-stage items',()=>{
+ const s=learner('A1.2');for(let seed=1;seed<=30;seed++){const a=G.build(s,C,'normal',[],rng(seed));assert.equal(a.questions.filter(q=>q.stage==='A1.2').length,6);assert.equal(a.questions.filter(q=>q.stage==='A1.1').length,4);}
+});
