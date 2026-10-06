@@ -110,3 +110,7 @@ test('focused practice targets the incorrect blank rather than the other correct
  const s=learner('A1.2');s.games=G.empty();s.games.active=G.build(s,C,'normal',[],rng(13));const a=s.games.active,target=B.questions.find(q=>q.id==='conj-a12-051');a.questions[0]=structuredClone(target);a.selected=target.blanks.map((b,i)=>i===1?b.options.find(x=>x!==b.answer):b.answer);G.check(s);G.advance(s);const result=finish(s);assert.deepEqual(result.weakTargets,[{verb:'necesitar',person:'yo',concept:'regular-ar'}]);
  const focused=G.build(s,C,'mistakes',result.mistakes,rng(7));assert.ok(focused.questions.every(q=>q.blanks.some(b=>b.verb==='necesitar'||b.concept==='regular-ar'&&b.person==='yo')));
 });
+test('personal best survives beyond the bounded recent-round window and backup round trips',()=>{
+ const s=learner();s.games=G.empty();s.games.active=G.build(s,C);const perfect=finish(s),key=G.bestKey(perfect);assert.equal(s.games.bests[key],10);
+ s.games.rounds=Array.from({length:40},(_,i)=>({...perfect,score:5,at:2000+i}));const saved=P.parse(JSON.stringify(s),C,{import:true}).state;assert.equal(saved.games.bests[key],10);const html=V.result({state:saved,C,G,round:saved.games.rounds.at(-1),b:button,esc:escape});assert.match(html,/Best at this unlocked difficulty: 10 \/ 10/);
+});

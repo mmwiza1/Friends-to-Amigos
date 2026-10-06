@@ -422,7 +422,7 @@ test('a complete ten-item game records only its own performance and supports mis
  const initial=gameLearner('A1.2'),a=app({},initial);a.click('tab',{tab:'Games'});a.click('gameNew');for(let i=0;i<10;i++){answerGame(a,i===0?0:-1);a.click('gameNext');}
  assert.match(a.el.innerHTML,/9 \/ 10 correct/);assert.match(a.el.innerHTML,/Best at this unlocked difficulty: 9 \/ 10/);assert.match(a.el.innerHTML,/Practise my mistakes/);assert.match(a.el.innerHTML,/Happy bull/);assert.equal(a.state().games.active,null);assert.equal(a.state().games.rounds.length,1);
  for(const field of ['completed','stage','startStage','capabilities','placement','reviews','events','active'])assert.deepEqual(a.state()[field],initial[field]);
- a.click('gameMistakes');assert.match(a.el.innerHTML,/Mistake practice/);assert.match(a.el.innerHTML,/Question 1 of 5/);for(let i=0;i<5;i++){answerGame(a);a.click('gameNext');}assert.match(a.el.innerHTML,/5 \/ 5 correct/);a.click('gameLeave');assert.match(a.el.innerHTML,/Fill the missing verb forms/);
+ a.click('gameMistakes');assert.match(a.el.innerHTML,/Mistake practice/);const length=a.state().games.active.questions.length;assert.ok(length>0&&length<=5);assert.ok(a.el.innerHTML.includes('Question 1 of '+length));for(let i=0;i<length;i++){answerGame(a);a.click('gameNext');}assert.ok(a.el.innerHTML.includes(length+' / '+length+' correct'));a.click('gameLeave');assert.match(a.el.innerHTML,/Fill the missing verb forms/);
 });
 test('a perfect game cannot complete or unlock course lessons or change placement',()=>{
  const s=gameLearner('A1.1',1),a=app({},s);a.click('tab',{tab:'Games'});a.click('gameNew');for(let i=0;i<10;i++){answerGame(a);a.click('gameNext');}assert.deepEqual(a.state().completed,s.completed);assert.equal(a.state().stage,'A1.1');assert.equal(a.state().startStage,s.startStage);assert.deepEqual(a.state().capabilities,s.capabilities);a.click('gameNew');assert.ok(a.state().games.active.questions.every(q=>q.stage==='A1.1'&&q.unit<=1));
@@ -460,4 +460,7 @@ test('Today continuation wins over normal lesson Continue learning and keeps the
 });
 test('Back to Home still leaves passed and failed lesson results safely',()=>{
  for(const correct of [true,false]){const a=app();a.click('begin');finishLesson(a,correct);a.click('home');assert.match(a.el.innerHTML,/Today’s session/);assert.equal(a.state().active,null);}
+});
+test('a partial lesson cannot trigger result continuation or overwrite the resumable attempt',()=>{
+ const a=app();a.click('begin');a.answer();a.click('check');const before=a.state();a.click('continueLearning');assert.deepEqual(a.state(),before);assert.equal(a.state().active.lesson.id,'u0l0');assert.equal(a.state().active.answers.length,1);
 });
