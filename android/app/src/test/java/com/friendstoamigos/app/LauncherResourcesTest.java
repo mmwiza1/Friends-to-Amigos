@@ -3,6 +3,7 @@ package com.friendstoamigos.app;
 import org.junit.Test;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.charset.StandardCharsets;
 import static org.junit.Assert.*;
 
 /** Checks packaging inputs on the JVM; actual launcher rendering needs a device. */
@@ -12,7 +13,7 @@ public class LauncherResourcesTest {
     @Test public void adaptiveIconsUseMascotAndThemedLayer() throws Exception {
         for (String name : new String[]{"ic_launcher", "ic_launcher_round"}) {
             for (int api : new int[]{26, 33}) {
-                String xml = Files.readString(resource("mipmap-anydpi-v" + api + "/" + name + ".xml"));
+                String xml = new String(Files.readAllBytes(resource("mipmap-anydpi-v" + api + "/" + name + ".xml")), StandardCharsets.UTF_8);
                 assertTrue(xml.contains("@drawable/ic_launcher_foreground"));
                 assertTrue(xml.contains("@drawable/ic_launcher_background"));
                 if (api == 33) assertTrue(xml.contains("@drawable/ic_launcher_monochrome"));
