@@ -5,3 +5,16 @@ test('repeat lesson completion does not inflate totals',()=>{const s=E.fresh(),l
 test('checkpoint capability only unlocked on pass',()=>{const s=E.fresh(),l=C.lessons.find(l=>l.checkpoint);E.complete(s,l,4,6);assert.equal(s.capabilities.length,0);E.complete(s,l,5,6);assert.equal(s.capabilities.length,1);});
 test('streak permits today still to be completed and breaks after a missed day',()=>{const s=E.fresh();for(const k of ['2026-10-01','2026-10-02','2026-10-03'])s.sessions[k]={practised:true,seconds:10};assert.deepEqual(E.streak(s,'2026-10-04'),{current:3,best:3});assert.deepEqual(E.streak(s,'2026-10-05'),{current:0,best:3});});
 test('placement needs consecutive demonstrated foundations',()=>{assert.equal(E.placementResult([false,false,true,true,true,true,true,true]),'A1.1');assert.equal(E.placementResult([true,true,false,true]),'A1.2');assert.equal(E.placementResult(Array(8).fill(true)),'B2.1');});
+
+test('every lesson has at least five unique questions and multiword gaps have matching options',()=>{
+ for(const lesson of C.lessons){
+  assert.ok(lesson.questions.length>=5,lesson.id);
+  assert.equal(new Set(lesson.questions.map(q=>q.prompt)).size,lesson.questions.length);
+  assert.ok(lesson.questions.some(q=>q.type==='gap'),lesson.id);
+  for(const q of lesson.questions.filter(q=>q.type==='gap')){
+   const count=(q.sentence.match(/___/g)||[]).length;assert.ok(count===2||count===3);
+   for(const option of q.options)assert.equal(option.split(' ').length,count,q.prompt);
+   assert.ok(!q.spanish.includes('___'));
+  }
+ }
+});

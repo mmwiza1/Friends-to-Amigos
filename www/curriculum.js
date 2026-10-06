@@ -11,7 +11,62 @@ const units=[
 ['Simple routines & time','Say the time and describe a simple daily activity',[q('Say “It is one o’clock”.','Es la una',['Es la una','Son las una','Es las uno'],'One o’clock is singular: es la una.','Telling the time','Es la una'),q('Say “It is half past two”.','Son las dos y media',['Son las dos y media','Es la dos y medio','Son las dos y mitad'],'Use son las for hours other than one; y media means half past.','Telling the time','Son las dos y media'),q('Say “At eight o’clock”.','A las ocho',['A las ocho','En las ocho','Son las ocho'],'Use a las to say when something happens.','Time prepositions','A las ocho'),q('Say “I eat breakfast at nine”.','Desayuno a las nueve',['Desayuno a las nueve','Desayuno en nueve','Desayuna a las nueve'],'Desayuno is I have breakfast; a las introduces the time.','Verb forms','Desayuno a las nueve'),q('Say “I work in Madrid”.','Trabajo en Madrid',['Trabajo en Madrid','Trabajo a Madrid','Trabaja en Madrid'],'Trabajo is first person. Use en for the location.','Verb forms','Trabajo en Madrid'),q('What time is las tres menos cuarto?','2:45',['2:45','3:15','3:45'],'Menos cuarto means a quarter before the named hour.','Telling the time','Las tres menos cuarto')]]
 ];
 const stages=['A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2'];
-const lessons=[];units.forEach((u,i)=>{for(let j=0;j<3;j++)lessons.push({id:`u${i}l${j}`,stage:'A1.1',unit:i,title:['Discover','Build confidence','Use it'][j]+': '+u[0],questions:u[2].slice(j*2,j*2+2),checkpoint:false});lessons.push({id:`u${i}check`,stage:'A1.1',unit:i,title:'Checkpoint: '+u[0],questions:u[2],checkpoint:true,capability:u[1]});});
+// Each gap option supplies the missing words in sentence order.
+const gap=(sentence,meaning,answer,options,explanation,topic)=>{
+ const words=answer.split(' ');let index=0;
+ return {...q(`Fill the gaps: ${sentence} (“${meaning}”)`,answer,options,explanation,topic,sentence.replace(/___/g,()=>words[index++])),type:'gap',sentence,meaning};
+};
+const gaps=[
+[
+ gap('___ ___ Ana.','My name is Ana','Me llamo',['Me llamo','Soy llamo','Me llama'],'Use me llamo to introduce yourself.','Introductions'),
+ gap('¿___ ___ llamas?','What is your name?','Cómo te',['Cómo te','Cómo me','Qué te'],'Cómo asks how; te refers to the person you are addressing.','Introductions'),
+ gap('___ ___, Ana.','Good morning, Ana','Buenos días',['Buenos días','Buenas días','Buenos noches'],'Días is masculine plural, so use buenos.','Greetings')
+],
+[
+ gap('___ ___ Londres.','I live in London','Vivo en',['Vivo en','Vivo a','Vivir en'],'Vivo means I live; en introduces the city.','Verb forms'),
+ gap('___ ___ años.','I am twenty-one years old','Tengo veintiún',['Tengo veintiún','Soy veintiún','Tengo veintiuno'],'Use tengo for age; veintiuno becomes veintiún before años.','Tener expressions'),
+ gap('___ ___ cansada.','I am tired (female speaker)','Yo estoy',['Yo estoy','Yo soy','Yo tengo'],'Use estar for a temporary state.','Ser or estar')
+],
+[
+ gap('Un café, ___ ___.','A coffee, please','por favor',['por favor','para favor','por cuenta'],'Por favor is the polite phrase for please.','Café vocabulary'),
+ gap('___ ___ ___ café.','I like coffee','Me gusta el',['Me gusta el','Me gustan el','Yo gusto la'],'Singular café takes gusta; use the article el.','Gustar'),
+ gap('Un café ___ ___.','A coffee with milk','con leche',['con leche','de leche','con cuenta'],'Con means with; leche means milk.','Prepositions')
+],
+[
+ gap('___ ___ euros.','Twenty-one euros','Son veintiún',['Son veintiún','Son veintiuno','Es veintiuna'],'Use son for a plural price and veintiún before euros.','Number agreement'),
+ gap('Treinta ___ ___.','Thirty-two','y dos',['y dos','de dos','y doce'],'Join tens and units with y: treinta y dos is 32.','Numbers'),
+ gap('Tres euros ___ ___.','Three euros and fifty cents','con cincuenta',['con cincuenta','con cinco','de cincuenta'],'Con cincuenta adds fifty cents to the euro amount.','Prices')
+],
+[
+ gap('Mi hermano ___ ___.','My brother is tall','es alto',['es alto','es alta','está alta'],'Ser describes this characteristic; alto agrees with hermano.','Gender agreement'),
+ gap('___ ___ ___ padres.','These are my parents','Estos son mis',['Estos son mis','Estos es mi','Estas son mi'],'Use masculine plural estos, plural son, and mis before padres.','Plural agreement'),
+ gap('Tengo ___ ___.','I have a dog','un perro',['un perro','una perro','un hermana'],'Perro is masculine, so use un.','Tener')
+],
+[
+ gap('El libro ___ ___.','The book is red','es rojo',['es rojo','es roja','son rojo'],'Libro is masculine singular, so use es rojo.','Gender agreement'),
+ gap('Las llaves ___ ___.','The keys are here','están aquí',['están aquí','son aquí','está aquí'],'Use plural están for the location of las llaves.','Ser or estar'),
+ gap('___ ___ ___ en casa.','There is a table at home','Hay una mesa',['Hay una mesa','Hay un mesa','Son una mesa'],'Hay introduces something that exists; mesa is feminine.','Hay')
+],
+[
+ gap('¿Dónde ___ ___ estación?','Where is the station?','está la',['está la','es la','está el'],'Location uses estar; estación takes la.','Ser or estar'),
+ gap('Voy ___ ___.','I am going to the park','al parque',['al parque','a parque','en parque'],'A and el combine to make al.','Prepositions'),
+ gap('La farmacia está ___ ___ ___.','The pharmacy is to the right','a la derecha',['a la derecha','a el derecha','en la izquierda'],'A la derecha means to the right.','Directions')
+],
+[
+ gap('___ ___ una.','It is one o’clock','Es la',['Es la','Son las','Es las'],'One o’clock uses the singular es la una.','Telling the time'),
+ gap('Son las dos ___ ___.','It is half past two','y media',['y media','y medio','menos media'],'Y media means half past.','Telling the time'),
+ gap('Desayuno ___ ___ ___.','I eat breakfast at nine','a las nueve',['a las nueve','en las nueve','a la nueve'],'A las introduces the time of an activity.','Time prepositions')
+]
+];
+const lessons=[];
+units.forEach((u,i)=>{
+ for(let j=0;j<3;j++){
+  const core=Array.from({length:3},(_,k)=>u[2][(j*2+k)%u[2].length]);
+  const practice=[gaps[i][j],gaps[i][(j+1)%gaps[i].length]];
+  lessons.push({id:`u${i}l${j}`,stage:'A1.1',unit:i,title:['Discover','Build confidence','Use it'][j]+': '+u[0],questions:[...core,...practice],checkpoint:false});
+ }
+ lessons.push({id:`u${i}check`,stage:'A1.1',unit:i,title:'Checkpoint: '+u[0],questions:[...u[2],...gaps[i]],checkpoint:true,capability:u[1]});
+});
 const placement=[
 q('Choose “I am from England”.','Soy de Inglaterra',['Soy de Inglaterra','Estoy de Inglaterra','Tengo Inglaterra'],'Nationality and origin use ser.','Ser or estar'),q('Say “I like these books”.','Me gustan estos libros',['Me gustan estos libros','Yo gusto estos libros','Me gusta estos libros'],'Plural libros requires gustan.','Gustar'),
 q('Choose “Yesterday I went to the beach”.','Ayer fui a la playa',['Ayer fui a la playa','Ayer voy a la playa','Ayer iba la playa'],'Fui describes this completed event.','Past tenses'),q('Choose “When I was little, I played here”.','De pequeño, jugaba aquí',['De pequeño, jugaba aquí','De pequeño, jugué aquí una vez','De pequeño, juego aquí'],'Jugaba describes a past habit.','Past tenses'),
