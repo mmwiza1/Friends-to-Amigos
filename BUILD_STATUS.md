@@ -1,7 +1,7 @@
 # Verification
 
-Passed locally: JavaScript syntax checks and 18 engine/simulated-DOM tests, including bilingual typed comprehension, Spanish writing, reading/resume/review flows, four interleaved stories per unit, and the five-question minimum.
+Passed: JavaScript syntax checks and the full test suite (16 engine tests and 15 simulated-DOM app tests). Coverage includes all 72 stable lesson IDs, all 392 playable questions, four stories per unit, progression, unique correct choices, Spanish production, bilingual comprehension, misconception feedback, both TTS paths, review scheduling, checkpoints, legacy snapshots and Android/browser export/import.
 
-Previous Android test APK builds passed on GitHub Actions. APK builds are now manual only; current curriculum changes do not produce a new APK.
+No new APK produced: builds remain manual. The earlier Android builds passed on GitHub Actions; this revision changes offline web content, not the Java wrapper.
 
-Not yet verified: new reading/writing interactions on a real Android device. Typed answers use authored variants and do not recognise every valid paraphrase.
+Still needed: real Android device validation and independent Spanish educator/native-speaker review. Finite authored matching does not recognise every valid paraphrase. The course does not certify CEFR proficiency.

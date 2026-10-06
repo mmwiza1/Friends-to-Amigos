@@ -8,3 +8,10 @@
 .story-reference{margin:12px 0;}
 .story-reference summary{cursor:pointer;color:var(--teal);font-weight:650;padding:12px 0;}
 input:focus-visible{outline:3px solid var(--teal);outline-offset:2px;}
+
+.story p{white-space:pre-line;}
+.glossary{font-size:15px;margin:12px 0;}
+.glossary div{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);}
+.glossary dt{font-weight:650;}
+.glossary dd{margin:0;color:var(--muted);}
+.unit-reference summary,.story summary{cursor:pointer;color:var(--teal);font-weight:650;padding:8px 0;}

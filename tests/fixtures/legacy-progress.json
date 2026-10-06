@@ -1,0 +1,305 @@
+{
+  "version": 1,
+  "name": "Existing learner",
+  "onboarded": true,
+  "stage": "A1.1",
+  "placement": null,
+  "completed": [
+    "u0l0",
+    "u0check"
+  ],
+  "capabilities": [
+    {
+      "id": "u0check",
+      "text": "Introduce yourself and greet someone",
+      "date": "2026-10-01"
+    }
+  ],
+  "reviews": {
+    "Ana y Luis: Where is Ana from?": {
+      "question": {
+        "prompt": "Ana y Luis: Where is Ana from?",
+        "answer": "England / Inglaterra",
+        "accepted": [
+          "England",
+          "Inglaterra",
+          "English",
+          "inglesa",
+          "inglés"
+        ],
+        "language": "en-or-es",
+        "topic": "Reading: Greetings & sounds",
+        "type": "text",
+        "explanation": "A short answer in English or Spanish is enough.",
+        "reading": {
+          "title": "Ana y Luis",
+          "text": "Hola. Me llamo Ana. Soy inglesa. Mi amigo se llama Luis. Luis es español. Estamos en Madrid.",
+          "stage": "A1.1"
+        }
+      },
+      "topic": "Reading: Greetings & sounds",
+      "wrong": 1,
+      "success": 0,
+      "due": 1791286855411,
+      "corrected": false
+    }
+  },
+  "events": [
+    {
+      "type": "lesson",
+      "date": "2026-10-01",
+      "id": "u0l0"
+    },
+    {
+      "date": "2026-10-06",
+      "at": 1791286855411,
+      "type": "answer",
+      "correct": false,
+      "topic": "Reading: Greetings & sounds"
+    }
+  ],
+  "sessions": {
+    "2026-10-05": {
+      "seconds": 125,
+      "practised": true
+    }
+  },
+  "active": {
+    "kind": "lesson",
+    "questions": [
+      {
+        "prompt": "Ana y Luis: What is the girl’s name?",
+        "answer": "Ana",
+        "accepted": [
+          "Ana",
+          "Ana"
+        ],
+        "language": "en-or-es",
+        "topic": "Reading: Greetings & sounds",
+        "type": "choice",
+        "explanation": "A short answer in English or Spanish is enough.",
+        "reading": {
+          "title": "Ana y Luis",
+          "text": "Hola. Me llamo Ana. Soy inglesa. Mi amigo se llama Luis. Luis es español. Estamos en Madrid.",
+          "stage": "A1.1"
+        },
+        "options": [
+          "Ana",
+          "Luis",
+          "Rosa"
+        ]
+      },
+      {
+        "prompt": "Ana y Luis: Where is Ana from?",
+        "answer": "England / Inglaterra",
+        "accepted": [
+          "England",
+          "Inglaterra",
+          "English",
+          "inglesa",
+          "inglés"
+        ],
+        "language": "en-or-es",
+        "topic": "Reading: Greetings & sounds",
+        "type": "text",
+        "explanation": "A short answer in English or Spanish is enough.",
+        "reading": {
+          "title": "Ana y Luis",
+          "text": "Hola. Me llamo Ana. Soy inglesa. Mi amigo se llama Luis. Luis es español. Estamos en Madrid.",
+          "stage": "A1.1"
+        }
+      },
+      {
+        "prompt": "Ana y Luis: What is her friend’s name?",
+        "answer": "Luis",
+        "accepted": [
+          "Luis",
+          "Luis"
+        ],
+        "language": "en-or-es",
+        "topic": "Reading: Greetings & sounds",
+        "type": "choice",
+        "explanation": "A short answer in English or Spanish is enough.",
+        "reading": {
+          "title": "Ana y Luis",
+          "text": "Hola. Me llamo Ana. Soy inglesa. Mi amigo se llama Luis. Luis es español. Estamos en Madrid.",
+          "stage": "A1.1"
+        },
+        "options": [
+          "Rosa",
+          "Luis",
+          "Ana"
+        ]
+      },
+      {
+        "prompt": "Ana y Luis: Where is Luis from?",
+        "answer": "Spain / España",
+        "accepted": [
+          "Spain",
+          "España",
+          "Spanish",
+          "española",
+          "español"
+        ],
+        "language": "en-or-es",
+        "topic": "Reading: Greetings & sounds",
+        "type": "text",
+        "explanation": "A short answer in English or Spanish is enough.",
+        "reading": {
+          "title": "Ana y Luis",
+          "text": "Hola. Me llamo Ana. Soy inglesa. Mi amigo se llama Luis. Luis es español. Estamos en Madrid.",
+          "stage": "A1.1"
+        }
+      },
+      {
+        "prompt": "Ana y Luis: Which city are they in?",
+        "answer": "Madrid",
+        "accepted": [
+          "Madrid",
+          "Madrid"
+        ],
+        "language": "en-or-es",
+        "topic": "Reading: Greetings & sounds",
+        "type": "choice",
+        "explanation": "A short answer in English or Spanish is enough.",
+        "reading": {
+          "title": "Ana y Luis",
+          "text": "Hola. Me llamo Ana. Soy inglesa. Mi amigo se llama Luis. Luis es español. Estamos en Madrid.",
+          "stage": "A1.1"
+        },
+        "options": [
+          "London / Londres",
+          "Valencia",
+          "Madrid"
+        ]
+      }
+    ],
+    "lesson": {
+      "id": "u0story0",
+      "stage": "A1.1",
+      "unit": 0,
+      "title": "Story 1: Ana y Luis",
+      "reading": {
+        "title": "Ana y Luis",
+        "text": "Hola. Me llamo Ana. Soy inglesa. Mi amigo se llama Luis. Luis es español. Estamos en Madrid.",
+        "stage": "A1.1"
+      },
+      "questions": [
+        {
+          "prompt": "Ana y Luis: What is the girl’s name?",
+          "answer": "Ana",
+          "accepted": [
+            "Ana",
+            "Ana"
+          ],
+          "language": "en-or-es",
+          "topic": "Reading: Greetings & sounds",
+          "type": "choice",
+          "explanation": "A short answer in English or Spanish is enough.",
+          "reading": {
+            "title": "Ana y Luis",
+            "text": "Hola. Me llamo Ana. Soy inglesa. Mi amigo se llama Luis. Luis es español. Estamos en Madrid.",
+            "stage": "A1.1"
+          },
+          "options": [
+            "Ana",
+            "Luis",
+            "Rosa"
+          ]
+        },
+        {
+          "prompt": "Ana y Luis: Where is Ana from?",
+          "answer": "England / Inglaterra",
+          "accepted": [
+            "England",
+            "Inglaterra",
+            "English",
+            "inglesa",
+            "inglés"
+          ],
+          "language": "en-or-es",
+          "topic": "Reading: Greetings & sounds",
+          "type": "text",
+          "explanation": "A short answer in English or Spanish is enough.",
+          "reading": {
+            "title": "Ana y Luis",
+            "text": "Hola. Me llamo Ana. Soy inglesa. Mi amigo se llama Luis. Luis es español. Estamos en Madrid.",
+            "stage": "A1.1"
+          }
+        },
+        {
+          "prompt": "Ana y Luis: What is her friend’s name?",
+          "answer": "Luis",
+          "accepted": [
+            "Luis",
+            "Luis"
+          ],
+          "language": "en-or-es",
+          "topic": "Reading: Greetings & sounds",
+          "type": "choice",
+          "explanation": "A short answer in English or Spanish is enough.",
+          "reading": {
+            "title": "Ana y Luis",
+            "text": "Hola. Me llamo Ana. Soy inglesa. Mi amigo se llama Luis. Luis es español. Estamos en Madrid.",
+            "stage": "A1.1"
+          },
+          "options": [
+            "Rosa",
+            "Luis",
+            "Ana"
+          ]
+        },
+        {
+          "prompt": "Ana y Luis: Where is Luis from?",
+          "answer": "Spain / España",
+          "accepted": [
+            "Spain",
+            "España",
+            "Spanish",
+            "española",
+            "español"
+          ],
+          "language": "en-or-es",
+          "topic": "Reading: Greetings & sounds",
+          "type": "text",
+          "explanation": "A short answer in English or Spanish is enough.",
+          "reading": {
+            "title": "Ana y Luis",
+            "text": "Hola. Me llamo Ana. Soy inglesa. Mi amigo se llama Luis. Luis es español. Estamos en Madrid.",
+            "stage": "A1.1"
+          }
+        },
+        {
+          "prompt": "Ana y Luis: Which city are they in?",
+          "answer": "Madrid",
+          "accepted": [
+            "Madrid",
+            "Madrid"
+          ],
+          "language": "en-or-es",
+          "topic": "Reading: Greetings & sounds",
+          "type": "choice",
+          "explanation": "A short answer in English or Spanish is enough.",
+          "reading": {
+            "title": "Ana y Luis",
+            "text": "Hola. Me llamo Ana. Soy inglesa. Mi amigo se llama Luis. Luis es español. Estamos en Madrid.",
+            "stage": "A1.1"
+          },
+          "options": [
+            "London / Londres",
+            "Valencia",
+            "Madrid"
+          ]
+        }
+      ],
+      "checkpoint": false
+    },
+    "index": 1,
+    "answers": [
+      true
+    ],
+    "selected": "Inglaterra",
+    "checked": false,
+    "readingReady": true
+  }
+}

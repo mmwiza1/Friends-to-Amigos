@@ -7,11 +7,16 @@ function complete(s,lesson,score,count){if(score/count>=.8){if(!s.completed.incl
 function markDay(s){const d=dayKey();s.sessions[d]=s.sessions[d]||{seconds:0,practised:false};s.sessions[d].practised=true;}
 function streak(s,today=dayKey()){const keys=Object.keys(s.sessions).filter(k=>s.sessions[k].practised).sort();let cur=s.sessions[today]?.practised?today:previousDay(today),n=0;while(s.sessions[cur]?.practised){n++;cur=previousDay(cur);}let best=0,run=0,last='';for(const k of keys){run=last===previousDay(k)?run+1:1;best=Math.max(best,run);last=k;}return {current:n,best};}
 function placementResult(answers){let pairs=0;for(let i=0;i<answers.length;i+=2){if(answers[i]&&answers[i+1])pairs++;else break;}return ['A1.1','A1.2','A2.1','B1.1','B2.1'][pairs];}
-function normalizeAnswer(value){return String(value??'').toLowerCase().replace(/[áéíóúü]/g,c=>({'á':'a','é':'e','í':'i','ó':'o','ú':'u','ü':'u'}[c])).replace(/[¿?¡!.,;:”“"']/g,' ').replace(/[-–—]/g,' ').replace(/\s+/g,' ').trim();}
+function normalizeAnswer(value){return String(value??'').normalize('NFC').toLowerCase().replace(/[áéíóúü]/g,c=>({'á':'a','é':'e','í':'i','ó':'o','ú':'u','ü':'u'}[c])).replace(/[¿?¡!.,;:”“"']/g,' ').replace(/[-–—]/g,' ').replace(/\s+/g,' ').trim();}
 function isCorrect(q,value){
  if(q.type!=='text')return value===q.answer;
  const answer=normalizeAnswer(value);
  return answer.length>0&&q.accepted.some(v=>normalizeAnswer(v)===answer);
 }
-const api={normalizeAnswer,isCorrect,dayKey,previousDay,fresh,recordAnswer,complete,markDay,streak,placementResult};root.Engine=api;if(typeof module!=='undefined')module.exports=api;
+function answerExplanation(q,value){
+ const key=normalizeAnswer(value);
+ const mistake=q.mistakes?.find(item=>normalizeAnswer(item.answer)===key);
+ return mistake?mistake.explanation:q.explanation;
+}
+const api={answerExplanation,normalizeAnswer,isCorrect,dayKey,previousDay,fresh,recordAnswer,complete,markDay,streak,placementResult};root.Engine=api;if(typeof module!=='undefined')module.exports=api;
 })(typeof window==='undefined'?globalThis:window);
