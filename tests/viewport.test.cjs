@@ -30,12 +30,14 @@ test('native safe areas remain CSS-pixel values with one source of layout paddin
 });
 
 test('native keyboard overlap hides app navigation and closing it restores the measured layout',()=>{
- const h=harness(),input=h.input();h.doc.activeElement=input;
+ const h=harness(),input=h.input(),scrolls=[];h.doc.activeElement=input;input.getBoundingClientRect=()=>({bottom:700});h.env.scrollBy=(x,y)=>scrolls.push([x,y]);
  h.env.FriendsToAmigosInsets(26,24,0,0,true,180);h.flush();
  assert.ok(h.classes.has('keyboard-open'));assert.equal(h.properties.get('--app-nav-height'),'0px');assert.equal(h.properties.get('--android-keyboard-overlap'),'180px');
- assert.equal(input.scrolls.length,1);assert.equal(h.doc.activeElement,input);
- h.doc.activeElement=null;h.env.FriendsToAmigosInsets(26,24,0,0,false);
+ assert.equal(input.scrolls.length,1);assert.equal(h.doc.activeElement,input);assert.deepEqual(scrolls,[[0,54]]);
+ // Samsung Back can close the IME while leaving the field focused.
+ h.env.FriendsToAmigosInsets(26,24,0,0,false);
  assert.equal(h.classes.has('keyboard-open'),false);assert.equal(h.properties.get('--app-nav-height'),'92px');assert.equal(h.properties.get('--android-keyboard-overlap'),'0px');
+ assert.equal(h.doc.activeElement,input);
 });
 
 test('text focus scrolls the existing field without stealing focus or opening file-input layout mode',()=>{

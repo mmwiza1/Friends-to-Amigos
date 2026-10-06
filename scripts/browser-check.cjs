@@ -45,10 +45,12 @@ async function run(){
    window.scrollTo(0,document.documentElement.scrollHeight);await frame();
    const last=[...document.querySelectorAll('#app button')].filter(e=>!e.closest('nav')).at(-1);assert(last.getBoundingClientRect().bottom<=rect.top+1,'last content reachable above fixed navigation');
    toast('Layout check');assert(document.querySelector('.toast').getBoundingClientRect().top>=24,'toast clears status bar');
+   actions.profile();render();document.querySelector('#name').focus();window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,true,0);await frame();assert(getComputedStyle(document.querySelector('nav')).display==='none','navigation hidden while native keyboard open');
+   window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,false,0);await frame();assert(getComputedStyle(document.querySelector('nav')).display!=='none','native keyboard close restores navigation even with field focus');document.querySelector('#name').blur();
    const lesson=C.lessons[0],textIndex=lesson.questions.findIndex(q=>q.type==='text');startQuiz('lesson',lesson.questions,lesson);quiz.index=textIndex;render();window.scrollTo(0,0);
    let input=document.querySelector('#written-answer');assert(input.enterKeyHint==='go','Go keyboard hint');input.focus();input.value='Mi llamo Ana';input.dispatchEvent(new Event('input',{bubbles:true}));
    window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,Boolean(config.keyboard),config.overlap||0);await frame();
-   assert(document.documentElement.classList.contains('keyboard-open'),'focused input uses keyboard layout');
+   assert(document.documentElement.classList.contains('keyboard-open')===Boolean(config.keyboard),'native keyboard state controls focused input layout');
    assert(input.getBoundingClientRect().bottom<=innerHeight-(config.overlap||0)+1,'focused answer visible above keyboard');
    const check=document.querySelector('#check-answer');window.scrollTo(0,document.documentElement.scrollHeight);await frame();assert(check.getBoundingClientRect().bottom<=innerHeight-(config.overlap||0)+1,'Check button can scroll above keyboard');
    input.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));await frame();assert(quiz.checked&&quiz.answers.length===1,'Go uses existing check flow');
@@ -68,4 +70,8 @@ async function run(){
  }
  console.log('Browser checks passed: '+scenarios.length+' layouts, '+totalChecks+' layout/interaction assertions. Native insets/keyboard are simulated, not device-tested.');
 }
-run().catch(error=>{console.error(error.stack);process.exitCode=1;}).finally(()=>{child.kill();fs.rmSync(profile,{recursive:true,force:true});});
+run().catch(error=>{console.error(error.stack);process.exitCode=1;}).finally(async()=>{
+ // Chrome must stop writing its profile before cleanup removes it.
+ if(child.pid&&child.exitCode===null&&child.signalCode===null)await new Promise(resolve=>{child.once('close',resolve);child.kill();});
+ fs.rmSync(profile,{recursive:true,force:true,maxRetries:5,retryDelay:100});
+});

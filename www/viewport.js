@@ -25,7 +25,7 @@ function create(env){
   const visual=env.visualViewport;
   const browserOverlap=!native&&focused&&visual?Math.max(0,env.innerHeight-visual.height-visual.offsetTop):0;
   const browserKeyboard=browserOverlap>120;
-  const open=keyboard||browserKeyboard||focused;
+  const open=keyboard||browserKeyboard||(!native&&focused);
   html.classList.toggle('keyboard-open',Boolean(open));
   html.style.setProperty('--android-keyboard-overlap',(native?overlap:browserKeyboard?browserOverlap:0)+'px');
   const nav=doc.querySelector('nav[aria-label="Main navigation"]');
