@@ -42,7 +42,7 @@ The Games tab offers **Conjugations: 208 original authored questions (104 A1.1, 
 
 Eligibility follows completed teaching activities and context units, not the profile/viewed stage or game score. Each form names a positive course model as its prerequisite. A1.2 placement assumes A1.1 foundations, without fabricating completions; new A1.2 forms require their teaching activities. A fresh learner needs introductory/personal-information practice before enough varied material is available for a ten-item round.
 
-Rounds contain ten unique eligible items with shuffled questions/options, subject-person coverage and weighted verb/concept variety. Up to 30 recently answered items are avoided when enough alternatives exist. Mistakes increase question/concept weights; repeated success reduces weights without removing retrieval forever. Rotation relaxes when the unlocked bank is small. The result shows score/best at the unlocked unit level, modest concept signals and a happy bull. Five-item **Practise my mistakes** favours related alternatives. **Challenge me** uses the hardest already eligible material once multi-blank practice is available. A higher difficulty appears only through course progress.
+Rounds contain ten unique eligible items with shuffled questions/options, subject-person coverage and weighted verb/concept variety. Up to 30 recently shown items are avoided when enough alternatives exist. Mistakes increase question/concept weights; repeated success reduces weights without removing retrieval forever. Rotation relaxes when the unlocked bank is small. The result shows score/best at the unlocked unit level, modest concept signals and a happy bull. Five-item **Practise my mistakes** favours related alternatives. **Challenge me** uses the hardest already eligible material once multi-blank practice is available. A higher difficulty appears only through course progress.
 
 Game rounds save separately, including shuffled options and checked feedback. Android Back returns to Games safely; Resume saved game preserves the attempt. Game scores never complete lessons/checkpoints, award capabilities or alter placement/start stage. Completed rounds count as practice days, and active game time uses the existing session-time records.
 
@@ -70,7 +70,7 @@ npm run check:browser # requires a local Chrome/Chromium binary
 
 Open http://localhost:4173, or open `www/index.html` directly. File-origin storage and offline voice availability depend on the browser. `check` validates syntax, identities, ordering, grading data and future-stage availability. `audit` emits reproducible surface-word recycling statistics, with its limitations stated in the output.
 
-The suite has **222 individual tests**: the existing 186 plus 21 game-bank/engine/persistence tests and 15 game/navigation/lesson-continuation app regressions. It renders and completes all 144 activities/832 course questions, and protects old saves and both export paths. Simulated browser/bridge tests do not establish real Android or acoustic performance. See [BUILD_STATUS.md](BUILD_STATUS.md) for the exact validation boundary.
+The suite has **227 individual tests**: the existing 186 plus 26 game-bank/engine/persistence tests and 15 game/navigation/lesson-continuation app regressions. It renders and completes all 144 activities/832 course questions, and protects old saves and both export paths. Simulated browser/bridge tests do not establish real Android or acoustic performance. See [BUILD_STATUS.md](BUILD_STATUS.md) for the exact validation boundary.
 
 ## Android build
 

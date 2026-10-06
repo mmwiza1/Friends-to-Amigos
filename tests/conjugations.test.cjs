@@ -87,3 +87,19 @@ test('incorrect checked-result snapshots cannot impersonate a correct game answe
 test('fresh selection is pure and game resume preserves stored historical wording/options',()=>{
  const s=learner(),before=JSON.stringify(s);const a=G.build(s,C);assert.equal(JSON.stringify(s),before);s.games=G.empty();s.games.active=a;a.questions[0].sentence='Historical wording: '+a.questions[0].sentence;const saved=P.parse(JSON.stringify(s),C,{import:true}).state;assert.equal(saved.games.active.questions[0].sentence,a.questions[0].sentence);
 });
+test('recent history includes a shown question even if a game is safely abandoned before answering',()=>{
+ const s=learner();s.games=G.empty();s.games.active=G.build(s,C,'normal',[],rng(8));const first=s.games.active.questions[0].id;G.rememberShown(s);G.rememberShown(s);assert.deepEqual(s.games.recent,[first]);const next=G.build(s,C,'normal',[],rng(8));assert.ok(next.questions.every(q=>q.id!==first));
+});
+test('a forged active game cannot bypass main-course eligibility through import',()=>{
+ const s=learner('A1.2');s.games=G.empty();s.games.active=G.build(s,C);s.completed=[];assert.throws(()=>P.parse(JSON.stringify(s),C,{import:true}),/damaged/);assert.equal(P.migrateState(s,C).state.games.active,null);
+});
+test('next-difficulty action appears only after real course progress expands eligibility',()=>{
+ const s=learner('A1.1',1);s.games=G.empty();s.games.active=G.build(s,C);const r=finish(s);const html=V.result({state:s,C,G,round:r,b:button,esc:escape});assert.ok(!html.includes('Next difficulty'));
+ s.completed=C.lessons.filter(l=>l.stage==='A1.1'&&l.unit<=2).map(l=>l.id);assert.ok(V.result({state:s,C,G,round:r,b:button,esc:escape}).includes('Next difficulty'));assert.deepEqual(s.capabilities,[]);
+});
+test('small unlocked pools still choose every available fresh item before recent repeats',()=>{
+ const s=learner('A1.1',1),pool=G.eligible(s,C);s.games=G.empty();s.games.recent=pool.slice(0,20).map(q=>q.id);const a=G.build(s,C,'normal',[],rng(5));for(const q of pool.slice(20))assert.ok(a.questions.some(x=>x.id===q.id));assert.equal(a.questions.length,10);
+});
+test('later unhinted context sometimes requires choosing both the verb and its person/number',()=>{
+ const q=B.questions.find(q=>q.id==='conj-a12-039'),b=q.blanks[0];assert.equal(b.infinitive,null);assert.ok(b.options.includes('soy'));assert.ok(b.options.includes('estoy'));assert.equal(b.answer,'tengo');assert.match(b.mistakes.estoy,/tengo hambre/);
+});

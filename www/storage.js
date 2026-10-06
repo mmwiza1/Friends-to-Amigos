@@ -101,7 +101,7 @@ function migrateState(raw,course,options={}){
  }
  if(typeof raw.onboarded!=='boolean'&&(state.active||state.completed.length)){state.onboarded=true;warnings.push('Your existing learning progress restored the onboarding status.');}
  state.startStage=Path.inferStart({...state,startStage:raw.startStage},course);
- if(raw.games!==undefined){const result=Games.sanitize(raw.games);state.games=result.data;if(result.warnings.length)quarantine('game','games',raw.games);}
+ if(raw.games!==undefined){const result=Games.sanitize(raw.games,state,course);state.games=result.data;if(result.warnings.length)quarantine('game','games',raw.games);}
  if(options.import&&warnings.some(message=>message.includes('damaged')))throw Error('This backup contains damaged questions or an unsafe unfinished attempt.');
  // Unknown fields never enter runtime state. Quarantine is exported, never rendered as code.
  return {state,warnings:[...new Set(warnings)],migrated:raw.version!==VERSION};

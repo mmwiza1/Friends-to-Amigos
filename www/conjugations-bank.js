@@ -291,6 +291,24 @@ z(101,7,'Yo ___ una camisa, me la ___ y ___ con tarjeta.','necesito llevo pago',
 z(102,7,'Me ___ los libros, ___ leer y después me ___.','gustan prefiero acuesto',false);
 z(103,7,'Nosotros ___ ir al parque; Ana ___ con nosotros y luego ___ café.','podemos viene tomamos',false);
 z(104,7,'Me ___ a las siete, ___ por la mañana y por la tarde ___ a estudiar.','levanto trabajo voy',false);
+// A few later, unhinted items contrast verbs as well as person endings.
+// Only use complements that make the intended everyday meaning unambiguous.
+function contrast(number,index,options,mistakes){const q=bank.find(q=>q.id==='conj-a12-'+String(number).padStart(3,'0'));q.blanks[index].options=options;q.blanks[index].mistakes=mistakes;}
+contrast(39,0,['tengo','soy','estoy','tienes'],{
+ soy:'Soy gives identity or origin. Hunger uses tener: tengo hambre, literally “I have hunger”.',
+ estoy:'Although hunger is a feeling, Spanish says tengo hambre, not estoy hambre.',
+ tienes:'Tienes goes with tú. For your own hunger use yo tengo hambre.'
+});
+contrast(91,1,['tengo','soy','estoy','tienes'],{
+ soy:'For something you have to do, use tener que + action: tengo que trabajar. Soy gives identity.',
+ estoy:'Use tengo que trabajar for “I have to work”; estar cannot replace tener in this pattern.',
+ tienes:'Tienes que trabajar addresses one friend. The speaker needs tengo que trabajar.'
+});
+contrast(102,0,['gustan','gusta','son','están'],{
+ gusta:'The things liked are plural: los libros. Use me gustan los libros, not me gusta los libros.',
+ son:'Son describes what things are. To say you like books, use me gustan los libros.',
+ 'están':'Están locates things or describes their current state. Likes use me gustan with plural books.'
+});
 root.ConjugationsBank={questions:bank,persons,definitions};
 if(typeof module!=='undefined')module.exports=root.ConjugationsBank;
 })(typeof window==='undefined'?globalThis:window);

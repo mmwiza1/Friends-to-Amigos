@@ -33,7 +33,7 @@ function build(state,course,mode='normal',mistakes=[],rng=Math.random,now=Date.n
  const limit=mode==='mistakes'?Math.min(5,pool.length):10,chosen=[],used={},recent=new Set(data.recent.slice(-30));
  for(let slot=0;slot<limit;slot++){
   const remaining=pool.filter(q=>!chosen.includes(q));const fresh=remaining.filter(q=>!recent.has(q.id)&&!(mode==='mistakes'&&mistakes.includes(q.id)));
-  let candidates=fresh.length>=limit-slot?fresh:remaining;
+  let candidates=fresh.length?fresh:remaining;
   // Cover available subject persons before repeating them. Multi-blank items
   // can supply several persons; weighting then balances verbs/concepts.
   const unseen=candidates.filter(q=>q.blanks.some(b=>!used['person-'+b.person]));
@@ -51,6 +51,7 @@ function build(state,course,mode='normal',mistakes=[],rng=Math.random,now=Date.n
  const questions=shuffle(chosen,rng).map(q=>({...clone(q),blanks:q.blanks.map(b=>({...clone(b),options:shuffle(b.options,rng)}))}));
  return {mode,stage:info.stage,difficulty:info.stage+' · unit '+(Math.max(...info.pool.filter(q=>q.stage===info.stage).map(q=>q.unit))+1),questions,index:0,selected:questions[0].blanks.map(()=>null),checked:false,results:[],started:now};
 }
+function rememberShown(state){const data=state.games,q=data?.active?.questions[data.active.index];if(q&&data.recent.at(-1)!==q.id)data.recent=[...data.recent,q.id].slice(-30);}
 function evaluate(q,selected){return q.blanks.map((b,i)=>({selected:selected[i],answer:b.answer,correct:selected[i]===b.answer,explanation:selected[i]===b.answer?'Well done. '+b.explanation:b.mistakes[selected[i]]||b.explanation}));}
 function check(state){const a=state.games?.active,q=a?.questions[a.index];if(!q||a.checked||a.selected.length!==q.blanks.length||a.selected.some((value,i)=>!q.blanks[i].options.includes(value)))return null;const details=evaluate(q,a.selected);a.checked=true;a.results.push({id:q.id,correct:details.every(b=>b.correct),details});return details;}
 function advance(state,now=Date.now()){
@@ -60,8 +61,8 @@ function advance(state,now=Date.now()){
  update(data.questions,q.id,result.correct);
  // A concept is one observation per item, not inflated by repeated tags/blanks.
  for(const concept of q.concepts){const relevant=q.blanks.filter(b=>b.concept===concept||'person-'+b.person===concept);update(data.concepts,concept,relevant.every(b=>a.selected[q.blanks.indexOf(b)]===b.answer));}
- data.recent=[...data.recent,q.id].slice(-30);a.index++;a.checked=false;
- if(a.index<a.questions.length){a.selected=a.questions[a.index].blanks.map(()=>null);return null;}
+ rememberShown(state);a.index++;a.checked=false;
+ if(a.index<a.questions.length){a.selected=a.questions[a.index].blanks.map(()=>null);rememberShown(state);return null;}
  const observations={};
  for(let i=0;i<a.questions.length;i++)for(const concept of a.questions[i].concepts){
   const q=a.questions[i],details=a.results[i].details,relevant=q.blanks.map((b,j)=>b.concept===concept||'person-'+b.person===concept?details[j]:null).filter(Boolean),entry=observations[concept]||{attempts:0,correct:0};entry.attempts++;entry.correct+=relevant.every(d=>d.correct)?1:0;observations[concept]=entry;
@@ -70,7 +71,7 @@ function advance(state,now=Date.now()){
  data.rounds=[...data.rounds,round].slice(-40);data.active=null;return round;
 }
 function summary(data,round){return round.concepts.map(id=>{const s=data.concepts[id]||{attempts:0,correct:0};return {id,label:id.startsWith('person-')?Bank.persons[id.slice(7)]:({'regular-ar':'Regular -ar','regular-er':'Regular -er','regular-ir':'Regular -ir','gustar-singular':'Gusta: one thing or activity','gustar-plural':'Gustan: plural things',reflexive:'Daily routine forms',irregular:'Common irregulars',names:'Giving and asking names',prices:'Singular/plural prices',existence:'There is/are'})[id]||id,status:(round.observations?.[id]||s).correct/(round.observations?.[id]||s).attempts>=.8?'Strong today':(round.observations?.[id]||s).correct/(round.observations?.[id]||s).attempts>=.5?'Improving':'Needs more practice',attempts:s.attempts};});}
-function sanitize(raw){
+function sanitize(raw,state=null,course=null){
  const data=empty(),warnings=[];if(!object(raw))return {data,warnings:['Some damaged game data was preserved for recovery.']};
  const validNumber=x=>Number.isInteger(x)&&x>=0&&x<=1000000,validTime=x=>typeof x==='number'&&Number.isFinite(x)&&x>=0&&x<=4102444800000;
  for(const kind of ['questions','concepts'])if(object(raw[kind]))for(const [key,s] of Object.entries(raw[kind])){
@@ -85,9 +86,10 @@ function sanitize(raw){
   valid=valid&&a.questions.every(q=>{const authored=byId.get(q?.id);return authored&&q.stage===authored.stage&&typeof q.sentence==='string'&&q.sentence.length<2000&&(q.sentence.match(/___/g)||[]).length===q.blanks?.length&&Array.isArray(q.blanks)&&q.blanks.length===authored.blanks.length&&q.blanks.every((b,i)=>object(b)&&b.answer===authored.blanks[i].answer&&b.person===authored.blanks[i].person&&b.concept===authored.blanks[i].concept&&b.verb===authored.blanks[i].verb&&(b.infinitive===null||typeof b.infinitive==='string'&&b.infinitive.length<100)&&typeof b.explanation==='string'&&b.explanation.length<3000&&object(b.mistakes)&&Object.entries(b.mistakes).every(([k,v])=>typeof k==='string'&&typeof v==='string'&&v.length<3000)&&Array.isArray(b.options)&&b.options.length===authored.blanks[i].options.length&&new Set(b.options).size===b.options.length&&b.options.every(v=>authored.blanks[i].options.includes(v)))&&Array.isArray(q.concepts)&&JSON.stringify(q.concepts)===JSON.stringify(authored.concepts);});
   valid=valid&&Array.isArray(a.selected)&&a.selected.length===a.questions[a.index].blanks.length&&a.selected.every((v,i)=>v===null||a.questions[a.index].blanks[i].options.includes(v))&&(!a.checked||a.selected.every(v=>v!==null));
   valid=valid&&a.results.every((r,i)=>{const q=a.questions[i];return object(r)&&r.id===q.id&&typeof r.correct==='boolean'&&Array.isArray(r.details)&&r.details.length===q.blanks.length&&r.details.every((d,j)=>object(d)&&q.blanks[j].options.includes(d.selected)&&d.answer===q.blanks[j].answer&&d.correct===(d.selected===d.answer)&&typeof d.explanation==='string'&&d.explanation.length<3000)&&r.correct===r.details.every(d=>d.correct)&&(!a.checked||i!==a.index||r.details.every((d,j)=>d.selected===a.selected[j]));});
+  if(valid&&state&&course){const allowed=new Set(eligible(state,course).map(q=>q.id));valid=a.questions.every(q=>allowed.has(q.id));}
   if(valid)data.active=clone(a);else warnings.push('Some damaged game data was preserved for recovery.');
  }
  return {data,warnings};
 }
-root.Conjugations={empty,eligible,available,shuffle,weight,build,evaluate,check,advance,summary,sanitize};if(typeof module!=='undefined')module.exports=root.Conjugations;
+root.Conjugations={empty,eligible,available,shuffle,weight,build,rememberShown,evaluate,check,advance,summary,sanitize};if(typeof module!=='undefined')module.exports=root.Conjugations;
 })(typeof window==='undefined'?globalThis:window);

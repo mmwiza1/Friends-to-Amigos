@@ -103,7 +103,7 @@ The 0.5.0 clarity/mobile pass retains schema v2, the existing discovery key, mig
 
 ## Optional schema-v2 game records
 
-`games` is absent from older saves and created on first play. It contains `recent` (last 30 completed question IDs), `questions` and `concepts` (attempt/correct/streak/lastSeen counters), `rounds` (last 40 scored rounds, difficulty/mode/mistakes/current-round observations) and `active` (snapshot of selected/shuffled authored questions, position, choices, checked feedback and results). It never reuses course `active`, review IDs or completion records. There is no schema bump or discovery-key change.
+`games` is absent from older saves and created on first play. It contains `recent` (last 30 shown question IDs), `questions` and `concepts` (attempt/correct/streak/lastSeen counters), `rounds` (last 40 scored rounds, difficulty/mode/mistakes/current-round observations) and `active` (snapshot of selected/shuffled authored questions, position, choices, checked feedback and results). It never reuses course `active`, review IDs or completion records. There is no schema bump or discovery-key change.
 
 Game IDs use the permanent `conj-a11-001` / `conj-a12-001` namespaces, protected by `conjugations-ids.json`. Explicit authored numbers remain stable across runtime randomisation. Each blank has its own options, answer, person, grammar concept, explanation and distractor explanations; prerequisite activity IDs link it to the main course.
 
