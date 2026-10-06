@@ -37,7 +37,7 @@ test('audio-first transcripts have coherent offline metadata and no initial read
  for(const q of C.lessons.flatMap(l=>l.questions).filter(q=>q.listening)){assert.equal(q.mode,'listening');assert.equal(q.listening.lang,'es-ES');assert.ok(q.listening.rate>=.8&&q.listening.rate<=1);assert.ok(q.listening.transcript);assert.ok(!q.reading);assert.notEqual(q.prompt,q.listening.transcript);assert.equal(P.question(q).listening.transcript,q.listening.transcript);}
 });
 test('all misconception examples remain incorrect and have targeted nonempty feedback',()=>{
- let examples=0;for(const q of C.lessons.flatMap(l=>l.questions))for(const m of q.mistakes||[]){assert.ok(!E.isCorrect(q,m.answer),q.id+': '+m.answer);assert.equal(E.answerExplanation(q,m.answer),m.explanation);examples++;}assert.equal(examples,71);
+ let examples=0;for(const q of C.lessons.flatMap(l=>l.questions))for(const m of q.mistakes||[]){assert.ok(!E.isCorrect(q,m.answer),q.id+': '+m.answer);assert.equal(E.answerExplanation(q,m.answer),m.explanation);examples++;}assert.equal(examples,71+C.learnerClarityAudit.addedMistakes);
 });
 test('checkpoint transfer is not just a repeat of the preceding writing activity',()=>{
  for(const l of C.lessons.filter(l=>l.checkpoint)){

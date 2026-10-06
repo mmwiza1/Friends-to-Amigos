@@ -294,5 +294,7 @@ const review=typeof module!=='undefined'?require('./a1-review.js'):root.A1Review
 review.apply(data);
 const practice=typeof module!=='undefined'?require('./a1-practice.js'):root.A1Practice;
 practice.apply(data);
+const clarity=typeof module!=='undefined'?require('./learner-clarity.js'):root.LearnerClarity;
+clarity.apply(data);
 root.Curriculum=data;if(typeof module!=='undefined')module.exports=data;
 })(typeof window==='undefined'?globalThis:window);

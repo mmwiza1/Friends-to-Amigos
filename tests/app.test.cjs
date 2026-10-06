@@ -3,8 +3,8 @@ const assert=require('node:assert/strict');
 const vm=require('node:vm');
 const fs=require('node:fs');
 function app(extra={},initial=null){
- const handlers={},lifecycle={},storage=initial?{'friends-to-amigos-v1':JSON.stringify(initial)}:{},effects={blobs:[],links:[],toasts:[]};
- const el={innerHTML:'',addEventListener:(type,fn)=>handlers[type]=fn};
+ const handlers={},lifecycle={},storage=initial?{'friends-to-amigos-v1':JSON.stringify(initial)}:{},effects={blobs:[],links:[],toasts:[],focused:[]};
+ const el={innerHTML:'',addEventListener:(type,fn)=>handlers[type]=fn,querySelector:selector=>{const match=selector.match(/^\[data-action="answer"\]\[data-index="(\d+)"\]$/);return match?{focus(){effects.focused.push(match[1]);}}:null;}};
  const nodes={app:el,stage:{value:'A2.1'},'check-answer':{disabled:true},importfile:{click(){}}};
  const ctx={console,Date,JSON,Math,String,Number,Object,Array,Set,Map,Blob,
   // Simulated installed voice. Individual failure tests override this explicitly.
@@ -21,6 +21,7 @@ function app(extra={},initial=null){
  for(const f of [...fs.readFileSync('www/index.html','utf8').matchAll(/<script src="([^"]+)"/g)].map(m=>m[1]))vm.runInContext(fs.readFileSync('www/'+f,'utf8'),ctx);
  const api={el,ctx,effects,nodes,storage,lifecycle,click:(action,data={})=>handlers.click({target:{closest:()=>({dataset:{action,...data}})}}),
   input:value=>handlers.input({target:{id:'written-answer',value}}),
+  key:(key,details={})=>{let prevented=false;handlers.keydown({key,target:{id:'written-answer',value:''},preventDefault(){prevented=true;},...details});return prevented;},
   current:()=>vm.runInContext('quiz?.questions[quiz.index]',ctx),
   state:()=>JSON.parse(storage['friends-to-amigos-v1']),
   import:async data=>handlers.change({target:{id:'importfile',files:[{text:async()=>typeof data==='string'?data:JSON.stringify(data)}]}})
@@ -66,9 +67,9 @@ test('five-question lessons show the correct bull result',()=>{
 test('gap feedback shows the completed sentence and a missed gap survives resume',()=>{
  const a=app();a.click('begin');a.answer();a.click('check');a.click('next');
  assert.match(a.el.innerHTML,/Complete:/);assert.match(a.el.innerHTML,/fills all gaps, in order/);
- a.answer(false);a.click('check');assert.match(a.el.innerHTML,/Me llamo Ana/);assert.match(a.el.innerHTML,/needs me/);
+ a.answer(false);a.click('check');assert.match(a.el.innerHTML.replace(/<\/?mark>/g,''),/Me llamo Ana/);assert.match(a.el.innerHTML,/needs me/);
  const review=Object.values(a.state().reviews)[0];assert.equal(review.question.type,'gap');
- const resumed=app({},a.state());resumed.click('continue');assert.match(resumed.el.innerHTML,/Me llamo Ana/);
+ const resumed=app({},a.state());resumed.click('continue');assert.match(resumed.el.innerHTML.replace(/<\/?mark>/g,''),/Me llamo Ana/);
 });
 test('story reading waits for the learner, provides glossary and supports bilingual short answers',()=>{
  const a=app(),story=a.ctx.Curriculum.lessons.find(l=>l.id==='u0story0');a.click('lesson',{id:story.id});
@@ -301,4 +302,105 @@ test('question progress uses current position with accurate labels and never exc
 
 test('Today maintains the final chapter for a normal A1.1 graduate instead of returning only to beginner chunks',()=>{
  const seed=app(),s=seed.ctx.Engine.fresh();s.onboarded=true;s.completed=seed.ctx.Curriculum.lessons.map(l=>l.id);const a=app({},s);a.click('today');assert.ok(a.current().id.startsWith('a12'));assert.equal(a.state().active,null);assert.equal(a.state().completed.length,144);
+});
+
+function go(a,value,details={}){return a.key('Enter',{target:{id:'written-answer',value},...details});}
+function locateQuestion(a,predicate){
+ for(const lesson of a.ctx.Curriculum.lessons){const index=lesson.questions.findIndex(predicate);if(index>=0){a.click('lesson',{id:lesson.id});if(lesson.reading)a.click('readStory');for(let i=0;i<index;i++){a.answer();a.click('check');a.click('next');}return a.current();}}
+ throw new Error('No authored question matched the test scenario');
+}
+test('written answers advertise Go and Enter follows the same correct scoring flow as Check answer',()=>{
+ const keyboard=app(),button=app();keyboard.click('lesson',{id:'u0write'});button.click('lesson',{id:'u0write'});
+ assert.match(keyboard.el.innerHTML,/id="written-answer"[^>]*enterkeyhint="go"/);
+ const value=keyboard.current().accepted[0];assert.equal(go(keyboard,value),true);button.input(value);button.click('check');
+ assert.match(keyboard.el.innerHTML,/✓ Correct/);assert.deepEqual(keyboard.state().active,button.state().active);
+ assert.equal(keyboard.state().events.filter(e=>e.type==='answer').length,1);assert.equal(keyboard.state().events.at(-1).correct,true);
+ assert.equal(Object.keys(keyboard.state().reviews).length,0);
+});
+test('empty Go leaves the text question and saved attempt untouched without a rerender',()=>{
+ const a=app();a.click('lesson',{id:'u0write'});a.input('   ');const before=JSON.stringify(a.state()),html=a.el.innerHTML;
+ for(const value of ['', '   ', '\t'])assert.equal(go(a,value),true);
+ assert.equal(JSON.stringify(a.state()),before);assert.equal(a.el.innerHTML,html);assert.equal(a.state().active.checked,false);
+});
+test('Enter cannot submit an already checked question or overwrite its learner answer',()=>{
+ const a=app();a.click('lesson',{id:'u0write'});const value=a.current().accepted[0];go(a,value);const before=JSON.stringify(a.state()),html=a.el.innerHTML;
+ for(let i=0;i<3;i++)go(a,'different response');assert.equal(JSON.stringify(a.state()),before);assert.equal(a.el.innerHTML,html);
+ assert.equal(a.state().active.selected,value);assert.equal(a.state().active.answers.length,1);
+});
+test('IME composition, repeat and non-Enter keys do not submit written answers',()=>{
+ const a=app();a.click('lesson',{id:'u0write'});const value=a.current().accepted[0],before=JSON.stringify(a.state());
+ assert.equal(go(a,value,{isComposing:true}),false);assert.equal(go(a,value,{keyCode:229}),false);assert.equal(go(a,value,{repeat:true}),false);
+ assert.equal(a.key('a',{target:{id:'written-answer',value}}),false);assert.equal(JSON.stringify(a.state()),before);
+ assert.equal(go(a,value,{keyCode:13}),true);assert.equal(a.state().active.answers.length,1);assert.match(a.el.innerHTML,/✓ Correct/);
+});
+test('Go remains locked for a listening text question until audio genuinely starts',()=>{
+ const played=[],a=app({speechSynthesis:{getVoices:()=>[{lang:'es-ES',localService:true}],cancel(){},speak:u=>played.push(u)}});
+ const q=locateQuestion(a,q=>q.type==='text'&&q.listening),value=q.accepted[0],before=JSON.stringify(a.state());
+ assert.match(a.el.innerHTML,/Listen, then write your answer/);assert.match(a.el.innerHTML,/id="written-answer"[^>]*disabled/);
+ go(a,value);assert.equal(JSON.stringify(a.state()),before);a.click('listen');go(a,value);assert.equal(a.state().active.checked,false);
+ played.at(-1).onstart();go(a,value);assert.equal(a.state().active.checked,true);assert.match(a.el.innerHTML,/✓ Correct/);
+ assert.equal(a.state().events.filter(e=>e.questionId===q.id).length,1);
+});
+test('multiple choice exposes a radio group, clear selection and the unchanged select-then-check flow',()=>{
+ const a=app();a.click('begin');const q=a.current(),index=q.options.indexOf(q.answer),events=a.state().events.length;
+ assert.match(a.el.innerHTML,/Choose one answer/);assert.match(a.el.innerHTML,/class="choices quiz-choices" role="radiogroup"/);
+ assert.equal((a.el.innerHTML.match(/role="radio" aria-checked="false"/g)||[]).length,q.options.length);
+ assert.equal((a.el.innerHTML.match(/class="option-indicator" aria-hidden="true"/g)||[]).length,q.options.length);
+ a.click('answer',{index:String(index)});assert.equal(a.state().active.checked,false);assert.equal(a.state().events.length,events);
+ assert.equal(a.effects.focused.at(-1),String(index));
+ assert.match(a.el.innerHTML,new RegExp('data-index="'+index+'" role="radio" aria-checked="true" tabindex="0"'));
+ assert.equal((a.el.innerHTML.match(/aria-checked="true"/g)||[]).length,1);a.click('check');assert.equal(a.state().active.answers.at(-1),true);
+ assert.equal(a.state().events.length,events+1);assert.match(a.el.innerHTML,/✓ Correct/);
+});
+test('radio arrow, Home and End keys select options without prematurely scoring',()=>{
+ const a=app();a.click('begin');const q=a.current(),events=a.state().events.length;
+ const key=(key,index)=>a.key(key,{target:{closest:()=>({dataset:{index:String(index)}})}});
+ assert.equal(key('ArrowRight',0),true);assert.equal(a.state().active.selected,q.options[1]);assert.equal(a.effects.focused.at(-1),'1');
+ assert.equal(key('ArrowLeft',0),true);assert.equal(a.state().active.selected,q.options.at(-1));
+ assert.equal(key('Home',q.options.length-1),true);assert.equal(a.state().active.selected,q.options[0]);assert.equal(a.effects.focused.at(-1),'0');
+ assert.equal(key('End',0),true);assert.equal(a.state().active.selected,q.options.at(-1));assert.equal(a.state().events.length,events);
+ a.click('check');const before=JSON.stringify(a.state());assert.equal(key('ArrowDown',0),false);assert.equal(JSON.stringify(a.state()),before);
+});
+test('all exercise interactions show their concise required-action instruction',()=>{
+ const a=app();for(const [predicate,label] of [
+  [q=>q.type==='text'&&q.language==='es'&&!q.listening,'Write in Spanish'],
+  [q=>q.type==='text'&&q.language==='en-or-es'&&!q.listening,'Write your answer'],
+  [q=>q.type==='gap','Complete the sentence'],
+  [q=>q.type==='choice'&&q.listening,'Listen, then choose one answer'],
+  [q=>q.type==='text'&&q.listening,'Listen, then write your answer'],
+  [q=>q.type==='speaking','Say your answer aloud']
+ ]){locateQuestion(a,predicate);assert.ok(a.el.innerHTML.includes('<p id="exercise-instruction" class="exercise-instruction">'+label+'</p>'));}
+});
+test('wrong typed feedback shows the learner response, a natural model and why while escaping supplied HTML',()=>{
+ const a=app();a.click('lesson',{id:'u0write'});const value='Mi <img src=x onerror=alert(1)> & nombre';go(a,value);
+ assert.match(a.el.innerHTML,/Your answer/);assert.match(a.el.innerHTML,/A natural answer/);assert.match(a.el.innerHTML,/feedback-label">Why/);
+ assert.match(a.el.innerHTML,/&lt;img/);assert.match(a.el.innerHTML,/onerror=alert\(1\)&gt;/);assert.match(a.el.innerHTML,/&amp;/);assert.doesNotMatch(a.el.innerHTML,/<img src=x/);
+ assert.equal(a.state().active.selected,value);assert.equal(a.state().active.answers.at(-1),false);
+ const feedback=a.ctx.Engine.answerFeedback(a.current(),value);assert.equal(feedback.learner,value);assert.ok(a.el.innerHTML.includes(escapeHTML(feedback.explanation)));
+ assert.equal(Object.values(a.state().reviews)[0].question.answer,a.current().answer);
+});
+test('authored common mistakes take precedence over deterministic comparison feedback in the quiz',()=>{
+ const a=app(),q=locateQuestion(a,q=>q.type==='text'&&q.language==='es'&&q.mistakes?.some(m=>/^mi llamo/i.test(m.answer)));
+ const mistake=q.mistakes.find(m=>/^mi llamo/i.test(m.answer));go(a,mistake.answer);
+ assert.match(a.el.innerHTML,/Let’s learn from this/);assert.ok(a.el.innerHTML.includes(escapeHTML(mistake.explanation)));
+ assert.equal(a.ctx.Engine.answerFeedback(q,mistake.answer).kind,'authored');assert.equal(a.ctx.Engine.answerExplanation(q,mistake.answer),mistake.explanation);
+ assert.equal(a.state().active.selected,mistake.answer);assert.equal(a.state().events.at(-1).correct,false);
+});
+test('unexpected wrong answers receive transparent comparison without changing accepted-answer scoring',()=>{
+ const a=app();a.click('lesson',{id:'u0write'});go(a,'xyz unfamiliar phrase');
+ const q=a.current(),feedback=a.ctx.Engine.answerFeedback(q,'xyz unfamiliar phrase');
+ assert.match(feedback.explanation,/outside the accepted examples/);assert.match(feedback.explanation,/another phrasing may still be valid/);
+ assert.ok(a.el.innerHTML.includes(escapeHTML(feedback.explanation)));assert.match(a.el.innerHTML,/<mark>/);assert.equal(a.state().active.answers.at(-1),false);
+ a.click('leave');a.click('review');a.input(q.accepted[0]);a.click('check');assert.match(a.el.innerHTML,/✓ Correct/);assert.equal(a.state().reviews[q.id].success,1);
+});
+test('historical written snapshots retain their own prompts, targets and explanations in improved feedback and review',()=>{
+ const legacy=JSON.parse(fs.readFileSync('tests/fixtures/legacy-progress.json','utf8')),original=legacy.active.questions[1];
+ const a=app({},legacy),before=JSON.parse(JSON.stringify(a.state().active.questions[1]));
+ for(const field of ['prompt','answer','accepted','explanation'])assert.deepEqual(before[field],original[field]);
+ for(const field of ['title','text','stage'])assert.equal(before.reading[field],original.reading[field]);
+ a.click('continue');go(a,'France');assert.match(a.el.innerHTML,/Your answer/);assert.match(a.el.innerHTML,/France/);
+ const saved=a.state().active.questions[1];for(const field of ['prompt','answer','accepted','reading','explanation'])assert.deepEqual(saved[field],before[field]);
+ assert.ok(a.el.innerHTML.includes(escapeHTML(before.explanation)));a.click('leave');a.click('review');const review=a.current();
+ for(const field of ['prompt','answer','accepted','reading','explanation'])assert.deepEqual(JSON.parse(JSON.stringify(review[field])),before[field]);
+ a.input('Inglaterra');a.click('check');assert.match(a.el.innerHTML,/✓ Correct/);
 });

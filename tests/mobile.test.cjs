@@ -1,8 +1,12 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require('node:crypto');
 const C=require('../www/curriculum'),E=require('../www/engine'),Path=require('../www/course-path');
-test('all authored Spanish curriculum sources and permanent identity definitions remain byte-for-byte unchanged',()=>{
+test('all original Spanish curriculum sources and permanent identity definitions remain unchanged beneath the prompt/feedback overlay',()=>{
  const hashes={"curriculum.js":"a2e3f415568568079148595416562063b9ea064015df21b61ebdd058edc84956","a12.js":"96764c50f40cb55300ed508be11ecf231eb02c797fe17af8d17510e13eb0aace","stories.js":"9ff2d21d2b1b2e7b24f5d7dce5c023e1235e5b82ece6bc379452d4001ab0aa01","a12-stories.js":"6468a83f9f9b8407ea501f6e587ac9e4a7047eb31dd0bd05cfeb42c1739b3b28","a1-review.js":"2214bf4042ab292d6d6e134527cdb43c90722da200d7f9f4d05864fcf2688fa6","a1-practice.js":"0d39beec2d894ac4ca60cd8d5ba3f46dbe8238900d5a7627128ca3aaaba78644","question-ids.js":"6e8ba0cd046e0e617f997a4f5964b439eeffe22be691152b22e37499547ec520"};
- for(const [file,hash] of Object.entries(hashes))assert.equal(crypto.createHash('sha256').update(fs.readFileSync('www/'+file)).digest('hex'),hash,file);
+ for(const [file,hash] of Object.entries(hashes)){
+  let source=fs.readFileSync('www/'+file,'utf8');
+  if(file==='curriculum.js')source=source.replace("const clarity=typeof module!=='undefined'?require('./learner-clarity.js'):root.LearnerClarity;\nclarity.apply(data);\n",'');
+  assert.equal(crypto.createHash('sha256').update(source).digest('hex'),hash,file);
+ }
 });
 test('normal path follows complete A1.1 then A1.2 order even when later lessons were manually attempted',()=>{
  const s=E.fresh();s.stage='A1.2';assert.equal(Path.next(s,C).id,C.lessons[0].id);s.completed=C.lessons.filter(l=>l.stage==='A1.1').map(l=>l.id);assert.equal(Path.next(s,C).id,'a12u0l0');s.completed.push('a12u1l0');assert.equal(Path.next(s,C).id,'a12u0l0');assert.equal(Path.complete(s,C),false);

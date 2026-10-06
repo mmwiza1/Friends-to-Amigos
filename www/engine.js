@@ -1,4 +1,5 @@
 (function(root){
+const Feedback=typeof module!=='undefined'?require('./answer-feedback.js'):root.AnswerFeedback;
 const dayKey=(d=new Date())=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 const previousDay=(key)=>{const [y,m,d]=key.split('-').map(Number);return dayKey(new Date(y,m-1,d-1));};
 function fresh(){return {version:2,name:'',onboarded:false,stage:'A1.1',startStage:'A1.1',placement:null,completed:[],capabilities:[],reviews:{},events:[],sessions:{},active:null,recovery:[]};}
@@ -23,7 +24,8 @@ function isCorrect(q,value){
 function answerExplanation(q,value){
  const key=normalizeAnswer(value);
  const mistake=q.mistakes?.find(item=>normalizeAnswer(item.answer)===key);
- return mistake?mistake.explanation:q.explanation;
+ return mistake?mistake.explanation:q.type==='text'&&!isCorrect(q,value)?answerFeedback(q,value).explanation:q.explanation;
 }
-const api={reviewKey,answerExplanation,normalizeAnswer,isCorrect,dayKey,previousDay,fresh,recordAnswer,complete,markDay,streak,placementResult};root.Engine=api;if(typeof module!=='undefined')module.exports=api;
+function answerFeedback(q,value){return Feedback.build(q,value,normalizeAnswer,isCorrect);}
+const api={answerFeedback,reviewKey,answerExplanation,normalizeAnswer,isCorrect,dayKey,previousDay,fresh,recordAnswer,complete,markDay,streak,placementResult};root.Engine=api;if(typeof module!=='undefined')module.exports=api;
 })(typeof window==='undefined'?globalThis:window);
