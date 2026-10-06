@@ -141,7 +141,7 @@ Use CEFR to define learner outcomes such as what a learner can understand, say, 
 
 **Recommendation:** primary level/outcome reference.
 
-## Proposed content-authoring workflow
+## Content-authoring workflow
 
 For every new unit:
 
@@ -157,6 +157,10 @@ This keeps the product distinctive while benefitting from mature open educationa
 
 ## Implemented written-course recommendations
 
-The app now uses practical unit outcomes, a small recurring cast, natural mini-dialogues, supported reading with varied comprehension, and recognition → completion → recall → response → transfer practice. Short Spanish production uses authored accepted variants and misconception feedback; story comprehension retains English/Spanish answers. Two regional notes preserve Spain-first usage without multiplying beginner targets. Lessons carry an outcome ID and original-authorship reference record. The eight-stage map has distinct future communicative targets and language-focus metadata, while later-stage exercises remain unimplemented.
+The app now uses practical unit outcomes, a small recurring cast, natural mini-dialogues, supported reading with varied comprehension, and recognition → completion → recall → response → transfer practice. Short Spanish production uses authored accepted variants and misconception feedback; story comprehension retains English/Spanish answers. Two regional notes preserve Spain-first usage without multiplying beginner targets. Lessons carry an outcome ID and original-authorship reference record. The eight-stage map has distinct future communicative targets and language-focus metadata, while A2.1–B2.2 exercises remain unimplemented.
 
 These are original Friends to Amigos exercises informed by this research. No source exercise, story or translation was copied or closely adapted. Future reuse remains subject to exact-item licensing; the research shortlist alone does not authorise redistribution. See [COURSE_DESIGN.md](../../COURSE_DESIGN.md) for actual course structure and assessment limits.
+
+## A1.2 implementation update
+
+A1.2 is now playable: eight practical units, 72 activities, 32 original stories and 392 question slots. Its connected-language progression covers preferences, invitations, future plans, clothes shopping, home and reflexive routines. `www/a12.js` and `www/a12-stories.js` follow the same original-authorship/reference policy as A1.1. No third-party wording or recording was imported or closely adapted. A2.1–B2.2 remain planned; curated human listening and exact-item asset attribution remain future work. All 54 automated tests pass, with preserved A1.1 content, saved snapshots and export/import.

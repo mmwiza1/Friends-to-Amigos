@@ -238,7 +238,7 @@ const writingSets=[
 // Course subdivisions are authoring targets, not certified CEFR descriptors.
 const stageInfo=[
  {id:'A1.1',status:'playable',goal:'Handle first meetings and short everyday exchanges',tasks:['Introduce yourself and exchange personal details','Order breakfast, ask prices and find places','Describe family, objects and simple meeting times'],languageSupport:'Story answers in English or Spanish; short practical replies in Spanish.',languageFocus:'Present-tense chunks, ser/estar, tener, agreement and basic questions'},
- {id:'A1.2',status:'planned',goal:'Manage a longer everyday exchange with simple connected sentences',tasks:['Arrange an outing and express likes','Shop for clothes and explain what you need','Describe your home and a typical day'],languageSupport:'Plan: English or Spanish comprehension; supported short Spanish messages.',languageFocus:'Present-tense consolidation, reflexive routines, ir a + infinitive and simple connectors'},
+ {id:'A1.2',status:'playable',goal:'Manage a longer everyday exchange with simple connected sentences',tasks:['Arrange an outing and express likes','Shop for clothes and explain what you need','Describe your home and a typical day'],languageSupport:'Story answers in English or Spanish; supported short Spanish messages.',languageFocus:'Present-tense consolidation, reflexive routines, ir a + infinitive and simple connectors'},
  {id:'A2.1',status:'planned',goal:'Describe familiar experiences and make practical plans',tasks:['Describe a recent trip or weekend','Compare travel options and book a room','Explain simple health needs'],languageSupport:'Plan: English or Spanish comprehension; short linked Spanish responses.',languageFocus:'Common past-event forms, comparisons and future plans'},
  {id:'A2.2',status:'planned',goal:'Resolve routine problems and explain a short sequence of events',tasks:['Explain a travel or shopping problem','Describe a past habit and what changed','Write a practical request or invitation'],languageSupport:'Plan: English or Spanish comprehension; scaffolded Spanish paragraphs.',languageFocus:'Past-event versus habitual background, polite requests and sequencing'},
  {id:'B1.1',status:'planned',goal:'Tell a connected story and explain personal choices',tasks:['Narrate an experience with background','Give reasons for a preference','Summarise the main point of a familiar text'],languageSupport:'Plan: move towards Spanish comprehension with vocabulary support.',languageFocus:'Connected past narration, reasons and everyday opinion expressions'},
@@ -281,6 +281,12 @@ const numbers=[
  pick('What number is mil?','1000',['100','10000'],'Mil is one thousand.','Numbers','recognition','Mil')
 ];
 const time=[...lessonSets[7].flat()];
-const data={q,cast,unitInfo,units,stages,stageInfo,lessons,placement,numbers,time};
+const a12Factory=typeof module!=='undefined'?require('./a12.js'):root.FriendsA12;
+const a12=a12Factory();
+lessons.push(...a12.lessons);
+const stageUnits={'A1.1':unitInfo,'A1.2':a12.units};
+const getUnit=lesson=>stageUnits[lesson.stage||'A1.1']?.[lesson.unit];
+const playableStages=stageInfo.filter(stage=>stage.status==='playable').map(stage=>stage.id);
+const data={stageUnits,getUnit,playableStages,q,cast,unitInfo,units,stages,stageInfo,lessons,placement,numbers,time};
 root.Curriculum=data;if(typeof module!=='undefined')module.exports=data;
 })(typeof window==='undefined'?globalThis:window);

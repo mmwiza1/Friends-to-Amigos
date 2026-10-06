@@ -13,7 +13,7 @@ function app(extra={},initial=null){
   document:{hidden:false,getElementById:id=>nodes[id]||null,addEventListener:()=>{},createElement:tag=>({className:'',textContent:'',remove(){},click(){effects.links.push(this);}}),body:{append(el){effects.toasts.push(el);}}}
  };
  Object.assign(ctx,extra);ctx.window=ctx;ctx.globalThis=ctx;ctx.addEventListener=()=>{};vm.createContext(ctx);
- for(const f of ['stories.js','curriculum.js','engine.js','app.js'])vm.runInContext(fs.readFileSync('www/'+f,'utf8'),ctx);
+ for(const f of ['stories.js','a12-stories.js','a12.js','curriculum.js','engine.js','app.js'])vm.runInContext(fs.readFileSync('www/'+f,'utf8'),ctx);
  const api={el,ctx,effects,nodes,storage,click:(action,data={})=>handlers.click({target:{closest:()=>({dataset:{action,...data}})}}),
   input:value=>handlers.input({target:{id:'written-answer',value}}),
   current:()=>vm.runInContext('quiz?.questions[quiz.index]',ctx),
@@ -38,7 +38,7 @@ test('all main tabs, unit goals, phrase support and focused practice render',()=
 });
 test('placement accepts recommended start',()=>{
  const a=app();a.click('placement');for(let i=0;i<8;i++){a.answer();a.click('check');a.click('next');}
- assert.match(a.el.innerHTML,/B2.1/);a.click('acceptPlacement');assert.equal(a.state().stage,'A2.1');assert.match(a.el.innerHTML,/Lessons are not yet available/);
+ assert.match(a.el.innerHTML,/B2.1/);a.click('acceptPlacement');assert.equal(a.state().stage,'A1.2');assert.match(a.el.innerHTML,/Lessons are not yet available/);assert.match(a.el.innerHTML,/Free time &amp; preferences/);assert.doesNotMatch(a.el.innerHTML,/<option[^>]*>A2/);
 });
 test('answer audio plays once, stops the previous clip and does not replay on resume',()=>{
  const played=[],paused=[];
@@ -128,10 +128,54 @@ test('course map shows practical future progression without exposing unavailable
  const a=app();a.click('tab',{tab:'Learn'});
  for(const stage of a.ctx.Curriculum.stageInfo){assert.ok(a.el.innerHTML.includes(stage.goal));for(const task of stage.tasks)assert.ok(a.el.innerHTML.includes(task));}
  assert.equal((a.el.innerHTML.match(/data-action="lesson"/g)||[]).length,72);
- assert.equal((a.el.innerHTML.match(/Lessons are not yet available/g)||[]).length,7);
+ assert.equal((a.el.innerHTML.match(/Lessons are not yet available/g)||[]).length,6);
 });
 test('practical goals appear in regular lessons and stories and survive legacy resume',()=>{
  const a=app();a.click('lesson',{id:'u2write'});assert.match(a.el.innerHTML,/Your practical goal/);assert.match(a.el.innerHTML,/Order a simple breakfast/);
  a.click('leave');a.click('lesson',{id:'u6story0'});assert.match(a.el.innerHTML,/follow a simple direction/);a.click('readStory');assert.match(a.el.innerHTML,/Your practical goal/);
  const legacy=JSON.parse(fs.readFileSync('tests/fixtures/legacy-progress.json','utf8')),resumed=app({},legacy);resumed.click('continue');assert.match(resumed.el.innerHTML,/Your practical goal/);assert.match(resumed.el.innerHTML,/Introduce yourself/);
+});
+test('stage selector switches both playable courses and never launches planned stages',()=>{
+ const a=app();a.click('tab',{tab:'Learn'});assert.match(a.el.innerHTML,/data-id="u0l0"/);assert.doesNotMatch(a.el.innerHTML,/data-id="a12/);
+ a.click('viewStage',{stage:'A1.2'});assert.match(a.el.innerHTML,/data-id="a12u0l0"/);assert.match(a.el.innerHTML,/Free time &amp; preferences/);assert.doesNotMatch(a.el.innerHTML,/data-id="u0l0"/);
+ assert.equal((a.el.innerHTML.match(/data-action="lesson"/g)||[]).length,72);
+ const before=a.el.innerHTML;a.click('viewStage',{stage:'A2.1'});a.click('lesson',{id:'a2u0l0'});assert.equal(a.el.innerHTML,before);
+ a.click('viewStage',{stage:'A1.1'});assert.match(a.el.innerHTML,/data-id="u0l0"/);
+ const saved=a.ctx.Engine.fresh();saved.stage='A1.2';const loaded=app({},saved);loaded.click('tab',{tab:'Learn'});assert.match(loaded.el.innerHTML,/data-id="a12u0l0"/);
+});
+test('A1.2 story responses survive resume and missed comprehension retains its passage in review',()=>{
+ const a=app();a.click('lesson',{id:'a12u5story1'});assert.match(a.el.innerHTML,/Las llaves de Luis/);assert.match(a.el.innerHTML,/Word help/);assert.match(a.el.innerHTML,/help a visitor/);
+ a.click('readStory');a.answer();a.click('check');a.click('next');a.input('un libro');a.click('leave');
+ const resumed=app({},a.state());resumed.click('continue');assert.match(resumed.el.innerHTML,/value="un libro"/);resumed.click('check');assert.match(resumed.el.innerHTML,/✓ Correct/);resumed.click('next');resumed.answer(false);resumed.click('check');resumed.click('leave');resumed.click('review');assert.match(resumed.el.innerHTML,/Read the story again/);assert.match(resumed.el.innerHTML,/No encuentro mis llaves/);
+});
+test('A1.2 plan feedback teaches missing a and does not reveal the recall model early',()=>{
+ const a=app();a.click('lesson',{id:'a12u2l0'});for(let i=0;i<2;i++){a.answer();a.click('check');a.click('next');}
+ assert.doesNotMatch(a.el.innerHTML,/data-action="speak"/);a.input('Voy leer mañana');a.click('check');assert.match(a.el.innerHTML,/Keep a between voy/);assert.match(a.el.innerHTML,/data-action="speak"/);
+});
+test('all A1.2 checkpoints fail at seven, pass at eight and never duplicate capabilities',()=>{
+ const a=app();for(const lesson of a.ctx.Curriculum.lessons.filter(l=>l.stage==='A1.2'&&l.checkpoint)){
+  a.click('lesson',{id:lesson.id});for(let i=0;i<9;i++){a.answer(i<7);a.click('check');a.click('next');}assert.ok(!a.state().completed.includes(lesson.id));
+  a.click('retry');for(let i=0;i<9;i++){a.answer(i<8);a.click('check');a.click('next');}assert.ok(a.state().completed.includes(lesson.id));
+  a.click('retry');for(let i=0;i<9;i++){a.answer();a.click('check');a.click('next');}assert.equal(a.state().capabilities.filter(c=>c.id===lesson.id).length,1);
+ }
+ assert.equal(a.state().capabilities.length,8);assert.equal(a.state().events.filter(e=>e.type==='lesson').length,8);
+});
+test('A1.2 export/import preserves connected answers, old progress and active story state',async()=>{
+ const legacy=JSON.parse(fs.readFileSync('tests/fixtures/legacy-progress.json','utf8')),a=app({},legacy);a.click('lesson',{id:'a12u7story0'});a.click('readStory');a.answer();a.click('check');a.click('next');a.input('ir a clase');a.click('export');
+ const exported=JSON.parse(await a.effects.blobs[0].text()),b=app();await b.import(exported);assert.deepEqual(b.state(),exported);assert.deepEqual(b.state().completed,legacy.completed);assert.deepEqual(b.state().capabilities,legacy.capabilities);b.click('tab',{tab:'Learn'});assert.match(b.el.innerHTML,/data-id="a12u0l0"/);
+ b.click('continue');assert.match(b.el.innerHTML,/Un mensaje para Marta/);assert.match(b.el.innerHTML,/value="ir a clase"/);b.click('check');assert.match(b.el.innerHTML,/✓ Correct/);
+});
+test('placement recommendations offer only implemented courses and chosen A1.2 starts there',()=>{
+ const a=app();a.click('placement');for(let i=0;i<8;i++){a.answer();a.click('check');a.click('next');}
+ assert.match(a.el.innerHTML,/B2.1/);assert.match(a.el.innerHTML,/not available/);assert.doesNotMatch(a.el.innerHTML,/<option[^>]*>A[2]|<option[^>]*>B/);
+ a.nodes.stage.value='A1.2';a.click('acceptPlacement');assert.equal(a.state().stage,'A1.2');a.click('home');a.click('continue');assert.equal(a.state().active.lesson.id,'a12u0l0');
+});
+test('completing A1.1 continues into A1.2 without resetting the old stage progress',()=>{
+ const initial=app().ctx.Engine.fresh();initial.onboarded=true;initial.completed=JSON.parse(fs.readFileSync('tests/fixtures/a11-lesson-ids.json','utf8'));
+ const a=app({},initial);assert.match(a.el.innerHTML,/A1.2 progress/);assert.match(a.el.innerHTML,/0%/);a.click('continue');assert.equal(a.state().active.lesson.id,'a12u0l0');
+ for(let i=0;i<5;i++){a.answer();a.click('check');a.click('next');}assert.equal(a.state().completed.length,73);a.click('home');assert.match(a.el.innerHTML,/1%/);
+ a.click('tab',{tab:'Learn'});a.click('viewStage',{stage:'A1.1'});assert.match(a.el.innerHTML,/✓ Discover: Greetings/);
+});
+test('historical future-stage recommendations stay valid and fall back to playable content',()=>{
+ const initial=app().ctx.Engine.fresh();initial.onboarded=true;initial.stage='B2.1';const a=app({},initial);a.click('continue');assert.equal(a.state().active.lesson.stage,'A1.1');assert.equal(a.state().stage,'B2.1');
 });

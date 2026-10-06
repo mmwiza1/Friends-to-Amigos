@@ -54,3 +54,7 @@ Automated tests cover question structure, stage/lesson ordering, accepted varian
 CEFR and Cervantes remain reference-only. Semillas, Hola a Todos, Trayectos and other written OERs serve as pedagogical references in this implementation; their text has not been imported or closely adapted. Collection licences in this research are not blanket approval for future assets. Exact-item verification and the attribution template remain prerequisites for any reuse.
 
 All recorded-audio sources remain future or research-only resources. No MLS, Common Voice, FLEURS, CSS10, FSI archive or Tatoeba collection is shipped. The current product retains Spain Spanish TTS and existing feedback sounds. See [the integration guide](INTEGRATION_GUIDE.md) for the boundary between completed curriculum work and future curated listening.
+
+## A1.2 implementation update
+
+A1.2 is now playable: eight practical units, 72 activities, 32 original stories and 392 question slots. Its connected-language progression covers preferences, invitations, future plans, clothes shopping, home and reflexive routines. `www/a12.js` and `www/a12-stories.js` follow the same original-authorship/reference policy as A1.1. No third-party wording or recording was imported or closely adapted. A2.1–B2.2 remain planned; curated human listening and exact-item asset attribution remain future work. All 54 automated tests pass, with preserved A1.1 content, saved snapshots and export/import.

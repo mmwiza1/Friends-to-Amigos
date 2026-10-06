@@ -84,7 +84,7 @@ Before a third-party item is included in a release, confirm:
 
 ### Phase 1 — curriculum reference: implemented
 
-The documented CEFR/Cervantes scope and OER pedagogical recommendations now inform original A1.1 material: eight can-do units, 32 contextual stories, short Spanish recall/production, dialogue and transfer tasks, teaching feedback, glossary/rereading support, and limited regional notes. Lesson metadata connects each activity to its unit outcome and an original-authorship reference record. Stage metadata defines separate A1.1–B2.2 targets; only A1.1 is playable. Tests protect stable IDs and historical progress snapshots. No third-party exercise was imported or closely adapted.
+The documented CEFR/Cervantes scope and OER pedagogical recommendations now inform original A1.1 material: eight can-do units, 32 contextual stories, short Spanish recall/production, dialogue and transfer tasks, teaching feedback, glossary/rereading support, and limited regional notes. Lesson metadata connects each activity to its unit outcome and an original-authorship reference record. Stage metadata defines separate A1.1–B2.2 targets; A1.1 and A1.2 are playable. Tests protect stable IDs and historical progress snapshots. No third-party exercise was imported or closely adapted.
 
 ### Phase 2 — real listening MVP: future
 
@@ -161,3 +161,7 @@ An external asset is not “integrated” because the file exists in the repo. I
 5. it works offline;
 6. tests cover the new behaviour;
 7. attribution is visible wherever the licence requires it.
+
+## A1.2 implementation update
+
+A1.2 is now playable: eight practical units, 72 activities, 32 original stories and 392 question slots. Its connected-language progression covers preferences, invitations, future plans, clothes shopping, home and reflexive routines. `www/a12.js` and `www/a12-stories.js` follow the same original-authorship/reference policy as A1.1. No third-party wording or recording was imported or closely adapted. A2.1–B2.2 remain planned; curated human listening and exact-item asset attribution remain future work. All 54 automated tests pass, with preserved A1.1 content, saved snapshots and export/import.

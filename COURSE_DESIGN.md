@@ -1,8 +1,8 @@
-# A1.1 curriculum design
+# A1.1 and A1.2 curriculum design
 
-This is a course subdivision informed by CEFR can-do principles and the Instituto Cervantes scope guidance documented in [the resource research](docs/resources/WRITTEN.md). It is not CEFR certification. Later-stage targets are plans, not playable content.
+This is a course subdivision informed by CEFR can-do principles and the Instituto Cervantes scope guidance documented in [the resource research](docs/resources/WRITTEN.md). It is not CEFR certification. A1.1 and A1.2 are playable. A2.1–B2.2 targets are plans, not playable content.
 
-## Practical outcomes
+## A1.1 practical outcomes
 
 Each topic unit centres on something a learner can do with another person. Grammar supports that task rather than naming the unit’s objective.
 
@@ -35,7 +35,7 @@ Each of the three regular lessons has five questions: a model/recognition or dia
 
 Checkpoints contain nine questions, including four Spanish-production items. Their deliberate reuse of earlier tasks tests retrieval after intervening activities. Completion and capability thresholds remain 80%; records are earned once. Capability wording describes a limited course outcome, not independently assessed conversation or certified proficiency.
 
-Spanish-only production now appears in 120 question slots, compared with 40 before this revision. This count includes checkpoint retrieval. Overall activity and question counts are unchanged: 72 activities and 392 questions.
+Spanish-only production now appears in 120 question slots, compared with 40 before this revision. This count includes checkpoint retrieval. A1.1 activity and question counts are unchanged: 72 activities and 392 questions.
 
 ## Reading comprehension
 
@@ -67,7 +67,7 @@ Stable lesson IDs, tuple-style units, the version-1 storage key and export forma
 
 ## Stage progression and authoring metadata
 
-`Curriculum.stageInfo` defines an explicit goal, three practical tasks, language support, language focus and playable/planned status for each subdivision. `Curriculum.stages` remains the original ordered string API. The Learn screen displays those targets; future stages have no launchable lessons.
+`Curriculum.stageInfo` defines an explicit goal, three practical tasks, language support, language focus and playable/planned status for each subdivision. `Curriculum.stages` remains the original ordered string API. The Learn screen displays those targets and switches between A1.1/A1.2 lessons; future stages have no launchable lessons.
 
 | Stage | Practical progression | Language focus |
 | --- | --- | --- |
@@ -83,3 +83,38 @@ Stable lesson IDs, tuple-style units, the version-1 storage key and export forma
 These are provisional authoring targets informed by the documented references, not official CEFR descriptors. A1/A2 comprehension can accept English or Spanish; later stages should progressively use Spanish with support. Longer B1/B2 production needs a reviewed assessment design before implementation. The current finite short-answer grader is not claimed to assess extended writing.
 
 Every playable lesson carries its unit goal, stable outcome ID and an original-authorship reference record. Goals appear during regular questions and story reading; older saved snapshots fall back to the existing unit index without replacing their questions. No migration or storage-version change is required. The shared tuple units API, lesson IDs and review prompt keys remain stable.
+
+## Implemented A1.2: longer everyday exchanges
+
+The second chapter consolidates A1.1 rather than introducing extensive past narration. Its eight practical units are:
+
+| Unit | Practical outcome | Supporting language |
+| --- | --- | --- |
+| Free time & preferences | Explain interests and choose an activity together | Gusta + infinitive, gustan + plural nouns, prefiero, también, pero, porque |
+| Inviting & responding | Invite, accept/decline politely and offer another day | Vamos al…, quieres + infinitive, no puedo, qué tal |
+| Making plans | Agree an activity, day, time and meeting place | Ir a + infinitive, el + day, a las + time, delante del |
+| Choosing clothes | Explain garment, colour and size needs | Article/adjective agreement, plural colours, talla, necesito |
+| In the clothes shop | Try on, describe fit, choose and pay | Puedo probarme/me puedo probar, queda/quedan, me llevo, con tarjeta |
+| At home | Describe rooms and help a visitor locate objects | Hay/no hay, ser for description, estar for location, al lado de/debajo de |
+| A typical day | Describe a timed daily routine | Me levanto, me ducho, me visto, me acuesto, primero/después |
+| A day together | Write a short sequence, reason and future plan | Y, pero, porque, también, después, entonces; tengo que + infinitive |
+
+Each unit has nine activities: Discover → Story 1 → Build confidence → Story 2 → Use it → Story 3 → Write in Spanish → Story 4 → Checkpoint. The checkpoint ends each new unit; A1.1's historical order is retained. Total: 72 A1.2 activities and 392 question slots, including 120 Spanish-only production slots. Checkpoints have nine questions with four Spanish responses, reuse earlier tasks after intervening practice and retain any passage needed for comprehension.
+
+The 32 original scenarios continue Ana, Luis, Marta and Diego through invitations, changed meeting times, garment choices, fitting rooms, home visits, missing keys, morning routines and short messages. Stories average 48 words compared with A1.1's 29; the final unit brings several familiar functions together. New chunks have glossaries. Comprehension combines facts, meaning, character, sequence, supported inference and suitable responses; typed answers still accept English or Spanish. Reading evidence travels with review snapshots and checkpoint reading questions.
+
+Connected production grows gradually: liking books → contrasting a dislike → giving a reason → coordinating a time/place → combining a routine and plan. Prompts constrain roles, details and sometimes connectors so a finite authored answer list remains practical. Realistic alternatives include omitted subject pronouns, inverted time placement, natural polite requests, and both pronoun positions in puedo probarme/me puedo probar. Feedback addresses gusta/gustan, missing a in plans, reflexive pronouns and endings, stem changes, agreement, and presence versus location. No LLM or cloud grading is used.
+
+European Spanish remains primary. A clothing note explains polite shop-assistant address; a home note explains piso/apartamento. Vosotros/queréis appears in a supported group-invitation story. No new audio assets are shipped; TTS and feedback sounds remain unchanged.
+
+## Multi-stage architecture and compatibility
+
+A1.2 is authored separately in `www/a12.js` and `www/a12-stories.js`, loaded locally before curriculum assembly. `stageUnits` and `getUnit` resolve stage-local unit indexes; `playableStages` derives availability from stage metadata. The eight-element A1.1 tuple API and unit metadata remain unchanged. The engine, version-1 save format and import/export schema are unchanged.
+
+A1.2 IDs have the noncolliding `a12u{0–7}` prefix. A1.1's 72 IDs, ordering and entire lesson content are protected by fixtures and a pre-addition content hash. Old active attempts and review snapshots resume their own questions without replacement. Review prompts for new authored tasks include stage/context to prevent unrelated answers overwriting each other; checkpoints deliberately reuse the same identity for retrieval.
+
+No brittle stage gate is introduced. A learner can revisit either course through the Learn selector. Continue respects the selected playable starting stage and then course ordering; completing A1.1 leads into A1.2. Home progress is calculated for the resumed/next stage. The provisional placement engine is unchanged, but the starting-stage picker only offers playable stages; a future-stage recommendation does not create an unavailable course.
+
+## Review limits
+
+Automated validity and compatibility checks do not constitute independent proficiency assessment. A native Spanish educator should review the vocabulary ramp, distractor pragmatics, connector use and accepted paraphrases. Answers remain deliberately short and finite; a valid unlisted reply can be rejected. Real Android device checks and curated recorded listening remain future work. The stage architecture is ready for A2.1 authoring, but A2 content and longer-writing assessment are not shipped.
