@@ -37,7 +37,7 @@ For the current A1.1 course, prioritise these in order:
 
 1. **Semillas** for modern communicative lesson design and meaningful four-skill activities.
 2. **FSI Headstart for Spain / Spanish Basic** for pronunciation drills, dialogue structures and public-domain audio patterns.
-3. **Multilingual LibriSpeech Spanish** for clean, licence-clear Peninsular Spanish speech once we add real listening questions.
+3. **Multilingual LibriSpeech Spanish** for future individually curated human Peninsular speech; audio-first TTS questions already exist.
 4. **Tatoeba** for carefully filtered sentence examples and translation variants.
 5. **SpanishPod/Wikimedia** for short beginner dialogue clips where the exact file has a clear CC BY licence.
 
@@ -47,14 +47,12 @@ See [AUDIO.md](./AUDIO.md), [WRITTEN.md](./WRITTEN.md), and [INTEGRATION_GUIDE.m
 
 ## Implementation status
 
-The written-resource recommendations now inform the shipped A1.1 course, rather than only a proposed plan. `www/curriculum.js` defines eight practical unit goals, original authorship/reference metadata, and explicit targets for all eight course subdivisions. `www/stories.js` contains 32 original recurring-character scenarios. Recognition, completion, recall, contextual response and transfer are playable; 120 question slots require Spanish production. The UI shows goals during lessons, offers glossary/rereading support, and exposes the later-stage targets without making those stages playable.
+The documented can-do, communicative, contextual and four-skill recommendations are now implemented through original A1.1/A1.2 course material, rather than remaining only a link list. Units/activities carry practical outcome/original-authorship metadata; stories support rereading and bilingual comprehension; writing requires short Spanish production with teaching feedback. New audio-first listening and deliberate self-assessed speaking retrieval supplement the written course.
 
-Automated tests cover question structure, stage/lesson ordering, accepted variants, targeted feedback, story review context, checkpoints, capabilities, historical snapshots and import/export. This is a course design informed by the documented frameworks, not CEFR certification or an independent educator review.
+CEFR/Cervantes remain reference-only. Semillas, Hola a Todos, Trayectos and other OERs are pedagogical references in this implementation, not shipped adaptations. The collection licences below are not blanket item-level approval. All recorded-audio sources remain future/research-only; no corpus is shipped. Exact-item verification and attribution are prerequisites for a later curated recording.
 
-CEFR and Cervantes remain reference-only. Semillas, Hola a Todos, Trayectos and other written OERs serve as pedagogical references in this implementation; their text has not been imported or closely adapted. Collection licences in this research are not blanket approval for future assets. Exact-item verification and the attribution template remain prerequisites for any reuse.
+## A1 stability implementation status
 
-All recorded-audio sources remain future or research-only resources. No MLS, Common Voice, FLEURS, CSS10, FSI archive or Tatoeba collection is shipped. The current product retains Spain Spanish TTS and existing feedback sounds. See [the integration guide](INTEGRATION_GUIDE.md) for the boundary between completed curriculum work and future curated listening.
+A1.1 and A1.2 remain playable: 16 practical units, 144 activities, 64 original stories and 832 question slots (416 per stage), including 240 Spanish-writing slots, 48 audio-first listening questions and 16 self-assessed speaking chunks. All 116 automated cases pass. Stable question IDs, validated schema-v2 migration/import, original historical snapshots, practical checkpoints and an A1 completion experience are implemented. A2.1–B2.2 remain planned/unavailable.
 
-## A1.2 implementation update
-
-A1.2 is now playable: eight practical units, 72 activities, 32 original stories and 392 question slots. Its connected-language progression covers preferences, invitations, future plans, clothes shopping, home and reflexive routines. `www/a12.js` and `www/a12-stories.js` follow the same original-authorship/reference policy as A1.1. No third-party wording or recording was imported or closely adapted. A2.1–B2.2 remain planned; curated human listening and exact-item asset attribution remain future work. All 54 automated tests pass, with preserved A1.1 content, saved snapshots and export/import.
+All new passages, listening transcripts, exercises and feedback are original Friends to Amigos content informed by documented teaching references. No third-party wording was copied/closely adapted, and no third-party recording or dataset was downloaded/vendored. Listening uses synthetic es-ES speech; speaking does not record or automatically grade pronunciation. Curated human recordings require exact-item review/attribution and remain future work. Native Android compilation/device validation and independent educator review remain release gates. See [the A1 audit](../A1_STABILITY_REPORT.md) and [BUILD_STATUS.md](../../BUILD_STATUS.md).

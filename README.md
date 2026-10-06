@@ -1,80 +1,66 @@
 # Friends to Amigos
 
-A personal European Spanish learning app for Android, with a shared offline HTML/CSS/JavaScript interface wrapped in a native Android WebView. No account, backend, paid service or API key is required.
+An offline-first Android Spanish-learning app, built with vanilla HTML/CSS/JavaScript in a native WebView. It primarily teaches European Spanish. No account, backend, API key or runtime npm dependency is required.
 
-## Playable course
+## Playable A1 course
 
-- Cream, coral and teal home screen with Friends to Amigos branding.
-- Real daily/longest streak, start/continue/resume button and next practical goal.
-- 144 playable activities across A1.1 and A1.2, with eight practical units per stage. Each stage has 24 five-question teaching lessons, 32 five-question stories, eight five-question writing activities and eight nine-question checkpoints: 392 questions per stage, 784 overall.
-- Practical can-do goals and a recurring cast across both stages. A1.2 adds preferences, invitations, plans, clothes shopping, home and reflexive routines, progressing to short connected messages.
-- Four original mini-scenarios per unit, spaced between learning activities. Read at your own pace before opening five comprehension questions (three choices and two short typed answers), with optional glossary help and passage rereading.
-- Recognition → controlled completion → recall → dialogue/contextual response → transfer. Spanish production appears in regular lessons, writing activities and checkpoints: 120 short response slots per stage, 240 overall.
-- Feedback explains common misconceptions and the evidence behind story answers, rather than only revealing a solution.
-- Story comprehension accepts English or Spanish. Writing activities require Spanish and accept authored variants, punctuation/case differences, and missing vowel accents. The letter ñ remains distinct.
-- Missed story questions retain their passage in spaced review.
-- Dedicated numbers/prices and time practice.
-- Eight-question provisional placement screening. A recommendation may point to a future stage, but only A1.1 or A1.2 can be selected as a playable starting stage.
-- Eight-stage A1.1–B2.2 course map. A1.1/A1.2 stage buttons switch playable lessons; A2.1–B2.2 remain planned. No unlock gate prevents revisiting either playable stage.
-- Mistakes generated from actual answers and spaced review at 1/3/7/14/30-day intervals.
-- Profile capability statement, achievements, unique lessons completed, active learning time, mistakes corrected and seven-day activity chart.
-- Export/import progress and local storage. Android export uses the system file picker.
-- Spanish (Spain) speech using Android TextToSpeech, or browser speech synthesis. Model answers become audible after checking; stories have an explicitly labelled TTS playback option. Install an es-ES voice on Android for offline speech.
-- Spain vocabulary is the default; brief regional notes introduce common alternatives without overwhelming beginners.
-- Stable lesson IDs and historical question/passage snapshots preserve saved attempts, reviews, capabilities and export/import compatibility.
+A1.1 and A1.2 contain **144 activities, 832 question slots, 16 practical units and 64 original stories**. Each stage has 72 activities and 416 questions. A2.1–B2.2 remain planned and unavailable.
 
-## Run a local browser preview
+- Practical can-do goals, a recurring cast, and recognition → completion → recall → contextual response → transfer.
+- 240 constrained Spanish-writing slots, with authored alternatives and teaching feedback. Story comprehension accepts English or Spanish; writing requires Spanish. Matching tolerates punctuation, case, spaces and vowel accents, while preserving ñ and negation.
+- Four short stories per unit, with glossary support, learner-paced reading and passage rereading during questions and review.
+- **48 audio-first listening questions**, including one in every checkpoint. Listen to familiar Spanish before answering; the transcript appears only after submitting or deliberately skipping. Comprehension mixes choices and short typed responses.
+- **16 speak-aloud retrieval chunks**. Attempt aloud, reveal one possible model, optionally hear it, then choose “I got it” or “Needs practice”. Speaking is self-assessed, excluded from scored accuracy, and never automatically assesses pronunciation. Needs-practice responses enter spaced review.
+- Separate listening/speaking practice for each stage, selecting familiar units and rotating toward less recently retrieved items.
+- Nine-question practical checkpoints: contextual recognition, completion, listening and four distinct Spanish responses. The 80% threshold remains; repeating completion does not duplicate capabilities or lesson totals.
+- Mistake review at 1/3/7/14/30-day intervals, requiring three successful scheduled reviews to mark an item corrected. Immediate retries cannot inflate this count.
+- Daily/longest streak, active learning time, achievements, import/export and resumable historical attempts.
+- A completion Home screen for the whole A1 course, with practical skills, learning statistics, outstanding reviews and continued listening/speaking practice. This is a course milestone, **not formal CEFR certification**.
+- Both playable stages remain revisitable. The eight-question placement screening is provisional and does not assess listening, speaking or independent production. Future-stage recommendations never expose unavailable lessons.
 
-Requires Python 3. No npm dependencies are needed.
+Listening and model pronunciation use **synthetic Spanish (Spain) speech**, not recorded speakers. Install an offline es-ES voice. Android selects a local voice; the browser refuses explicitly remote voices and asks the learner to retry if the voice list is not ready. Missing speech does not trap the learner: skip the listening item as a missed question and save it for review. Optional local recording paths can later supplement TTS, but no learning recordings or speech datasets are shipped. Existing compressed success/failure sounds and bull artwork remain unchanged.
+
+## Progress safety
+
+State is now schema **version 2**, discovered under the existing `friends-to-amigos-v1` storage key. Version-1 backups remain supported. Migration preserves valid profile, placement, completion, capabilities, review schedules, events, streak days, time and active question/passage snapshots. It is deterministic and idempotent. A one-time untouched v1 local backup is written before the migrated save.
+
+Every authored question has a permanent ID. New reviews use that ID, not prompt text. Safely identifiable legacy reviews migrate to it; unmatched or semantically replaced questions retain independent legacy identities and their original content. Invalid local sections are preserved in an exported recovery area where possible. Unreadable or unsupported newer saves are protected from automatic overwrite. Imports are validated before confirmation/adoption; unsafe imports leave existing progress unchanged.
+
+See [state and question contracts](docs/STATE_AND_QUESTIONS.md). Back up before changing devices or Android signing identities; local storage is not cloud sync.
+
+## Browser preview and checks
+
+Requires Python 3 for preview and Node.js 22+ for checks; no npm install is needed.
 
 ```sh
 npm start
-```
-
-Open http://localhost:4173. For a standalone offline preview, open www/index.html in a browser. Browser file-origin storage and speech support vary.
-
-## Tests
-
-```sh
+npm run check
 npm test
-node tests/engine.test.cjs
-node tests/app.test.cjs
+npm run audit
 ```
 
-The suite covers all lesson IDs and ordering, required question fields, unique correct choices, bilingual comprehension, short Spanish production, misconception feedback, checkpoints, delayed review, and all 784 questions rendering/completing. Legacy fixtures test saved attempts, old two-question lessons, streak/capability records, and Android/browser export/import. Simulated-DOM tests are not a substitute for Android device testing.
+Open http://localhost:4173, or open `www/index.html` directly. File-origin storage and offline voice availability depend on the browser. `check` validates syntax, identities, ordering, grading data and future-stage availability. `audit` emits reproducible surface-word recycling statistics, with its limitations stated in the output.
 
-## Build Android
+The final suite has **116 individual tests** (29 engine/data, 39 simulated-DOM app, 14 identity/curriculum, 26 storage/migration, 8 speech). It renders and completes all 144 activities/832 course questions, and protects old saves and both export paths. Simulated browser/bridge tests do not establish real Android or acoustic performance. See [BUILD_STATUS.md](BUILD_STATUS.md) for the exact validation boundary.
 
-Requirements: Java 17+, Gradle 8.9, Android SDK with platform 35 and its build tools. Configure ANDROID_HOME or put sdk.dir in android/local.properties.
+## Android build
+
+Requirements: Java 17+, Gradle 8.9, Android SDK platform 35/build tools 35.0.0. Set `ANDROID_HOME` or `android/local.properties` (`sdk.dir`). Android 8.0+ is supported; use a current Android System WebView.
 
 ```sh
-gradle -p android assembleDebug
+gradle -p android assembleDebug lintDebug testDebugUnitTest
 ```
 
-APK: android/app/build/outputs/apk/debug/app-debug.apk. Android 8.0+ is supported. This is a debug build for personal testing, not a Play Store release.
+The APK is `android/app/build/outputs/apk/debug/app-debug.apk`. Version code 3/name 0.3.0 identifies this app update; it is not a CEFR level or a declaration of course certification.
 
-The included `.github/workflows/android.yml` runs tests on pushes and pull requests. APK builds run only when manually requested: Actions → Check and build Android app → Run workflow. After a successful manual run, download friends-to-amigos-android. Unzip it and transfer app-debug.apk to your phone. Allow installation from the chosen file source when Android asks.
+GitHub Actions runs static checks and tests on pushes/PRs. Android builds/checks remain manual: Actions → Check and build Android app → Run workflow. The `friends-to-amigos-android` artifact contains the debug APK. A maintainer must preserve the signing key for in-place upgrades. Fresh CI debug keys may not match an already installed APK; do not uninstall a learner's app without first exporting and verifying a backup.
 
-## Current limitations
+The current workspace has Java 21 but no Gradle, Android SDK, adb or emulator. This revision has not been compiled or exercised on a native device here. The manual build is configured, not claimed as run. The [physical-device checklist](BUILD_STATUS.md#physical-device-checklist) is a release gate.
 
-This is a first functional starter version, not the complete proposed course. A1.1 and A1.2 are playable; A2.1–B2.2 content remains to be authored and reviewed. See COURSE_DESIGN.md for the reading and writing progression. Current checkpoints combine recognition with short authored Spanish responses rather than independently assessed conversation, so capability statements should be treated as narrow course milestones. The placement screen is a provisional grammar/vocabulary screening, not adaptive CEFR certification; it does not assess listening, writing or speaking. Listening uses synthetic speech rather than recorded speakers. Progress is per device; exports are manual backups, not cloud sync.
+## Architecture and authorship
 
-JavaScript syntax checks and 54 engine/simulated-DOM tests pass for the revised course. Earlier Android builds passed on GitHub Actions; no new APK is produced during the current curriculum work. Real-device validation of these new activities is still needed.
+`app.js` coordinates state/navigation/sessions. `storage.js`, `speech.js`, `screens.js` and `quiz-view.js` separate validation/persistence, media, ordinary screen rendering and question rendering. Curriculum assembly keeps stage source modules, a permanent ID manifest, targeted reviewed amendments and original audio/speaking data. All scripts/assets load locally; there is no framework, cloud grader or automatic speech recognition.
 
-Typed answers use a finite, authored answer list, not an open-ended language model grader. Learners are asked for short answers; not every valid paraphrase will be recognised.
+The course material is original Friends to Amigos content, informed by the documented CEFR/Cervantes and OER pedagogical references. No third-party exercise, story, translation or recording was copied or closely adapted. Future reuse requires exact-item licence verification and attribution. See [COURSE_DESIGN.md](COURSE_DESIGN.md), [resource status](docs/resources/README.md#implementation-status) and the [A1 audit](docs/A1_STABILITY_REPORT.md).
 
-## Curriculum references and licensing
-
-The material is original Friends to Amigos content informed by the resource research in [docs/resources](docs/resources/README.md): CEFR can-do principles, Instituto Cervantes scope guidance, and communicative design patterns documented for Semillas and other OERs. See [COURSE_DESIGN.md](COURSE_DESIGN.md) for the unit goals, cast, progression and European Spanish policy, and [the reference record](docs/resources/CURRICULUM_REFERENCE.md) for the source policy.
-
-No third-party exercise or story was imported or closely adapted in this revision. Any future adaptation must verify its exact licence and use the attribution template. No speech corpus has been added: recorded human listening, individual-asset provenance and A2.1–B2.2 remain future work. Existing TTS and the two feedback sound effects remain in place.
-
-Lessons display their practical unit goal while practising. Structured stage targets and original-authorship/outcome metadata support future authoring without adding dependencies or changing saved progress. [Resource implementation status](docs/resources/README.md#implementation-status) distinguishes shipped improvements from reference-only sources and future curated audio.
-
-## A1.2 implementation
-
-A1.2 moves from likes and invitations to shopping, home, routines and a connected daily message. Its original stories average about 48 words (A1.1: 29), with glossary support and English/Spanish short comprehension answers. New IDs use `a12u0l0`, `a12u0story0`, `a12u0write`, `a12u0check`, and the corresponding unit/activity numbers. Existing A1.1 content and IDs are unchanged.
-
-The Home progress bar covers the next/resumed stage rather than halving an A1.1 learner’s percentage when a new stage is added. Continue prefers the selected playable starting stage, then the next unfinished activity in course order. Switching the Learn view or revisiting a lesson does not overwrite the placement recommendation. All current progress, active snapshots and exports still use storage version 1.
-
-A1.2 data lives in `www/a12.js` and `www/a12-stories.js`; `Curriculum.stageUnits`, `getUnit` and `playableStages` provide small shared navigation hooks. The original A1.1 `units`/`unitInfo` APIs remain supported. Finite matching intentionally rejects unlisted paraphrases; native-speaker/educator review and real-device validation remain valuable before wider release.
+Finite matching can reject valid unlisted paraphrases. TTS lacks human-speaker variation; speaking is self-assessed; independent conversation is not assessed. A native Spanish educator should review phrasing, pacing and accepted alternatives before a wider release. Broader free-form assessment, especially before B1, and curated human listening remain future work. A2.1 has not been implemented.

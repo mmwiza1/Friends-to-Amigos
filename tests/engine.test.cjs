@@ -13,8 +13,9 @@ test('all playable lesson IDs remain valid and in their original course order',(
 test('every exercise has required content and choices have exactly one correct answer',()=>{
  for(const q of allQuestions){
   for(const field of ['prompt','answer','explanation','topic','mode'])assert.ok(typeof q[field]==='string'&&q[field].trim(),`${field}: ${q.prompt}`);
-  assert.ok(['choice','gap','text'].includes(q.type));
-  if(q.type==='text'){
+  assert.ok(['choice','gap','text','speaking'].includes(q.type));
+  if(q.type==='speaking'){assert.ok(q.spanish);assert.equal(q.mode,'speaking');}
+  else if(q.type==='text'){
    assert.ok(['es','en-or-es'].includes(q.language));assert.ok(q.accepted.length>0);
    assert.equal(new Set(q.accepted).size,q.accepted.length);for(const answer of q.accepted)assert.ok(E.isCorrect(q,answer));
    if(q.language==='es')assert.ok(q.accepted.includes(q.answer));
@@ -26,7 +27,7 @@ test('every exercise has required content and choices have exactly one correct a
 });
 test('each regular lesson progresses through completion, recall, contextual response and transfer',()=>{
  for(const l of C.lessons.filter(l=>/^u\dl\d$/.test(l.id))){
-  assert.equal(l.questions.length,5);assert.equal(l.questions[1].type,'gap');assert.equal(l.questions[2].mode,'recall');assert.equal(l.questions[2].language,'es');assert.equal(l.questions[4].type,'text');assert.equal(l.questions[4].language,'es');
+  assert.equal(l.questions.length,l.id.endsWith('l0')?5:l.id.endsWith('l1')?6:7);assert.equal(l.questions[1].type,'gap');assert.equal(l.questions[2].mode,'recall');assert.equal(l.questions[2].language,'es');assert.equal(l.questions[4].type,'text');assert.equal(l.questions[4].language,'es');
   assert.ok(['response','context','inference','transfer','recognition'].includes(l.questions[3].mode));
  }
  const spanish=a11.flatMap(l=>l.questions).filter(q=>q.type==='text'&&q.language==='es');assert.equal(spanish.length,120);
@@ -74,12 +75,12 @@ test('incorrect feedback explains the targeted age, hunger and gustar misconcept
  const gustar=C.lessons.find(l=>l.id==='u2write').questions[3];assert.match(E.answerExplanation(gustar,'Yo gusto el té'),/thing liked takes gusta/);
 });
 test('mistakes need three scheduled successes; immediate retries do not inflate the correction',()=>{
- const s=E.fresh(),q=C.numbers[0],now=Date.now();E.recordAnswer(s,q,false,now);E.recordAnswer(s,q,true,now+1);assert.equal(s.reviews[q.prompt].success,1);E.recordAnswer(s,q,true,now+2);assert.equal(s.reviews[q.prompt].success,1);
- E.recordAnswer(s,q,true,now+86400002);assert.equal(s.reviews[q.prompt].corrected,false);E.recordAnswer(s,q,true,now+4*86400000+3);assert.equal(s.reviews[q.prompt].corrected,true);assert.equal(s.events.filter(e=>e.type==='corrected').length,1);
+ const s=E.fresh(),q=C.numbers[0],now=Date.now();E.recordAnswer(s,q,false,now);E.recordAnswer(s,q,true,now+1);assert.equal(s.reviews[q.id].success,1);E.recordAnswer(s,q,true,now+2);assert.equal(s.reviews[q.id].success,1);
+ E.recordAnswer(s,q,true,now+86400002);assert.equal(s.reviews[q.id].corrected,false);E.recordAnswer(s,q,true,now+4*86400000+3);assert.equal(s.reviews[q.id].corrected,true);assert.equal(s.events.filter(e=>e.type==='corrected').length,1);
 });
 test('story review snapshots retain passage, bilingual variants, glossary and explanation',()=>{
- const s=E.fresh(),q=C.lessons.find(l=>l.id==='u0story0').questions[1];E.recordAnswer(s,q,false,0);const reloaded=JSON.parse(JSON.stringify(s));const review=reloaded.reviews[q.prompt];
- assert.deepEqual(review.question,q);assert.ok(E.isCorrect(review.question,'nombre'));E.recordAnswer(reloaded,review.question,true,1000);assert.equal(reloaded.reviews[q.prompt].success,1);
+ const s=E.fresh(),q=C.lessons.find(l=>l.id==='u0story0').questions[1];E.recordAnswer(s,q,false,0);const reloaded=JSON.parse(JSON.stringify(s));const review=reloaded.reviews[q.id];
+ assert.deepEqual(review.question,q);assert.ok(E.isCorrect(review.question,'nombre'));E.recordAnswer(reloaded,review.question,true,1000);assert.equal(reloaded.reviews[q.id].success,1);
 });
 test('checkpoints retain the 80 percent threshold and earn capabilities once',()=>{
  for(const l of C.lessons.filter(l=>l.checkpoint)){
@@ -110,11 +111,11 @@ test('stage authoring targets are ordered, explicit and never make planned conte
  for(const lesson of C.lessons){assert.equal(lesson.goal,C.getUnit(lesson).goal);assert.equal(lesson.outcomeId,C.getUnit(lesson).id);assert.equal(lesson.authorship.kind,'original');assert.ok(fs.existsSync(lesson.authorship.referenceRecord));}
 });
 const a12=C.lessons.filter(l=>l.stage==='A1.2');
-test('all A1.1 content is byte-equivalent to the pre-A1.2 curriculum snapshot',()=>{
- const crypto=require('node:crypto');assert.equal(crypto.createHash('sha256').update(JSON.stringify(a11)).digest('hex'),fs.readFileSync('tests/fixtures/a11-content.sha256','utf8'));
+test('original A1.1 snapshots remain byte-equivalent to the compatibility baseline',()=>{
+ const crypto=require('node:crypto');assert.equal(crypto.createHash('sha256').update(JSON.stringify(C.legacyLessons.filter(l=>l.stage==='A1.1'))).digest('hex'),fs.readFileSync('tests/fixtures/a11-content.sha256','utf8'));
 });
-test('A1.2 adds exactly 72 activities and 392 questions without any ID collision',()=>{
- assert.equal(a12.length,72);assert.equal(a12.flatMap(l=>l.questions).length,392);assert.equal(C.lessons.length,144);
+test('A1.2 retains 72 activities and has 416 question slots with integrated audio/speech',()=>{
+ assert.equal(a12.length,72);assert.equal(a12.flatMap(l=>l.questions).length,416);assert.equal(C.lessons.length,144);
  assert.equal(new Set(C.lessons.map(l=>l.id)).size,144);assert.deepEqual(C.lessons.slice(0,72),a11);
  for(const lesson of a12){assert.match(lesson.id,/^a12u[0-7](l[0-2]|story[0-3]|write|check)$/);assert.ok(lesson.questions.length>=5);assert.equal(new Set(lesson.questions.map(q=>q.prompt)).size,lesson.questions.length);}
 });
@@ -130,7 +131,7 @@ test('A1.2 has eight distinct practical units and stable interleaving ending in 
 });
 test('all 24 A1.2 teaching lessons require recall and a practical transferred response',()=>{
  const regular=a12.filter(l=>/l[0-2]$/.test(l.id));assert.equal(regular.length,24);
- for(const l of regular){assert.deepEqual(l.questions.map(q=>q.mode),['recognition','completion','recall','response','transfer']);assert.deepEqual(l.questions.map(q=>q.type),['choice','gap','text','choice','text']);assert.equal(l.questions[2].language,'es');assert.equal(l.questions[4].language,'es');}
+ for(const l of regular){assert.deepEqual(l.questions.slice(0,5).map(q=>q.mode),['recognition','completion','recall','response','transfer']);assert.deepEqual(l.questions.slice(0,5).map(q=>q.type),['choice','gap','text','choice','text']);assert.equal(l.questions[2].language,'es');assert.equal(l.questions[4].language,'es');}
  assert.equal(a12.flatMap(l=>l.questions).filter(q=>q.language==='es').length,120);
 });
 test('A1.2 writing is bounded, connected and authored rather than loosely matched',()=>{
@@ -161,19 +162,19 @@ test('A1.2 predictable errors receive specific explanations for gustar, plans an
 });
 test('review identities never combine different A1.2 answers or passages',()=>{
  const seen=new Map();for(const q of a12.flatMap(l=>l.questions)){
-  if(seen.has(q.prompt))assert.deepEqual(q,seen.get(q.prompt));else seen.set(q.prompt,q);
-  assert.ok(!a11.flatMap(l=>l.questions).some(old=>old.prompt===q.prompt));
+  if(seen.has(q.id))assert.deepEqual(q,seen.get(q.id));else seen.set(q.id,q);
+  assert.ok(!a11.flatMap(l=>l.questions).some(old=>old.id===q.id));
  }
 });
 test('A1.2 story review retains context across serialization and scheduled correction',()=>{
  const s=E.fresh(),q=a12.find(l=>l.id==='a12u5story1').questions[3];E.recordAnswer(s,q,false,0);
- const restored=JSON.parse(JSON.stringify(s)),saved=restored.reviews[q.prompt].question;assert.deepEqual(saved,q);assert.ok(E.isCorrect(saved,'salir'));
+ const restored=JSON.parse(JSON.stringify(s)),saved=restored.reviews[q.id].question;assert.deepEqual(saved,q);assert.ok(E.isCorrect(saved,'salir'));
  E.recordAnswer(restored,saved,true,1);E.recordAnswer(restored,saved,true,86400001);E.recordAnswer(restored,saved,true,4*86400000+1);
- assert.equal(restored.reviews[q.prompt].corrected,true);assert.ok(restored.reviews[q.prompt].question.reading.text.includes('No encuentro mis llaves'));
+ assert.equal(restored.reviews[q.id].corrected,true);assert.ok(restored.reviews[q.id].question.reading.text.includes('No encuentro mis llaves'));
 });
 test('each A1.2 checkpoint retrieves four Spanish responses and retains any reading evidence',()=>{
  const checks=a12.filter(l=>l.checkpoint);assert.equal(checks.length,8);
- for(const l of checks){assert.equal(l.questions.length,9);assert.equal(l.questions.filter(q=>q.language==='es').length,4);assert.equal(l.capability,C.getUnit(l).goal);assert.ok(l.questions[4].reading);const s=E.fresh();E.complete(s,l,8,9);E.complete(s,l,9,9);assert.deepEqual(s.completed,[l.id]);assert.equal(s.capabilities.length,1);assert.equal(s.events.filter(e=>e.type==='lesson').length,1);}
+ for(const l of checks){assert.equal(l.questions.length,9);assert.equal(l.questions.filter(q=>q.language==='es').length,4);assert.equal(l.capability,C.getUnit(l).goal);assert.ok(l.questions[2].listening);for(const q of l.questions.filter(q=>q.reading))assert.ok(q.reading.text);const s=E.fresh();E.complete(s,l,8,9);E.complete(s,l,9,9);assert.deepEqual(s.completed,[l.id]);assert.equal(s.capabilities.length,1);assert.equal(s.events.filter(e=>e.type==='lesson').length,1);}
 });
 test('new course modules load offline in browser order without new runtime dependencies',()=>{
  const html=fs.readFileSync('www/index.html','utf8'),scripts=[...html.matchAll(/<script src="([^"]+)"/g)].map(m=>m[1]);

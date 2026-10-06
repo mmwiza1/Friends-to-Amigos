@@ -3,24 +3,26 @@ const assert=require('node:assert/strict');
 const vm=require('node:vm');
 const fs=require('node:fs');
 function app(extra={},initial=null){
- const handlers={},storage=initial?{'friends-to-amigos-v1':JSON.stringify(initial)}:{},effects={blobs:[],links:[],toasts:[]};
+ const handlers={},lifecycle={},storage=initial?{'friends-to-amigos-v1':JSON.stringify(initial)}:{},effects={blobs:[],links:[],toasts:[]};
  const el={innerHTML:'',addEventListener:(type,fn)=>handlers[type]=fn};
  const nodes={app:el,stage:{value:'A2.1'},'check-answer':{disabled:true},importfile:{click(){}}};
  const ctx={console,Date,JSON,Math,String,Number,Object,Array,Set,Map,Blob,
+  // Simulated installed voice. Individual failure tests override this explicitly.
+  SpeechSynthesisUtterance:class{constructor(text){this.text=text;}},speechSynthesis:{getVoices:()=>[{lang:'es-ES',localService:true}],cancel(){},speak(){}},
   URL:{createObjectURL(blob){effects.blobs.push(blob);return 'blob:backup';},revokeObjectURL(){}},
   setInterval:()=>{},setTimeout:()=>{},confirm:()=>true,
   localStorage:{getItem:k=>storage[k]||null,setItem:(k,v)=>storage[k]=v},
   document:{hidden:false,getElementById:id=>nodes[id]||null,addEventListener:()=>{},createElement:tag=>({className:'',textContent:'',remove(){},click(){effects.links.push(this);}}),body:{append(el){effects.toasts.push(el);}}}
  };
- Object.assign(ctx,extra);ctx.window=ctx;ctx.globalThis=ctx;ctx.addEventListener=()=>{};vm.createContext(ctx);
- for(const f of ['stories.js','a12-stories.js','a12.js','curriculum.js','engine.js','app.js'])vm.runInContext(fs.readFileSync('www/'+f,'utf8'),ctx);
- const api={el,ctx,effects,nodes,storage,click:(action,data={})=>handlers.click({target:{closest:()=>({dataset:{action,...data}})}}),
+ Object.assign(ctx,extra);ctx.window=ctx;ctx.globalThis=ctx;ctx.addEventListener=(name,fn)=>lifecycle[name]=fn;vm.createContext(ctx);
+ for(const f of [...fs.readFileSync('www/index.html','utf8').matchAll(/<script src="([^"]+)"/g)].map(m=>m[1]))vm.runInContext(fs.readFileSync('www/'+f,'utf8'),ctx);
+ const api={el,ctx,effects,nodes,storage,lifecycle,click:(action,data={})=>handlers.click({target:{closest:()=>({dataset:{action,...data}})}}),
   input:value=>handlers.input({target:{id:'written-answer',value}}),
   current:()=>vm.runInContext('quiz?.questions[quiz.index]',ctx),
   state:()=>JSON.parse(storage['friends-to-amigos-v1']),
   import:async data=>handlers.change({target:{id:'importfile',files:[{text:async()=>typeof data==='string'?data:JSON.stringify(data)}]}})
  };
- api.answer=(correct=true)=>{const q=api.current();if(q.type==='text')api.input(correct?q.accepted[0]:'incorrect response');else api.click('answer',{index:String(q.options.findIndex(x=>correct?x===q.answer:x!==q.answer))});};
+ api.answer=(correct=true)=>{const q=api.current();if(q.listening)api.click('listen');if(q.type==='speaking'){api.click('revealModel');api.click('selfAssess',{result:correct?'got':'needs'});return;}if(q.type==='text')api.input(correct?q.accepted[0]:'incorrect response');else api.click('answer',{index:String(q.options.findIndex(x=>correct?x===q.answer:x!==q.answer))});};
  return api;
 }
 test('new learner starts, misses a question, sees review and resumes correctly',()=>{
@@ -45,7 +47,7 @@ test('answer audio plays once, stops the previous clip and does not replay on re
  class Audio{constructor(src){this.src=src;this.currentTime=0;}play(){played.push(this.src);return Promise.resolve();}pause(){paused.push(this.src);}}
  const a=app({Audio});a.click('begin');a.answer(false);a.click('check');a.click('check');assert.deepEqual(played,['audio/failure.mp3']);
  a.click('leave');a.click('continue');assert.equal(played.length,1);a.click('next');a.answer();a.click('check');
- assert.deepEqual(played,['audio/failure.mp3','audio/success.mp3']);assert.deepEqual(paused,['audio/failure.mp3']);
+ assert.deepEqual(played,['audio/failure.mp3','audio/success.mp3']);assert.deepEqual(paused,['audio/failure.mp3','audio/failure.mp3','audio/failure.mp3']);
 });
 test('unavailable audio does not block progress',async()=>{
  class Audio{play(){return Promise.reject(new Error('Playback blocked'));}pause(){}}
@@ -109,17 +111,17 @@ test('two-question historical snapshots stay intact and can complete with their 
  for(let i=0;i<2;i++){a.answer();a.click('check');a.click('next');}assert.ok(a.state().completed.includes('u0l0'));
 });
 test('Android and browser exports round-trip through import with old saved questions',async()=>{
- const legacy=JSON.parse(fs.readFileSync('tests/fixtures/legacy-progress.json','utf8'));let json;
- const native=app({AndroidSpeech:{exportProgress:data=>json=data}},legacy);native.click('export');assert.deepEqual(JSON.parse(json),legacy);
- const browser=app({},legacy);browser.click('export');assert.equal(browser.effects.links[0].download,'friends-to-amigos-progress.json');assert.deepEqual(JSON.parse(await browser.effects.blobs[0].text()),legacy);
- const target=app();target.click('begin');await target.import(json);assert.deepEqual(target.state(),legacy);target.click('continue');assert.match(target.el.innerHTML,/Ana y Luis/);
+ const legacy=JSON.parse(fs.readFileSync('tests/fixtures/legacy-progress.json','utf8')),migrated=app({},legacy).ctx.ProgressStore.migrateState(legacy,app().ctx.Curriculum).state;let json;
+ const native=app({AndroidSpeech:{exportProgress:data=>json=data}},legacy);native.click('export');assert.deepEqual(JSON.parse(json),JSON.parse(JSON.stringify(migrated)));
+ const browser=app({},legacy);browser.click('export');assert.equal(browser.effects.links[0].download,'friends-to-amigos-progress.json');assert.deepEqual(JSON.parse(await browser.effects.blobs[0].text()),JSON.parse(JSON.stringify(migrated)));
+ const target=app();target.click('begin');await target.import(json);assert.deepEqual(target.state(),JSON.parse(JSON.stringify(migrated)));target.click('continue');assert.match(target.el.innerHTML,/Ana y Luis/);
  const cancelled=app({confirm:()=>false},legacy);await cancelled.import({...legacy,name:'Replacement'});assert.equal(cancelled.state().name,legacy.name);
  const invalid=app({},legacy);await invalid.import('{broken');assert.equal(invalid.state().name,legacy.name);assert.ok(invalid.effects.toasts.length>0);
 });
 test('every revised activity and question renders, completes and can be retried',()=>{
  const a=app();for(const lesson of a.ctx.Curriculum.lessons){
   a.click('lesson',{id:lesson.id});if(lesson.reading)a.click('readStory');
-  for(const q of lesson.questions){assert.ok(a.el.innerHTML.includes(q.prompt.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))));a.answer();a.click('check');assert.match(a.el.innerHTML,/✓ Correct/);a.click('next');}
+  for(const q of lesson.questions){assert.ok(a.el.innerHTML.includes(q.prompt.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))));a.answer();a.click('check');assert.match(a.el.innerHTML,q.type==='speaking'?/You marked: I got it/:/✓ Correct/);const roundTrip=a.ctx.ProgressStore.parse(JSON.stringify(a.state()),a.ctx.Curriculum,{import:true}).state;assert.ok(roundTrip.active);assert.equal(roundTrip.active.questions[roundTrip.active.index].id,q.id);assert.equal(roundTrip.active.checked,true);a.click('next');}
   assert.ok(a.state().completed.includes(lesson.id));a.click('retry');assert.equal(a.state().active.lesson.id,lesson.id);a.click('leave');
  }
  assert.equal(new Set(a.state().completed).size,a.ctx.Curriculum.lessons.length);
@@ -178,4 +180,72 @@ test('completing A1.1 continues into A1.2 without resetting the old stage progre
 });
 test('historical future-stage recommendations stay valid and fall back to playable content',()=>{
  const initial=app().ctx.Engine.fresh();initial.onboarded=true;initial.stage='B2.1';const a=app({},initial);a.click('continue');assert.equal(a.state().active.lesson.stage,'A1.1');assert.equal(a.state().stage,'B2.1');
+});
+function startAt(a,lesson,index){a.click('lesson',{id:lesson.id});for(let i=0;i<index;i++){a.answer();a.click('check');a.click('next');}}
+const escapeHTML=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+test('all 48 listening transcripts are absent from the initial DOM and revealed only after submission',()=>{
+ const heard=[],a=app({AndroidSpeech:{speak:text=>heard.push(text)}});for(const l of a.ctx.Curriculum.lessons)for(let i=0;i<l.questions.length;i++)if(l.questions[i].listening){
+  startAt(a,l,i);const q=a.current();assert.doesNotMatch(a.el.innerHTML,/Spanish transcript/);assert.ok(!a.el.innerHTML.includes(escapeHTML(q.listening.transcript)));
+  a.click('check');assert.equal(a.state().active.checked,false);a.click('next');assert.equal(a.current().id,q.id);
+  a.answer();assert.ok(!a.el.innerHTML.includes(escapeHTML(q.listening.transcript)));a.click('check');assert.match(a.el.innerHTML,/Spanish transcript/);assert.ok(a.el.innerHTML.includes(escapeHTML(q.listening.transcript)));assert.ok(heard.includes(q.listening.transcript));
+ }
+});
+test('listening plays on browser speech path and replay does not inflate answer statistics',()=>{
+ const played=[],a=app({SpeechSynthesisUtterance:class{constructor(text){this.text=text;}},speechSynthesis:{getVoices:()=>[{lang:'es-ES',localService:true}],cancel(){},speak:u=>played.push(u)}}),l=a.ctx.Curriculum.lessons.find(l=>l.id==='a12u1l2');startAt(a,l,5);
+ a.click('answer',{index:'0'});assert.equal(a.state().active.selected,null);a.click('listen');a.click('listen');assert.equal(played.length,2);assert.equal(played[0].lang,'es-ES');assert.equal(played[0].rate,.95);
+ a.answer();a.click('check');const count=a.state().events.length;a.click('listen');a.click('check');assert.equal(a.state().events.length,count);
+});
+test('skipped unavailable listening reveals context and queues a scored miss for later review',()=>{
+ const a=app({speechSynthesis:null}),l=a.ctx.Curriculum.lessons.find(l=>l.id==='u1l1');startAt(a,l,5);const q=a.current();a.click('listen');assert.match(a.el.innerHTML,/Audio is unavailable/);a.click('skipListening');assert.match(a.el.innerHTML,/Listening saved for review/);assert.equal(a.state().active.answers.at(-1),null);assert.equal(a.state().events.at(-1).skipped,true);assert.equal(a.state().reviews[q.id].question.listening.transcript,q.listening.transcript);
+ const b=app({},a.state());b.click('continue');assert.match(b.el.innerHTML,/Spanish transcript/);b.click('next');assert.match(b.el.innerHTML,/5 of 6 correct/);assert.ok(b.state().completed.includes(l.id));
+});
+test('unanswered and checked listening reveal states survive save/resume and review hides again',()=>{
+ const a=app({AndroidSpeech:{speak(){}}}),l=a.ctx.Curriculum.lessons.find(l=>l.id==='u0l1');startAt(a,l,5);a.click('listen');a.click('leave');
+ const b=app({AndroidSpeech:{speak(){}}},a.state());b.click('continue');assert.doesNotMatch(b.el.innerHTML,/Spanish transcript/);assert.equal(b.state().active.audioPlayed,true);b.answer(false);b.click('check');b.click('leave');
+ const c=app({},b.state());c.click('continue');assert.match(c.el.innerHTML,/Spanish transcript/);c.click('leave');c.click('review');assert.doesNotMatch(c.el.innerHTML,/Spanish transcript/);c.click('skipListening');assert.match(c.el.innerHTML,/Spanish transcript/);
+});
+test('speaking requires deliberate reveal, has no automatic grading and needs-practice enters spaced review',()=>{
+ const heard=[],a=app({AndroidSpeech:{speak:text=>heard.push(text)}}),l=a.ctx.Curriculum.lessons.find(l=>l.id==='a12u2l2');startAt(a,l,6);heard.length=0;const q=a.current();assert.match(a.el.innerHTML,/self-assessed/);assert.ok(!a.el.innerHTML.includes(escapeHTML(q.spanish)));
+ a.click('selfAssess',{result:'got'});a.click('speak');a.click('check');assert.equal(a.state().active.checked,false);assert.equal(heard.length,0);
+ a.click('revealModel');assert.ok(a.el.innerHTML.includes(escapeHTML(q.spanish)));a.click('speak');assert.deepEqual(heard,[q.spanish]);a.click('selfAssess',{result:'needs'});a.click('selfAssess',{result:'got'});assert.equal(a.state().events.filter(e=>e.questionId===q.id).length,1);assert.equal(a.state().events.at(-1).selfAssessed,true);assert.ok(a.state().reviews[q.id]);a.click('next');assert.match(a.el.innerHTML,/6 of 6 correct/);assert.ok(a.state().completed.includes(l.id));
+ a.click('home');a.click('review');assert.equal(a.current().type,'speaking');assert.ok(!a.el.innerHTML.includes(escapeHTML(q.spanish)));a.click('revealModel');a.click('selfAssess',{result:'got'});assert.equal(a.state().reviews[q.id].success,1);a.click('next');a.click('retry');a.click('revealModel');a.click('selfAssess',{result:'got'});assert.equal(a.state().reviews[q.id].success,1);
+});
+test('speaking model/self-assessment snapshots resume in both stages',()=>{
+ for(const id of ['u0l2','a12u6l2']){const a=app(),l=a.ctx.Curriculum.lessons.find(l=>l.id===id);startAt(a,l,6);a.click('revealModel');a.click('leave');const b=app({},a.state());b.click('continue');assert.match(b.el.innerHTML,/One possible response/);assert.equal(b.state().active.modelRevealed,true);b.click('selfAssess',{result:'got'});b.click('leave');const c=app({},b.state());c.click('continue');assert.match(c.el.innerHTML,/You marked: I got it/);c.click('next');assert.ok(c.state().completed.includes(id));}
+});
+test('invalid and newer imports never overwrite existing valid progress or a historical active attempt',async()=>{
+ const old=JSON.parse(fs.readFileSync('tests/fixtures/v1-mixed-progress.json','utf8'));const a=app({},old),before=JSON.stringify(a.state());
+ for(const damage of [s=>s.version=99,s=>s.active.questions[0].accepted=[],s=>s.reviews.bad={question:null},s=>s.completed={}] ){
+  const bad=JSON.parse(JSON.stringify(old));damage(bad);await a.import(bad);assert.equal(JSON.stringify(a.state()),before);
+ }
+ assert.ok(a.effects.toasts.some(t=>/current progress has not changed/.test(t.textContent)));
+});
+test('unsupported local schema remains exportable untouched and ordinary app actions cannot erase it',async()=>{
+ const old={version:99,futureRecords:{important:true}},a=app({},old);assert.match(a.el.innerHTML,/protected from changes/);a.click('begin');a.answer();a.click('check');assert.deepEqual(a.state(),old);a.click('leave');a.click('export');assert.deepEqual(JSON.parse(await a.effects.blobs[0].text()),old);
+});
+test('complete A1 home celebrates capabilities, review and practice without exposing A2',()=>{
+ const initial=app().ctx.Engine.fresh();initial.onboarded=true;initial.completed=JSON.parse(fs.readFileSync('tests/fixtures/a1-activity-ids.json','utf8'));initial.sessions['2026-10-05']={seconds:120,practised:true};
+ const a=app({},initial);assert.match(a.el.innerHTML,/completed the Friends to Amigos A1 course/);assert.match(a.el.innerHTML,/144 activities completed/);assert.match(a.el.innerHTML,/2 minutes practised/);assert.match(a.el.innerHTML,/not formal CEFR certification/);assert.match(a.el.innerHTML,/A2.1 is planned and unavailable/);assert.match(a.el.innerHTML,/Listening practice/);assert.match(a.el.innerHTML,/Speak aloud/);assert.doesNotMatch(a.el.innerHTML,/data-stage="A2/);
+ a.click('mediaPractice',{kind:'speaking',stage:'A1.2'});for(let i=0;i<6;i++){a.answer();a.click('next');}assert.match(a.el.innerHTML,/self-assessed/);assert.equal(a.state().completed.length,144);assert.equal(a.state().capabilities.length,0);
+ a.click('home');a.click('mediaPractice',{kind:'listening',stage:'A2.1'});assert.match(a.el.innerHTML,/completed the Friends/);
+});
+test('completion practice recycles less recently retrieved familiar chunks rather than always the first six',()=>{
+ const initial=app().ctx.Engine.fresh();initial.onboarded=true;initial.completed=JSON.parse(fs.readFileSync('tests/fixtures/a1-activity-ids.json','utf8'));const a=app({},initial);a.click('mediaPractice',{kind:'speaking',stage:'A1.1'});const first=[];for(let i=0;i<6;i++){first.push(a.current().id);a.answer();a.click('next');}a.click('home');a.click('mediaPractice',{kind:'speaking',stage:'A1.1'});assert.ok(!first.includes(a.current().id));
+});
+test('all 16 checkpoints assess listening and pass at eight of nine without duplicate completion events',()=>{
+ const a=app();for(const l of a.ctx.Curriculum.lessons.filter(l=>l.checkpoint)){
+  a.click('lesson',{id:l.id});for(let i=0;i<9;i++){a.answer(i<7);a.click('check');a.click('next');}assert.ok(!a.state().completed.includes(l.id));a.click('retry');for(let i=0;i<9;i++){a.answer(i<8);a.click('check');a.click('next');}assert.ok(a.state().completed.includes(l.id));assert.equal(a.state().capabilities.filter(c=>c.id===l.id).length,1);
+ }
+ assert.equal(a.state().events.filter(e=>e.type==='lesson').length,16);
+});
+test('a valid historical attempt can resume even with an explicit incomplete onboarding flag',()=>{
+ const old=JSON.parse(fs.readFileSync('tests/fixtures/v1-mixed-progress.json','utf8'));old.onboarded=false;const a=app({},old);assert.match(a.el.innerHTML,/Resume lesson/);a.click('continue');assert.equal(a.current().prompt,old.active.questions[old.active.index].prompt);assert.equal(a.state().onboarded,false);
+});
+test('native background/resume events stop media and exclude background time from learning statistics',()=>{
+ let time=Date.parse('2026-10-06T12:00:00Z'),stopped=0;class Clock extends Date{constructor(...args){super(...(args.length?args:[time]));}static now(){return time;}}
+ const a=app({Date:Clock,AndroidSpeech:{stop(){stopped++;}}});a.click('begin');time+=5000;a.lifecycle['fta-pause']();const seconds=Object.values(a.state().sessions).reduce((n,s)=>n+s.seconds,0);assert.equal(seconds,5);assert.ok(stopped>0);
+ time+=3600000;a.ctx.tick();assert.equal(Object.values(a.state().sessions).reduce((n,s)=>n+s.seconds,0),5);a.lifecycle['fta-resume']();a.click('answer',{index:'0'});time+=2000;a.ctx.tick();assert.equal(Object.values(a.state().sessions).reduce((n,s)=>n+s.seconds,0),7);assert.equal(a.state().active.index,0);
+});
+test('unavailable listening cannot be guessed for credit; only retry or an explicit missed skip is allowed',()=>{
+ const a=app({AndroidSpeech:{isReady:()=>false,speak(){throw Error('should not speak');}}}),l=a.ctx.Curriculum.lessons.find(l=>l.id==='u0l1');startAt(a,l,5);a.click('listen');a.click('answer',{index:'0'});a.click('check');assert.equal(a.state().active.selected,null);assert.equal(a.state().active.checked,false);assert.equal(a.state().active.answers.length,5);a.click('skipListening');assert.equal(a.state().active.answers.at(-1),null);assert.match(a.el.innerHTML,/Spanish transcript/);
 });

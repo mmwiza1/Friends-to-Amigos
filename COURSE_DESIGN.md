@@ -1,120 +1,107 @@
-# A1.1 and A1.2 curriculum design
+# Friends to Amigos A1 course design
 
-This is a course subdivision informed by CEFR can-do principles and the Instituto Cervantes scope guidance documented in [the resource research](docs/resources/WRITTEN.md). It is not CEFR certification. A1.1 and A1.2 are playable. A2.1–B2.2 targets are plans, not playable content.
+A1.1 and A1.2 form the playable A1 course. This design uses CEFR-style can-do outcomes and the Spanish-specific scope guidance documented for Instituto Cervantes, with communicative/OER teaching principles. It is not formal CEFR certification. A2.1–B2.2 remain planned, not playable.
 
-## A1.1 practical outcomes
+## Practical progression
 
-Each topic unit centres on something a learner can do with another person. Grammar supports that task rather than naming the unit’s objective.
+Grammar and vocabulary support a real-world task, rather than becoming the name of the achievement.
 
-| Unit | Learner outcome | Grammar in context |
+| Stage / unit | Practical outcome | Supporting language |
 | --- | --- | --- |
-| Greetings & introductions | Introduce yourself, ask a name, greet and leave politely | Me llamo, soy + name, te llamas; fixed courtesy phrases |
-| About you | Give age, origin and home city; ask basic personal questions | Ser for origin, tener for age, vivo en; hablo; estar for a current state |
-| At the café | Order a simple breakfast, express hunger and ask for the bill | Short polite orders, quiero, tener hambre, singular gustar |
-| Numbers & prices | Ask a price, understand a small total, specify a quantity | Cuánto cuesta, plural quantities, veintiún before masculine nouns |
-| Family & people | Introduce close family and describe someone simply | Ser for descriptions, possessives, adjective and number agreement |
-| Everyday objects | Identify an object, describe it and say where it is | Noun–colour order, hay vs identification, estar for location |
-| Around town | Ask where a place is and follow a simple direction | Dónde está, near/far, directional phrases, a + el → al |
-| Routines & meeting times | Say when an activity happens and agree a meeting time | Es la una vs son las, a la/las, y media, menos cuarto |
+| A1.1 Greetings & introductions | Introduce yourself, ask a name, greet/leave politely and ask for repetition | Me llamo, soy + name, te llamas, courtesy/repetition chunks |
+| A1.1 About you | Give age, origin and home city; ask basic personal information | Ser/estar, tener for age, vivo/hablo, informal plural Spain pronouns |
+| A1.1 At the café | Order breakfast, express hunger and ask for the bill | Quiero, tener hambre, gusta, negation, por favor |
+| A1.1 Numbers & prices | Ask a price, understand a small total and request a quantity | Cuesta, son, number formation, euro/plural agreement |
+| A1.1 Family & people | Introduce relatives and describe someone simply | Mi/mis, este/esta, ser, gender/number agreement, tener los ojos |
+| A1.1 Everyday objects | Identify/describe an object and say where it is | Hay vs estar, colour order/agreement, articles, possessions |
+| A1.1 Around town | Ask a location and follow a simple direction | Dónde está, cerca/lejos, right/left/straight, al vs a la |
+| A1.1 Routines & meeting times | State an activity time and agree a meeting time | Es la/son las, a la/a las, y media/menos cuarto, desayuno, nos vemos |
+| A1.2 Free time & preferences | Describe interests and choose an activity together | Gusta + infinitive, gustan + plural, prefiero, también/pero/porque |
+| A1.2 Inviting & responding | Invite, accept/decline politely and propose another time | Vamos, quieres/queréis, puedo, lo siento, qué tal |
+| A1.2 Making plans | Agree an activity, day, time and meeting place | Ir a + infinitive, day/time expressions, delante del |
+| A1.2 Choosing clothes | Explain garment, colour and size needs | Necesito, articles, feminine/plural colours, talla |
+| A1.2 In the clothes shop | Try on, explain fit, choose and pay | Puedo probarme/me puedo probar, queda/quedan, me llevo, con tarjeta |
+| A1.2 At home | Describe rooms and locate things for a visitor | Hay/no hay, ser/estar, al lado de/encima de/debajo de |
+| A1.2 A typical day | Describe a timed daily routine | Me levanto/ducho/visto/acuesto, stem changes, primero/después, después de + infinitive |
+| A1.2 A day together | Connect routine, reason and future plan in a short message | Y, pero, porque, también, después, entonces, tengo que + infinitive |
 
-## Familiar characters and small situations
+The recurring cast remains Ana, Luis, Marta and Diego. Friends meet in class, visit Diego's café, buy something, help find objects and directions, arrange outings, shop for clothes, visit a flat and compare routines. Anonymous shop staff are roles, not extra narrative protagonists. Familiar situations provide continuity; no complicated plot is required.
 
-There are four recurring people: Ana, an English learner settling into Madrid; Luis, her local friend; Marta, Luis’s sister; and Diego, who works at their neighbourhood café. Ana’s origin and Madrid home remain consistent. Relationships do not change between units.
+## Rhythm and counts
 
-The 32 original stories form small encounters rather than a complicated plot: introductions at class, completing a form, checking a misheard age, ordering different drinks, correcting dos/doce, reading a price label, meeting Marta, looking at a family photo, finding keys, identifying a phone, checking a direction, and confirming a changed meeting time.
-
-Passages use short present-tense sentences and dialogue. A small glossary explains scenario vocabulary or fixed phrases, such as ficha, aquí tienes or nos vemos. Transfer prompts supply an unfamiliar number where needed instead of silently increasing the vocabulary burden. Vocabulary support can be opened when reading; questions and review retain the complete original passage.
-
-## Rhythm and exercise progression
-
-The existing 72 lesson IDs and their order remain unchanged:
+Both stages retain their original 72 activity IDs and ordering. A1.1 deliberately retains its historical checkpoint-before-final-story order:
 
 Discover → Story 1 → Build confidence → Story 2 → Use it → Story 3 → Write in Spanish → Checkpoint → Story 4.
 
-Each of the three regular lessons has five questions: a model/recognition or dialogue choice; controlled completion; recall from memory; a contextual interpretation/response choice; and a short Spanish response in a changed situation. The eight writing activities each have five practical requests. A situation constrains the response enough for authored answer checking: for example, ordering tea rather than coffee, introducing a named sister, or suggesting a particular meeting time.
+A1.2 ends each unit with its checkpoint:
 
-Checkpoints contain nine questions, including four Spanish-production items. Their deliberate reuse of earlier tasks tests retrieval after intervening activities. Completion and capability thresholds remain 80%; records are earned once. Capability wording describes a limited course outcome, not independently assessed conversation or certified proficiency.
+Discover → Story 1 → Build confidence → Story 2 → Use it → Story 3 → Write in Spanish → Story 4 → Checkpoint.
 
-Spanish-only production now appears in 120 question slots, compared with 40 before this revision. This count includes checkpoint retrieval. A1.1 activity and question counts are unchanged: 72 activities and 392 questions.
+Per unit: teaching activities have 5/6/7 questions; four stories and the writing activity have five each; checkpoint has nine. Total: **52 slots per unit, 416 per stage, 832 overall**, across the unchanged 144 activities. There are 240 scored Spanish-writing slots, 48 listening slots and 16 self-assessed speaking slots. Added media occupies existing teaching activities rather than inflating activity counts. One earlier checkpoint slot per unit is replaced by listening.
 
-## Reading comprehension
+The first five teaching questions retain the recognition/model → completion → recall → contextual response → transfer structure. New listening follows familiar models; speaking follows high-value communicative practice. A1.2 moves toward connected responses without extensive past narration or A2 grammar. Answer lists remain short and finite.
 
-Every story has three authored choice questions and two short typed questions. Distractors are written for the specific situation, not generated from arbitrary names or a global answer pool. Questions mix explicit facts, meaning in context, matching information to a speaker, a suitable reply, the next event, simple transfer and supported inference. Only 40 of the 160 story questions are tagged as literal facts.
+## Reading and vocabulary load
 
-Learners read before choosing “Ready for questions”, without a forced timer. They may reread the passage throughout questions and spaced review. Typed comprehension accepts English or Spanish. Choices use English for meaning questions and Spanish for conversational responses; their language follows the task rather than displaying paired translations of every option.
+All 64 stories have three specific choices and two short English/Spanish responses. Questions include facts, meaning, character, supported inference, sequence, contextual response and light transfer. The learner reads at their own pace before questions, and can reread during questions/review. Glossaries support unfamiliar scenario chunks rather than requiring their independent production immediately.
 
-## Answer checking and feedback
+With the audit's Spanish surface-token method, A1.1 stories average 28.4 words (21–35); A1.2 averages 48.4 (34–65). These counts exclude numerals and are a pacing indicator, not a proficiency measure. The audit retained natural original passages and changed three A1.2 stories only to recycle familiar water/food/hunger within plausible breakfast, shopping and outing contexts.
 
-Spanish production remains short and constrained. Accepted variants are authored per task: omitted subject pronouns, naturally polite orders, alternative introductions, and relevant regional vocabulary. Matching tolerates case, punctuation, repeated spaces and vowel accents, including canonically equivalent Unicode. Ñ remains distinct from n. No substring or LLM grading is used: a negated version of a request does not pass simply because it contains the example answer.
+Recycling also uses quantities, coffee/bills, keys/phones, home locations, invitations and changed times across units. [The audit report](docs/A1_STABILITY_REPORT.md) records baseline-to-final surface-word unit coverage. `npm run audit` reproduces it; inflections, names and function words are not lemmatised and exposure is not evidence of mastery.
 
-Feedback explains the pattern or passage evidence. Common misconceptions include tener for age/hunger, ser/estar, gustar, adjective agreement, article gender, false friends, fixed por favor, and al versus a la. Some familiar age/hunger/gustar errors receive a specific explanation; other errors use the concise authored explanation for that task. A valid unlisted paraphrase may still be rejected, so prompts request a word, short phrase or constrained sentence.
+## Listening
 
-TTS pronunciation of a model answer appears after checking, so recall/production cannot reveal their target beforehand. Stories can be read aloud through the existing Spain Spanish TTS. Synthetic speech is labelled as TTS; it is not recorded listening practice.
+Every unit has two teaching listens and one checkpoint listen. Both recognition and short typed comprehension are present. The full Spanish transcript is absent from the DOM before attempting; play/replay controls and the comprehension prompt appear first. Checking or deliberately skipping reveals the transcript with evidence-based feedback. Review hides the transcript again.
 
-## European Spanish
+Early tasks identify a name, origin, drink or quantity. Later tasks distinguish a rejected alternative, current/meeting time, person/possession, changed day, preference/reason, fit or sequence. A1.2 can contain several familiar details. Vocabulary is introduced before it is used to test listening: size comprehension follows the size model; early location/time listening avoids later al lado de/delante del chunks.
 
-Spain vocabulary and pronunciation remain the default: móvil, ordenador, vosotros/vosotras and es-ES speech. Two brief unit notes explain móvil/celular, ordenador/computadora, and vosotros/ustedes. Relevant regional responses can still be accepted in writing. These notes are reference support, not an extra dialect curriculum for beginners.
+Speech is synthetic es-ES using Android TextToSpeech or browser SpeechSynthesis with an offline voice. Teaching rates progress approximately .8–.95; later checkpoint speech reaches 1.0. The new native bridge honours authored rates; older bridges remain compatible at their default rate. Platform errors may still require retry/skip. Skipping records a scored miss and retains the item for review; the unchanged 80% threshold means a learner can still pass a lesson while missing one question.
 
-## Original material and references
+The model accepts an optional curated local recording path with TTS fallback, but none is populated. Human-speaker variability, natural overlapping dialogue and acoustic validation remain future work. No corpus, cloud speech service or microphone is added.
 
-This revision follows phase 1 of [the integration guide](docs/resources/INTEGRATION_GUIDE.md): original material informed by the documented CEFR/Cervantes scope and communicative, contextual design principles associated with Semillas and the other OER notes. No external exercise, story, translation or recording was imported or closely adapted. [The reference record](docs/resources/CURRICULUM_REFERENCE.md) distinguishes design references from incorporated assets.
+## Speak-aloud retrieval
 
-Future verbatim or close adaptations require exact item-level licence checks and the [attribution template](docs/resources/ATTRIBUTION_TEMPLATE.md). No share-alike content has been introduced through this rewrite. No audio corpus was downloaded. Recorded listening, provenance tooling and curated human voices remain a separate future phase.
+One selected chunk per unit practises a useful utterance: greeting/introduction, personal details, ordering, price, family, object location, directions, meeting time, preferences, refusal/alternative, arranging a meeting, garment/size, trying on, home directions, routine and refusal with a reason.
 
-## Saved progress
+The learner tries aloud, deliberately reveals one possible model, optionally hears it, then self-assesses. Different natural equivalents may also be considered successful. “Needs practice” enters spaced review. Speaking attempts are explicitly self-assessed, excluded from scored accuracy and cannot on their own earn a checkpoint/capability. The app neither records voice nor verifies pronunciation.
 
-Stable lesson IDs, tuple-style units, the version-1 storage key and export format remain supported. Completed IDs, streaks, achievements and capabilities are not rewritten. Active lessons and review questions are saved snapshots: old attempts, even historical two-question lessons, finish using the original content. The previous length-based replacement of active questions is removed because replacing a passage or answer mid-attempt can invalidate saved answers. Starting a new attempt uses the revised course. Import clears the current in-memory quiz before resuming the imported snapshot.
+Completion and Home practice sessions rotate through units already practised (or introductory chunks for a new learner), favouring less recently retrieved items. This supports continued retrieval after the course is completed rather than offering an unavailable A2 lesson.
 
-## Stage progression and authoring metadata
+## Assessment and teaching feedback
 
-`Curriculum.stageInfo` defines an explicit goal, three practical tasks, language support, language focus and playable/planned status for each subdivision. `Curriculum.stages` remains the original ordered string API. The Learn screen displays those targets and switches between A1.1/A1.2 lessons; future stages have no launchable lessons.
+Every checkpoint still has nine questions and four distinct constrained Spanish responses, plus one listening question, contextual response/recognition and controlled completion. Some deliberate prior retrieval remains; new contexts change names, objects, quantity, place, time or required response. Duplicate written model answers within checkpoints were removed. Threshold stays 80% (eight of nine); achievements/completion events remain unique.
 
-| Stage | Practical progression | Language focus |
-| --- | --- | --- |
-| A1.1 | First meetings, breakfast, prices, family, objects, directions and meeting times | Present-tense chunks, agreement and basic questions |
-| A1.2 | Outings, clothes shopping, home and routines | Present consolidation, reflexive routines, near-future plans, simple connectors |
-| A2.1 | Recent experiences, travel choices and health needs | Common past events, comparison and plans |
-| A2.2 | Routine problems, changed habits and practical requests | Event/background contrast, polite requests and sequence |
-| B1.1 | Connected narratives, reasons and main-point summaries | Past narration and everyday opinions |
-| B1.2 | Discuss options, negotiate solutions and write coherent complaints | Advice, wishes, common subjunctive contexts and cohesion |
-| B2.1 | Compare perspectives, develop arguments and adjust register | Qualification, complex clauses and formal requests |
-| B2.2 | Interpret stance, synthesize accounts and defend proposals | Nuance, concession, counterfactuals and sustained cohesion |
+The audit adds models before thirty-two and quarter-to clock recall, simplifies an unsupported two-hundred-euro gap, models después de desayunar before writing, supports Sunday in a transferred plan, and teaches a practical request for repetition. Required porque prompts no longer accept a por eso alternative that misses the explicit connector requirement. Three punctuation/hyphen duplicate answer-list entries were removed without changing which input is accepted.
 
-These are provisional authoring targets informed by the documented references, not official CEFR descriptors. A1/A2 comprehension can accept English or Spanish; later stages should progressively use Spanish with support. Longer B1/B2 production needs a reviewed assessment design before implementation. The current finite short-answer grader is not claimed to assess extended writing.
+Feedback explains concepts and reading evidence. There are 71 authored misconception examples across course slots (baseline 37), covering tener for age/hunger, ser/estar, gusta/gustan, adjective/article/number agreement, person endings, missing a in plans, reflexives/stem changes, clock versus activity time, and al versus a la. Other incorrect replies receive the task's concise explanation. Valid unlisted paraphrases can still be rejected.
 
-Every playable lesson carries its unit goal, stable outcome ID and an original-authorship reference record. Goals appear during regular questions and story reading; older saved snapshots fall back to the existing unit index without replacing their questions. No migration or storage-version change is required. The shared tuple units API, lesson IDs and review prompt keys remain stable.
+Matching tolerates case, punctuation, spaces, vowel accents and Unicode equivalence; ñ and negation remain meaningful. There is no substring matching, cloud grader or LLM. Longer free-form writing needs a separate assessment design, particularly before B1.
 
-## Implemented A1.2: longer everyday exchanges
+## European Spanish and references
 
-The second chapter consolidates A1.1 rather than introducing extensive past narration. Its eight practical units are:
+Móvil, ordenador, piso, probador, vosotros/vosotras and supported queréis remain Spain-first targets; TTS uses es-ES. Brief regional/register notes explain common alternatives without multiplying beginner targets. Some relevant regional writing variants remain valid. No Latin-American voice pool is introduced.
 
-| Unit | Practical outcome | Supporting language |
-| --- | --- | --- |
-| Free time & preferences | Explain interests and choose an activity together | Gusta + infinitive, gustan + plural nouns, prefiero, también, pero, porque |
-| Inviting & responding | Invite, accept/decline politely and offer another day | Vamos al…, quieres + infinitive, no puedo, qué tal |
-| Making plans | Agree an activity, day, time and meeting place | Ir a + infinitive, el + day, a las + time, delante del |
-| Choosing clothes | Explain garment, colour and size needs | Article/adjective agreement, plural colours, talla, necesito |
-| In the clothes shop | Try on, describe fit, choose and pay | Puedo probarme/me puedo probar, queda/quedan, me llevo, con tarjeta |
-| At home | Describe rooms and help a visitor locate objects | Hay/no hay, ser for description, estar for location, al lado de/debajo de |
-| A typical day | Describe a timed daily routine | Me levanto, me ducho, me visto, me acuesto, primero/después |
-| A day together | Write a short sequence, reason and future plan | Y, pero, porque, también, después, entonces; tengo que + infinitive |
+CEFR/Cervantes provide reference scope; Semillas and documented OERs inform communicative sequencing, contextual grammar, comprehension and production. All new scenarios, transcripts, questions, distractors and explanations are original Friends to Amigos material. No third-party text/audio is copied or closely adapted. Future reuse requires exact-item licensing/provenance under [the attribution policy](docs/resources/ATTRIBUTION_TEMPLATE.md).
 
-Each unit has nine activities: Discover → Story 1 → Build confidence → Story 2 → Use it → Story 3 → Write in Spanish → Story 4 → Checkpoint. The checkpoint ends each new unit; A1.1's historical order is retained. Total: 72 A1.2 activities and 392 question slots, including 120 Spanish-only production slots. Checkpoints have nine questions with four Spanish responses, reuse earlier tasks after intervening practice and retain any passage needed for comprehension.
+## State and architecture
 
-The 32 original scenarios continue Ana, Luis, Marta and Diego through invitations, changed meeting times, garment choices, fitting rooms, home visits, missing keys, morning routines and short messages. Stories average 48 words compared with A1.1's 29; the final unit brings several familiar functions together. New chunks have glossaries. Comprehension combines facts, meaning, character, sequence, supported inference and suitable responses; typed answers still accept English or Spanish. Reading evidence travels with review snapshots and checkpoint reading questions.
+Activity IDs, tuple-style A1.1 units, stage APIs, existing completion/capability records and intentional ordering remain compatible. New permanent question IDs decouple review from wording. Schema-v2 validation/migration preserves valid v1 saves and historical snapshots; incompatible or corrupt roots are protected, and unsafe imports cannot overwrite valid progress. See [STATE_AND_QUESTIONS.md](docs/STATE_AND_QUESTIONS.md).
 
-Connected production grows gradually: liking books → contrasting a dislike → giving a reason → coordinating a time/place → combining a routine and plan. Prompts constrain roles, details and sometimes connectors so a finite authored answer list remains practical. Realistic alternatives include omitted subject pronouns, inverted time placement, natural polite requests, and both pronoun positions in puedo probarme/me puedo probar. Feedback addresses gusta/gustan, missing a in plans, reflexive pronouns and endings, stem changes, agreement, and presence versus location. No LLM or cloud grading is used.
+Stage source/story modules remain small local data modules. New `a1-review.js` records justified amendments after capturing the compatibility archive; `a1-practice.js` adds selective media. Rendering, storage and speech are separated from `app.js` without a framework/rewrite. Question ID manifests and fixtures must be extended deliberately when authoring new content.
 
-European Spanish remains primary. A clothing note explains polite shop-assistant address; a home note explains piso/apartamento. Vosotros/queréis appears in a supported group-invitation story. No new audio assets are shipped; TTS and feedback sounds remain unchanged.
+The Learn selector remains ungated for playable stages. Continue respects active historical attempts first, then onboarding/preferred-stage progression. Future placement recommendations are labelled provisional and cannot launch an unavailable course.
 
-## Multi-stage architecture and compatibility
+## Later stages and release boundary
 
-A1.2 is authored separately in `www/a12.js` and `www/a12-stories.js`, loaded locally before curriculum assembly. `stageUnits` and `getUnit` resolve stage-local unit indexes; `playableStages` derives availability from stage metadata. The eight-element A1.1 tuple API and unit metadata remain unchanged. The engine, version-1 save format and import/export schema are unchanged.
+| Planned stage | Future practical progression |
+| --- | --- |
+| A2.1 | Recent experiences, travel choices, health needs |
+| A2.2 | Routine problems, changed habits, practical requests |
+| B1.1 | Connected narratives, reasons, main-point summaries |
+| B1.2 | Discuss options, negotiate solutions, coherent complaints |
+| B2.1 | Compare perspectives, develop arguments, adjust register |
+| B2.2 | Interpret stance, synthesise accounts, defend proposals |
 
-A1.2 IDs have the noncolliding `a12u{0–7}` prefix. A1.1's 72 IDs, ordering and entire lesson content are protected by fixtures and a pre-addition content hash. Old active attempts and review snapshots resume their own questions without replacement. Review prompts for new authored tasks include stage/context to prevent unrelated answers overwriting each other; checkpoints deliberately reuse the same identity for retrieval.
+These remain provisional authoring targets. No later-stage lessons are playable. The A1 audit found no major unresolved gap within this course's stated everyday task scope, but broader A1 proficiency is not certified. Dates/contact information and unfamiliar human conversation are partial, not independently demonstrated.
 
-No brittle stage gate is introduced. A learner can revisit either course through the Learn selector. Continue respects the selected playable starting stage and then course ordering; completing A1.1 leads into A1.2. Home progress is calculated for the resumed/next stage. The provisional placement engine is unchanged, but the starting-stage picker only offers playable stages; a future-stage recommendation does not create an unavailable course.
-
-## Review limits
-
-Automated validity and compatibility checks do not constitute independent proficiency assessment. A native Spanish educator should review the vocabulary ramp, distractor pragmatics, connector use and accepted paraphrases. Answers remain deliberately short and finite; a valid unlisted reply can be rejected. Real Android device checks and curated recorded listening remain future work. The stage architecture is ready for A2.1 authoring, but A2 content and longer-writing assessment are not shipped.
+Freeze the activity/identity contracts and reviewed content as an **A1 v1.0 release candidate**. Do not declare an unconditional stable release solely from simulated tests: native build/device upgrade/storage/TTS checks and a concise Spanish educator/native-speaker review remain release gates. The architecture can support A2.1 next, but complete those gates before expanding content. [BUILD_STATUS.md](BUILD_STATUS.md) distinguishes performed checks from remaining work.

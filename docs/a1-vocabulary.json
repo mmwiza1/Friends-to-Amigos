@@ -1,0 +1,197 @@
+{
+  "method": "Surface forms in positive Spanish teaching models, unit phrase banks and unique stories; excludes distractors, English, accepted variants and checkpoints. Unit coverage is exposure, not a measure of mastery. Inflections are not lemmatised.",
+  "stageStats": [
+    {
+      "stage": "A1.1",
+      "activities": 72,
+      "questions": 416,
+      "units": 8,
+      "stories": 32,
+      "storyWords": {
+        "min": 21,
+        "mean": 28.4,
+        "max": 35
+      },
+      "spanishWriting": 120,
+      "listening": 24,
+      "speaking": 8,
+      "misconceptionExamples": 34
+    },
+    {
+      "stage": "A1.2",
+      "activities": 72,
+      "questions": 416,
+      "units": 8,
+      "stories": 32,
+      "storyWords": {
+        "min": 34,
+        "mean": 48.4,
+        "max": 65
+      },
+      "spanishWriting": 120,
+      "listening": 24,
+      "speaking": 8,
+      "misconceptionExamples": 37
+    }
+  ],
+  "authoredQuestionIds": 871,
+  "vocabulary": {
+    "hola": [
+      "greetings",
+      "personal",
+      "family",
+      "a12-connected"
+    ],
+    "gracias": [
+      "greetings",
+      "personal",
+      "cafe",
+      "prices",
+      "family",
+      "objects",
+      "town",
+      "time",
+      "a12-invitations",
+      "a12-shopping",
+      "a12-home"
+    ],
+    "por": [
+      "greetings",
+      "cafe",
+      "prices",
+      "objects",
+      "time",
+      "a12-free-time",
+      "a12-invitations",
+      "a12-plans",
+      "a12-clothes",
+      "a12-home",
+      "a12-connected"
+    ],
+    "favor": [
+      "greetings",
+      "cafe",
+      "prices",
+      "objects",
+      "time",
+      "a12-clothes"
+    ],
+    "café": [
+      "greetings",
+      "cafe",
+      "prices",
+      "family",
+      "town",
+      "time",
+      "a12-free-time",
+      "a12-invitations",
+      "a12-plans",
+      "a12-shopping",
+      "a12-routines",
+      "a12-connected"
+    ],
+    "pan": [
+      "cafe",
+      "a12-shopping",
+      "a12-connected"
+    ],
+    "agua": [
+      "cafe",
+      "a12-shopping",
+      "a12-routines"
+    ],
+    "hambre": [
+      "cafe",
+      "a12-shopping"
+    ],
+    "años": [
+      "personal",
+      "family"
+    ],
+    "móvil": [
+      "objects",
+      "a12-home"
+    ],
+    "ordenador": [
+      "objects",
+      "a12-home"
+    ],
+    "ordenadores": [],
+    "libro": [
+      "prices",
+      "objects",
+      "a12-free-time",
+      "a12-home",
+      "a12-connected"
+    ],
+    "libros": [
+      "prices",
+      "objects",
+      "a12-free-time"
+    ],
+    "llaves": [
+      "objects",
+      "a12-home"
+    ],
+    "mesa": [
+      "objects",
+      "a12-free-time",
+      "a12-home",
+      "a12-connected"
+    ],
+    "parque": [
+      "town",
+      "time",
+      "a12-free-time",
+      "a12-invitations",
+      "a12-plans",
+      "a12-clothes",
+      "a12-routines",
+      "a12-connected"
+    ],
+    "mañana": [
+      "greetings",
+      "a12-free-time",
+      "a12-invitations",
+      "a12-plans",
+      "a12-clothes",
+      "a12-home",
+      "a12-routines",
+      "a12-connected"
+    ],
+    "porque": [
+      "a12-free-time",
+      "a12-clothes",
+      "a12-routines",
+      "a12-connected"
+    ],
+    "después": [
+      "a12-free-time",
+      "a12-invitations",
+      "a12-plans",
+      "a12-clothes",
+      "a12-shopping",
+      "a12-home",
+      "a12-routines",
+      "a12-connected"
+    ]
+  },
+  "unitCoverageHistogram": {
+    "1": 156,
+    "2": 55,
+    "3": 35,
+    "4": 24,
+    "5": 18,
+    "6": 7,
+    "7": 15,
+    "8": 10,
+    "9": 2,
+    "10": 1,
+    "11": 3,
+    "12": 4,
+    "13": 4,
+    "14": 2,
+    "15": 3,
+    "16": 2
+  }
+}

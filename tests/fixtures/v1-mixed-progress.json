@@ -1,0 +1,314 @@
+{
+  "version": 1,
+  "name": "Amelia",
+  "onboarded": true,
+  "stage": "A1.2",
+  "placement": {
+    "stage": "A1.2",
+    "answers": [
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "date": "2026-10-02"
+  },
+  "completed": [
+    "u0l0",
+    "u0check",
+    "a12u0check"
+  ],
+  "capabilities": [
+    {
+      "id": "u0check",
+      "text": "Introduce yourself and greet someone",
+      "date": "2026-10-02"
+    },
+    {
+      "id": "a12u0check",
+      "text": "Describe what you enjoy and choose a simple activity with a friend",
+      "date": "2026-10-04"
+    }
+  ],
+  "reviews": {
+    "A1.2 · Use it: Inviting & responding: From memory, politely say “Sorry, I cannot”.": {
+      "question": {
+        "type": "text",
+        "prompt": "A1.2 · Use it: Inviting & responding: From memory, politely say “Sorry, I cannot”.",
+        "answer": "Lo siento, no puedo",
+        "accepted": [
+          "Lo siento, no puedo",
+          "No puedo, lo siento"
+        ],
+        "language": "es",
+        "spanish": "Lo siento, no puedo",
+        "explanation": "Lo siento and no puedo can appear in either order.",
+        "topic": "Polite refusals",
+        "mode": "recall",
+        "mistakes": []
+      },
+      "topic": "Polite refusals",
+      "wrong": 3,
+      "success": 2,
+      "due": 1791417600000,
+      "corrected": false
+    },
+    "¿Cuál es mi libro?: How many books are there?": {
+      "question": {
+        "type": "text",
+        "prompt": "¿Cuál es mi libro?: How many books are there?",
+        "answer": "two / dos",
+        "accepted": [
+          "two",
+          "dos",
+          "2",
+          "two books",
+          "dos libros"
+        ],
+        "language": "en-or-es",
+        "explanation": "Hay dos libros gives the number present.",
+        "topic": "Reading comprehension",
+        "mode": "fact",
+        "reading": {
+          "title": "¿Cuál es mi libro?",
+          "text": "En clase hay dos libros: un libro rojo y un libro azul.\nAna: Mi libro es rojo.\nLuis: Este es azul.\nAna: El rojo, por favor.\nLuis: Aquí tienes.",
+          "glossary": [
+            [
+              "¿cuál?",
+              "which one?"
+            ],
+            [
+              "el rojo",
+              "the red one"
+            ]
+          ],
+          "stage": "A1.1"
+        }
+      },
+      "topic": "Reading comprehension",
+      "wrong": 3,
+      "success": 3,
+      "due": 1793923200000,
+      "corrected": true
+    }
+  },
+  "events": [
+    {
+      "type": "lesson",
+      "id": "u0l0",
+      "date": "2026-10-02",
+      "at": 1790899200000
+    },
+    {
+      "type": "answer",
+      "topic": "Likes and activities",
+      "correct": false,
+      "date": "2026-10-04",
+      "at": 1791072000000
+    }
+  ],
+  "sessions": {
+    "2026-10-02": {
+      "seconds": 147,
+      "practised": true
+    },
+    "2026-10-03": {
+      "seconds": 65,
+      "practised": true
+    },
+    "2026-10-04": {
+      "seconds": 213.5,
+      "practised": true
+    }
+  },
+  "active": {
+    "kind": "lesson",
+    "lesson": {
+      "id": "a12u7write",
+      "stage": "A1.2",
+      "unit": 7,
+      "unitId": "a12-connected",
+      "outcomeId": "a12-connected",
+      "goal": "Connect a routine, a reason and a future plan in a short practical message",
+      "title": "Write in Spanish: A day together",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "A1.2 · A day together: Write: you like reading and you also like music. Use también.",
+          "answer": "Me gusta leer y también me gusta la música",
+          "accepted": [
+            "Me gusta leer y también me gusta la música",
+            "Me gusta leer. También me gusta la música."
+          ],
+          "language": "es",
+          "spanish": "Me gusta leer y también me gusta la música",
+          "explanation": "También adds another positive interest; both activities take gusta.",
+          "topic": "A day together",
+          "mode": "contextual",
+          "mistakes": [
+            {
+              "answer": "Yo gusto leer y también me gusta la música",
+              "explanation": "Gustar does not work like English like: me marks the person and the thing liked controls gusta/gustan."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "prompt": "A1.2 · A day together: Tell Ana you cannot come because you have to work.",
+          "answer": "No puedo venir porque tengo que trabajar",
+          "accepted": [
+            "No puedo venir porque tengo que trabajar",
+            "Lo siento, no puedo venir porque tengo que trabajar"
+          ],
+          "language": "es",
+          "spanish": "No puedo venir porque tengo que trabajar",
+          "explanation": "Porque gives the reason; tengo que takes an infinitive.",
+          "topic": "A day together",
+          "mode": "contextual",
+          "mistakes": []
+        },
+        {
+          "type": "text",
+          "prompt": "A1.2 · A day together: State a sequence: first get dressed, then go to class.",
+          "answer": "Primero me visto y después voy a clase",
+          "accepted": [
+            "Primero me visto y después voy a clase",
+            "Primero me visto. Después voy a clase."
+          ],
+          "language": "es",
+          "spanish": "Primero me visto y después voy a clase",
+          "explanation": "Primero and después organise two present-tense actions.",
+          "topic": "A day together",
+          "mode": "contextual",
+          "mistakes": []
+        },
+        {
+          "type": "text",
+          "prompt": "A1.2 · A day together: Say you are free, so you can meet. Use entonces and podemos.",
+          "answer": "Estoy libre, entonces podemos quedar",
+          "accepted": [
+            "Estoy libre, entonces podemos quedar"
+          ],
+          "language": "es",
+          "spanish": "Estoy libre, entonces podemos quedar",
+          "explanation": "Estar describes availability; entonces introduces the resulting possibility.",
+          "topic": "A day together",
+          "mode": "contextual",
+          "mistakes": []
+        },
+        {
+          "type": "text",
+          "prompt": "A1.2 · A day together: Write a short plan: tomorrow you will read, then go to the park.",
+          "answer": "Mañana voy a leer y después voy al parque",
+          "accepted": [
+            "Mañana voy a leer y después voy al parque",
+            "Mañana voy a leer. Después voy al parque."
+          ],
+          "language": "es",
+          "spanish": "Mañana voy a leer y después voy al parque",
+          "explanation": "Voy a leer expresses a plan, and después introduces the next activity.",
+          "topic": "A day together",
+          "mode": "contextual",
+          "mistakes": []
+        }
+      ],
+      "checkpoint": false,
+      "authorship": {
+        "kind": "original",
+        "referenceRecord": "docs/resources/CURRICULUM_REFERENCE.md"
+      }
+    },
+    "questions": [
+      {
+        "type": "text",
+        "prompt": "A1.2 · A day together: Write: you like reading and you also like music. Use también.",
+        "answer": "Me gusta leer y también me gusta la música",
+        "accepted": [
+          "Me gusta leer y también me gusta la música",
+          "Me gusta leer. También me gusta la música."
+        ],
+        "language": "es",
+        "spanish": "Me gusta leer y también me gusta la música",
+        "explanation": "También adds another positive interest; both activities take gusta.",
+        "topic": "A day together",
+        "mode": "contextual",
+        "mistakes": [
+          {
+            "answer": "Yo gusto leer y también me gusta la música",
+            "explanation": "Gustar does not work like English like: me marks the person and the thing liked controls gusta/gustan."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "prompt": "A1.2 · A day together: Tell Ana you cannot come because you have to work.",
+        "answer": "No puedo venir porque tengo que trabajar",
+        "accepted": [
+          "No puedo venir porque tengo que trabajar",
+          "Lo siento, no puedo venir porque tengo que trabajar"
+        ],
+        "language": "es",
+        "spanish": "No puedo venir porque tengo que trabajar",
+        "explanation": "Porque gives the reason; tengo que takes an infinitive.",
+        "topic": "A day together",
+        "mode": "contextual",
+        "mistakes": []
+      },
+      {
+        "type": "text",
+        "prompt": "A1.2 · A day together: State a sequence: first get dressed, then go to class.",
+        "answer": "Primero me visto y después voy a clase",
+        "accepted": [
+          "Primero me visto y después voy a clase",
+          "Primero me visto. Después voy a clase."
+        ],
+        "language": "es",
+        "spanish": "Primero me visto y después voy a clase",
+        "explanation": "Primero and después organise two present-tense actions.",
+        "topic": "A day together",
+        "mode": "contextual",
+        "mistakes": []
+      },
+      {
+        "type": "text",
+        "prompt": "A1.2 · A day together: Say you are free, so you can meet. Use entonces and podemos.",
+        "answer": "Estoy libre, entonces podemos quedar",
+        "accepted": [
+          "Estoy libre, entonces podemos quedar"
+        ],
+        "language": "es",
+        "spanish": "Estoy libre, entonces podemos quedar",
+        "explanation": "Estar describes availability; entonces introduces the resulting possibility.",
+        "topic": "A day together",
+        "mode": "contextual",
+        "mistakes": []
+      },
+      {
+        "type": "text",
+        "prompt": "A1.2 · A day together: Write a short plan: tomorrow you will read, then go to the park.",
+        "answer": "Mañana voy a leer y después voy al parque",
+        "accepted": [
+          "Mañana voy a leer y después voy al parque",
+          "Mañana voy a leer. Después voy al parque."
+        ],
+        "language": "es",
+        "spanish": "Mañana voy a leer y después voy al parque",
+        "explanation": "Voy a leer expresses a plan, and después introduces the next activity.",
+        "topic": "A day together",
+        "mode": "contextual",
+        "mistakes": []
+      }
+    ],
+    "index": 2,
+    "answers": [
+      true,
+      false
+    ],
+    "selected": "Primero me visto y después voy a clase",
+    "checked": false
+  }
+}

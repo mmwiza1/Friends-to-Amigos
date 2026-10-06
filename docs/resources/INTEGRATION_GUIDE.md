@@ -84,28 +84,21 @@ Before a third-party item is included in a release, confirm:
 
 ### Phase 1 — curriculum reference: implemented
 
-The documented CEFR/Cervantes scope and OER pedagogical recommendations now inform original A1.1 material: eight can-do units, 32 contextual stories, short Spanish recall/production, dialogue and transfer tasks, teaching feedback, glossary/rereading support, and limited regional notes. Lesson metadata connects each activity to its unit outcome and an original-authorship reference record. Stage metadata defines separate A1.1–B2.2 targets; A1.1 and A1.2 are playable. Tests protect stable IDs and historical progress snapshots. No third-party exercise was imported or closely adapted.
+The documented CEFR/Cervantes scope and OER pedagogical recommendations now inform original A1.1/A1.2 material: 16 can-do units, 64 contextual stories, short Spanish recall/production, dialogue and transfer tasks, teaching feedback, glossary/rereading support, and limited regional notes. Lesson metadata connects each activity to its unit outcome and an original-authorship reference record. Stage metadata defines separate A1.1–B2.2 targets; A1.1 and A1.2 are playable. Tests protect stable IDs and historical progress snapshots. No third-party exercise was imported or closely adapted.
 
-### Phase 2 — real listening MVP: future
+### Phase 2 — audio-first listening and retrieval: implemented with TTS
 
-Add a new question model that can reference a local audio asset and optionally hide/reveal its transcript. Start with a very small hand-curated set (for example 10–20 clips), not a corpus import.
+48 original choice/typed comprehension questions hide the transcript before attempting, reveal it after checking/explicit skip, allow replay and preserve metadata in spaced review. Vocabulary is familiar and difficulty progresses across A1.1/A1.2. Sixteen selected speaking chunks require an aloud attempt, deliberate model reveal and explicit self-assessment; Needs practice enters review. Speaking is excluded from scored accuracy and is not automatic pronunciation assessment.
 
-Ideal exercise modes:
-
-- listen and choose meaning;
-- listen and choose the phrase heard;
-- listen and type one missing word;
-- dictation;
-- listen to dialogue, then answer an inference question;
-- replay at normal speed rather than artificially slowing every clip.
+The small media model supports a future local `listening.audio` path and falls back to TTS if it fails. No recordings populate that path. Only synthetic es-ES speech and original transcripts are currently integrated. Tests cover DOM transcript hiding/reveal, playback paths, replay/skip, historical/resumable media state and self-assessment. Human multi-speaker listening and exact-item provenance remain the next curated-audio phase.
 
 ### Phase 3 — curated audio pool: future
 
-Create a lightweight import process for Tatoeba/MLS/other permitted sources that emits both the audio asset and its provenance sidecar. Reject items without an allowed licence automatically.
+Create a lightweight selection/provenance process for individually cleared recordings that emits both the audio asset and its provenance sidecar. Reject items without an allowed licence automatically.
 
 ### Phase 4 — accent exposure: future
 
-After the Spain-first foundation is stable, intentionally add labelled Latin-American speakers and tasks. FLEURS can help here, alongside individually licensed short recordings.
+After the Spain-first foundation is stable, consider deliberately labelled Latin-American speakers/tasks using individually cleared short recordings. No bulk FLEURS or other dataset integration is approved by this guide.
 
 ## Resource-specific rules
 
@@ -139,7 +132,7 @@ After the Spain-first foundation is stable, intentionally add labelled Latin-Ame
 
 ## Testing implications
 
-When recorded listening is added, tests should cover:
+Current TTS tests already cover hiding/reveal, replay, review metadata, explicit failure/skip and no cloud dependency. When curated recordings are added, also verify:
 
 - lesson data rejects missing audio paths;
 - provenance sidecars exist for third-party audio;
@@ -162,6 +155,6 @@ An external asset is not “integrated” because the file exists in the repo. I
 6. tests cover the new behaviour;
 7. attribution is visible wherever the licence requires it.
 
-## A1.2 implementation update
+## Current verification
 
-A1.2 is now playable: eight practical units, 72 activities, 32 original stories and 392 question slots. Its connected-language progression covers preferences, invitations, future plans, clothes shopping, home and reflexive routines. `www/a12.js` and `www/a12-stories.js` follow the same original-authorship/reference policy as A1.1. No third-party wording or recording was imported or closely adapted. A2.1–B2.2 remain planned; curated human listening and exact-item asset attribution remain future work. All 54 automated tests pass, with preserved A1.1 content, saved snapshots and export/import.
+Both A1 stages are playable with 832 course question slots; 48 use original audio-first TTS and 16 are self-assessed spoken retrieval. Stable question identity and validated v1/v2 progress support are implemented. See [BUILD_STATUS.md](../../BUILD_STATUS.md) for tests and the unperformed native build/device gates. No researched recording/corpus is shipped.

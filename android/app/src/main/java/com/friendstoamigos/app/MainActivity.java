@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.speech.tts.Voice;
+import java.util.Comparator;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
@@ -18,7 +20,7 @@ import java.util.Locale;
 public class MainActivity extends Activity {
     private WebView web;
     private TextToSpeech speech;
-    private boolean speechReady;
+    private volatile boolean speechReady;
     private ValueCallback<Uri[]> fileCallback;
     @Override public void onCreate(Bundle saved) {
         super.onCreate(saved);
@@ -49,13 +51,23 @@ public class MainActivity extends Activity {
             }
         });
         speech=new TextToSpeech(this,status->{
-            if(status==TextToSpeech.SUCCESS){int result=speech.setLanguage(new Locale("es","ES"));speechReady=result!=TextToSpeech.LANG_MISSING_DATA && result!=TextToSpeech.LANG_NOT_SUPPORTED;speech.setSpeechRate(.85f);}
+            if(status==TextToSpeech.SUCCESS){
+                speech.setLanguage(new Locale("es","ES"));
+                // Prefer a deterministic installed voice; never require a network voice.
+                if(speech.getVoices()!=null){
+                    Voice voice=speech.getVoices().stream()
+                        .filter(v->"es".equals(v.getLocale().getLanguage()) && "ES".equals(v.getLocale().getCountry()) && !v.isNetworkConnectionRequired() && !v.getFeatures().contains(TextToSpeech.Engine.KEY_FEATURE_NOT_INSTALLED))
+                        .sorted(Comparator.comparing(Voice::getName)).findFirst().orElse(null);
+                    speechReady=voice!=null && speech.setVoice(voice)==TextToSpeech.SUCCESS;
+                }
+                speech.setSpeechRate(.85f);
+            }
         });
         web.addJavascriptInterface(new Object(){
-            @JavascriptInterface public void speak(String text){runOnUiThread(()->{
-                if(speechReady)speech.speak(text,TextToSpeech.QUEUE_FLUSH,null,"spanish");
-                else Toast.makeText(MainActivity.this,"Install a Spanish (Spain) voice in Android speech settings.",Toast.LENGTH_LONG).show();
-            });}
+            @JavascriptInterface public boolean isReady(){return speechReady;}
+            @JavascriptInterface public void stop(){runOnUiThread(()->{if(speech!=null)speech.stop();});}
+            @JavascriptInterface public void speak(String text){speakText(text,.85f);}
+            @JavascriptInterface public void speakAtRate(String text,double rate){speakText(text,(float)Math.max(.6,Math.min(1.25,rate)));}
             @JavascriptInterface public void exportProgress(String json){runOnUiThread(()->{
                 exportData=json;
                 Intent intent=new Intent(Intent.ACTION_CREATE_DOCUMENT).addCategory(Intent.CATEGORY_OPENABLE).setType("application/json").putExtra(Intent.EXTRA_TITLE,"friends-to-amigos-progress.json");
@@ -64,6 +76,10 @@ public class MainActivity extends Activity {
         },"AndroidSpeech");
         web.loadUrl("file:///android_asset/index.html");
     }
+    private void speakText(String text,float rate){runOnUiThread(()->{
+        if(speechReady){speech.setSpeechRate(rate);speech.speak(text,TextToSpeech.QUEUE_FLUSH,null,"spanish");}
+        else Toast.makeText(MainActivity.this,"Install an offline Spanish (Spain) voice in Android speech settings.",Toast.LENGTH_LONG).show();
+    });}
     private String exportData;
     @Override protected void onActivityResult(int request,int result,Intent data){
         super.onActivityResult(request,result,data);
@@ -74,6 +90,8 @@ public class MainActivity extends Activity {
             exportData=null;
         }
     }
-    @Override public void onBackPressed(){web.evaluateJavascript("document.querySelector('[data-action=leave]')?.click() || document.querySelector('[data-action=home]')?.click()",null);}
+    @Override public void onBackPressed(){web.evaluateJavascript("(() => { const button = document.querySelector('[data-action=leave]') || document.querySelector('[data-action=home]'); if (button) button.click(); })()",null);}
+    @Override protected void onPause(){if(speech!=null)speech.stop();web.evaluateJavascript("window.dispatchEvent(new Event('fta-pause'))",null);web.onPause();web.pauseTimers();super.onPause();}
+    @Override protected void onResume(){super.onResume();if(web!=null){web.onResume();web.resumeTimers();web.evaluateJavascript("window.dispatchEvent(new Event('fta-resume'))",null);}}
     @Override protected void onDestroy(){if(speech!=null){speech.stop();speech.shutdown();}web.destroy();super.onDestroy();}
 }

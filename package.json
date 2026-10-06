@@ -1,1 +1,11 @@
-{"name":"friends-to-amigos","version":"0.1.0","private":true,"scripts":{"start":"python3 -m http.server 4173 --directory www","test":"node --test tests/*.test.cjs"}}
+{
+  "name": "friends-to-amigos",
+  "version": "0.3.0",
+  "private": true,
+  "scripts": {
+    "start": "python3 -m http.server 4173 --directory www",
+    "test": "node --test tests/*.test.cjs",
+    "check": "node scripts/check-course.cjs",
+    "audit": "node scripts/check-course.cjs --report"
+  }
+}

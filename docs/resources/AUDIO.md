@@ -2,7 +2,11 @@
 
 Last reviewed: 2026-10-06
 
-Friends to Amigos currently uses Android/browser Spanish TTS. Selected licence-cleared recordings are a future listening upgrade, outside the current curriculum implementation. No corpus or third-party recording from this research has been downloaded or integrated. The app retains Spain Spanish TTS, labels synthetic story playback, and makes model-answer pronunciation available after checking so recall targets are not revealed beforehand. Existing success/failure sounds remain unchanged.
+Friends to Amigos now has 48 genuine audio-first comprehension questions across A1.1/A1.2, including every checkpoint. The Spanish transcript is hidden before an attempt, revealed after checking/skip, replayable, and hidden again in review. Content progresses from one familiar detail to alternatives, plans, fit, sequence and reasons. Both choices and short English/Spanish answers are implemented.
+
+Playback uses synthetic Spain Spanish through installed local Android/browser TTS voices, with explicit unavailable-voice/skip support. Sixteen self-assessed spoken retrieval models also use optional TTS. No automatic pronunciation assessment or recording exists. An optional local recording path with TTS fallback prepares later curated audio without populating it. Existing compressed success/failure sounds remain unchanged.
+
+Every new transcript is original Friends to Amigos material. None of the recordings/corpora below has been downloaded or integrated. Curated human speech, exact-item licences and acoustic review remain future work; no large dataset is approved for bulk repository inclusion. See [COURSE_DESIGN.md](../../COURSE_DESIGN.md) and [the current audit](../A1_STABILITY_REPORT.md).
 
 ## 1. FSI Spanish courses
 
