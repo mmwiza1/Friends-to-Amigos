@@ -1,6 +1,6 @@
 'use strict';
 const C=Curriculum,E=Engine,P=ProgressStore,storeKey=P.KEY;let storageContext=P.load(localStorage,C),state=storageContext.state;
-let tab='Home',screen='main',quiz=null,filter='all',topicFilter=null,lastTick=Date.now(),lastInteraction=Date.now(),viewStage=C.playableStages.includes(state.active?.lesson?.stage)?state.active.lesson.stage:C.playableStages.includes(state.stage)?state.stage:'A1.1';const app=document.getElementById('app');
+let tab='Home',screen='main',quiz=null,filter='all',topicFilter=null,lastTick=Date.now(),lastInteraction=Date.now(),viewStage=C.playableStages.includes(state.active?.lesson?.stage)?state.active.lesson.stage:C.playableStages.includes(state.stage)?state.stage:'A1.1';const app=document.getElementById('app'),viewport=ViewportTools.create(window);
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 // Saved attempts and review items are snapshots. Never substitute rewritten
 // questions mid-attempt, even when a previous app version had fewer questions.
@@ -15,13 +15,13 @@ function due(){return Object.values(state.reviews).filter(r=>r.due<=Date.now());
 function nextLesson(){return CoursePath.next(state,C);}
 function header(){return '<header><div><h1>Friends to<br>Amigos<span style="color:var(--coral)"> ✦</span></h1><p class="tagline">A little Spanish, every day.</p></div><span class="flag" aria-label="Spanish flag">🇪🇸</span></header>';}
 function nav(){return `<nav aria-label="Main navigation">${['Home','Learn','Review','Profile'].map((t,i)=>b(`<span aria-hidden="true">${['⌂','▤','↻','☺'][i]}</span>${t}${t==='Review'&&due().length?`<strong class="badge">${due().length}</strong>`:''}`,'tab',''+(tab===t?'active':''),`data-tab="${t}"`)).join('')}</nav>`;}
-function render(){if(screen==='quiz'){renderQuiz();return;}let html=header()+(storageContext.readOnly?'<p class="notice" role="status">Your saved progress needs recovery and is protected from changes. Export the original file from Profile before updating or recovering it.</p>':'');if(screen==='onboard')html+=onboard();else if(screen==='placementResult')html+=placementScreen();else if(screen==='practice')html+=practiceScreen();else if(screen==='achievements')html+=achievements();else html+={Home:home,Learn:learn,Review:review,Profile:profile}[tab]();app.innerHTML=html+(screen==='main'?nav():'');}
+function render(){if(screen==='quiz'){renderQuiz();return;}let html=header()+(storageContext.readOnly?'<p class="notice" role="status">Your saved progress needs recovery and is protected from changes. Export the original file from Profile before updating or recovering it.</p>':'');if(screen==='onboard')html+=onboard();else if(screen==='placementResult')html+=placementScreen();else if(screen==='practice')html+=practiceScreen();else if(screen==='achievements')html+=achievements();else html+={Home:home,Learn:learn,Review:review,Profile:profile}[tab]();app.innerHTML=html+(screen==='main'?nav():'');viewport.refresh();}
 function activeStage(){return state.active?.lesson?.stage||nextLesson()?.stage||(C.playableStages.includes(state.stage)?state.stage:'A1.1');}
 function startQuiz(kind,questions,lesson=null){quizReturn={tab,screen:screen==='quiz'?'main':screen};media.stop();if(!questions.length){toast('No practice questions are ready.');return;}if(lesson)viewStage=lesson.stage;quiz={kind,questions,lesson,index:0,answers:[],selected:null,checked:false,readingReady:false,modelRevealed:false,audioPlayed:false,audioUnavailable:false,audioLoading:false,listenRate};screen='quiz';persistQuiz();render();}
 function persistQuiz(){if(quiz&&quiz.kind==='lesson'){state.active=JSON.parse(JSON.stringify(quiz));delete state.active.audioLoading;delete state.active.listenRate;save();}}
-function renderQuiz(){if(quiz.index>=quiz.questions.length){finishQuiz();return;}app.innerHTML=(storageContext.readOnly?'<p class="notice" role="status">Temporary practice: your original save is protected. Export it from Profile before recovery; these attempts cannot be saved.</p>':'')+QuizView.render({quiz,E,b,esc,readingCard,lessonGoal});}
+function renderQuiz(){if(quiz.index>=quiz.questions.length){finishQuiz();return;}app.innerHTML=(storageContext.readOnly?'<p class="notice" role="status">Temporary practice: your original save is protected. Export it from Profile before recovery; these attempts cannot be saved.</p>':'')+QuizView.render({quiz,E,b,esc,readingCard,lessonGoal});viewport.refresh();}
 
-function finishQuiz(){const scored=quiz.answers.filter((_,i)=>quiz.questions[i].type!=='speaking'),score=scored.filter(Boolean).length,total=scored.length;if(quiz.kind==='placement'){state.placement={answers:quiz.answers,stage:E.placementResult(quiz.answers),date:E.dayKey()};state.onboarded=true;screen='placementResult';quiz=null;save();render();return;}if(quiz.kind==='lesson'){E.complete(state,quiz.lesson,score,total);state.active=null;}else E.markDay(state);save();screen='main';const passed=total===0||score/total>=.8;app.innerHTML=header()+`<div class="card empty">${quiz.kind==='lesson'?`<div class="lesson-bull ${passed?'happy':'sad'}" role="img" aria-label="${passed?'Happy bull celebrating your lesson':'Sad bull encouraging you to try again'}"></div>`:`<div class="icon">${passed?'🎉':'🌱'}</div>`}<h2>${passed?'Session complete':'Keep building confidence'}</h2><p>${total?`${score} of ${total} correct`:'Speaking practice complete · self-assessed'}</p>${quiz.questions.some(q=>q.type==='speaking')?'<p>Speaking responses are self-assessed and excluded from the scored result.</p>':''}<p>${quiz.kind==='lesson'&&!passed?'Reach 80% to complete this lesson. Your mistakes are ready for review.':'Every practice session helps your Spanish grow.'}</p>${todaySession?b(todaySession.steps.length?'Continue today’s session':'Finish today’s session','todayNext','primary'):b('Back to Home','home','primary')}${b('Try again','retry','pill')}</div>`;}
+function finishQuiz(){const scored=quiz.answers.filter((_,i)=>quiz.questions[i].type!=='speaking'),score=scored.filter(Boolean).length,total=scored.length;if(quiz.kind==='placement'){state.placement={answers:quiz.answers,stage:E.placementResult(quiz.answers),date:E.dayKey()};state.onboarded=true;screen='placementResult';quiz=null;save();render();return;}if(quiz.kind==='lesson'){E.complete(state,quiz.lesson,score,total);state.active=null;}else E.markDay(state);save();screen='main';const passed=total===0||score/total>=.8;app.innerHTML=header()+`<div class="card empty">${quiz.kind==='lesson'?`<div class="lesson-bull ${passed?'happy':'sad'}" role="img" aria-label="${passed?'Happy bull celebrating your lesson':'Sad bull encouraging you to try again'}"></div>`:`<div class="icon">${passed?'🎉':'🌱'}</div>`}<h2>${passed?'Session complete':'Keep building confidence'}</h2><p>${total?`${score} of ${total} correct`:'Speaking practice complete · self-assessed'}</p>${quiz.questions.some(q=>q.type==='speaking')?'<p>Speaking responses are self-assessed and excluded from the scored result.</p>':''}<p>${quiz.kind==='lesson'&&!passed?'Reach 80% to complete this lesson. Your mistakes are ready for review.':'Every practice session helps your Spanish grow.'}</p>${todaySession?b(todaySession.steps.length?'Continue today’s session':'Finish today’s session','todayNext','primary'):b('Back to Home','home','primary')}${b('Try again','retry','pill')}</div>`;viewport.refresh();}
 function currentQuestion(){return quiz?.questions[quiz.index];}
 function answerAllowed(){const q=currentQuestion();return q&&!quiz.checked&&(!quiz.lesson?.reading||quiz.readingReady)&&(!q.listening||quiz.audioPlayed);}
 function record(correct,selected,skipped=false){const q=currentQuestion();quiz.selected=selected;quiz.checked=true;quiz.answers.push(skipped?null:correct);playFeedback(correct);E.recordAnswer(state,q,correct,Date.now(),skipped?{skipped:true}:{});save();persistQuiz();}
@@ -67,7 +67,24 @@ const actions={
  import:()=>document.getElementById('importfile').click(),
  reset:()=>{if(confirm('Delete all learning progress on this device? Export a backup first.')){media.stop();state=E.fresh();storageContext={readOnly:false};quiz=null;todaySession=null;save();screen='main';tab='Home';}}
 };
-app.addEventListener('click',event=>{lastInteraction=Date.now();const el=event.target.closest('[data-action]');if(!el||!Object.prototype.hasOwnProperty.call(actions,el.dataset.action))return;if(['viewStage','tab','home','profile'].includes(el.dataset.action))media.stop();actions[el.dataset.action](el);render();});
+app.addEventListener('click',event=>{lastInteraction=Date.now();const el=event.target.closest('[data-action]');if(!el||!Object.prototype.hasOwnProperty.call(actions,el.dataset.action))return;if(['viewStage','tab','home','profile'].includes(el.dataset.action))media.stop();actions[el.dataset.action](el);render();if(el.dataset.action==='answer')app.querySelector?.(`[data-action="answer"][data-index="${el.dataset.index}"]`)?.focus();});
+
+app.addEventListener('keydown',event=>{
+ if(event.target.id==='written-answer'&&(event.key==='Enter'||event.keyCode===13)){
+  if(event.isComposing||event.keyCode===229||event.repeat)return;
+  event.preventDefault();
+  if(!answerAllowed()||currentQuestion()?.type!=='text')return;
+  if(!String(event.target.value).trim())return;
+  quiz.selected=event.target.value;
+  actions.check();render();return;
+ }
+ const option=event.target.closest?.('[data-action="answer"]');
+ if(!option||!answerAllowed()||!currentQuestion()?.options)return;
+ const keys=['ArrowDown','ArrowRight','ArrowUp','ArrowLeft','Home','End'];if(!keys.includes(event.key))return;
+ event.preventDefault();const count=currentQuestion().options.length,old=Number(option.dataset.index);
+ const index=event.key==='Home'?0:event.key==='End'?count-1:(old+(['ArrowUp','ArrowLeft'].includes(event.key)?-1:1)+count)%count;
+ actions.answer({dataset:{index:String(index)}});render();app.querySelector?.(`[data-action="answer"][data-index="${index}"]`)?.focus();
+});
 
 app.addEventListener('input',event=>{
  if(event.target.id!=='written-answer'||!answerAllowed()||currentQuestion().type!=='text')return;

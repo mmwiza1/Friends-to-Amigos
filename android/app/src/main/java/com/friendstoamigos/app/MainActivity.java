@@ -10,6 +10,8 @@ import android.os.Build;
 import android.content.res.Configuration;
 import android.view.WindowInsets;
 import android.view.View;
+import android.view.WindowManager;
+import android.graphics.Rect;
 import org.json.JSONObject;
 import java.util.Comparator;
 import android.webkit.JavascriptInterface;
@@ -29,9 +31,13 @@ public class MainActivity extends Activity {
     private volatile boolean speechReady;
     private ValueCallback<Uri[]> fileCallback;
     private boolean backPending;
+    private int insetTop,insetBottom,insetLeft,insetRight,imeBottom,legacyFullHeight;
+    private boolean keyboardVisible;
+    private float cssScale;
     @Override public void onCreate(Bundle saved) {
         super.onCreate(saved);
         web = new WebView(this);
+        cssScale=getResources().getDisplayMetrics().density;
         applyAppearance();
         if(Build.VERSION.SDK_INT>=33)getOnBackInvokedDispatcher().registerOnBackInvokedCallback(android.window.OnBackInvokedDispatcher.PRIORITY_DEFAULT,this::handleBack);
         setContentView(web);
@@ -42,6 +48,8 @@ public class MainActivity extends Activity {
         web.getSettings().setAllowUniversalAccessFromFileURLs(false);
         web.setWebViewClient(new WebViewClient(){
             @Override public boolean shouldOverrideUrlLoading(WebView view, String url){return !url.startsWith("file:///android_asset/");}
+            @Override public void onPageFinished(WebView view,String url){view.requestApplyInsets();publishInsets();}
+            @Override public void onScaleChanged(WebView view,float oldScale,float newScale){cssScale=NativeInsets.validScale(newScale,getResources().getDisplayMetrics().density);publishInsets();}
         });
         web.setWebChromeClient(new WebChromeClient(){
             @Override public boolean onJsConfirm(WebView view,String url,String message,JsResult result){
@@ -95,6 +103,7 @@ public class MainActivity extends Activity {
             });}
         },"AndroidSpeech");
         web.loadUrl("file:///android_asset/index.html");
+        web.requestApplyInsets();
     }
     private void speakText(String text,float rate){runOnUiThread(()->{
         if(speechReady){speech.setSpeechRate(rate);speech.speak(text,TextToSpeech.QUEUE_FLUSH,null,"spanish");}
@@ -108,12 +117,57 @@ public class MainActivity extends Activity {
         boolean dark=(getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK)==Configuration.UI_MODE_NIGHT_YES;
         int background=getColor(R.color.app_background);web.setBackgroundColor(background);
         getWindow().setStatusBarColor(background);getWindow().setNavigationBarColor(background);
-        getWindow().getDecorView().setSystemUiVisibility(dark?0:View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR|View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+        int appearance=View.SYSTEM_UI_FLAG_LAYOUT_STABLE|View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
+        if(!dark)appearance|=View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR|View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
+        if(Build.VERSION.SDK_INT>=30)getWindow().setDecorFitsSystemWindows(false);
+        getWindow().getDecorView().setSystemUiVisibility(appearance);
+        if(Build.VERSION.SDK_INT>=28){WindowManager.LayoutParams params=getWindow().getAttributes();params.layoutInDisplayCutoutMode=WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;getWindow().setAttributes(params);}
+        // CSS owns all safe-area padding. Never also pad this WebView.
         web.setOnApplyWindowInsetsListener((view,insets)->{
-            if(Build.VERSION.SDK_INT>=30){android.graphics.Insets bars=insets.getInsets(WindowInsets.Type.systemBars()|WindowInsets.Type.displayCutout());view.setPadding(bars.left,bars.top,bars.right,bars.bottom);}
-            else view.setPadding(insets.getSystemWindowInsetLeft(),insets.getSystemWindowInsetTop(),insets.getSystemWindowInsetRight(),insets.getSystemWindowInsetBottom());
+            if(Build.VERSION.SDK_INT>=30){
+                android.graphics.Insets bars=insets.getInsets(WindowInsets.Type.systemBars()|WindowInsets.Type.displayCutout());
+                insetTop=bars.top;insetBottom=bars.bottom;insetLeft=bars.left;insetRight=bars.right;
+                imeBottom=insets.getInsets(WindowInsets.Type.ime()).bottom;
+                keyboardVisible=insets.isVisible(WindowInsets.Type.ime())&&imeBottom>0;
+            }else{
+                insetTop=Math.max(insets.getStableInsetTop(),insets.getSystemWindowInsetTop());
+                insetBottom=insets.getStableInsetBottom();insetLeft=Math.max(insets.getStableInsetLeft(),insets.getSystemWindowInsetLeft());insetRight=Math.max(insets.getStableInsetRight(),insets.getSystemWindowInsetRight());
+                if(Build.VERSION.SDK_INT>=28&&insets.getDisplayCutout()!=null){android.view.DisplayCutout cutout=insets.getDisplayCutout();insetTop=Math.max(insetTop,cutout.getSafeInsetTop());insetBottom=Math.max(insetBottom,cutout.getSafeInsetBottom());insetLeft=Math.max(insetLeft,cutout.getSafeInsetLeft());insetRight=Math.max(insetRight,cutout.getSafeInsetRight());}
+                int bottom=insets.getSystemWindowInsetBottom();
+                keyboardVisible=NativeInsets.isKeyboard(bottom,insetBottom,getResources().getDisplayMetrics().density);
+                imeBottom=keyboardVisible?bottom:0;
+            }
+            view.post(this::publishInsets);
             return insets;
         });
+        web.addOnLayoutChangeListener((view,left,top,right,bottom,oldLeft,oldTop,oldRight,oldBottom)->publishInsets());
+        if(Build.VERSION.SDK_INT<30)web.getViewTreeObserver().addOnGlobalLayoutListener(()->{
+            // Older WebViews report IME insets inconsistently. Resize/visible-frame
+            // evidence supplements those insets without applying native padding.
+            legacyFullHeight=Math.max(legacyFullHeight,web.getHeight());
+            Rect visible=new Rect();web.getWindowVisibleDisplayFrame(visible);
+            int[] location=new int[2];web.getLocationOnScreen(location);
+            int overlap=Math.max(0,location[1]+web.getHeight()-visible.bottom);
+            int removed=Math.max(0,legacyFullHeight-web.getHeight());
+            // Recompute from the visible frame, rather than retaining a previous
+            // IME height after the keyboard closes without a new inset callback.
+            int keyboardHeight=overlap+removed;
+            keyboardVisible=NativeInsets.isKeyboard(keyboardHeight,insetBottom,getResources().getDisplayMetrics().density);
+            imeBottom=keyboardVisible?keyboardHeight:0;
+            publishInsets();
+        });
+    }
+    private void publishInsets(){
+        if(web==null||web.getWidth()==0||web.getHeight()==0||isDestroyed())return;
+        int height;
+        if(Build.VERSION.SDK_INT>=30)height=getWindowManager().getCurrentWindowMetrics().getBounds().height();
+        else{legacyFullHeight=Math.max(legacyFullHeight,web.getHeight());height=legacyFullHeight;}
+        int[] location=new int[2];web.getLocationInWindow(location);
+        int overlap=keyboardVisible?NativeInsets.keyboardOverlap(imeBottom,height,location[1]+web.getHeight()):0;
+        float scale=NativeInsets.validScale(cssScale,getResources().getDisplayMetrics().density);
+        String values=NativeInsets.cssPixels(insetTop,scale)+","+NativeInsets.cssPixels(insetBottom,scale)+","+NativeInsets.cssPixels(insetLeft,scale)+","+NativeInsets.cssPixels(insetRight,scale)+","+keyboardVisible+","+NativeInsets.cssPixels(overlap,scale);
+        web.evaluateJavascript("window.FriendsToAmigosInsets && window.FriendsToAmigosInsets("+values+")",null);
     }
     private String exportData;
     @Override protected void onActivityResult(int request,int result,Intent data){

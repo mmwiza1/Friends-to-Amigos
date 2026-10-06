@@ -1,44 +1,54 @@
 # Verification and release gates
 
-Mobile/product update 0.4.0, Android version code 4. Baseline: main `d7c8bec143a383262813a56bbec8e66dc7761ac2`, with 116 passing individual JavaScript tests.
+Galaxy S24 clarity/mobile update 0.5.0, Android version code 5. Baseline: main `1a5803aa327fbc8aa1f8fb9713eb088cd0ca4a8c`, with 141 passing individual JavaScript tests.
 
 ## Performed JavaScript checks
 
-- `npm run check`: passed; 144 activities, 832 course question slots, 871 permanent authored IDs.
-- `npm test`: passed; 141 individual cases (29 engine, 49 app, 14 identity/curriculum, 30 storage, 12 speech, 7 mobile). The local test wrapper summarises six file groups; direct file runs verify the individual counts.
-- `node --check`: all 21 JS/CJS files passed.
-- Every playable activity/question renders and completes in the simulated DOM. Historical v1/v2 migration/import, active snapshots, review scheduling and 80% checkpoints remain tested.
-- All seven authored curriculum/identity sources remain byte-for-byte unchanged; persistent ID/order manifests remain unchanged.
-- New coverage exercises Back/secondary navigation, placement and accurate completion counts, Today resume/review/lesson/maintenance, delayed/rejected/started playback and stale callbacks, session speed, current-question progress and dark-palette contrast.
-- Native policy tests cover explicit Back consumption and safe speech rates. JavaScript tests also protect bridge wiring and local theme/icon resources.
+- `node --check`: all 29 JS/CJS files passed.
+- `npm run check`: passed; 144 activities, 832 course slots, 871 permanent IDs. Syntax, IDs, ordering, finite answers and unavailable future stages validated.
+- `npm test`: passed all ten test files. Direct individual runs verify 186 cases: 29 engine, 61 app, 14 identity, 30 storage, 12 speech, 7 mobile, 8 learner clarity, 12 answer feedback, 10 viewport and 3 launcher.
+- All 144 playable activities / 832 questions render and complete in simulated DOM tests. Historical v1/v2 migration/import, active snapshots, review schedules, Today, placement, Back and 80% checkpoints remain protected.
+- New regressions cover Go/Enter guards, radio selection/focus, explicit action labels, escaped learner-answer feedback, authored-explanation priority, bounded cautious comparison, native/browser keyboard geometry, focus removal, density/icon resources and adaptive safe-zone pixels.
+- Original curriculum and identity sources are unchanged beneath the assembly overlay. Tests compare every target, accepted answer, choice, passage, goal, ID and ordering against the pre-clarity course; historical snapshots remain unchanged.
 
-## Android validation
+## Android and rendered-browser validation
 
-The local `gradle -p android assembleDebug lintDebug testDebugUnitTest` attempt could not run: Gradle and the Android SDK are unavailable (`gradle: command not found`, exit 127). OpenJDK 21 is present. Downloading tooling through the configured proxy was unavailable. GitHub Actions now runs build, lint and unit tests on pushes/PRs and manual dispatch; [native validation run](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/37496384080) passed on `fa2505a85a68e7a987badf21b9fc50ea1b6dc7b9`:
+Local Android command could not run: `gradle -p android assembleDebug lintDebug testDebugUnitTest` returned exit 127 (`gradle: command not found`). This workspace has no Android SDK, adb or emulator.
 
-- `assembleDebug`: passed, APK produced.
-- `lintDebug`: passed with no errors. Non-blocking warnings are retained in the lint report.
-- `testDebugUnitTest`: passed; the native policy test class covers Back-result consumption and rate validation.
-- Gradle 8.9 / Java 17 / Android SDK 35: `BUILD SUCCESSFUL in 47s`.
-- The debug APK and `android-check-reports` artifacts were uploaded. Reports include lint HTML/XML and JUnit test output.
+Local Chromium launch was blocked by sandbox socket restrictions; `npm run check:browser` therefore cannot establish local rendered results. GitHub CI runs Chrome with native DevTools pipe, without automation dependencies, across ten narrow/normal/large/landscape light/dark layouts. System inset and resized/overlap-keyboard scenarios are simulated. Assertions check navigation/header/toast spacing, reachable final controls, focused input/check visibility, Go submission, radio focus/selection and keyboard-close restoration. Screenshots/JSON reports are retained as `mobile-browser-reports`.
 
-The first validation run identified two API-27 navigation-bar attributes in API-26 base themes. Those attributes now live only in modern qualified themes; the rerun passed without disabling lint or adding a lint baseline. The final documentation commit has identical application/build sources to this validated revision.
+[Complete validation run](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/37506133911) passed on `b893efe93dac92b7a6e4fcac6df605498fa9f3d5`:
 
-No physical-device/emulator or acoustic testing has been performed. A local headless Chromium screenshot attempt failed because required socket operations were sandbox-blocked; dark-mode validation here uses explicit palette contrast and structural checks, not a rendered-device claim.
+- `npm run check`: passed, unchanged 144 activities / 832 slots / 871 IDs.
+- `npm test`: 186 passed, 0 failed, 0 skipped.
+- `npm run check:browser`: ten layouts, 240 rendered layout/interaction assertions passed. Narrow 320px, 360px, S24-class 384px, larger 480px and landscape/cutout geometries covered. Screenshots were inspected for phone light/dark, narrow keyboard and landscape readability.
+- `assembleDebug`: passed; APK produced and uploaded as `friends-to-amigos-android`.
+- `lintDebug`: passed, 0 errors. Twelve non-blocking warnings remain in the report: target-SDK/API qualifiers, JavaScript-enabled local WebView, backup-policy modernization, adaptive qualifier/monochrome lint recognition and opaque legacy icon backgrounds. Android 13 monochrome resources are provided explicitly in v33; full-colour adaptive safe-zone tests pass. No lint baseline or suppression was added.
+- `testDebugUnitTest`: 11 passed, 0 failed/errors/skipped (3 existing Back/rate policy, 6 inset arithmetic, 2 launcher packaging).
+- Gradle 8.9 / Java 17 / Android SDK 35: `BUILD SUCCESSFUL in 37s`.
+
+Reports: `android-check-reports` includes lint HTML/XML and JUnit results; `mobile-browser-reports` includes ten screenshots and JSON assertion summaries. The first browser run passed its layout assertions but hit a profile-cleanup race; cleanup now waits for Chrome to exit. Native validation also caught an unsupported Files.readString call in the new test, replaced with supported byte reading. Full rerun passed without weakening checks.
+
+The final documentation revision has identical application/build/test sources to this validated revision.
+
+The maintainer tested the preceding APK on a physical Samsung Galaxy S24 and reported the issues addressed here. This new update has not yet been tested on a physical device or emulator. Simulated keyboard/inset geometry and headless Chrome are not proof of Samsung IME, acoustic speech, TalkBack or launcher rendering.
 
 ## Physical-device checklist
 
-Export and verify a backup first. Keep the application ID and maintained signing key for an in-place upgrade; fresh CI debug keys may differ. Do not uninstall an app containing learner progress without a verified export. Android automatic backup remains disabled.
+Export and verify a backup first. Use the maintained signing key for an in-place upgrade; CI debug keys may differ. Do not uninstall an app containing learner progress without a verified export. Android automatic backup remains disabled.
 
-- [ ] Install/update with maintained signing; confirm genuine v1/v2 profile, lessons, snapshots, review dates, streaks and capabilities survive.
-- [ ] Test button/gesture Back during every quiz type, achievements, focused practice and placement result; main tabs return Home, then Home backgrounds.
-- [ ] In airplane mode, check early/later listening, actual start acknowledgement, failed/missing voice, slow/normal replay, transcript reveal and skip-to-review.
-- [ ] Background/resume during a pending playback; verify stale callbacks cannot unlock another question or lose the lesson.
-- [ ] Verify A1.2 placement, optional A1.1 revision, accurate required-path completion, and normal A1.1→A1.2 progression.
-- [ ] Run Today with due/no reviews, completed course and a saved attempt; check manual navigation remains available.
-- [ ] Check light/dark launcher/splash/system bars, portrait/landscape insets, large text, keyboard and TalkBack labels on Android 8 and modern gesture-navigation Android.
-- [ ] Exercise native export/import, picker cancellation, invalid/future files, and review/checkpoint deduplication.
+- [ ] Update a real v1/v2 learner: profile, saved lessons/passages, reviews/dates, streaks/capabilities and start stage survive.
+- [ ] On S24, test both three-button and gesture navigation: header/toast clear status bar, app navigation clears system navigation, final cards scroll fully above it.
+- [ ] Portrait/landscape and cutouts: no clipped title or primary button; verify light/dark and larger text.
+- [ ] Samsung keyboard Go checks once; empty Go is inert. Input and Check remain reachable. Keyboard close/Home restore navigation. Repeat with a physical keyboard.
+- [ ] Test visible radio selection and TalkBack radio labels; choose → Check scoring remains unchanged.
+- [ ] Wrong writing: learner response/model/why and underlines are readable; historical review retains original snapshot feedback.
+- [ ] Inspect full-colour bull-face launcher under Samsung/circle/squircle masks; Android 13 themed icon remains recognisable.
+- [ ] Button/gesture Back saves every quiz type and returns secondary screens/main tabs; Home backgrounds.
+- [ ] Airplane-mode es-ES listening, playback-start lock, failure fallback, slow/normal replay, transcript reveal and skip-to-review.
+- [ ] Today with due/no review, completed course and saved attempt; A1.2 placement never forces earlier revision.
+- [ ] Native export/import, cancellation, invalid/future backups and completion/review deduplication.
 
 ## Release boundary
 
-Course content remains unchanged and A2.1 remains unavailable. CI/build success is not a physical-device, signing-upgrade, acoustic or independent educator review. These remain release gates before declaring an unconditional A1 v1.0 freeze. Listening is synthetic unless later curated recordings are supplied; speaking remains self-assessed and finite matching can reject valid unlisted paraphrases.
+No A2.1, new stages, altered Spanish targets, cloud service or runtime dependency. Schema remains v2; discovery key, migrations, historical snapshots, progress and identifiers are preserved. Listening is synthetic; speaking is self-assessed; finite matching can reject valid unlisted paraphrases. Cautious comparison is model feedback, not general grammar assessment. Device retest and a Spanish educator’s review remain useful release gates.

@@ -1,0 +1,14 @@
+{
+  "adaptiveLayerDp": 108,
+  "visibleMaskDp": 72,
+  "safeCircleDiameterDp": 66,
+  "artworkRadiusDp": 32,
+  "foregroundPixels": 432,
+  "legacyDensities": {
+    "mdpi": 48,
+    "hdpi": 72,
+    "xhdpi": 96,
+    "xxhdpi": 144,
+    "xxxhdpi": 192
+  }
+}

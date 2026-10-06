@@ -56,13 +56,13 @@ Choice, gap and finite text types remain supported. Listening wraps a choice/tex
 }
 ```
 
-The transcript is absent from the initial DOM. An available playback request unlocks answering; a synchronous unavailable-voice result permits only retry/explicit skip, not guessing for credit; submit/check or explicit skip reveals it. Replay remains available. Skip records a missed scored slot (`answers` entry null, answer event `skipped: true`) and queues review. A later review hides the transcript afresh.
+The transcript is absent from the initial DOM. Verified playback start unlocks answering; an unavailable/error result permits only retry/explicit skip, not guessing for credit; submit/check or explicit skip reveals it. Replay remains available. Skip records a missed scored slot (`answers` entry null, answer event `skipped: true`) and queues review. A later review hides the transcript afresh.
 
 Future `listening.audio: 'audio/learning/a1/example.mp3'` may reference a curated local recording. Validation disallows remote paths; failed recording playback falls back to TTS. There are no such shipped recordings. Exact-item provenance/sidecars remain mandatory before third-party files are added.
 
 Speaking uses `type: 'speaking'`, `mode: 'speaking'`, a communicative prompt, `answer`/`spanish` model and explanation. The learner reveals the model, optionally plays it, and explicitly self-assesses `got`/`needs`. The model is one possible response; a different natural equivalent can be self-assessed successfully. Needs-practice records a speaking review. Events identify `selfAssessed: true`; speaking is excluded from scored totals/checkpoint evidence. Zero scored evidence cannot earn completion/capabilities. No microphone, recognition, recording or pronunciation score exists.
 
-Active snapshots preserve `readingReady`, `modelRevealed`, `audioPlayed` and `audioUnavailable`. `audioPlayed` means playback was requested through an available speech path, not acoustic verification that the learner heard it. Async platform failures may require skip/retry.
+Active snapshots preserve `readingReady`, `modelRevealed`, `audioPlayed` and `audioUnavailable`. `audioPlayed` means the native/browser/recording path acknowledged playback start, not acoustic verification that the learner heard it. Failed initial playback keeps answering locked and permits skip/retry.
 
 ## Module responsibilities
 
@@ -73,6 +73,9 @@ Active snapshots preserve `readingReady`, `modelRevealed`, `audioPlayed` and `au
 | `a1-review.js` | Small justified curriculum/checkpoint corrections |
 | `a1-practice.js` | Authored listening and speaking integration |
 | `engine.js` | Finite grading, feedback lookup, review schedules, streak/completion logic |
+| `learner-clarity.js` | Presentation-only prompt and authored misconception amendments after legacy archiving |
+| `answer-feedback.js` | Bounded word comparison against authored models; never changes grading |
+| `viewport.js` | Native inset CSS bridge, browser visual viewport, focus/keyboard layout |
 | `storage.js` | Versioned migration, validation, sanitisation and guarded writes |
 | `speech.js` | Native/browser TTS, future local clips, feedback audio, cancellation |
 | `screens.js` | Home/Learn/Review/Profile/onboarding/placement/completion rendering |
@@ -90,3 +93,9 @@ Known identified story and listening snapshots must retain their reading/audio c
 `CoursePath` supplies required lessons, next lesson, completion and Today’s first step. Today queues are transient orchestration over existing quizzes, not another persisted history. Listening speed/loading are transient too; persisted `audioPlayed` records a successful start. A pending request never persists success, and cancelled/stale callbacks cannot unlock a different question.
 
 Native Back delegates to `window.FriendsToAmigos.handleBack()`. Only a literal `true` consumes Back; Home returns false so Android backgrounds the task. Listening uses request IDs and native `UtteranceProgressListener.onStart`, browser utterance `onstart`, or the recording play promise/playing event. Missing/error/timeout/cancel results cannot unlock initial answers.
+
+## Galaxy S24 polish: no schema change
+
+The 0.5.0 clarity/mobile pass retains schema v2, the existing discovery key, migrations, startStage, all stable IDs, answer targets and progress structures. New feedback is rendered from the current question snapshot without mutating it. Old reviews and active lessons therefore retain their original authored explanations; deterministic comparison still works on those snapshots. Go/Enter delegates to the existing check action, with empty/locked/checked/composing/repeat guards.
+
+`window.FriendsToAmigosInsets(top,bottom,left,right,keyboardOpen,keyboardOverlap)` receives CSS pixels computed from actual Android system bars, cutouts and WebView scale. Native WebView padding is zero; CSS is the single safe-area owner. IME overlap excludes space already removed by resize. Browser visualViewport supplies an overlay fallback. Focus/native keyboard temporarily hide fixed app navigation and preserve scrollable controls. These values are transient and never exported. The native Back and speech bridges are unchanged.

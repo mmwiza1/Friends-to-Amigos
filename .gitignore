@@ -6,3 +6,5 @@ android/**/build/
 *.keystore
 .env*
 *.zip
+browser-reports/
+__pycache__/

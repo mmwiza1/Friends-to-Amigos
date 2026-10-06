@@ -18,7 +18,7 @@ A1.1 and A1.2 contain **144 activities, 832 question slots, 16 practical units a
 - A completion Home screen for the whole A1 course, with practical skills, learning statistics, outstanding reviews and continued listening/speaking practice. This is a course milestone, **not formal CEFR certification**.
 - Both playable stages remain revisitable. The eight-question placement screening is provisional and does not assess listening, speaking or independent production. Future-stage recommendations never expose unavailable lessons.
 
-Listening and model pronunciation use **synthetic Spanish (Spain) speech**, not recorded speakers. Install an offline es-ES voice. Android selects a local voice; the browser refuses explicitly remote voices and asks the learner to retry if the voice list is not ready. Missing speech does not trap the learner: skip the listening item as a missed question and save it for review. Optional local recording paths can later supplement TTS, but no learning recordings or speech datasets are shipped. Existing compressed success/failure sounds and bull artwork remain unchanged.
+Listening and model pronunciation use **synthetic Spanish (Spain) speech**, not recorded speakers. Install an offline es-ES voice. Android selects a local voice; the browser refuses explicitly remote voices and asks the learner to retry if the voice list is not ready. Missing speech does not trap the learner: skip the listening item as a missed question and save it for review. Optional local recording paths can later supplement TTS, but no learning recordings or speech datasets are shipped. Existing compressed success/failure sounds and lesson bull artwork remain unchanged.
 
 ## Mobile experience
 
@@ -30,7 +30,11 @@ A chosen A1.2 placement means earlier foundations are assumed and remain availab
 
 Listening remains locked until a recording or TTS reports playback start. Failed recordings can fall back to TTS; complete failure keeps controls locked and offers skip-to-review. Slow (0.75×, default) and Normal (1×) apply within the current app session. The question bar shows the current position, including the first question.
 
-The local Android bull/speech-bubble launcher and adaptive/round icon, platform splash, system bars and WebView insets preserve the coral/teal style. Browser/Android system dark preference selects readable dark equivalents; light styling is unchanged.
+Android now publishes real system-bar/display-cutout insets in CSS pixels; CSS alone owns safe-area spacing, including fixed navigation, final scrollable controls and toasts. Keyboard overlap is counted only if resize has not already removed it. Focused text fields scroll into view and temporarily hide app navigation. Go/Enter checks a populated unlocked answer once, using the same scoring flow as the button.
+
+Question instructions make the action explicit. Choice cards use visible radio indicators and accessible selection states. Incorrect answers show the learner’s response, a natural model and why; authored mistake explanations take priority over cautious word comparison. All 832 prompts were audited without changing Spanish targets or accepted answers.
+
+The launcher now shows the existing happy chibi bull’s face: full-colour adaptive/round/density assets and an Android 13 monochrome layer. The original lesson artwork is preserved. Browser/Android system dark preference selects readable dark equivalents; the existing navy/coral/teal design is retained.
 
 ## Progress safety
 
@@ -49,11 +53,12 @@ npm start
 npm run check
 npm test
 npm run audit
+npm run check:browser # requires a local Chrome/Chromium binary
 ```
 
 Open http://localhost:4173, or open `www/index.html` directly. File-origin storage and offline voice availability depend on the browser. `check` validates syntax, identities, ordering, grading data and future-stage availability. `audit` emits reproducible surface-word recycling statistics, with its limitations stated in the output.
 
-The final suite has **141 individual tests** (29 engine/data, 49 simulated-DOM app, 14 identity/curriculum, 30 storage/migration, 12 speech, 7 mobile/product). It renders and completes all 144 activities/832 course questions, and protects old saves and both export paths. Simulated browser/bridge tests do not establish real Android or acoustic performance. See [BUILD_STATUS.md](BUILD_STATUS.md) for the exact validation boundary.
+The suite has **186 individual tests** (29 engine/data, 61 simulated-DOM app, 14 identity/curriculum, 30 storage/migration, 12 speech, 7 mobile/product, 8 learner clarity, 12 answer feedback, 10 viewport, 3 launcher). It renders and completes all 144 activities/832 course questions, and protects old saves and both export paths. Simulated browser/bridge tests do not establish real Android or acoustic performance. See [BUILD_STATUS.md](BUILD_STATUS.md) for the exact validation boundary.
 
 ## Android build
 
@@ -63,15 +68,15 @@ Requirements: Java 17+, Gradle 8.9, Android SDK platform 35/build tools 35.0.0. 
 gradle -p android assembleDebug lintDebug testDebugUnitTest
 ```
 
-The APK is `android/app/build/outputs/apk/debug/app-debug.apk`. Version code 4/name 0.4.0 identifies this app update; it is not a CEFR level or a declaration of course certification.
+The APK is `android/app/build/outputs/apk/debug/app-debug.apk`. Version code 5/name 0.5.0 identifies this app update; it is not a CEFR level or a declaration of course certification.
 
 GitHub Actions runs static checks and tests on pushes/PRs. Android build, lint and unit checks now run on pushes/PRs as well as manual runs. The `friends-to-amigos-android` artifact contains the debug APK. A maintainer must preserve the signing key for in-place upgrades. Fresh CI debug keys may not match an already installed APK; do not uninstall a learner's app without first exporting and verifying a backup.
 
-The current workspace has Java 21 but no Gradle, Android SDK, adb or emulator. Native debug build, lint and unit tests passed in GitHub CI. No emulator/physical-device or acoustic tests were performed; see BUILD_STATUS.md for results and the remaining checklist. The [physical-device checklist](BUILD_STATUS.md#physical-device-checklist) is a release gate.
+The current workspace has no Gradle, Android SDK, adb or emulator. GitHub CI performs native build/lint/unit checks and real headless-browser checks; see BUILD_STATUS.md for the exact results. The maintainer tested the previous APK on a Galaxy S24; this update still requires a physical-device retest. The [physical-device checklist](BUILD_STATUS.md#physical-device-checklist) is a release gate.
 
 ## Architecture and authorship
 
-`app.js` coordinates state/navigation/sessions. `storage.js`, `speech.js`, `screens.js` and `quiz-view.js` separate validation/persistence, media, ordinary screen rendering and question rendering. `course-path.js` shares required-path/completion/Today selection. Curriculum assembly keeps stage source modules, a permanent ID manifest, targeted reviewed amendments and original audio/speaking data. All scripts/assets load locally; there is no framework, cloud grader or automatic speech recognition.
+`app.js` coordinates state/navigation/sessions. `storage.js`, `speech.js`, `screens.js` and `quiz-view.js` separate validation/persistence, media, ordinary screen rendering and question rendering. `course-path.js` shares required-path/completion/Today selection. `viewport.js` handles native/browser geometry; `answer-feedback.js` compares finite models without changing grading. Curriculum assembly keeps stage source modules, a permanent ID manifest, targeted reviewed amendments and original audio/speaking data. The presentation-only `learner-clarity.js` overlay runs after the legacy compatibility archive is captured. All scripts/assets load locally; there is no framework, cloud grader or automatic speech recognition.
 
 The course material is original Friends to Amigos content, informed by the documented CEFR/Cervantes and OER pedagogical references. No third-party exercise, story, translation or recording was copied or closely adapted. Future reuse requires exact-item licence verification and attribution. See [COURSE_DESIGN.md](COURSE_DESIGN.md), [resource status](docs/resources/README.md#implementation-status) and the [A1 audit](docs/A1_STABILITY_REPORT.md).
 
