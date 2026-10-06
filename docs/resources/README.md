@@ -1,0 +1,46 @@
+# Spanish learning resource research
+
+Last reviewed: 2026-10-06
+
+This directory tracks external Spanish-learning material that may improve Friends to Amigos. It separates resources we can reasonably adapt or integrate from material that should be used only as pedagogical reference.
+
+The project is currently Spain-first and offline-first. Resource choices should therefore favour European Spanish, clear provenance, downloadable/offline-friendly formats, and licences compatible with future redistribution.
+
+> This is an engineering/content review, not legal advice. Re-check the source licence and the licence of the exact item before shipping third-party material.
+
+## Status key
+
+- **Preferred integration** — public domain, CC0, CC BY, or similarly permissive material with clear provenance.
+- **Conditional integration** — usable only after item-level licence checks or with share-alike obligations.
+- **Reference only** — non-commercial/no-derivatives terms, unclear redistribution rights, restrictive service terms, or official frameworks we should map against rather than copy.
+
+## Shortlist
+
+| Resource | Type | Licence / status | Best use in Friends to Amigos | Recommendation |
+| --- | --- | --- | --- | --- |
+| [Semillas: Elementary Spanish I](https://pressbooks.uiowa.edu/elementary-spanish-i/) | Beginner curriculum, reading, listening, speaking, writing | CC BY 4.0 except where otherwise noted | Model contextual lessons, can-do objectives, communicative tasks, selected reusable text/media after item checks | **Preferred integration** |
+| [FSI Spanish courses](https://www.fsi-language-courses.org/spanish/) | Course books + many hours of recorded drills/dialogues | U.S. government course material is widely distributed as public domain; verify provenance for each file | Pronunciation drills, dialogue patterns, listening exercises; especially Headstart for Spain | **Preferred integration with provenance check** |
+| [Multilingual LibriSpeech — Spanish](https://www.openslr.org/94/) | Aligned Spanish speech + transcripts | CC BY 4.0 | Peninsular-Spanish listening, dictation, audio pipeline, later-level comprehension | **Preferred integration** |
+| [FLEURS — Spanish (`es_419`)](https://huggingface.co/datasets/google/fleurs) | Multispeaker speech + transcripts | CC BY 4.0 | Controlled Latin-American accent exposure after the Spain-first foundation | **Preferred integration** |
+| [Tatoeba](https://tatoeba.org/en/downloads) | Sentence/translation corpus; optional audio | Text CC BY 2.0 FR; audio licence is per recording | Sentence mining, translations, distractors, review examples; selected audio only when its licence permits | **Conditional integration** |
+| [SpanishPod newbie audio via Wikimedia/Wikibooks](https://en.wikibooks.org/wiki/Spanish_by_Choice) | Short beginner dialogues and lesson material | Many archived SpanishPod audio files are CC BY 3.0; Wikibooks text is generally CC BY-SA | Short natural dialogues and lesson-design reference; verify each media file | **Conditional integration** |
+| [Hola a Todos: Elementary Spanish I](https://oer.galileo.usg.edu/languages-textbooks/3/) | Introductory Spanish textbook | CC BY 4.0 | Grammar/vocabulary sequencing, beginner activities, source material for rewritten exercises | **Preferred integration** |
+| [Trayectos](https://coerll.utexas.edu/coerll/oer/trayectos/) | Full beginner Spanish curriculum | CC BY-SA | Multimodal and multiliteracies design reference; reuse only if share-alike obligations are acceptable | **Conditional / reference** |
+| [The Daily Lesson](https://github.com/nicoletterankin/the-daily-lesson) | Short editorial lesson pattern | CC BY 4.0 | Inspiration for concise lesson rhythm and retrieval; not currently a strong Spanish corpus in the public repo | **Reference / selective reuse** |
+| [Instituto Cervantes Plan Curricular](https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/) | Official Spanish curriculum framework | Copyrighted reference material | Validate lexical, functional and cultural scope by level; author our own implementation | **Reference only** |
+| [CEFR descriptors](https://www.coe.int/en/web/common-european-framework-reference-languages/cefr-descriptors) | Proficiency framework | Official framework/reference | Define can-do outcomes and assessment targets | **Reference only** |
+| [Mozilla Common Voice](https://commonvoice.mozilla.org/dav/datasets) | Large crowdsourced speech corpus | CC0 dataset, but current Common Voice terms ask users not to mirror the dataset, in whole or in part, on other platforms/services | Local research, ASR/listening experiments, quality benchmarking | **Reference/evaluation; do not vendor clips into this repo by default** |
+
+## Recommended first sources
+
+For the current A1.1 course, prioritise these in order:
+
+1. **Semillas** for modern communicative lesson design and meaningful four-skill activities.
+2. **FSI Headstart for Spain / Spanish Basic** for pronunciation drills, dialogue structures and public-domain audio patterns.
+3. **Multilingual LibriSpeech Spanish** for clean, licence-clear Peninsular Spanish speech once we add real listening questions.
+4. **Tatoeba** for carefully filtered sentence examples and translation variants.
+5. **SpanishPod/Wikimedia** for short beginner dialogue clips where the exact file has a clear CC BY licence.
+
+Do not bulk-copy any corpus into the repository. Curate only the small subset that a lesson actually uses and store source/licence metadata beside every imported item.
+
+See [AUDIO.md](./AUDIO.md), [WRITTEN.md](./WRITTEN.md), and [INTEGRATION_GUIDE.md](./INTEGRATION_GUIDE.md) for details.
