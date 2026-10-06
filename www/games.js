@@ -1,13 +1,14 @@
 (function(root){
 'use strict';
 const Bank=typeof module!=='undefined'?require('./conjugations-bank.js'):root.ConjugationsBank;
+const M=typeof module!=='undefined'?require('./mastery.js'):root.Mastery;
 const Path=typeof module!=='undefined'?require('./course-path.js'):root.CoursePath;
 const clone=x=>JSON.parse(JSON.stringify(x)),object=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
 const byId=new Map(Bank.questions.map(q=>[q.id,q]));
 const empty=()=>({recent:[],questions:{},concepts:{},bests:{},rounds:[],active:null});
 function eligible(state,course){
- const assumed=Path.inferStart(state,course)==='A1.2',done=new Set(state.completed);
- return Bank.questions.filter(q=>q.requiredActivities.every(id=>done.has(id)||assumed&&!id.startsWith('a12')));
+ const start=course.playableStages.indexOf(Path.inferStart(state,course)),done=new Set(state.completed);const assumed=id=>{const l=course.lessons.find(x=>x.id===id);return l&&course.playableStages.indexOf(l.stage)<start;};
+ return Bank.questions.filter(q=>q.requiredActivities.every(id=>done.has(id)||assumed(id)));
 }
 function available(state,course){const pool=eligible(state,course),later=pool.filter(q=>q.stage==='A1.2');return {stage:later.length>=10?'A1.2':'A1.1',pool,challenge:pool.length>=20&&pool.some(q=>q.blanks.length>1)};}
 function shuffle(array,rng=Math.random){const result=array.slice();for(let i=result.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[result[i],result[j]]=[result[j],result[i]];}return result;}
@@ -49,7 +50,8 @@ function build(state,course,mode='normal',mistakes=[],rng=Math.random,now=Date.n
    const variety=q.concepts.reduce((factor,c)=>factor/(1+(used[c]||0)*.8),1);
    const verbs=q.blanks.reduce((factor,b)=>factor/(1+(used['verb-'+b.verb]||0)),1);
    const size=1/(1+(used['blanks-'+q.blanks.length]||0)*.25);
-   return weight(q,data,now)*variety*verbs*size*focus;
+   const shared=q.blanks.reduce((sum,b)=>sum+M.priority(state,'form:'+b.verb+':present:'+b.person,now),0)/q.blanks.length;
+   return weight(q,data,now)*variety*verbs*size*focus*shared;
   });
   let ticket=rng()*weights.reduce((a,b)=>a+b,0),index=weights.length-1;
   for(let i=0;i<weights.length;i++){ticket-=weights[i];if(ticket<=0){index=i;break;}}
@@ -65,6 +67,7 @@ function bestKey(round){return round.mode+'-'+round.stage.replace('.','')+'-unit
 function advance(state,now=Date.now()){
  const data=state.games,a=data?.active;if(!a?.checked)return null;
  const q=a.questions[a.index],result=a.results.at(-1);
+ for(let i=0;i<q.blanks.length;i++){const b=q.blanks[i];M.record(state,[{verb:b.verb,tense:'present',person:b.person,pattern:b.concept}],result.details[i].correct,{item:q.id+'-'+i,session:'conjugations-'+a.started,recall:false,density:q.blanks.length,difficulty:q.difficulty},now);}
  const update=(records,key,correct)=>{const x=records[key]||{attempts:0,correct:0,streak:0,lastSeen:0};x.attempts++;x.correct+=correct?1:0;x.streak=correct?x.streak+1:0;x.lastSeen=now;records[key]=x;};
  update(data.questions,q.id,result.correct);
  // A concept is one observation per item, not inflated by repeated tags/blanks.

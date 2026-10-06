@@ -33,7 +33,7 @@ test('each regular lesson progresses through completion, recall, contextual resp
  const spanish=a11.flatMap(l=>l.questions).filter(q=>q.type==='text'&&q.language==='es');assert.equal(spanish.length,120);
 });
 test('completion gaps have two or three words, matched distractor lengths and complete pronunciation text',()=>{
- for(const q of allQuestions.filter(q=>q.type==='gap')){
+ for(const q of C.lessons.filter(l=>l.stage!=='A2.1').flatMap(l=>l.questions).filter(q=>q.type==='gap')){
   const count=(q.sentence.match(/___/g)||[]).length;assert.ok(count===2||count===3,q.prompt);
   for(const option of q.options)assert.equal(option.split(' ').length,count,q.prompt);
   assert.ok(!q.spanish.includes('___'));let index=0;assert.equal(q.spanish,q.sentence.replace(/___/g,()=>q.answer.split(' ')[index++]));
@@ -105,7 +105,7 @@ test('stage authoring targets are ordered, explicit and never make planned conte
  assert.deepEqual(C.stageInfo.map(s=>s.id),C.stages);
  for(const stage of C.stageInfo){
   assert.ok(stage.goal.length>30);assert.equal(stage.tasks.length,3);assert.ok(stage.languageSupport);assert.ok(stage.languageFocus);
-  assert.equal(stage.status,['A1.1','A1.2'].includes(stage.id)?'playable':'planned');
+  assert.equal(stage.status,['A1.1','A1.2','A2.1'].includes(stage.id)?'playable':'planned');
   assert.equal(C.lessons.some(l=>l.stage===stage.id),stage.status==='playable');
  }
  for(const lesson of C.lessons){assert.equal(lesson.goal,C.getUnit(lesson).goal);assert.equal(lesson.outcomeId,C.getUnit(lesson).id);assert.equal(lesson.authorship.kind,'original');assert.ok(fs.existsSync(lesson.authorship.referenceRecord));}
@@ -115,8 +115,8 @@ test('original A1.1 snapshots remain byte-equivalent to the compatibility baseli
  const crypto=require('node:crypto');assert.equal(crypto.createHash('sha256').update(JSON.stringify(C.legacyLessons.filter(l=>l.stage==='A1.1'))).digest('hex'),fs.readFileSync('tests/fixtures/a11-content.sha256','utf8'));
 });
 test('A1.2 retains 72 activities and has 416 question slots with integrated audio/speech',()=>{
- assert.equal(a12.length,72);assert.equal(a12.flatMap(l=>l.questions).length,416);assert.equal(C.lessons.length,144);
- assert.equal(new Set(C.lessons.map(l=>l.id)).size,144);assert.deepEqual(C.lessons.slice(0,72),a11);
+ assert.equal(a12.length,72);assert.equal(a12.flatMap(l=>l.questions).length,416);assert.equal(C.lessons.length,216);
+ assert.equal(new Set(C.lessons.map(l=>l.id)).size,216);assert.deepEqual(C.lessons.slice(0,72),a11);
  for(const lesson of a12){assert.match(lesson.id,/^a12u[0-7](l[0-2]|story[0-3]|write|check)$/);assert.ok(lesson.questions.length>=5);assert.equal(new Set(lesson.questions.map(q=>q.prompt)).size,lesson.questions.length);}
 });
 test('A1.2 has eight distinct practical units and stable interleaving ending in checkpoints',()=>{

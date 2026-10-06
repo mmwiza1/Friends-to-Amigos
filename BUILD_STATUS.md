@@ -1,53 +1,45 @@
 # Verification and release gates
 
-Conjugations / lesson-continuation update **0.6.0**, Android version code **6**. Baseline: main `2c0431fa92a43e05f95ccf5adca03b6994d1782e`, with 186 passing individual JavaScript tests, 144 course activities, 832 course question slots and 871 permanent course/practice IDs.
+Connected practice / A2.1 update **0.7.0**, Android version code **7**.
+Baseline reviewed: main `877dbcd9b0486b33b5e5c0e7aa218baa23c7e269` (0.6.0).
 
-## Performed checks
+## Baseline and local checks
 
-- `node --check`: all 33 JS/CJS files passed.
-- `npm run check`: passed; unchanged 144 activities / 832 course slots / 871 IDs, plus 208 separate permanent game IDs. Syntax, ordering, finite answers, prerequisites and unavailable future stages validated.
-- `npm test`: passed all eleven files locally. Direct individual runs verify **232 cases**, 0 failed/skipped: the original 186 plus 30 game-bank/engine/persistence cases and 16 app/game/continuation regressions.
-- All 144 course activities / 832 questions still render and complete. All 208 game questions render and complete through check/advance. Game rounds have ten unique items; focused correction has up to five eligible related items.
-- Seeded selection tests protect person/verb diversity, six-current/four-foundation A1.2 rounds, 30-item recent rotation including abandoned items, weak-concept weighting, Challenge limits and course-linked eligibility. Optional game persistence, personal bests beyond the 40-round history, interrupted games alongside saved lessons, import rejection, both export paths and independent course progression are covered.
-- Existing migration/snapshots, review schedules, Today, placement, Back, keyboard Go, radio feedback and 80% checkpoints remain protected. Partial or failed lessons cannot trigger forward continuation.
-- Byte comparison against the baseline confirms curriculum/story/identity sources, engine, course-path, speech, diagnostic course feedback, viewport, native Java/inset logic and all launcher resources are unchanged. No Spanish course target, accepted answer, goal, passage or permanent identifier was rewritten.
+- Baseline `npm run check`: 144 activities / 832 course questions / 871 permanent course/practice IDs / 208 Conjugations questions, passed.
+- Baseline complete individual suite: **232 passed, 0 failed/skipped** (also eleven file-level suites under workspace Node 24).
+- Current `npm run check`: **216 activities / 1,248 course slots / 1,287 permanent course/practice IDs / unchanged 208 game questions**, passed. All JS/CJS syntax, stable manifests, finite variants and target sources validated.
+- Current `npm test`: twelve files passed locally. The individual suite contains **292 cases**, with 60 new course/table/mastery/connected-review/UI regressions; CI will report individual results using Node 22.
+- Existing all-activity render/complete tests now cover all 216 activities. Full A1 payload hashes prove all 144 original activities/Spanish targets/answers/passages/IDs/order remain unchanged. Original Conjugations IDs and all native source/icon/inset assets are unchanged; Android packaging only increments the version.
+- New tests cover 35 curated targets, six person rows, supported/randomised/recall tables, full-table evidence requirements, hints, 3–20-table scopes, per-cell feedback, import corruption, interrupted snapshots, shared evidence/session caps, safe Today’s Review, Weak Areas, placement and A1/A2.1 milestones. Old mobile/Back/Go/listening/review/Today tests remain.
+- A dedicated Spanish/scope review checked six-person accents, reflexives, stem changes, compound participles, selected preterite forms, comparisons, agreement, finite answers and glossaries. No native-speaker/educator review is claimed.
 
-## CI and Android validation
+## Browser and Android boundary
 
-[Full validation run](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/37523983405) passed on `d66ddb89e95fccab5af19f5174c714d64ff04cda`:
+Local `npm run check:browser` cannot launch Chromium: sandbox socket restrictions produce `setsockopt: Operation not permitted` / `ECONNRESET`.
+Local `gradle -p android assembleDebug lintDebug testDebugUnitTest` returns exit 127: Gradle is not installed. No SDK, adb, emulator or physical device is attached.
 
-- `npm run check`: passed.
-- `npm test`: **232 passed, 0 failed, 0 skipped**.
-- `npm run check:browser`: **10 layouts / 570 rendered layout and interaction assertions passed**. Includes five-tab touch targets, saved-game Back/resume, full rounds, per-blank feedback, mistake/Challenge modes and lesson continuation. Narrow 320px, 360px, S24-class 384px, 480px and landscape/cutout geometries cover light/dark, button/gesture system insets and resized/overlap keyboard simulations.
-- `assembleDebug`: passed; APK artifact `friends-to-amigos-android` produced.
-- `lintDebug`: passed with **0 errors / 12 existing non-blocking warnings**. Categories: old-target/API qualifiers, local JavaScript-enabled WebView, backup-policy modernization and launcher qualifier/monochrome/legacy-mask recognition. No suppression or lint baseline was added.
-- `testDebugUnitTest`: **11 passed, 0 failures/errors/skipped** (3 Back/rate policy, 6 inset arithmetic, 2 launcher packaging).
-- Gradle 8.9 / Java 17 / Android SDK 35 were used.
+The repository's existing GitHub workflow runs `npm run check`, `npm test`, real Chromium browser checks, then `assembleDebug lintDebug testDebugUnitTest` with Gradle 8.9 / Java 17 / SDK 35. **New-revision CI validation is pending; do not read previous-release results as validation of this update.** This section will be replaced with exact run/results before publication to main.
 
-`mobile-browser-reports` retains ten JSON summaries and sixteen screenshots, including Games, a round and feedback in narrow light/S24 dark layouts. `android-check-reports` retains lint/JUnit reports. The final revision keeps the validated application/native/test logic; screenshot capture additionally waits for animations and removes transient test toasts for inspection. Main reruns the complete workflow.
+Browser checks retain ten narrow/S24/large/landscape layouts, light/dark, simulated button/gesture insets and resized/overlap keyboards. They now additionally exercise six-person table controls, Back/resume, mistake teaching, 20-table configuration, typed table Go, weak areas and daily review. Screenshots include new tables/feedback. These simulations do not establish Samsung IME, acoustic speech, TalkBack or physical launcher behaviour.
 
-Local Chromium is blocked by sandbox socket restrictions (`setsockopt: Operation not permitted`). The local Android command returned exit 127 (`gradle: command not found`); there is no Android SDK, adb or emulator here. Rendered/native results above were performed in GitHub CI, not on this workspace or a physical device.
+## Physical release checklist
 
-The maintainer tested the preceding APK on a physical Galaxy S24. This Games update has not been physically tested. Browser simulations do not establish Samsung IME, acoustic speech, TalkBack or real launcher behavior.
+The previous APK was tested by the maintainer on a Galaxy S24. This update still requires an in-place physical retest. Export/verify a backup and preserve the signing key first; CI debug keys may differ from an installed APK.
 
-## Physical-device checklist
+- [ ] Update old v1/v2 progress: saved questions/passages, reviews/dates, placement path, streaks and capabilities survive; table/game saves remain independent.
+- [ ] S24 button/gesture navigation, cutouts/landscape, light/dark and larger text: header, toasts, five tabs and final controls clear the system bars.
+- [ ] Samsung keyboard Go checks course text once; table Go moves to the next missing cell or checks a complete table. Empty/repeated/composing Go is inert. Inputs/controls remain reachable above the IME.
+- [ ] Both games work offline; Back saves to Games; relaunch and import resume the same shuffled/checked table without replacing a course attempt.
+- [ ] Six-person rows and long compound forms remain readable. TalkBack identifies person + field/choice, selected forms and per-cell ✓/✗ feedback.
+- [ ] Hints/guide are assisted; repeated one-session practice does not create spaced mastery. Normal games contain three tables; Practice offers 3/5/10/15/20.
+- [ ] Weak Areas/Today’s Review use eligible prior content and old mistake snapshots; practice never completes a lesson, checkpoint or skipped stage.
+- [ ] A1.1 → A1.2 → A2.1 continuation; later placement never forces backwards. A1 milestone lists only actually practised capabilities. A2.2/B lessons remain unavailable.
+- [ ] A2.1 recent/finished events, travel, accommodation and health units: story rereading, constrained writing, 80% checkpoints and non-duplicating capabilities.
+- [ ] Offline es-ES voice, playback-start locking/fallback/skip, Slow/Normal, hidden/revealed transcript and self-assessed speaking.
+- [ ] Android/browser export/import includes optional evidence/table data; bad imports preserve valid progress. Bull-face launcher remains unchanged.
 
-Export and verify a backup first; preserve the signing key for an in-place upgrade. CI debug keys may differ from the installed app.
+## Release decision
 
-- [ ] Update a v1/v2 learner: saved lesson/passages, profile, reviews/dates, streaks, capabilities and starting path survive; missing game fields are harmless.
-- [ ] S24 button/gesture navigation, landscape/cutouts and larger text: five tabs fit; header/toast/app navigation clear system bars; every last control remains reachable in light/dark.
-- [ ] Samsung keyboard Go checks once; empty/repeated Go is inert. Input/Check remain reachable and closing the keyboard restores navigation.
-- [ ] Games → Back → Home; in-round Back saves to Games; app relaunch/import resumes the same shuffled/checked game without replacing a saved course lesson.
-- [ ] Fill one/two/three blanks; TalkBack distinguishes groups/options/selected states and per-blank correct/incorrect feedback. Repeat after an incorrect answer.
-- [ ] Complete ten questions; check score, best, concept signals, mistake practice, another round and Challenge. Course completions/checkpoints/placement must not change.
-- [ ] A1.1, A1.2 placement and partial-unit progress: only taught eligible forms appear; new forms open through course work, never a high game score.
-- [ ] Passed lesson Continue learning starts the next required lesson, then due review, then listening maintenance. Failed lessons offer retry/mistake review. Today retains its continuation.
-- [ ] Airplane-mode es-ES listening: playback-start lock, failure fallback, slow/normal replay, transcript reveal and skip-to-review.
-- [ ] Native/browser backup export/import includes games; malformed/future imports preserve current progress.
-- [ ] Existing bull-face launcher and themed/circle/Samsung masks remain recognizable.
+No framework, cloud service, runtime dependency, audio corpus, speech recognition or LLM grading was introduced. Schema stays v2 with additive optional mastery/table fields. A2.1 is playable; A2.2 and B stages are unavailable. Source material is original; research remains pedagogical reference.
 
-## Release boundary
-
-No A2.1, new CEFR stage, framework, cloud service, runtime dependency or downloaded dataset. Course targets/content/IDs are unchanged; schema stays v2 with an optional separate `games` namespace. New-game question IDs and ordering are protected by a fixture. Limited early exposure deliberately postpones a varied first round until introductory/personal-information teaching is complete. A small eligible bank may require recent repeats, and focused correction may have fewer than five alternatives.
-
-Game concept signals are practice observations, not certification or a reliable estimate of mastery. Listening is synthetic; speaking remains self-assessed; finite course matching can reject valid unlisted paraphrases. Original authored game scenarios would benefit from a native Spanish educator's review. Physical S24/TalkBack retesting remains a release gate.
+Finite grading can reject valid unlisted alternatives. Synthetic listening lacks human-speaker variation; speaking is self-assessed; shared evidence is an approximate practice signal. Thirty-five curated targets deliberately avoid padding comparison/symptom units with unrelated verbs. A native Spanish educator should review A2 pacing, accepted alternatives, travel/health register and full-paradigm scaffolding. Physical upgrade/accessibility checks and that review should precede a wider release or A2.2 development.

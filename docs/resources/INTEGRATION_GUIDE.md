@@ -84,7 +84,7 @@ Before a third-party item is included in a release, confirm:
 
 ### Phase 1 — curriculum reference: implemented
 
-The documented CEFR/Cervantes scope and OER pedagogical recommendations now inform original A1.1/A1.2 material: 16 can-do units, 64 contextual stories, short Spanish recall/production, dialogue and transfer tasks, teaching feedback, glossary/rereading support, and limited regional notes. Lesson metadata connects each activity to its unit outcome and an original-authorship reference record. Stage metadata defines separate A1.1–B2.2 targets; A1.1 and A1.2 are playable. Tests protect stable IDs and historical progress snapshots. No third-party exercise was imported or closely adapted.
+The documented CEFR/Cervantes scope and OER pedagogical recommendations now inform original A1.1/A1.2 material: 16 can-do units, 64 contextual stories, short Spanish recall/production, dialogue and transfer tasks, teaching feedback, glossary/rereading support, and limited regional notes. Lesson metadata connects each activity to its unit outcome and an original-authorship reference record. Stage metadata defines separate A1.1–B2.2 targets; A1.1, A1.2 and A2.1 are playable. Tests protect stable IDs and historical progress snapshots. No third-party exercise was imported or closely adapted.
 
 ### Phase 2 — audio-first listening and retrieval: implemented with TTS
 
@@ -158,3 +158,7 @@ An external asset is not “integrated” because the file exists in the repo. I
 ## Current verification
 
 Both A1 stages are playable with 832 course question slots; 48 use original audio-first TTS and 16 are self-assessed spoken retrieval. Stable question identity and validated v1/v2 progress support are implemented. See [BUILD_STATUS.md](../../BUILD_STATUS.md) for tests and the unperformed native build/device gates. No researched recording/corpus is shipped.
+
+## Connected practice and A2.1 implementation (0.7.0)
+
+A2.1 now ships eight practical units, 72 activities, 416 question slots and 32 original stories. The whole course has 216 activities / 1,248 slots. The original A1 payloads/IDs remain unchanged. Curated Conjugation Blanks, 3–20-table practice, hints, shared mastery evidence, Today’s Review and Weak Areas are implemented offline. [The implementation record](../A2_AND_PRACTICE.md) describes progression, unlocks, finite grading and limitations. CEFR/Cervantes/OER sources remain pedagogical references: no third-party text was copied or closely adapted. Future reuse still requires item-level licence/attribution verification. No recording corpus was imported. A2.2 and B stages remain unavailable.

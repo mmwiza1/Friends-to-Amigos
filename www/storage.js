@@ -3,6 +3,8 @@
 const E=typeof module!=='undefined'?require('./engine.js'):root.Engine;
 const Path=typeof module!=='undefined'?require('./course-path.js'):root.CoursePath;
 const Games=typeof module!=='undefined'?require('./games.js'):root.Conjugations;
+const Mastery=typeof module!=='undefined'?require('./mastery.js'):root.Mastery;
+const Blanks=typeof module!=='undefined'?require('./blanks.js'):root.ConjugationBlanks;
 const VERSION=2,KEY='friends-to-amigos-v1'; // Keep the discovery key; version lives in the value.
 const object=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
 const text=(x,max=500)=>typeof x==='string'&&x.length<=max?x:null;
@@ -101,6 +103,8 @@ function migrateState(raw,course,options={}){
  }
  if(typeof raw.onboarded!=='boolean'&&(state.active||state.completed.length)){state.onboarded=true;warnings.push('Your existing learning progress restored the onboarding status.');}
  state.startStage=Path.inferStart({...state,startStage:raw.startStage},course);
+ if(raw.mastery!==undefined)state.mastery=Mastery.sanitize(raw.mastery);
+ if(raw.blanks!==undefined){const result=Blanks.sanitize(raw.blanks,state,course);state.blanks=result.data;if(result.warnings.length)quarantine('table practice','blanks',raw.blanks);}
  if(raw.games!==undefined){const result=Games.sanitize(raw.games,state,course);state.games=result.data;if(result.warnings.length)quarantine('game','games',raw.games);}
  if(options.import&&warnings.some(message=>message.includes('damaged')))throw Error('This backup contains damaged questions or an unsafe unfinished attempt.');
  // Unknown fields never enter runtime state. Quarantine is exported, never rendered as code.
