@@ -404,3 +404,60 @@ test('historical written snapshots retain their own prompts, targets and explana
  for(const field of ['prompt','answer','accepted','reading','explanation'])assert.deepEqual(JSON.parse(JSON.stringify(review[field])),before[field]);
  a.input('Inglaterra');a.click('check');assert.match(a.el.innerHTML,/✓ Correct/);
 });
+function gameLearner(stage='A1.1',unit=7){const C=require('../www/curriculum'),E=require('../www/engine'),s=E.fresh();s.onboarded=true;s.completed=C.lessons.filter(l=>l.stage==='A1.1'&&(stage==='A1.2'||l.unit<=unit)||l.stage===stage&&l.unit<=unit).map(l=>l.id);return s;}
+function answerGame(a,wrongBlank=-1){const active=a.state().games.active,q=active.questions[active.index];q.blanks.forEach((b,i)=>a.click('gameAnswer',{blank:String(i),index:String(b.options.findIndex(v=>i===wrongBlank?v!==b.answer:v===b.answer))}));a.click('gameCheck');}
+function finishLesson(a,correct=true){while(a.current()){a.answer(correct);a.click('check');a.click('next');if(a.el.innerHTML.includes('Session complete')||a.el.innerHTML.includes('Keep building confidence'))break;}}
+test('Games is the fifth main navigation target with Home Back behavior and intact review badge',()=>{
+ const a=app({},gameLearner());a.click('tab',{tab:'Games'});assert.match(a.el.innerHTML,/Fill the missing verb forms/);assert.match(a.el.innerHTML,/data-tab="Games"/);assert.equal((a.el.innerHTML.match(/data-action="tab"/g)||[]).length,5);assert.match(a.el.innerHTML,/class="active" data-action="tab" data-tab="Games"/);assert.equal(a.ctx.FriendsToAmigos.handleBack(),true);assert.match(a.el.innerHTML,/Today’s session/);assert.equal(a.ctx.FriendsToAmigos.handleBack(),false);
+});
+test('game options are selected per blank, locked after checking and never duplicate submissions',()=>{
+ const a=app({},gameLearner('A1.2'));a.click('tab',{tab:'Games'});a.click('gameNew');assert.match(a.el.innerHTML,/Question 1 of 10/);assert.match(a.el.innerHTML,/Choose a verb for each blank/);a.click('gameCheck');assert.equal(a.state().games.active.checked,false);answerGame(a,0);assert.match(a.el.innerHTML,/You chose/);assert.match(a.el.innerHTML,/A natural answer/);assert.match(a.el.innerHTML,/Blank 1 · ✗ Needs practice/);const before=JSON.stringify(a.state().games.active);a.click('gameCheck');a.click('gameAnswer',{blank:'0',index:'0'});assert.equal(JSON.stringify(a.state().games.active),before);
+});
+test('saved game survives native Back and reload without replacing a saved course lesson',()=>{
+ const a=app({},gameLearner());a.click('lesson',{id:'u7l0'});a.answer();a.click('check');a.click('leave');const course=a.state().active;
+ a.click('tab',{tab:'Games'});a.click('gameNew');answerGame(a,0);const game=a.state().games.active;assert.equal(a.ctx.FriendsToAmigos.handleBack(),true);assert.match(a.el.innerHTML,/Resume saved game/);assert.deepEqual(a.state().active,course);
+ const reloaded=app({},a.state());reloaded.click('tab',{tab:'Games'});reloaded.click('gameResume');assert.deepEqual(reloaded.state().games.active,game);assert.match(reloaded.el.innerHTML,/Let’s learn from this/);reloaded.click('gameNext');assert.match(reloaded.el.innerHTML,/Question 2 of 10/);assert.deepEqual(reloaded.state().active,require('../www/storage').migrateState(a.state(),require('../www/curriculum')).state.active);
+});
+test('a complete ten-item game records only its own performance and supports mistake practice',()=>{
+ const initial=gameLearner('A1.2'),a=app({},initial);a.click('tab',{tab:'Games'});a.click('gameNew');for(let i=0;i<10;i++){answerGame(a,i===0?0:-1);a.click('gameNext');}
+ assert.match(a.el.innerHTML,/9 \/ 10 correct/);assert.match(a.el.innerHTML,/Best at this unlocked difficulty: 9 \/ 10/);assert.match(a.el.innerHTML,/Practise my mistakes/);assert.match(a.el.innerHTML,/Happy bull/);assert.equal(a.state().games.active,null);assert.equal(a.state().games.rounds.length,1);
+ for(const field of ['completed','stage','startStage','capabilities','placement','reviews','events','active'])assert.deepEqual(a.state()[field],initial[field]);
+ a.click('gameMistakes');assert.match(a.el.innerHTML,/Mistake practice/);assert.match(a.el.innerHTML,/Question 1 of 5/);for(let i=0;i<5;i++){answerGame(a);a.click('gameNext');}assert.match(a.el.innerHTML,/5 \/ 5 correct/);a.click('gameLeave');assert.match(a.el.innerHTML,/Fill the missing verb forms/);
+});
+test('a perfect game cannot complete or unlock course lessons or change placement',()=>{
+ const s=gameLearner('A1.1',1),a=app({},s);a.click('tab',{tab:'Games'});a.click('gameNew');for(let i=0;i<10;i++){answerGame(a);a.click('gameNext');}assert.deepEqual(a.state().completed,s.completed);assert.equal(a.state().stage,'A1.1');assert.equal(a.state().startStage,s.startStage);assert.deepEqual(a.state().capabilities,s.capabilities);a.click('gameNew');assert.ok(a.state().games.active.questions.every(q=>q.stage==='A1.1'&&q.unit<=1));
+});
+test('Games ignores profile/viewed stage but respects placement foundations and completed new units',()=>{
+ const s=gameLearner('A1.1',1);s.stage='A1.2';const a=app({},s);a.click('tab',{tab:'Games'});assert.match(a.el.innerHTML,/<strong>A1.1<\/strong>/);a.click('gameNew');assert.ok(a.state().games.active.questions.every(q=>q.stage==='A1.1'));
+ const placed=require('../www/engine').fresh();placed.onboarded=true;placed.startStage='A1.2';placed.stage='A1.2';const p=app({},placed);p.click('tab',{tab:'Games'});p.click('gameNew');assert.equal(p.state().games.active.questions.length,10);assert.deepEqual(p.state().completed,[]);
+});
+test('challenge mode cannot expose untaught concepts and is hidden for early learners',()=>{
+ const a=app({},gameLearner('A1.1',1));a.click('tab',{tab:'Games'});assert.doesNotMatch(a.el.innerHTML,/Challenge me/);a.click('gameChallenge');assert.equal(a.state().games,undefined);
+ const b=app({},gameLearner('A1.2',4));b.click('tab',{tab:'Games'});b.click('gameChallenge');assert.match(b.el.innerHTML,/Challenge/);assert.ok(b.state().games.active.questions.every(q=>q.unit<=4));
+});
+test('game progress exports and imports through browser and Android without changing main progress',async()=>{
+ const a=app({},gameLearner());a.click('tab',{tab:'Games'});a.click('gameNew');answerGame(a);a.click('gameLeave');a.click('export');const json=await a.effects.blobs.at(-1).text();const imported=app();await imported.import(json);assert.deepEqual(imported.state(),a.state());
+ let native;const android=app({AndroidSpeech:{exportProgress(json){native=json;}}},a.state());android.click('export');assert.deepEqual(JSON.parse(native),a.state());
+});
+test('unsafe game import never overwrites current valid progress',async()=>{
+ const a=app({},gameLearner()),before=a.state(),damaged=gameLearner();damaged.games={active:{mode:'normal',questions:[]}};await a.import(damaged);assert.deepEqual(a.state(),before);assert.match(a.effects.toasts.at(-1).textContent,/current progress has not changed/);
+});
+test('passed normal lesson offers Continue learning and starts the next required lesson',()=>{
+ const a=app();a.click('begin');finishLesson(a);assert.match(a.el.innerHTML,/Continue learning/);assert.match(a.el.innerHTML,/Back to Home/);assert.equal(a.state().completed[0],'u0l0');a.click('continueLearning');assert.equal(a.state().active.lesson.id,require('../www/curriculum').lessons[1].id);
+});
+test('failed normal lesson offers retry and mistake review and cannot jump forwards',()=>{
+ const a=app();a.click('begin');finishLesson(a,false);assert.doesNotMatch(a.el.innerHTML,/Continue learning/);assert.match(a.el.innerHTML,/Try again/);assert.match(a.el.innerHTML,/Review mistakes/);a.click('continueLearning');assert.equal(a.state().active,null);assert.deepEqual(a.state().completed,[]);a.click('lessonMistakes');assert.equal(vm.runInContext('quiz.kind',a.ctx),'review');assert.match(a.el.innerHTML,/Question 1/);
+});
+test('passed final required lesson continues into due review rather than optional earlier material',()=>{
+ const C=require('../www/curriculum'),E=require('../www/engine'),s=gameLearner('A1.2');s.startStage='A1.2';s.stage='A1.2';s.completed=C.lessons.filter(l=>l.stage==='A1.2').slice(0,-1).map(l=>l.id);E.recordAnswer(s,C.lessons[0].questions[0],false,0);
+ const a=app({},s);a.click('lesson',{id:C.lessons.at(-1).id});finishLesson(a);a.click('continueLearning');assert.equal(vm.runInContext('quiz.kind',a.ctx),'review');assert.equal(a.state().active,null);assert.ok(a.state().completed.every(id=>id.startsWith('a12')));
+});
+test('completed A1 path continues to maintenance without advertising A2 or fake lesson completions',()=>{
+ const C=require('../www/curriculum'),s=gameLearner('A1.2');s.completed=s.completed.slice(0,-1);const a=app({},s);a.click('lesson',{id:C.lessons.at(-1).id});finishLesson(a);a.click('continueLearning');assert.equal(vm.runInContext('quiz.kind',a.ctx),'practice');assert.ok(a.current().listening);assert.doesNotMatch(a.el.innerHTML,/data-action="lesson"/);assert.match(a.effects.toasts.at(-1).textContent,/required A1 path is complete/);
+});
+test('Today continuation wins over normal lesson Continue learning and keeps the saved course path',()=>{
+ const s=require('../www/engine').fresh();s.onboarded=true;const a=app({},s);a.click('today');finishLesson(a);assert.match(a.el.innerHTML,/Continue today’s session/);assert.doesNotMatch(a.el.innerHTML,/data-action="continueLearning"/);a.click('todayNext');assert.equal(vm.runInContext('quiz.kind',a.ctx),'practice');assert.deepEqual(a.state().completed,['u0l0']);
+});
+test('Back to Home still leaves passed and failed lesson results safely',()=>{
+ for(const correct of [true,false]){const a=app();a.click('begin');finishLesson(a,correct);a.click('home');assert.match(a.el.innerHTML,/Today’s session/);assert.equal(a.state().active,null);}
+});

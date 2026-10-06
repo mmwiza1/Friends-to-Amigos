@@ -53,10 +53,12 @@ CEFR/Cervantes remain reference-only. Semillas, Hola a Todos, Trayectos and othe
 
 ## A1 stability implementation status
 
-A1.1 and A1.2 remain playable: 16 practical units, 144 activities, 64 original stories and 832 question slots (416 per stage), including 240 Spanish-writing slots, 48 audio-first listening questions and 16 self-assessed speaking chunks. The JavaScript suite now covers 186 individual cases; exact native/browser validation is recorded in BUILD_STATUS.md. Stable question IDs, validated schema-v2 migration/import, original historical snapshots, practical checkpoints and an A1 completion experience are implemented. A2.1–B2.2 remain planned/unavailable.
+A1.1 and A1.2 remain playable: 16 practical units, 144 activities, 64 original stories and 832 question slots (416 per stage), including 240 Spanish-writing slots, 48 audio-first listening questions and 16 self-assessed speaking chunks. The JavaScript suite now covers 222 individual cases; exact native/browser validation is recorded in BUILD_STATUS.md. Stable question IDs, validated schema-v2 migration/import, original historical snapshots, practical checkpoints and an A1 completion experience are implemented. A2.1–B2.2 remain planned/unavailable.
 
 All new passages, listening transcripts, exercises and feedback are original Friends to Amigos content informed by documented teaching references. No third-party wording was copied/closely adapted, and no third-party recording or dataset was downloaded/vendored. Listening uses synthetic es-ES speech; speaking does not record or automatically grade pronunciation. Curated human recordings require exact-item review/attribution and remain future work. Native Android build/lint/unit validation is recorded in BUILD_STATUS.md; physical-device retest and independent educator review remain release gates. See [the A1 audit](../A1_STABILITY_REPORT.md) and [BUILD_STATUS.md](../../BUILD_STATUS.md).
 
 ## Learner-clarity implementation (0.5.0)
 
 All 832 playable prompts and 240 Spanish-writing slots were audited. Presentation-only wording amendments and 342 new exact misconception examples improve learner instructions/feedback without changing targets or accepted answers. Incorrect writing displays the learner response, a natural model and a cautious deterministic comparison. Original authorship/reference-only policy remains unchanged; no third-party text, recordings or datasets were incorporated.
+
+Conjugations now adds a separate local bank of 208 original scenarios, with course-linked form prerequisites, varied retrieval, per-blank distractor feedback and adaptive practice. It does not expand or replace the course, reuse third-party exercises, download audio or expose A2.1.

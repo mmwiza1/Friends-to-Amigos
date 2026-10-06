@@ -61,6 +61,28 @@ async function run(){
    assert(document.querySelector('[aria-checked=true][role=radio]'),'choice selection is explicit');document.activeElement.dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowDown',bubbles:true,cancelable:true}));assert(document.activeElement.dataset.index==='1','radio arrow navigation after selection');
    assert(getComputedStyle(document.querySelector('.option-indicator')).width==='22px','visible radio indicator');assert(document.querySelector('#exercise-instruction').textContent==='Choose one answer','explicit choice action');
    assert(matchMedia('(prefers-color-scheme: dark)').matches===config.dark,'system colour preference');
+   // Exercise five-tab navigation and a saved game in the same real layout.
+   window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,false,0);actions.leave();
+   state.completed=C.lessons.map(l=>l.id);actions.tab({dataset:{tab:'Games'}});render();window.scrollTo(0,0);await frame();
+   const tabs=[...document.querySelectorAll('nav button')];assert(tabs.length===5,'five navigation tabs');assert(tabs.every(e=>e.getBoundingClientRect().width>=44&&e.getBoundingClientRect().height>=44),'five nav touch targets');
+   assert(document.querySelector('nav').getBoundingClientRect().bottom<=innerHeight-config.bottom+1,'Games navigation clears system bar');
+   assert(FriendsToAmigos.handleBack()&&tab==='Home','Games Back returns Home');actions.tab({dataset:{tab:'Games'}});actions.gameNew();render();await frame();
+   assert(state.games.active.questions.length===10,'10-question game');assert(document.querySelectorAll('[role=radiogroup]').length===state.games.active.questions[0].blanks.length,'labelled groups for all blanks');
+   let option=document.querySelector('[data-action=gameAnswer]');option.click();await frame();assert(document.activeElement.matches('[data-action=gameAnswer]'),'game selection retains focus');
+   document.activeElement.dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true,cancelable:true}));assert(document.activeElement.dataset.index==='1','game radio keyboard navigation');
+   assert(FriendsToAmigos.handleBack()&&tab==='Games'&&screen==='main','game Back saves and returns Games');assert(document.querySelector('[data-action=gameResume]'),'saved game resume action');actions.gameResume();render();
+   for(let i=0;i<10;i++){
+    const q=state.games.active.questions[state.games.active.index];q.blanks.forEach((blank,j)=>{const wanted=i===0&&j===0?blank.options.find(x=>x!==blank.answer):blank.answer;document.querySelector('[data-action=gameAnswer][data-blank="'+j+'"][data-index="'+blank.options.indexOf(wanted)+'"]').click();});
+    document.querySelector('[data-action=gameCheck]').click();if(i===0){assert(document.querySelector('.feedback').textContent.includes('You chose:'),'game feedback shows chosen verb');assert(document.querySelector('.feedback').textContent.includes('A natural answer:'),'game feedback shows correct verb');}
+    window.scrollTo(0,document.documentElement.scrollHeight);await frame();assert(document.querySelector('[data-action=gameNext]').getBoundingClientRect().bottom<=innerHeight-config.bottom+1,'game feedback Next remains reachable');document.querySelector('[data-action=gameNext]').click();
+   }
+   assert(screen==='gameResult'&&gameResult.score===9,'complete game score');assert(document.querySelector('[data-action=gameMistakes]'),'focused mistake practice offered');
+   assert(state.completed.length===144,'game leaves course completion unchanged');actions.gameMistakes();render();assert(state.games.active.questions.length===5,'five-item mistake practice');FriendsToAmigos.handleBack();
+   state.games.active=null;actions.gameChallenge();render();assert(state.games.active.mode==='challenge','Challenge launches');FriendsToAmigos.handleBack();
+   assert(document.documentElement.scrollWidth<=innerWidth+1,'game has no horizontal overflow');
+   actions.home();startQuiz('lesson',lesson.questions,lesson);quiz.answers=quiz.questions.map(()=>true);quiz.index=quiz.questions.length;render();assert(document.querySelector('[data-action=continueLearning]'),'passed lesson Continue learning');actions.continueLearning();render();assert(quiz.kind==='practice'&&quiz.questions[0].listening,'completed course continues to listening maintenance');
+   startQuiz('lesson',lesson.questions,lesson);quiz.answers=quiz.questions.map(()=>false);quiz.index=quiz.questions.length;render();assert(!document.querySelector('[data-action=continueLearning]'),'failed lesson has no forward Continue');assert(document.querySelector('[data-action=lessonMistakes]'),'failed lesson offers mistake review');
+   startQuiz('lesson',lesson.questions,lesson);
    // Leave a representative written question ready for visual inspection.
    quiz.index=textIndex;quiz.selected=null;quiz.checked=false;quiz.answers=[];render();window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,Boolean(config.keyboard),config.overlap||0);
    if(config.keyboard){document.querySelector('#written-answer').focus();await frame();}else window.scrollTo(0,0);

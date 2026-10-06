@@ -2,6 +2,7 @@
 'use strict';
 const E=typeof module!=='undefined'?require('./engine.js'):root.Engine;
 const Path=typeof module!=='undefined'?require('./course-path.js'):root.CoursePath;
+const Games=typeof module!=='undefined'?require('./games.js'):root.Conjugations;
 const VERSION=2,KEY='friends-to-amigos-v1'; // Keep the discovery key; version lives in the value.
 const object=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
 const text=(x,max=500)=>typeof x==='string'&&x.length<=max?x:null;
@@ -100,6 +101,7 @@ function migrateState(raw,course,options={}){
  }
  if(typeof raw.onboarded!=='boolean'&&(state.active||state.completed.length)){state.onboarded=true;warnings.push('Your existing learning progress restored the onboarding status.');}
  state.startStage=Path.inferStart({...state,startStage:raw.startStage},course);
+ if(raw.games!==undefined){const result=Games.sanitize(raw.games);state.games=result.data;if(result.warnings.length)quarantine('game','games',raw.games);}
  if(options.import&&warnings.some(message=>message.includes('damaged')))throw Error('This backup contains damaged questions or an unsafe unfinished attempt.');
  // Unknown fields never enter runtime state. Quarantine is exported, never rendered as code.
  return {state,warnings:[...new Set(warnings)],migrated:raw.version!==VERSION};

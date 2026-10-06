@@ -17,6 +17,15 @@ const ids=new Set();for(const [activity,qs] of Object.entries(groups))for(const 
  }
  for(const m of q.mistakes||[])assert.ok(!E.isCorrect(q,m.answer),'Misconception accepted: '+q.id);
 }
+const Bank=require('../www/conjugations-bank');
+assert.deepEqual(Bank.questions.map(q=>q.id),fixtures('conjugations-ids.json'),'Permanent game question IDs/order changed');
+const gameIds=new Set();for(const q of Bank.questions){
+ assert.ok(!ids.has(q.id)&&!gameIds.has(q.id),'Game ID collision: '+q.id);gameIds.add(q.id);
+ assert.ok(C.playableStages.includes(q.stage));assert.ok(q.blanks.length>=1&&q.blanks.length<=3);
+ assert.equal(q.sentence.split('___').length-1,q.blanks.length);
+ assert.ok(q.requiredActivities.every(id=>C.lessons.some(l=>l.id===id)));
+ assert.ok(q.blanks.every(b=>b.options.filter(x=>x===b.answer).length===1&&new Set(b.options).size===b.options.length&&b.explanation&&b.options.filter(x=>x!==b.answer).every(x=>b.mistakes[x])));
+}for(const stage of C.playableStages)assert.ok(Bank.questions.filter(q=>q.stage===stage).length>=100,'Too few authored '+stage+' game items');
 function files(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?files(path.join(dir,e.name)):[path.join(dir,e.name)]);}
 for(const file of [...files(path.join(__dirname,'../www')),...files(path.join(__dirname,'../tests')),...files(__dirname)].filter(f=>/\.(js|cjs)$/.test(f)))new vm.Script(fs.readFileSync(file,'utf8'),{filename:file});
 const tokens=text=>(text.normalize('NFC').toLowerCase().match(/[a-záéíóúüñ]+/g)||[]);
@@ -34,5 +43,5 @@ const stageStats=C.playableStages.map(stage=>{
 });
 const allWords=[...new Set(units.flatMap(u=>[...u.words]))],histogram={};for(const word of allWords){const count=units.filter(u=>u.words.has(word)).length;histogram[count]=(histogram[count]||0)+1;}
 const report={method:'Surface forms in positive Spanish teaching models, unit phrase banks and unique stories; excludes distractors, English, accepted variants and checkpoints. Unit coverage is exposure, not a measure of mastery. Inflections are not lemmatised.',stageStats,authoredQuestionIds:ids.size,vocabulary,unitCoverageHistogram:histogram};
-if(process.argv.includes('--report'))console.log(JSON.stringify(report,null,2));else console.log('Syntax and curriculum checks passed: '+C.lessons.length+' activities, '+C.lessons.flatMap(l=>l.questions).length+' course questions, '+ids.size+' permanent IDs.');
+if(process.argv.includes('--report'))console.log(JSON.stringify(report,null,2));else console.log('Syntax and curriculum checks passed: '+C.lessons.length+' activities, '+C.lessons.flatMap(l=>l.questions).length+' course questions, '+ids.size+' permanent IDs; '+gameIds.size+' separate game questions.');
 module.exports=report;

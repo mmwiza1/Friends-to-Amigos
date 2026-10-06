@@ -119,3 +119,14 @@ All 832 playable prompts were audited: 363 choice, 64 gap, 389 text and 16 speak
 All 240 Spanish-writing slots were reviewed. Added 342 exact mistake examples across 171 slots, with 96 distinct explanations for predictable English-speaker errors: names/me vs mi, age, verb person/infinitive, agreement, gustar, reflexives, future-intention a, destination contractions, orders and times. Three existing destination explanations now correctly teach going to a place instead of describing an infinitive; one name explanation is clearer.
 
 Wrong feedback shows the learner’s exact response, a natural finite authored model and why. Word-level underlining supports comparison. Exact authored mistakes take precedence; missing/extra/substituted/reordered words are described conservatively. Known grammar diagnoses require supporting target context. Unknown paraphrases are transparently outside the finite answer list and may still be valid. No LLM, fuzzy scoring or cloud grader was added. Historical snapshots retain their older prompts/explanations.
+
+
+## Conjugations practice (implemented)
+
+Games supplement the unchanged A1 course; they do not add activities, change objectives or constitute checkpoint evidence. The local bank contains 104 original A1.1 and 104 original A1.2 scenarios. Early items use one blank/explicit subject/infinitive; later items mix subjects, reduce hints and use up to three blanks. Contexts recycle introductions, café, family, possessions, directions/time, preferences, plans, clothes/home and routines. Correct forms are explicitly linked to positive course models; no past-tense or A2 targets are added.
+
+Completed course activities determine eligibility. Placement assumes earlier-stage foundations, not earlier-stage mastery. The first new A1.2 forms still need their models. The limited early taught-form inventory intentionally delays a varied ten-item game until personal-information practice. Distractors contrast grammatical person, infinitive vs conjugation and singular/plural patterns. Feedback treats each blank independently and names the pattern to remember.
+
+Selection covers available persons before repetitions, weights verb/concept diversity and weakness, and rotates around a bounded recent history. Mistake practice uses up to five related eligible alternatives; Challenge favours harder unlocked items. Current-round concept signals say Strong today/Improving/Needs more practice; cumulative attempts guide future selection but are not certification or reliable mastery claims.
+
+Normal passed lessons now continue along the required starting path, then review/listening maintenance. Failed lessons retain retry/mistake review. The 80% pass threshold, Today orchestration and all permanent course identifiers are unchanged.
