@@ -22,7 +22,7 @@ Listening and model pronunciation use **synthetic Spanish (Spain) speech**, not 
 
 ## Mobile experience
 
-Android Back saves an unfinished lesson, returns practice/placement/secondary screens to their parent, returns Learn/Review/Profile to Home, then backgrounds Home. Both button and modern gesture Back delegate to app state.
+Android Back saves an unfinished lesson, returns practice/placement/secondary screens to their parent, returns Learn/Games/Review/Profile to Home, then backgrounds Home. Both button and modern gesture Back delegate to app state.
 
 Today’s session resumes a saved lesson first; otherwise it guides up to five due reviews, the next required lesson and one short listening/speaking item. It uses existing review/completion records and never hides manual navigation. The duration is a suggestion, not a timed requirement.
 
@@ -36,9 +36,21 @@ Question instructions make the action explicit. Choice cards use visible radio i
 
 The launcher now shows the existing happy chibi bull’s face: full-colour adaptive/round/density assets and an Android 13 monochrome layer. The original lesson artwork is preserved. Browser/Android system dark preference selects readable dark equivalents; the existing navy/coral/teal design is retained.
 
+## Games and lesson continuation
+
+The Games tab offers **Conjugations: 208 original authored questions (104 A1.1, 104 A1.2)**. Select forms to fill 1–3 blanks, then check the sentence. Each blank explains the chosen form and correct pattern; options are accessible radios with large touch targets. There are no lives or penalties.
+
+Eligibility follows completed teaching activities and context units, not the profile/viewed stage or game score. Each form names a positive course model as its prerequisite, and each context waits for its unit’s three teaching lessons. A1.2 placement assumes A1.1 foundations, without fabricating completions; new A1.2 forms require their teaching activities. A fresh learner needs introductory/personal-information practice before enough varied material is available for a ten-item round.
+
+Rounds contain ten unique eligible items with shuffled questions/options, subject-person coverage and weighted verb/concept variety. A1.2 normal rounds mix six current-stage items with four eligible foundation items. Up to 30 recently shown items are avoided when enough alternatives exist. Mistakes increase question/concept weights; repeated success reduces weights without removing retrieval forever. Rotation relaxes when the unlocked bank is small. The result shows score/best at the unlocked unit level, modest concept signals and a happy bull. Up to five **Practise my mistakes** items favour related alternatives, concentrating on the actual incorrect verb/person rather than every concept in a multi-blank question. **Challenge me** uses the hardest already eligible material once multi-blank practice is available. A higher difficulty appears only through course progress.
+
+Game rounds save separately, including shuffled options and checked feedback. Android Back returns to Games safely; Resume saved game preserves the attempt. Game scores never complete lessons/checkpoints, award capabilities or alter placement/start stage. Completed rounds count as practice days, and active game time uses the existing session-time records.
+
+After a passed normal lesson, **Continue learning** starts the next required lesson, then due review, then short listening maintenance when the A1 path is complete. Back to Home remains available. Failed lessons offer Try again and Review mistakes, without forward continuation. Today retains its own continuation.
+
 ## Progress safety
 
-State is now schema **version 2**, discovered under the existing `friends-to-amigos-v1` storage key. Version-1 backups remain supported. The optional `startStage` field is added within schema v2. Older accepted A1.2 placement saves infer A1.2; other saves default to the full A1.1 path. Viewing or revising a stage never changes the required starting path. Migration preserves valid profile, placement, completion, capabilities, review schedules, events, streak days, time and active question/passage snapshots. It is deterministic and idempotent. A one-time untouched v1 local backup is written before the migrated save.
+State is now schema **version 2**, discovered under the existing `friends-to-amigos-v1` storage key. Version-1 backups remain supported. The optional `startStage` and `games` fields remain within schema v2. Missing game data defaults safely; game progress and active snapshots export/import independently of course records. Older accepted A1.2 placement saves infer A1.2; other saves default to the full A1.1 path. Viewing or revising a stage never changes the required starting path. Migration preserves valid profile, placement, completion, capabilities, review schedules, events, streak days, time and active question/passage snapshots. It is deterministic and idempotent. A one-time untouched v1 local backup is written before the migrated save.
 
 Every authored question has a permanent ID. New reviews use that ID, not prompt text. Safely identifiable legacy reviews migrate to it; unmatched or semantically replaced questions retain independent legacy identities and their original content. Invalid local sections are preserved in an exported recovery area where possible. Unreadable or unsupported newer saves are protected from automatic overwrite. Imports are validated before confirmation/adoption; unsafe imports leave existing progress unchanged.
 
@@ -58,7 +70,7 @@ npm run check:browser # requires a local Chrome/Chromium binary
 
 Open http://localhost:4173, or open `www/index.html` directly. File-origin storage and offline voice availability depend on the browser. `check` validates syntax, identities, ordering, grading data and future-stage availability. `audit` emits reproducible surface-word recycling statistics, with its limitations stated in the output.
 
-The suite has **186 individual tests** (29 engine/data, 61 simulated-DOM app, 14 identity/curriculum, 30 storage/migration, 12 speech, 7 mobile/product, 8 learner clarity, 12 answer feedback, 10 viewport, 3 launcher). It renders and completes all 144 activities/832 course questions, and protects old saves and both export paths. Simulated browser/bridge tests do not establish real Android or acoustic performance. See [BUILD_STATUS.md](BUILD_STATUS.md) for the exact validation boundary.
+The suite has **232 individual tests**: the existing 186 plus 30 game-bank/engine/persistence tests and 16 game/navigation/lesson-continuation app regressions. It renders and completes all 144 activities/832 course questions, and protects old saves and both export paths. Simulated browser/bridge tests do not establish real Android or acoustic performance. See [BUILD_STATUS.md](BUILD_STATUS.md) for the exact validation boundary.
 
 ## Android build
 
@@ -68,7 +80,7 @@ Requirements: Java 17+, Gradle 8.9, Android SDK platform 35/build tools 35.0.0. 
 gradle -p android assembleDebug lintDebug testDebugUnitTest
 ```
 
-The APK is `android/app/build/outputs/apk/debug/app-debug.apk`. Version code 5/name 0.5.0 identifies this app update; it is not a CEFR level or a declaration of course certification.
+The APK is `android/app/build/outputs/apk/debug/app-debug.apk`. Version code 6/name 0.6.0 identifies this app update; it is not a CEFR level or a declaration of course certification.
 
 GitHub Actions runs static checks and tests on pushes/PRs. Android build, lint and unit checks now run on pushes/PRs as well as manual runs. The `friends-to-amigos-android` artifact contains the debug APK. A maintainer must preserve the signing key for in-place upgrades. Fresh CI debug keys may not match an already installed APK; do not uninstall a learner's app without first exporting and verifying a backup.
 
@@ -76,7 +88,7 @@ The current workspace has no Gradle, Android SDK, adb or emulator. GitHub CI per
 
 ## Architecture and authorship
 
-`app.js` coordinates state/navigation/sessions. `storage.js`, `speech.js`, `screens.js` and `quiz-view.js` separate validation/persistence, media, ordinary screen rendering and question rendering. `course-path.js` shares required-path/completion/Today selection. `viewport.js` handles native/browser geometry; `answer-feedback.js` compares finite models without changing grading. Curriculum assembly keeps stage source modules, a permanent ID manifest, targeted reviewed amendments and original audio/speaking data. The presentation-only `learner-clarity.js` overlay runs after the legacy compatibility archive is captured. All scripts/assets load locally; there is no framework, cloud grader or automatic speech recognition.
+`app.js` coordinates state/navigation/sessions. `storage.js`, `speech.js`, `screens.js` and `quiz-view.js` separate validation/persistence, media, ordinary screen rendering and question rendering. `course-path.js` shares required-path/completion/Today selection. `conjugations-bank.js`, `games.js` and `games-view.js` hold the original game bank, eligible/adaptive session logic and game rendering. `viewport.js` handles native/browser geometry; `answer-feedback.js` compares finite models without changing grading. Curriculum assembly keeps stage source modules, a permanent ID manifest, targeted reviewed amendments and original audio/speaking data. The presentation-only `learner-clarity.js` overlay runs after the legacy compatibility archive is captured. All scripts/assets load locally; there is no framework, cloud grader or automatic speech recognition.
 
 The course material is original Friends to Amigos content, informed by the documented CEFR/Cervantes and OER pedagogical references. No third-party exercise, story, translation or recording was copied or closely adapted. Future reuse requires exact-item licence verification and attribution. See [COURSE_DESIGN.md](COURSE_DESIGN.md), [resource status](docs/resources/README.md#implementation-status) and the [A1 audit](docs/A1_STABILITY_REPORT.md).
 
