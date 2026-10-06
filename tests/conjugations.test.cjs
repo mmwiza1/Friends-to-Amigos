@@ -114,3 +114,8 @@ test('personal best survives beyond the bounded recent-round window and backup r
  const s=learner();s.games=G.empty();s.games.active=G.build(s,C);const perfect=finish(s),key=G.bestKey(perfect);assert.equal(s.games.bests[key],10);
  s.games.rounds=Array.from({length:40},(_,i)=>({...perfect,score:5,at:2000+i}));const saved=P.parse(JSON.stringify(s),C,{import:true}).state;assert.equal(saved.games.bests[key],10);const html=V.result({state:saved,C,G,round:saved.games.rounds.at(-1),b:button,esc:escape});assert.match(html,/Best at this unlocked difficulty: 10 \/ 10/);
 });
+test('every authored game question completes through the real check/advance loop',()=>{
+ const seen=new Set();for(const stage of C.playableStages){const s=learner(stage);s.games=G.empty();const pool=B.questions.filter(q=>q.stage===stage);
+  for(let start=0;start<pool.length;start+=10){const questions=pool.slice(start,start+10);if(questions.length<10)questions.push(...pool.slice(0,10-questions.length));s.games.active=G.build(s,C);s.games.active.questions=structuredClone(questions);s.games.active.selected=questions[0].blanks.map(()=>null);const result=finish(s);assert.equal(result.total,10);assert.equal(result.score,10);for(const q of questions)seen.add(q.id);}
+ }assert.equal(seen.size,208);
+});
