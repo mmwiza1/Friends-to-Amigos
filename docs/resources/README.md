@@ -44,3 +44,13 @@ For the current A1.1 course, prioritise these in order:
 Do not bulk-copy any corpus into the repository. Curate only the small subset that a lesson actually uses and store source/licence metadata beside every imported item.
 
 See [AUDIO.md](./AUDIO.md), [WRITTEN.md](./WRITTEN.md), and [INTEGRATION_GUIDE.md](./INTEGRATION_GUIDE.md) for details.
+
+## Implementation status
+
+The written-resource recommendations now inform the shipped A1.1 course, rather than only a proposed plan. `www/curriculum.js` defines eight practical unit goals, original authorship/reference metadata, and explicit targets for all eight course subdivisions. `www/stories.js` contains 32 original recurring-character scenarios. Recognition, completion, recall, contextual response and transfer are playable; 120 question slots require Spanish production. The UI shows goals during lessons, offers glossary/rereading support, and exposes the later-stage targets without making those stages playable.
+
+Automated tests cover question structure, stage/lesson ordering, accepted variants, targeted feedback, story review context, checkpoints, capabilities, historical snapshots and import/export. This is a course design informed by the documented frameworks, not CEFR certification or an independent educator review.
+
+CEFR and Cervantes remain reference-only. Semillas, Hola a Todos, Trayectos and other written OERs serve as pedagogical references in this implementation; their text has not been imported or closely adapted. Collection licences in this research are not blanket approval for future assets. Exact-item verification and the attribution template remain prerequisites for any reuse.
+
+All recorded-audio sources remain future or research-only resources. No MLS, Common Voice, FLEURS, CSS10, FSI archive or Tatoeba collection is shipped. The current product retains Spain Spanish TTS and existing feedback sounds. See [the integration guide](INTEGRATION_GUIDE.md) for the boundary between completed curriculum work and future curated listening.

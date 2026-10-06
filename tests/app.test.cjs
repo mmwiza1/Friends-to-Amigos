@@ -124,3 +124,14 @@ test('every revised activity and question renders, completes and can be retried'
  }
  assert.equal(new Set(a.state().completed).size,a.ctx.Curriculum.lessons.length);
 });
+test('course map shows practical future progression without exposing unavailable lessons',()=>{
+ const a=app();a.click('tab',{tab:'Learn'});
+ for(const stage of a.ctx.Curriculum.stageInfo){assert.ok(a.el.innerHTML.includes(stage.goal));for(const task of stage.tasks)assert.ok(a.el.innerHTML.includes(task));}
+ assert.equal((a.el.innerHTML.match(/data-action="lesson"/g)||[]).length,72);
+ assert.equal((a.el.innerHTML.match(/Lessons are not yet available/g)||[]).length,7);
+});
+test('practical goals appear in regular lessons and stories and survive legacy resume',()=>{
+ const a=app();a.click('lesson',{id:'u2write'});assert.match(a.el.innerHTML,/Your practical goal/);assert.match(a.el.innerHTML,/Order a simple breakfast/);
+ a.click('leave');a.click('lesson',{id:'u6story0'});assert.match(a.el.innerHTML,/follow a simple direction/);a.click('readStory');assert.match(a.el.innerHTML,/Your practical goal/);
+ const legacy=JSON.parse(fs.readFileSync('tests/fixtures/legacy-progress.json','utf8')),resumed=app({},legacy);resumed.click('continue');assert.match(resumed.el.innerHTML,/Your practical goal/);assert.match(resumed.el.innerHTML,/Introduce yourself/);
+});

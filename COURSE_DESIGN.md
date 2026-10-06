@@ -65,6 +65,21 @@ Future verbatim or close adaptations require exact item-level licence checks and
 
 Stable lesson IDs, tuple-style units, the version-1 storage key and export format remain supported. Completed IDs, streaks, achievements and capabilities are not rewritten. Active lessons and review questions are saved snapshots: old attempts, even historical two-question lessons, finish using the original content. The previous length-based replacement of active questions is removed because replacing a passage or answer mid-attempt can invalidate saved answers. Starting a new attempt uses the revised course. Import clears the current in-memory quiz before resuming the imported snapshot.
 
-## Later stages
+## Stage progression and authoring metadata
 
-A1.2 can add longer everyday exchanges and connected simple sentences. A2 should add simple past events, plans and short messages while continuing to allow English or Spanish comprehension answers. B1/B2 can gradually require Spanish comprehension and longer supported responses after a suitable grading design exists. None of that content or grading is implemented by this A1.1 revision.
+`Curriculum.stageInfo` defines an explicit goal, three practical tasks, language support, language focus and playable/planned status for each subdivision. `Curriculum.stages` remains the original ordered string API. The Learn screen displays those targets; future stages have no launchable lessons.
+
+| Stage | Practical progression | Language focus |
+| --- | --- | --- |
+| A1.1 | First meetings, breakfast, prices, family, objects, directions and meeting times | Present-tense chunks, agreement and basic questions |
+| A1.2 | Outings, clothes shopping, home and routines | Present consolidation, reflexive routines, near-future plans, simple connectors |
+| A2.1 | Recent experiences, travel choices and health needs | Common past events, comparison and plans |
+| A2.2 | Routine problems, changed habits and practical requests | Event/background contrast, polite requests and sequence |
+| B1.1 | Connected narratives, reasons and main-point summaries | Past narration and everyday opinions |
+| B1.2 | Discuss options, negotiate solutions and write coherent complaints | Advice, wishes, common subjunctive contexts and cohesion |
+| B2.1 | Compare perspectives, develop arguments and adjust register | Qualification, complex clauses and formal requests |
+| B2.2 | Interpret stance, synthesize accounts and defend proposals | Nuance, concession, counterfactuals and sustained cohesion |
+
+These are provisional authoring targets informed by the documented references, not official CEFR descriptors. A1/A2 comprehension can accept English or Spanish; later stages should progressively use Spanish with support. Longer B1/B2 production needs a reviewed assessment design before implementation. The current finite short-answer grader is not claimed to assess extended writing.
+
+Every playable lesson carries its unit goal, stable outcome ID and an original-authorship reference record. Goals appear during regular questions and story reading; older saved snapshots fall back to the existing unit index without replacing their questions. No migration or storage-version change is required. The shared tuple units API, lesson IDs and review prompt keys remain stable.

@@ -15,7 +15,7 @@ A personal European Spanish learning app for Android, with a shared offline HTML
 - Missed story questions retain their passage in spaced review.
 - Dedicated numbers/prices and time practice.
 - Eight-question provisional placement screening and selectable recommended stage.
-- Eight-stage A1.1–B2.2 course map; later stages clearly marked as planned.
+- Eight-stage A1.1–B2.2 course map; distinct practical targets for each subdivision and later stages clearly marked as planned.
 - Mistakes generated from actual answers and spaced review at 1/3/7/14/30-day intervals.
 - Profile capability statement, achievements, unique lessons completed, active learning time, mistakes corrected and seven-day activity chart.
 - Export/import progress and local storage. Android export uses the system file picker.
@@ -59,7 +59,7 @@ The included `.github/workflows/android.yml` runs tests on pushes and pull reque
 
 This is a first functional starter version, not the complete proposed course. Playable A1.2–B2.2 content remains to be authored and reviewed. See COURSE_DESIGN.md for the reading and writing progression. Current checkpoints combine recognition with short authored Spanish responses rather than independently assessed conversation, so capability statements should be treated as narrow course milestones. The placement screen is a provisional grammar/vocabulary screening, not adaptive CEFR certification; it does not assess listening, writing or speaking. Listening uses synthetic speech rather than recorded speakers. Progress is per device; exports are manual backups, not cloud sync.
 
-JavaScript syntax checks and 31 engine/simulated-DOM tests pass for the revised course. Earlier Android builds passed on GitHub Actions; no new APK is produced during the current curriculum work. Real-device validation of these new activities is still needed.
+JavaScript syntax checks and 34 engine/simulated-DOM tests pass for the revised course. Earlier Android builds passed on GitHub Actions; no new APK is produced during the current curriculum work. Real-device validation of these new activities is still needed.
 
 Typed answers use a finite, authored answer list, not an open-ended language model grader. Learners are asked for short answers; not every valid paraphrase will be recognised.
 
@@ -68,3 +68,5 @@ Typed answers use a finite, authored answer list, not an open-ended language mod
 The material is original Friends to Amigos content informed by the resource research in [docs/resources](docs/resources/README.md): CEFR can-do principles, Instituto Cervantes scope guidance, and communicative design patterns documented for Semillas and other OERs. See [COURSE_DESIGN.md](COURSE_DESIGN.md) for the unit goals, cast, progression and European Spanish policy, and [the reference record](docs/resources/CURRICULUM_REFERENCE.md) for the source policy.
 
 No third-party exercise or story was imported or closely adapted in this revision. Any future adaptation must verify its exact licence and use the attribution template. No speech corpus has been added: recorded human listening, individual-asset provenance and further stages remain future work. Existing TTS and the two feedback sound effects remain in place.
+
+Lessons display their practical unit goal while practising. Structured stage targets and original-authorship/outcome metadata support future authoring without adding dependencies or changing saved progress. [Resource implementation status](docs/resources/README.md#implementation-status) distinguishes shipped improvements from reference-only sources and future curated audio.

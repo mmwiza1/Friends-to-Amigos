@@ -235,7 +235,20 @@ const writingSets=[
  write('The meeting changes to half past three. Give the new meeting time in Spanish words.','A las tres y media',['Nos vemos a las tres y media'],'Y media means half past. Use a las for a meeting, rather than son las for the clock now.','Meeting times','transfer')
 ]
 ];
-const stages=['A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2'];
+// Course subdivisions are authoring targets, not certified CEFR descriptors.
+const stageInfo=[
+ {id:'A1.1',status:'playable',goal:'Handle first meetings and short everyday exchanges',tasks:['Introduce yourself and exchange personal details','Order breakfast, ask prices and find places','Describe family, objects and simple meeting times'],languageSupport:'Story answers in English or Spanish; short practical replies in Spanish.',languageFocus:'Present-tense chunks, ser/estar, tener, agreement and basic questions'},
+ {id:'A1.2',status:'planned',goal:'Manage a longer everyday exchange with simple connected sentences',tasks:['Arrange an outing and express likes','Shop for clothes and explain what you need','Describe your home and a typical day'],languageSupport:'Plan: English or Spanish comprehension; supported short Spanish messages.',languageFocus:'Present-tense consolidation, reflexive routines, ir a + infinitive and simple connectors'},
+ {id:'A2.1',status:'planned',goal:'Describe familiar experiences and make practical plans',tasks:['Describe a recent trip or weekend','Compare travel options and book a room','Explain simple health needs'],languageSupport:'Plan: English or Spanish comprehension; short linked Spanish responses.',languageFocus:'Common past-event forms, comparisons and future plans'},
+ {id:'A2.2',status:'planned',goal:'Resolve routine problems and explain a short sequence of events',tasks:['Explain a travel or shopping problem','Describe a past habit and what changed','Write a practical request or invitation'],languageSupport:'Plan: English or Spanish comprehension; scaffolded Spanish paragraphs.',languageFocus:'Past-event versus habitual background, polite requests and sequencing'},
+ {id:'B1.1',status:'planned',goal:'Tell a connected story and explain personal choices',tasks:['Narrate an experience with background','Give reasons for a preference','Summarise the main point of a familiar text'],languageSupport:'Plan: move towards Spanish comprehension with vocabulary support.',languageFocus:'Connected past narration, reasons and everyday opinion expressions'},
+ {id:'B1.2',status:'planned',goal:'Sustain a familiar discussion and negotiate a solution',tasks:['Discuss advantages and disadvantages','Respond to advice and propose alternatives','Write a coherent account or complaint'],languageSupport:'Plan: Spanish comprehension and supported extended replies.',languageFocus:'Advice, wishes, common subjunctive contexts and cohesive linking'},
+ {id:'B2.1',status:'planned',goal:'Explain and defend a viewpoint on a wider range of topics',tasks:['Compare perspectives in an article','Develop an argument with examples','Adjust register in a formal request'],languageSupport:'Plan: Spanish tasks; longer writing needs a reviewed assessment design.',languageFocus:'Argument structure, register, qualification and complex clauses'},
+ {id:'B2.2',status:'planned',goal:'Evaluate nuanced arguments and communicate a detailed position',tasks:['Identify stance and supported implications','Synthesize contrasting accounts','Defend a proposal and address objections'],languageSupport:'Plan: Spanish tasks; extended production requires suitable assessment.',languageFocus:'Nuance, concession, counterfactuals and sustained cohesion'}
+];
+const stages=stageInfo.map(stage=>stage.id);
+// References inform design; no third-party text is incorporated or adapted.
+const authorship={kind:'original',referenceRecord:'docs/resources/CURRICULUM_REFERENCE.md'};
 const storyUnits=typeof module!=='undefined'?require('./stories.js'):root.FriendsStories;
 const lessons=[];
 const label=['Discover','Build confidence','Use it'];
@@ -250,6 +263,7 @@ unitInfo.forEach((unit,i)=>{
  // Purposeful retrieval from earlier activities, with four Spanish production items.
  const checkQuestions=[core[0].questions[0],core[1].questions[0],core[2].questions[0],core[0].questions[1],core[2].questions[3],core[0].questions[4],core[1].questions[4],core[2].questions[4],production.questions[0]];
  const checkpoint={id:`u${i}check`,stage:'A1.1',unit:i,title:`Checkpoint: ${unit.title}`,questions:checkQuestions,checkpoint:true,capability:unit.goal};
+ for(const lesson of [...core,...stories,production,checkpoint]){lesson.goal=unit.goal;lesson.outcomeId=unit.id;lesson.authorship=authorship;}
  lessons.push(core[0],stories[0],core[1],stories[1],core[2],stories[2],production,checkpoint,stories[3]);
 });
 // Existing app API and focused-practice hooks remain small and offline.
@@ -267,6 +281,6 @@ const numbers=[
  pick('What number is mil?','1000',['100','10000'],'Mil is one thousand.','Numbers','recognition','Mil')
 ];
 const time=[...lessonSets[7].flat()];
-const data={q,cast,unitInfo,units,stages,lessons,placement,numbers,time};
+const data={q,cast,unitInfo,units,stages,stageInfo,lessons,placement,numbers,time};
 root.Curriculum=data;if(typeof module!=='undefined')module.exports=data;
 })(typeof window==='undefined'?globalThis:window);

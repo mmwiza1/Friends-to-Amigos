@@ -98,3 +98,13 @@ test('streak permits today still to be completed and breaks after a missed day',
 test('placement remains provisional and needs consecutive demonstrated foundations',()=>{
  assert.equal(E.placementResult([false,false,true,true,true,true,true,true]),'A1.1');assert.equal(E.placementResult([true,true,false,true]),'A1.2');assert.equal(E.placementResult(Array(8).fill(true)),'B2.1');
 });
+test('stage authoring targets are ordered, explicit and never make planned content playable',()=>{
+ assert.deepEqual(C.stages,['A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2']);
+ assert.deepEqual(C.stageInfo.map(s=>s.id),C.stages);
+ for(const stage of C.stageInfo){
+  assert.ok(stage.goal.length>30);assert.equal(stage.tasks.length,3);assert.ok(stage.languageSupport);assert.ok(stage.languageFocus);
+  assert.equal(stage.status,stage.id==='A1.1'?'playable':'planned');
+  assert.equal(C.lessons.some(l=>l.stage===stage.id),stage.status==='playable');
+ }
+ for(const lesson of C.lessons){assert.equal(lesson.goal,C.unitInfo[lesson.unit].goal);assert.equal(lesson.outcomeId,C.unitInfo[lesson.unit].id);assert.equal(lesson.authorship.kind,'original');assert.ok(fs.existsSync(lesson.authorship.referenceRecord));}
+});

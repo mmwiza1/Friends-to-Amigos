@@ -30,3 +30,7 @@ Use this template whenever Friends to Amigos incorporates or adapts external tex
 > “Asset title” by Creator Name, sourced from Source Name, licensed under CC BY 4.0. Adapted for Friends to Amigos.
 
 Use the source's required wording where it specifies one. Do not substitute this generic example for an explicit attribution requirement.
+
+## Current course status
+
+The implemented A1.1 stories and exercises are original, with a design-reference record in [CURRICULUM_REFERENCE.md](CURRICULUM_REFERENCE.md). No third-party learning text/audio has been incorporated or closely adapted in this implementation, so there are no new external-asset attribution entries. This template remains mandatory for future incorporated or closely adapted items; do not treat original-authorship metadata as a licence for external material.

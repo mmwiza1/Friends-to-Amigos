@@ -2,7 +2,7 @@
 
 Last reviewed: 2026-10-06
 
-Friends to Amigos currently uses Android/browser Spanish TTS. The main content-quality upgrade is to add selected recordings from real speakers while preserving offline use and clear provenance.
+Friends to Amigos currently uses Android/browser Spanish TTS. Selected licence-cleared recordings are a future listening upgrade, outside the current curriculum implementation. No corpus or third-party recording from this research has been downloaded or integrated. The app retains Spain Spanish TTS, labels synthetic story playback, and makes model-answer pronunciation available after checking so recall targets are not revealed beforehand. Existing success/failure sounds remain unchanged.
 
 ## 1. FSI Spanish courses
 

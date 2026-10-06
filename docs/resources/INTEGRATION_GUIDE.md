@@ -80,13 +80,13 @@ Before a third-party item is included in a release, confirm:
 - [ ] The exercise tests a course capability, not merely recognition of trivia.
 - [ ] Third-party content is listed in the app/repository attribution notice.
 
-## Recommended implementation sequence
+## Implementation status and future sequence
 
-### Phase 1 — curriculum reference
+### Phase 1 — curriculum reference: implemented
 
-Use Semillas, Cervantes, CEFR, Hola a Todos and Trayectos to redesign our **own** A1.1 material. This gives the biggest quality improvement with very little licensing/asset complexity.
+The documented CEFR/Cervantes scope and OER pedagogical recommendations now inform original A1.1 material: eight can-do units, 32 contextual stories, short Spanish recall/production, dialogue and transfer tasks, teaching feedback, glossary/rereading support, and limited regional notes. Lesson metadata connects each activity to its unit outcome and an original-authorship reference record. Stage metadata defines separate A1.1–B2.2 targets; only A1.1 is playable. Tests protect stable IDs and historical progress snapshots. No third-party exercise was imported or closely adapted.
 
-### Phase 2 — real listening MVP
+### Phase 2 — real listening MVP: future
 
 Add a new question model that can reference a local audio asset and optionally hide/reveal its transcript. Start with a very small hand-curated set (for example 10–20 clips), not a corpus import.
 
@@ -99,11 +99,11 @@ Ideal exercise modes:
 - listen to dialogue, then answer an inference question;
 - replay at normal speed rather than artificially slowing every clip.
 
-### Phase 3 — curated audio pool
+### Phase 3 — curated audio pool: future
 
 Create a lightweight import process for Tatoeba/MLS/other permitted sources that emits both the audio asset and its provenance sidecar. Reject items without an allowed licence automatically.
 
-### Phase 4 — accent exposure
+### Phase 4 — accent exposure: future
 
 After the Spain-first foundation is stable, intentionally add labelled Latin-American speakers and tasks. FLEURS can help here, alongside individually licensed short recordings.
 

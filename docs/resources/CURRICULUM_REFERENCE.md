@@ -17,3 +17,5 @@ Source links and recorded licence status remain in [WRITTEN.md](WRITTEN.md), [AU
 All new scenarios, distractors, answer lists and feedback were authored for Friends to Amigos. Common everyday phrases are used to teach the course functions. No dataset export, large corpus, cloud grading or runtime resource dependency is present.
 
 Future copied or closely adapted items must be reviewed individually under [INTEGRATION_GUIDE.md](INTEGRATION_GUIDE.md), with source URL, creator, exact licence, adaptation history and required wording in [ATTRIBUTION_TEMPLATE.md](ATTRIBUTION_TEMPLATE.md). This remains necessary even if a source is listed as openly licensed at collection level.
+
+All playable lessons now carry `authorship.kind: original` and a `referenceRecord` pointing here, plus a stable unit `outcomeId`. These fields distinguish original authorship from future adapted content; they do not claim third-party asset clearance. Future adaptations must supply their own exact-item provenance record.

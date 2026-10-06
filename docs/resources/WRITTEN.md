@@ -154,3 +154,9 @@ For every new unit:
 7. Record provenance only when third-party wording/media is actually adapted.
 
 This keeps the product distinctive while benefitting from mature open educational resources.
+
+## Implemented written-course recommendations
+
+The app now uses practical unit outcomes, a small recurring cast, natural mini-dialogues, supported reading with varied comprehension, and recognition → completion → recall → response → transfer practice. Short Spanish production uses authored accepted variants and misconception feedback; story comprehension retains English/Spanish answers. Two regional notes preserve Spain-first usage without multiplying beginner targets. Lessons carry an outcome ID and original-authorship reference record. The eight-stage map has distinct future communicative targets and language-focus metadata, while later-stage exercises remain unimplemented.
+
+These are original Friends to Amigos exercises informed by this research. No source exercise, story or translation was copied or closely adapted. Future reuse remains subject to exact-item licensing; the research shortlist alone does not authorise redistribution. See [COURSE_DESIGN.md](../../COURSE_DESIGN.md) for actual course structure and assessment limits.
