@@ -7,7 +7,7 @@ Baseline reviewed: main `ec15c4cbfd991aae3798c6d9547c50c3e67776ce` (0.8.0).
 
 - Baseline static checks and complete suite rerun before editing: 351 individual JavaScript tests, 13 files, zero failures/skips. Previous CI baseline: 2,189 browser assertions, 11 Android unit cases, lint zero errors / 12 warnings.
 - Current static validation: 216 unchanged activities / 1,248 course slots / 1,287 permanent course/practice IDs; 272 sentence-game questions (208 preserved + 64 A2.1); 35 unchanged table targets; 336 unchanged focused-media items.
-- Expanded JavaScript regression suite: 406 individual tests / 14 files. Original course payload hashes exclude only the four deliberately additive language fields; all original targets, accepted answers, passages, objectives, IDs and order stay protected. Original 208 game payloads and appended A2.1 game IDs have frozen fixtures.
+- Expanded JavaScript regression suite: 408 individual tests / 14 files. Original course payload hashes exclude only the four deliberately additive language fields; all original targets, accepted answers, passages, objectives, IDs and order stay protected. Original 208 game payloads and appended A2.1 game IDs have frozen fixtures.
 - New coverage: Spanish-first display, hidden/revealed/resumed English support, hint-safe audio, assisted scoring/evidence, fresh game access at every level, recommendations, custom scopes, lower-ceiling history retention, and game-only Today/Weak Areas. All previous scoring, migration, review, mobile, placement and Today guarantees remain.
 
 ## Browser and Android validation boundary

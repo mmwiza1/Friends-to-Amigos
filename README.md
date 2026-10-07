@@ -87,7 +87,7 @@ npm run check:browser # requires a local Chrome/Chromium binary
 
 Open http://localhost:4173, or open `www/index.html` directly. File-origin storage and offline voice availability depend on the browser. `check` validates syntax, identities, ordering, grading data and future-stage availability. `audit` emits reproducible surface-word recycling statistics, with its limitations stated in the output.
 
-The suite has **351 individual tests**, including 59 new focused-media/content/compatibility regressions in this release. It renders and completes all 216 activities/1,248 course questions, protects exact original A1 activity payloads and legacy backups, and checks table targets, eligibility, hints, recall, weak areas and daily review. See [BUILD_STATUS.md](BUILD_STATUS.md) for exact native/browser results and their limits.
+The suite has **408 individual tests**, including 57 additional Spanish-first/grammar-level/compatibility cases over the 351-test baseline. It renders and completes all 216 activities/1,248 course questions, protects exact original A1 activity payloads and legacy backups, and checks table targets, eligibility, hints, recall, weak areas and daily review. See [BUILD_STATUS.md](BUILD_STATUS.md) for exact native/browser results and their limits.
 
 ## Android build
 
@@ -97,7 +97,7 @@ Requirements: Java 17+, Gradle 8.9, Android SDK platform 35/build tools 35.0.0. 
 gradle -p android assembleDebug lintDebug testDebugUnitTest
 ```
 
-The APK is `android/app/build/outputs/apk/debug/app-debug.apk`. Version code 8/name 0.8.0 identifies this app update; it is not a CEFR level or a declaration of course certification.
+The APK is `android/app/build/outputs/apk/debug/app-debug.apk`. Version code 9/name 0.9.0 identifies this app update; it is not a CEFR level or a declaration of course certification.
 
 GitHub Actions runs static checks and tests on pushes/PRs. Android build, lint and unit checks now run on pushes/PRs as well as manual runs. The `friends-to-amigos-android` artifact contains the debug APK. A maintainer must preserve the signing key for in-place upgrades. Fresh CI debug keys may not match an already installed APK; do not uninstall a learner's app without first exporting and verifying a backup.
 

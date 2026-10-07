@@ -50,7 +50,7 @@ Weak Areas shows readable “Needs practice”, “Improving” or “Strong acr
 
 ## Progress and navigation
 
-Schema stays v2. Optional `mastery` and `blanks` namespaces safely default when absent; existing `games` records remain intact. Sanitisation bounds evidence/history, validates target eligibility/rows/options/answers and quarantines damaged local attempts. Unsafe imports reject before replacing valid progress. Exports include the additive data. Saved course questions/passages are never regenerated; the old storage key and v1 migration/backup remain.
+Schema stays v2. Optional `mastery` and `blanks` namespaces safely default when absent; existing `games` records remain intact. Sanitisation bounds evidence/history, validates known targets, rows, options and answers; valid saved higher-level attempts are retained and paused if the selected ceiling is lower and quarantines damaged local attempts. Unsafe imports reject before replacing valid progress. Exports include the additive data. Saved course questions/passages are never regenerated; the old storage key and v1 migration/backup remain.
 
 Table Back saves to Games; Weak Areas Back returns Review. Table text Go submits only a populated complete table once, or moves to the next missing input. Existing course Go, Back, native insets, keyboard layout, dark theme, launcher and listening speeds remain in place.
 
