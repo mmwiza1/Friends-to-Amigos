@@ -1,0 +1,101 @@
+{
+  "lastReviewed": "2026-10-07",
+  "purpose": "Candidate offline/open-source components for future Friends to Amigos writing diagnosis and feedback. Read WRITING_ENGINE.md before integrating any dependency.",
+  "principles": {
+    "offlineFirst": true,
+    "llmGradingRequired": false,
+    "spainFirst": true,
+    "avoidFalseRejection": true,
+    "preferredOrder": [
+      "first-party learner-error rules",
+      "conjugator",
+      "nspell + reviewed Spanish dictionary",
+      "nlp.js prototype",
+      "LanguageTool/Apertium reference"
+    ]
+  },
+  "resources": [
+    {
+      "id": "conjugator",
+      "name": "ehoogerbeets/conjugator",
+      "url": "https://github.com/ehoogerbeets/conjugator",
+      "license": "Apache-2.0",
+      "status": "preferred-integration",
+      "priority": 1,
+      "role": ["verb-conjugation", "verb-person-diagnosis", "verb-tense-diagnosis"],
+      "notes": "TypeScript/JavaScript. Defaults to castillano and supports Spain tú/vosotros plus regional styles. Use as a diagnostic helper, not a whole-sentence grader.",
+      "shippingGate": "Preserve Apache-2.0 notices and confirm WebView/bundle compatibility."
+    },
+    {
+      "id": "nspell",
+      "name": "wooorm/nspell",
+      "url": "https://github.com/wooorm/nspell",
+      "license": "MIT",
+      "status": "preferred-integration",
+      "priority": 2,
+      "role": ["spell-check", "spelling-suggestions"],
+      "notes": "Plain JavaScript Hunspell-compatible checker. Suggestions are diagnostic evidence, not proof that a learner answer is wrong.",
+      "shippingGate": "Requires a separately licensed Spanish dictionary."
+    },
+    {
+      "id": "dictionary-es",
+      "name": "wooorm/dictionaries: dictionary-es",
+      "url": "https://github.com/wooorm/dictionaries/tree/main/dictionaries/es",
+      "license": "GPL-3.0-or-later OR LGPL-3.0-or-later OR MPL-1.1-or-later",
+      "status": "conditional-integration",
+      "priority": 3,
+      "role": ["es-ES-hunspell-dictionary"],
+      "notes": "The dictionary/affix data retain their own licence; the monorepo packaging being MIT does not replace it. Source locale is es_ES.",
+      "shippingGate": "Explicitly choose a permitted licence path and satisfy its redistribution/source/notice obligations before bundling."
+    },
+    {
+      "id": "first-party-error-rules",
+      "name": "Friends to Amigos learner-error rule bank",
+      "url": null,
+      "license": "Project-owned",
+      "status": "preferred-first-party",
+      "priority": 0,
+      "role": ["grammar-misconceptions", "level-aware-feedback", "why-explanations"],
+      "notes": "Highest-priority approach. Rules should target taught misconceptions such as tener for age/hunger, ser/estar, gustar, agreement, contractions and wrong verb person.",
+      "shippingGate": "Require deterministic tests and low false-rejection rate."
+    },
+    {
+      "id": "nlpjs",
+      "name": "axa-group/nlp.js",
+      "url": "https://github.com/axa-group/nlp.js",
+      "license": "MIT",
+      "status": "optional-experiment",
+      "priority": 4,
+      "role": ["intent-classification", "similarity", "tokenisation", "guided-writing"],
+      "notes": "Use only after deterministic grading is strong. Intent recognition can show that meaning was communicated but must never by itself prove grammatical correctness.",
+      "shippingGate": "Train on original or properly licensed examples; measure false accepts/rejects before scored use."
+    },
+    {
+      "id": "languagetool",
+      "name": "LanguageTool",
+      "url": "https://github.com/languagetool-org/languagetool",
+      "license": "LGPL-2.1-or-later (verify exact component/file)",
+      "status": "reference-development-evaluation",
+      "priority": 5,
+      "role": ["grammar-rule-design-reference", "development-comparison"],
+      "notes": "Mature pattern-based grammar checker, but the Java/JVM engine is much heavier than the current offline WebView architecture. Prefer learning from its rule approach rather than embedding the full engine.",
+      "shippingGate": "Separate architecture and licence review required before any embedded reuse of code/rules."
+    },
+    {
+      "id": "apertium-spa",
+      "name": "apertium/apertium-spa",
+      "url": "https://github.com/apertium/apertium-spa",
+      "license": "GPL-2.0",
+      "status": "reference-research",
+      "priority": 6,
+      "role": ["morphological-analysis", "morphological-generation", "advanced-research"],
+      "notes": "Powerful linguistic resource but heavier and less natural for the current JavaScript/WebView product than the preferred options.",
+      "shippingGate": "Do not embed without deliberate GPL and architecture review."
+    }
+  ],
+  "futureWritingModes": {
+    "controlled": "Can use deterministic correct/incorrect scoring when the task has a narrow target.",
+    "guided": "Support multiple valid formulations; use correct/acceptable/needs-fix/uncertain/off-task states rather than brittle exact matching.",
+    "free": "Offer high-confidence coaching and model answers; do not claim authoritative essay grading."
+  }
+}
