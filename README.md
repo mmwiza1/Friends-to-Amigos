@@ -2,14 +2,14 @@
 
 An offline-first Android Spanish-learning app, built with vanilla HTML/CSS/JavaScript in a native WebView. It primarily teaches European Spanish. No account, backend, API key or runtime npm dependency is required.
 
-## Playable course through A2.1
+## Playable course through A2.2
 
-A1.1, A1.2 and A2.1 contain **216 activities, 1,248 question slots, 24 practical units and 96 original stories**. Each stage has 72 activities and 416 questions. Existing course targets, permanent IDs, activity ordering and historical snapshots are preserved. A1.2/A2.1 now add Spanish-first task instructions. A2.2 and B stages remain planned and unavailable.
+A1.1, A1.2, A2.1 and A2.2 contain **288 activities, 1,664 question slots, 32 practical units and 128 original stories**. Each stage has 72 activities and 416 questions. Existing course targets, permanent IDs, activity ordering and historical snapshots are preserved. A1.2/A2.1/A2.2 use Spanish-first task instructions with optional English support. B stages remain planned and unavailable.
 
 - Practical can-do goals, a recurring cast, and recognition → completion → recall → contextual response → transfer.
-- 360 constrained Spanish-writing slots, with authored alternatives and teaching feedback. Story comprehension accepts English or Spanish; writing requires Spanish. Matching tolerates punctuation, case, spaces and vowel accents, while preserving ñ and negation.
+- 480 constrained Spanish-writing slots, with authored alternatives and teaching feedback. Story comprehension accepts English or Spanish; writing requires Spanish. Matching tolerates punctuation, case, spaces and vowel accents, while preserving ñ and negation.
 - Four short stories per unit, with glossary support, learner-paced reading and passage rereading during questions and review.
-- **72 audio-first listening questions**, including one in every checkpoint. Listen to familiar Spanish before answering; the transcript appears only after submitting or deliberately skipping. Comprehension mixes choices and short typed responses.
+- **96 audio-first listening questions**, including one in every checkpoint. Listen to familiar Spanish before answering; the transcript appears only after submitting or deliberately skipping. Comprehension mixes choices and short typed responses.
 - **24 speak-aloud retrieval chunks**. Attempt aloud, reveal one possible model, optionally hear it, then choose “I got it” or “Needs practice”. Speaking is self-assessed, excluded from scored accuracy, and never automatically assesses pronunciation. Needs-practice responses enter spaced review.
 - Separate listening/speaking practice for each stage, selecting familiar units and rotating toward less recently retrieved items.
 - Nine-question practical checkpoints: contextual recognition, completion, listening and four distinct Spanish responses. The 80% threshold remains; repeating completion does not duplicate capabilities or lesson totals.
@@ -38,9 +38,9 @@ The launcher now shows the existing happy chibi bull’s face: full-colour adapt
 
 ## Games and lesson continuation
 
-The Games tab offers **Conjugations: 272 original authored questions (104 A1.1, 104 A1.2, 64 A2.1)**. Select forms to fill 1–3 blanks, then check the sentence. Each blank explains the chosen form and correct pattern; options are accessible radios with large touch targets. There are no lives or penalties.
+The Games tab offers **Conjugations: 336 original authored questions (104 A1.1, 104 A1.2, 64 A2.1, 64 A2.2)**. Select forms to fill 1–3 blanks, then check the sentence. Each blank explains the chosen form and correct pattern; options are accessible radios with large touch targets. There are no lives or penalties.
 
-Grammar availability follows the **selected grammar level**, not lesson completion. A fresh A1.1 learner can immediately practise A1.1; A1.2 includes A1.1+A1.2; A2.1 includes all three playable levels. Games shows the current grammar level and a simple Change level control. Placement/selected starting level supplies the default; an explicit grammar-level choice overrides it without changing the course path. Raising/lowering the ceiling retains history and mastery; higher saved attempts are kept but paused while above the ceiling.
+Grammar availability follows the **selected grammar level**, not lesson completion. A fresh A1.1 learner can immediately practise A1.1; A1.2 includes A1.1+A1.2; A2.1 includes earlier levels; A2.2 includes all four playable levels. Games shows the current grammar level and a simple Change level control. Placement/selected starting level supplies the default; an explicit grammar-level choice overrides it without changing the course path. Raising/lowering the ceiling retains history and mastery; higher saved attempts are kept but paused while above the ceiling.
 
 A central grammar syllabus maps real shipped concepts to levels and references the existing curated table forms. Recent course attempts/completions, due mistakes, weak forms and recent practice affect **recommendation weights**, not access. Selecting a level grants availability, never mastery.
 
@@ -52,16 +52,16 @@ After a passed normal lesson, **Continue learning** starts the next required les
 
 ## Connected practice and review
 
-**Conjugation Blanks** adds six-person Spain-first tables beside Conjugations. Normal games contain three tables, progressing through four supported/recall phases per course unit. Practice offers 3/5/10/15/20 tables: Recommended, Current level, All up to current level, unit prioritisation or simple custom level/grammar filters. Selectable forms, typed recall, teaching hints and mistake practice remain. The curated pool has 35 verb/tense targets (10 A1.1, 14 A1.2, 11 A2.1); source activities document teaching provenance; selected level controls access. Dense six-blank tables require demonstrated spaced unassisted recall, not clicks.
+**Conjugation Blanks** adds six-person Spain-first tables beside Conjugations. Normal games contain three tables, progressing through four supported/recall phases per course unit. Practice offers 3/5/10/15/20 tables: Recommended, Current level, All up to current level, unit prioritisation or simple custom level/grammar filters. Selectable forms, typed recall, teaching hints and mistake practice remain. The curated pool has 55 verb/tense targets (10 A1.1, 14 A1.2, 11 A2.1, 20 A2.2); source activities document teaching provenance; selected level controls access. Dense six-blank tables require demonstrated spaced unassisted recall, not clicks.
 
 Shared local evidence connects course outcomes and verb/person/pattern weaknesses across both games, course writing and review. Assisted/recognition answers count less than independent recall; same-session repetition cannot create spaced mastery. **Today’s Review** combines due historical mistakes, older completed material and optional weak-table follow-up. Game-only mistakes can drive both Weak Areas and Today’s Review without any completed lessons. Repeated English support also creates a readable instruction-support area and later independent retrieval. **Weak Areas / Mistakes** is available from Review, including legacy mistakes without new evidence. Neither practice nor mastery can complete a course lesson or alter placement.
 
-A2.1 teaches recent perfect and selected finished-event past forms, transport comparisons, tickets/accommodation, simple problems/symptoms and connected plans. The A1 completion milestone remains accurate; Continue now offers the new A2.1 stage. Placement can select playable A2.1 provisionally, while A2.2/B stages stay unavailable. See [the implementation/design record](docs/A2_AND_PRACTICE.md).
+A2.1 teaches recent perfect and selected finished-event past forms, transport comparisons, tickets/accommodation, simple problems/symptoms and connected plans. The A1 completion milestone remains accurate; Continue now offers the new A2.1 stage. Placement can select playable A2.1 provisionally, while B stages stay unavailable. See [the implementation/design record](docs/A2_AND_PRACTICE.md).
 
 
 ## Spanish-first course tasks
 
-A1.1 retains beginner English scaffolding. All **832 A1.2/A2.1 question slots** show original, task-specific Spanish instructions by default. **English hint** reveals only question/task help, stays visible through the question and saved-lesson resume, and never reveals a hidden transcript or model. Hinted correct answers keep their score and checkpoint credit; mastery records weaker assisted evidence. Historical snapshots without the new language fields retain their original English wording. Focused Listening/Speaking banks retain their existing independently authored instructions and eligibility policy.
+A1.1 retains beginner English scaffolding. All **1,248 A1.2/A2.1/A2.2 question slots** show original, task-specific Spanish instructions by default. **English hint** reveals only question/task help, stays visible through the question and saved-lesson resume, and never reveals a hidden transcript or model. Hinted correct answers keep their score and checkpoint credit; mastery records weaker assisted evidence. Historical snapshots without the new language fields retain their original English wording. Focused Listening/Speaking banks retain their existing independently authored instructions and eligibility policy.
 
 See [the level-access and language quality report](docs/SPANISH_FIRST_AND_GRAMMAR_LEVEL.md).
 
@@ -87,7 +87,7 @@ npm run check:browser # requires a local Chrome/Chromium binary
 
 Open http://localhost:4173, or open `www/index.html` directly. File-origin storage and offline voice availability depend on the browser. `check` validates syntax, identities, ordering, grading data and future-stage availability. `audit` emits reproducible surface-word recycling statistics, with its limitations stated in the output.
 
-The suite has **408 individual tests**, including 57 additional Spanish-first/grammar-level/compatibility cases over the 351-test baseline. It renders and completes all 216 activities/1,248 course questions, protects exact original A1 activity payloads and legacy backups, and checks table targets, eligibility, hints, recall, weak areas and daily review. See [BUILD_STATUS.md](BUILD_STATUS.md) for exact native/browser results and their limits.
+The suite has **481 individual tests**, up from the 408-test 0.9.0 baseline. It renders and completes all 288 activities/1,664 course questions, protects exact original A1 activity payloads and legacy backups, and checks table targets, eligibility, hints, recall, weak areas and daily review. See [BUILD_STATUS.md](BUILD_STATUS.md) for exact native/browser results and their limits.
 
 ## Android build
 
@@ -109,12 +109,20 @@ The current workspace has no Gradle, Android SDK, adb or emulator. GitHub CI per
 
 The course material is original Friends to Amigos content, informed by the documented CEFR/Cervantes and OER pedagogical references. No third-party exercise, story, translation or recording was copied or closely adapted. Future reuse requires exact-item licence verification and attribution. See [COURSE_DESIGN.md](COURSE_DESIGN.md), [resource status](docs/resources/README.md#implementation-status) and the [A1 audit](docs/A1_STABILITY_REPORT.md).
 
-Finite matching can reject valid unlisted paraphrases. TTS lacks human-speaker variation; speaking is self-assessed; independent conversation is not assessed. A native Spanish educator should review phrasing, pacing and accepted alternatives before a wider release. Broader free-form assessment, especially before B1, and curated human listening remain future work. A2.1 is implemented; A2.2 remains planned.
+Finite matching can reject valid unlisted paraphrases. TTS lacks human-speaker variation; speaking is self-assessed; independent conversation is not assessed. A native Spanish educator should review phrasing, pacing and accepted alternatives before a wider release. Broader free-form assessment, especially before B1, and curated human listening remain future work. A2.1 and A2.2 are playable; B stages remain planned.
 
 ## Focused Listening and Speaking (0.8.0)
 
-Home and course-completion maintenance offer repeatable ten-item sessions. Each mode has **168 local authored items: 56 each for A1.1, A1.2 and A2.1**. Completing a unit’s three teaching activities makes its practice eligible; earlier stages may be assumed through placement. No profile-only unlocks. A very early learner needs two taught units before ten distinct eligible items are available.
+Home and course-completion maintenance offer repeatable ten-item sessions. Each mode has **224 local authored items: 56 each for A1.1, A1.2, A2.1 and A2.2**. Completing a unit’s three teaching activities makes its practice eligible; earlier stages may be assumed through placement. No profile-only unlocks. A very early learner needs two taught units before ten distinct eligible items are available.
 
 Sessions rotate recent items, diversify topics/tasks, target mistakes and recycle earlier stages (normally 6 current + 4 earlier). Listening remains audio-first, with playback-start locking, Slow/Normal replay, transcript after checking and failure/skip-to-review. Speaking shows **One possible response** only after reveal and uses **I got it / Needs practice**: no microphone, recording, speech recognition or pronunciation assessment.
 
 Mistakes feed existing spaced review and understandable Weak Areas. Positive self-assessment is low-weight evidence, not proof of mastery. Save & leave keeps an independent ten-item snapshot without replacing your saved course lesson. First-use explanations become compact after successful listening or deliberate speaking self-assessment; expandable information remains available. See [the quality report](docs/LISTENING_SPEAKING_QUALITY.md) and [validation status](BUILD_STATUS.md).
+
+## A2.2 quality expansion (0.10.0)
+
+Eight practical units add past routines/background, completed events, transport connections, restaurant and shopping problems, changed arrangements, polite opinions and a connected account of a difficult day. Imperfect versus preterite is taught through meaning and context, not a list of trigger words. Writing remains constrained to authored alternatives, reaching two to four connected sentences. No B course, broad subjunctive, new future/conditional system or unrestricted paragraph grading is shipped.
+
+Focused Listening and Speaking now each have **224 items: 56 per stage**. When taught material is available, A2.2 sessions use six A2.2, two A2.1, one A1.2 and one A1.1 item, with weakness weighting, recent rotation and no duplicate within ten items. Course teaching prerequisites still gate focused media. Grammar games instead respect the existing independently selected level ceiling; 20 additional source-linked targets add imperfect and selected completed-event forms without changing the original 35 targets. Games never complete course activities.
+
+The required course path now continues into A2.2. Finishing it shows an accurate course milestone and actual activity counts, with review and speaking/listening maintenance; earlier stages assumed through placement are not fabricated completions. The provisional eight-question recognition screen has not become an A2.2 diagnostic or certification. Schema 2 is unchanged; existing attempts retain their stored questions and passages. See [the A2.2 quality record](docs/A22_QUALITY_RELEASE.md) and [validation results](BUILD_STATUS.md).

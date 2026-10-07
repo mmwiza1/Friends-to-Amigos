@@ -18,7 +18,7 @@ function shuffle(xs,rng){const a=xs.slice();for(let i=a.length-1;i>0;i--){const 
 function select(state,C,kind,ceiling,focus='',rng=Math.random,now=Date.now()){
  const pool=eligible(state,C,kind,ceiling);if(pool.length<10)return null;
  const stage=C.playableStages.filter(s=>pool.some(q=>q.practice.stage===s)).at(-1),recent=state.focused?.recent[kind]||[],picked=[],topics={},categories={};
- const quotas=stage==='A1.1'?{'A1.1':10}:stage==='A1.2'?{'A1.2':6,'A1.1':4}:{'A2.1':6,'A1.2':2,'A1.1':2};
+ const quotas=stage==='A1.1'?{'A1.1':10}:stage==='A1.2'?{'A1.2':6,'A1.1':4}:stage==='A2.1'?{'A2.1':6,'A1.2':2,'A1.1':2}:{'A2.2':6,'A2.1':2,'A1.2':1,'A1.1':1};
  function draw(stageFilter){let options=pool.filter(q=>!picked.includes(q)&&(!stageFilter||q.practice.stage===stageFilter));if(!options.length)return false;
   const fresh=options.filter(q=>!recent.includes(q.id));if(fresh.length)options=fresh;else {const oldest=Math.min(...options.map(q=>recent.lastIndexOf(q.id)));options=options.filter(q=>recent.lastIndexOf(q.id)<=oldest+3);}
   const weights=options.map(q=>weight(state,q,now,focus)/(1+(topics[topicKey(q)]||0)*2)/(1+(categories[q.practice.category]||0)*.7));let ticket=rng()*weights.reduce((a,b)=>a+b,0),chosen=options.at(-1);

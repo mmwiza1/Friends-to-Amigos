@@ -1,7 +1,7 @@
 (function(root){
 'use strict';
 const T=typeof module!=='undefined'?require('./conjugation-targets.js'):root.ConjugationTargets;
-const levels=['A1.1','A1.2','A2.1'];
+const levels=['A1.1','A1.2','A2.1','A2.2'];
 // Curriculum references document where a concept is modelled, not access gates.
 const rows=[
  ['present-regular-ar','A1.1','conjugation','present','regular-ar','Regular -AR present','u1l2',['hablar','trabajar','desayunar']],
@@ -29,6 +29,13 @@ const rows=[
  ['comparisons','A2.1','structure',null,null,'Más / menos que and tan como','a21u2l0',[]],
  ['practical-modals','A2.1','structure','present',null,'Practical needs, obligations and requests','a21u6l0',['tener','necesitar','poder','querer']],
  ['linked-messages','A2.1','structure',null,null,'Sequence, reason and practical plans','a21u7l0',[]],
+ ['imperfect-background','A2.2','conjugation','imperfect',null,'Past routines and background','a22u0l0',['vivir','trabajar','ser','tener','ir','hacer','estudiar']],
+ ['past-event-background','A2.2','structure',null,null,'What was happening and what happened','a22u1l2',[]],
+ ['preterite-er-ir','A2.2','conjugation','preterite',null,'Completed -ER / -IR events','a22u1l0',['comer','vivir','salir','perder']],
+ ['preterite-practical-irregulars','A2.2','conjugation','preterite','irregular','Travel, service and plan changes','a22u2l1',['tener','poder','decir','venir','querer','estar','ver']],
+ ['routine-problems','A2.2','structure',null,null,'Clarifying directions, meals and purchases','a22u3l1',[]],
+ ['opinions-agreement','A2.2','structure',null,null,'Opinions, reasons, también and tampoco','a22u6l0',[]],
+ ['connected-past-plans','A2.2','structure',null,null,'Background, events, result and a new plan','a22u7l2',[]],
  ['health-doler','A2.1','structure','present',null,'Me duele / me duelen in health requests','a21u5l0',['doler']]
 ];
 const concepts=rows.map(([id,level,category,tense,pattern,label,source,exampleVerbs])=>({id,level,category,tense,pattern,label,source,exampleVerbs,authorship:'original Friends to Amigos'}));

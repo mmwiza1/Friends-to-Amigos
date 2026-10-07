@@ -37,7 +37,7 @@ function question(raw){
  if(raw.reading!==undefined&&raw.reading!==null){q.reading=reading(raw.reading);if(!q.reading)return null;}
  if(raw.listening){if(!['choice','text'].includes(type)||!object(raw.listening)||!text(raw.listening.transcript,2000))return null;q.listening={transcript:raw.listening.transcript,lang:'es-ES',rate:number(raw.listening.rate,.85,1.25)||.85};if(text(raw.listening.audio,250)&&/^audio\/learning\/[a-zA-Z0-9/_-]+\.(mp3|ogg|wav)$/.test(raw.listening.audio))q.listening.audio=raw.listening.audio;}
  if(raw.models!==undefined){if(type!=='speaking'||!Array.isArray(raw.models)||!raw.models.length||raw.models.length>3||raw.models.some(x=>!text(x,2000))||raw.models[0]!==q.spanish)return null;q.models=[...new Set(raw.models)];}
- if(raw.practice!==undefined){const p=raw.practice;if(!object(p)||!['listening','speaking'].includes(p.kind)||!['A1.1','A1.2','A2.1'].includes(p.stage)||!Number.isInteger(p.unit)||p.unit<0||p.unit>7||!text(p.category,80)||!text(p.level,80)||!Array.isArray(p.requiredActivities)||!p.requiredActivities.length||p.requiredActivities.length>12||!p.requiredActivities.every(safeId)||!(q.id?.startsWith(p.kind==='listening'?'focus-listen-':'focus-speak-')||q.id?.startsWith('legacy-'))||(p.kind==='listening'?!q.listening:type!=='speaking'))return null;q.practice={kind:p.kind,stage:p.stage,unit:p.unit,category:p.category,level:p.level,...(safeId(p.outcomeId)?{outcomeId:p.outcomeId}:{}),requiredActivities:p.requiredActivities.slice(),authorship:'original Friends to Amigos'};}
+ if(raw.practice!==undefined){const p=raw.practice;if(!object(p)||!['listening','speaking'].includes(p.kind)||!['A1.1','A1.2','A2.1','A2.2'].includes(p.stage)||!Number.isInteger(p.unit)||p.unit<0||p.unit>7||!text(p.category,80)||!text(p.level,80)||!Array.isArray(p.requiredActivities)||!p.requiredActivities.length||p.requiredActivities.length>12||!p.requiredActivities.every(safeId)||!(q.id?.startsWith(p.kind==='listening'?'focus-listen-':'focus-speak-')||q.id?.startsWith('legacy-'))||(p.kind==='listening'?!q.listening:type!=='speaking'))return null;q.practice={kind:p.kind,stage:p.stage,unit:p.unit,category:p.category,level:p.level,...(safeId(p.outcomeId)?{outcomeId:p.outcomeId}:{}),requiredActivities:p.requiredActivities.slice(),authorship:'original Friends to Amigos'};}
  if(q.mode==='listening'&&!q.listening)return null;
  if(Array.isArray(raw.mistakes))q.mistakes=raw.mistakes.filter(m=>object(m)&&text(m.answer,2000)&&text(m.explanation,3000)).map(m=>({answer:m.answer,explanation:m.explanation}));
  return q;
@@ -106,7 +106,7 @@ function migrateState(raw,course,options={}){
   }
  }
  if(typeof raw.onboarded!=='boolean'&&(state.active||state.completed.length)){state.onboarded=true;warnings.push('Your existing learning progress restored the onboarding status.');}
- if(['A1.1','A1.2','A2.1'].includes(raw.grammarLevel))state.grammarLevel=raw.grammarLevel;
+ if(['A1.1','A1.2','A2.1','A2.2'].includes(raw.grammarLevel))state.grammarLevel=raw.grammarLevel;
  state.startStage=Path.inferStart({...state,startStage:raw.startStage},course);
  if(raw.mastery!==undefined)state.mastery=Mastery.sanitize(raw.mastery);
  if(raw.blanks!==undefined){const result=Blanks.sanitize(raw.blanks,state,course);state.blanks=result.data;if(result.warnings.length)quarantine('table practice','blanks',raw.blanks);}

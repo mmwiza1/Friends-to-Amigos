@@ -133,7 +133,7 @@ async function run(){ // Wait for the browser process before creating its first 
    // Amendment journeys: no teaching prerequisites; actual DOM controls on
    // every phone/landscape/theme layout. Native speech start stays simulated.
    window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,false,0);window.confirm=()=>true;
-   for(const level of ['A1.1','A1.2','A2.1']){
+   for(const level of ['A1.1','A1.2','A2.1','A2.2']){
     state={...E.fresh(),stage:level,onboarded:true};quiz=null;screen='main';tab='Games';render();window.scrollTo(0,0);await frame();
     assert(document.querySelector('#grammar-level').value===level,'explicit grammar ceiling '+level);
     assert(!document.querySelector('[data-action=gameNew]').disabled,'fresh playable sentence card '+level);
@@ -154,11 +154,11 @@ async function run(){ // Wait for the browser process before creating its first 
    assert(state.grammarLevel==='A1.1','lowered grammar level saved');document.querySelector('[data-action=gameResume]').click();
    assert(screen==='main'&&JSON.stringify(state.games.active)===savedGame,'higher game kept while lowered');actions.blanksResume();render();
    assert(screen==='main'&&JSON.stringify(state.blanks.active)===savedTables,'higher tables kept while lowered');
-   document.querySelector('#grammar-level').value='A2.1';document.querySelector('[data-action=grammarLevel]').click();actions.gameResume();render();assert(screen==='game','raise level resumes saved game');FriendsToAmigos.handleBack();state.games.active=null;state.blanks.active=null;
+   document.querySelector('#grammar-level').value='A2.2';document.querySelector('[data-action=grammarLevel]').click();actions.gameResume();render();assert(screen==='game','raise level resumes saved game');FriendsToAmigos.handleBack();state.games.active=null;state.blanks.active=null;
    for(let n=0;n<2;n++)M.record(state,[{verb:'comer',tense:'present',person:'vosotros',pattern:'regular-er'}],false,{session:'browser-game-only',item:'g'+n},Date.now());
    actions.weakAreas();render();assert(document.querySelector('#app').textContent.includes('vosotros'),'game-only weakness visible');actions.dailyReview();render();assert(screen==='blanks'&&state.completed.length===0,'game-only Today review launches');FriendsToAmigos.handleBack();state.blanks.active=null;
    actions.blanksOpen();render();document.querySelector('#table-count').value='5';document.querySelector('#table-scope').value='custom';document.querySelector('#table-level').value='A2.1';document.querySelector('#table-grammar').value='preterite';actions.blanksPractice();render();assert(state.blanks.active.tables.length===5&&state.blanks.active.tables.every(t=>t.target.tense==='preterite'),'custom past practice within selected level');FriendsToAmigos.handleBack();
-   for(const stage of ['A1.2','A2.1']){
+   for(const stage of ['A1.2','A2.1','A2.2']){
     const l=C.lessons.find(l=>l.stage===stage&&!l.reading),q=l.questions[0];actions.lesson({dataset:{id:l.id}});render();window.scrollTo(0,0);await frame();
     assert(document.querySelector('.question').textContent===q.promptEs,'Spanish question default '+stage);
     assert(document.querySelector('#exercise-instruction').textContent==='Elige una respuesta','Spanish action '+stage);
@@ -178,6 +178,26 @@ async function run(){ // Wait for the browser process before creating its first 
     if(audio.type==='text'){const input=document.querySelector('#written-answer');input.value=audio.accepted[0];input.dispatchEvent(new Event('input',{bubbles:true}));input.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));}else{actions.answer({dataset:{index:String(audio.options.indexOf(audio.answer))}});actions.check();render();}
     assert(document.querySelector('.listening').textContent.includes(audio.listening.transcript),'transcript revealed separately after attempt '+stage);FriendsToAmigos.handleBack();
    }
+   // A2.2 retains the familiar mobile controls; every new activity has a real rendered entry.
+   state.completed=C.lessons.map(l=>l.id);state.stage='A2.2';state.grammarLevel='A2.2';quiz=null;
+   for(const l of C.lessons.filter(l=>l.stage==='A2.2')){
+    actions.lesson({dataset:{id:l.id}});render();if(l.reading){assert(document.querySelector('#app').textContent.includes(l.reading.title),'A2.2 read-first entry '+l.id);actions.readStory();render();}
+    assert(document.querySelector('.question').textContent===l.questions[0].promptEs,'A2.2 rendered Spanish entry '+l.id);
+    assert(document.documentElement.scrollWidth<=innerWidth+1,'A2.2 activity width '+l.id);
+   }
+   actions.lesson({dataset:{id:'a22u7write'}});render();const written=currentQuestion(),field=document.querySelector('#written-answer');
+   field.value=written.answer;field.dispatchEvent(new Event('input',{bubbles:true}));field.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));
+   assert(quiz.answers.length===1&&quiz.answers[0],'A2.2 connected Go answer');field.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));assert(quiz.answers.length===1,'A2.2 Go deduplicated');FriendsToAmigos.handleBack();
+   actions.blanksOpen();render();document.querySelector('#table-count').value='3';document.querySelector('#table-scope').value='custom';document.querySelector('#table-level').value='A2.2';document.querySelector('#table-grammar').value='imperfect';actions.blanksPractice();render();
+   assert(state.blanks.active.tables.every(t=>t.target.tense==='imperfect'&&t.target.stage==='A2.2'),'A2.2 custom imperfect targets');assert(document.querySelectorAll('[role=rowheader]').length===6,'imperfect six-person mobile rows');FriendsToAmigos.handleBack();
+   for(const kind of ['listening','speaking']){
+    state.focused=F.empty();quiz=null;actions.mediaPractice({dataset:{kind,stage:'A2.2'}});render();
+    assert(quiz.questions.length===10&&new Set(quiz.questions.map(q=>q.id)).size===10,'A2.2 ten unique '+kind);
+    assert(JSON.stringify(C.playableStages.map(st=>quiz.questions.filter(q=>q.practice.stage===st).length))==='[1,1,2,6]','A2.2 recycled stage quota '+kind);
+    const snapshot=JSON.stringify(quiz.questions);FriendsToAmigos.handleBack();actions.focusedResume();render();assert(JSON.stringify(quiz.questions)===snapshot,'A2.2 saved media snapshot '+kind);FriendsToAmigos.handleBack();
+   }
+   state.active=null;quiz=null;actions.home();render();assert(document.querySelector('#app').textContent.includes('course through A2.2'),'A2.2 course milestone');assert(!document.querySelector('#app').textContent.includes('Continue to B'),'no B course offer');
+   actions.lesson({dataset:{id:'a22u0l0'}});render();actions.englishHint();render();
    // Browser import follows the same validated snapshot route as Android.
    const backup=JSON.stringify(state),expected=state.active.questions[state.active.index].id;
    const restored=P.parse(backup,C,{import:true}).state;state=restored;actions.continue();render();assert(currentQuestion().id===expected&&quiz.hintRevealed,'browser backup retains current hint and stable question');
@@ -190,7 +210,7 @@ async function run(){ // Wait for the browser process before creating its first 
   const screenshot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false},sessionId);fs.writeFileSync(path.join(output,config.name+'.png'),Buffer.from(screenshot.data,'base64'));totalChecks+=report.checks;console.log('PASS '+config.name+' ('+report.checks+' checks)');fs.writeFileSync(path.join(output,config.name+'.json'),JSON.stringify(report,null,2));
   if(['s24-dark-buttons','narrow-light-buttons','landscape-dark-cutout','s24-dark-large-text'].includes(config.name)){
    await evaluate(sessionId,`(async()=>{window.FriendsToAmigosInsets(24,${config.bottom},${config.left||0},0,false,0);actions.leave();actions.tab({dataset:{tab:'Games'}});actions.gameNew();actions.gameLeave();render();window.scrollTo(0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));})()`);
-   for(const view of ['games','round','feedback','tables','table-feedback','listening-first','listening-compact','listening-result','speaking-first','speaking-compact','speaking-result','spanish-course','spanish-hint','spanish-listening']){
+   for(const view of ['games','round','feedback','tables','table-feedback','listening-first','listening-compact','listening-result','speaking-first','speaking-compact','speaking-result','spanish-course','spanish-hint','spanish-listening','a22-writing','a22-story','a22-tables']){
     if(view==='round')await evaluate(sessionId,"actions.gameResume();render();window.scrollTo(0,0);");
     if(view==='tables')await evaluate(sessionId,"state.blanks.active=null;actions.blanksNormal();render();window.scrollTo(0,0);");
     if(view==='table-feedback')await evaluate(sessionId,"const a=state.blanks.active,t=a.tables[0];a.selected=t.rows.map((row,j)=>j===0?t.options[j].find(v=>v!==t.target.forms[row]):t.target.forms[row]);actions.blanksCheck();render();window.scrollTo(0,document.documentElement.scrollHeight);");
@@ -204,6 +224,9 @@ async function run(){ // Wait for the browser process before creating its first 
     if(view==='spanish-course')await evaluate(sessionId,"actions.lesson({dataset:{id:'a12u0l0'}});render();window.scrollTo(0,0);");
     if(view==='spanish-hint')await evaluate(sessionId,"actions.englishHint();render();window.scrollTo(0,0);");
     if(view==='spanish-listening')await evaluate(sessionId,"const l=C.lessons.find(l=>l.stage==='A2.1'&&l.questions.some(q=>q.listening));startQuiz('lesson',l.questions,l);quiz.index=l.questions.findIndex(q=>q.listening);quiz.answers=quiz.questions.slice(0,quiz.index).map(()=>true);actions.englishHint();render();window.scrollTo(0,0);");
+    if(view==='a22-writing')await evaluate(sessionId,"actions.lesson({dataset:{id:'a22u7write'}});render();actions.englishHint();render();window.scrollTo(0,0);");
+    if(view==='a22-story')await evaluate(sessionId,"actions.lesson({dataset:{id:'a22u7story3'}});render();window.scrollTo(0,0);");
+    if(view==='a22-tables')await evaluate(sessionId,"state.grammarLevel='A2.2';state.blanks.active=null;state.blanks.active=B.build(state,C,{mode:'practice',count:3,scope:'custom',filters:{level:'A2.2',grammar:'imperfect'}});screen='blanks';render();window.scrollTo(0,0);");
     await evaluate(sessionId,"document.querySelectorAll('.toast').forEach(e=>e.remove());new Promise(r=>setTimeout(r,250))");
     const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false},sessionId);fs.writeFileSync(path.join(output,config.name+'-'+view+'.png'),Buffer.from(shot.data,'base64'));
    }

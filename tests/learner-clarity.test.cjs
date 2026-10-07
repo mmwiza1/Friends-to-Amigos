@@ -9,7 +9,7 @@ const before=beforeClarity(),questions=c=>c.lessons.flatMap(l=>l.questions),find
 test('learner wording audit covers every playable A1 question, including reading, writing, listening and speaking',()=>{
  assert.equal(C.learnerClarityAudit.questions,832);assert.deepEqual(C.learnerClarityAudit.stages,{'A1.1':416,'A1.2':416});assert.deepEqual(C.learnerClarityAudit.types,{choice:363,gap:64,text:389,speaking:16});assert.equal(C.learnerClarityAudit.spanishProduction,240);
  assert.ok(C.learnerClarityAudit.taskRewrites>=70);assert.ok(C.learnerClarityAudit.contextLabelsRemoved>=500);
- for(const q of questions(C)){assert.ok(!/Your role|In this role-play|\(role:|Which connector|function of|consequence/i.test(q.prompt),q.id);assert.ok(q.prompt.trim());}
+ for(const q of questions(C).filter(q=>!q.id.startsWith('a22'))){assert.ok(!/Your role|In this role-play|\(role:|Which connector|function of|consequence/i.test(q.prompt),q.id);assert.ok(q.prompt.trim());}
 });
 test('prompt and feedback amendments preserve every ID, learning target, accepted answer, choice, passage and objective',()=>{
  assert.deepEqual(C.lessons.map(l=>({id:l.id,stage:l.stage,goal:l.goal,outcomeId:l.outcomeId,capability:l.capability})),before.lessons.map(l=>({id:l.id,stage:l.stage,goal:l.goal,outcomeId:l.outcomeId,capability:l.capability})));

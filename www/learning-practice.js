@@ -3,15 +3,19 @@
 const M=typeof module!=='undefined'?require('./mastery.js'):root.Mastery;
 const B=typeof module!=='undefined'?require('./blanks.js'):root.ConjugationBlanks;
 const S=typeof module!=='undefined'?require('./grammar-syllabus.js'):root.GrammarSyllabus;
+const T=typeof module!=='undefined'?require('./conjugation-targets.js'):root.ConjugationTargets;
 const Bank=typeof module!=='undefined'?require('./conjugations-bank.js'):root.ConjugationsBank;
 function tags(q,C){const lesson=C.lessons.find(l=>l.questions.some(x=>x.id===(q.sourceQuestionId||q.id)))||C.lessons.find(l=>l.questions.some(x=>x.id===q.id));if(!lesson)return [];
+ // A2.2 imperfect yo/third forms can be identical. Without a labelled row,
+ // record the pattern rather than infer two different grammatical persons.
+ const formTag=(verb,tense,pattern,person,form)=>({verb,tense,pattern,...(lesson.stage==='A2.2'&&T.targets.some(t=>t.verb===verb&&t.tense===tense&&t.forms.filter(f=>f===form).length>1)?{}:{person})});
  const result=[{key:'outcome:'+lesson.outcomeId},{key:'concept:'+q.topic.toLowerCase().replace(/[^a-z0-9]+/g,'-')},...(q.supportConcept?[{key:'concept:'+q.supportConcept}]:[])];
  // Only positive Spanish answers receive form evidence; distractors and English
  // comprehension answers must not manufacture knowledge of a conjugation.
  if(q.language==='es'){
   const value=q.answer.toLowerCase();const positive=form=>{const escaped=form.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g,'\\$&');return new RegExp('(?:^|[.!?]\\s*|\\b(?:yo|tú|él|ella|usted|nosotros|vosotros|ellos|ellas|ustedes|ana|luis|marta|diego|hoy|ayer|mañana|después|luego|entonces|porque|pero|y|no|esta semana)\\s+)'+escaped+'(?=\\s|[.!?,;:]|$)').test(value);};
-  for(const b of Bank.questions.flatMap(x=>x.blanks).filter(b=>b.source===lesson.id))if(positive(b.answer))result.push({verb:b.verb,tense:b.tense||'present',person:b.person,pattern:b.concept});
-  for(const target of (typeof module!=='undefined'?require('./conjugation-targets.js'):root.ConjugationTargets).targets.filter(t=>C.playableStages.indexOf(t.stage)<C.playableStages.indexOf(lesson.stage)||t.stage===lesson.stage&&t.unit<=lesson.unit))target.forms.forEach((form,i)=>{if(positive(form))result.push({verb:target.verb,tense:target.tense,person:['yo','tu','third','nosotros','vosotros','plural'][i],pattern:target.pattern});});
+  for(const b of Bank.questions.flatMap(x=>x.blanks).filter(b=>b.source===lesson.id))if(positive(b.answer))result.push(formTag(b.verb,b.tense||'present',b.concept,b.person,b.answer));
+  for(const target of T.targets.filter(t=>C.playableStages.indexOf(t.stage)<C.playableStages.indexOf(lesson.stage)||t.stage===lesson.stage&&t.unit<=lesson.unit))target.forms.forEach((form,i)=>{if(positive(form))result.push(formTag(target.verb,target.tense,target.pattern,T.persons[i],form));});
  }
  return result;
 }

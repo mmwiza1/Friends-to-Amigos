@@ -1,6 +1,6 @@
-# Friends to Amigos course design through A2.1
+# Friends to Amigos course design through A2.2
 
-A1.1 and A1.2 form the playable A1 course. This design uses CEFR-style can-do outcomes and the Spanish-specific scope guidance documented for Instituto Cervantes, with communicative/OER teaching principles. It is not formal CEFR certification. A2.1 is now playable; A2.2–B2.2 remain planned, not playable.
+A1.1 and A1.2 form the playable A1 course. This design uses CEFR-style can-do outcomes and the Spanish-specific scope guidance documented for Instituto Cervantes, with communicative/OER teaching principles. It is not formal CEFR certification. A2.1 and A2.2 are playable; all B stages remain planned, not playable.
 
 ## Practical progression
 
@@ -65,7 +65,7 @@ One selected chunk per unit practises a useful utterance: greeting/introduction,
 
 The learner tries aloud, deliberately reveals one possible model, optionally hears it, then self-assesses. Different natural equivalents may also be considered successful. “Needs practice” enters spaced review. Speaking attempts are explicitly self-assessed, excluded from scored accuracy and cannot on their own earn a checkpoint/capability. The app neither records voice nor verifies pronunciation.
 
-Completion and Home practice sessions rotate through units already practised (or introductory chunks for a new learner), favouring less recently retrieved items. This supports continued retrieval after the playable course is completed rather than offering unavailable A2.2 material.
+Completion and Home practice sessions rotate through units already practised (or introductory chunks for a new learner), favouring less recently retrieved items. This supports continued retrieval after the playable course is completed rather than offering unavailable B material.
 
 ## Assessment and teaching feedback
 
@@ -93,18 +93,18 @@ The Learn selector remains ungated for playable stages. Continue respects active
 
 ## Later stages and release boundary
 
-| Planned stage | Future practical progression |
+| Stage | Practical progression / availability |
 | --- | --- |
-| A2.1 | Recent experiences, travel choices, health needs |
-| A2.2 | Routine problems, changed habits, practical requests |
+| A2.1 | Playable: recent experiences, travel choices, health needs |
+| A2.2 | Playable: routine problems, changed habits, practical requests |
 | B1.1 | Connected narratives, reasons, main-point summaries |
 | B1.2 | Discuss options, negotiate solutions, coherent complaints |
 | B2.1 | Compare perspectives, develop arguments, adjust register |
 | B2.2 | Interpret stance, synthesise accounts, defend proposals |
 
-These remain provisional authoring targets. A2.1 is playable; the remaining later-stage lessons are unavailable. The A1 audit found no major unresolved gap within this course's stated everyday task scope, but broader A1 proficiency is not certified. Dates/contact information and unfamiliar human conversation are partial, not independently demonstrated.
+B rows remain provisional authoring targets. A2.1/A2.2 are playable; B lessons are unavailable. The A1 audit found no major unresolved gap within this course's stated everyday task scope, but broader A1 proficiency is not certified. Dates/contact information and unfamiliar human conversation are partial, not independently demonstrated.
 
-Freeze the activity/identity contracts and reviewed content as an **A1 v1.0 release candidate**. Do not declare an unconditional stable release solely from simulated tests: native build/device upgrade/storage/TTS checks and a concise Spanish educator/native-speaker review remain release gates. A2.1 is implemented. Complete the native-speaker/educator and physical-release gates before beginning A2.2. [BUILD_STATUS.md](BUILD_STATUS.md) distinguishes performed checks from remaining work.
+Freeze the activity/identity contracts and reviewed content as an **A1 v1.0 release candidate**. Do not declare an unconditional stable release solely from simulated tests: native build/device upgrade/storage/TTS checks and a concise Spanish educator/native-speaker review remain release gates. A2.1/A2.2 are implemented. Complete the native-speaker/educator and physical-release gates before beginning B1. [BUILD_STATUS.md](BUILD_STATUS.md) distinguishes performed checks from remaining work.
 
 ## Mobile path and daily practice (0.4.0)
 
@@ -133,17 +133,17 @@ Normal passed lessons now continue along the required starting path, then review
 
 ## A2.1 and connected practice (0.7.0)
 
-A2.1 appends 72 activities / 416 slots / eight units / 32 stories / 120 Spanish-production slots / 24 listens / eight speaking chunks. The whole playable course now has 216 activities / 1,248 slots. A2.1 teaching activities each contain six questions; the unit still totals 52 slots. The exact original A1 payloads are protected.
+A2.1 appends 72 activities / 416 slots / eight units / 32 stories / 120 Spanish-production slots / 24 listens / eight speaking chunks. The whole playable course now has 288 activities / 1,664 slots. A2.1 teaching activities each contain six questions; the unit still totals 52 slots. The exact original A1 payloads are protected.
 
 [The A2/practice record](docs/A2_AND_PRACTICE.md) documents all eight practical units, past-tense boundaries, 35 curated table targets, four-phase three-table normal games, 3–20-table practice, teaching hints, shared evidence, Today’s Review and Weak Areas. Conjugations and Blanks reinforce grammar up to the selected level, including appropriate A2.1 compound/preterite targets. Games never unlock the course.
 
 The measured A2.1 surface vocabulary recycles café in six units, agua in six, parque in four, mañana in six, and porque/después in all eight. Home/book vocabulary appears less often because the stage’s scenarios focus on travel and health; these exposure counts do not prove mastery. [The reproducible audit](docs/a21-vocabulary.json) records the method and stage story lengths.
 
-The model deliberately gives more weight to unassisted recall, caps repeated session evidence and requires separated days for spaced success. Six-form empty tables require evidence of every person, not merely finishing structured games. Fully free paragraphs, automatic pronunciation grading and formal CEFR certification remain outside the product. A2.2 readiness needs educator/native-speaker and learner review, not just passing tests.
+The model deliberately gives more weight to unassisted recall, caps repeated session evidence and requires separated days for spaced success. Six-form empty tables require evidence of every person, not merely finishing structured games. Fully free paragraphs, automatic pronunciation grading and formal CEFR certification remain outside the product. B1 readiness needs educator/native-speaker and learner review, not just passing tests.
 
 ## Focused media quality release (0.8.0)
 
-Focused Listening and Speaking each provide ten unique items from a 168-item bank (56 per playable stage). These are reinforcement, not new course activities or stage unlocks. Each item names its three completed unit teaching prerequisites, topic, task category, outcome, authored provenance and stable independent ID. Placement can assume earlier-stage material; the selected profile stage alone cannot unlock it.
+Focused Listening and Speaking each provide ten unique items from a 224-item bank (56 per playable stage). These are reinforcement, not new course activities or stage unlocks. Each item names its three completed unit teaching prerequisites, topic, task category, outcome, authored provenance and stable independent ID. Placement can assume earlier-stage material; the selected profile stage alone cannot unlock it.
 
 A1.1 practises short familiar details/chunks; A1.2 adds reasons, preferences and linked exchanges; A2.1 adds recent/finished experiences, travel, health and connected messages within its existing scope. Normal A1.2 selection is 6 current + 4 A1.1; A2.1 is 6 current + 2 A1.2 + 2 A1.1, with eligible-only redistribution. Topic/task variety, recent history and shared weakness evidence influence weighted selection. Ten eligible items are required, avoiding short or untaught sessions.
 
@@ -160,3 +160,28 @@ Grammar availability = selected level; grammar prioritisation = recent course ac
 Conjugations now contains 104 A1.1, 104 A1.2 and 64 original A2.1 contexts using curated recent-perfect/selected-preterite and practical present forms. Later rounds mix six current-stage items with four earlier ones; weak/recent models guide weighting without excluding unrelated same-level grammar. Practice scopes are Recommended, Current level, All up to current level, current-unit prioritisation and simple custom level/tense/reflexive filters. Game-only learners can build weakness evidence and receive Today’s Review. Gustar and doler remain contextual, not full beginner tables.
 
 The former game-prerequisite descriptions above document earlier releases and are superseded by this policy. Focused media still uses its taught-unit policy; it has not been broadened into another grammar syllabus. See [the detailed amendment record](docs/SPANISH_FIRST_AND_GRAMMAR_LEVEL.md).
+
+## A2.2: practical past background, events and routine problems
+
+A2.2 adds the same nine-activity unit rhythm: three six-question teaching activities interleaved with four five-question stories, one five-question writing activity and one nine-question checkpoint. Eight units give 72 activities / 416 slots / 32 stories / eight writing activities / eight checkpoints. The A1.1/A1.2/A2.1 payloads remain byte-for-byte protected against the 0.9.0 release, including Spanish-first fields.
+
+| Unit | Communicative outcome | Language support |
+| --- | --- | --- |
+| How things used to be | Describe past routines, people and places | Imperfect meaning; era, tenía, vivía, trabajaba, estudiaba, iba, hacía |
+| What happened | Explain a completed event against past background | Regular -ER/-IR preterite; comí, viví, salí; estaba when an event happened |
+| Getting around | Clarify connections/directions and recover from a missed departure | Perdí, tuve que, pude/no pude; route sequencing and ticket validity |
+| Eating out | Order several items, check ingredients and resolve an order/bill problem | Polite familiar requests; dijo; completed order versus current missing item |
+| Shopping and everyday services | Explain fit/faults, show a receipt and request an exchange | Vine, no quise; condition, price and fit comparisons |
+| Plans change | Explain a past cause and agree an alternative arrangement | Estuve as a bounded stay, inability/reason, familiar ir a plans |
+| What do you think? | Give a simple opinion/reason and agree/disagree politely | Creo que, me parece, también/tampoco; vi; shared facts versus preferences |
+| A day that did not go to plan | Connect background, problems, solutions, current result and new plans | Retrieval of imperfect/preterite/perfect/present/ir a, two–four constrained sentences |
+
+The imperfect frames routines, descriptions or ongoing background; preterite presents completed events or bounded situations. A two-year stay may be presented as a completed whole with viví or internally as background with vivía: duration alone does not choose tense. Tenía que versus tuve que and podía versus pude are taught in specific situations without claiming all uses are interchangeable. No quise comprar describes a particular declined purchase.
+
+Productive irregular expansion is limited to useful contexts: tuve, pude, dijo, vine, quise, estuve, vi; previous fui/hice/llegué remain available. The imperfect adds regular -aba/-ía, irregular ser/ir and familiar weather/routine chunks. Present perfect remains recycled for open-period experience (including he ido). Incidental glossed reading forms do not automatically become a full learner table. Doler remains contextual health language; there is no six-person doler table.
+
+All A2.2 task prompts are Spanish-first with safe optional English task support. Support records assistance without changing correctness or the 80% threshold. Stories retain bilingual short comprehension and rereading; connected Spanish production still uses finite authored variants. Checkpoints include a practical new transfer task rather than duplicating the writing prompt.
+
+A2.2 adds 56 Listening, 56 Speaking, 64 contextual Conjugations and 20 curated table targets. Focused media follows completed teaching units/earlier placement assumptions; grammar games follow the existing level ceiling independently of course completion. The new material feeds existing stable-ID reviews, outcomes, weakness signals and Today’s Review. Full tables still require spaced unassisted recall. See [the quality report](docs/A22_QUALITY_RELEASE.md) for vocabulary findings and review limits.
+
+B1 is not implemented. Broad subjunctive, future/conditional paradigms, advanced object-pronoun instruction and unrestricted narratives remain outside this release. Before B1, obtain educator/native-speaker review, learner transfer evidence and a physical-device upgrade/TTS check; automated completion is not a pedagogical certification.
