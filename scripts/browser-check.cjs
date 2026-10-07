@@ -10,13 +10,13 @@ let counter=0,buffer='',errors='';const pending=new Map();
 child.stderr.on('data',chunk=>{errors=(errors+chunk).slice(-4000);});
 for(const pipe of [child.stdio[3],child.stdio[4]])pipe.on('error',error=>{for(const entry of pending.values()){clearTimeout(entry.timer);entry.reject(Error(error.message+': '+errors));}pending.clear();});
 child.on('error',error=>{for(const entry of pending.values()){clearTimeout(entry.timer);entry.reject(error);}pending.clear();});
-child.stdio[4].on('data',chunk=>{buffer+=chunk;let end;while((end=buffer.indexOf('\0'))!==-1){const part=buffer.slice(0,end);buffer=buffer.slice(end+1);if(!part)continue;const message=JSON.parse(part),entry=pending.get(message.id);if(entry){clearTimeout(entry.timer);pending.delete(message.id);message.error?entry.reject(Error(JSON.stringify(message.error))):entry.resolve(message.result);}}});
+child.stdio[4].on('data',chunk=>{buffer+=chunk;let end;while((end=buffer.indexOf('\0'))!==-1){const part=buffer.slice(0,end);buffer=buffer.slice(end+1);if(!part)continue;const message=JSON.parse(part);if(message.method==='Runtime.exceptionThrown')console.error('Browser exception:',message.params.exceptionDetails.exception?.description||message.params.exceptionDetails.text);const entry=pending.get(message.id);if(entry){clearTimeout(entry.timer);pending.delete(message.id);message.error?entry.reject(Error(JSON.stringify(message.error))):entry.resolve(message.result);}}});
 child.on('exit',code=>{for(const entry of pending.values()){clearTimeout(entry.timer);entry.reject(Error('Chrome exited '+code+': '+errors));}pending.clear();});
 function send(method,params={},sessionId){return new Promise((resolve,reject)=>{const id=++counter,timer=setTimeout(()=>{pending.delete(id);reject(Error('DevTools timeout: '+method+': '+errors));},['Browser.getVersion','Target.createTarget'].includes(method)?60000:15000);pending.set(id,{resolve,reject,timer});child.stdio[3].write(JSON.stringify({id,method,params,...(sessionId?{sessionId}:{})})+'\0');});}
 async function evaluate(session,expression){const result=await send('Runtime.evaluate',{expression,awaitPromise:true,returnByValue:true},session);if(result.exceptionDetails)throw Error(result.exceptionDetails.text+': '+(result.exceptionDetails.exception?.description||''));return result.result.value;}
 async function run(){ // Wait for the browser process before creating its first page; UI assertions retain their existing timeout.
  await send('Browser.getVersion');
- const {targetId}=await send('Target.createTarget',{url:'about:blank'}),{sessionId}=await send('Target.attachToTarget',{targetId,flatten:true});await send('Page.enable',{},sessionId);
+ const {targetId}=await send('Target.createTarget',{url:'about:blank'}),{sessionId}=await send('Target.attachToTarget',{targetId,flatten:true});await send('Page.enable',{},sessionId);await send('Runtime.enable',{},sessionId);
  const scenarios=[
   {name:'narrow-light-buttons',width:320,height:740,dark:false,bottom:48},
   {name:'small-dark-gesture',width:360,height:800,dark:true,bottom:24},
@@ -34,7 +34,7 @@ async function run(){ // Wait for the browser process before creating its first 
  for(const config of scenarios){
   await send('Emulation.setDeviceMetricsOverride',{width:config.width,height:config.height,deviceScaleFactor:1,mobile:true},sessionId);
   await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-color-scheme',value:config.dark?'dark':'light'}]},sessionId);
-  await send('Page.navigate',{url:'file://'+path.resolve('www/index.html')},sessionId);
+  const navigation=await send('Page.navigate',{url:'file://'+path.resolve('www/index.html')},sessionId);if(navigation.errorText)throw Error('Navigation failed: '+navigation.errorText);
   await evaluate(sessionId,`new Promise((resolve,reject)=>{const started=Date.now();function ready(){if(window.FriendsToAmigos&&window.ViewportTools)resolve(true);else if(Date.now()-started>5000)reject(Error('App did not load'));else setTimeout(ready,10);}ready();})`);
   const report=await evaluate(sessionId,`(async()=>{
    let checks=0;const config=${JSON.stringify(config)},assert=(ok,message)=>{checks++;if(!ok)throw Error(config.name+': '+message);},frame=()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
@@ -187,21 +187,43 @@ async function run(){ // Wait for the browser process before creating its first 
    }
    actions.lesson({dataset:{id:'a22u7write'}});render();const written=currentQuestion(),field=document.querySelector('#written-answer');
    field.value=written.answer;field.dispatchEvent(new Event('input',{bubbles:true}));field.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));
-   assert(quiz.answers.length===1&&quiz.answers[0],'A2.2 connected Go answer');field.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));assert(quiz.answers.length===1,'A2.2 Go deduplicated');FriendsToAmigos.handleBack();
+   assert(quiz.answers.length===0&&!quiz.checked,'A2.2 multiline Enter is a newline');actions.check();render();actions.writingReflect({dataset:{result:'got'}});render();assert(quiz.answers.length===1&&quiz.answers[0]===null,'A2.2 open response reflected without fake accuracy');field.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));assert(quiz.answers.length===1,'A2.2 reflection deduplicated');FriendsToAmigos.handleBack();
    actions.blanksOpen();render();document.querySelector('#table-count').value='3';document.querySelector('#table-scope').value='custom';document.querySelector('#table-level').value='A2.2';document.querySelector('#table-grammar').value='imperfect';actions.blanksPractice();render();
    assert(state.blanks.active.tables.every(t=>t.target.tense==='imperfect'&&t.target.stage==='A2.2'),'A2.2 custom imperfect targets');assert(document.querySelectorAll('[role=rowheader]').length===6,'imperfect six-person mobile rows');FriendsToAmigos.handleBack();
    for(const kind of ['listening','speaking']){
     state.focused=F.empty();quiz=null;actions.mediaPractice({dataset:{kind,stage:'A2.2'}});render();
     assert(quiz.questions.length===10&&new Set(quiz.questions.map(q=>q.id)).size===10,'A2.2 ten unique '+kind);
-    assert(JSON.stringify(C.playableStages.map(st=>quiz.questions.filter(q=>q.practice.stage===st).length))==='[1,1,2,6]','A2.2 recycled stage quota '+kind);
+    assert(JSON.stringify(C.playableStages.map(st=>quiz.questions.filter(q=>q.practice.stage===st).length))==='[1,1,2,6,0,0,0,0]','A2.2 recycled stage quota '+kind);
     const snapshot=JSON.stringify(quiz.questions);FriendsToAmigos.handleBack();actions.focusedResume();render();assert(JSON.stringify(quiz.questions)===snapshot,'A2.2 saved media snapshot '+kind);FriendsToAmigos.handleBack();
    }
-   state.active=null;quiz=null;actions.home();render();assert(document.querySelector('#app').textContent.includes('course through A2.2'),'A2.2 course milestone');assert(!document.querySelector('#app').textContent.includes('Continue to B'),'no B course offer');
+   state.active=null;quiz=null;actions.home();render();assert(document.querySelector('#app').textContent.includes('course through B2'),'B2 course milestone');assert(!document.querySelector('#app').textContent.includes('Continue to C'),'no C course offer');
    actions.lesson({dataset:{id:'a22u0l0'}});render();actions.englishHint();render();
    // Browser import follows the same validated snapshot route as Android.
    const backup=JSON.stringify(state),expected=state.active.questions[state.active.index].id;
    const restored=P.parse(backup,C,{import:true}).state;state=restored;actions.continue();render();assert(currentQuestion().id===expected&&quiz.hintRevealed,'browser backup retains current hint and stable question');
    assert(document.documentElement.scrollWidth<=innerWidth+1,'Spanish listening/hint fits narrow and large text layouts');
+   // Every B entry, extended writing, safe reflection and historical recovery.
+   for(const stage of ['B1.1','B1.2','B2.1','B2.2']){
+    state.stage=state.grammarLevel=stage;state.completed=C.lessons.map(l=>l.id);state.active=null;quiz=null;
+    for(const l of C.lessons.filter(l=>l.stage===stage)){
+     actions.lesson({dataset:{id:l.id}});render();if(l.reading){assert(document.querySelector('#app').textContent.includes(l.reading.text),stage+' full passage '+l.id);actions.readStory();render();}
+     assert(document.querySelector('.question').textContent===l.questions[0].promptEs,stage+' Spanish entry '+l.id);assert(document.documentElement.scrollWidth<=innerWidth+1,stage+' no horizontal overflow '+l.id);
+    }
+    const lesson=C.lessons.find(l=>l.stage===stage&&l.id.endsWith('u7write'));
+    startQuiz('lesson',lesson.questions,lesson);quiz.index=1;quiz.answers=[true];persistQuiz();render();
+    let area=document.querySelector('textarea');assert(area&&area.enterKeyHint==='enter',stage+' multiline field');
+    area.value='Una alternativa natural.\nQuiero explicarla con mis propias palabras.';area.dispatchEvent(new Event('input',{bubbles:true}));area.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));assert(quiz.answers.length===1&&!quiz.checked,stage+' newline does not submit');
+    actions.check();render();assert(document.querySelector('.feedback').textContent.includes('could not confidently assess'),stage+' uncertainty coaches');assert(!document.querySelector('[data-action=next]'),stage+' reflection required');
+    FriendsToAmigos.handleBack();actions.continue();render();assert(document.querySelector('.feedback').textContent.includes('Una alternativa natural'),stage+' comparison survives Back/resume');
+    actions.writingRevise();render();area=document.querySelector('textarea');assert(!area.disabled,stage+' revision field unlocked');area.value='Mi llamo Ana.';area.dispatchEvent(new Event('input',{bubbles:true}));actions.check();render();assert(document.querySelector('.writing-why').textContent.includes('Mi means'),stage+' high confidence Why teaches');
+    actions.writingReflect({dataset:{result:'needs'}});render();assert(quiz.answers[1]===null&&state.reviews[currentQuestion().id].question.previousResponse==='Mi llamo Ana.',stage+' reflection retained for review');
+    assert(state.active.hintRevealed,stage+' model-assisted revision tracked');FriendsToAmigos.handleBack();
+    startQuiz('lesson',lesson.questions,lesson);quiz.index=4;quiz.answers=[true,null,true,null];quiz.writingResponses={1:{response:'Otra respuesta.',reflection:'got',outcome:'uncertain-show-model'},3:{response:'Otra respuesta.',reflection:'got',outcome:'uncertain-show-model'}};render();
+    area=document.querySelector('textarea');area.value=currentQuestion().answer;area.dispatchEvent(new Event('input',{bubbles:true}));actions.check();render();assert(!Writing.assess(currentQuestion(),quiz.selected).verified,stage+' free model never grammar certified');actions.writingReflect({dataset:{result:'got'}});render();actions.next();render();assert(document.querySelector('#app').textContent.includes('excluded from verified accuracy'),stage+' completion distinguishes reflection');
+    for(const kind of ['listening','speaking']){state.focused=F.empty();quiz=null;actions.mediaPractice({dataset:{kind,stage}});render();assert(quiz.questions.length===10&&new Set(quiz.questions.map(q=>q.id)).size===10,stage+' ten unique '+kind);assert(quiz.questions.filter(q=>q.practice.stage===stage).length===6,stage+' current-stage retrieval majority '+kind);assert(quiz.questions.every(q=>C.stages.indexOf(q.practice.stage)<=C.stages.indexOf(stage)),stage+' no future practice leakage '+kind);FriendsToAmigos.handleBack();}
+    state.games.active=null;actions.gameNew();render();assert(state.games.active.stage===stage&&state.games.active.questions.length===10,stage+' contextual game level');actions.gameLeave();state.blanks.active=null;actions.blanksNormal();render();assert(state.blanks.active.tables.length===3&&document.querySelectorAll('[role=rowheader]').length===6,stage+' six person adaptive tables');FriendsToAmigos.handleBack();
+   }
+   state.completed=C.lessons.map(l=>l.id);state.active=null;quiz=null;actions.home();render();assert(document.querySelector('#app').textContent.includes('course through B2'), 'final B2 course milestone');assert(!document.querySelector('#app').textContent.includes('Continue to C'),'no invented C curriculum');
    // Leave original screenshot subjects eligible; this does not grant game mastery.
    state.completed=C.lessons.map(l=>l.id);state.stage='A2.1';state.grammarLevel='A2.1';state.games.active=null;state.blanks.active=null;state.focused=F.empty();quiz=null;actions.home();render();
    return {scenario:config.name,width:innerWidth,height:innerHeight,dark:config.dark,nativeInsets:true,simulatedKeyboard:Boolean(config.keyboard),checks};
@@ -210,7 +232,7 @@ async function run(){ // Wait for the browser process before creating its first 
   const screenshot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false},sessionId);fs.writeFileSync(path.join(output,config.name+'.png'),Buffer.from(screenshot.data,'base64'));totalChecks+=report.checks;console.log('PASS '+config.name+' ('+report.checks+' checks)');fs.writeFileSync(path.join(output,config.name+'.json'),JSON.stringify(report,null,2));
   if(['s24-dark-buttons','narrow-light-buttons','landscape-dark-cutout','s24-dark-large-text'].includes(config.name)){
    await evaluate(sessionId,`(async()=>{window.FriendsToAmigosInsets(24,${config.bottom},${config.left||0},0,false,0);actions.leave();actions.tab({dataset:{tab:'Games'}});actions.gameNew();actions.gameLeave();render();window.scrollTo(0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));})()`);
-   for(const view of ['games','round','feedback','tables','table-feedback','listening-first','listening-compact','listening-result','speaking-first','speaking-compact','speaking-result','spanish-course','spanish-hint','spanish-listening','a22-writing','a22-story','a22-tables']){
+   for(const view of ['games','round','feedback','tables','table-feedback','listening-first','listening-compact','listening-result','speaking-first','speaking-compact','speaking-result','spanish-course','spanish-hint','spanish-listening','a22-writing','a22-story','a22-tables','b22-writing','b22-story','b22-writing-feedback']){
     if(view==='round')await evaluate(sessionId,"actions.gameResume();render();window.scrollTo(0,0);");
     if(view==='tables')await evaluate(sessionId,"state.blanks.active=null;actions.blanksNormal();render();window.scrollTo(0,0);");
     if(view==='table-feedback')await evaluate(sessionId,"const a=state.blanks.active,t=a.tables[0];a.selected=t.rows.map((row,j)=>j===0?t.options[j].find(v=>v!==t.target.forms[row]):t.target.forms[row]);actions.blanksCheck();render();window.scrollTo(0,document.documentElement.scrollHeight);");
@@ -227,6 +249,9 @@ async function run(){ // Wait for the browser process before creating its first 
     if(view==='a22-writing')await evaluate(sessionId,"actions.lesson({dataset:{id:'a22u7write'}});render();actions.englishHint();render();window.scrollTo(0,0);");
     if(view==='a22-story')await evaluate(sessionId,"actions.lesson({dataset:{id:'a22u7story3'}});render();window.scrollTo(0,0);");
     if(view==='a22-tables')await evaluate(sessionId,"state.grammarLevel='A2.2';state.blanks.active=null;state.blanks.active=B.build(state,C,{mode:'practice',count:3,scope:'custom',filters:{level:'A2.2',grammar:'imperfect'}});screen='blanks';render();window.scrollTo(0,0);");
+    if(view==='b22-writing')await evaluate(sessionId,"actions.lesson({dataset:{id:'b22u7write'}});quiz.index=4;quiz.answers=[true,null,true,null];render();window.scrollTo(0,0);");
+    if(view==='b22-story')await evaluate(sessionId,"actions.lesson({dataset:{id:'b22u7story3'}});render();window.scrollTo(0,0);");
+    if(view==='b22-writing-feedback')await evaluate(sessionId,"actions.lesson({dataset:{id:'b22u7write'}});quiz.index=4;quiz.answers=[true,null,true,null];quiz.selected='Mi llamo Ana. Tengo una propuesta distinta.';actions.check();render();window.scrollTo(0,document.documentElement.scrollHeight);");
     await evaluate(sessionId,"document.querySelectorAll('.toast').forEach(e=>e.remove());new Promise(r=>setTimeout(r,250))");
     const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false},sessionId);fs.writeFileSync(path.join(output,config.name+'-'+view+'.png'),Buffer.from(shot.data,'base64'));
    }

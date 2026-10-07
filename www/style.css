@@ -69,3 +69,12 @@ nav button{min-width:0;min-height:56px;padding:7px 3px;font-size:11px}
 /* Compact repeat-use media controls inherit existing light/dark tokens and insets. */
 .compact-media{padding:0 0 12px;border-bottom:1px solid var(--line);margin-bottom:14px}
 .compact-media .primary{margin-top:0}.voice-status{font-size:.85rem;margin:8px 0}.media-info{font-size:.85rem;margin:8px 0}.media-info p{margin:8px 0}.compact-media .filters{margin:8px 0}.compact-media details[open]{overflow-wrap:anywhere}
+
+/* Multi-line production retains the mobile keyboard/inset layout. */
+textarea { width:100%; max-width:100%; min-height:160px; resize:vertical; padding:14px; border:2px solid var(--teal); border-radius:14px; background:var(--cream); color:var(--ink); font:inherit; line-height:1.5; box-sizing:border-box; }
+.writing-response { white-space:pre-wrap; overflow-wrap:anywhere; }
+.writing-requirements { padding-left:22px; }
+.writing-why { margin-top:12px; }
+.writing-why summary { min-height:44px; display:list-item; padding:10px 0; cursor:pointer; font-weight:700; }
+
+.filters[aria-label="Choose playable stage"]{flex-wrap:wrap;gap:8px}.filters[aria-label="Choose playable stage"] button{flex:1 1 20%;min-height:44px;white-space:nowrap}.writing-response{white-space:pre-wrap;overflow-wrap:anywhere}.writing-requirements{padding-left:22px;line-height:1.5}.previous-writing{margin:12px 0}

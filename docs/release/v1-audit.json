@@ -1,0 +1,598 @@
+{
+  "baseline": "f482893bb55dfd4cfb2ced923a1f2b6cef3763e7",
+  "schema": 2,
+  "facts": [
+    {
+      "stage": "A1.1",
+      "units": [
+        {
+          "title": "Greetings & introductions",
+          "goal": "Introduce yourself, ask someone’s name and greet or say goodbye politely"
+        },
+        {
+          "title": "About you",
+          "goal": "Give your age, origin and home city, and ask for basic personal information"
+        },
+        {
+          "title": "At the café",
+          "goal": "Order a simple breakfast, express hunger and ask for the bill"
+        },
+        {
+          "title": "Numbers & prices",
+          "goal": "Ask a price, understand a small total and say how many items you want"
+        },
+        {
+          "title": "Family & people",
+          "goal": "Introduce close family members and describe someone simply"
+        },
+        {
+          "title": "Everyday objects",
+          "goal": "Identify a personal object, describe it and say where it is"
+        },
+        {
+          "title": "Around town",
+          "goal": "Ask where a place is and follow a simple direction to get there"
+        },
+        {
+          "title": "Routines & meeting times",
+          "goal": "Say when a daily activity happens and agree a simple meeting time"
+        }
+      ],
+      "activities": 72,
+      "slots": 416,
+      "stories": 32,
+      "storyWords": {
+        "min": 21,
+        "mean": 29,
+        "max": 35
+      },
+      "writingActivities": 8,
+      "writingItems": 40,
+      "writingModes": {
+        "controlled": 40,
+        "guided": 0,
+        "free": 0
+      },
+      "writingModelWords": {
+        "min": 1,
+        "max": 6
+      },
+      "checkpoints": 8,
+      "listening": 56,
+      "speaking": 56,
+      "sentenceGame": 104,
+      "tableTargets": 10
+    },
+    {
+      "stage": "A1.2",
+      "units": [
+        {
+          "title": "Free time & preferences",
+          "goal": "Describe what you enjoy and choose a simple activity with a friend"
+        },
+        {
+          "title": "Inviting & responding",
+          "goal": "Invite a friend out, accept or decline politely and suggest another time"
+        },
+        {
+          "title": "Making plans",
+          "goal": "Say what you are going to do and agree a day, time and meeting place"
+        },
+        {
+          "title": "Choosing clothes",
+          "goal": "Describe clothes and explain which colour, size or item you need"
+        },
+        {
+          "title": "In the clothes shop",
+          "goal": "Ask to try on clothes, explain the fit and make a simple purchase"
+        },
+        {
+          "title": "At home",
+          "goal": "Describe rooms and furniture and help a visitor find something at home"
+        },
+        {
+          "title": "A typical day",
+          "goal": "Describe your daily routine using simple reflexive verbs and times"
+        },
+        {
+          "title": "A day together",
+          "goal": "Connect a routine, a reason and a future plan in a short practical message"
+        }
+      ],
+      "activities": 72,
+      "slots": 416,
+      "stories": 32,
+      "storyWords": {
+        "min": 34,
+        "mean": 48,
+        "max": 65
+      },
+      "writingActivities": 8,
+      "writingItems": 40,
+      "writingModes": {
+        "controlled": 32,
+        "guided": 8,
+        "free": 0
+      },
+      "writingModelWords": {
+        "min": 3,
+        "max": 11
+      },
+      "checkpoints": 8,
+      "listening": 56,
+      "speaking": 56,
+      "sentenceGame": 104,
+      "tableTargets": 14
+    },
+    {
+      "stage": "A2.1",
+      "units": [
+        {
+          "title": "This week so far",
+          "goal": "Share a recent experience and ask what a friend has done",
+          "grammar": [
+            "present-perfect",
+            "regular-participles",
+            "irregular-hecho"
+          ]
+        },
+        {
+          "title": "Last weekend",
+          "goal": "Describe a finished weekend using a few clear past events",
+          "grammar": [
+            "preterite-ar",
+            "preterite-ir",
+            "preterite-hacer",
+            "finished-vs-open-time"
+          ]
+        },
+        {
+          "title": "Choosing the journey",
+          "goal": "Compare transport options and buy a suitable ticket",
+          "grammar": [
+            "comparisons",
+            "transport",
+            "ticket-requests"
+          ]
+        },
+        {
+          "title": "Booking a place to stay",
+          "goal": "Ask about a room and confirm a simple accommodation booking",
+          "grammar": [
+            "accommodation",
+            "included-services",
+            "requests"
+          ]
+        },
+        {
+          "title": "Arriving and solving a problem",
+          "goal": "Check in and explain a simple problem with a journey or room",
+          "grammar": [
+            "preterite-llegar",
+            "checking-in",
+            "problem-repair"
+          ]
+        },
+        {
+          "title": "How you feel",
+          "goal": "Explain basic symptoms and say what you need",
+          "grammar": [
+            "doler-agreement",
+            "health",
+            "since-time"
+          ]
+        },
+        {
+          "title": "Asking for health help",
+          "goal": "Request basic help at a pharmacy and understand a simple instruction",
+          "grammar": [
+            "tener-que",
+            "health-requests",
+            "repair-requests",
+            "recent-perfect"
+          ]
+        },
+        {
+          "title": "A useful travel message",
+          "goal": "Link a recent experience, a reason and a practical next plan",
+          "grammar": [
+            "connected-messages",
+            "irregular-vuelto",
+            "past-present-plan",
+            "sequencing"
+          ]
+        }
+      ],
+      "activities": 72,
+      "slots": 416,
+      "stories": 32,
+      "storyWords": {
+        "min": 57,
+        "mean": 63,
+        "max": 70
+      },
+      "writingActivities": 8,
+      "writingItems": 40,
+      "writingModes": {
+        "controlled": 30,
+        "guided": 10,
+        "free": 0
+      },
+      "writingModelWords": {
+        "min": 2,
+        "max": 13
+      },
+      "checkpoints": 8,
+      "listening": 56,
+      "speaking": 56,
+      "sentenceGame": 64,
+      "tableTargets": 11
+    },
+    {
+      "stage": "A2.2",
+      "units": [
+        {
+          "title": "How things used to be",
+          "goal": "Describe past routines and what a familiar place or person was like",
+          "grammar": "Imperfect meaning: background, repeated routines and descriptions; era, tenía, vivía, trabajaba, estudiaba, iba, hacía"
+        },
+        {
+          "title": "What happened",
+          "goal": "Explain a completed event against familiar past background",
+          "grammar": "Preterite/imperfect meaning contrast; regular -ER/-IR completed events, comí, viví, salí"
+        },
+        {
+          "title": "Getting around",
+          "goal": "Clarify directions and explain a missed connection or travel delay",
+          "grammar": "Multi-step directions, travel problems; perdí, tuve, pude against estaba"
+        },
+        {
+          "title": "Eating out",
+          "goal": "Order several items, ask about ingredients and resolve a simple restaurant problem",
+          "grammar": "Quantities, ingredients, missing orders, polite requests; reported completed dijo"
+        },
+        {
+          "title": "Shopping and everyday services",
+          "goal": "Explain a faulty purchase and request an exchange using a receipt",
+          "grammar": "Returns, comparisons, vine and quise in particular completed service encounters"
+        },
+        {
+          "title": "Plans change",
+          "goal": "Explain a changed arrangement and propose a practical alternative",
+          "grammar": "Past causes, arrangements and ir a plans; estuve, pude, así que"
+        },
+        {
+          "title": "What do you think?",
+          "goal": "Give a simple opinion, explain a preference and disagree politely",
+          "grammar": "Creo que, pienso que, me parece, para mí; agreement, también/tampoco; vi"
+        },
+        {
+          "title": "A day that did not go to plan",
+          "goal": "Tell a short connected account and explain the problem, response and next plan",
+          "grammar": "Synthesis: background versus events, recent experience, present needs, opinions, reasons and practical plans"
+        }
+      ],
+      "activities": 72,
+      "slots": 416,
+      "stories": 32,
+      "storyWords": {
+        "min": 81,
+        "mean": 88,
+        "max": 107
+      },
+      "writingActivities": 8,
+      "writingItems": 40,
+      "writingModes": {
+        "controlled": 17,
+        "guided": 23,
+        "free": 0
+      },
+      "writingModelWords": {
+        "min": 3,
+        "max": 18
+      },
+      "checkpoints": 8,
+      "listening": 56,
+      "speaking": 56,
+      "sentenceGame": 64,
+      "tableTargets": 20
+    },
+    {
+      "stage": "B1.1",
+      "units": [
+        {
+          "title": "Telling the story",
+          "goal": "Narrate an unexpected event with background, sequence and outcome",
+          "grammar": "Past integration; primero, mientras, de repente, al final"
+        },
+        {
+          "title": "Things that have changed",
+          "goal": "Compare past and present habits and explain how long a change has lasted",
+          "grammar": "Antes/ahora, ya no, todavía, desde, desde hace, hace… que"
+        },
+        {
+          "title": "Plans and intentions",
+          "goal": "Explain plans, arrangements and future commitments",
+          "grammar": "Simple future iré, tendré, haré, podré; ir a; present arrangements"
+        },
+        {
+          "title": "Advice and solutions",
+          "goal": "Offer practical advice while respecting the other person’s choice",
+          "grammar": "Conditional advice deberías/podrías; yo que tú; no hace falta; obligation"
+        },
+        {
+          "title": "Experiences and reactions",
+          "goal": "Describe an experience and explain a personal reaction",
+          "grammar": "Me sorprendió/preocupó/encantó; me pareció; lo pasé; tenía ganas de"
+        },
+        {
+          "title": "Explaining your view",
+          "goal": "Express a view, support it and acknowledge a different advantage",
+          "grammar": "Creo/pienso/me parece que; por una parte; sin embargo; por eso; por/para"
+        },
+        {
+          "title": "When things go wrong",
+          "goal": "Clarify a less predictable service problem and negotiate a practical solution",
+          "grammar": "Communication repair; delivery/booking/lost-property problems; polite clarification"
+        },
+        {
+          "title": "A week to remember",
+          "goal": "Sustain a short connected account integrating events, reactions, reasons and changed plans",
+          "grammar": "B1.1 synthesis: tense meaning, future, conditional advice, viewpoint"
+        }
+      ],
+      "activities": 72,
+      "slots": 416,
+      "stories": 32,
+      "storyWords": {
+        "min": 107,
+        "mean": 112,
+        "max": 118
+      },
+      "writingActivities": 8,
+      "writingItems": 40,
+      "writingModes": {
+        "controlled": 16,
+        "guided": 16,
+        "free": 8
+      },
+      "writingModelWords": {
+        "min": 3,
+        "max": 34
+      },
+      "checkpoints": 8,
+      "listening": 56,
+      "speaking": 56,
+      "sentenceGame": 64,
+      "tableTargets": 8
+    },
+    {
+      "stage": "B1.2",
+      "units": [
+        {
+          "title": "People and relationships",
+          "goal": "Explain an interpersonal misunderstanding and agree a constructive response",
+          "grammar": "Llevarse bien, confiar en, misunderstandings; por/para consolidation"
+        },
+        {
+          "title": "Work and study",
+          "goal": "Explain responsibilities, experience and a reasoned work/study decision",
+          "grammar": "Responsibilities, applications, collaboration; desde/experience; clear formal requests"
+        },
+        {
+          "title": "Media and technology",
+          "goal": "Explain technology habits, weigh benefits and resolve a familiar digital problem",
+          "grammar": "Instructions, se puede; advantages/disadvantages; reasons and clarification"
+        },
+        {
+          "title": "Health and wellbeing",
+          "goal": "Explain a health history and daily habits, and seek appropriate help",
+          "grammar": "Symptoms over time; practical advice; avoiding medical claims"
+        },
+        {
+          "title": "Travel and culture",
+          "goal": "Recommend a visit with reasons, practical limits and cultural observations",
+          "grammar": "Experiences, comparisons, recommendations; avoiding generalisations"
+        },
+        {
+          "title": "Hopes and hypotheticals",
+          "goal": "Describe an imagined possibility and a desired change without presenting it as fact",
+          "grammar": "Conditional gustaría/sería/podría/haría/iría; hypothetical context without full si paradigms"
+        },
+        {
+          "title": "Wishes, reactions and necessity",
+          "goal": "Express a wish, reaction or necessity involving another person",
+          "grammar": "Limited present subjunctive after quiero que, espero que, es importante que, me alegra que; subject changes"
+        },
+        {
+          "title": "Making your case",
+          "goal": "Sustain an opinion with experience, a response to another view and a solution",
+          "grammar": "B1 synthesis; examples, reasons, polite response, proposals and limited subjunctive"
+        }
+      ],
+      "activities": 72,
+      "slots": 416,
+      "stories": 32,
+      "storyWords": {
+        "min": 111,
+        "mean": 117,
+        "max": 122
+      },
+      "writingActivities": 8,
+      "writingItems": 40,
+      "writingModes": {
+        "controlled": 16,
+        "guided": 16,
+        "free": 8
+      },
+      "writingModelWords": {
+        "min": 3,
+        "max": 36
+      },
+      "checkpoints": 8,
+      "listening": 56,
+      "speaking": 56,
+      "sentenceGame": 64,
+      "tableTargets": 7
+    },
+    {
+      "stage": "B2.1",
+      "units": [
+        {
+          "title": "Stories with detail",
+          "goal": "Relate a detailed account while distinguishing chronology, background and viewpoint",
+          "grammar": "Past integration; limited pluperfect for a prior event; narrator perspective"
+        },
+        {
+          "title": "Causes and consequences",
+          "goal": "Explain a chain of causes and consequences without overstating what the evidence proves",
+          "grammar": "Debido a, a causa de, por lo tanto, como resultado; cause versus correlation"
+        },
+        {
+          "title": "Certainty, doubt and possibility",
+          "goal": "Separate what is known, believed and possible when explaining a situation",
+          "grammar": "Probablemente/quizá; puede que; es posible que; no creo que + present subjunctive"
+        },
+        {
+          "title": "Giving and defending opinions",
+          "goal": "Defend a position with qualification, a counterpoint and relevant support",
+          "grammar": "Polite disagreement; si bien, aunque, sin embargo; partial agreement; support scope"
+        },
+        {
+          "title": "Formal everyday communication",
+          "goal": "Write a clear enquiry or complaint with relevant evidence and a reasonable request",
+          "grammar": "Register; le agradecería; quisiera; formal structure; specific remedy"
+        },
+        {
+          "title": "News, media and information",
+          "goal": "Summarise a source accurately and distinguish fact, reported claim and viewpoint",
+          "grammar": "Source attribution; dice que/dijo que; direct versus reported information; no automatic tense backshift"
+        },
+        {
+          "title": "Hypothetical situations",
+          "goal": "Explain an imagined present alternative and its likely consequences",
+          "grammar": "Si + imperfect subjunctive; conditional result; real/open si + indicative"
+        },
+        {
+          "title": "Discussing a problem",
+          "goal": "Explain a problem, compare options and recommend a solution responsive to another view",
+          "grammar": "Integrated argument: cause, evidence, options, consequences, conditional proposal"
+        }
+      ],
+      "activities": 72,
+      "slots": 416,
+      "stories": 32,
+      "storyWords": {
+        "min": 122,
+        "mean": 133,
+        "max": 146
+      },
+      "writingActivities": 8,
+      "writingItems": 40,
+      "writingModes": {
+        "controlled": 16,
+        "guided": 16,
+        "free": 8
+      },
+      "writingModelWords": {
+        "min": 3,
+        "max": 46
+      },
+      "checkpoints": 8,
+      "listening": 56,
+      "speaking": 56,
+      "sentenceGame": 64,
+      "tableTargets": 6
+    },
+    {
+      "stage": "B2.2",
+      "units": [
+        {
+          "title": "Viewpoint and perspective",
+          "goal": "Qualify a position, acknowledge another perspective and identify evidence limits",
+          "grammar": "Hasta cierto punto; desde mi punto de vista; no necesariamente; certainty and scope"
+        },
+        {
+          "title": "Complex narration",
+          "goal": "Produce an extended account linking earlier events, reactions, consequences and reflection",
+          "grammar": "Pluperfect and tense integration; conditional perfect reflection; chronology versus viewpoint"
+        },
+        {
+          "title": "Argument and counterargument",
+          "goal": "Develop a supported position, engage with an objection and qualify the conclusion",
+          "grammar": "Position, evidence, concession, counterargument and bounded conclusion"
+        },
+        {
+          "title": "Social and cultural topics",
+          "goal": "Discuss familiar social choices with evidence, perspectives and practical consequences",
+          "grammar": "Accessible social topics; generalisation, comparison and trade-offs"
+        },
+        {
+          "title": "Formal and informal register",
+          "goal": "Adapt a truthful message to its recipient without losing essential facts",
+          "grammar": "Recipient, greeting, request, degree of formality and closing"
+        },
+        {
+          "title": "Reported speech and information",
+          "goal": "Relay claims accurately, attribute perspectives and retain uncertainty",
+          "grammar": "Reporting verbs, source attribution, reference time and qualified paraphrase"
+        },
+        {
+          "title": "Possibility, condition and consequence",
+          "goal": "Explain real and imagined conditions, distinguish uncertainty and reflect on past alternatives",
+          "grammar": "Real/open conditions; imagined present and past; conditional perfect; limited perfect subjunctive"
+        },
+        {
+          "title": "The B2 project",
+          "goal": "Integrate narration, explanation, evidence, perspectives and a practical proposal for real recipients",
+          "grammar": "Integrated extended communication; revision, register and evidence limits"
+        }
+      ],
+      "activities": 72,
+      "slots": 416,
+      "stories": 32,
+      "storyWords": {
+        "min": 153,
+        "mean": 176,
+        "max": 195
+      },
+      "writingActivities": 8,
+      "writingItems": 40,
+      "writingModes": {
+        "controlled": 16,
+        "guided": 16,
+        "free": 8
+      },
+      "writingModelWords": {
+        "min": 4,
+        "max": 117
+      },
+      "checkpoints": 8,
+      "listening": 56,
+      "speaking": 56,
+      "sentenceGame": 64,
+      "tableTargets": 6
+    }
+  ],
+  "wholeCourse": {
+    "activities": 576,
+    "slots": 3328,
+    "stories": 256,
+    "listening": 448,
+    "speaking": 448,
+    "sentenceGame": 592,
+    "tableTargets": 82
+  },
+  "writingRules": 23,
+  "firstPartyModelDiagnosticChecks": 480,
+  "performance": {
+    "environment": "Node v24.19.0 Linux execution workspace; ten iterations, all course activities completed, 200 review snapshots and active B2 story; not physical Android/browser timing",
+    "moduleLoadMs": 174.56,
+    "listeningSessionMeanMs": 6.99,
+    "conjugationsSessionMeanMs": 5.29,
+    "tablesSessionMeanMs": 4.23,
+    "validatedImportMeanMs": 3.22,
+    "heapUsedMiB": 32.14
+  },
+  "thirdPartyContent": "None added; original first-party material only"
+}

@@ -1,5 +1,6 @@
 (function(root){
 'use strict';
+const W=typeof module!=='undefined'?require('./writing.js'):root.Writing;
 const E=typeof module!=='undefined'?require('./engine.js'):root.Engine;
 const Path=typeof module!=='undefined'?require('./course-path.js'):root.CoursePath;
 const Games=typeof module!=='undefined'?require('./games.js'):root.Conjugations;
@@ -17,37 +18,40 @@ function hash(value){let a=2166136261,b=5381;for(const c of value){a=Math.imul(a
 function signature(q){return JSON.stringify({type:q.type||'choice',prompt:q.prompt,answer:q.answer,accepted:q.accepted||null,options:q.options||null,reading:q.reading?{title:q.reading.title,text:q.reading.text}:null});}
 function reading(r){if(!object(r)||!text(r.title,200)||!text(r.text,20000))return null;return {title:r.title,text:r.text,...(text(r.stage,10)?{stage:r.stage}:{}),glossary:Array.isArray(r.glossary)?r.glossary.filter(x=>Array.isArray(x)&&x.length===2&&text(x[0],200)&&text(x[1],300)).map(x=>x.slice()):[]};}
 function question(raw){
- if(!object(raw)||!text(raw.prompt,2000)||!text(raw.answer,2000)||!text(raw.explanation,3000)||!text(raw.topic,200))return null;
+ if(!object(raw)||!text(raw.prompt,2000)||!text(raw.answer,6000)||!text(raw.explanation,3000)||!text(raw.topic,200))return null;
  const type=raw.type||'choice';if(!['choice','gap','text','speaking'].includes(type))return null;
  const q={type,prompt:raw.prompt,answer:raw.answer,explanation:raw.explanation,topic:raw.topic,mode:text(raw.mode,80)||'recognition'};
  if(type==='text'){
   if(!Array.isArray(raw.accepted)||!raw.accepted.length||raw.accepted.length>100)return null;
-  if(raw.accepted.some(a=>!text(a,2000)))return null;
+  if(raw.accepted.some(a=>!text(a,6000)))return null;
   q.accepted=[...new Set(raw.accepted)];q.language=['es','en-or-es'].includes(raw.language)?raw.language:'en-or-es';
  }else if(type==='speaking'){
-  if(!text(raw.spanish,2000))return null;q.spanish=raw.spanish;
+  if(!text(raw.spanish,6000))return null;q.spanish=raw.spanish;
  }else{
-  if(!Array.isArray(raw.options)||raw.options.length<2||raw.options.length>12||raw.options.some(a=>!text(a,2000))||raw.options.filter(a=>a===raw.answer).length!==1||new Set(raw.options.map(E.normalizeAnswer)).size!==raw.options.length)return null;
+  if(!Array.isArray(raw.options)||raw.options.length<2||raw.options.length>12||raw.options.some(a=>!text(a,6000))||raw.options.filter(a=>a===raw.answer).length!==1||new Set(raw.options.map(E.normalizeAnswer)).size!==raw.options.length)return null;
   q.options=raw.options.slice();
  }
  if(raw.instructionLanguage!==undefined){if(raw.instructionLanguage!=='es'||!text(raw.promptEs,2000)||!text(raw.englishHint,2000)||!safeId(raw.supportConcept))return null;q.instructionLanguage='es';q.promptEs=raw.promptEs;q.englishHint=raw.englishHint;q.supportConcept=raw.supportConcept;}
  if(type==='gap'){if(!text(raw.sentence,2000)||!text(raw.meaning,1000))return null;q.sentence=raw.sentence;q.meaning=raw.meaning;}
  for(const key of ['id','sourceQuestionId'])if(safeId(raw[key]))q[key]=raw[key];
- if(text(raw.spanish,2000))q.spanish=raw.spanish;
+ if(text(raw.spanish,6000))q.spanish=raw.spanish;
  if(raw.reading!==undefined&&raw.reading!==null){q.reading=reading(raw.reading);if(!q.reading)return null;}
  if(raw.listening){if(!['choice','text'].includes(type)||!object(raw.listening)||!text(raw.listening.transcript,2000))return null;q.listening={transcript:raw.listening.transcript,lang:'es-ES',rate:number(raw.listening.rate,.85,1.25)||.85};if(text(raw.listening.audio,250)&&/^audio\/learning\/[a-zA-Z0-9/_-]+\.(mp3|ogg|wav)$/.test(raw.listening.audio))q.listening.audio=raw.listening.audio;}
+ if(raw.writing!==undefined){q.writing=W.metadata(raw.writing);if(type!=='text'||!q.writing)return null;}
+ if(text(raw.previousResponse,6000))q.previousResponse=raw.previousResponse;
  if(raw.models!==undefined){if(type!=='speaking'||!Array.isArray(raw.models)||!raw.models.length||raw.models.length>3||raw.models.some(x=>!text(x,2000))||raw.models[0]!==q.spanish)return null;q.models=[...new Set(raw.models)];}
- if(raw.practice!==undefined){const p=raw.practice;if(!object(p)||!['listening','speaking'].includes(p.kind)||!['A1.1','A1.2','A2.1','A2.2'].includes(p.stage)||!Number.isInteger(p.unit)||p.unit<0||p.unit>7||!text(p.category,80)||!text(p.level,80)||!Array.isArray(p.requiredActivities)||!p.requiredActivities.length||p.requiredActivities.length>12||!p.requiredActivities.every(safeId)||!(q.id?.startsWith(p.kind==='listening'?'focus-listen-':'focus-speak-')||q.id?.startsWith('legacy-'))||(p.kind==='listening'?!q.listening:type!=='speaking'))return null;q.practice={kind:p.kind,stage:p.stage,unit:p.unit,category:p.category,level:p.level,...(safeId(p.outcomeId)?{outcomeId:p.outcomeId}:{}),requiredActivities:p.requiredActivities.slice(),authorship:'original Friends to Amigos'};}
+ if(raw.practice!==undefined){const p=raw.practice;if(!object(p)||!['listening','speaking'].includes(p.kind)||!['A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2'].includes(p.stage)||!Number.isInteger(p.unit)||p.unit<0||p.unit>7||!text(p.category,80)||!text(p.level,80)||!Array.isArray(p.requiredActivities)||!p.requiredActivities.length||p.requiredActivities.length>12||!p.requiredActivities.every(safeId)||!(q.id?.startsWith(p.kind==='listening'?'focus-listen-':'focus-speak-')||q.id?.startsWith('legacy-'))||(p.kind==='listening'?!q.listening:type!=='speaking'))return null;q.practice={kind:p.kind,stage:p.stage,unit:p.unit,category:p.category,level:p.level,...(safeId(p.outcomeId)?{outcomeId:p.outcomeId}:{}),requiredActivities:p.requiredActivities.slice(),authorship:'original Friends to Amigos'};}
  if(q.mode==='listening'&&!q.listening)return null;
  if(Array.isArray(raw.mistakes))q.mistakes=raw.mistakes.filter(m=>object(m)&&text(m.answer,2000)&&text(m.explanation,3000)).map(m=>({answer:m.answer,explanation:m.explanation}));
  return q;
 }
+const courseIndexes=new WeakMap();function courseIndex(course){if(!courseIndexes.has(course))courseIndexes.set(course,{lessons:new Map(course.lessons.map(l=>[l.id,l])),questions:new Map([...course.lessons.flatMap(l=>l.questions),...course.placement,...course.numbers,...course.time].map(q=>[q.id,q]))});return courseIndexes.get(course);}
 function migrateState(raw,course,options={}){
  const warnings=[];if(!object(raw))throw Error('This file is not a progress backup.');
  if(![1,2].includes(raw.version))throw Error(raw.version>VERSION?'This backup needs a newer version of Friends to Amigos.':'Unsupported progress format.');
  if(options.import&&(!Array.isArray(raw.completed)||!Array.isArray(raw.events)||!Array.isArray(raw.capabilities)||!object(raw.sessions)||!object(raw.reviews)))throw Error('This backup is missing essential progress records.');
  const state={version:VERSION,name:text(raw.name,40)||'',onboarded:raw.onboarded===true,stage:course.stages.includes(raw.stage)?raw.stage:'A1.1',placement:null,completed:[],capabilities:[],reviews:{},events:[],sessions:{},active:null,recovery:Array.isArray(raw.recovery)?JSON.parse(JSON.stringify(raw.recovery)):[]};
- const archive=course.legacyQuestions||[],completedEvents=new Set(),current=new Map([...course.lessons.flatMap(l=>l.questions),...course.placement,...course.numbers,...course.time].map(q=>[q.id,q]));
+ const archive=course.legacyQuestions||[],completedEvents=new Set(),current=courseIndex(course).questions;
 
  function snapshot(rawQuestion){const q=question(rawQuestion),authored=q&&current.get(q.id);return q&&((authored?.reading&&!q.reading)||(authored?.listening&&!q.listening))?null:q;}
  let signatures;
@@ -85,11 +89,11 @@ function migrateState(raw,course,options={}){
  }
  if(raw.active!==null&&raw.active!==undefined){
   const a=raw.active,qs=object(a)&&Array.isArray(a.questions)?a.questions.map(snapshot):[];
-  const valid=object(a)&&a.kind==='lesson'&&object(a.lesson)&&safeId(a.lesson.id)&&text(a.lesson.title,500)&&qs.length>0&&qs.length<=100&&qs.every(Boolean)&&Number.isInteger(a.index)&&a.index>=0&&a.index<=qs.length&&(!a.checked||a.index<qs.length)&&Array.isArray(a.answers)&&a.answers.every((x,i)=>typeof x==='boolean'||x===null&&qs[i]?.listening)&&typeof a.checked==='boolean'&&a.answers.length===a.index+(a.checked?1:0)&&(a.selected===null||typeof a.selected==='string');
+  const valid=object(a)&&a.kind==='lesson'&&object(a.lesson)&&safeId(a.lesson.id)&&text(a.lesson.title,500)&&qs.length>0&&qs.length<=100&&qs.every(Boolean)&&Number.isInteger(a.index)&&a.index>=0&&a.index<=qs.length&&(!a.checked||a.index<qs.length)&&Array.isArray(a.answers)&&a.answers.every((x,i)=>typeof x==='boolean'||x===null&&(qs[i]?.listening||W.open(qs[i])))&&typeof a.checked==='boolean'&&(a.answers.length===a.index+(a.checked?1:0)||a.checked&&W.open(qs[a.index])&&a.answers.length===a.index)&&(a.selected===null||typeof a.selected==='string');
   if(!valid)quarantine('active attempt','active',a);
   else{
    const lesson={id:a.lesson.id,title:a.lesson.title,checkpoint:a.lesson.checkpoint===true};
-   const now=course.lessons.find(l=>l.id===lesson.id);
+   const now=courseIndex(course).lessons.get(lesson.id);
    lesson.stage=course.stages.includes(a.lesson.stage)?a.lesson.stage:now?.stage||'A1.1';lesson.unit=Number.isInteger(a.lesson.unit)?a.lesson.unit:now?.unit||0;
    for(const key of ['goal','capability','outcomeId','unitId'])if(text(a.lesson[key],1000))lesson[key]=a.lesson[key];
    if(Array.isArray(a.lesson.questions)){const snapshots=a.lesson.questions.map(snapshot);if(snapshots.every(Boolean)){for(const q of snapshots)q.id=identify(q);lesson.questions=snapshots;}else {quarantine('active attempt','active',a);}}
@@ -97,16 +101,18 @@ function migrateState(raw,course,options={}){
    if(a.lesson.reading){lesson.reading=reading(a.lesson.reading);if(!lesson.reading)quarantine('active attempt','active',a);}
    if((!a.lesson.reading||lesson.reading)&&(!Array.isArray(a.lesson.questions)||lesson.questions)){
     for(const q of qs)q.id=identify(q);
-    const selected=a.selected===null?null:text(a.selected,2000);const currentQ=qs[a.index];
+    const selected=a.selected===null?null:text(a.selected,6000);const currentQ=qs[a.index];
     const submitted=a.checked?a.answers.at(-1):undefined;
-    const inconsistent=a.checked&&((currentQ?.listening&&submitted!==null&&a.audioPlayed!==true)||(submitted===null?(!currentQ?.listening||selected!==null):(!selected?.trim()||submitted!==(currentQ?.type==='speaking'?selected==='got':E.isCorrect(currentQ,selected)))));
-    if(inconsistent||a.checked&&currentQ?.type==='speaking'&&(!a.modelRevealed||!['got','needs'].includes(selected))||selected===null&&a.selected!==null||currentQ&&currentQ.options&&selected!==null&&!currentQ.options.includes(selected)||a.checked&&selected===null&&a.answers.at(-1)!==null)quarantine('active attempt','active',a);
-    else state.active={kind:'lesson',lesson,questions:qs,index:a.index,answers:a.answers.slice(),selected,checked:a.checked,readingReady:a.readingReady===true,modelRevealed:a.modelRevealed===true,audioPlayed:a.audioPlayed===true,audioUnavailable:a.audioUnavailable===true,...(typeof a.hintRevealed==='boolean'?{hintRevealed:a.hintRevealed}:{})};
+    const pendingWriting=a.checked&&W.open(currentQ)&&a.answers.length===a.index;
+    const writingDone=a.checked&&W.open(currentQ)&&submitted===null&&object(a.writingResponses)&&object(a.writingResponses[a.index])&&a.writingResponses[a.index].response===selected&&['got','needs'].includes(a.writingResponses[a.index].reflection);
+    const inconsistent=a.checked&&!pendingWriting&&!writingDone&&((currentQ?.listening&&submitted!==null&&a.audioPlayed!==true)||(submitted===null?(!currentQ?.listening||selected!==null):(!selected?.trim()||submitted!==(currentQ?.type==='speaking'?selected==='got':E.isCorrect(currentQ,selected)))));
+    if(inconsistent||a.checked&&W.open(currentQ)&&!selected?.trim()||a.checked&&currentQ?.type==='speaking'&&(!a.modelRevealed||!['got','needs'].includes(selected))||selected===null&&a.selected!==null||currentQ&&currentQ.options&&selected!==null&&!currentQ.options.includes(selected)||a.checked&&selected===null&&a.answers.at(-1)!==null)quarantine('active attempt','active',a);
+    else state.active={kind:'lesson',lesson,questions:qs,index:a.index,answers:a.answers.slice(),selected,checked:a.checked,readingReady:a.readingReady===true,modelRevealed:a.modelRevealed===true,audioPlayed:a.audioPlayed===true,audioUnavailable:a.audioUnavailable===true,...(typeof a.hintRevealed==='boolean'?{hintRevealed:a.hintRevealed}:{}),...(object(a.writingResponses)?{writingResponses:Object.fromEntries(Object.entries(a.writingResponses).filter(([k,v])=>Number.isInteger(Number(k))&&Number(k)>=0&&Number(k)<qs.length&&W.open(qs[Number(k)])&&object(v)&&text(v.response,6000)&&['got','needs'].includes(v.reflection)).map(([k,v])=>[k,{response:v.response,reflection:v.reflection,outcome:W.assess(qs[Number(k)],v.response).outcome}]))}:{})};
    }
   }
  }
  if(typeof raw.onboarded!=='boolean'&&(state.active||state.completed.length)){state.onboarded=true;warnings.push('Your existing learning progress restored the onboarding status.');}
- if(['A1.1','A1.2','A2.1','A2.2'].includes(raw.grammarLevel))state.grammarLevel=raw.grammarLevel;
+ if(['A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2'].includes(raw.grammarLevel))state.grammarLevel=raw.grammarLevel;
  state.startStage=Path.inferStart({...state,startStage:raw.startStage},course);
  if(raw.mastery!==undefined)state.mastery=Mastery.sanitize(raw.mastery);
  if(raw.blanks!==undefined){const result=Blanks.sanitize(raw.blanks,state,course);state.blanks=result.data;if(result.warnings.length)quarantine('table practice','blanks',raw.blanks);}

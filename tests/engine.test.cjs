@@ -17,7 +17,7 @@ test('every exercise has required content and choices have exactly one correct a
   if(q.type==='speaking'){assert.ok(q.spanish);assert.equal(q.mode,'speaking');}
   else if(q.type==='text'){
    assert.ok(['es','en-or-es'].includes(q.language));assert.ok(q.accepted.length>0);
-   assert.equal(new Set(q.accepted).size,q.accepted.length);for(const answer of q.accepted)assert.ok(E.isCorrect(q,answer));
+   assert.equal(new Set(q.accepted).size,q.accepted.length);for(const answer of q.accepted){if(q.writing?.mode==='free')assert.equal(E.isCorrect(q,answer),false,q.id);else assert.ok(E.isCorrect(q,answer),q.id);}
    if(q.language==='es')assert.ok(q.accepted.includes(q.answer));
   }else{
    assert.equal(q.options.length,3);assert.equal(q.options.filter(x=>x===q.answer).length,1);
@@ -105,7 +105,7 @@ test('stage authoring targets are ordered, explicit and never make planned conte
  assert.deepEqual(C.stageInfo.map(s=>s.id),C.stages);
  for(const stage of C.stageInfo){
   assert.ok(stage.goal.length>30);assert.equal(stage.tasks.length,3);assert.ok(stage.languageSupport);assert.ok(stage.languageFocus);
-  assert.equal(stage.status,['A1.1','A1.2','A2.1','A2.2'].includes(stage.id)?'playable':'planned');
+  assert.equal(stage.status,'playable');
   assert.equal(C.lessons.some(l=>l.stage===stage.id),stage.status==='playable');
  }
  for(const lesson of C.lessons){assert.equal(lesson.goal,C.getUnit(lesson).goal);assert.equal(lesson.outcomeId,C.getUnit(lesson).id);assert.equal(lesson.authorship.kind,'original');assert.ok(fs.existsSync(lesson.authorship.referenceRecord));}
@@ -115,8 +115,8 @@ test('original A1.1 snapshots remain byte-equivalent to the compatibility baseli
  const crypto=require('node:crypto');assert.equal(crypto.createHash('sha256').update(JSON.stringify(C.legacyLessons.filter(l=>l.stage==='A1.1'))).digest('hex'),fs.readFileSync('tests/fixtures/a11-content.sha256','utf8'));
 });
 test('A1.2 retains 72 activities and has 416 question slots with integrated audio/speech',()=>{
- assert.equal(a12.length,72);assert.equal(a12.flatMap(l=>l.questions).length,416);assert.equal(C.lessons.length,288);
- assert.equal(new Set(C.lessons.map(l=>l.id)).size,288);assert.deepEqual(C.lessons.slice(0,72),a11);
+ assert.equal(a12.length,72);assert.equal(a12.flatMap(l=>l.questions).length,416);assert.equal(C.lessons.length,576);
+ assert.equal(new Set(C.lessons.map(l=>l.id)).size,576);assert.deepEqual(C.lessons.slice(0,72),a11);
  for(const lesson of a12){assert.match(lesson.id,/^a12u[0-7](l[0-2]|story[0-3]|write|check)$/);assert.ok(lesson.questions.length>=5);assert.equal(new Set(lesson.questions.map(q=>q.prompt)).size,lesson.questions.length);}
 });
 test('A1.2 has eight distinct practical units and stable interleaving ending in checkpoints',()=>{

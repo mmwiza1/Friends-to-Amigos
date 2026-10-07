@@ -1,5 +1,11 @@
 # Written and curriculum resources
 
+
+## Current shipped design: full-course user-testing release
+
+All eight stages A1.1–B2.2 are playable: 576 activities, 3,328 slots, 64 practical units and 256 original stories. Focused Listening and Speaking each have 448 items (56 per stage); sentence Conjugations has 592 contexts and Tables has 82 curated targets. Earlier content/IDs/snapshots are protected. New text, dialogues, exercises, glossaries and rules are original Friends to Amigos material; no external text/audio corpus or third-party exercise was imported.
+
+CEFR can-do, Cervantes scope and documented OER principles informed communication, contextual grammar, retrieval, reflection and recycling. The writing resources were implemented as first-party conservative rules, curated morphology and Controlled/Guided/Free task handling; unsafe or licence-gated dependencies were not silently added. See [WRITING_ENGINE.md](WRITING_ENGINE.md) for dependency decisions, [the release report](../release/V1_REPORT.md) and [BUILD_STATUS.md](../../BUILD_STATUS.md) for actual validation. Open writing admits uncertainty; speaking is self-assessed; TTS is synthetic es-ES. No CEFR certification, microphone, ASR, accounts, LLM, cloud grading or C1/C2 content is introduced.
 Last reviewed: 2026-10-06
 
 The goal here is not to copy a textbook wholesale. It is to identify high-quality, openly licensed material that can improve the pedagogy, sequencing and authenticity of Friends to Amigos while we continue to author a distinct course.
@@ -163,7 +169,7 @@ These are original Friends to Amigos exercises informed by this research. No sou
 
 ## A1 stability implementation status
 
-A1.1 and A1.2 remain playable: 16 practical units, 144 activities, 64 original stories and 832 question slots (416 per stage), including 240 Spanish-writing slots, 48 audio-first listening questions and 16 self-assessed speaking chunks. The JavaScript suite now covers 408 individual cases; exact native/browser validation is recorded in BUILD_STATUS.md. Stable question IDs, validated schema-v2 migration/import, original historical snapshots, practical checkpoints and an A1 completion experience are implemented. A2.1 is now playable; At that release, A2.2–B2.2 remained planned/unavailable.
+A1.1 and A1.2 remain playable: 16 practical units, 144 activities, 64 original stories and 832 question slots (416 per stage), including 240 Spanish-writing slots, 48 audio-first listening questions and 16 self-assessed speaking chunks. At that historical release, the JavaScript suite covered 408 individual cases; exact native/browser validation is recorded in BUILD_STATUS.md. Stable question IDs, validated schema-v2 migration/import, original historical snapshots, practical checkpoints and an A1 completion experience are implemented. A2.1 is now playable; At that release, A2.2–B2.2 remained planned/unavailable.
 
 All new passages, listening transcripts, exercises and feedback are original Friends to Amigos content informed by documented teaching references. No third-party wording was copied/closely adapted, and no third-party recording or dataset was downloaded/vendored. Listening uses synthetic es-ES speech; speaking does not record or automatically grade pronunciation. Curated human recordings require exact-item review/attribution and remain future work. Native Android build/lint/unit validation is recorded in BUILD_STATUS.md; physical-device retest and independent educator review remain release gates. See [the A1 audit](../A1_STABILITY_REPORT.md) and [BUILD_STATUS.md](../../BUILD_STATUS.md).
 
@@ -181,8 +187,8 @@ Listening and Speaking each ship 56 original Friends to Amigos items per A1.1/A1
 
 CEFR/Cervantes/OER resources remain pedagogical references only. No external text/audio was copied or closely adapted, so no new third-party attribution entry is required. Large corpora and curated human recordings remain future work; no download, microphone, ASR or cloud grading was added. The four A2.1 corrections and full status are recorded in [the quality report](../LISTENING_SPEAKING_QUALITY.md); [BUILD_STATUS](../../BUILD_STATUS.md) contains actual validation results.
 
-## Current implementation: A2.2 quality expansion (0.10.0)
+## Historical implementation: A2.2 quality expansion (0.10.0)
 
-A1.1, A1.2, A2.1 and A2.2 are playable; B stages remain planned. The whole course has 288 activities / 1,664 slots / 128 original stories. A2.2 adds 72 activities / 416 slots / eight practical units, original past-background/event and routine-problem scenarios, Spanish-first tasks and optional English support. Listening and Speaking each have 224 items (56 per stage); Conjugations has 336 contexts; curated tables have 55 targets. The previous 216 course activities, 272 game items, 35 table targets and 336 focused items are payload-frozen.
+At release 0.10.0, A1.1–A2.2 were playable and B stages were planned. The whole course has 288 activities / 1,664 slots / 128 original stories. A2.2 adds 72 activities / 416 slots / eight practical units, original past-background/event and routine-problem scenarios, Spanish-first tasks and optional English support. Listening and Speaking each have 224 items (56 per stage); Conjugations has 336 contexts; curated tables have 55 targets. The previous 216 course activities, 272 game items, 35 table targets and 336 focused items are payload-frozen.
 
 All new writing, stories, distractors and explanations are original Friends to Amigos material. CEFR, Cervantes and documented OER inform design; no third-party passage or exercise was copied/closely adapted. No recording/text corpus was downloaded. Listening remains synthetic es-ES; speaking is self-assessed without recording, microphone permission or ASR. Exact-item attribution rules still apply to any future external asset. See [the A2.2 quality record](../A22_QUALITY_RELEASE.md) and [BUILD_STATUS.md](../../BUILD_STATUS.md) for validation boundaries.

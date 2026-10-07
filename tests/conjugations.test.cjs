@@ -6,13 +6,13 @@ const escape=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 const button=(label,action,cls,extra)=>`<button class="${cls}" data-action="${action}" ${extra||''}>${label}</button>`;
 function finish(s,wrong=false){const a=s.games.active;while(s.games.active){const q=a.questions[a.index];a.selected=q.blanks.map(b=>wrong?b.options.find(x=>x!==b.answer):b.answer);G.check(s);const result=G.advance(s,1000+a.index);if(result)return result;}}
 test('208 stable authored game IDs: 104 for each playable stage, no course collisions',()=>{
- assert.equal(B.questions.length,336);for(const stage of ['A1.1','A1.2'])assert.equal(B.questions.filter(q=>q.stage===stage).length,104);
- assert.equal(new Set(B.questions.map(q=>q.id)).size,336);const course=new Set(C.lessons.flatMap(l=>l.questions.map(q=>q.id)));for(const q of B.questions)assert.ok(!course.has(q.id));
+ assert.equal(B.questions.length,592);for(const stage of ['A1.1','A1.2'])assert.equal(B.questions.filter(q=>q.stage===stage).length,104);
+ assert.equal(new Set(B.questions.map(q=>q.id)).size,592);const course=new Set(C.lessons.flatMap(l=>l.questions.map(q=>q.id)));for(const q of B.questions)assert.ok(!course.has(q.id));
  assert.deepEqual(B.questions.filter(q=>['A1.1','A1.2'].includes(q.stage)).map(q=>q.id),JSON.parse(fs.readFileSync('tests/fixtures/conjugations-ids.json','utf8')));
 });
 test('bank prerequisites, sentences, answer data and educational distractors are structurally valid',()=>{
  const activities=new Set(C.lessons.map(l=>l.id));const sentences=new Set();
- for(const q of B.questions){assert.ok(C.playableStages.includes(q.stage));assert.ok(q.unit>=0&&q.unit<8);assert.ok(q.blanks.length>=1&&q.blanks.length<=3);assert.equal(q.sentence.split('___').length-1,q.blanks.length);assert.ok([0,1,2].every(n=>q.requiredActivities.includes((q.stage==='A1.1'?'u':q.stage==='A1.2'?'a12u':q.stage==='A2.1'?'a21u':'a22u')+q.unit+'l'+n)));assert.ok(q.requiredActivities.length);assert.ok(q.concepts.length);assert.ok(q.explanation.length>20);assert.ok(q.difficulty>=1&&q.difficulty<=4);assert.ok(!sentences.has(q.sentence),q.id);sentences.add(q.sentence);
+ for(const q of B.questions){assert.ok(C.playableStages.includes(q.stage));assert.ok(q.unit>=0&&q.unit<8);assert.ok(q.blanks.length>=1&&q.blanks.length<=3);assert.equal(q.sentence.split('___').length-1,q.blanks.length);assert.ok([0,1,2].every(n=>q.requiredActivities.includes((q.stage==='A1.1'?'u':q.stage.toLowerCase().replace('.','')+'u')+q.unit+'l'+n)));assert.ok(q.requiredActivities.length);assert.ok(q.concepts.length);assert.ok(q.explanation.length>20);assert.ok(q.difficulty>=1&&q.difficulty<=(q.stage.startsWith('B')?5:4));assert.ok(!sentences.has(q.sentence),q.id);sentences.add(q.sentence);
   for(const id of q.requiredActivities){assert.ok(activities.has(id),q.id+': '+id);if(q.stage==='A1.1')assert.ok(!id.startsWith('a12'));}
   for(const b of q.blanks){assert.ok(q.requiredActivities.includes(b.source));assert.ok(b.answer);assert.equal(new Set(b.options).size,b.options.length);assert.equal(b.options.filter(x=>x===b.answer).length,1);assert.ok(b.explanation.length>20);for(const wrong of b.options.filter(x=>x!==b.answer))assert.ok(b.mistakes[wrong]?.length>20);}
  }
@@ -103,5 +103,5 @@ test('personal best survives beyond the bounded recent-round window and backup r
 test('every authored game question completes through the real check/advance loop',()=>{
  const seen=new Set();for(const stage of C.playableStages){const s=learner(stage);s.games=G.empty();const pool=B.questions.filter(q=>q.stage===stage);
   for(let start=0;start<pool.length;start+=10){const questions=pool.slice(start,start+10);if(questions.length<10)questions.push(...pool.slice(0,10-questions.length));s.games.active=G.build(s,C);s.games.active.questions=structuredClone(questions);s.games.active.selected=questions[0].blanks.map(()=>null);const result=finish(s);assert.equal(result.total,10);assert.equal(result.score,10);for(const q of questions)seen.add(q.id);}
- }assert.equal(seen.size,336);
+ }assert.equal(seen.size,592);
 });

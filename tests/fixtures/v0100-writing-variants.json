@@ -1,0 +1,8239 @@
+[
+  {
+    "id": "u0l0-q3",
+    "stage": "A1.1",
+    "answer": "Me llamo Ana",
+    "accepted": [
+      "Me llamo Ana",
+      "Mi nombre es Ana"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u0l0-q5",
+    "stage": "A1.1",
+    "answer": "Me llamo Luis",
+    "accepted": [
+      "Me llamo Luis",
+      "Soy Luis",
+      "Mi nombre es Luis",
+      "Hola, me llamo Luis",
+      "Hola, soy Luis"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u0story0-q2",
+    "stage": "A1.1",
+    "answer": "her name / su nombre",
+    "accepted": [
+      "her name",
+      "su nombre",
+      "name",
+      "nombre",
+      "Ana’s name",
+      "el nombre de Ana"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u0story0-q4",
+    "stage": "A1.1",
+    "answer": "Ana / Ana",
+    "accepted": [
+      "Ana"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u0l1-q3",
+    "stage": "A1.1",
+    "answer": "¿Cómo te llamas?",
+    "accepted": [
+      "¿Cómo te llamas?",
+      "¿Cuál es tu nombre?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u0l1-q5",
+    "stage": "A1.1",
+    "answer": "Gracias",
+    "accepted": [
+      "Gracias",
+      "Muchas gracias",
+      "Gracias, Luis",
+      "Muchas gracias, Luis"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u0story1-q2",
+    "stage": "A1.1",
+    "answer": "in the morning / por la mañana",
+    "accepted": [
+      "in the morning",
+      "por la mañana",
+      "morning",
+      "the morning",
+      "mañana"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u0story1-q4",
+    "stage": "A1.1",
+    "answer": "Ana / Ana",
+    "accepted": [
+      "Ana"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u0l2-q3",
+    "stage": "A1.1",
+    "answer": "Hasta luego",
+    "accepted": [
+      "Hasta luego",
+      "Nos vemos"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u0l2-q5",
+    "stage": "A1.1",
+    "answer": "¿Puedes repetir, por favor?",
+    "accepted": [
+      "¿Puedes repetir, por favor?",
+      "¿Puede repetir, por favor?",
+      "Luis, ¿puedes repetir, por favor?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u0l2-listen1",
+    "stage": "A1.1",
+    "answer": "Ana",
+    "accepted": [
+      "Ana"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u0story2-q2",
+    "stage": "A1.1",
+    "answer": "Luis / Luis",
+    "accepted": [
+      "Luis"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u0story2-q4",
+    "stage": "A1.1",
+    "answer": "her name / su nombre",
+    "accepted": [
+      "her name",
+      "su nombre",
+      "name",
+      "nombre",
+      "Ana",
+      "Ana’s name"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u0write-q1",
+    "stage": "A1.1",
+    "answer": "Hola, me llamo Ana",
+    "accepted": [
+      "Hola, me llamo Ana",
+      "Hola, soy Ana",
+      "Hola, mi nombre es Ana"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u0write-q2",
+    "stage": "A1.1",
+    "answer": "¿Cómo te llamas?",
+    "accepted": [
+      "¿Cómo te llamas?",
+      "¿Cuál es tu nombre?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u0write-q3",
+    "stage": "A1.1",
+    "answer": "Gracias",
+    "accepted": [
+      "Gracias",
+      "Muchas gracias",
+      "Gracias, Marta",
+      "Muchas gracias, Marta"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u0write-q4",
+    "stage": "A1.1",
+    "answer": "De nada",
+    "accepted": [
+      "De nada",
+      "No hay de qué"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u0write-q5",
+    "stage": "A1.1",
+    "answer": "Hasta luego",
+    "accepted": [
+      "Hasta luego",
+      "Nos vemos",
+      "Adiós",
+      "Hasta luego, Luis"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u0check-q6",
+    "stage": "A1.1",
+    "answer": "Me llamo Marta",
+    "accepted": [
+      "Me llamo Marta",
+      "Soy Marta",
+      "Hola, me llamo Marta"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u0check-q7",
+    "stage": "A1.1",
+    "answer": "Gracias",
+    "accepted": [
+      "Gracias",
+      "Muchas gracias",
+      "Gracias, Luis",
+      "Muchas gracias, Luis"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u0check-q8",
+    "stage": "A1.1",
+    "answer": "Hola, me llamo Ana",
+    "accepted": [
+      "Hola, me llamo Ana",
+      "Hola, soy Ana",
+      "Hola, mi nombre es Ana"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u0check-q9",
+    "stage": "A1.1",
+    "answer": "¿Puedes repetir, por favor?",
+    "accepted": [
+      "¿Puedes repetir, por favor?",
+      "¿Puede repetir, por favor?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u0story3-q2",
+    "stage": "A1.1",
+    "answer": "tomorrow / mañana",
+    "accepted": [
+      "tomorrow",
+      "mañana",
+      "hasta mañana",
+      "see you tomorrow"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u0story3-q4",
+    "stage": "A1.1",
+    "answer": "Ana / Ana",
+    "accepted": [
+      "Ana"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u1l0-q3",
+    "stage": "A1.1",
+    "answer": "Vivo en Madrid",
+    "accepted": [
+      "Vivo en Madrid",
+      "Yo vivo en Madrid"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u1l0-q5",
+    "stage": "A1.1",
+    "answer": "Soy de España",
+    "accepted": [
+      "Soy de España",
+      "Soy español",
+      "Yo soy de España"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u1story0-q2",
+    "stage": "A1.1",
+    "answer": "England / Inglaterra",
+    "accepted": [
+      "England",
+      "Inglaterra",
+      "English",
+      "inglesa",
+      "soy de Inglaterra"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u1story0-q4",
+    "stage": "A1.1",
+    "answer": "but / pero",
+    "accepted": [
+      "but",
+      "pero",
+      "pero means but"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u1l1-q3",
+    "stage": "A1.1",
+    "answer": "Tengo veinte años",
+    "accepted": [
+      "Tengo veinte años",
+      "Yo tengo veinte años",
+      "Tengo 20 años"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u1l1-q5",
+    "stage": "A1.1",
+    "answer": "Tengo diecinueve años",
+    "accepted": [
+      "Tengo diecinueve años",
+      "Yo tengo diecinueve años",
+      "Tengo 19 años"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u1l1-listen1",
+    "stage": "A1.1",
+    "answer": "Madrid",
+    "accepted": [
+      "Madrid"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u1story1-q2",
+    "stage": "A1.1",
+    "answer": "twenty-one / veintiuno",
+    "accepted": [
+      "twenty-one",
+      "veintiuno",
+      "21",
+      "veintiún",
+      "21 years old",
+      "veintiún años"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u1story1-q4",
+    "stage": "A1.1",
+    "answer": "tengo / tengo",
+    "accepted": [
+      "tengo"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u1l2-q3",
+    "stage": "A1.1",
+    "answer": "Hablo inglés",
+    "accepted": [
+      "Hablo inglés",
+      "Yo hablo inglés"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u1l2-q5",
+    "stage": "A1.1",
+    "answer": "Estoy cansada",
+    "accepted": [
+      "Estoy cansada",
+      "Yo estoy cansada",
+      "Hoy estoy cansada"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u1story2-q2",
+    "stage": "A1.1",
+    "answer": "tired / cansada",
+    "accepted": [
+      "tired",
+      "cansada",
+      "she is tired",
+      "está cansada",
+      "estoy cansada"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u1story2-q4",
+    "stage": "A1.1",
+    "answer": "English / inglés",
+    "accepted": [
+      "English",
+      "inglés",
+      "English language",
+      "habla inglés"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u1write-q1",
+    "stage": "A1.1",
+    "answer": "Soy de Inglaterra",
+    "accepted": [
+      "Soy de Inglaterra",
+      "Soy inglesa",
+      "Yo soy de Inglaterra"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u1write-q2",
+    "stage": "A1.1",
+    "answer": "Vivo en Madrid",
+    "accepted": [
+      "Vivo en Madrid",
+      "Yo vivo en Madrid"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u1write-q3",
+    "stage": "A1.1",
+    "answer": "Tengo veintiún años",
+    "accepted": [
+      "Tengo veintiún años",
+      "Yo tengo veintiún años"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u1write-q4",
+    "stage": "A1.1",
+    "answer": "¿Cuántos años tienes?",
+    "accepted": [
+      "¿Cuántos años tienes?",
+      "¿Qué edad tienes?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u1write-q5",
+    "stage": "A1.1",
+    "answer": "Hablo un poco de español",
+    "accepted": [
+      "Hablo un poco de español",
+      "Yo hablo un poco de español"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u1check-q3",
+    "stage": "A1.1",
+    "answer": "twenty / veinte",
+    "accepted": [
+      "twenty",
+      "veinte",
+      "20",
+      "twenty years old",
+      "veinte años",
+      "20 años"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u1check-q6",
+    "stage": "A1.1",
+    "answer": "Soy de Inglaterra",
+    "accepted": [
+      "Soy de Inglaterra",
+      "Soy inglesa",
+      "Yo soy de Inglaterra"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u1check-q7",
+    "stage": "A1.1",
+    "answer": "Tengo diecinueve años",
+    "accepted": [
+      "Tengo diecinueve años",
+      "Yo tengo diecinueve años",
+      "Tengo 19 años"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u1check-q8",
+    "stage": "A1.1",
+    "answer": "Estoy cansada",
+    "accepted": [
+      "Estoy cansada",
+      "Yo estoy cansada",
+      "Hoy estoy cansada"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u1check-q9",
+    "stage": "A1.1",
+    "answer": "¿Cuántos años tienes?",
+    "accepted": [
+      "¿Cuántos años tienes?",
+      "¿Qué edad tienes?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u1story3-q2",
+    "stage": "A1.1",
+    "answer": "his sister / su hermana",
+    "accepted": [
+      "his sister",
+      "su hermana",
+      "sister",
+      "hermana",
+      "Luis’s sister",
+      "la hermana de Luis"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u1story3-q4",
+    "stage": "A1.1",
+    "answer": "Spain / España",
+    "accepted": [
+      "Spain",
+      "España",
+      "Spanish",
+      "española",
+      "soy de España"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u2l0-q3",
+    "stage": "A1.1",
+    "answer": "Un café con leche, por favor",
+    "accepted": [
+      "Un café con leche, por favor",
+      "Quiero un café con leche, por favor",
+      "Un café con leche, porfa"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u2l0-q5",
+    "stage": "A1.1",
+    "answer": "Un té, por favor",
+    "accepted": [
+      "Un té, por favor",
+      "Quiero un té, por favor",
+      "Para mí, un té, por favor"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u2story0-q2",
+    "stage": "A1.1",
+    "answer": "tea / té",
+    "accepted": [
+      "tea",
+      "té",
+      "a tea",
+      "un té"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u2story0-q4",
+    "stage": "A1.1",
+    "answer": "please / por favor",
+    "accepted": [
+      "please",
+      "por favor",
+      "por favor means please"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u2l1-q3",
+    "stage": "A1.1",
+    "answer": "Tengo hambre",
+    "accepted": [
+      "Tengo hambre",
+      "Yo tengo hambre"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u2l1-q5",
+    "stage": "A1.1",
+    "answer": "Pan, por favor",
+    "accepted": [
+      "Pan, por favor",
+      "Quiero pan, por favor",
+      "Un poco de pan, por favor"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u2l1-listen1",
+    "stage": "A1.1",
+    "answer": "bread / pan",
+    "accepted": [
+      "bread",
+      "pan"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u2story1-q2",
+    "stage": "A1.1",
+    "answer": "hunger / hambre",
+    "accepted": [
+      "hunger",
+      "hambre",
+      "hungry",
+      "she is hungry",
+      "tiene hambre",
+      "because she is hungry"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u2story1-q4",
+    "stage": "A1.1",
+    "answer": "tea / té",
+    "accepted": [
+      "tea",
+      "té",
+      "a tea",
+      "un té"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u2l2-q3",
+    "stage": "A1.1",
+    "answer": "La cuenta, por favor",
+    "accepted": [
+      "La cuenta, por favor",
+      "¿Me traes la cuenta, por favor?",
+      "Quiero la cuenta, por favor"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u2l2-q5",
+    "stage": "A1.1",
+    "answer": "Gracias",
+    "accepted": [
+      "Gracias",
+      "Muchas gracias",
+      "Gracias, Diego",
+      "Muchas gracias, Diego"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u2story2-q2",
+    "stage": "A1.1",
+    "answer": "no thank you / no gracias",
+    "accepted": [
+      "no thank you",
+      "no gracias",
+      "no, thanks"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u2story2-q4",
+    "stage": "A1.1",
+    "answer": "milk / leche",
+    "accepted": [
+      "milk",
+      "leche",
+      "with milk",
+      "con leche"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u2write-q1",
+    "stage": "A1.1",
+    "answer": "Un café con leche, por favor",
+    "accepted": [
+      "Un café con leche, por favor",
+      "Quiero un café con leche, por favor",
+      "Para mí, un café con leche, por favor"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u2write-q2",
+    "stage": "A1.1",
+    "answer": "Agua, por favor",
+    "accepted": [
+      "Agua, por favor",
+      "Un agua, por favor",
+      "Quiero agua, por favor",
+      "Para mí, agua, por favor"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u2write-q3",
+    "stage": "A1.1",
+    "answer": "Tengo hambre",
+    "accepted": [
+      "Tengo hambre",
+      "Yo tengo hambre"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u2write-q4",
+    "stage": "A1.1",
+    "answer": "Me gusta el té",
+    "accepted": [
+      "Me gusta el té",
+      "A mí me gusta el té"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u2write-q5",
+    "stage": "A1.1",
+    "answer": "La cuenta, por favor",
+    "accepted": [
+      "La cuenta, por favor",
+      "¿Me traes la cuenta, por favor?",
+      "Quiero la cuenta, por favor"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u2check-q6",
+    "stage": "A1.1",
+    "answer": "Agua, por favor",
+    "accepted": [
+      "Agua, por favor",
+      "Quiero agua, por favor",
+      "Un agua, por favor"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u2check-q7",
+    "stage": "A1.1",
+    "answer": "Pan, por favor",
+    "accepted": [
+      "Pan, por favor",
+      "Quiero pan, por favor",
+      "Un poco de pan, por favor"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u2check-q8",
+    "stage": "A1.1",
+    "answer": "Gracias",
+    "accepted": [
+      "Gracias",
+      "Muchas gracias",
+      "Gracias, Diego",
+      "Muchas gracias, Diego"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u2check-q9",
+    "stage": "A1.1",
+    "answer": "La cuenta, por favor",
+    "accepted": [
+      "La cuenta, por favor",
+      "¿Me traes la cuenta, por favor?",
+      "Quiero la cuenta, por favor"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u2story3-q2",
+    "stage": "A1.1",
+    "answer": "the bill / la cuenta",
+    "accepted": [
+      "the bill",
+      "la cuenta",
+      "bill",
+      "the check",
+      "check"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u2story3-q4",
+    "stage": "A1.1",
+    "answer": "five / cinco",
+    "accepted": [
+      "five",
+      "cinco",
+      "5",
+      "five euros",
+      "cinco euros",
+      "5 euros"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u3l0-q3",
+    "stage": "A1.1",
+    "answer": "¿Cuánto cuesta?",
+    "accepted": [
+      "¿Cuánto cuesta?",
+      "¿Qué precio tiene?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u3l0-q5",
+    "stage": "A1.1",
+    "answer": "Cinco euros",
+    "accepted": [
+      "Cinco euros",
+      "Son cinco euros",
+      "Cuesta cinco euros"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u3story0-q2",
+    "stage": "A1.1",
+    "answer": "a notebook / una libreta",
+    "accepted": [
+      "a notebook",
+      "una libreta",
+      "notebook",
+      "libreta",
+      "a blue notebook",
+      "una libreta azul"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u3story0-q4",
+    "stage": "A1.1",
+    "answer": "five / cinco",
+    "accepted": [
+      "five",
+      "cinco",
+      "5",
+      "five euros",
+      "cinco euros"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u3l1-q3",
+    "stage": "A1.1",
+    "answer": "Treinta y dos",
+    "accepted": [
+      "Treinta y dos"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u3l1-q5",
+    "stage": "A1.1",
+    "answer": "Quiero tres libros",
+    "accepted": [
+      "Quiero tres libros",
+      "Quiero tres libros, por favor",
+      "Tres libros, por favor",
+      "Yo quiero tres libros"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u3l1-listen1",
+    "stage": "A1.1",
+    "answer": "two / dos",
+    "accepted": [
+      "two",
+      "dos",
+      "2",
+      "two coffees",
+      "dos cafés"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u3story1-q2",
+    "stage": "A1.1",
+    "answer": "two / dos",
+    "accepted": [
+      "two",
+      "dos",
+      "2",
+      "two coffees",
+      "dos cafés"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u3story1-q4",
+    "stage": "A1.1",
+    "answer": "four / cuatro",
+    "accepted": [
+      "four",
+      "cuatro",
+      "4",
+      "four euros",
+      "cuatro euros"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u3l2-q3",
+    "stage": "A1.1",
+    "answer": "Veintiún euros",
+    "accepted": [
+      "Veintiún euros",
+      "Son veintiún euros",
+      "Cuesta veintiún euros"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u3l2-q5",
+    "stage": "A1.1",
+    "answer": "Son cuatro euros",
+    "accepted": [
+      "Son cuatro euros",
+      "Cuatro euros",
+      "En total, son cuatro euros"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u3story2-q2",
+    "stage": "A1.1",
+    "answer": "tea / té",
+    "accepted": [
+      "tea",
+      "té",
+      "a tea",
+      "un té"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u3story2-q4",
+    "stage": "A1.1",
+    "answer": "two / dos",
+    "accepted": [
+      "two",
+      "dos",
+      "2",
+      "two euros",
+      "dos euros"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u3write-q1",
+    "stage": "A1.1",
+    "answer": "¿Cuánto cuesta?",
+    "accepted": [
+      "¿Cuánto cuesta?",
+      "¿Qué precio tiene?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u3write-q2",
+    "stage": "A1.1",
+    "answer": "Son seis euros",
+    "accepted": [
+      "Son seis euros",
+      "Seis euros",
+      "En total, son seis euros"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u3write-q3",
+    "stage": "A1.1",
+    "answer": "Dos cafés, por favor",
+    "accepted": [
+      "Dos cafés, por favor",
+      "Quiero dos cafés, por favor",
+      "Para mí, dos cafés, por favor"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u3write-q4",
+    "stage": "A1.1",
+    "answer": "Veintiún euros",
+    "accepted": [
+      "Veintiún euros",
+      "Son veintiún euros"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u3write-q5",
+    "stage": "A1.1",
+    "answer": "Un café con leche, por favor",
+    "accepted": [
+      "Un café con leche, por favor",
+      "Quiero un café con leche, por favor",
+      "Para mí, un café con leche, por favor"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u3check-q3",
+    "stage": "A1.1",
+    "answer": "five euros / cinco euros",
+    "accepted": [
+      "five euros",
+      "cinco euros",
+      "5",
+      "cinco",
+      "five",
+      "5 euros",
+      "€5"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u3check-q6",
+    "stage": "A1.1",
+    "answer": "Tres cafés, por favor",
+    "accepted": [
+      "Tres cafés, por favor",
+      "Quiero tres cafés, por favor",
+      "Para mí, tres cafés, por favor"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u3check-q7",
+    "stage": "A1.1",
+    "answer": "Quiero tres libros",
+    "accepted": [
+      "Quiero tres libros",
+      "Quiero tres libros, por favor",
+      "Tres libros, por favor",
+      "Yo quiero tres libros"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u3check-q8",
+    "stage": "A1.1",
+    "answer": "Son cuatro euros",
+    "accepted": [
+      "Son cuatro euros",
+      "Cuatro euros",
+      "En total, son cuatro euros"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u3check-q9",
+    "stage": "A1.1",
+    "answer": "Siete euros",
+    "accepted": [
+      "Siete euros",
+      "Son siete euros",
+      "Cuesta siete euros"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u3story3-q2",
+    "stage": "A1.1",
+    "answer": "the book / el libro",
+    "accepted": [
+      "the book",
+      "el libro",
+      "book",
+      "libro"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u3story3-q4",
+    "stage": "A1.1",
+    "answer": "seven / siete",
+    "accepted": [
+      "seven",
+      "siete",
+      "7",
+      "seven euros",
+      "siete euros"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u4l0-q3",
+    "stage": "A1.1",
+    "answer": "Este es mi hermano",
+    "accepted": [
+      "Este es mi hermano",
+      "Él es mi hermano"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u4l0-q5",
+    "stage": "A1.1",
+    "answer": "Esta es mi hermana Marta",
+    "accepted": [
+      "Esta es mi hermana Marta",
+      "Marta es mi hermana",
+      "Mi hermana se llama Marta"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u4story0-q2",
+    "stage": "A1.1",
+    "answer": "his sister / su hermana",
+    "accepted": [
+      "his sister",
+      "su hermana",
+      "sister",
+      "hermana",
+      "Luis’s sister",
+      "la hermana de Luis"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u4story0-q4",
+    "stage": "A1.1",
+    "answer": "tea / té",
+    "accepted": [
+      "tea",
+      "té",
+      "a tea",
+      "un té"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u4l1-q3",
+    "stage": "A1.1",
+    "answer": "Mi hermano es alto",
+    "accepted": [
+      "Mi hermano es alto"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u4l1-q5",
+    "stage": "A1.1",
+    "answer": "Mi hermana es alta",
+    "accepted": [
+      "Mi hermana es alta",
+      "Ella es alta"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u4story1-q2",
+    "stage": "A1.1",
+    "answer": "tall / alto",
+    "accepted": [
+      "tall",
+      "alto",
+      "friendly",
+      "simpático",
+      "es alto",
+      "es simpático",
+      "tall and friendly",
+      "alto y simpático"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u4story1-q4",
+    "stage": "A1.1",
+    "answer": "Marta / Marta",
+    "accepted": [
+      "Marta"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u4l2-q3",
+    "stage": "A1.1",
+    "answer": "Tiene los ojos marrones",
+    "accepted": [
+      "Tiene los ojos marrones",
+      "Ella tiene los ojos marrones",
+      "Sus ojos son marrones"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u4l2-q5",
+    "stage": "A1.1",
+    "answer": "Es simpática",
+    "accepted": [
+      "Es simpática",
+      "Marta es simpática",
+      "Ella es simpática"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u4l2-listen1",
+    "stage": "A1.1",
+    "answer": "the brother / el hermano",
+    "accepted": [
+      "the brother",
+      "el hermano",
+      "brother",
+      "hermano",
+      "mi hermano"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u4story2-q2",
+    "stage": "A1.1",
+    "answer": "Luis / Luis",
+    "accepted": [
+      "Luis"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u4story2-q4",
+    "stage": "A1.1",
+    "answer": "brown / marrones",
+    "accepted": [
+      "brown",
+      "marrones",
+      "marrón",
+      "brown eyes",
+      "ojos marrones"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u4write-q1",
+    "stage": "A1.1",
+    "answer": "Esta es mi hermana Marta",
+    "accepted": [
+      "Esta es mi hermana Marta",
+      "Marta es mi hermana",
+      "Mi hermana se llama Marta"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u4write-q2",
+    "stage": "A1.1",
+    "answer": "Mi hermano es simpático",
+    "accepted": [
+      "Mi hermano es simpático",
+      "Él es simpático"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u4write-q3",
+    "stage": "A1.1",
+    "answer": "Mi hermana es alta",
+    "accepted": [
+      "Mi hermana es alta",
+      "Ella es alta"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u4write-q4",
+    "stage": "A1.1",
+    "answer": "Son marrones",
+    "accepted": [
+      "Son marrones",
+      "Sus ojos son marrones",
+      "Tiene los ojos marrones",
+      "Marta tiene los ojos marrones"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u4write-q5",
+    "stage": "A1.1",
+    "answer": "Estos son mis padres",
+    "accepted": [
+      "Estos son mis padres",
+      "Son mis padres",
+      "Ellos son mis padres"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u4check-q6",
+    "stage": "A1.1",
+    "answer": "Esta es mi hermana Marta",
+    "accepted": [
+      "Esta es mi hermana Marta",
+      "Marta es mi hermana",
+      "Mi hermana se llama Marta"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u4check-q7",
+    "stage": "A1.1",
+    "answer": "Mi hermana es alta",
+    "accepted": [
+      "Mi hermana es alta",
+      "Ella es alta"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u4check-q8",
+    "stage": "A1.1",
+    "answer": "Es simpática",
+    "accepted": [
+      "Es simpática",
+      "Marta es simpática",
+      "Ella es simpática"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u4check-q9",
+    "stage": "A1.1",
+    "answer": "Mi hermano es alto y simpático",
+    "accepted": [
+      "Mi hermano es alto y simpático",
+      "Mi hermano es simpático y alto"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u4story3-q2",
+    "stage": "A1.1",
+    "answer": "Marta / Marta",
+    "accepted": [
+      "Marta"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u4story3-q4",
+    "stage": "A1.1",
+    "answer": "two / dos",
+    "accepted": [
+      "two",
+      "dos",
+      "2",
+      "dos tés",
+      "two teas"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u5l0-q3",
+    "stage": "A1.1",
+    "answer": "Un libro rojo",
+    "accepted": [
+      "Un libro rojo"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u5l0-q5",
+    "stage": "A1.1",
+    "answer": "Un libro azul",
+    "accepted": [
+      "Un libro azul"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u5story0-q2",
+    "stage": "A1.1",
+    "answer": "two / dos",
+    "accepted": [
+      "two",
+      "dos",
+      "2",
+      "two books",
+      "dos libros"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u5story0-q4",
+    "stage": "A1.1",
+    "answer": "blue / azul",
+    "accepted": [
+      "blue",
+      "azul",
+      "the blue one",
+      "el azul"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u5l1-q3",
+    "stage": "A1.1",
+    "answer": "El móvil está aquí",
+    "accepted": [
+      "El móvil está aquí",
+      "Mi móvil está aquí"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u5l1-q5",
+    "stage": "A1.1",
+    "answer": "Las llaves están en la mesa",
+    "accepted": [
+      "Las llaves están en la mesa",
+      "Están en la mesa"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u5l1-listen1",
+    "stage": "A1.1",
+    "answer": "on the table / en la mesa",
+    "accepted": [
+      "on the table",
+      "en la mesa",
+      "table",
+      "the table",
+      "mesa"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u5story1-q2",
+    "stage": "A1.1",
+    "answer": "on the table / en la mesa",
+    "accepted": [
+      "on the table",
+      "en la mesa",
+      "the table",
+      "la mesa",
+      "mesa",
+      "aquí",
+      "here",
+      "aquí en la mesa"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u5story1-q4",
+    "stage": "A1.1",
+    "answer": "a mobile phone / un móvil",
+    "accepted": [
+      "a mobile phone",
+      "un móvil",
+      "phone",
+      "mobile phone",
+      "móvil",
+      "el móvil",
+      "teléfono",
+      "a phone"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u5l2-q3",
+    "stage": "A1.1",
+    "answer": "Hay un ordenador",
+    "accepted": [
+      "Hay un ordenador",
+      "Hay una computadora"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u5l2-q5",
+    "stage": "A1.1",
+    "answer": "Mi móvil es negro",
+    "accepted": [
+      "Mi móvil es negro",
+      "El móvil es negro",
+      "Tengo un móvil negro",
+      "Mi teléfono es negro"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u5story2-q2",
+    "stage": "A1.1",
+    "answer": "papers / papeles",
+    "accepted": [
+      "papers",
+      "papeles",
+      "her papers",
+      "sus papeles",
+      "mis papeles"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u5story2-q4",
+    "stage": "A1.1",
+    "answer": "blue / azul",
+    "accepted": [
+      "blue",
+      "azul"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u5write-q1",
+    "stage": "A1.1",
+    "answer": "Mi libro es rojo",
+    "accepted": [
+      "Mi libro es rojo",
+      "El libro es rojo",
+      "Tengo un libro rojo",
+      "Es un libro rojo"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u5write-q2",
+    "stage": "A1.1",
+    "answer": "Las llaves están en la mesa",
+    "accepted": [
+      "Las llaves están en la mesa",
+      "Mis llaves están en la mesa",
+      "Están en la mesa"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u5write-q3",
+    "stage": "A1.1",
+    "answer": "Mi móvil está aquí",
+    "accepted": [
+      "Mi móvil está aquí",
+      "El móvil está aquí",
+      "Mi teléfono está aquí",
+      "Mi celular está aquí"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u5write-q4",
+    "stage": "A1.1",
+    "answer": "Hay un ordenador",
+    "accepted": [
+      "Hay un ordenador",
+      "Hay una computadora",
+      "Hay un computador"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u5write-q5",
+    "stage": "A1.1",
+    "answer": "Es una carpeta",
+    "accepted": [
+      "Es una carpeta",
+      "Una carpeta",
+      "Es una carpeta azul"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u5check-q3",
+    "stage": "A1.1",
+    "answer": "on the table / en la mesa",
+    "accepted": [
+      "on the table",
+      "en la mesa",
+      "table",
+      "the table",
+      "mesa"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u5check-q6",
+    "stage": "A1.1",
+    "answer": "Mi móvil está en la mesa",
+    "accepted": [
+      "Mi móvil está en la mesa",
+      "El móvil está en la mesa",
+      "Mi teléfono está en la mesa",
+      "Mi celular está en la mesa"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u5check-q7",
+    "stage": "A1.1",
+    "answer": "Las llaves están en la mesa",
+    "accepted": [
+      "Las llaves están en la mesa",
+      "Están en la mesa"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u5check-q8",
+    "stage": "A1.1",
+    "answer": "Mi móvil es negro",
+    "accepted": [
+      "Mi móvil es negro",
+      "El móvil es negro",
+      "Tengo un móvil negro",
+      "Mi teléfono es negro"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u5check-q9",
+    "stage": "A1.1",
+    "answer": "Hay dos ordenadores",
+    "accepted": [
+      "Hay dos ordenadores"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u5story3-q2",
+    "stage": "A1.1",
+    "answer": "red / rojo",
+    "accepted": [
+      "red",
+      "rojo",
+      "roja"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u5story3-q4",
+    "stage": "A1.1",
+    "answer": "on the table / en la mesa",
+    "accepted": [
+      "on the table",
+      "en la mesa",
+      "the table",
+      "la mesa",
+      "mesa"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u6l0-q3",
+    "stage": "A1.1",
+    "answer": "¿Dónde está la estación?",
+    "accepted": [
+      "¿Dónde está la estación?",
+      "¿Dónde se encuentra la estación?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u6l0-q5",
+    "stage": "A1.1",
+    "answer": "¿Dónde está el café?",
+    "accepted": [
+      "¿Dónde está el café?",
+      "¿Dónde se encuentra el café?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u6story0-q2",
+    "stage": "A1.1",
+    "answer": "right / derecha",
+    "accepted": [
+      "right",
+      "derecha",
+      "to the right",
+      "a la derecha"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u6story0-q4",
+    "stage": "A1.1",
+    "answer": "near / cerca",
+    "accepted": [
+      "near",
+      "cerca",
+      "nearby",
+      "it is near",
+      "está cerca"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u6l1-q3",
+    "stage": "A1.1",
+    "answer": "Todo recto",
+    "accepted": [
+      "Todo recto",
+      "Recto",
+      "Sigue todo recto"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u6l1-q5",
+    "stage": "A1.1",
+    "answer": "A la izquierda",
+    "accepted": [
+      "A la izquierda",
+      "Está a la izquierda"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u6story1-q2",
+    "stage": "A1.1",
+    "answer": "the station / la estación",
+    "accepted": [
+      "the station",
+      "la estación",
+      "station",
+      "estación"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u6story1-q4",
+    "stage": "A1.1",
+    "answer": "the park / el parque",
+    "accepted": [
+      "the park",
+      "el parque",
+      "park",
+      "parque",
+      "al parque"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u6l2-q3",
+    "stage": "A1.1",
+    "answer": "¿Está lejos?",
+    "accepted": [
+      "¿Está lejos?",
+      "¿Está muy lejos?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u6l2-q5",
+    "stage": "A1.1",
+    "answer": "Voy a la estación",
+    "accepted": [
+      "Voy a la estación",
+      "Yo voy a la estación"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u6l2-listen1",
+    "stage": "A1.1",
+    "answer": "the park / el parque",
+    "accepted": [
+      "the park",
+      "el parque",
+      "park",
+      "parque",
+      "to the park",
+      "al parque"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u6story2-q2",
+    "stage": "A1.1",
+    "answer": "the station / la estación",
+    "accepted": [
+      "the station",
+      "la estación",
+      "station",
+      "estación"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u6story2-q4",
+    "stage": "A1.1",
+    "answer": "straight ahead / todo recto",
+    "accepted": [
+      "straight ahead",
+      "todo recto",
+      "straight",
+      "recto"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u6write-q1",
+    "stage": "A1.1",
+    "answer": "¿Dónde está la farmacia?",
+    "accepted": [
+      "¿Dónde está la farmacia?",
+      "¿Dónde se encuentra la farmacia?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u6write-q2",
+    "stage": "A1.1",
+    "answer": "A la derecha",
+    "accepted": [
+      "A la derecha",
+      "Está a la derecha",
+      "El café está a la derecha"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u6write-q3",
+    "stage": "A1.1",
+    "answer": "Está cerca",
+    "accepted": [
+      "Está cerca",
+      "La estación está cerca",
+      "No está lejos"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u6write-q4",
+    "stage": "A1.1",
+    "answer": "Voy al parque",
+    "accepted": [
+      "Voy al parque",
+      "Yo voy al parque"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u6write-q5",
+    "stage": "A1.1",
+    "answer": "Voy a la farmacia",
+    "accepted": [
+      "Voy a la farmacia",
+      "Yo voy a la farmacia"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u6check-q6",
+    "stage": "A1.1",
+    "answer": "¿Dónde está el café?",
+    "accepted": [
+      "¿Dónde está el café?",
+      "¿Dónde se encuentra el café?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u6check-q7",
+    "stage": "A1.1",
+    "answer": "A la izquierda",
+    "accepted": [
+      "A la izquierda",
+      "Está a la izquierda"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u6check-q8",
+    "stage": "A1.1",
+    "answer": "Voy a la estación",
+    "accepted": [
+      "Voy a la estación",
+      "Yo voy a la estación"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u6check-q9",
+    "stage": "A1.1",
+    "answer": "Voy al café",
+    "accepted": [
+      "Voy al café",
+      "Yo voy al café"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u6story3-q2",
+    "stage": "A1.1",
+    "answer": "Luis / Luis",
+    "accepted": [
+      "Luis"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u6story3-q4",
+    "stage": "A1.1",
+    "answer": "to the right / a la derecha",
+    "accepted": [
+      "to the right",
+      "a la derecha",
+      "right",
+      "derecha"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u7l0-q3",
+    "stage": "A1.1",
+    "answer": "Es la una",
+    "accepted": [
+      "Es la una",
+      "Es la una en punto"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u7l0-q5",
+    "stage": "A1.1",
+    "answer": "Son las tres",
+    "accepted": [
+      "Son las tres",
+      "Son las tres en punto"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u7story0-q2",
+    "stage": "A1.1",
+    "answer": "two / dos",
+    "accepted": [
+      "two",
+      "dos",
+      "2",
+      "at two",
+      "a las dos",
+      "two o’clock"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u7story0-q4",
+    "stage": "A1.1",
+    "answer": "later / luego",
+    "accepted": [
+      "later",
+      "luego",
+      "then"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u7l1-q3",
+    "stage": "A1.1",
+    "answer": "A las ocho",
+    "accepted": [
+      "A las ocho"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u7l1-q5",
+    "stage": "A1.1",
+    "answer": "Desayuno a las ocho",
+    "accepted": [
+      "Desayuno a las ocho",
+      "Yo desayuno a las ocho"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u7l1-listen1",
+    "stage": "A1.1",
+    "answer": "eight / las ocho",
+    "accepted": [
+      "eight",
+      "las ocho",
+      "8",
+      "at eight",
+      "a las ocho"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u7story1-q2",
+    "stage": "A1.1",
+    "answer": "Diego / Diego",
+    "accepted": [
+      "Diego"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u7story1-q4",
+    "stage": "A1.1",
+    "answer": "nine / nueve",
+    "accepted": [
+      "nine",
+      "nueve",
+      "9",
+      "at nine",
+      "a las nueve",
+      "nine o’clock"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u7l2-q3",
+    "stage": "A1.1",
+    "answer": "Son las tres menos cuarto",
+    "accepted": [
+      "Son las tres menos cuarto",
+      "Son las dos y cuarenta y cinco"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u7l2-q5",
+    "stage": "A1.1",
+    "answer": "A las nueve",
+    "accepted": [
+      "A las nueve",
+      "Nos vemos a las nueve",
+      "A las nueve en punto"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u7story2-q2",
+    "stage": "A1.1",
+    "answer": "the park / el parque",
+    "accepted": [
+      "the park",
+      "el parque",
+      "park",
+      "parque",
+      "en el parque"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u7story2-q4",
+    "stage": "A1.1",
+    "answer": "three / tres",
+    "accepted": [
+      "three",
+      "tres",
+      "3",
+      "at three",
+      "a las tres",
+      "three o’clock"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u7write-q1",
+    "stage": "A1.1",
+    "answer": "Es la una",
+    "accepted": [
+      "Es la una",
+      "Es la una en punto"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u7write-q2",
+    "stage": "A1.1",
+    "answer": "Desayuno a las nueve",
+    "accepted": [
+      "Desayuno a las nueve",
+      "Yo desayuno a las nueve"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u7write-q3",
+    "stage": "A1.1",
+    "answer": "Nos vemos a las dos",
+    "accepted": [
+      "Nos vemos a las dos",
+      "A las dos",
+      "Nos vemos a las dos en punto"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u7write-q4",
+    "stage": "A1.1",
+    "answer": "A la una",
+    "accepted": [
+      "A la una",
+      "Nos vemos a la una",
+      "A la una en punto"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u7write-q5",
+    "stage": "A1.1",
+    "answer": "A las tres y media",
+    "accepted": [
+      "A las tres y media",
+      "Nos vemos a las tres y media"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u7check-q3",
+    "stage": "A1.1",
+    "answer": "half past three / a las tres y media",
+    "accepted": [
+      "half past three",
+      "a las tres y media",
+      "3:30",
+      "15:30",
+      "three thirty",
+      "las tres y media",
+      "tres y media"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u7check-q6",
+    "stage": "A1.1",
+    "answer": "Son las dos y media",
+    "accepted": [
+      "Son las dos y media"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u7check-q7",
+    "stage": "A1.1",
+    "answer": "Desayuno a las ocho",
+    "accepted": [
+      "Desayuno a las ocho",
+      "Yo desayuno a las ocho"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u7check-q8",
+    "stage": "A1.1",
+    "answer": "A las nueve",
+    "accepted": [
+      "A las nueve",
+      "Nos vemos a las nueve",
+      "A las nueve en punto"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u7check-q9",
+    "stage": "A1.1",
+    "answer": "Nos vemos a la una",
+    "accepted": [
+      "Nos vemos a la una",
+      "Nos vemos a la una en punto"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "u7story3-q2",
+    "stage": "A1.1",
+    "answer": "half past three / las tres y media",
+    "accepted": [
+      "half past three",
+      "las tres y media",
+      "3:30",
+      "15:30",
+      "three thirty",
+      "tres y media",
+      "a las tres y media"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "u7story3-q4",
+    "stage": "A1.1",
+    "answer": "the park / el parque",
+    "accepted": [
+      "the park",
+      "el parque",
+      "park",
+      "parque",
+      "al parque"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u0l0-q3",
+    "stage": "A1.2",
+    "answer": "Me gusta leer",
+    "accepted": [
+      "Me gusta leer",
+      "A mí me gusta leer"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u0l0-q5",
+    "stage": "A1.2",
+    "answer": "Me gusta el cine y me gusta leer",
+    "accepted": [
+      "Me gusta el cine y me gusta leer",
+      "Me gusta el cine y leer",
+      "A mí me gusta el cine y leer"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u0story0-q2",
+    "stage": "A1.2",
+    "answer": "football / el fútbol",
+    "accepted": [
+      "football",
+      "el fútbol",
+      "fútbol",
+      "soccer"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u0story0-q4",
+    "stage": "A1.2",
+    "answer": "in the park / en el parque",
+    "accepted": [
+      "in the park",
+      "en el parque",
+      "park",
+      "the park",
+      "parque"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u0l1-q3",
+    "stage": "A1.2",
+    "answer": "Me gustan los libros",
+    "accepted": [
+      "Me gustan los libros",
+      "A mí me gustan los libros"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u0l1-q5",
+    "stage": "A1.2",
+    "answer": "Me gustan los libros, pero no me gusta el fútbol",
+    "accepted": [
+      "Me gustan los libros, pero no me gusta el fútbol",
+      "Me gustan los libros pero el fútbol no me gusta"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u0story1-q2",
+    "stage": "A1.2",
+    "answer": "Marta / Marta",
+    "accepted": [
+      "Marta"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u0story1-q4",
+    "stage": "A1.2",
+    "answer": "tea / té",
+    "accepted": [
+      "tea",
+      "té",
+      "a tea",
+      "un té"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u0l2-q3",
+    "stage": "A1.2",
+    "answer": "Prefiero el cine",
+    "accepted": [
+      "Prefiero el cine",
+      "Yo prefiero el cine"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u0l2-q5",
+    "stage": "A1.2",
+    "answer": "Prefiero leer porque me gustan los libros",
+    "accepted": [
+      "Prefiero leer porque me gustan los libros",
+      "Yo prefiero leer porque me gustan los libros"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u0story2-q2",
+    "stage": "A1.2",
+    "answer": "the cinema / el cine",
+    "accepted": [
+      "the cinema",
+      "el cine",
+      "cinema",
+      "cine"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u0story2-q4",
+    "stage": "A1.2",
+    "answer": "Marta / Marta",
+    "accepted": [
+      "Marta"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u0write-q1",
+    "stage": "A1.2",
+    "answer": "Sí, me gusta leer",
+    "accepted": [
+      "Sí, me gusta leer",
+      "Sí, a mí me gusta leer"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u0write-q2",
+    "stage": "A1.2",
+    "answer": "También me gusta la música",
+    "accepted": [
+      "También me gusta la música",
+      "También a mí me gusta la música"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u0write-q3",
+    "stage": "A1.2",
+    "answer": "No me gusta el fútbol, pero me gusta el cine",
+    "accepted": [
+      "No me gusta el fútbol, pero me gusta el cine",
+      "El fútbol no me gusta pero el cine sí"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u0write-q4",
+    "stage": "A1.2",
+    "answer": "Prefiero leer, pero hoy voy al parque",
+    "accepted": [
+      "Prefiero leer, pero hoy voy al parque",
+      "Prefiero leer pero voy al parque hoy",
+      "Yo prefiero leer, pero hoy voy al parque"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u0write-q5",
+    "stage": "A1.2",
+    "answer": "Me gusta leer porque me gustan los libros",
+    "accepted": [
+      "Me gusta leer porque me gustan los libros"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u0story3-q2",
+    "stage": "A1.2",
+    "answer": "Diego / Diego",
+    "accepted": [
+      "Diego"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u0story3-q4",
+    "stage": "A1.2",
+    "answer": "at the café / en el café",
+    "accepted": [
+      "at the café",
+      "en el café",
+      "café",
+      "the café",
+      "el café"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u0check-q6",
+    "stage": "A1.2",
+    "answer": "Me gusta leer, pero no me gusta el fútbol",
+    "accepted": [
+      "Me gusta leer, pero no me gusta el fútbol"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u0check-q7",
+    "stage": "A1.2",
+    "answer": "Me gustan los libros, pero no me gusta el fútbol",
+    "accepted": [
+      "Me gustan los libros, pero no me gusta el fútbol",
+      "Me gustan los libros pero el fútbol no me gusta"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u0check-q8",
+    "stage": "A1.2",
+    "answer": "Prefiero leer porque me gustan los libros",
+    "accepted": [
+      "Prefiero leer porque me gustan los libros",
+      "Yo prefiero leer porque me gustan los libros"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u0check-q9",
+    "stage": "A1.2",
+    "answer": "Prefiero el cine porque me gustan las películas",
+    "accepted": [
+      "Prefiero el cine porque me gustan las películas",
+      "Yo prefiero el cine porque me gustan las películas"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u1l0-q3",
+    "stage": "A1.2",
+    "answer": "¿Vamos al cine?",
+    "accepted": [
+      "¿Vamos al cine?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u1l0-q5",
+    "stage": "A1.2",
+    "answer": "¿Vamos al parque?",
+    "accepted": [
+      "¿Vamos al parque?",
+      "Luis, ¿vamos al parque?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u1story0-q2",
+    "stage": "A1.2",
+    "answer": "to the park / al parque",
+    "accepted": [
+      "to the park",
+      "al parque",
+      "park",
+      "the park",
+      "parque"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u1story0-q4",
+    "stage": "A1.2",
+    "answer": "Ana / Ana",
+    "accepted": [
+      "Ana"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u1l1-q3",
+    "stage": "A1.2",
+    "answer": "¿Quieres venir?",
+    "accepted": [
+      "¿Quieres venir?",
+      "¿Tú quieres venir?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u1l1-q5",
+    "stage": "A1.2",
+    "answer": "¿Quieres ir al cine?",
+    "accepted": [
+      "¿Quieres ir al cine?",
+      "Marta, ¿quieres ir al cine?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u1l1-listen1",
+    "stage": "A1.2",
+    "answer": "the park / el parque",
+    "accepted": [
+      "the park",
+      "el parque",
+      "park",
+      "parque",
+      "to the park",
+      "al parque"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u1story1-q2",
+    "stage": "A1.2",
+    "answer": "study / estudiar",
+    "accepted": [
+      "study",
+      "estudiar",
+      "studying",
+      "to study",
+      "she has to study",
+      "tiene que estudiar"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u1story1-q4",
+    "stage": "A1.2",
+    "answer": "Marta / Marta",
+    "accepted": [
+      "Marta"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u1l2-q3",
+    "stage": "A1.2",
+    "answer": "Lo siento, no puedo",
+    "accepted": [
+      "Lo siento, no puedo",
+      "No puedo, lo siento"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u1l2-q5",
+    "stage": "A1.2",
+    "answer": "No puedo hoy. ¿Qué tal mañana?",
+    "accepted": [
+      "No puedo hoy. ¿Qué tal mañana?",
+      "Lo siento, no puedo hoy. ¿Qué tal mañana?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u1story2-q2",
+    "stage": "A1.2",
+    "answer": "six / las seis",
+    "accepted": [
+      "six",
+      "las seis",
+      "6",
+      "at six",
+      "a las seis"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u1story2-q4",
+    "stage": "A1.2",
+    "answer": "in front of the café / delante del café",
+    "accepted": [
+      "in front of the café",
+      "delante del café",
+      "outside the café",
+      "frente al café"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u1write-q1",
+    "stage": "A1.2",
+    "answer": "¿Vamos al café?",
+    "accepted": [
+      "¿Vamos al café?",
+      "Marta, ¿vamos al café?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u1write-q2",
+    "stage": "A1.2",
+    "answer": "Sí, buena idea. Gracias.",
+    "accepted": [
+      "Sí, buena idea. Gracias.",
+      "Sí, es una buena idea. Gracias.",
+      "Buena idea, gracias"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u1write-q3",
+    "stage": "A1.2",
+    "answer": "Lo siento, no puedo venir",
+    "accepted": [
+      "Lo siento, no puedo venir",
+      "No puedo venir, lo siento"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u1write-q4",
+    "stage": "A1.2",
+    "answer": "¿Quieres venir a mi piso?",
+    "accepted": [
+      "¿Quieres venir a mi piso?",
+      "Luis, ¿quieres venir a mi piso?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u1write-q5",
+    "stage": "A1.2",
+    "answer": "No puedo mañana. ¿Qué tal el sábado?",
+    "accepted": [
+      "No puedo mañana. ¿Qué tal el sábado?",
+      "Lo siento, no puedo mañana. ¿Qué tal el sábado?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u1story3-q2",
+    "stage": "A1.2",
+    "answer": "Luis / Luis",
+    "accepted": [
+      "Luis"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u1story3-q4",
+    "stage": "A1.2",
+    "answer": "Saturday / el sábado",
+    "accepted": [
+      "Saturday",
+      "el sábado",
+      "sábado",
+      "on Saturday"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u1check-q3",
+    "stage": "A1.2",
+    "answer": "tomorrow / mañana",
+    "accepted": [
+      "tomorrow",
+      "mañana"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u1check-q6",
+    "stage": "A1.2",
+    "answer": "¿Quieres venir a mi piso?",
+    "accepted": [
+      "¿Quieres venir a mi piso?",
+      "Luis, ¿quieres venir a mi piso?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u1check-q7",
+    "stage": "A1.2",
+    "answer": "¿Quieres ir al cine?",
+    "accepted": [
+      "¿Quieres ir al cine?",
+      "Marta, ¿quieres ir al cine?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u1check-q8",
+    "stage": "A1.2",
+    "answer": "No puedo hoy. ¿Qué tal mañana?",
+    "accepted": [
+      "No puedo hoy. ¿Qué tal mañana?",
+      "Lo siento, no puedo hoy. ¿Qué tal mañana?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u1check-q9",
+    "stage": "A1.2",
+    "answer": "No puedo hoy. ¿Qué tal el sábado?",
+    "accepted": [
+      "No puedo hoy. ¿Qué tal el sábado?",
+      "Lo siento, no puedo hoy. ¿Qué tal el sábado?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u2l0-q3",
+    "stage": "A1.2",
+    "answer": "Voy a leer mañana",
+    "accepted": [
+      "Voy a leer mañana",
+      "Mañana voy a leer",
+      "Yo voy a leer mañana"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u2l0-q5",
+    "stage": "A1.2",
+    "answer": "Voy a ir al cine mañana",
+    "accepted": [
+      "Voy a ir al cine mañana",
+      "Mañana voy a ir al cine",
+      "Yo voy a ir al cine mañana"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u2story0-q2",
+    "stage": "A1.2",
+    "answer": "Saturday / el sábado",
+    "accepted": [
+      "Saturday",
+      "el sábado",
+      "sábado",
+      "on Saturday"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u2story0-q4",
+    "stage": "A1.2",
+    "answer": "in front of the cinema / delante del cine",
+    "accepted": [
+      "in front of the cinema",
+      "delante del cine",
+      "outside the cinema",
+      "frente al cine"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u2l1-q3",
+    "stage": "A1.2",
+    "answer": "Quedamos el sábado a las cinco",
+    "accepted": [
+      "Quedamos el sábado a las cinco",
+      "El sábado quedamos a las cinco"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u2l1-q5",
+    "stage": "A1.2",
+    "answer": "Quedamos el domingo a las seis",
+    "accepted": [
+      "Quedamos el domingo a las seis",
+      "El domingo quedamos a las seis"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u2story1-q2",
+    "stage": "A1.2",
+    "answer": "five / las cinco",
+    "accepted": [
+      "five",
+      "las cinco",
+      "5",
+      "at five",
+      "a las cinco"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u2story1-q4",
+    "stage": "A1.2",
+    "answer": "Marta / Marta",
+    "accepted": [
+      "Marta"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u2l2-q3",
+    "stage": "A1.2",
+    "answer": "Vamos a quedar delante del cine",
+    "accepted": [
+      "Vamos a quedar delante del cine",
+      "Nosotros vamos a quedar delante del cine"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u2l2-q5",
+    "stage": "A1.2",
+    "answer": "Quedamos delante del café a las seis",
+    "accepted": [
+      "Quedamos delante del café a las seis",
+      "A las seis quedamos delante del café"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u2l2-listen1",
+    "stage": "A1.2",
+    "answer": "five / las cinco",
+    "accepted": [
+      "five",
+      "las cinco",
+      "5",
+      "at five",
+      "a las cinco"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u2story2-q2",
+    "stage": "A1.2",
+    "answer": "football / fútbol",
+    "accepted": [
+      "football",
+      "fútbol",
+      "play football",
+      "jugar al fútbol",
+      "soccer"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u2story2-q4",
+    "stage": "A1.2",
+    "answer": "six / las seis",
+    "accepted": [
+      "six",
+      "las seis",
+      "6",
+      "at six",
+      "a las seis"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u2write-q1",
+    "stage": "A1.2",
+    "answer": "Voy a trabajar el lunes",
+    "accepted": [
+      "Voy a trabajar el lunes",
+      "El lunes voy a trabajar",
+      "Yo voy a trabajar el lunes"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u2write-q2",
+    "stage": "A1.2",
+    "answer": "¿A qué hora quedamos?",
+    "accepted": [
+      "¿A qué hora quedamos?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u2write-q3",
+    "stage": "A1.2",
+    "answer": "Quedamos delante del parque a las diez",
+    "accepted": [
+      "Quedamos delante del parque a las diez",
+      "A las diez quedamos delante del parque"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u2write-q4",
+    "stage": "A1.2",
+    "answer": "Vamos a leer el domingo",
+    "accepted": [
+      "Vamos a leer el domingo",
+      "El domingo vamos a leer",
+      "Nosotros vamos a leer el domingo"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u2write-q5",
+    "stage": "A1.2",
+    "answer": "No puedo a las cinco. ¿Qué tal a las seis?",
+    "accepted": [
+      "No puedo a las cinco. ¿Qué tal a las seis?",
+      "Lo siento, no puedo a las cinco. ¿Qué tal a las seis?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u2story3-q2",
+    "stage": "A1.2",
+    "answer": "Monday / el lunes",
+    "accepted": [
+      "Monday",
+      "el lunes",
+      "lunes",
+      "on Monday"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u2story3-q4",
+    "stage": "A1.2",
+    "answer": "ten / las diez",
+    "accepted": [
+      "ten",
+      "las diez",
+      "10",
+      "at ten",
+      "a las diez"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u2check-q6",
+    "stage": "A1.2",
+    "answer": "Voy a leer el lunes",
+    "accepted": [
+      "Voy a leer el lunes",
+      "El lunes voy a leer",
+      "Yo voy a leer el lunes"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u2check-q7",
+    "stage": "A1.2",
+    "answer": "Quedamos el domingo a las seis",
+    "accepted": [
+      "Quedamos el domingo a las seis",
+      "El domingo quedamos a las seis"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u2check-q8",
+    "stage": "A1.2",
+    "answer": "Quedamos delante del café a las seis",
+    "accepted": [
+      "Quedamos delante del café a las seis",
+      "A las seis quedamos delante del café"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u2check-q9",
+    "stage": "A1.2",
+    "answer": "Quedamos delante del parque a las ocho",
+    "accepted": [
+      "Quedamos delante del parque a las ocho",
+      "A las ocho quedamos delante del parque"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u3l0-q3",
+    "stage": "A1.2",
+    "answer": "Necesito una camiseta azul",
+    "accepted": [
+      "Necesito una camiseta azul",
+      "Yo necesito una camiseta azul"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u3l0-q5",
+    "stage": "A1.2",
+    "answer": "Necesito una chaqueta roja",
+    "accepted": [
+      "Necesito una chaqueta roja",
+      "Yo necesito una chaqueta roja"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u3story0-q2",
+    "stage": "A1.2",
+    "answer": "black / negros",
+    "accepted": [
+      "black",
+      "negros",
+      "negro",
+      "black trousers",
+      "pantalones negros"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u3story0-q4",
+    "stage": "A1.2",
+    "answer": "Marta / Marta",
+    "accepted": [
+      "Marta"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u3l1-q3",
+    "stage": "A1.2",
+    "answer": "Necesito unos pantalones negros",
+    "accepted": [
+      "Necesito unos pantalones negros",
+      "Necesito pantalones negros",
+      "Yo necesito unos pantalones negros"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u3l1-q5",
+    "stage": "A1.2",
+    "answer": "Necesito unos pantalones azules",
+    "accepted": [
+      "Necesito unos pantalones azules",
+      "Necesito pantalones azules",
+      "Yo necesito unos pantalones azules"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u3l1-listen1",
+    "stage": "A1.2",
+    "answer": "black / negros",
+    "accepted": [
+      "black",
+      "negros",
+      "black trousers",
+      "pantalones negros",
+      "negro"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u3story1-q2",
+    "stage": "A1.2",
+    "answer": "medium / mediana",
+    "accepted": [
+      "medium",
+      "mediana",
+      "medium size",
+      "la talla mediana",
+      "talla mediana"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u3story1-q4",
+    "stage": "A1.2",
+    "answer": "blue / azul",
+    "accepted": [
+      "blue",
+      "azul",
+      "the blue one",
+      "la azul"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u3l2-q3",
+    "stage": "A1.2",
+    "answer": "¿Tiene la talla mediana?",
+    "accepted": [
+      "¿Tiene la talla mediana?",
+      "¿Tiene una talla mediana?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u3l2-q5",
+    "stage": "A1.2",
+    "answer": "¿Tiene la talla pequeña?",
+    "accepted": [
+      "¿Tiene la talla pequeña?",
+      "¿Tiene una talla pequeña?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u3story2-q2",
+    "stage": "A1.2",
+    "answer": "black / negra",
+    "accepted": [
+      "black",
+      "negra",
+      "negro",
+      "black jacket",
+      "la negra"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u3story2-q4",
+    "stage": "A1.2",
+    "answer": "Marta / Marta",
+    "accepted": [
+      "Marta"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u3write-q1",
+    "stage": "A1.2",
+    "answer": "Quiero una camiseta blanca, por favor",
+    "accepted": [
+      "Quiero una camiseta blanca, por favor",
+      "Por favor, quiero una camiseta blanca",
+      "Yo quiero una camiseta blanca, por favor"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u3write-q2",
+    "stage": "A1.2",
+    "answer": "Necesito una chaqueta negra porque hace frío",
+    "accepted": [
+      "Necesito una chaqueta negra porque hace frío",
+      "Yo necesito una chaqueta negra porque hace frío"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u3write-q3",
+    "stage": "A1.2",
+    "answer": "Prefiero la azul",
+    "accepted": [
+      "Prefiero la azul",
+      "Prefiero la camiseta azul",
+      "Yo prefiero la azul"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u3write-q4",
+    "stage": "A1.2",
+    "answer": "Necesito la talla mediana, no la pequeña",
+    "accepted": [
+      "Necesito la talla mediana, no la pequeña",
+      "Necesito una talla mediana, no una pequeña",
+      "Yo necesito la talla mediana, no la pequeña"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u3write-q5",
+    "stage": "A1.2",
+    "answer": "Quiero unos pantalones negros y una camiseta azul",
+    "accepted": [
+      "Quiero unos pantalones negros y una camiseta azul",
+      "Quiero pantalones negros y una camiseta azul",
+      "Yo quiero unos pantalones negros y una camiseta azul"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u3story3-q2",
+    "stage": "A1.2",
+    "answer": "white / blanca",
+    "accepted": [
+      "white",
+      "blanca",
+      "blanco",
+      "una camiseta blanca"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u3story3-q4",
+    "stage": "A1.2",
+    "answer": "tomorrow / mañana",
+    "accepted": [
+      "tomorrow",
+      "mañana"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u3check-q3",
+    "stage": "A1.2",
+    "answer": "white / blanca",
+    "accepted": [
+      "white",
+      "blanca",
+      "blanco",
+      "a white one",
+      "camiseta blanca"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u3check-q6",
+    "stage": "A1.2",
+    "answer": "Quiero una camiseta roja, por favor",
+    "accepted": [
+      "Quiero una camiseta roja, por favor",
+      "Por favor, quiero una camiseta roja",
+      "Yo quiero una camiseta roja, por favor"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u3check-q7",
+    "stage": "A1.2",
+    "answer": "Necesito unos pantalones azules",
+    "accepted": [
+      "Necesito unos pantalones azules",
+      "Necesito pantalones azules",
+      "Yo necesito unos pantalones azules"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u3check-q8",
+    "stage": "A1.2",
+    "answer": "¿Tiene la talla pequeña?",
+    "accepted": [
+      "¿Tiene la talla pequeña?",
+      "¿Tiene una talla pequeña?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u3check-q9",
+    "stage": "A1.2",
+    "answer": "Necesito una camiseta azul y unos pantalones negros",
+    "accepted": [
+      "Necesito una camiseta azul y unos pantalones negros",
+      "Necesito unos pantalones negros y una camiseta azul",
+      "Necesito una camiseta azul y pantalones negros",
+      "Yo necesito una camiseta azul y unos pantalones negros"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u4l0-q3",
+    "stage": "A1.2",
+    "answer": "¿Puedo probarme la chaqueta?",
+    "accepted": [
+      "¿Puedo probarme la chaqueta?",
+      "¿Me puedo probar la chaqueta?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u4l0-q5",
+    "stage": "A1.2",
+    "answer": "¿Puedo probarme la camiseta?",
+    "accepted": [
+      "¿Puedo probarme la camiseta?",
+      "¿Me puedo probar la camiseta?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u4story0-q2",
+    "stage": "A1.2",
+    "answer": "on the right / a la derecha",
+    "accepted": [
+      "on the right",
+      "a la derecha",
+      "right",
+      "the right"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u4story0-q4",
+    "stage": "A1.2",
+    "answer": "medium / mediana",
+    "accepted": [
+      "medium",
+      "mediana",
+      "the medium size",
+      "la mediana",
+      "la talla mediana"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u4l1-q3",
+    "stage": "A1.2",
+    "answer": "Me queda grande",
+    "accepted": [
+      "Me queda grande"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u4l1-q5",
+    "stage": "A1.2",
+    "answer": "La camiseta me queda pequeña y necesito una talla más grande",
+    "accepted": [
+      "La camiseta me queda pequeña y necesito una talla más grande",
+      "Me queda pequeña y necesito una talla más grande"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u4story1-q2",
+    "stage": "A1.2",
+    "answer": "too big / grande",
+    "accepted": [
+      "too big",
+      "grande",
+      "big",
+      "it is too big",
+      "le queda grande",
+      "me queda grande"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u4story1-q4",
+    "stage": "A1.2",
+    "answer": "by card / con tarjeta",
+    "accepted": [
+      "by card",
+      "con tarjeta",
+      "card",
+      "tarjeta"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u4l2-q3",
+    "stage": "A1.2",
+    "answer": "Me llevo esta chaqueta",
+    "accepted": [
+      "Me llevo esta chaqueta",
+      "Voy a comprar esta chaqueta"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u4l2-q5",
+    "stage": "A1.2",
+    "answer": "Me llevo esta camiseta y pago con tarjeta",
+    "accepted": [
+      "Me llevo esta camiseta y pago con tarjeta",
+      "Me llevo esta camiseta. Pago con tarjeta."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u4l2-listen1",
+    "stage": "A1.2",
+    "answer": "by card / con tarjeta",
+    "accepted": [
+      "by card",
+      "con tarjeta",
+      "card",
+      "tarjeta"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u4story2-q2",
+    "stage": "A1.2",
+    "answer": "medium / mediana",
+    "accepted": [
+      "medium",
+      "mediana",
+      "la talla mediana",
+      "medium size"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u4story2-q4",
+    "stage": "A1.2",
+    "answer": "blue / azul",
+    "accepted": [
+      "blue",
+      "azul",
+      "la azul",
+      "the blue one"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u4write-q1",
+    "stage": "A1.2",
+    "answer": "¿Dónde está el probador?",
+    "accepted": [
+      "¿Dónde está el probador?",
+      "¿Dónde está el probador, por favor?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u4write-q2",
+    "stage": "A1.2",
+    "answer": "¿Puedo probarme estos pantalones?",
+    "accepted": [
+      "¿Puedo probarme estos pantalones?",
+      "¿Me puedo probar estos pantalones?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u4write-q3",
+    "stage": "A1.2",
+    "answer": "La chaqueta me queda bien",
+    "accepted": [
+      "La chaqueta me queda bien",
+      "Me queda bien"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u4write-q4",
+    "stage": "A1.2",
+    "answer": "Los pantalones me quedan grandes",
+    "accepted": [
+      "Los pantalones me quedan grandes",
+      "Me quedan grandes"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u4write-q5",
+    "stage": "A1.2",
+    "answer": "Me llevo esta chaqueta y pago con tarjeta",
+    "accepted": [
+      "Me llevo esta chaqueta y pago con tarjeta",
+      "Me llevo esta chaqueta. Pago con tarjeta."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u4story3-q2",
+    "stage": "A1.2",
+    "answer": "twelve euros / doce euros",
+    "accepted": [
+      "twelve euros",
+      "doce euros",
+      "12 euros",
+      "€12"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u4story3-q4",
+    "stage": "A1.2",
+    "answer": "card / tarjeta",
+    "accepted": [
+      "card",
+      "tarjeta",
+      "by card",
+      "con tarjeta"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u4check-q6",
+    "stage": "A1.2",
+    "answer": "¿Puedo probarme la camiseta?",
+    "accepted": [
+      "¿Puedo probarme la camiseta?",
+      "¿Me puedo probar la camiseta?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u4check-q7",
+    "stage": "A1.2",
+    "answer": "La camiseta me queda pequeña y necesito una talla más grande",
+    "accepted": [
+      "La camiseta me queda pequeña y necesito una talla más grande",
+      "Me queda pequeña y necesito una talla más grande"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u4check-q8",
+    "stage": "A1.2",
+    "answer": "Me llevo esta camiseta y pago con tarjeta",
+    "accepted": [
+      "Me llevo esta camiseta y pago con tarjeta",
+      "Me llevo esta camiseta. Pago con tarjeta."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u4check-q9",
+    "stage": "A1.2",
+    "answer": "Los pantalones me quedan pequeños",
+    "accepted": [
+      "Los pantalones me quedan pequeños",
+      "Me quedan pequeños"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u5l0-q3",
+    "stage": "A1.2",
+    "answer": "En el salón hay un sofá",
+    "accepted": [
+      "En el salón hay un sofá",
+      "Hay un sofá en el salón"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u5l0-q5",
+    "stage": "A1.2",
+    "answer": "En la cocina hay una mesa y dos sillas",
+    "accepted": [
+      "En la cocina hay una mesa y dos sillas",
+      "Hay una mesa y dos sillas en la cocina"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u5story0-q2",
+    "stage": "A1.2",
+    "answer": "next to the living room / al lado del salón",
+    "accepted": [
+      "next to the living room",
+      "al lado del salón",
+      "beside the living room"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u5story0-q4",
+    "stage": "A1.2",
+    "answer": "two / dos",
+    "accepted": [
+      "two",
+      "dos",
+      "2",
+      "two chairs",
+      "dos sillas"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u5l1-q3",
+    "stage": "A1.2",
+    "answer": "El libro está al lado de la lámpara",
+    "accepted": [
+      "El libro está al lado de la lámpara"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u5l1-q5",
+    "stage": "A1.2",
+    "answer": "Las llaves están debajo de la silla",
+    "accepted": [
+      "Las llaves están debajo de la silla"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u5l1-listen1",
+    "stage": "A1.2",
+    "answer": "two / dos",
+    "accepted": [
+      "two",
+      "dos",
+      "2",
+      "two bedrooms",
+      "dos dormitorios"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u5story1-q2",
+    "stage": "A1.2",
+    "answer": "a book / un libro",
+    "accepted": [
+      "a book",
+      "un libro",
+      "book",
+      "libro"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u5story1-q4",
+    "stage": "A1.2",
+    "answer": "go out / salir",
+    "accepted": [
+      "go out",
+      "salir",
+      "leave",
+      "go outside",
+      "they can go out",
+      "pueden salir"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u5l2-q3",
+    "stage": "A1.2",
+    "answer": "Mi piso es pequeño, pero cómodo",
+    "accepted": [
+      "Mi piso es pequeño, pero cómodo",
+      "Mi apartamento es pequeño pero cómodo"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u5l2-q5",
+    "stage": "A1.2",
+    "answer": "La cocina es pequeña, pero el salón es grande",
+    "accepted": [
+      "La cocina es pequeña, pero el salón es grande",
+      "Mi cocina es pequeña pero mi salón es grande"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u5story2-q2",
+    "stage": "A1.2",
+    "answer": "the bedroom / el dormitorio",
+    "accepted": [
+      "the bedroom",
+      "el dormitorio",
+      "bedroom",
+      "dormitorio"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u5story2-q4",
+    "stage": "A1.2",
+    "answer": "the window / la ventana",
+    "accepted": [
+      "the window",
+      "la ventana",
+      "window",
+      "ventana"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u5write-q1",
+    "stage": "A1.2",
+    "answer": "En mi piso hay dos dormitorios",
+    "accepted": [
+      "En mi piso hay dos dormitorios",
+      "Hay dos dormitorios en mi piso",
+      "En mi apartamento hay dos dormitorios"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u5write-q2",
+    "stage": "A1.2",
+    "answer": "El baño está al lado de la cocina",
+    "accepted": [
+      "El baño está al lado de la cocina"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u5write-q3",
+    "stage": "A1.2",
+    "answer": "El ordenador está encima de la mesa",
+    "accepted": [
+      "El ordenador está encima de la mesa",
+      "El ordenador está sobre la mesa",
+      "El ordenador está en la mesa",
+      "La computadora está encima de la mesa"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u5write-q4",
+    "stage": "A1.2",
+    "answer": "Mi salón es grande y cómodo",
+    "accepted": [
+      "Mi salón es grande y cómodo",
+      "El salón es grande y cómodo"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u5write-q5",
+    "stage": "A1.2",
+    "answer": "En el salón hay un sofá, pero no hay una mesa",
+    "accepted": [
+      "En el salón hay un sofá, pero no hay una mesa",
+      "Hay un sofá en el salón pero no hay una mesa"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u5story3-q2",
+    "stage": "A1.2",
+    "answer": "on the table / encima de la mesa",
+    "accepted": [
+      "on the table",
+      "encima de la mesa",
+      "on the living-room table",
+      "en la mesa",
+      "sobre la mesa"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u5story3-q4",
+    "stage": "A1.2",
+    "answer": "in the morning / por la mañana",
+    "accepted": [
+      "in the morning",
+      "por la mañana",
+      "morning",
+      "the morning"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u5check-q6",
+    "stage": "A1.2",
+    "answer": "Las llaves están al lado de la lámpara",
+    "accepted": [
+      "Las llaves están al lado de la lámpara"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u5check-q7",
+    "stage": "A1.2",
+    "answer": "Las llaves están debajo de la silla",
+    "accepted": [
+      "Las llaves están debajo de la silla"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u5check-q8",
+    "stage": "A1.2",
+    "answer": "La cocina es pequeña, pero el salón es grande",
+    "accepted": [
+      "La cocina es pequeña, pero el salón es grande",
+      "Mi cocina es pequeña pero mi salón es grande"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u5check-q9",
+    "stage": "A1.2",
+    "answer": "En mi piso hay un sofá y dos sillas",
+    "accepted": [
+      "En mi piso hay un sofá y dos sillas",
+      "Hay un sofá y dos sillas en mi piso",
+      "En mi apartamento hay un sofá y dos sillas"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u6l0-q3",
+    "stage": "A1.2",
+    "answer": "Me levanto a las siete",
+    "accepted": [
+      "Me levanto a las siete",
+      "Yo me levanto a las siete"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u6l0-q5",
+    "stage": "A1.2",
+    "answer": "Me levanto a las ocho y después me ducho",
+    "accepted": [
+      "Me levanto a las ocho y después me ducho",
+      "Me levanto a las ocho. Después me ducho.",
+      "Yo me levanto a las ocho y después me ducho"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u6story0-q2",
+    "stage": "A1.2",
+    "answer": "shower / ducharse",
+    "accepted": [
+      "shower",
+      "ducharse",
+      "take a shower",
+      "se ducha",
+      "me ducho"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u6story0-q4",
+    "stage": "A1.2",
+    "answer": "at home / en casa",
+    "accepted": [
+      "at home",
+      "en casa",
+      "home",
+      "casa"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u6l1-q3",
+    "stage": "A1.2",
+    "answer": "Me visto",
+    "accepted": [
+      "Me visto",
+      "Yo me visto"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u6l1-q5",
+    "stage": "A1.2",
+    "answer": "Primero me ducho y después me visto",
+    "accepted": [
+      "Primero me ducho y después me visto",
+      "Primero me ducho. Después me visto."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u6story1-q2",
+    "stage": "A1.2",
+    "answer": "blue / azul",
+    "accepted": [
+      "blue",
+      "azul",
+      "a blue one",
+      "una azul"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u6story1-q4",
+    "stage": "A1.2",
+    "answer": "Ana / Ana",
+    "accepted": [
+      "Ana"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u6l2-q3",
+    "stage": "A1.2",
+    "answer": "Me acuesto a las once",
+    "accepted": [
+      "Me acuesto a las once",
+      "Yo me acuesto a las once"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u6l2-q5",
+    "stage": "A1.2",
+    "answer": "Me levanto a las siete, pero me acuesto a las diez",
+    "accepted": [
+      "Me levanto a las siete, pero me acuesto a las diez",
+      "Me levanto a las siete pero a las diez me acuesto",
+      "Yo me levanto a las siete, pero me acuesto a las diez"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u6l2-listen1",
+    "stage": "A1.2",
+    "answer": "breakfast / el desayuno",
+    "accepted": [
+      "breakfast",
+      "el desayuno",
+      "have breakfast",
+      "desayunar",
+      "desayuno"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u6story2-q2",
+    "stage": "A1.2",
+    "answer": "eleven / las once",
+    "accepted": [
+      "eleven",
+      "las once",
+      "11",
+      "at eleven",
+      "a las once"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u6story2-q4",
+    "stage": "A1.2",
+    "answer": "at the café / en el café",
+    "accepted": [
+      "at the café",
+      "en el café",
+      "café",
+      "the café",
+      "el café"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u6write-q1",
+    "stage": "A1.2",
+    "answer": "Me levanto a las ocho todos los días",
+    "accepted": [
+      "Me levanto a las ocho todos los días",
+      "Todos los días me levanto a las ocho",
+      "Yo me levanto a las ocho todos los días"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u6write-q2",
+    "stage": "A1.2",
+    "answer": "Me ducho a las nueve",
+    "accepted": [
+      "Me ducho a las nueve",
+      "Yo me ducho a las nueve"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u6write-q3",
+    "stage": "A1.2",
+    "answer": "Me visto después de desayunar",
+    "accepted": [
+      "Me visto después de desayunar",
+      "Después de desayunar me visto",
+      "Yo me visto después de desayunar"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u6write-q4",
+    "stage": "A1.2",
+    "answer": "Me acuesto a las diez porque estoy cansada",
+    "accepted": [
+      "Me acuesto a las diez porque estoy cansada",
+      "Estoy cansada, por eso me acuesto a las diez",
+      "Yo me acuesto a las diez porque estoy cansada"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u6write-q5",
+    "stage": "A1.2",
+    "answer": "Primero me ducho y después desayuno",
+    "accepted": [
+      "Primero me ducho y después desayuno",
+      "Primero me ducho. Después desayuno."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u6story3-q2",
+    "stage": "A1.2",
+    "answer": "Sunday / el domingo",
+    "accepted": [
+      "Sunday",
+      "el domingo",
+      "domingo",
+      "on Sunday"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u6story3-q4",
+    "stage": "A1.2",
+    "answer": "to the park / al parque",
+    "accepted": [
+      "to the park",
+      "al parque",
+      "park",
+      "the park",
+      "parque"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u6check-q6",
+    "stage": "A1.2",
+    "answer": "Me levanto a las nueve y después me ducho",
+    "accepted": [
+      "Me levanto a las nueve y después me ducho",
+      "Me levanto a las nueve. Después me ducho.",
+      "Yo me levanto a las nueve y después me ducho"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u6check-q7",
+    "stage": "A1.2",
+    "answer": "Primero me ducho y después me visto",
+    "accepted": [
+      "Primero me ducho y después me visto",
+      "Primero me ducho. Después me visto."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u6check-q8",
+    "stage": "A1.2",
+    "answer": "Me levanto a las siete, pero me acuesto a las diez",
+    "accepted": [
+      "Me levanto a las siete, pero me acuesto a las diez",
+      "Me levanto a las siete pero a las diez me acuesto",
+      "Yo me levanto a las siete, pero me acuesto a las diez"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u6check-q9",
+    "stage": "A1.2",
+    "answer": "Primero me visto y después desayuno",
+    "accepted": [
+      "Primero me visto y después desayuno",
+      "Primero me visto. Después desayuno."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u7l0-q3",
+    "stage": "A1.2",
+    "answer": "Primero desayuno y después voy al trabajo",
+    "accepted": [
+      "Primero desayuno y después voy al trabajo",
+      "Primero desayuno. Después voy al trabajo."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u7l0-q5",
+    "stage": "A1.2",
+    "answer": "Primero me levanto y después desayuno",
+    "accepted": [
+      "Primero me levanto y después desayuno",
+      "Primero me levanto. Después desayuno."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u7story0-q2",
+    "stage": "A1.2",
+    "answer": "go to class / ir a clase",
+    "accepted": [
+      "go to class",
+      "ir a clase",
+      "goes to class",
+      "va a clase"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u7story0-q4",
+    "stage": "A1.2",
+    "answer": "six / las seis",
+    "accepted": [
+      "six",
+      "las seis",
+      "6",
+      "at six",
+      "a las seis"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u7l1-q3",
+    "stage": "A1.2",
+    "answer": "Me quedo en casa porque estoy cansada",
+    "accepted": [
+      "Me quedo en casa porque estoy cansada",
+      "Yo me quedo en casa porque estoy cansada"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u7l1-q5",
+    "stage": "A1.2",
+    "answer": "No puedo ir porque tengo que trabajar",
+    "accepted": [
+      "No puedo ir porque tengo que trabajar",
+      "Lo siento, no puedo ir porque tengo que trabajar"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u7story1-q2",
+    "stage": "A1.2",
+    "answer": "a book / un libro",
+    "accepted": [
+      "a book",
+      "un libro",
+      "book",
+      "libro"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u7story1-q4",
+    "stage": "A1.2",
+    "answer": "five / las cinco",
+    "accepted": [
+      "five",
+      "las cinco",
+      "5",
+      "at five",
+      "a las cinco"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u7l2-q3",
+    "stage": "A1.2",
+    "answer": "Hoy voy a leer y después voy al cine",
+    "accepted": [
+      "Hoy voy a leer y después voy al cine",
+      "Hoy voy a leer. Después voy al cine."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u7l2-q5",
+    "stage": "A1.2",
+    "answer": "Me gusta el cine, pero hoy voy a quedar con Luis",
+    "accepted": [
+      "Me gusta el cine, pero hoy voy a quedar con Luis",
+      "Me gusta el cine pero voy a quedar con Luis hoy"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u7l2-listen1",
+    "stage": "A1.2",
+    "answer": "work / el trabajo",
+    "accepted": [
+      "work",
+      "el trabajo",
+      "working",
+      "trabajar",
+      "tiene que trabajar"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u7story2-q2",
+    "stage": "A1.2",
+    "answer": "Luis / Luis",
+    "accepted": [
+      "Luis"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u7story2-q4",
+    "stage": "A1.2",
+    "answer": "ten / las diez",
+    "accepted": [
+      "ten",
+      "las diez",
+      "10",
+      "at ten",
+      "a las diez"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u7write-q1",
+    "stage": "A1.2",
+    "answer": "Me gusta leer y también me gusta la música",
+    "accepted": [
+      "Me gusta leer y también me gusta la música",
+      "Me gusta leer. También me gusta la música."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u7write-q2",
+    "stage": "A1.2",
+    "answer": "No puedo venir porque tengo que trabajar",
+    "accepted": [
+      "No puedo venir porque tengo que trabajar",
+      "Lo siento, no puedo venir porque tengo que trabajar"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u7write-q3",
+    "stage": "A1.2",
+    "answer": "Primero me visto y después voy a clase",
+    "accepted": [
+      "Primero me visto y después voy a clase",
+      "Primero me visto. Después voy a clase."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u7write-q4",
+    "stage": "A1.2",
+    "answer": "Estoy libre, entonces podemos quedar",
+    "accepted": [
+      "Estoy libre, entonces podemos quedar"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u7write-q5",
+    "stage": "A1.2",
+    "answer": "Mañana voy a leer y después voy al parque",
+    "accepted": [
+      "Mañana voy a leer y después voy al parque",
+      "Mañana voy a leer. Después voy al parque."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u7story3-q2",
+    "stage": "A1.2",
+    "answer": "next to the sofa / al lado del sofá",
+    "accepted": [
+      "next to the sofa",
+      "al lado del sofá",
+      "beside the sofa",
+      "in the living room next to the sofa",
+      "en el salón al lado del sofá"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u7story3-q4",
+    "stage": "A1.2",
+    "answer": "coffee / café",
+    "accepted": [
+      "coffee",
+      "café",
+      "a coffee",
+      "un café"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a12u7check-q6",
+    "stage": "A1.2",
+    "answer": "Estoy libre. ¿Quieres venir a mi piso?",
+    "accepted": [
+      "Estoy libre. ¿Quieres venir a mi piso?",
+      "Luis, estoy libre. ¿Quieres venir a mi piso?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u7check-q7",
+    "stage": "A1.2",
+    "answer": "No puedo ir porque tengo que trabajar",
+    "accepted": [
+      "No puedo ir porque tengo que trabajar",
+      "Lo siento, no puedo ir porque tengo que trabajar"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u7check-q8",
+    "stage": "A1.2",
+    "answer": "Me gusta el cine, pero hoy voy a quedar con Luis",
+    "accepted": [
+      "Me gusta el cine, pero hoy voy a quedar con Luis",
+      "Me gusta el cine pero voy a quedar con Luis hoy"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a12u7check-q9",
+    "stage": "A1.2",
+    "answer": "Mañana voy a leer y después voy a quedar con Marta",
+    "accepted": [
+      "Mañana voy a leer y después voy a quedar con Marta",
+      "Mañana voy a leer. Después voy a quedar con Marta."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u0l0-q3",
+    "stage": "A2.1",
+    "answer": "He visitado el museo",
+    "accepted": [
+      "He visitado el museo"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u0l0-q5",
+    "stage": "A2.1",
+    "answer": "Hoy he visitado el parque",
+    "accepted": [
+      "Hoy he visitado el parque",
+      "He visitado el parque hoy"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u0story0-q2",
+    "stage": "A2.1",
+    "answer": "Luis",
+    "accepted": [
+      "Luis"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u0story0-q4",
+    "stage": "A2.1",
+    "answer": "The museum",
+    "accepted": [
+      "The museum",
+      "El museo",
+      "Museum",
+      "Museo"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u0l1-q3",
+    "stage": "A2.1",
+    "answer": "Hemos comido en casa",
+    "accepted": [
+      "Hemos comido en casa"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u0l1-q5",
+    "stage": "A2.1",
+    "answer": "¿Has comido hoy?",
+    "accepted": [
+      "¿Has comido hoy?",
+      "¿Hoy has comido?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u0l1-q6",
+    "stage": "A2.1",
+    "answer": "At the café",
+    "accepted": [
+      "At the café",
+      "En el café",
+      "The café",
+      "El café"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u0story1-q2",
+    "stage": "A2.1",
+    "answer": "At four",
+    "accepted": [
+      "At four",
+      "A las cuatro",
+      "Four",
+      "Las cuatro"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u0story1-q4",
+    "stage": "A2.1",
+    "answer": "Ana and Marta",
+    "accepted": [
+      "Ana and Marta",
+      "Ana y Marta",
+      "Marta and Ana",
+      "Marta y Ana"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u0l2-q3",
+    "stage": "A2.1",
+    "answer": "He hecho la compra",
+    "accepted": [
+      "He hecho la compra"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u0l2-q5",
+    "stage": "A2.1",
+    "answer": "He hecho la compra y después he comido en casa",
+    "accepted": [
+      "He hecho la compra y después he comido en casa",
+      "He hecho la compra. Después he comido en casa."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u0story2-q2",
+    "stage": "A2.1",
+    "answer": "The shopping",
+    "accepted": [
+      "The shopping",
+      "La compra",
+      "Shopping",
+      "Ha hecho la compra"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u0story2-q4",
+    "stage": "A2.1",
+    "answer": "In the living room",
+    "accepted": [
+      "In the living room",
+      "En el salón",
+      "Living room",
+      "El salón"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u0write-q1",
+    "stage": "A2.1",
+    "answer": "Esta semana he visitado el museo",
+    "accepted": [
+      "Esta semana he visitado el museo",
+      "He visitado el museo esta semana"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u0write-q2",
+    "stage": "A2.1",
+    "answer": "¿Habéis comido?",
+    "accepted": [
+      "¿Habéis comido?",
+      "¿Vosotros habéis comido?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u0write-q3",
+    "stage": "A2.1",
+    "answer": "Ana ha hecho la compra hoy",
+    "accepted": [
+      "Ana ha hecho la compra hoy",
+      "Hoy Ana ha hecho la compra"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u0write-q4",
+    "stage": "A2.1",
+    "answer": "Todavía no he visitado el museo",
+    "accepted": [
+      "Todavía no he visitado el museo",
+      "No he visitado el museo todavía"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u0write-q5",
+    "stage": "A2.1",
+    "answer": "He comido en casa porque estoy cansada",
+    "accepted": [
+      "He comido en casa porque estoy cansada",
+      "Estoy cansada, por eso he comido en casa"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u0story3-q2",
+    "stage": "A2.1",
+    "answer": "Luis",
+    "accepted": [
+      "Luis"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u0story3-q4",
+    "stage": "A2.1",
+    "answer": "At eight",
+    "accepted": [
+      "At eight",
+      "A las ocho",
+      "Eight",
+      "Las ocho"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u0check-q5",
+    "stage": "A2.1",
+    "answer": "Hoy he visitado el parque",
+    "accepted": [
+      "Hoy he visitado el parque",
+      "He visitado el parque hoy"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u0check-q6",
+    "stage": "A2.1",
+    "answer": "¿Has comido hoy?",
+    "accepted": [
+      "¿Has comido hoy?",
+      "¿Hoy has comido?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u0check-q8",
+    "stage": "A2.1",
+    "answer": "He hecho la compra y después he comido en casa",
+    "accepted": [
+      "He hecho la compra y después he comido en casa",
+      "He hecho la compra. Después he comido en casa."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u0check-q9",
+    "stage": "A2.1",
+    "answer": "Todavía no he visitado el museo",
+    "accepted": [
+      "Todavía no he visitado el museo",
+      "No he visitado el museo todavía"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u1l0-q3",
+    "stage": "A2.1",
+    "answer": "Ayer visité el museo",
+    "accepted": [
+      "Ayer visité el museo"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u1l0-q5",
+    "stage": "A2.1",
+    "answer": "Ana visitó el museo ayer",
+    "accepted": [
+      "Ana visitó el museo ayer",
+      "Ayer Ana visitó el museo"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u1story0-q2",
+    "stage": "A2.1",
+    "answer": "To Toledo",
+    "accepted": [
+      "To Toledo",
+      "A Toledo",
+      "Toledo"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u1story0-q4",
+    "stage": "A2.1",
+    "answer": "Marta",
+    "accepted": [
+      "Marta"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u1l1-q3",
+    "stage": "A2.1",
+    "answer": "Fui a Toledo el sábado pasado",
+    "accepted": [
+      "Fui a Toledo el sábado pasado"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u1l1-q5",
+    "stage": "A2.1",
+    "answer": "Fui a Toledo y después visité el museo",
+    "accepted": [
+      "Fui a Toledo y después visité el museo",
+      "Fui a Toledo. Después visité el museo."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u1l1-q6",
+    "stage": "A2.1",
+    "answer": "Diego’s",
+    "accepted": [
+      "Diego’s",
+      "Diego",
+      "El café de Diego"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u1story1-q2",
+    "stage": "A2.1",
+    "answer": "The shopping",
+    "accepted": [
+      "The shopping",
+      "La compra",
+      "Shopping",
+      "Ha hecho la compra"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u1story1-q4",
+    "stage": "A2.1",
+    "answer": "On Sunday",
+    "accepted": [
+      "On Sunday",
+      "El domingo",
+      "Sunday",
+      "Domingo"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u1l2-q3",
+    "stage": "A2.1",
+    "answer": "Hice la compra ayer",
+    "accepted": [
+      "Hice la compra ayer"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u1l2-q5",
+    "stage": "A2.1",
+    "answer": "Hice la compra para la cena",
+    "accepted": [
+      "Hice la compra para la cena",
+      "Ayer hice la compra para la cena"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u1story2-q2",
+    "stage": "A2.1",
+    "answer": "Ana",
+    "accepted": [
+      "Ana"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u1story2-q4",
+    "stage": "A2.1",
+    "answer": "In the morning",
+    "accepted": [
+      "In the morning",
+      "Por la mañana",
+      "Morning",
+      "La mañana"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u1write-q1",
+    "stage": "A2.1",
+    "answer": "Visité el parque el domingo pasado",
+    "accepted": [
+      "Visité el parque el domingo pasado",
+      "El domingo pasado visité el parque"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u1write-q2",
+    "stage": "A2.1",
+    "answer": "¿Fuiste a Toledo ayer?",
+    "accepted": [
+      "¿Fuiste a Toledo ayer?",
+      "¿Ayer fuiste a Toledo?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u1write-q3",
+    "stage": "A2.1",
+    "answer": "Luis y yo fuimos al museo",
+    "accepted": [
+      "Luis y yo fuimos al museo",
+      "Fuimos al museo, Luis y yo"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u1write-q4",
+    "stage": "A2.1",
+    "answer": "Marta hizo la compra ayer",
+    "accepted": [
+      "Marta hizo la compra ayer",
+      "Ayer Marta hizo la compra"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u1write-q5",
+    "stage": "A2.1",
+    "answer": "Visité el museo y después fui al café",
+    "accepted": [
+      "Visité el museo y después fui al café",
+      "Visité el museo. Después fui al café."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u1story3-q2",
+    "stage": "A2.1",
+    "answer": "Went to the park",
+    "accepted": [
+      "Went to the park",
+      "Fue al parque",
+      "The park",
+      "Al parque"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u1story3-q4",
+    "stage": "A2.1",
+    "answer": "Luis",
+    "accepted": [
+      "Luis"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u1check-q5",
+    "stage": "A2.1",
+    "answer": "Ana visitó el museo ayer",
+    "accepted": [
+      "Ana visitó el museo ayer",
+      "Ayer Ana visitó el museo"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u1check-q6",
+    "stage": "A2.1",
+    "answer": "Fui a Toledo y después visité el museo",
+    "accepted": [
+      "Fui a Toledo y después visité el museo",
+      "Fui a Toledo. Después visité el museo."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u1check-q8",
+    "stage": "A2.1",
+    "answer": "Hice la compra para la cena",
+    "accepted": [
+      "Hice la compra para la cena",
+      "Ayer hice la compra para la cena"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u1check-q9",
+    "stage": "A2.1",
+    "answer": "Marta hizo la compra ayer",
+    "accepted": [
+      "Marta hizo la compra ayer",
+      "Ayer Marta hizo la compra"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u2l0-q3",
+    "stage": "A2.1",
+    "answer": "El autobús es más barato que el tren",
+    "accepted": [
+      "El autobús es más barato que el tren"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u2l0-q5",
+    "stage": "A2.1",
+    "answer": "El tren es más rápido que el autobús",
+    "accepted": [
+      "El tren es más rápido que el autobús"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u2story0-q2",
+    "stage": "A2.1",
+    "answer": "Twelve euros",
+    "accepted": [
+      "Twelve euros",
+      "Doce euros",
+      "12 euros"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u2story0-q4",
+    "stage": "A2.1",
+    "answer": "In the afternoon",
+    "accepted": [
+      "In the afternoon",
+      "Por la tarde",
+      "Afternoon",
+      "La tarde"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u2l1-q3",
+    "stage": "A2.1",
+    "answer": "El tren no es tan barato como el autobús",
+    "accepted": [
+      "El tren no es tan barato como el autobús"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u2l1-q5",
+    "stage": "A2.1",
+    "answer": "El autobús no es tan rápido como el tren",
+    "accepted": [
+      "El autobús no es tan rápido como el tren"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u2l1-q6",
+    "stage": "A2.1",
+    "answer": "At nine",
+    "accepted": [
+      "At nine",
+      "A las nueve",
+      "Nine",
+      "Las nueve"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u2story1-q2",
+    "stage": "A2.1",
+    "answer": "Toledo",
+    "accepted": [
+      "Toledo"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u2story1-q4",
+    "stage": "A2.1",
+    "answer": "At eight",
+    "accepted": [
+      "At eight",
+      "A las ocho",
+      "Eight",
+      "Las ocho"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u2l2-q3",
+    "stage": "A2.1",
+    "answer": "Quiero un billete de ida y vuelta",
+    "accepted": [
+      "Quiero un billete de ida y vuelta"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u2l2-q5",
+    "stage": "A2.1",
+    "answer": "¿A qué hora sale el tren mañana?",
+    "accepted": [
+      "¿A qué hora sale el tren mañana?",
+      "¿Mañana a qué hora sale el tren?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u2story2-q2",
+    "stage": "A2.1",
+    "answer": "At twelve",
+    "accepted": [
+      "At twelve",
+      "A las doce",
+      "Twelve",
+      "Las doce"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u2story2-q4",
+    "stage": "A2.1",
+    "answer": "Near the station",
+    "accepted": [
+      "Near the station",
+      "Cerca de la estación",
+      "The station",
+      "La estación"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u2write-q1",
+    "stage": "A2.1",
+    "answer": "El autobús es más barato que el tren",
+    "accepted": [
+      "El autobús es más barato que el tren"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u2write-q2",
+    "stage": "A2.1",
+    "answer": "El tren es menos cómodo que el autobús",
+    "accepted": [
+      "El tren es menos cómodo que el autobús"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u2write-q3",
+    "stage": "A2.1",
+    "answer": "Este tren es tan rápido como el otro",
+    "accepted": [
+      "Este tren es tan rápido como el otro",
+      "El tren es tan rápido como el otro"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u2write-q4",
+    "stage": "A2.1",
+    "answer": "Un billete de ida y vuelta a Toledo, por favor",
+    "accepted": [
+      "Un billete de ida y vuelta a Toledo, por favor",
+      "Quiero un billete de ida y vuelta a Toledo, por favor"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u2write-q5",
+    "stage": "A2.1",
+    "answer": "Prefiero el tren porque es más rápido",
+    "accepted": [
+      "Prefiero el tren porque es más rápido",
+      "Prefiero ir en tren porque es más rápido"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u2story3-q2",
+    "stage": "A2.1",
+    "answer": "At eight",
+    "accepted": [
+      "At eight",
+      "A las ocho",
+      "Eight",
+      "Las ocho"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u2story3-q4",
+    "stage": "A2.1",
+    "answer": "On her phone",
+    "accepted": [
+      "On her phone",
+      "En el móvil",
+      "Phone",
+      "El móvil"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u2check-q5",
+    "stage": "A2.1",
+    "answer": "El tren es más rápido que el autobús",
+    "accepted": [
+      "El tren es más rápido que el autobús"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u2check-q6",
+    "stage": "A2.1",
+    "answer": "El autobús no es tan rápido como el tren",
+    "accepted": [
+      "El autobús no es tan rápido como el tren"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u2check-q8",
+    "stage": "A2.1",
+    "answer": "¿A qué hora sale el tren mañana?",
+    "accepted": [
+      "¿A qué hora sale el tren mañana?",
+      "¿Mañana a qué hora sale el tren?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u2check-q9",
+    "stage": "A2.1",
+    "answer": "Un billete de ida y vuelta a Toledo, por favor",
+    "accepted": [
+      "Un billete de ida y vuelta a Toledo, por favor",
+      "Quiero un billete de ida y vuelta a Toledo, por favor"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u3l0-q3",
+    "stage": "A2.1",
+    "answer": "Quiero reservar una habitación doble",
+    "accepted": [
+      "Quiero reservar una habitación doble"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u3l0-q5",
+    "stage": "A2.1",
+    "answer": "Quiero reservar una habitación individual para dos noches",
+    "accepted": [
+      "Quiero reservar una habitación individual para dos noches"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u3story0-q2",
+    "stage": "A2.1",
+    "answer": "Two nights",
+    "accepted": [
+      "Two nights",
+      "Dos noches",
+      "Two",
+      "Dos"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u3story0-q4",
+    "stage": "A2.1",
+    "answer": "A double room",
+    "accepted": [
+      "A double room",
+      "Una habitación doble",
+      "Double room",
+      "Habitación doble"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u3l1-q3",
+    "stage": "A2.1",
+    "answer": "¿El desayuno está incluido?",
+    "accepted": [
+      "¿El desayuno está incluido?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u3l1-q5",
+    "stage": "A2.1",
+    "answer": "¿El wifi está incluido?",
+    "accepted": [
+      "¿El wifi está incluido?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u3l1-q6",
+    "stage": "A2.1",
+    "answer": "Sixty euros",
+    "accepted": [
+      "Sixty euros",
+      "Sesenta euros",
+      "60 euros"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u3story1-q2",
+    "stage": "A2.1",
+    "answer": "Wifi",
+    "accepted": [
+      "Wifi",
+      "El wifi",
+      "Wi-fi"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u3story1-q4",
+    "stage": "A2.1",
+    "answer": "Five euros",
+    "accepted": [
+      "Five euros",
+      "Cinco euros",
+      "5 euros"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u3l2-q3",
+    "stage": "A2.1",
+    "answer": "Necesito una habitación para dos personas",
+    "accepted": [
+      "Necesito una habitación para dos personas"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u3l2-q5",
+    "stage": "A2.1",
+    "answer": "Una habitación doble para el viernes, para dos noches",
+    "accepted": [
+      "Una habitación doble para el viernes, para dos noches",
+      "Quiero una habitación doble para el viernes, para dos noches"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u3story2-q2",
+    "stage": "A2.1",
+    "answer": "The second",
+    "accepted": [
+      "The second",
+      "El segundo",
+      "Second hotel",
+      "El segundo hotel"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u3story2-q4",
+    "stage": "A2.1",
+    "answer": "Away from the street",
+    "accepted": [
+      "Away from the street",
+      "Lejos de la calle",
+      "Far from the street"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u3write-q1",
+    "stage": "A2.1",
+    "answer": "Quiero reservar una habitación doble para mañana",
+    "accepted": [
+      "Quiero reservar una habitación doble para mañana"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u3write-q2",
+    "stage": "A2.1",
+    "answer": "¿Cuánto cuesta por noche?",
+    "accepted": [
+      "¿Cuánto cuesta por noche?",
+      "¿Cuánto cuesta la habitación por noche?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u3write-q3",
+    "stage": "A2.1",
+    "answer": "¿El desayuno está incluido en el precio?",
+    "accepted": [
+      "¿El desayuno está incluido en el precio?",
+      "¿Está incluido el desayuno en el precio?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u3write-q4",
+    "stage": "A2.1",
+    "answer": "Necesito una habitación para dos personas y dos noches",
+    "accepted": [
+      "Necesito una habitación para dos personas y dos noches"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u3write-q5",
+    "stage": "A2.1",
+    "answer": "Prefiero este hotel porque es más barato y está cerca de la estación",
+    "accepted": [
+      "Prefiero este hotel porque es más barato y está cerca de la estación"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u3story3-q2",
+    "stage": "A2.1",
+    "answer": "120 euros",
+    "accepted": [
+      "120 euros",
+      "Ciento veinte euros",
+      "120",
+      "Ciento veinte"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u3story3-q4",
+    "stage": "A2.1",
+    "answer": "After two",
+    "accepted": [
+      "After two",
+      "Después de las dos",
+      "After two o’clock"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u3check-q5",
+    "stage": "A2.1",
+    "answer": "Quiero reservar una habitación individual para dos noches",
+    "accepted": [
+      "Quiero reservar una habitación individual para dos noches"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u3check-q6",
+    "stage": "A2.1",
+    "answer": "¿El wifi está incluido?",
+    "accepted": [
+      "¿El wifi está incluido?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u3check-q8",
+    "stage": "A2.1",
+    "answer": "Una habitación doble para el viernes, para dos noches",
+    "accepted": [
+      "Una habitación doble para el viernes, para dos noches",
+      "Quiero una habitación doble para el viernes, para dos noches"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u3check-q9",
+    "stage": "A2.1",
+    "answer": "Necesito una habitación para dos personas y dos noches",
+    "accepted": [
+      "Necesito una habitación para dos personas y dos noches"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u4l0-q3",
+    "stage": "A2.1",
+    "answer": "Llegué a las dos",
+    "accepted": [
+      "Llegué a las dos"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u4l0-q5",
+    "stage": "A2.1",
+    "answer": "Ana llegó al hotel ayer",
+    "accepted": [
+      "Ana llegó al hotel ayer",
+      "Ayer Ana llegó al hotel"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u4story0-q2",
+    "stage": "A2.1",
+    "answer": "Two nights",
+    "accepted": [
+      "Two nights",
+      "Dos noches",
+      "Two",
+      "Dos"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u4story0-q4",
+    "stage": "A2.1",
+    "answer": "At ten",
+    "accepted": [
+      "At ten",
+      "A las diez",
+      "Ten",
+      "Las diez"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u4l1-q3",
+    "stage": "A2.1",
+    "answer": "Tengo una reserva a nombre de Ana",
+    "accepted": [
+      "Tengo una reserva a nombre de Ana"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u4l1-q5",
+    "stage": "A2.1",
+    "answer": "Tengo una reserva a nombre de Luis para dos noches",
+    "accepted": [
+      "Tengo una reserva a nombre de Luis para dos noches"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u4l1-q6",
+    "stage": "A2.1",
+    "answer": "The key",
+    "accepted": [
+      "The key",
+      "La llave",
+      "Key",
+      "Llave"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u4story1-q2",
+    "stage": "A2.1",
+    "answer": "At nine at night",
+    "accepted": [
+      "At nine at night",
+      "A las nueve de la noche",
+      "Nine at night"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u4story1-q4",
+    "stage": "A2.1",
+    "answer": "The receptionist",
+    "accepted": [
+      "The receptionist",
+      "La recepcionista",
+      "Receptionist"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u4l2-q3",
+    "stage": "A2.1",
+    "answer": "La llave no funciona",
+    "accepted": [
+      "La llave no funciona"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u4l2-q5",
+    "stage": "A2.1",
+    "answer": "La ducha no funciona. ¿Puede ayudarme?",
+    "accepted": [
+      "La ducha no funciona. ¿Puede ayudarme?",
+      "¿Puede ayudarme? La ducha no funciona."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u4story2-q2",
+    "stage": "A2.1",
+    "answer": "At four",
+    "accepted": [
+      "At four",
+      "A las cuatro",
+      "Four",
+      "Las cuatro"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u4story2-q4",
+    "stage": "A2.1",
+    "answer": "Their backpacks",
+    "accepted": [
+      "Their backpacks",
+      "Las mochilas",
+      "Backpacks",
+      "Mochilas"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u4write-q1",
+    "stage": "A2.1",
+    "answer": "Ayer llegué a la estación a las nueve",
+    "accepted": [
+      "Ayer llegué a la estación a las nueve",
+      "Llegué a la estación a las nueve ayer"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u4write-q2",
+    "stage": "A2.1",
+    "answer": "Tengo una reserva a nombre de Marta para dos personas",
+    "accepted": [
+      "Tengo una reserva a nombre de Marta para dos personas"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u4write-q3",
+    "stage": "A2.1",
+    "answer": "No hay agua caliente en mi habitación",
+    "accepted": [
+      "No hay agua caliente en mi habitación",
+      "En mi habitación no hay agua caliente"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u4write-q4",
+    "stage": "A2.1",
+    "answer": "La llave no funciona. ¿Tiene otra?",
+    "accepted": [
+      "La llave no funciona. ¿Tiene otra?",
+      "La llave no funciona. ¿Tiene otra llave?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u4write-q5",
+    "stage": "A2.1",
+    "answer": "Llegué tarde porque el tren llegó tarde",
+    "accepted": [
+      "Llegué tarde porque el tren llegó tarde"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u4story3-q2",
+    "stage": "A2.1",
+    "answer": "In the hotel lounge",
+    "accepted": [
+      "In the hotel lounge",
+      "En el salón del hotel",
+      "Hotel lounge",
+      "El salón del hotel"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u4story3-q4",
+    "stage": "A2.1",
+    "answer": "Ana",
+    "accepted": [
+      "Ana"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u4check-q5",
+    "stage": "A2.1",
+    "answer": "Ana llegó al hotel ayer",
+    "accepted": [
+      "Ana llegó al hotel ayer",
+      "Ayer Ana llegó al hotel"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u4check-q6",
+    "stage": "A2.1",
+    "answer": "Tengo una reserva a nombre de Luis para dos noches",
+    "accepted": [
+      "Tengo una reserva a nombre de Luis para dos noches"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u4check-q8",
+    "stage": "A2.1",
+    "answer": "La ducha no funciona. ¿Puede ayudarme?",
+    "accepted": [
+      "La ducha no funciona. ¿Puede ayudarme?",
+      "¿Puede ayudarme? La ducha no funciona."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u4check-q9",
+    "stage": "A2.1",
+    "answer": "La llave no funciona. ¿Tiene otra?",
+    "accepted": [
+      "La llave no funciona. ¿Tiene otra?",
+      "La llave no funciona. ¿Tiene otra llave?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u5l0-q3",
+    "stage": "A2.1",
+    "answer": "Me duele la cabeza",
+    "accepted": [
+      "Me duele la cabeza"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u5l0-q5",
+    "stage": "A2.1",
+    "answer": "Me duelen los pies",
+    "accepted": [
+      "Me duelen los pies"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u5story0-q2",
+    "stage": "A2.1",
+    "answer": "Yesterday",
+    "accepted": [
+      "Yesterday",
+      "Ayer",
+      "Since yesterday",
+      "Desde ayer"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u5story0-q4",
+    "stage": "A2.1",
+    "answer": "Marta",
+    "accepted": [
+      "Marta"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u5l1-q3",
+    "stage": "A2.1",
+    "answer": "Tengo fiebre desde ayer",
+    "accepted": [
+      "Tengo fiebre desde ayer"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u5l1-q5",
+    "stage": "A2.1",
+    "answer": "Me duele la garganta y tengo fiebre",
+    "accepted": [
+      "Me duele la garganta y tengo fiebre"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u5l1-q6",
+    "stage": "A2.1",
+    "answer": "The feet",
+    "accepted": [
+      "The feet",
+      "Los pies",
+      "Feet",
+      "Pies"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u5story1-q2",
+    "stage": "A2.1",
+    "answer": "His feet",
+    "accepted": [
+      "His feet",
+      "Los pies",
+      "Feet",
+      "Pies"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u5story1-q4",
+    "stage": "A2.1",
+    "answer": "At Diego’s café",
+    "accepted": [
+      "At Diego’s café",
+      "En el café de Diego",
+      "Diego’s café",
+      "El café de Diego"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u5l2-q3",
+    "stage": "A2.1",
+    "answer": "Necesito descansar porque estoy cansada",
+    "accepted": [
+      "Necesito descansar porque estoy cansada"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u5l2-q5",
+    "stage": "A2.1",
+    "answer": "Necesito agua porque tengo sed",
+    "accepted": [
+      "Necesito agua porque tengo sed",
+      "Tengo sed, por eso necesito agua"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u5story2-q2",
+    "stage": "A2.1",
+    "answer": "This morning",
+    "accepted": [
+      "This morning",
+      "Esta mañana",
+      "Since this morning",
+      "Desde esta mañana"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u5story2-q4",
+    "stage": "A2.1",
+    "answer": "Water",
+    "accepted": [
+      "Water",
+      "Agua",
+      "Water, please",
+      "Agua, por favor"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u5write-q1",
+    "stage": "A2.1",
+    "answer": "Me duele el estómago",
+    "accepted": [
+      "Me duele el estómago"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u5write-q2",
+    "stage": "A2.1",
+    "answer": "Me duelen los pies después del viaje",
+    "accepted": [
+      "Me duelen los pies después del viaje"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u5write-q3",
+    "stage": "A2.1",
+    "answer": "Tengo fiebre y necesito descansar",
+    "accepted": [
+      "Tengo fiebre y necesito descansar"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u5write-q4",
+    "stage": "A2.1",
+    "answer": "Me duele la garganta desde ayer",
+    "accepted": [
+      "Me duele la garganta desde ayer"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u5write-q5",
+    "stage": "A2.1",
+    "answer": "Estoy enferma y voy a descansar en casa",
+    "accepted": [
+      "Estoy enferma y voy a descansar en casa",
+      "Estoy enferma. Voy a descansar en casa."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u5story3-q2",
+    "stage": "A2.1",
+    "answer": "His stomach",
+    "accepted": [
+      "His stomach",
+      "El estómago",
+      "Stomach",
+      "Estómago"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u5story3-q4",
+    "stage": "A2.1",
+    "answer": "Luis",
+    "accepted": [
+      "Luis"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u5check-q5",
+    "stage": "A2.1",
+    "answer": "Me duelen los pies",
+    "accepted": [
+      "Me duelen los pies"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u5check-q6",
+    "stage": "A2.1",
+    "answer": "Me duele la garganta y tengo fiebre",
+    "accepted": [
+      "Me duele la garganta y tengo fiebre"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u5check-q8",
+    "stage": "A2.1",
+    "answer": "Necesito agua porque tengo sed",
+    "accepted": [
+      "Necesito agua porque tengo sed",
+      "Tengo sed, por eso necesito agua"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u5check-q9",
+    "stage": "A2.1",
+    "answer": "Me duele la garganta desde ayer",
+    "accepted": [
+      "Me duele la garganta desde ayer"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u6l0-q3",
+    "stage": "A2.1",
+    "answer": "Necesito hablar con un médico",
+    "accepted": [
+      "Necesito hablar con un médico"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u6l0-q5",
+    "stage": "A2.1",
+    "answer": "¿Hay una farmacia cerca del hotel?",
+    "accepted": [
+      "¿Hay una farmacia cerca del hotel?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u6story0-q2",
+    "stage": "A2.1",
+    "answer": "Next to the station",
+    "accepted": [
+      "Next to the station",
+      "Al lado de la estación",
+      "Near the station",
+      "Junto a la estación"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u6story0-q4",
+    "stage": "A2.1",
+    "answer": "Marta",
+    "accepted": [
+      "Marta"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u6l1-q3",
+    "stage": "A2.1",
+    "answer": "Tengo que pedir una cita",
+    "accepted": [
+      "Tengo que pedir una cita"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u6l1-q5",
+    "stage": "A2.1",
+    "answer": "No puedo venir porque tengo que ir al médico",
+    "accepted": [
+      "No puedo venir porque tengo que ir al médico"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u6l1-q6",
+    "stage": "A2.1",
+    "answer": "More slowly",
+    "accepted": [
+      "More slowly",
+      "Más despacio",
+      "Slowly",
+      "Despacio"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u6story1-q2",
+    "stage": "A2.1",
+    "answer": "Twice a day",
+    "accepted": [
+      "Twice a day",
+      "Dos veces al día",
+      "Two times a day"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u6story1-q4",
+    "stage": "A2.1",
+    "answer": "On his phone",
+    "accepted": [
+      "On his phone",
+      "En el móvil",
+      "His phone",
+      "El móvil"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u6l2-q3",
+    "stage": "A2.1",
+    "answer": "He necesitado ayuda esta semana",
+    "accepted": [
+      "He necesitado ayuda esta semana"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u6l2-q5",
+    "stage": "A2.1",
+    "answer": "¿Puede repetir más despacio, por favor?",
+    "accepted": [
+      "¿Puede repetir más despacio, por favor?",
+      "¿Puede repetirlo más despacio, por favor?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u6story2-q2",
+    "stage": "A2.1",
+    "answer": "At twelve",
+    "accepted": [
+      "At twelve",
+      "A las doce",
+      "Twelve",
+      "Las doce"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u6story2-q4",
+    "stage": "A2.1",
+    "answer": "Since yesterday",
+    "accepted": [
+      "Since yesterday",
+      "Desde ayer",
+      "Yesterday",
+      "Ayer"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u6write-q1",
+    "stage": "A2.1",
+    "answer": "¿Hay una farmacia cerca?",
+    "accepted": [
+      "¿Hay una farmacia cerca?",
+      "¿Dónde hay una farmacia cerca?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u6write-q2",
+    "stage": "A2.1",
+    "answer": "Me duele la garganta y necesito ayuda",
+    "accepted": [
+      "Me duele la garganta y necesito ayuda"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u6write-q3",
+    "stage": "A2.1",
+    "answer": "Necesito una cita para hoy, por favor",
+    "accepted": [
+      "Necesito una cita para hoy, por favor",
+      "Quiero una cita para hoy, por favor"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u6write-q4",
+    "stage": "A2.1",
+    "answer": "Hoy tengo que descansar en casa",
+    "accepted": [
+      "Hoy tengo que descansar en casa",
+      "Tengo que descansar en casa hoy"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u6write-q5",
+    "stage": "A2.1",
+    "answer": "Esta semana he necesitado ayuda, pero ahora estoy mejor",
+    "accepted": [
+      "Esta semana he necesitado ayuda, pero ahora estoy mejor",
+      "He necesitado ayuda esta semana, pero ahora estoy mejor"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u6story3-q2",
+    "stage": "A2.1",
+    "answer": "Better",
+    "accepted": [
+      "Better",
+      "Mejor",
+      "She feels better",
+      "Está mejor"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u6story3-q4",
+    "stage": "A2.1",
+    "answer": "Luis",
+    "accepted": [
+      "Luis"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u6check-q5",
+    "stage": "A2.1",
+    "answer": "¿Hay una farmacia cerca del hotel?",
+    "accepted": [
+      "¿Hay una farmacia cerca del hotel?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u6check-q6",
+    "stage": "A2.1",
+    "answer": "No puedo venir porque tengo que ir al médico",
+    "accepted": [
+      "No puedo venir porque tengo que ir al médico"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u6check-q8",
+    "stage": "A2.1",
+    "answer": "¿Puede repetir más despacio, por favor?",
+    "accepted": [
+      "¿Puede repetir más despacio, por favor?",
+      "¿Puede repetirlo más despacio, por favor?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u6check-q9",
+    "stage": "A2.1",
+    "answer": "Hoy tengo que descansar en casa",
+    "accepted": [
+      "Hoy tengo que descansar en casa",
+      "Tengo que descansar en casa hoy"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u7l0-q3",
+    "stage": "A2.1",
+    "answer": "He vuelto a Madrid hoy",
+    "accepted": [
+      "He vuelto a Madrid hoy"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u7l0-q5",
+    "stage": "A2.1",
+    "answer": "Ana y Luis han vuelto a Madrid esta semana",
+    "accepted": [
+      "Ana y Luis han vuelto a Madrid esta semana",
+      "Esta semana Ana y Luis han vuelto a Madrid"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u7story0-q2",
+    "stage": "A2.1",
+    "answer": "Marta",
+    "accepted": [
+      "Marta"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u7story0-q4",
+    "stage": "A2.1",
+    "answer": "At home",
+    "accepted": [
+      "At home",
+      "En casa",
+      "Home",
+      "Casa"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u7l1-q3",
+    "stage": "A2.1",
+    "answer": "Tomé el tren ayer y después fui al hotel",
+    "accepted": [
+      "Tomé el tren ayer y después fui al hotel"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u7l1-q5",
+    "stage": "A2.1",
+    "answer": "Ayer tomé el autobús y llegué a las nueve",
+    "accepted": [
+      "Ayer tomé el autobús y llegué a las nueve",
+      "Tomé el autobús ayer y llegué a las nueve"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u7l1-q6",
+    "stage": "A2.1",
+    "answer": "To the hotel",
+    "accepted": [
+      "To the hotel",
+      "Al hotel",
+      "The hotel",
+      "El hotel"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u7story1-q2",
+    "stage": "A2.1",
+    "answer": "Saturday",
+    "accepted": [
+      "Saturday",
+      "El sábado",
+      "Sábado"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u7story1-q4",
+    "stage": "A2.1",
+    "answer": "A room",
+    "accepted": [
+      "A room",
+      "Una habitación",
+      "Room",
+      "La habitación"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u7l2-q3",
+    "stage": "A2.1",
+    "answer": "Voy a reservar una habitación porque quiero viajar",
+    "accepted": [
+      "Voy a reservar una habitación porque quiero viajar"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u7l2-q5",
+    "stage": "A2.1",
+    "answer": "He vuelto hoy, por eso voy a descansar",
+    "accepted": [
+      "He vuelto hoy, por eso voy a descansar",
+      "Hoy he vuelto, por eso voy a descansar"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u7story2-q2",
+    "stage": "A2.1",
+    "answer": "The bus",
+    "accepted": [
+      "The bus",
+      "El autobús",
+      "Bus",
+      "Autobús"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u7story2-q4",
+    "stage": "A2.1",
+    "answer": "Bread",
+    "accepted": [
+      "Bread",
+      "Pan"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u7write-q1",
+    "stage": "A2.1",
+    "answer": "He vuelto hoy y voy a descansar en casa",
+    "accepted": [
+      "He vuelto hoy y voy a descansar en casa",
+      "Hoy he vuelto y voy a descansar en casa"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u7write-q2",
+    "stage": "A2.1",
+    "answer": "Ayer tomé el tren. El tren es más rápido que el autobús",
+    "accepted": [
+      "Ayer tomé el tren. El tren es más rápido que el autobús"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u7write-q3",
+    "stage": "A2.1",
+    "answer": "Llegué a las nueve y después fui al hotel",
+    "accepted": [
+      "Llegué a las nueve y después fui al hotel",
+      "Llegué a las nueve. Después fui al hotel."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u7write-q4",
+    "stage": "A2.1",
+    "answer": "¿Vamos el sábado? El domingo no puedo",
+    "accepted": [
+      "¿Vamos el sábado? El domingo no puedo",
+      "¿Vamos el sábado? No puedo el domingo"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u7write-q5",
+    "stage": "A2.1",
+    "answer": "Necesito reservar una habitación y después voy a comprar el billete",
+    "accepted": [
+      "Necesito reservar una habitación y después voy a comprar el billete",
+      "Necesito reservar una habitación. Después voy a comprar el billete."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u7story3-q2",
+    "stage": "A2.1",
+    "answer": "A room",
+    "accepted": [
+      "A room",
+      "Una habitación",
+      "Room",
+      "La habitación"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u7story3-q4",
+    "stage": "A2.1",
+    "answer": "Sunday",
+    "accepted": [
+      "Sunday",
+      "El domingo",
+      "Domingo"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a21u7check-q5",
+    "stage": "A2.1",
+    "answer": "Ana y Luis han vuelto a Madrid esta semana",
+    "accepted": [
+      "Ana y Luis han vuelto a Madrid esta semana",
+      "Esta semana Ana y Luis han vuelto a Madrid"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u7check-q6",
+    "stage": "A2.1",
+    "answer": "Ayer tomé el autobús y llegué a las nueve",
+    "accepted": [
+      "Ayer tomé el autobús y llegué a las nueve",
+      "Tomé el autobús ayer y llegué a las nueve"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u7check-q8",
+    "stage": "A2.1",
+    "answer": "He vuelto hoy, por eso voy a descansar",
+    "accepted": [
+      "He vuelto hoy, por eso voy a descansar",
+      "Hoy he vuelto, por eso voy a descansar"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a21u7check-q9",
+    "stage": "A2.1",
+    "answer": "¿Vamos el sábado? El domingo no puedo",
+    "accepted": [
+      "¿Vamos el sábado? El domingo no puedo",
+      "¿Vamos el sábado? No puedo el domingo"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u0l0-q3",
+    "stage": "A2.2",
+    "answer": "Antes vivía en Madrid",
+    "accepted": [
+      "Antes vivía en Madrid"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u0l0-q5",
+    "stage": "A2.2",
+    "answer": "Antes vivía en Madrid. Ahora vivo en Toledo.",
+    "accepted": [
+      "Antes vivía en Madrid. Ahora vivo en Toledo.",
+      "Vivía en Madrid antes. Ahora vivo en Toledo."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u0story0-q2",
+    "stage": "A2.2",
+    "answer": "A pie",
+    "accepted": [
+      "A pie",
+      "On foot",
+      "Walking"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u0story0-q4",
+    "stage": "A2.2",
+    "answer": "Al parque",
+    "accepted": [
+      "Al parque",
+      "To the park",
+      "The park",
+      "Parque"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u0l1-q3",
+    "stage": "A2.2",
+    "answer": "Trabajaba en un café",
+    "accepted": [
+      "Trabajaba en un café"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u0l1-q5",
+    "stage": "A2.2",
+    "answer": "Antes trabajaba en un café y estudiaba español.",
+    "accepted": [
+      "Antes trabajaba en un café y estudiaba español.",
+      "Trabajaba en un café y estudiaba español antes."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u0l1-q6",
+    "stage": "A2.2",
+    "answer": "Los domingos",
+    "accepted": [
+      "Los domingos",
+      "On Sundays",
+      "Sundays",
+      "Domingos"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u0story1-q2",
+    "stage": "A2.2",
+    "answer": "Por la mañana",
+    "accepted": [
+      "Por la mañana",
+      "In the morning",
+      "Mornings"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u0story1-q4",
+    "stage": "A2.2",
+    "answer": "La compra",
+    "accepted": [
+      "La compra",
+      "The shopping",
+      "Shopping",
+      "Hacía la compra"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u0l2-q3",
+    "stage": "A2.2",
+    "answer": "Cuando era pequeña, tenía un perro",
+    "accepted": [
+      "Cuando era pequeña, tenía un perro"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u0l2-q5",
+    "stage": "A2.2",
+    "answer": "Cuando era pequeña, iba al parque. Hacía buen tiempo.",
+    "accepted": [
+      "Cuando era pequeña, iba al parque. Hacía buen tiempo.",
+      "De pequeña iba al parque. Hacía buen tiempo."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u0story2-q2",
+    "stage": "A2.2",
+    "answer": "Frente al parque",
+    "accepted": [
+      "Frente al parque",
+      "Opposite the park",
+      "In front of the park"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u0story2-q4",
+    "stage": "A2.2",
+    "answer": "Estudiaba en casa",
+    "accepted": [
+      "Estudiaba en casa",
+      "Studied at home",
+      "Study at home"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u0write-q1",
+    "stage": "A2.2",
+    "answer": "Antes vivía en Toledo. Ahora vivo en Madrid.",
+    "accepted": [
+      "Antes vivía en Toledo. Ahora vivo en Madrid.",
+      "Vivía en Toledo antes. Ahora vivo en Madrid."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u0write-q2",
+    "stage": "A2.2",
+    "answer": "Antes trabajaba en casa y estudiaba por la noche.",
+    "accepted": [
+      "Antes trabajaba en casa y estudiaba por la noche.",
+      "Trabajaba en casa y estudiaba por la noche antes."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u0write-q3",
+    "stage": "A2.2",
+    "answer": "Mi barrio era pequeño y tranquilo.",
+    "accepted": [
+      "Mi barrio era pequeño y tranquilo.",
+      "Antes mi barrio era pequeño y tranquilo."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u0write-q4",
+    "stage": "A2.2",
+    "answer": "Cuando era pequeño, tenía un perro. Iba al parque con él.",
+    "accepted": [
+      "Cuando era pequeño, tenía un perro. Iba al parque con él.",
+      "De pequeño tenía un perro. Iba al parque con él."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u0write-q5",
+    "stage": "A2.2",
+    "answer": "Antes iba al trabajo a pie. Ahora voy en autobús.",
+    "accepted": [
+      "Antes iba al trabajo a pie. Ahora voy en autobús.",
+      "Iba al trabajo a pie antes. Ahora voy en autobús."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u0story3-q2",
+    "stage": "A2.2",
+    "answer": "Con su familia",
+    "accepted": [
+      "Con su familia",
+      "With his family",
+      "His family"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u0story3-q4",
+    "stage": "A2.2",
+    "answer": "Detrás de la mesa grande",
+    "accepted": [
+      "Detrás de la mesa grande",
+      "Behind the large table",
+      "Behind the big table"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u0check-q5",
+    "stage": "A2.2",
+    "answer": "Antes vivía en Madrid. Ahora vivo en Toledo.",
+    "accepted": [
+      "Antes vivía en Madrid. Ahora vivo en Toledo.",
+      "Vivía en Madrid antes. Ahora vivo en Toledo."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u0check-q6",
+    "stage": "A2.2",
+    "answer": "Antes trabajaba en un café y estudiaba español.",
+    "accepted": [
+      "Antes trabajaba en un café y estudiaba español.",
+      "Trabajaba en un café y estudiaba español antes."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u0check-q8",
+    "stage": "A2.2",
+    "answer": "Cuando era pequeña, iba al parque. Hacía buen tiempo.",
+    "accepted": [
+      "Cuando era pequeña, iba al parque. Hacía buen tiempo.",
+      "De pequeña iba al parque. Hacía buen tiempo."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u0check-q9",
+    "stage": "A2.2",
+    "answer": "Antes trabajaba en un café. Ahora trabajo en casa.",
+    "accepted": [
+      "Antes trabajaba en un café. Ahora trabajo en casa.",
+      "Trabajaba en un café antes. Ahora trabajo en casa."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u1l0-q3",
+    "stage": "A2.2",
+    "answer": "Ayer comí en el café",
+    "accepted": [
+      "Ayer comí en el café"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u1l0-q5",
+    "stage": "A2.2",
+    "answer": "Ayer comí en el café, pero normalmente comía en casa.",
+    "accepted": [
+      "Ayer comí en el café, pero normalmente comía en casa.",
+      "Normalmente comía en casa, pero ayer comí en el café."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u1story0-q2",
+    "stage": "A2.2",
+    "answer": "Trabajaba en casa",
+    "accepted": [
+      "Trabajaba en casa",
+      "Working at home",
+      "She was working at home"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u1story0-q4",
+    "stage": "A2.2",
+    "answer": "Salió al café",
+    "accepted": [
+      "Salió al café",
+      "Went out to the café",
+      "Went to the café"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u1l1-q3",
+    "stage": "A2.2",
+    "answer": "Viví en Toledo durante dos años",
+    "accepted": [
+      "Viví en Toledo durante dos años"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u1l1-q5",
+    "stage": "A2.2",
+    "answer": "Viví en Madrid durante un año. Allí estudiaba español.",
+    "accepted": [
+      "Viví en Madrid durante un año. Allí estudiaba español.",
+      "Durante un año viví en Madrid. Allí estudiaba español."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u1l1-q6",
+    "stage": "A2.2",
+    "answer": "En Toledo",
+    "accepted": [
+      "En Toledo",
+      "In Toledo",
+      "Toledo"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u1story1-q2",
+    "stage": "A2.2",
+    "answer": "Dos años",
+    "accepted": [
+      "Dos años",
+      "Two years",
+      "2 years"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u1story1-q4",
+    "stage": "A2.2",
+    "answer": "A la estación",
+    "accepted": [
+      "A la estación",
+      "To the station",
+      "The station"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u1l2-q3",
+    "stage": "A2.2",
+    "answer": "Hacía buen tiempo cuando salimos",
+    "accepted": [
+      "Hacía buen tiempo cuando salimos"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u1l2-q5",
+    "stage": "A2.2",
+    "answer": "Estaba en casa. Después salí al parque.",
+    "accepted": [
+      "Estaba en casa. Después salí al parque.",
+      "Estaba en casa y después salí al parque."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u1story2-q2",
+    "stage": "A2.2",
+    "answer": "En el café",
+    "accepted": [
+      "En el café",
+      "At the café",
+      "The café"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u1story2-q4",
+    "stage": "A2.2",
+    "answer": "Comieron",
+    "accepted": [
+      "Comieron",
+      "They ate",
+      "Ate",
+      "Comer"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u1write-q1",
+    "stage": "A2.2",
+    "answer": "Ayer comí en casa y después salí al parque.",
+    "accepted": [
+      "Ayer comí en casa y después salí al parque.",
+      "Ayer comí en casa. Después salí al parque."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u1write-q2",
+    "stage": "A2.2",
+    "answer": "Luis vivió en Madrid durante dos años.",
+    "accepted": [
+      "Luis vivió en Madrid durante dos años.",
+      "Durante dos años Luis vivió en Madrid."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u1write-q3",
+    "stage": "A2.2",
+    "answer": "Llovía y trabajaba en casa.",
+    "accepted": [
+      "Llovía y trabajaba en casa.",
+      "Trabajaba en casa y llovía."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u1write-q4",
+    "stage": "A2.2",
+    "answer": "Hacía frío. Ayer fui al café y comí con Marta.",
+    "accepted": [
+      "Hacía frío. Ayer fui al café y comí con Marta.",
+      "Ayer hacía frío. Fui al café y comí con Marta."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u1write-q5",
+    "stage": "A2.2",
+    "answer": "Antes vivía en Madrid. Ayer visité Toledo.",
+    "accepted": [
+      "Antes vivía en Madrid. Ayer visité Toledo.",
+      "Vivía en Madrid antes. Ayer visité Toledo."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u1story3-q2",
+    "stage": "A2.2",
+    "answer": "Cuatro",
+    "accepted": [
+      "Cuatro",
+      "Four",
+      "4"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u1story3-q4",
+    "stage": "A2.2",
+    "answer": "Pagó",
+    "accepted": [
+      "Pagó",
+      "He paid",
+      "Paid",
+      "Pagar"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u1check-q5",
+    "stage": "A2.2",
+    "answer": "Ayer comí en el café, pero normalmente comía en casa.",
+    "accepted": [
+      "Ayer comí en el café, pero normalmente comía en casa.",
+      "Normalmente comía en casa, pero ayer comí en el café."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u1check-q6",
+    "stage": "A2.2",
+    "answer": "Viví en Madrid durante un año. Allí estudiaba español.",
+    "accepted": [
+      "Viví en Madrid durante un año. Allí estudiaba español.",
+      "Durante un año viví en Madrid. Allí estudiaba español."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u1check-q8",
+    "stage": "A2.2",
+    "answer": "Estaba en casa. Después salí al parque.",
+    "accepted": [
+      "Estaba en casa. Después salí al parque.",
+      "Estaba en casa y después salí al parque."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u1check-q9",
+    "stage": "A2.2",
+    "answer": "Estaba en el café cuando Luis llamó. Después salí.",
+    "accepted": [
+      "Estaba en el café cuando Luis llamó. Después salí.",
+      "Cuando Luis llamó, estaba en el café. Después salí."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u2l0-q3",
+    "stage": "A2.2",
+    "answer": "Perdí el tren porque llegué tarde",
+    "accepted": [
+      "Perdí el tren porque llegué tarde"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u2l0-q5",
+    "stage": "A2.2",
+    "answer": "Perdí el tren. Voy a tomar el autobús.",
+    "accepted": [
+      "Perdí el tren. Voy a tomar el autobús.",
+      "Perdí el tren y voy a tomar el autobús."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u2story0-q2",
+    "stage": "A2.2",
+    "answer": "Del cuatro",
+    "accepted": [
+      "Del cuatro",
+      "Platform four",
+      "4",
+      "Del andén cuatro"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u2story0-q4",
+    "stage": "A2.2",
+    "answer": "Ir a la izquierda",
+    "accepted": [
+      "Ir a la izquierda",
+      "Go left",
+      "Turn left",
+      "A la izquierda"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u2l1-q3",
+    "stage": "A2.2",
+    "answer": "Tuve que cambiar en Madrid",
+    "accepted": [
+      "Tuve que cambiar en Madrid"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u2l1-q5",
+    "stage": "A2.2",
+    "answer": "Ayer tuve que cambiar. Ahora necesito otro billete.",
+    "accepted": [
+      "Ayer tuve que cambiar. Ahora necesito otro billete.",
+      "Tuve que cambiar ayer. Ahora necesito otro billete."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u2l1-q6",
+    "stage": "A2.2",
+    "answer": "Del cuatro",
+    "accepted": [
+      "Del cuatro",
+      "Platform four",
+      "Four",
+      "4",
+      "Del andén cuatro"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u2story1-q2",
+    "stage": "A2.2",
+    "answer": "Llegó tarde",
+    "accepted": [
+      "Llegó tarde",
+      "He arrived late",
+      "Arrived late"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u2story1-q4",
+    "stage": "A2.2",
+    "answer": "Explicó el problema",
+    "accepted": [
+      "Explicó el problema",
+      "Explained the problem",
+      "Told Marta what happened"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u2l2-q3",
+    "stage": "A2.2",
+    "answer": "No pude salir porque el tren estaba parado",
+    "accepted": [
+      "No pude salir porque el tren estaba parado"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u2l2-q5",
+    "stage": "A2.2",
+    "answer": "No pude salir porque el tren estaba parado. Voy a preguntar en la estación.",
+    "accepted": [
+      "No pude salir porque el tren estaba parado. Voy a preguntar en la estación.",
+      "El tren estaba parado y no pude salir. Voy a preguntar en la estación."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u2story2-q2",
+    "stage": "A2.2",
+    "answer": "Detrás de la plaza",
+    "accepted": [
+      "Detrás de la plaza",
+      "Behind the square",
+      "Behind the plaza"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u2story2-q4",
+    "stage": "A2.2",
+    "answer": "A la derecha",
+    "accepted": [
+      "A la derecha",
+      "Right",
+      "To the right",
+      "Turned right"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u2write-q1",
+    "stage": "A2.2",
+    "answer": "¿De qué andén sale el tren?",
+    "accepted": [
+      "¿De qué andén sale el tren?",
+      "¿El tren sale de qué andén?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u2write-q2",
+    "stage": "A2.2",
+    "answer": "¿Dónde tengo que cambiar?",
+    "accepted": [
+      "¿Dónde tengo que cambiar?",
+      "¿Dónde debo cambiar?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u2write-q3",
+    "stage": "A2.2",
+    "answer": "Ayer perdí el autobús porque llegué tarde.",
+    "accepted": [
+      "Ayer perdí el autobús porque llegué tarde.",
+      "Perdí el autobús ayer porque llegué tarde."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u2write-q4",
+    "stage": "A2.2",
+    "answer": "El tren estaba parado. No pude salir. Ahora voy a tomar el autobús.",
+    "accepted": [
+      "El tren estaba parado. No pude salir. Ahora voy a tomar el autobús.",
+      "El tren estaba parado y no pude salir. Ahora voy a tomar el autobús."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u2write-q5",
+    "stage": "A2.2",
+    "answer": "Ayer tuve que cambiar en Madrid. Quiero otro billete para hoy.",
+    "accepted": [
+      "Ayer tuve que cambiar en Madrid. Quiero otro billete para hoy.",
+      "Tuve que cambiar en Madrid ayer. Quiero otro billete para hoy."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u2story3-q2",
+    "stage": "A2.2",
+    "answer": "A las diez",
+    "accepted": [
+      "A las diez",
+      "At ten",
+      "Ten",
+      "10"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u2story3-q4",
+    "stage": "A2.2",
+    "answer": "A Luis",
+    "accepted": [
+      "A Luis",
+      "Luis",
+      "She called Luis"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u2check-q5",
+    "stage": "A2.2",
+    "answer": "Perdí el tren. Voy a tomar el autobús.",
+    "accepted": [
+      "Perdí el tren. Voy a tomar el autobús.",
+      "Perdí el tren y voy a tomar el autobús."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u2check-q6",
+    "stage": "A2.2",
+    "answer": "Ayer tuve que cambiar. Ahora necesito otro billete.",
+    "accepted": [
+      "Ayer tuve que cambiar. Ahora necesito otro billete.",
+      "Tuve que cambiar ayer. Ahora necesito otro billete."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u2check-q8",
+    "stage": "A2.2",
+    "answer": "No pude salir porque el tren estaba parado. Voy a preguntar en la estación.",
+    "accepted": [
+      "No pude salir porque el tren estaba parado. Voy a preguntar en la estación.",
+      "El tren estaba parado y no pude salir. Voy a preguntar en la estación."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u2check-q9",
+    "stage": "A2.2",
+    "answer": "Perdí el tren. Tuve que tomar el autobús y llegué a tiempo.",
+    "accepted": [
+      "Perdí el tren. Tuve que tomar el autobús y llegué a tiempo.",
+      "Perdí el tren, así que tuve que tomar el autobús. Llegué a tiempo."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u3l0-q3",
+    "stage": "A2.2",
+    "answer": "Quiero dos cafés y una botella de agua",
+    "accepted": [
+      "Quiero dos cafés y una botella de agua"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u3l0-q5",
+    "stage": "A2.2",
+    "answer": "Quiero dos cafés y una botella de agua. La cuenta, por favor.",
+    "accepted": [
+      "Quiero dos cafés y una botella de agua. La cuenta, por favor.",
+      "Dos cafés y una botella de agua, por favor. La cuenta, por favor."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u3story0-q2",
+    "stage": "A2.2",
+    "answer": "Dos",
+    "accepted": [
+      "Dos",
+      "Two",
+      "2"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u3story0-q4",
+    "stage": "A2.2",
+    "answer": "Café",
+    "accepted": [
+      "Café",
+      "Coffee",
+      "Coffees"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u3l1-q3",
+    "stage": "A2.2",
+    "answer": "¿La sopa lleva carne?",
+    "accepted": [
+      "¿La sopa lleva carne?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u3l1-q5",
+    "stage": "A2.2",
+    "answer": "Quiero una ensalada sin carne porque no como carne.",
+    "accepted": [
+      "Quiero una ensalada sin carne porque no como carne.",
+      "No como carne. Quiero una ensalada sin carne."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u3l1-q6",
+    "stage": "A2.2",
+    "answer": "Un café",
+    "accepted": [
+      "Un café",
+      "One coffee",
+      "A coffee"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u3story1-q2",
+    "stage": "A2.2",
+    "answer": "Con tarjeta",
+    "accepted": [
+      "Con tarjeta",
+      "By card",
+      "With a card"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u3story1-q4",
+    "stage": "A2.2",
+    "answer": "El segundo café",
+    "accepted": [
+      "El segundo café",
+      "The second coffee",
+      "Another coffee"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u3l2-q3",
+    "stage": "A2.2",
+    "answer": "El camarero dijo que faltaba un café",
+    "accepted": [
+      "El camarero dijo que faltaba un café"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u3l2-q5",
+    "stage": "A2.2",
+    "answer": "Pedí dos cafés y falta uno. ¿Puede traer el otro, por favor?",
+    "accepted": [
+      "Pedí dos cafés y falta uno. ¿Puede traer el otro, por favor?",
+      "Pedí dos cafés. Falta uno. ¿Puede traer el otro, por favor?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u3story2-q2",
+    "stage": "A2.2",
+    "answer": "Pollo",
+    "accepted": [
+      "Pollo",
+      "Chicken"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u3story2-q4",
+    "stage": "A2.2",
+    "answer": "A la estación",
+    "accepted": [
+      "A la estación",
+      "To the station",
+      "The station"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u3write-q1",
+    "stage": "A2.2",
+    "answer": "Quiero una sopa y dos botellas de agua.",
+    "accepted": [
+      "Quiero una sopa y dos botellas de agua.",
+      "Una sopa y dos botellas de agua, por favor."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u3write-q2",
+    "stage": "A2.2",
+    "answer": "¿La ensalada lleva queso?",
+    "accepted": [
+      "¿La ensalada lleva queso?",
+      "¿Lleva queso la ensalada?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u3write-q3",
+    "stage": "A2.2",
+    "answer": "No como carne. Quiero la sopa sin carne.",
+    "accepted": [
+      "No como carne. Quiero la sopa sin carne.",
+      "Quiero la sopa sin carne porque no como carne."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u3write-q4",
+    "stage": "A2.2",
+    "answer": "Pedí una sopa sin carne, pero tiene carne. ¿Puede traer otra, por favor?",
+    "accepted": [
+      "Pedí una sopa sin carne, pero tiene carne. ¿Puede traer otra, por favor?",
+      "Pedí una sopa sin carne. Tiene carne. ¿Puede traer otra, por favor?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u3write-q5",
+    "stage": "A2.2",
+    "answer": "El camarero dijo que faltaba agua. Una botella y la cuenta, por favor.",
+    "accepted": [
+      "El camarero dijo que faltaba agua. Una botella y la cuenta, por favor.",
+      "El camarero dijo que faltaba agua. Quiero una botella y la cuenta, por favor."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u3story3-q2",
+    "stage": "A2.2",
+    "answer": "Dos",
+    "accepted": [
+      "Dos",
+      "Two",
+      "2"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u3story3-q4",
+    "stage": "A2.2",
+    "answer": "El total de la cuenta",
+    "accepted": [
+      "El total de la cuenta",
+      "The bill total",
+      "The total"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u3check-q5",
+    "stage": "A2.2",
+    "answer": "Quiero dos cafés y una botella de agua. La cuenta, por favor.",
+    "accepted": [
+      "Quiero dos cafés y una botella de agua. La cuenta, por favor.",
+      "Dos cafés y una botella de agua, por favor. La cuenta, por favor."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u3check-q6",
+    "stage": "A2.2",
+    "answer": "Quiero una ensalada sin carne porque no como carne.",
+    "accepted": [
+      "Quiero una ensalada sin carne porque no como carne.",
+      "No como carne. Quiero una ensalada sin carne."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u3check-q8",
+    "stage": "A2.2",
+    "answer": "Pedí dos cafés y falta uno. ¿Puede traer el otro, por favor?",
+    "accepted": [
+      "Pedí dos cafés y falta uno. ¿Puede traer el otro, por favor?",
+      "Pedí dos cafés. Falta uno. ¿Puede traer el otro, por favor?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u3check-q9",
+    "stage": "A2.2",
+    "answer": "Pedimos dos cafés, pero falta uno. ¿Puede traer el otro, por favor?",
+    "accepted": [
+      "Pedimos dos cafés, pero falta uno. ¿Puede traer el otro, por favor?",
+      "Falta un café. Pedimos dos; ¿puede traer el otro, por favor?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u4l0-q3",
+    "stage": "A2.2",
+    "answer": "Quiero cambiar esta camiseta",
+    "accepted": [
+      "Quiero cambiar esta camiseta"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u4l0-q5",
+    "stage": "A2.2",
+    "answer": "La camiseta me queda pequeña. Tengo el recibo. Quiero una talla más grande.",
+    "accepted": [
+      "La camiseta me queda pequeña. Tengo el recibo. Quiero una talla más grande.",
+      "La camiseta me queda pequeña y tengo el recibo. Quiero una talla más grande."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u4story0-q2",
+    "stage": "A2.2",
+    "answer": "El recibo",
+    "accepted": [
+      "El recibo",
+      "The receipt",
+      "A receipt"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u4story0-q4",
+    "stage": "A2.2",
+    "answer": "Se la prueba",
+    "accepted": [
+      "Se la prueba",
+      "Tries it on",
+      "Tries on the T-shirt"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u4l1-q3",
+    "stage": "A2.2",
+    "answer": "Ayer vine a cambiar la chaqueta",
+    "accepted": [
+      "Ayer vine a cambiar la chaqueta"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u4l1-q5",
+    "stage": "A2.2",
+    "answer": "Ayer vine a cambiar la chaqueta. Ahora quiero otra porque es más barata.",
+    "accepted": [
+      "Ayer vine a cambiar la chaqueta. Ahora quiero otra porque es más barata.",
+      "Vine ayer a cambiar la chaqueta. Ahora quiero otra porque es más barata."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u4l1-q6",
+    "stage": "A2.2",
+    "answer": "Treinta euros",
+    "accepted": [
+      "Treinta euros",
+      "Thirty euros",
+      "30 euros"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u4story1-q2",
+    "stage": "A2.2",
+    "answer": "Ayer",
+    "accepted": [
+      "Ayer",
+      "Yesterday"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u4story1-q4",
+    "stage": "A2.2",
+    "answer": "A Marta",
+    "accepted": [
+      "A Marta",
+      "Marta",
+      "He calls Marta"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u4l2-q3",
+    "stage": "A2.2",
+    "answer": "No quise comprar la bolsa porque estaba rota",
+    "accepted": [
+      "No quise comprar la bolsa porque estaba rota"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u4l2-q5",
+    "stage": "A2.2",
+    "answer": "Ayer no quise comprar la bolsa porque estaba rota. Hoy busco otra.",
+    "accepted": [
+      "Ayer no quise comprar la bolsa porque estaba rota. Hoy busco otra.",
+      "No quise comprar la bolsa ayer porque estaba rota. Hoy busco otra."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u4story2-q2",
+    "stage": "A2.2",
+    "answer": "Diez euros",
+    "accepted": [
+      "Diez euros",
+      "Ten euros",
+      "10 euros"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u4story2-q4",
+    "stage": "A2.2",
+    "answer": "La miró bien",
+    "accepted": [
+      "La miró bien",
+      "Checked it carefully",
+      "Looked at it carefully"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u4write-q1",
+    "stage": "A2.2",
+    "answer": "¿Tiene otra talla?",
+    "accepted": [
+      "¿Tiene otra talla?",
+      "¿Tiene otra talla, por favor?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u4write-q2",
+    "stage": "A2.2",
+    "answer": "El móvil no funciona. Tengo el recibo. ¿Puede ayudarme?",
+    "accepted": [
+      "El móvil no funciona. Tengo el recibo. ¿Puede ayudarme?",
+      "Tengo el recibo. El móvil no funciona. ¿Puede ayudarme?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u4write-q3",
+    "stage": "A2.2",
+    "answer": "Esta chaqueta es más barata que la otra.",
+    "accepted": [
+      "Esta chaqueta es más barata que la otra.",
+      "Esta chaqueta es más barata que la otra chaqueta."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u4write-q4",
+    "stage": "A2.2",
+    "answer": "Ayer vine a cambiar la camiseta. Era pequeña. Hoy quiero la mediana.",
+    "accepted": [
+      "Ayer vine a cambiar la camiseta. Era pequeña. Hoy quiero la mediana.",
+      "Vine ayer a cambiar la camiseta porque era pequeña. Hoy quiero la mediana."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u4write-q5",
+    "stage": "A2.2",
+    "answer": "No quise comprar la bolsa porque estaba rota. Quiero otra.",
+    "accepted": [
+      "No quise comprar la bolsa porque estaba rota. Quiero otra.",
+      "La bolsa estaba rota y no quise comprarla. Quiero otra."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u4story3-q2",
+    "stage": "A2.2",
+    "answer": "Cinco euros",
+    "accepted": [
+      "Cinco euros",
+      "Five euros",
+      "5 euros"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u4story3-q4",
+    "stage": "A2.2",
+    "answer": "Vino a cambiar una chaqueta",
+    "accepted": [
+      "Vino a cambiar una chaqueta",
+      "Came to exchange a jacket",
+      "Exchanged a jacket"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u4check-q5",
+    "stage": "A2.2",
+    "answer": "La camiseta me queda pequeña. Tengo el recibo. Quiero una talla más grande.",
+    "accepted": [
+      "La camiseta me queda pequeña. Tengo el recibo. Quiero una talla más grande.",
+      "La camiseta me queda pequeña y tengo el recibo. Quiero una talla más grande."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u4check-q6",
+    "stage": "A2.2",
+    "answer": "Ayer vine a cambiar la chaqueta. Ahora quiero otra porque es más barata.",
+    "accepted": [
+      "Ayer vine a cambiar la chaqueta. Ahora quiero otra porque es más barata.",
+      "Vine ayer a cambiar la chaqueta. Ahora quiero otra porque es más barata."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u4check-q8",
+    "stage": "A2.2",
+    "answer": "Ayer no quise comprar la bolsa porque estaba rota. Hoy busco otra.",
+    "accepted": [
+      "Ayer no quise comprar la bolsa porque estaba rota. Hoy busco otra.",
+      "No quise comprar la bolsa ayer porque estaba rota. Hoy busco otra."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u4check-q9",
+    "stage": "A2.2",
+    "answer": "Compré la camiseta ayer. Me queda pequeña y tengo el recibo. Quiero otra talla.",
+    "accepted": [
+      "Compré la camiseta ayer. Me queda pequeña y tengo el recibo. Quiero otra talla.",
+      "Ayer compré esta camiseta. Me queda pequeña. Tengo el recibo y quiero otra talla."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u5l0-q3",
+    "stage": "A2.2",
+    "answer": "Estuve en la estación hasta las ocho",
+    "accepted": [
+      "Estuve en la estación hasta las ocho"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u5l0-q5",
+    "stage": "A2.2",
+    "answer": "Estuve en la estación hasta las ocho. Ahora voy a ir al café.",
+    "accepted": [
+      "Estuve en la estación hasta las ocho. Ahora voy a ir al café.",
+      "Hasta las ocho estuve en la estación. Ahora voy a ir al café."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u5story0-q2",
+    "stage": "A2.2",
+    "answer": "Tiene que trabajar por la noche",
+    "accepted": [
+      "Tiene que trabajar por la noche",
+      "She has to work at night",
+      "Work at night"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u5story0-q4",
+    "stage": "A2.2",
+    "answer": "El autobús",
+    "accepted": [
+      "El autobús",
+      "The bus",
+      "Bus"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u5l1-q3",
+    "stage": "A2.2",
+    "answer": "Perdí el tren, así que voy a llegar más tarde",
+    "accepted": [
+      "Perdí el tren, así que voy a llegar más tarde"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u5l1-q5",
+    "stage": "A2.2",
+    "answer": "Perdí el autobús. Voy a llegar a las nueve. ¿Quedamos a esa hora?",
+    "accepted": [
+      "Perdí el autobús. Voy a llegar a las nueve. ¿Quedamos a esa hora?",
+      "Perdí el autobús y voy a llegar a las nueve. ¿Quedamos a esa hora?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u5l1-q6",
+    "stage": "A2.2",
+    "answer": "El sábado",
+    "accepted": [
+      "El sábado",
+      "Saturday",
+      "Sábado",
+      "On Saturday"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u5story1-q2",
+    "stage": "A2.2",
+    "answer": "A las seis y media",
+    "accepted": [
+      "A las seis y media",
+      "At half past six",
+      "Six thirty",
+      "6:30"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u5story1-q4",
+    "stage": "A2.2",
+    "answer": "Diego",
+    "accepted": [
+      "Diego",
+      "Diego will"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u5l2-q3",
+    "stage": "A2.2",
+    "answer": "Ayer no pude venir, pero mañana estoy libre",
+    "accepted": [
+      "Ayer no pude venir, pero mañana estoy libre"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u5l2-q5",
+    "stage": "A2.2",
+    "answer": "Ayer no pude ir porque trabajaba. ¿Qué tal mañana?",
+    "accepted": [
+      "Ayer no pude ir porque trabajaba. ¿Qué tal mañana?",
+      "Trabajaba y ayer no pude ir. ¿Qué tal mañana?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u5story2-q2",
+    "stage": "A2.2",
+    "answer": "Hasta las nueve",
+    "accepted": [
+      "Hasta las nueve",
+      "Until nine",
+      "Nine"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u5story2-q4",
+    "stage": "A2.2",
+    "answer": "Volver a casa",
+    "accepted": [
+      "Volver a casa",
+      "Go home",
+      "Return home"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u5write-q1",
+    "stage": "A2.2",
+    "answer": "No puedo ir esta tarde porque tengo que trabajar.",
+    "accepted": [
+      "No puedo ir esta tarde porque tengo que trabajar.",
+      "Tengo que trabajar y no puedo ir esta tarde."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u5write-q2",
+    "stage": "A2.2",
+    "answer": "Perdí el tren, así que voy a llegar más tarde.",
+    "accepted": [
+      "Perdí el tren, así que voy a llegar más tarde.",
+      "He perdido el tren, así que voy a llegar más tarde."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u5write-q3",
+    "stage": "A2.2",
+    "answer": "Mañana estoy libre. ¿Qué tal a las seis?",
+    "accepted": [
+      "Mañana estoy libre. ¿Qué tal a las seis?",
+      "Estoy libre mañana. ¿Qué tal a las seis?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u5write-q4",
+    "stage": "A2.2",
+    "answer": "Ayer no pude venir porque trabajaba. Mañana estoy libre. ¿Qué tal a las cinco?",
+    "accepted": [
+      "Ayer no pude venir porque trabajaba. Mañana estoy libre. ¿Qué tal a las cinco?",
+      "Trabajaba y ayer no pude venir. Mañana estoy libre. ¿Qué tal a las cinco?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u5write-q5",
+    "stage": "A2.2",
+    "answer": "Estuve en la estación hasta las nueve. Voy a descansar porque estoy cansada.",
+    "accepted": [
+      "Estuve en la estación hasta las nueve. Voy a descansar porque estoy cansada.",
+      "Hasta las nueve estuve en la estación. Voy a descansar porque estoy cansada."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u5story3-q2",
+    "stage": "A2.2",
+    "answer": "Tiene una visita familiar",
+    "accepted": [
+      "Tiene una visita familiar",
+      "A family visit",
+      "He has a family visit"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u5story3-q4",
+    "stage": "A2.2",
+    "answer": "Diego",
+    "accepted": [
+      "Diego",
+      "Diego does"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u5check-q5",
+    "stage": "A2.2",
+    "answer": "Estuve en la estación hasta las ocho. Ahora voy a ir al café.",
+    "accepted": [
+      "Estuve en la estación hasta las ocho. Ahora voy a ir al café.",
+      "Hasta las ocho estuve en la estación. Ahora voy a ir al café."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u5check-q6",
+    "stage": "A2.2",
+    "answer": "Perdí el autobús. Voy a llegar a las nueve. ¿Quedamos a esa hora?",
+    "accepted": [
+      "Perdí el autobús. Voy a llegar a las nueve. ¿Quedamos a esa hora?",
+      "Perdí el autobús y voy a llegar a las nueve. ¿Quedamos a esa hora?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u5check-q8",
+    "stage": "A2.2",
+    "answer": "Ayer no pude ir porque trabajaba. ¿Qué tal mañana?",
+    "accepted": [
+      "Ayer no pude ir porque trabajaba. ¿Qué tal mañana?",
+      "Trabajaba y ayer no pude ir. ¿Qué tal mañana?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u5check-q9",
+    "stage": "A2.2",
+    "answer": "Ayer no pude venir porque trabajaba. Hoy estoy libre. ¿Quedamos a las seis?",
+    "accepted": [
+      "Ayer no pude venir porque trabajaba. Hoy estoy libre. ¿Quedamos a las seis?",
+      "No pude venir ayer porque trabajaba. Estoy libre hoy. ¿Podemos quedar a las seis?"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u6l0-q3",
+    "stage": "A2.2",
+    "answer": "Creo que el tren es más cómodo",
+    "accepted": [
+      "Creo que el tren es más cómodo"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u6l0-q5",
+    "stage": "A2.2",
+    "answer": "Para mí, el tren es más cómodo, pero cuesta más.",
+    "accepted": [
+      "Para mí, el tren es más cómodo, pero cuesta más.",
+      "El tren es más cómodo para mí, pero cuesta más."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u6story0-q2",
+    "stage": "A2.2",
+    "answer": "A las doce",
+    "accepted": [
+      "A las doce",
+      "At twelve",
+      "Noon",
+      "12"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u6story0-q4",
+    "stage": "A2.2",
+    "answer": "Con Diego",
+    "accepted": [
+      "Con Diego",
+      "With Diego",
+      "Diego"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u6l1-q3",
+    "stage": "A2.2",
+    "answer": "Me parece una buena idea",
+    "accepted": [
+      "Me parece una buena idea"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u6l1-q5",
+    "stage": "A2.2",
+    "answer": "Me parece una buena idea porque el parque es tranquilo.",
+    "accepted": [
+      "Me parece una buena idea porque el parque es tranquilo.",
+      "El parque es tranquilo, por eso me parece una buena idea."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u6l1-q6",
+    "stage": "A2.2",
+    "answer": "Diego",
+    "accepted": [
+      "Diego",
+      "Diego does not",
+      "Diego tampoco"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u6story1-q2",
+    "stage": "A2.2",
+    "answer": "El final",
+    "accepted": [
+      "El final",
+      "The ending",
+      "Ending"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u6story1-q4",
+    "stage": "A2.2",
+    "answer": "Ayer",
+    "accepted": [
+      "Ayer",
+      "Yesterday"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u6l2-q3",
+    "stage": "A2.2",
+    "answer": "Ayer vi una película y me gustó",
+    "accepted": [
+      "Ayer vi una película y me gustó"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u6l2-q5",
+    "stage": "A2.2",
+    "answer": "Ayer vi la película. Era larga, pero me gustó.",
+    "accepted": [
+      "Ayer vi la película. Era larga, pero me gustó.",
+      "Ayer vi la película y me gustó, pero era larga."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u6story2-q2",
+    "stage": "A2.2",
+    "answer": "Ana",
+    "accepted": [
+      "Ana",
+      "Ana does not",
+      "Ana tampoco"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u6story2-q4",
+    "stage": "A2.2",
+    "answer": "Si lleva pollo",
+    "accepted": [
+      "Si lleva pollo",
+      "Whether it contains chicken",
+      "The chicken ingredient"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u6write-q1",
+    "stage": "A2.2",
+    "answer": "Pienso que el autobús cuesta menos.",
+    "accepted": [
+      "Pienso que el autobús cuesta menos.",
+      "Pienso que cuesta menos el autobús."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u6write-q2",
+    "stage": "A2.2",
+    "answer": "No estoy de acuerdo. Prefiero el parque porque es tranquilo.",
+    "accepted": [
+      "No estoy de acuerdo. Prefiero el parque porque es tranquilo.",
+      "Prefiero el parque porque es tranquilo. No estoy de acuerdo."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u6write-q3",
+    "stage": "A2.2",
+    "answer": "A mí tampoco.",
+    "accepted": [
+      "A mí tampoco.",
+      "Tampoco me gusta.",
+      "A mí tampoco me gusta."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u6write-q4",
+    "stage": "A2.2",
+    "answer": "Ayer vi la película. Era larga, pero me gustó porque la música era buena.",
+    "accepted": [
+      "Ayer vi la película. Era larga, pero me gustó porque la música era buena.",
+      "Ayer vi la película. Me gustó porque la música era buena, pero era larga."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u6write-q5",
+    "stage": "A2.2",
+    "answer": "Para mí, este café es más tranquilo, pero el otro cuesta menos.",
+    "accepted": [
+      "Para mí, este café es más tranquilo, pero el otro cuesta menos.",
+      "Este café es más tranquilo para mí, pero el otro cuesta menos."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u6story3-q2",
+    "stage": "A2.2",
+    "answer": "A las cinco",
+    "accepted": [
+      "A las cinco",
+      "At five",
+      "Five",
+      "5"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u6story3-q4",
+    "stage": "A2.2",
+    "answer": "Luis",
+    "accepted": [
+      "Luis",
+      "Luis does"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u6check-q5",
+    "stage": "A2.2",
+    "answer": "Para mí, el tren es más cómodo, pero cuesta más.",
+    "accepted": [
+      "Para mí, el tren es más cómodo, pero cuesta más.",
+      "El tren es más cómodo para mí, pero cuesta más."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u6check-q6",
+    "stage": "A2.2",
+    "answer": "Me parece una buena idea porque el parque es tranquilo.",
+    "accepted": [
+      "Me parece una buena idea porque el parque es tranquilo.",
+      "El parque es tranquilo, por eso me parece una buena idea."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u6check-q8",
+    "stage": "A2.2",
+    "answer": "Ayer vi la película. Era larga, pero me gustó.",
+    "accepted": [
+      "Ayer vi la película. Era larga, pero me gustó.",
+      "Ayer vi la película y me gustó, pero era larga."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u6check-q9",
+    "stage": "A2.2",
+    "answer": "Estoy de acuerdo: el autobús cuesta menos. Pero prefiero el tren porque tengo poco tiempo.",
+    "accepted": [
+      "Estoy de acuerdo: el autobús cuesta menos. Pero prefiero el tren porque tengo poco tiempo.",
+      "El autobús cuesta menos, sí. Prefiero el tren porque tengo poco tiempo."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u7l0-q3",
+    "stage": "A2.2",
+    "answer": "Hacía frío cuando perdí el autobús",
+    "accepted": [
+      "Hacía frío cuando perdí el autobús"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u7l0-q5",
+    "stage": "A2.2",
+    "answer": "Hacía frío. Perdí el autobús y después tomé el tren.",
+    "accepted": [
+      "Hacía frío. Perdí el autobús y después tomé el tren.",
+      "Hacía frío cuando perdí el autobús. Después tomé el tren."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u7story0-q2",
+    "stage": "A2.2",
+    "answer": "El de las nueve",
+    "accepted": [
+      "El de las nueve",
+      "The nine-o’clock train",
+      "The train at nine"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u7story0-q4",
+    "stage": "A2.2",
+    "answer": "Delante del museo",
+    "accepted": [
+      "Delante del museo",
+      "In front of the museum",
+      "Outside the museum"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u7l1-q3",
+    "stage": "A2.2",
+    "answer": "Esta semana he ido a Toledo, pero ayer fui a Madrid",
+    "accepted": [
+      "Esta semana he ido a Toledo, pero ayer fui a Madrid"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u7l1-q5",
+    "stage": "A2.2",
+    "answer": "Esta semana he ido al museo. Ayer comí con Marta. Ahora voy a descansar.",
+    "accepted": [
+      "Esta semana he ido al museo. Ayer comí con Marta. Ahora voy a descansar.",
+      "Esta semana he ido al museo y ayer comí con Marta. Ahora voy a descansar."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u7l1-q6",
+    "stage": "A2.2",
+    "answer": "Con Luis",
+    "accepted": [
+      "Con Luis",
+      "Luis",
+      "With Luis"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u7story1-q2",
+    "stage": "A2.2",
+    "answer": "Una ensalada",
+    "accepted": [
+      "Una ensalada",
+      "A salad",
+      "Salad"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u7story1-q4",
+    "stage": "A2.2",
+    "answer": "Comprobaron la cuenta",
+    "accepted": [
+      "Comprobaron la cuenta",
+      "Checked the bill",
+      "Check the bill"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u7l2-q3",
+    "stage": "A2.2",
+    "answer": "El tren estaba parado, así que tomé el autobús",
+    "accepted": [
+      "El tren estaba parado, así que tomé el autobús"
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u7l2-q5",
+    "stage": "A2.2",
+    "answer": "Hacía frío. Perdí el autobús. Después tomé el tren. Ahora voy a descansar en casa.",
+    "accepted": [
+      "Hacía frío. Perdí el autobús. Después tomé el tren. Ahora voy a descansar en casa.",
+      "Hacía frío. Perdí el autobús. Tomé el tren después. Ahora voy a descansar en casa."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u7story2-q2",
+    "stage": "A2.2",
+    "answer": "La mediana",
+    "accepted": [
+      "La mediana",
+      "Medium",
+      "The medium size"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u7story2-q4",
+    "stage": "A2.2",
+    "answer": "Se probó la chaqueta",
+    "accepted": [
+      "Se probó la chaqueta",
+      "Tried on the jacket",
+      "She tried it on"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u7write-q1",
+    "stage": "A2.2",
+    "answer": "Antes vivía cerca de la estación. Ayer perdí el tren. Ahora voy en autobús.",
+    "accepted": [
+      "Antes vivía cerca de la estación. Ayer perdí el tren. Ahora voy en autobús.",
+      "Vivía cerca de la estación antes. Ayer perdí el tren. Ahora voy en autobús."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u7write-q2",
+    "stage": "A2.2",
+    "answer": "Esta semana he ido al café. Ayer comí allí. Lo prefiero porque es tranquilo.",
+    "accepted": [
+      "Esta semana he ido al café. Ayer comí allí. Lo prefiero porque es tranquilo.",
+      "Esta semana he ido al café. Ayer comí allí. Prefiero ese café porque es tranquilo."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u7write-q3",
+    "stage": "A2.2",
+    "answer": "La chaqueta era pequeña. Ayer vine a cambiarla. Hoy tengo otra.",
+    "accepted": [
+      "La chaqueta era pequeña. Ayer vine a cambiarla. Hoy tengo otra.",
+      "La chaqueta era pequeña. Vine ayer a cambiarla. Hoy tengo otra."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u7write-q4",
+    "stage": "A2.2",
+    "answer": "Hacía frío. Perdí el autobús. Después tomé el tren. Voy a descansar en casa.",
+    "accepted": [
+      "Hacía frío. Perdí el autobús. Después tomé el tren. Voy a descansar en casa.",
+      "Hacía frío. Perdí el autobús. Tomé el tren después. Voy a descansar en casa."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u7write-q5",
+    "stage": "A2.2",
+    "answer": "Ayer no pude ir porque trabajaba. Esta semana he ido al museo. Mañana voy a ir al parque.",
+    "accepted": [
+      "Ayer no pude ir porque trabajaba. Esta semana he ido al museo. Mañana voy a ir al parque.",
+      "Trabajaba y ayer no pude ir. Esta semana he ido al museo. Mañana voy a ir al parque."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u7story3-q2",
+    "stage": "A2.2",
+    "answer": "Cansada",
+    "accepted": [
+      "Cansada",
+      "Tired",
+      "She is tired"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u7story3-q4",
+    "stage": "A2.2",
+    "answer": "El autobús",
+    "accepted": [
+      "El autobús",
+      "The bus",
+      "A bus"
+    ],
+    "language": "en-or-es"
+  },
+  {
+    "id": "a22u7check-q5",
+    "stage": "A2.2",
+    "answer": "Hacía frío. Perdí el autobús y después tomé el tren.",
+    "accepted": [
+      "Hacía frío. Perdí el autobús y después tomé el tren.",
+      "Hacía frío cuando perdí el autobús. Después tomé el tren."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u7check-q6",
+    "stage": "A2.2",
+    "answer": "Esta semana he ido al museo. Ayer comí con Marta. Ahora voy a descansar.",
+    "accepted": [
+      "Esta semana he ido al museo. Ayer comí con Marta. Ahora voy a descansar.",
+      "Esta semana he ido al museo y ayer comí con Marta. Ahora voy a descansar."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u7check-q8",
+    "stage": "A2.2",
+    "answer": "Hacía frío. Perdí el autobús. Después tomé el tren. Ahora voy a descansar en casa.",
+    "accepted": [
+      "Hacía frío. Perdí el autobús. Después tomé el tren. Ahora voy a descansar en casa.",
+      "Hacía frío. Perdí el autobús. Tomé el tren después. Ahora voy a descansar en casa."
+    ],
+    "language": "es"
+  },
+  {
+    "id": "a22u7check-q9",
+    "stage": "A2.2",
+    "answer": "Hacía frío. Perdí el tren. Tomé el autobús. Ahora estoy cansada y voy a descansar.",
+    "accepted": [
+      "Hacía frío. Perdí el tren. Tomé el autobús. Ahora estoy cansada y voy a descansar.",
+      "Hacía frío. Perdí el tren. Después tomé el autobús. Ahora estoy cansada y voy a descansar."
+    ],
+    "language": "es"
+  }
+]

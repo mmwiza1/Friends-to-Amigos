@@ -1,6 +1,6 @@
 {
   "lastReviewed": "2026-10-07",
-  "purpose": "Candidate offline/open-source components for future Friends to Amigos writing diagnosis and feedback. Read WRITING_ENGINE.md before integrating any dependency.",
+  "purpose": "Writing resource decisions for the full-course user-testing release; see WRITING_ENGINE.md for shipped layers and deferrals.",
   "principles": {
     "offlineFirst": true,
     "llmGradingRequired": false,
@@ -20,10 +20,14 @@
       "name": "ehoogerbeets/conjugator",
       "url": "https://github.com/ehoogerbeets/conjugator",
       "license": "Apache-2.0",
-      "status": "preferred-integration",
+      "status": "evaluated-deferred-browser-packaging",
       "priority": 1,
-      "role": ["verb-conjugation", "verb-person-diagnosis", "verb-tense-diagnosis"],
-      "notes": "TypeScript/JavaScript. Defaults to castillano and supports Spain tú/vosotros plus regional styles. Use as a diagnostic helper, not a whole-sentence grader.",
+      "role": [
+        "verb-conjugation",
+        "verb-person-diagnosis",
+        "verb-tense-diagnosis"
+      ],
+      "notes": "TypeScript/JavaScript. Defaults to castillano and supports Spain t\u00fa/vosotros plus regional styles. Use as a diagnostic helper, not a whole-sentence grader. v2.1.0 Node filesystem/resource-loading dependency prevents safe direct WebView embedding; first-party adapter ships instead.",
       "shippingGate": "Preserve Apache-2.0 notices and confirm WebView/bundle compatibility."
     },
     {
@@ -31,9 +35,12 @@
       "name": "wooorm/nspell",
       "url": "https://github.com/wooorm/nspell",
       "license": "MIT",
-      "status": "preferred-integration",
+      "status": "deferred-dictionary-license-and-evaluation",
       "priority": 2,
-      "role": ["spell-check", "spelling-suggestions"],
+      "role": [
+        "spell-check",
+        "spelling-suggestions"
+      ],
       "notes": "Plain JavaScript Hunspell-compatible checker. Suggestions are diagnostic evidence, not proof that a learner answer is wrong.",
       "shippingGate": "Requires a separately licensed Spanish dictionary."
     },
@@ -42,9 +49,11 @@
       "name": "wooorm/dictionaries: dictionary-es",
       "url": "https://github.com/wooorm/dictionaries/tree/main/dictionaries/es",
       "license": "GPL-3.0-or-later OR LGPL-3.0-or-later OR MPL-1.1-or-later",
-      "status": "conditional-integration",
+      "status": "not-bundled-license-path-unselected",
       "priority": 3,
-      "role": ["es-ES-hunspell-dictionary"],
+      "role": [
+        "es-ES-hunspell-dictionary"
+      ],
       "notes": "The dictionary/affix data retain their own licence; the monorepo packaging being MIT does not replace it. Source locale is es_ES.",
       "shippingGate": "Explicitly choose a permitted licence path and satisfy its redistribution/source/notice obligations before bundling."
     },
@@ -53,10 +62,14 @@
       "name": "Friends to Amigos learner-error rule bank",
       "url": null,
       "license": "Project-owned",
-      "status": "preferred-first-party",
+      "status": "implemented",
       "priority": 0,
-      "role": ["grammar-misconceptions", "level-aware-feedback", "why-explanations"],
-      "notes": "Highest-priority approach. Rules should target taught misconceptions such as tener for age/hunger, ser/estar, gustar, agreement, contractions and wrong verb person.",
+      "role": [
+        "grammar-misconceptions",
+        "level-aware-feedback",
+        "why-explanations"
+      ],
+      "notes": "23 original level/unit-aware rules, curated verb diagnostics and a tested uncertainty/model fallback.",
       "shippingGate": "Require deterministic tests and low false-rejection rate."
     },
     {
@@ -66,7 +79,12 @@
       "license": "MIT",
       "status": "optional-experiment",
       "priority": 4,
-      "role": ["intent-classification", "similarity", "tokenisation", "guided-writing"],
+      "role": [
+        "intent-classification",
+        "similarity",
+        "tokenisation",
+        "guided-writing"
+      ],
       "notes": "Use only after deterministic grading is strong. Intent recognition can show that meaning was communicated but must never by itself prove grammatical correctness.",
       "shippingGate": "Train on original or properly licensed examples; measure false accepts/rejects before scored use."
     },
@@ -77,7 +95,10 @@
       "license": "LGPL-2.1-or-later (verify exact component/file)",
       "status": "reference-development-evaluation",
       "priority": 5,
-      "role": ["grammar-rule-design-reference", "development-comparison"],
+      "role": [
+        "grammar-rule-design-reference",
+        "development-comparison"
+      ],
       "notes": "Mature pattern-based grammar checker, but the Java/JVM engine is much heavier than the current offline WebView architecture. Prefer learning from its rule approach rather than embedding the full engine.",
       "shippingGate": "Separate architecture and licence review required before any embedded reuse of code/rules."
     },
@@ -88,12 +109,16 @@
       "license": "GPL-2.0",
       "status": "reference-research",
       "priority": 6,
-      "role": ["morphological-analysis", "morphological-generation", "advanced-research"],
+      "role": [
+        "morphological-analysis",
+        "morphological-generation",
+        "advanced-research"
+      ],
       "notes": "Powerful linguistic resource but heavier and less natural for the current JavaScript/WebView product than the preferred options.",
       "shippingGate": "Do not embed without deliberate GPL and architecture review."
     }
   ],
-  "futureWritingModes": {
+  "writingModes": {
     "controlled": "Can use deterministic correct/incorrect scoring when the task has a narrow target.",
     "guided": "Support multiple valid formulations; use correct/acceptable/needs-fix/uncertain/off-task states rather than brittle exact matching.",
     "free": "Offer high-confidence coaching and model answers; do not claim authoritative essay grading."

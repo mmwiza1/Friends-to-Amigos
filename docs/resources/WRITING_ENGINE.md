@@ -72,7 +72,7 @@ Return structured feedback such as:
 
 ### Integration status
 
-**Preferred candidate for future implementation.** Before vendoring or packaging the library, preserve Apache-2.0 notices and confirm bundle size/WebView compatibility.
+**Evaluated, not bundled.** Public package v2.1.0 uses Node filesystem/path/url imports and reads JSON/TSV resources during loading. Directly placing it in this offline WebView would not be a safe browser integration. This release implements the documented adapter using first-party curated course paradigms; it diagnoses only known forms/explicit contexts. A browser packaging exercise and complete notice/size review are required before replacing that adapter with the library.
 
 ---
 
@@ -125,7 +125,7 @@ If the Spanish dictionary is bundled in a future APK, explicitly choose and comp
 
 ### Integration status
 
-**nspell: preferred integration.**
+**nspell: evaluated shortlist, not bundled in this release.**
 
 **Spanish dictionary: conditional integration pending explicit licence/compliance decision.**
 
@@ -428,3 +428,15 @@ Do not automatically install every resource listed here. The preferred sequence 
 3. nspell + explicitly reviewed Spanish dictionary licence,
 4. optional NLP.js prototype,
 5. LanguageTool/Apertium as reference unless separately approved.
+
+
+
+## Implemented layers and limits
+
+`writing.js` implements the normalisation/variant-first pipeline and Controlled/Guided/Free outcomes. `writing-rules.js` contains 23 original, level/unit-aware bounded error rules. `verb-diagnostics.js` implements the proposed API using curated six-person Spain paradigms, including wrong person and explicitly requested tense/mood. `writing-audit.js` classifies all 160 earlier dedicated-writing items.
+
+Exact authored variants are verified for Controlled/Guided only. Near-model edit distance is limited to two edits and 500 characters; it is coaching, not a general spelling check. Unknown Guided and all Free responses fall back to uncertainty/model comparison. An authored rule can highlight an error without certifying the rest. Task markers do not prove grammaticality. Open response comparisons, revisions and reflections persist; reflection evidence is excluded from verified accuracy and positive unverified reflection cannot clear SRS correctness.
+
+The false-rejection corpus includes alternative names/word orders, negation, valid regional/formal forms, accents, proper nouns, quoted errors, article/verb ambiguity and subjunctive alternatives. It must pass before release. See the release report for exact results and the limits of that small corpus; it is not evidence of arbitrary Spanish understanding.
+
+Nspell/dictionary-es are not shipped: the offered GPL/LGPL/MPL dictionary paths still need an explicit redistribution/source/notice decision and an unknown-name/regional-word diagnostic evaluation. No dictionary data was downloaded into the app and no licence path was silently selected. NLP.js remains an optional experiment because an unvalidated intent classifier would introduce false grammatical confidence; deterministic requirement evidence is used instead. LanguageTool’s JVM engine and Apertium morphology remain reference/development candidates, not copied code or embedded runtimes. No third-party attribution notice is newly required because no third-party implementation or exercise text was incorporated.

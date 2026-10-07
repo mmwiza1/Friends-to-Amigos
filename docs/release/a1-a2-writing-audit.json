@@ -1,0 +1,1602 @@
+[
+  {
+    "stage": "A1.1",
+    "activity": "u0write",
+    "question": "u0write-q1",
+    "objective": "Introduce yourself, ask someone’s name and greet or say goodbye politely",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u0write",
+    "question": "u0write-q2",
+    "objective": "Introduce yourself, ask someone’s name and greet or say goodbye politely",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u0write",
+    "question": "u0write-q3",
+    "objective": "Introduce yourself, ask someone’s name and greet or say goodbye politely",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u0write",
+    "question": "u0write-q4",
+    "objective": "Introduce yourself, ask someone’s name and greet or say goodbye politely",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u0write",
+    "question": "u0write-q5",
+    "objective": "Introduce yourself, ask someone’s name and greet or say goodbye politely",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u1write",
+    "question": "u1write-q1",
+    "objective": "Give your age, origin and home city, and ask for basic personal information",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u1write",
+    "question": "u1write-q2",
+    "objective": "Give your age, origin and home city, and ask for basic personal information",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u1write",
+    "question": "u1write-q3",
+    "objective": "Give your age, origin and home city, and ask for basic personal information",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u1write",
+    "question": "u1write-q4",
+    "objective": "Give your age, origin and home city, and ask for basic personal information",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u1write",
+    "question": "u1write-q5",
+    "objective": "Give your age, origin and home city, and ask for basic personal information",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u2write",
+    "question": "u2write-q1",
+    "objective": "Order a simple breakfast, express hunger and ask for the bill",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u2write",
+    "question": "u2write-q2",
+    "objective": "Order a simple breakfast, express hunger and ask for the bill",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u2write",
+    "question": "u2write-q3",
+    "objective": "Order a simple breakfast, express hunger and ask for the bill",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u2write",
+    "question": "u2write-q4",
+    "objective": "Order a simple breakfast, express hunger and ask for the bill",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u2write",
+    "question": "u2write-q5",
+    "objective": "Order a simple breakfast, express hunger and ask for the bill",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u3write",
+    "question": "u3write-q1",
+    "objective": "Ask a price, understand a small total and say how many items you want",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u3write",
+    "question": "u3write-q2",
+    "objective": "Ask a price, understand a small total and say how many items you want",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u3write",
+    "question": "u3write-q3",
+    "objective": "Ask a price, understand a small total and say how many items you want",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u3write",
+    "question": "u3write-q4",
+    "objective": "Ask a price, understand a small total and say how many items you want",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u3write",
+    "question": "u3write-q5",
+    "objective": "Ask a price, understand a small total and say how many items you want",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u4write",
+    "question": "u4write-q1",
+    "objective": "Introduce close family members and describe someone simply",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u4write",
+    "question": "u4write-q2",
+    "objective": "Introduce close family members and describe someone simply",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u4write",
+    "question": "u4write-q3",
+    "objective": "Introduce close family members and describe someone simply",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u4write",
+    "question": "u4write-q4",
+    "objective": "Introduce close family members and describe someone simply",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u4write",
+    "question": "u4write-q5",
+    "objective": "Introduce close family members and describe someone simply",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u5write",
+    "question": "u5write-q1",
+    "objective": "Identify a personal object, describe it and say where it is",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u5write",
+    "question": "u5write-q2",
+    "objective": "Identify a personal object, describe it and say where it is",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u5write",
+    "question": "u5write-q3",
+    "objective": "Identify a personal object, describe it and say where it is",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u5write",
+    "question": "u5write-q4",
+    "objective": "Identify a personal object, describe it and say where it is",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u5write",
+    "question": "u5write-q5",
+    "objective": "Identify a personal object, describe it and say where it is",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u6write",
+    "question": "u6write-q1",
+    "objective": "Ask where a place is and follow a simple direction to get there",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u6write",
+    "question": "u6write-q2",
+    "objective": "Ask where a place is and follow a simple direction to get there",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u6write",
+    "question": "u6write-q3",
+    "objective": "Ask where a place is and follow a simple direction to get there",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u6write",
+    "question": "u6write-q4",
+    "objective": "Ask where a place is and follow a simple direction to get there",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u6write",
+    "question": "u6write-q5",
+    "objective": "Ask where a place is and follow a simple direction to get there",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u7write",
+    "question": "u7write-q1",
+    "objective": "Say when a daily activity happens and agree a simple meeting time",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u7write",
+    "question": "u7write-q2",
+    "objective": "Say when a daily activity happens and agree a simple meeting time",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u7write",
+    "question": "u7write-q3",
+    "objective": "Say when a daily activity happens and agree a simple meeting time",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u7write",
+    "question": "u7write-q4",
+    "objective": "Say when a daily activity happens and agree a simple meeting time",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.1",
+    "activity": "u7write",
+    "question": "u7write-q5",
+    "objective": "Say when a daily activity happens and agree a simple meeting time",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u0write",
+    "question": "a12u0write-q1",
+    "objective": "Describe what you enjoy and choose a simple activity with a friend",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u0write",
+    "question": "a12u0write-q2",
+    "objective": "Describe what you enjoy and choose a simple activity with a friend",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u0write",
+    "question": "a12u0write-q3",
+    "objective": "Describe what you enjoy and choose a simple activity with a friend",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u0write",
+    "question": "a12u0write-q4",
+    "objective": "Describe what you enjoy and choose a simple activity with a friend",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u0write",
+    "question": "a12u0write-q5",
+    "objective": "Describe what you enjoy and choose a simple activity with a friend",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u1write",
+    "question": "a12u1write-q1",
+    "objective": "Invite a friend out, accept or decline politely and suggest another time",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u1write",
+    "question": "a12u1write-q2",
+    "objective": "Invite a friend out, accept or decline politely and suggest another time",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u1write",
+    "question": "a12u1write-q3",
+    "objective": "Invite a friend out, accept or decline politely and suggest another time",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u1write",
+    "question": "a12u1write-q4",
+    "objective": "Invite a friend out, accept or decline politely and suggest another time",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u1write",
+    "question": "a12u1write-q5",
+    "objective": "Invite a friend out, accept or decline politely and suggest another time",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u2write",
+    "question": "a12u2write-q1",
+    "objective": "Say what you are going to do and agree a day, time and meeting place",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u2write",
+    "question": "a12u2write-q2",
+    "objective": "Say what you are going to do and agree a day, time and meeting place",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u2write",
+    "question": "a12u2write-q3",
+    "objective": "Say what you are going to do and agree a day, time and meeting place",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u2write",
+    "question": "a12u2write-q4",
+    "objective": "Say what you are going to do and agree a day, time and meeting place",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u2write",
+    "question": "a12u2write-q5",
+    "objective": "Say what you are going to do and agree a day, time and meeting place",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u3write",
+    "question": "a12u3write-q1",
+    "objective": "Describe clothes and explain which colour, size or item you need",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u3write",
+    "question": "a12u3write-q2",
+    "objective": "Describe clothes and explain which colour, size or item you need",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u3write",
+    "question": "a12u3write-q3",
+    "objective": "Describe clothes and explain which colour, size or item you need",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u3write",
+    "question": "a12u3write-q4",
+    "objective": "Describe clothes and explain which colour, size or item you need",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u3write",
+    "question": "a12u3write-q5",
+    "objective": "Describe clothes and explain which colour, size or item you need",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u4write",
+    "question": "a12u4write-q1",
+    "objective": "Ask to try on clothes, explain the fit and make a simple purchase",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u4write",
+    "question": "a12u4write-q2",
+    "objective": "Ask to try on clothes, explain the fit and make a simple purchase",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u4write",
+    "question": "a12u4write-q3",
+    "objective": "Ask to try on clothes, explain the fit and make a simple purchase",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u4write",
+    "question": "a12u4write-q4",
+    "objective": "Ask to try on clothes, explain the fit and make a simple purchase",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u4write",
+    "question": "a12u4write-q5",
+    "objective": "Ask to try on clothes, explain the fit and make a simple purchase",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u5write",
+    "question": "a12u5write-q1",
+    "objective": "Describe rooms and furniture and help a visitor find something at home",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u5write",
+    "question": "a12u5write-q2",
+    "objective": "Describe rooms and furniture and help a visitor find something at home",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u5write",
+    "question": "a12u5write-q3",
+    "objective": "Describe rooms and furniture and help a visitor find something at home",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u5write",
+    "question": "a12u5write-q4",
+    "objective": "Describe rooms and furniture and help a visitor find something at home",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u5write",
+    "question": "a12u5write-q5",
+    "objective": "Describe rooms and furniture and help a visitor find something at home",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u6write",
+    "question": "a12u6write-q1",
+    "objective": "Describe your daily routine using simple reflexive verbs and times",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u6write",
+    "question": "a12u6write-q2",
+    "objective": "Describe your daily routine using simple reflexive verbs and times",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u6write",
+    "question": "a12u6write-q3",
+    "objective": "Describe your daily routine using simple reflexive verbs and times",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u6write",
+    "question": "a12u6write-q4",
+    "objective": "Describe your daily routine using simple reflexive verbs and times",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u6write",
+    "question": "a12u6write-q5",
+    "objective": "Describe your daily routine using simple reflexive verbs and times",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u7write",
+    "question": "a12u7write-q1",
+    "objective": "Connect a routine, a reason and a future plan in a short practical message",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u7write",
+    "question": "a12u7write-q2",
+    "objective": "Connect a routine, a reason and a future plan in a short practical message",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u7write",
+    "question": "a12u7write-q3",
+    "objective": "Connect a routine, a reason and a future plan in a short practical message",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u7write",
+    "question": "a12u7write-q4",
+    "objective": "Connect a routine, a reason and a future plan in a short practical message",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A1.2",
+    "activity": "a12u7write",
+    "question": "a12u7write-q5",
+    "objective": "Connect a routine, a reason and a future plan in a short practical message",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u0write",
+    "question": "a21u0write-q1",
+    "objective": "Share a recent experience and ask what a friend has done",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u0write",
+    "question": "a21u0write-q2",
+    "objective": "Share a recent experience and ask what a friend has done",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u0write",
+    "question": "a21u0write-q3",
+    "objective": "Share a recent experience and ask what a friend has done",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u0write",
+    "question": "a21u0write-q4",
+    "objective": "Share a recent experience and ask what a friend has done",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u0write",
+    "question": "a21u0write-q5",
+    "objective": "Share a recent experience and ask what a friend has done",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u1write",
+    "question": "a21u1write-q1",
+    "objective": "Describe a finished weekend using a few clear past events",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u1write",
+    "question": "a21u1write-q2",
+    "objective": "Describe a finished weekend using a few clear past events",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u1write",
+    "question": "a21u1write-q3",
+    "objective": "Describe a finished weekend using a few clear past events",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u1write",
+    "question": "a21u1write-q4",
+    "objective": "Describe a finished weekend using a few clear past events",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u1write",
+    "question": "a21u1write-q5",
+    "objective": "Describe a finished weekend using a few clear past events",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u2write",
+    "question": "a21u2write-q1",
+    "objective": "Compare transport options and buy a suitable ticket",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u2write",
+    "question": "a21u2write-q2",
+    "objective": "Compare transport options and buy a suitable ticket",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u2write",
+    "question": "a21u2write-q3",
+    "objective": "Compare transport options and buy a suitable ticket",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u2write",
+    "question": "a21u2write-q4",
+    "objective": "Compare transport options and buy a suitable ticket",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u2write",
+    "question": "a21u2write-q5",
+    "objective": "Compare transport options and buy a suitable ticket",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u3write",
+    "question": "a21u3write-q1",
+    "objective": "Ask about a room and confirm a simple accommodation booking",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u3write",
+    "question": "a21u3write-q2",
+    "objective": "Ask about a room and confirm a simple accommodation booking",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u3write",
+    "question": "a21u3write-q3",
+    "objective": "Ask about a room and confirm a simple accommodation booking",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u3write",
+    "question": "a21u3write-q4",
+    "objective": "Ask about a room and confirm a simple accommodation booking",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u3write",
+    "question": "a21u3write-q5",
+    "objective": "Ask about a room and confirm a simple accommodation booking",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u4write",
+    "question": "a21u4write-q1",
+    "objective": "Check in and explain a simple problem with a journey or room",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u4write",
+    "question": "a21u4write-q2",
+    "objective": "Check in and explain a simple problem with a journey or room",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u4write",
+    "question": "a21u4write-q3",
+    "objective": "Check in and explain a simple problem with a journey or room",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u4write",
+    "question": "a21u4write-q4",
+    "objective": "Check in and explain a simple problem with a journey or room",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u4write",
+    "question": "a21u4write-q5",
+    "objective": "Check in and explain a simple problem with a journey or room",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u5write",
+    "question": "a21u5write-q1",
+    "objective": "Explain basic symptoms and say what you need",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u5write",
+    "question": "a21u5write-q2",
+    "objective": "Explain basic symptoms and say what you need",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u5write",
+    "question": "a21u5write-q3",
+    "objective": "Explain basic symptoms and say what you need",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u5write",
+    "question": "a21u5write-q4",
+    "objective": "Explain basic symptoms and say what you need",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u5write",
+    "question": "a21u5write-q5",
+    "objective": "Explain basic symptoms and say what you need",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u6write",
+    "question": "a21u6write-q1",
+    "objective": "Request basic help at a pharmacy and understand a simple instruction",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u6write",
+    "question": "a21u6write-q2",
+    "objective": "Request basic help at a pharmacy and understand a simple instruction",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u6write",
+    "question": "a21u6write-q3",
+    "objective": "Request basic help at a pharmacy and understand a simple instruction",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u6write",
+    "question": "a21u6write-q4",
+    "objective": "Request basic help at a pharmacy and understand a simple instruction",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u6write",
+    "question": "a21u6write-q5",
+    "objective": "Request basic help at a pharmacy and understand a simple instruction",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u7write",
+    "question": "a21u7write-q1",
+    "objective": "Link a recent experience, a reason and a practical next plan",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u7write",
+    "question": "a21u7write-q2",
+    "objective": "Link a recent experience, a reason and a practical next plan",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u7write",
+    "question": "a21u7write-q3",
+    "objective": "Link a recent experience, a reason and a practical next plan",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u7write",
+    "question": "a21u7write-q4",
+    "objective": "Link a recent experience, a reason and a practical next plan",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.1",
+    "activity": "a21u7write",
+    "question": "a21u7write-q5",
+    "objective": "Link a recent experience, a reason and a practical next plan",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u0write",
+    "question": "a22u0write-q1",
+    "objective": "Describe past routines and what a familiar place or person was like",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u0write",
+    "question": "a22u0write-q2",
+    "objective": "Describe past routines and what a familiar place or person was like",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u0write",
+    "question": "a22u0write-q3",
+    "objective": "Describe past routines and what a familiar place or person was like",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u0write",
+    "question": "a22u0write-q4",
+    "objective": "Describe past routines and what a familiar place or person was like",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u0write",
+    "question": "a22u0write-q5",
+    "objective": "Describe past routines and what a familiar place or person was like",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u1write",
+    "question": "a22u1write-q1",
+    "objective": "Explain a completed event against familiar past background",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u1write",
+    "question": "a22u1write-q2",
+    "objective": "Explain a completed event against familiar past background",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u1write",
+    "question": "a22u1write-q3",
+    "objective": "Explain a completed event against familiar past background",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u1write",
+    "question": "a22u1write-q4",
+    "objective": "Explain a completed event against familiar past background",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u1write",
+    "question": "a22u1write-q5",
+    "objective": "Explain a completed event against familiar past background",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u2write",
+    "question": "a22u2write-q1",
+    "objective": "Clarify directions and explain a missed connection or travel delay",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u2write",
+    "question": "a22u2write-q2",
+    "objective": "Clarify directions and explain a missed connection or travel delay",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u2write",
+    "question": "a22u2write-q3",
+    "objective": "Clarify directions and explain a missed connection or travel delay",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u2write",
+    "question": "a22u2write-q4",
+    "objective": "Clarify directions and explain a missed connection or travel delay",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u2write",
+    "question": "a22u2write-q5",
+    "objective": "Clarify directions and explain a missed connection or travel delay",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u3write",
+    "question": "a22u3write-q1",
+    "objective": "Order several items, ask about ingredients and resolve a simple restaurant problem",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u3write",
+    "question": "a22u3write-q2",
+    "objective": "Order several items, ask about ingredients and resolve a simple restaurant problem",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u3write",
+    "question": "a22u3write-q3",
+    "objective": "Order several items, ask about ingredients and resolve a simple restaurant problem",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u3write",
+    "question": "a22u3write-q4",
+    "objective": "Order several items, ask about ingredients and resolve a simple restaurant problem",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u3write",
+    "question": "a22u3write-q5",
+    "objective": "Order several items, ask about ingredients and resolve a simple restaurant problem",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u4write",
+    "question": "a22u4write-q1",
+    "objective": "Explain a faulty purchase and request an exchange using a receipt",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u4write",
+    "question": "a22u4write-q2",
+    "objective": "Explain a faulty purchase and request an exchange using a receipt",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u4write",
+    "question": "a22u4write-q3",
+    "objective": "Explain a faulty purchase and request an exchange using a receipt",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u4write",
+    "question": "a22u4write-q4",
+    "objective": "Explain a faulty purchase and request an exchange using a receipt",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u4write",
+    "question": "a22u4write-q5",
+    "objective": "Explain a faulty purchase and request an exchange using a receipt",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u5write",
+    "question": "a22u5write-q1",
+    "objective": "Explain a changed arrangement and propose a practical alternative",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u5write",
+    "question": "a22u5write-q2",
+    "objective": "Explain a changed arrangement and propose a practical alternative",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u5write",
+    "question": "a22u5write-q3",
+    "objective": "Explain a changed arrangement and propose a practical alternative",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u5write",
+    "question": "a22u5write-q4",
+    "objective": "Explain a changed arrangement and propose a practical alternative",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u5write",
+    "question": "a22u5write-q5",
+    "objective": "Explain a changed arrangement and propose a practical alternative",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u6write",
+    "question": "a22u6write-q1",
+    "objective": "Give a simple opinion, explain a preference and disagree politely",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u6write",
+    "question": "a22u6write-q2",
+    "objective": "Give a simple opinion, explain a preference and disagree politely",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u6write",
+    "question": "a22u6write-q3",
+    "objective": "Give a simple opinion, explain a preference and disagree politely",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u6write",
+    "question": "a22u6write-q4",
+    "objective": "Give a simple opinion, explain a preference and disagree politely",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u6write",
+    "question": "a22u6write-q5",
+    "objective": "Give a simple opinion, explain a preference and disagree politely",
+    "mode": "controlled",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Named role/details or narrow retrieval target allows controlled grading."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u7write",
+    "question": "a22u7write-q1",
+    "objective": "Tell a short connected account and explain the problem, response and next plan",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u7write",
+    "question": "a22u7write-q2",
+    "objective": "Tell a short connected account and explain the problem, response and next plan",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u7write",
+    "question": "a22u7write-q3",
+    "objective": "Tell a short connected account and explain the problem, response and next plan",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u7write",
+    "question": "a22u7write-q4",
+    "objective": "Tell a short connected account and explain the problem, response and next plan",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  },
+  {
+    "stage": "A2.2",
+    "activity": "a22u7write",
+    "question": "a22u7write-q5",
+    "objective": "Tell a short connected account and explain the problem, response and next plan",
+    "mode": "guided",
+    "diagnostics": "Authored variants; conservative learner rules; contextual morphology; model comparison",
+    "change": "Assessment metadata only; prompts, models, variants and IDs retained",
+    "rationale": "Connected communicative task: valid rephrasing must not be failed."
+  }
+]

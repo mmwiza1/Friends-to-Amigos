@@ -1,6 +1,6 @@
 # Friends to Amigos course design through A2.2
 
-A1.1 and A1.2 form the playable A1 course. This design uses CEFR-style can-do outcomes and the Spanish-specific scope guidance documented for Instituto Cervantes, with communicative/OER teaching principles. It is not formal CEFR certification. A2.1 and A2.2 are playable; all B stages remain planned, not playable.
+A1.1 and A1.2 form the playable A1 course. This design uses CEFR-style can-do outcomes and the Spanish-specific scope guidance documented for Instituto Cervantes, with communicative/OER teaching principles. It is not formal CEFR certification. All eight stages A1.1 through B2.2 are playable for user testing; no CEFR certification is claimed.
 
 ## Practical progression
 
@@ -75,7 +75,7 @@ The audit adds models before thirty-two and quarter-to clock recall, simplifies 
 
 Feedback explains concepts and reading evidence. There are 413 authored misconception examples across course slots (71 before the 0.5.0 learner-clarity pass), covering tener for age/hunger, ser/estar, gusta/gustan, adjective/article/number agreement, person endings, missing a in plans, reflexives/stem changes, clock versus activity time, and al versus a la. Other incorrect replies receive a transparent comparison with the nearest authored model plus the task’s explanation; this is not a general grammar grader. Valid unlisted paraphrases can still be rejected.
 
-Matching tolerates case, punctuation, spaces, vowel accents and Unicode equivalence; ñ and negation remain meaningful. There is no substring matching, cloud grader or LLM. Longer free-form writing needs a separate assessment design, particularly before B1.
+Matching tolerates case, punctuation, spaces, vowel accents and Unicode equivalence; ñ and negation remain meaningful. There is no substring matching, cloud grader or LLM. Guided/free writing now uses the cautious layered engine described below; controlled retrieval remains finite.
 
 ## European Spanish and references
 
@@ -102,9 +102,9 @@ The Learn selector remains ungated for playable stages. Continue respects active
 | B2.1 | Compare perspectives, develop arguments, adjust register |
 | B2.2 | Interpret stance, synthesise accounts, defend proposals |
 
-B rows remain provisional authoring targets. A2.1/A2.2 are playable; B lessons are unavailable. The A1 audit found no major unresolved gap within this course's stated everyday task scope, but broader A1 proficiency is not certified. Dates/contact information and unfamiliar human conversation are partial, not independently demonstrated.
+All rows now represent playable stages. B stages add connected production and progressively deeper interpretation; their quality must still be evaluated with real learners. The A1 audit found no major unresolved gap within this course's stated everyday task scope, but broader A1 proficiency is not certified. Dates/contact information and unfamiliar human conversation are partial, not independently demonstrated.
 
-Freeze the activity/identity contracts and reviewed content as an **A1 v1.0 release candidate**. Do not declare an unconditional stable release solely from simulated tests: native build/device upgrade/storage/TTS checks and a concise Spanish educator/native-speaker review remain release gates. A2.1/A2.2 are implemented. Complete the native-speaker/educator and physical-release gates before beginning B1. [BUILD_STATUS.md](BUILD_STATUS.md) distinguishes performed checks from remaining work.
+Freeze the activity/identity contracts and reviewed content as an **A1 v1.0 release candidate**. Do not declare an unconditional stable release solely from simulated tests: native build/device upgrade/storage/TTS checks and a concise Spanish educator/native-speaker review remain release gates. All stages through B2.2 are implemented for user testing. Complete native-speaker/educator and physical-release checks before wider distribution; do not begin C1/C2. [BUILD_STATUS.md](BUILD_STATUS.md) distinguishes performed checks from remaining work.
 
 ## Mobile path and daily practice (0.4.0)
 
@@ -185,3 +185,22 @@ All A2.2 task prompts are Spanish-first with safe optional English task support.
 A2.2 adds 56 Listening, 56 Speaking, 64 contextual Conjugations and 20 curated table targets. Focused media follows completed teaching units/earlier placement assumptions; grammar games follow the existing level ceiling independently of course completion. The new material feeds existing stable-ID reviews, outcomes, weakness signals and Today’s Review. Full tables still require spaced unassisted recall. See [the quality report](docs/A22_QUALITY_RELEASE.md) for vocabulary findings and review limits.
 
 B1 is not implemented. Broad subjunctive, future/conditional paradigms, advanced object-pronoun instruction and unrestricted narratives remain outside this release. Before B1, obtain educator/native-speaker review, learner transfer evidence and a physical-device upgrade/TTS check; automated completion is not a pedagogical certification.
+
+
+## Full-course writing release
+
+Current scope is A1.1–B2.2, 576 activities / 3,328 slots / 256 stories. The original 288 A1–A2 activities retain their complete content and identity contracts; the dedicated-writing audit adds assessment metadata without changing their objectives, answers or prompts. All new B activities are original, Spanish-first and include optional English help. Hints and model-assisted revision carry weaker evidence.
+
+Writing modes are chosen by task openness, not response length alone. Named-role retrieval remains Controlled. Guided writing accepts known variants but treats an unexpected formulation as uncertain/model comparison, not failure. Free writing is never automatically verified. Coverage markers support reflection, not grammatical certification. Only narrow high-confidence rules and explicit morphology context diagnose errors. Quoted errors, article/verb homographs and proper names receive conservative safeguards.
+
+Each new unit retains three six-item core activities, four five-question readings, one five-item writing activity and a nine-item checkpoint. Dedicated writing progresses Controlled → Guided → Controlled retrieval → Guided revision → Free connected production (16/16/8 items per B stage). B checkpoints integrate a new summary for a reader unfamiliar with the final scenario; five objective items use the existing 80% threshold, while four open responses require reflection and are excluded from verified accuracy. Completion demonstrates course participation and objective retrieval, not verified essay competence.
+
+Stories develop from concrete B1 situations into B2 viewpoint, qualified evidence, argument and register. They test context, causes, inference, viewpoint and response. Actual word ranges are reported in the release audit, rather than inflated to meet approximate length guidelines. Every stage has 32 original passages. Glossaries follow the actual passage form or a useful transparent lemma. Vocabulary is recycled through the same social, travel, work, service and neighbourhood situations; lexical exposure statistics are not mastery scores.
+
+Focused B banks adapt original course scenarios into 56 Listening and 56 Speaking items per stage. Audio comprehension varies sequence, contrast, cause, intention, viewpoint, dialogue and inference. Speaking asks for accounts, reasons and connected proposals rather than only translations. Narrative/retelling items require the source story; all clips remain synthetic Spain Spanish and speaking is self-assessed.
+
+Grammar grows deliberately: B1.1 past-event/background integration, duration, future intentions and conditional advice; B1.2 limited subject-changing wishes, reactions and necessity; B2.1 prior past, uncertainty, source attribution, register and imagined present conditions; B2.2 retrospective alternatives, qualified arguments and limited compound subjunctive. These are communication tools, not an exhaustive conjugation syllabus. Curated table sources and first-party diagnostics share reviewed paradigms. Direct third-party conjugator embedding, dictionary spelling and NLP intent scoring remain explicitly deferred for the reasons in WRITING_ENGINE.md.
+
+The independent grammar level still controls table/sentence practice ceilings. It never changes course completion, placement or the required starting path. Spaced recall and assistance affect density and review priority. Unverified open writing only contributes modest self-assessed outcome/concept evidence, never inferred mastery of every form in the learner’s response. Needs-practice items retain historical question/model context and the previous response for revision.
+
+The final B2 Home milestone reports actual completed activities, assumed foundations if any, practical capabilities and review/media maintenance. It offers no unavailable C course and makes no formal CEFR claim. See [the release report](docs/release/V1_REPORT.md), [facts](docs/release/v1-audit.json), [writing audit](docs/release/a1-a2-writing-audit.json) and [user-test plan](docs/release/USER_TESTING.md).

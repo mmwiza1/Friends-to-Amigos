@@ -1,48 +1,34 @@
-# Verification and release gates
+# Build and validation status
 
-A2.2 quality expansion **0.10.0**, Android version code **10**.
-Baseline reviewed: main `eea54ae0f78695f1eeadc96e2f4e16932ed55650` (0.9.0).
+Full-course writing user-testing candidate **1.0.0**, Android **versionCode 11**, storage schema **v2**.
+Baseline inspected: latest main `f482893bb55dfd4cfb2ced923a1f2b6cef3763e7`, version 0.10.0/code 10.
 
-## Baseline
+## Baseline actually checked
 
-Before edits, `npm run check` and `npm test` passed. The Node 24 file-isolated summary reports 14 passing files; the prior release contains 408 individual cases. Previous verified CI: 3,003 rendered assertions / 11 layouts; Android 11 unit cases, lint zero errors / 12 warnings.
+Local `npm run check` and `npm test` passed before changes: Node 24 reported 15 file-isolated suites, zero failures/skips. Baseline CI contained 481 individual cases; 5,368 rendered assertions / 11 layouts; Android 11 unit cases, lint zero errors / 12 warnings.
 
-## Current implementation and compatibility
+## Current validation gate
 
-- 288 course activities / 1,664 slots / 1,703 permanent authored course/special IDs; 336 sentence-game items; 55 table targets; 448 focused-media items (224 Listening + 224 Speaking).
-- A2.2 contributes eight units, 72 activities, 416 slots, 32 stories, eight writing activities, eight checkpoints, 56 Listening items, 56 Speaking prompts, 64 sentence contexts and 20 curated targets.
-- Schema remains 2. All 0.9.0 course/game/table/focused payloads and order are frozen byte-for-byte, including language metadata, accepted answers and reading passages. Earlier fixtures continue protecting original identities and historical saves.
-- Full existing behaviour plus dedicated A2.2 validation covers story review, task hints, finite variants, meaning-based tense contrast, source-linked paradigms, grammar ceilings, focused-media teaching gates/rotation/6–2–1–1 recycling, checkpoint rewards, placement, Today, milestones, Back and Go.
+- `npm run check`: passed, 576 activities / 3,328 slots / 3,367 course/special permanent IDs / 592 separate game items / 896 focused media items.
+- Full individual-case local run: 645 passed, zero failures/cancelled/skipped/todo, before the final additional open-reflection scheduling case.
+- Final writing/B targeted run: 130 passed, zero failures/cancelled/skipped/todo.
+- Versioned local `npm test`: 17 file-isolated suites passed, zero failed/cancelled/skipped/todo. Final writing/B checks: 130 individual cases passed.
+- Rendered CI and Android compilation/lint/unit validation are pending the validation branch. Exact results will be recorded before main is advanced.
+- Local rendered browser attempt was blocked: `net::ERR_BLOCKED_BY_ADMINISTRATOR` on file navigation. No bypass or local rendered pass is claimed. The established GitHub Actions environment performs browser validation.
+- Local Gradle/Android SDK/adb/emulator are unavailable. Native checks use the existing workflow, not a claimed local build.
 
-## Executed validation
+The changed product is reviewed against preserved A1–A2 hashes/identities. New B IDs have a frozen manifest. The writing audit and content/performance facts are in [docs/release](docs/release). No third-party audio/text corpus or new runtime dependency was added.
 
-The final implementation source `a42482d3c571068ee34099f6416c0806154a1717` was validated before publishing main: [successful CI run](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/37608549703). This release records those results and makes documentation-only clarifications on the same validated code tree.
+## Physical-device checklist
 
-| Check | Exact result |
-| --- | --- |
-| `npm run check` | Passed: syntax, structure, IDs, accepted variants and content checks |
-| `npm test` (CI Node 22) | 481 passed, 0 failed, 0 cancelled, 0 skipped, 0 todo |
-| `npm test` (local Node 24) | 15 passing file-isolated suites; separate individual-case run: 481 passed, 0 failed/skipped |
-| `npm run check:browser` (real Chromium in CI) | 11 layouts × 488 checks = 5,368 assertions passed; 79 screenshots produced |
-| `assembleDebug` (Gradle 8.9 / Java 17 / SDK 35) | Passed; APK artifact produced |
-| `lintDebug` | Passed; XML confirms 0 errors/fatal issues, 12 existing warnings |
-| `testDebugUnitTest` | 11 passed, 0 failures/errors/skips across native policy, insets and launcher resource cases |
+No physical-device/emulator/acoustic/native-speaker testing occurred for this release. The earlier maintainer S24 test is not a test of the new B/writing content. Before wider distribution use [USER_TESTING.md](docs/release/USER_TESTING.md), including:
 
-Baseline comparison: 408 → 481 individual JavaScript cases; 3,003 → 5,368 browser assertions. Sixty-five dedicated A2.2 cases plus eight newly exercised focused-media stage cases were added. Existing behavioural tests were retained; stage counts/availability assertions were deliberately extended while original scopes/fixtures remain protected.
+1. Verify a backup and signing key before upgrading; do not uninstall without backup recovery.
+2. S24 gesture/three-button portrait/landscape, large text, 320px-class width and light/dark: status/system navigation/cutout, final controls and keyboard.
+3. Short-answer Go versus multiline newline, long B2 writing, model/Why, revision and Save/Back/resume before and after reflection.
+4. All eight stages, placement/start path, Today/review/Weak Areas, games/level changes and B2 milestone; no C continuation.
+5. Audible offline es-ES .75×/1×, failure/skip, background/Back cancellation; automated bridge tests do not prove acoustic quality.
+6. Deliberately submit valid unlisted Spanish, wrong person, spelling/word-order changes, incomplete/off-task answers and quoted errors; record false acceptance and rejection separately.
+7. Native Spanish educator review of B pacing, grammar, naturalness, glossaries, register, inference support and task/model alignment.
 
-The diff review confirms earlier course/game/table/focused payloads are unchanged and no B stage is playable. Rendered tests cover all 72 A2.2 activity entry screens, Spanish tasks/hints/audio concealment, connected writing Go, save/Back/resume, custom imperfect tables, ten-item sessions and completion. DOM tests render/complete every one of the 288 activities and every focused item; old migrations/imports/reviews/progression, Today, games and mobile contracts still pass. Screenshots reviewed include S24 dark writing, 320px light tables and landscape story entry. Safe areas and keyboard insets are simulated rather than real device signals.
-
-Local Chromium was attempted and blocked by sandbox `setsockopt: Operation not permitted` / ECONNRESET. Local Gradle was attempted and is absent (exit 127). Real browser/native checks above ran in CI, not locally. No emulator, physical Android device or acoustic TTS evaluation was used. Lint warnings remain the baseline target/API/resource/icon/WebView configuration warnings; no new warning was introduced and unrelated packaging was not changed.
-
-## Physical maintainer checklist
-
-1. Install/upgrade over 0.9.0 with real progress; resume an older course question, story, review, game and table. Export/import without losing records.
-2. On Samsung gesture and three-button navigation, test portrait/landscape, large text, light/dark, status/nav/cutout insets, keyboard opening/closing and Go submission.
-3. Enter A2.2 from normal continuation and a later chosen start. Confirm earlier revision remains manual and counts are actual, not assumed completions.
-4. Complete one teaching activity, story, writing and checkpoint; fail/retry without duplicate rewards. Confirm Spanish hints persist and audio/models stay hidden before attempts.
-5. Install a local es-ES voice and test audible playback, .75×/1×, unavailable-voice skip, replay, interruption/background and Back cancellation.
-6. Run ten-item A2.2 Listening/Speaking; Needs practice should enter review and Weak Areas. Confirm no microphone permission or pronunciation score.
-7. Test A2.2 sentence rounds and imperfect/custom table practice, hints and resume; lowering the grammar ceiling keeps higher attempts safe.
-8. Verify A1 milestone, A2.2 completion, Today maintenance, launcher bull and no playable B stage.
-
-Independent native-speaker/educator review remains advisable before treating the new content as a stable teaching release. Course milestones are not formal CEFR certification.
+Freeze expansion for user testing; this is not formal CEFR certification.

@@ -7,10 +7,10 @@ test('all 144 activity IDs and their intentional stage ordering match the protec
 });
 test('every authored question has a permanent globally unique activity namespace',()=>{
  const ids=[];for(const [name,qs] of Object.entries(groups))for(const q of qs){assert.ok(q.id.startsWith(name+'-'),q.id);assert.match(q.id,/^[a-zA-Z0-9-]+$/);ids.push(q.id);}
- assert.equal(new Set(ids).size,ids.length);assert.equal(ids.length,1703);
+ assert.equal(new Set(ids).size,ids.length);assert.equal(ids.length,3367);
 });
 test('question identity/order manifest is a frozen contract independent of prompt wording',()=>{
- assert.deepEqual(Object.fromEntries(Object.entries(groups).filter(([id])=>!/^a2[12]/.test(id)).map(([id,qs])=>[id,qs.map(q=>q.id)])),JSON.parse(fs.readFileSync('tests/fixtures/question-ids.json','utf8')));
+ assert.deepEqual(Object.fromEntries(Object.entries(groups).filter(([id])=>! /^(?:a2[12]|b[12][12])/.test(id)).map(([id,qs])=>[id,qs.map(q=>q.id)])),JSON.parse(fs.readFileSync('tests/fixtures/question-ids.json','utf8')));
  for(const q of Object.values(groups).flat()){assert.equal(E.reviewKey({...q,prompt:'Edited wording'}),q.id);}
 });
 test('duplicate prompts belonging to different questions cannot collide in new reviews',()=>{
@@ -31,7 +31,7 @@ test('both stages include two teaching listens, one checkpoint listen and one sp
   const lessons=C.lessons.filter(l=>l.stage===stage&&l.unit===unit),qs=lessons.flatMap(l=>l.questions);
   assert.equal(qs.filter(q=>q.listening).length,3);assert.equal(qs.filter(q=>q.type==='speaking').length,1);assert.ok(lessons.find(l=>l.checkpoint).questions[2].listening);
  }
- assert.equal(C.listeningPractice.length,64);assert.equal(C.speakingPractice.length,32);assert.ok(C.listeningPractice.some(q=>q.type==='text'));assert.ok(C.listeningPractice.some(q=>q.type==='choice'));
+ assert.equal(C.listeningPractice.length,128);assert.equal(C.speakingPractice.length,64);assert.ok(C.listeningPractice.some(q=>q.type==='text'));assert.ok(C.listeningPractice.some(q=>q.type==='choice'));
 });
 test('audio-first transcripts have coherent offline metadata and no initial reading passage',()=>{
  for(const q of C.lessons.flatMap(l=>l.questions).filter(q=>q.listening)){assert.equal(q.mode,'listening');assert.equal(q.listening.lang,'es-ES');assert.ok(q.listening.rate>=.8&&q.listening.rate<=1);assert.ok(q.listening.transcript);assert.ok(!q.reading);assert.notEqual(q.prompt,q.listening.transcript);assert.equal(P.question(q).listening.transcript,q.listening.transcript);}
@@ -40,7 +40,7 @@ test('all misconception examples remain incorrect and have targeted nonempty fee
  let examples=0;for(const q of C.lessons.flatMap(l=>l.questions))for(const m of q.mistakes||[]){assert.ok(!E.isCorrect(q,m.answer),q.id+': '+m.answer);assert.equal(E.answerExplanation(q,m.answer),m.explanation);examples++;}assert.equal(examples,71+C.learnerClarityAudit.addedMistakes+C.lessons.filter(l=>['A2.1','A2.2'].includes(l.stage)).flatMap(l=>l.questions).reduce((n,q)=>n+(q.mistakes||[]).length,0));
 });
 test('checkpoint transfer is not just a repeat of the preceding writing activity',()=>{
- for(const l of C.lessons.filter(l=>l.checkpoint)){
+ for(const l of C.lessons.filter(l=>l.checkpoint&&l.stage.startsWith('A'))){
   const write=C.lessons.find(x=>x.stage===l.stage&&x.unit===l.unit&&x.id.endsWith('write'));
   assert.equal(l.questions.length,9);assert.equal(l.questions.filter(q=>q.language==='es').length,4);
   for(const index of [4,5,8])assert.ok(!write.questions.some(q=>q.prompt===l.questions[index].prompt));

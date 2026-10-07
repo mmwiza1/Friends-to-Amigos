@@ -9,11 +9,11 @@ const before=beforeClarity(),questions=c=>c.lessons.flatMap(l=>l.questions),find
 test('learner wording audit covers every playable A1 question, including reading, writing, listening and speaking',()=>{
  assert.equal(C.learnerClarityAudit.questions,832);assert.deepEqual(C.learnerClarityAudit.stages,{'A1.1':416,'A1.2':416});assert.deepEqual(C.learnerClarityAudit.types,{choice:363,gap:64,text:389,speaking:16});assert.equal(C.learnerClarityAudit.spanishProduction,240);
  assert.ok(C.learnerClarityAudit.taskRewrites>=70);assert.ok(C.learnerClarityAudit.contextLabelsRemoved>=500);
- for(const q of questions(C).filter(q=>!q.id.startsWith('a22'))){assert.ok(!/Your role|In this role-play|\(role:|Which connector|function of|consequence/i.test(q.prompt),q.id);assert.ok(q.prompt.trim());}
+ for(const q of questions(C).filter(q=>!q.id.startsWith('a22')&&!q.id.startsWith('b'))){assert.ok(!/Your role|In this role-play|\(role:|Which connector|function of|consequence/i.test(q.prompt),q.id);assert.ok(q.prompt.trim());}
 });
 test('prompt and feedback amendments preserve every ID, learning target, accepted answer, choice, passage and objective',()=>{
  assert.deepEqual(C.lessons.map(l=>({id:l.id,stage:l.stage,goal:l.goal,outcomeId:l.outcomeId,capability:l.capability})),before.lessons.map(l=>({id:l.id,stage:l.stage,goal:l.goal,outcomeId:l.outcomeId,capability:l.capability})));
- const immutable=q=>{const copy=clone(q);delete copy.prompt;delete copy.mistakes;delete copy.explanation;for(const key of ['promptEs','englishHint','instructionLanguage','supportConcept'])delete copy[key];return copy;};assert.deepEqual(questions(C).map(immutable),questions(before).map(immutable));
+ const immutable=q=>{const copy=clone(q);delete copy.prompt;delete copy.mistakes;delete copy.explanation;for(const key of ['promptEs','englishHint','instructionLanguage','supportConcept'])delete copy[key];return copy;};assert.deepEqual(questions(C).filter(q=>!q.id.startsWith('b')).map(immutable),questions(before).filter(q=>!q.id.startsWith('b')).map(immutable));
  for(const old of questions(before))if(old.id!=='u0l0-q5')assert.equal(find(old.id).explanation,old.explanation,old.id);
  for(const key of ['placement','numbers','time','legacyQuestions','legacyLessons'])assert.deepEqual(clone(C[key]),before[key],key);
 });
