@@ -21,7 +21,7 @@ function tags(q,C){const lesson=index(C).get(q.sourceQuestionId||q.id)||index(C)
  }
  return result;
 }
-function recordCourse(state,q,correct,C,details={},now=Date.now()){M.record(state,tags(q,C).filter(t=>!details.skipped||t.key!=='concept:'+q.supportConcept),correct,{...details,item:q.sourceQuestionId||q.id,recall:q.type==='text'&&q.language==='es',selfAssessed:details.selfAssessed===true||q.type==='speaking'},now);}
+function recordCourse(state,q,correct,C,details={},now=Date.now()){M.record(state,tags(q,C).filter(t=>(!details.skipped||t.key!=='concept:'+q.supportConcept)&&(!details.selfAssessed||!!t.key)),correct,{...details,item:q.sourceQuestionId||q.id,recall:q.type==='text'&&q.language==='es',selfAssessed:details.selfAssessed===true||q.type==='speaking'},now);}
 function today(state,C,now=Date.now()){
  const due=Object.values(state.reviews).filter(r=>r.due<=now&&!r.question.id?.startsWith('placement-')&&withinLevel(r.question,state,C)).sort((a,b)=>a.due-b.due).slice(0,8).map(r=>r.question),seen=new Set(due.map(q=>q.id));
  const focus=M.areas(state,C).find(a=>a.status==='Needs practice'&&B.pool(state,C,'all',a.key).length)?.key||'';
