@@ -132,8 +132,9 @@ async function run(){ // Wait for the browser process before creating its first 
    state.mastery=M.empty();FocusedBank.items.filter(q=>q.practice.kind==='speaking'&&q.practice.stage==='A1.2'&&q.practice.unit===0).slice(0,2).forEach((q,i)=>F.record(state,q,false,{session:'browser-weak-'+i}));actions.weakAreas();render();assert(document.querySelector('#app').textContent.includes('Speaking ·'),'speaking weaknesses readable');actions.home();render();
    return {scenario:config.name,width:innerWidth,height:innerHeight,dark:config.dark,nativeInsets:true,simulatedKeyboard:Boolean(config.keyboard),checks};
   })()`);
+  await evaluate(sessionId,"document.querySelectorAll('.toast').forEach(e=>e.remove());");
   const screenshot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false},sessionId);fs.writeFileSync(path.join(output,config.name+'.png'),Buffer.from(screenshot.data,'base64'));totalChecks+=report.checks;console.log('PASS '+config.name+' ('+report.checks+' checks)');fs.writeFileSync(path.join(output,config.name+'.json'),JSON.stringify(report,null,2));
-  if(['s24-dark-buttons','narrow-light-buttons'].includes(config.name)){
+  if(['s24-dark-buttons','narrow-light-buttons','landscape-dark-cutout','s24-dark-large-text'].includes(config.name)){
    await evaluate(sessionId,`(async()=>{window.FriendsToAmigosInsets(24,${config.bottom},${config.left||0},0,false,0);actions.leave();actions.tab({dataset:{tab:'Games'}});render();window.scrollTo(0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));})()`);
    for(const view of ['games','round','feedback','tables','table-feedback','listening-first','listening-compact','listening-result','speaking-first','speaking-compact','speaking-result']){
     if(view==='round')await evaluate(sessionId,"actions.gameResume();render();window.scrollTo(0,0);");
