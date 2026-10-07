@@ -7,15 +7,29 @@ Baseline inspected: latest main `f482893bb55dfd4cfb2ced923a1f2b6cef3763e7`, vers
 
 Local `npm run check` and `npm test` passed before changes: Node 24 reported 15 file-isolated suites, zero failures/skips. Baseline CI contained 481 individual cases; 5,368 rendered assertions / 11 layouts; Android 11 unit cases, lint zero errors / 12 warnings.
 
-## Current validation gate
+## Final validation gate
 
-- `npm run check`: passed, 576 activities / 3,328 slots / 3,367 course/special permanent IDs / 592 separate game items / 896 focused media items.
-- Full individual-case local run: 645 passed, zero failures/cancelled/skipped/todo, before the final additional open-reflection scheduling case.
-- Final writing/B targeted run: 130 passed, zero failures/cancelled/skipped/todo.
-- Versioned local `npm test`: 17 file-isolated suites passed, zero failed/cancelled/skipped/todo. Final writing/B checks: 130 individual cases passed.
-- Rendered CI and Android compilation/lint/unit validation are pending the validation branch. Exact results will be recorded before main is advanced.
-- Local rendered browser attempt was blocked: `net::ERR_BLOCKED_BY_ADMINISTRATOR` on file navigation. No bypass or local rendered pass is claimed. The established GitHub Actions environment performs browser validation.
-- Local Gradle/Android SDK/adb/emulator are unavailable. Native checks use the existing workflow, not a claimed local build.
+Validated implementation commit `7d4f4d84bf9174f33ae7e9fc4402ebf357f4afe7` on the validation branch; the release commit adds final documentation only. [Successful full workflow 37644212496](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/37644212496) includes the debug APK, browser screenshots and native reports.
+
+| Validation | Exact result |
+| --- | --- |
+| `npm run check` | Passed: syntax, 576 activities / 3,328 slots / 3,367 course/special permanent IDs / 592 game items / 896 focused items. |
+| `npm test` in CI, Node 22 | **649 passed**, 0 failed/cancelled/skipped/todo. Baseline 481; 168 additional individual cases. |
+| Local `npm test`, Node 24 | **17 file-isolated suites passed**, 0 failed/cancelled/skipped/todo. |
+| Local `node --test --test-isolation=none tests/*.test.cjs` | **649 passed**, 0 failed/cancelled/skipped/todo. |
+| `npm run check:browser` in CI | **13,981 assertions / 11 layouts passed** (1,271 per layout); baseline 5,368 / 11. |
+| Android `assembleDebug` | Passed; 1.0.0 / versionCode 11 test APK produced. |
+| Android `lintDebug` | Passed, **0 errors / 12 existing warnings**. |
+| Android `testDebugUnitTest` | **11 passed**, 0 failures/errors/skips: native policy 3, insets 6, launcher resources 2. |
+| Writing content safeguards | 30 unexpected-valid regression responses and 480 new B model diagnostic checks pass. Not a population error-rate estimate. |
+
+All 576 activity entries and all playable question rendering/completion are covered by the regression harness. Browser coverage adds every new B activity, full passages, multiline writing/newline, uncertainty/revision/reflection/resume, stage navigation, B media/games/tables and the final milestone. Eleven layouts cover 320px, S24-class and larger widths, portrait/landscape, light/dark, large text and simulated native keyboard/insets. Representative S24 dark/large-text writing, narrow light feedback and landscape B2 story screenshots were visually inspected.
+
+An initial validation-branch run caught a multiline sample escape error in the browser test; it was fixed and the complete workflow rerun successfully. No behavioural assertion was bypassed. The final mastery safeguard prevents unverified reflections from inferring model verb knowledge.
+
+Local Chromium file navigation is blocked by `net::ERR_BLOCKED_BY_ADMINISTRATOR`; no bypass or local rendered pass is claimed. Local Gradle/SDK/adb/emulator are unavailable; actual native validation ran in the established GitHub Actions workflow. **No emulator, physical-device, acoustic TTS or independent native-speaker/educator validation occurred.** CI bridge success does not prove audible voice quality.
+
+Lint warnings are unchanged from baseline: target API age, unused/obsolete API attributes, JavaScript-enabled WebView review, data-extraction configuration, launcher-mask and monochrome-icon heuristics. They remain documented rather than misreported as a warning-free build.
 
 The changed product is reviewed against preserved A1–A2 hashes/identities. New B IDs have a frozen manifest. The writing audit and content/performance facts are in [docs/release](docs/release). No third-party audio/text corpus or new runtime dependency was added.
 

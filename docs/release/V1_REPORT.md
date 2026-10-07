@@ -2,6 +2,8 @@
 
 Version **1.0.0**, Android **versionCode 11**, schema **v2**. Baseline: main `f482893bb55dfd4cfb2ced923a1f2b6cef3763e7`, version 0.10.0/code 10. The completion message identifies the final commit; a Git commit cannot contain its own final hash. Validation status and exact run links are maintained in [BUILD_STATUS.md](../../BUILD_STATUS.md).
 
+The complete added/modified file manifest is in [FILES_CHANGED.md](FILES_CHANGED.md).
+
 ## Content delivered
 
 | Stage | Activities | Slots | Stories | Story words min–max (mean) | Dedicated Controlled/Guided/Free | Focused Listening/Speaking | Sentence game | Tables |
@@ -117,7 +119,7 @@ On the Linux Node execution workspace, the latest ten-iteration diagnostic with 
 
 ## Validation, limitations and next decision
 
-Exact final JS, rendered-browser and Android results/links belong in BUILD_STATUS.md. The baseline had 481 individual JS cases, 5,368 browser assertions/11 layouts and 11 native unit cases with lint zero errors/12 warnings. New coverage protects writing uncertainty/false rejection, mode scoring, revisions, snapshots, assistance, B course completion, banks, table sources, paradigm alternatives, stage eligibility and permanent identities. Existing behavioural tests were retained; unavailable-stage assertions were deliberately updated while historical scopes/fixtures remain protected.
+The full validation workflow [37644212496](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/37644212496) passed: **649 JS cases** (0 failed/cancelled/skipped/todo), **13,981 rendered assertions across 11 layouts**, Android debug build, **lint 0 errors / 12 unchanged warnings**, and **11 native cases** (0 failures/errors/skips). Local default Node 24 reports 17 passing file-isolated suites; explicit non-isolated execution confirms 649 individual cases. BUILD_STATUS.md records the exact separation of validation categories. The baseline had 481 individual JS cases, 5,368 browser assertions/11 layouts and 11 native unit cases with lint zero errors/12 warnings. New coverage protects writing uncertainty/false rejection, mode scoring, revisions, snapshots, assistance, B course completion, banks, table sources, paradigm alternatives, stage eligibility and permanent identities. Existing behavioural tests were retained; unavailable-stage assertions were deliberately updated while historical scopes/fixtures remain protected.
 
 Local Chromium is blocked by sandbox file-navigation policy; rendered checks use established CI. No emulator, physical-device, acoustic TTS or native-speaker/educator test has been performed for this update. Synthetic single-voice audio, self-assessed speaking, a tiny placement screen, finite comprehension variants, conservative limited morphology, uncertain free writing and authored model coverage remain known limitations. These are visible product constraints, not automatic proficiency guarantees.
 
