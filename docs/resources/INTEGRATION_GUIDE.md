@@ -162,3 +162,9 @@ Both A1 stages are playable with 832 course question slots; 48 use original audi
 ## Connected practice and A2.1 implementation (0.7.0)
 
 A2.1 now ships eight practical units, 72 activities, 416 question slots and 32 original stories. The whole course has 216 activities / 1,248 slots. The original A1 payloads/IDs remain unchanged. Curated Conjugation Blanks, 3–20-table practice, hints, shared mastery evidence, Today’s Review and Weak Areas are implemented offline. [The implementation record](../A2_AND_PRACTICE.md) describes progression, unlocks, finite grading and limitations. CEFR/Cervantes/OER sources remain pedagogical references: no third-party text was copied or closely adapted. Future reuse still requires item-level licence/attribution verification. No recording corpus was imported. A2.2 and B stages remain unavailable.
+
+## Implemented focused-media release (0.8.0)
+
+Listening and Speaking each ship 56 original Friends to Amigos items per A1.1/A1.2/A2.1 stage (168 per mode), in balanced ten-item taught-material sessions. The banks combine 248 newly authored scenarios/prompts and 88 carefully reused original course items with independent stable practice identities/source-question provenance. Mistakes feed existing review and shared topic/outcome evidence; speaking remains self-assessed. Synthetic es-ES TTS, playback-start checks, .75×/1× replay and hidden transcripts/models are retained. First-use guidance has compact repeat-use presentation.
+
+CEFR/Cervantes/OER resources remain pedagogical references only. No external text/audio was copied or closely adapted, so no new third-party attribution entry is required. Large corpora and curated human recordings remain future work; no download, microphone, ASR or cloud grading was added. The four A2.1 corrections and full status are recorded in [the quality report](../LISTENING_SPEAKING_QUALITY.md); [BUILD_STATUS](../../BUILD_STATUS.md) contains actual validation results.

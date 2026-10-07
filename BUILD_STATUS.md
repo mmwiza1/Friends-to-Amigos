@@ -1,33 +1,33 @@
 # Verification and release gates
 
-Connected practice / A2.1 update **0.7.0**, Android version code **7**.
-Baseline reviewed: main `877dbcd9b0486b33b5e5c0e7aa218baa23c7e269` (0.6.0).
+Focused Listening/Speaking quality release **0.8.0**, Android version code **8**.
+Baseline reviewed: main `390e3eccbb06fb011bde186a5c98da6255d40523` (0.7.0).
 
-## Baseline and local checks
+## Baseline and current checks
 
-- Baseline `npm run check`: 144 activities / 832 course questions / 871 permanent course/practice IDs / 208 Conjugations questions, passed.
-- Baseline complete individual suite: **232 passed, 0 failed/skipped** (also eleven file-level suites under workspace Node 24).
-- Current `npm run check`: **216 activities / 1,248 course slots / 1,287 permanent course/practice IDs / unchanged 208 game questions**, passed. All JS/CJS syntax, stable manifests, finite variants and target sources validated.
-- Current `npm test`: twelve files passed locally. The individual suite contains **292 cases**, with 60 new course/table/mastery/connected-review/UI regressions; all 292 passed locally and in CI using Node 22 (0 failures/skips).
-- Existing all-activity render/complete tests now cover all 216 activities. Full A1 payload hashes prove all 144 original activities/Spanish targets/answers/passages/IDs/order remain unchanged. Original Conjugations IDs and all native source/icon/inset assets are unchanged; Android packaging only increments the version.
-- New tests cover 35 curated targets, six person rows, supported/randomised/recall tables, full-table evidence requirements, hints, 3–20-table scopes, per-cell feedback, import corruption, interrupted snapshots, shared evidence/session caps, safe Today’s Review, Weak Areas, placement and A1/A2.1 milestones. Old mobile/Back/Go/listening/review/Today tests remain.
-- A dedicated Spanish/scope review checked six-person accents, reflexives, stem changes, compound participles, selected preterite forms, comparisons, agreement, finite answers and glossaries. No native-speaker/educator review is claimed.
+- Baseline: 292 individual JavaScript tests; 850 browser assertions across ten layouts; Android 11 unit tests and lint 0 errors/12 existing warnings in the previous release. Baseline local full suite and syntax checks were rerun before edits.
+- Current `npm run check`: passed, 216 activities / 1,248 course slots / 1,287 existing permanent course/practice IDs / unchanged 208 game questions / 336 separate focused-media items.
+- Current `npm test`: 13 file suites passed locally. Individual expanded run: **351 passed, 0 failed, 0 skipped**, adding 59 regressions. All 216 course activities and all 336 focused items render/complete in simulated DOM tests. Stable manifests, original A1 payload hashes, targeted A2.1 hashes, v1/v2 saves, historical passages, independent attempts, review, Today, placement and both games are protected.
+- Content banks: 56 Listening and 56 Speaking items per playable stage; all metadata, accepted answers/options, uniqueness and prerequisites validated. A dedicated Spanish/scope scan checked original new scenarios plus all 32 A2.1 stories/associated material. No native-speaker review is claimed.
 
 ## Browser and Android boundary
 
-Local `npm run check:browser` cannot launch Chromium: sandbox socket restrictions produce `setsockopt: Operation not permitted` / `ECONNRESET`.
-Local `gradle -p android assembleDebug lintDebug testDebugUnitTest` returns exit 127: Gradle is not installed. No SDK, adb, emulator or physical device is attached.
+Local `npm run check:browser` was attempted and cannot launch Chromium: sandbox socket restrictions produce `setsockopt: Operation not permitted` / `ECONNRESET`.
+Local `gradle -p android assembleDebug lintDebug testDebugUnitTest` was attempted, exit 127: Gradle is not installed. No attached SDK/adb/emulator/physical device is available.
 
-The repository's existing GitHub workflow runs `npm run check`, `npm test`, real Chromium browser checks, then `assembleDebug lintDebug testDebugUnitTest` with Gradle 8.9 / Java 17 / SDK 35. The full implementation passed [validation run 37531022570](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/37531022570). Final prerequisite-gating revision `b4b5250a7dbf357b0d4af7f1132bb172023f5340` passed all JavaScript and browser checks in [run 37531786329, attempt 2](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/37531786329); Android results below are confirmed from the completed reports. Attempt 1 hit a Chromium `Target.createTarget` startup timeout before any browser assertions; its retry passed without weakening them. A repeated main-run startup timeout prompted a small runner safeguard: explicit DevTools readiness, a 60-second startup-only timeout and reduced shared-memory reliance. Ordinary UI timeouts and all 850 assertions remain unchanged.
+The final code revision `20cb53e386e4b48aec4cfd61972eea39118a0a7d` passed the complete [validation run 37584766683](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/37584766683) using Node 22 and Gradle 8.9 / Java 17 / SDK 35:
 
 - `npm run check`: passed.
-- `npm test`: **292 passed, 0 failed, 0 skipped**.
-- `npm run check:browser`: **850 assertions across ten layouts passed**, with 20 screenshots.
-- `assembleDebug`: passed; debug APK uploaded.
-- `lintDebug`: passed, **0 errors / 12 warnings**. Existing warnings concern launcher masks/monochrome icons, API targeting, WebView JavaScript, backup rules and obsolete/unused attributes.
-- `testDebugUnitTest`: **11 passed, 0 failures/errors/skips** (six inset, three native-policy and two launcher-resource tests).
+- `npm test`: **351 passed, 0 failed, 0 skipped** (59 added regressions).
+- `npm run check:browser`: **2,189 assertions passed, 0 failed**, across **11 layouts**, with **55 screenshots**. Original browser checks remain intact; an initial new fixture used a bilingual display answer instead of an accepted response and was corrected without changing scoring.
+- `assembleDebug`: passed; version 0.8.0 / code 8 debug APK uploaded.
+- `lintDebug`: passed, **0 errors / 12 existing warnings**. Reports retain existing API targeting, unused/obsolete attributes, WebView JavaScript, backup-rule and launcher-mask/monochrome warnings.
+- `testDebugUnitTest`: **11 passed, 0 failures/errors/skips**, confirmed from XML reports (six inset, three native-policy and two launcher tests).
 
-Browser checks retain ten narrow/S24/large/landscape layouts, light/dark, simulated button/gesture insets and resized/overlap keyboards. They now additionally exercise six-person table controls, Back/resume, mistake teaching, 20-table configuration, typed table Go, weak areas and daily review. Screenshots include new tables/feedback. These simulations do not establish Samsung IME, acoustic speech, TalkBack or physical launcher behaviour.
+Reports and screenshots were downloaded and inspected. The final source revision also passed local `npm test` (13 file suites) and an individual run of all 351 cases. Documentation updates after validation only record these results.
+
+
+Rendered coverage adds ten-item media sessions, first/compact instruction screens, delayed simulated speech start, transcript/model concealment/reveal, rates, Back/resume, completion, independent course progress and readable weakness. Eleven layouts include 320px, S24-class, larger/landscape, light/dark, larger text and simulated native/keyboard insets. TTS start is simulated: this cannot establish acoustic voice quality, physical Samsung IME behaviour or TalkBack.
 
 ## Physical release checklist
 
@@ -45,8 +45,9 @@ The previous APK was tested by the maintainer on a Galaxy S24. This update still
 - [ ] Offline es-ES voice, playback-start locking/fallback/skip, Slow/Normal, hidden/revealed transcript and self-assessed speaking.
 - [ ] Android/browser export/import includes optional evidence/table data; bad imports preserve valid progress. Bull-face launcher remains unchanged.
 
-## Release decision
 
-No framework, cloud service, runtime dependency, audio corpus, speech recognition or LLM grading was introduced. Schema stays v2 with additive optional mastery/table fields. A2.1 is playable; A2.2 and B stages are unavailable. Source material is original; research remains pedagogical reference.
+Additional physical checks: ten-item media Save & leave/relaunch alongside a saved course lesson; repeated-session rotation; long A2.1 prompts/models; first-use versus compact information; Speaking Needs practice in review/Weak Areas; installed offline es-ES voice after background/foreground.
 
-Finite grading can reject valid unlisted alternatives. Synthetic listening lacks human-speaker variation; speaking is self-assessed; shared evidence is an approximate practice signal. Thirty-five curated targets deliberately avoid padding comparison/symptom units with unrelated verbs. A native Spanish educator should review A2 pacing, accepted alternatives, travel/health register and full-paradigm scaffolding. Physical upgrade/accessibility checks and that review should precede a wider release or A2.2 development.
+## Release limits
+
+See [the quality report](docs/LISTENING_SPEAKING_QUALITY.md) for exact course corrections and selection rules. Schema stays v2 with optional focused-media fields. No frameworks, cloud services, runtime dependencies, microphone, speech recognition, recordings, external corpora or LLM grading were added. A2.2 remains unavailable. Physical upgrade/accessibility/acoustic checks and native educator review remain required; this release does not establish CEFR certification.

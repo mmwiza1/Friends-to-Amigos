@@ -1,0 +1,402 @@
+{
+  "version": 2,
+  "name": "",
+  "onboarded": false,
+  "stage": "A1.1",
+  "startStage": "A1.1",
+  "placement": null,
+  "completed": [
+    "a21u5l0"
+  ],
+  "capabilities": [],
+  "reviews": {
+    "a21u6write-q1": {
+      "question": {
+        "type": "text",
+        "prompt": "Ask where the nearest pharmacy is, using cerca.",
+        "answer": "¿Dónde hay una farmacia cerca?",
+        "accepted": [
+          "¿Dónde hay una farmacia cerca?",
+          "¿Hay una farmacia cerca?"
+        ],
+        "explanation": "Hay asks whether a pharmacy exists nearby.",
+        "topic": "Asking for health help",
+        "mode": "contextual",
+        "language": "es",
+        "spanish": "¿Dónde hay una farmacia cerca?",
+        "id": "a21u6write-q1",
+        "sourceQuestionId": "a21u6write-q1",
+        "mistakes": []
+      },
+      "topic": "Asking for health help",
+      "wrong": 1,
+      "success": 0,
+      "due": 100,
+      "corrected": false
+    }
+  },
+  "events": [
+    {
+      "date": "1970-01-01",
+      "at": 100,
+      "type": "answer",
+      "correct": false,
+      "topic": "Asking for health help",
+      "questionId": "a21u6write-q1"
+    }
+  ],
+  "sessions": {},
+  "active": {
+    "kind": "lesson",
+    "lesson": {
+      "id": "a21u5story2",
+      "stage": "A2.1",
+      "unit": 5,
+      "unitId": "a21-5",
+      "outcomeId": "a21-5",
+      "goal": "Explain basic symptoms and say what you need",
+      "title": "Story 3: A short phone call",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Why does Ana prefer a message?",
+          "answer": "Her throat hurts",
+          "options": [
+            "Her throat hurts",
+            "Her phone is lost",
+            "Marta cannot read"
+          ],
+          "explanation": "A sore throat makes a message easier than talking.",
+          "reading": {
+            "title": "A short phone call",
+            "text": "Marta llama a Ana antes de salir. «Me duele la garganta desde esta mañana», dice Ana. «No tengo fiebre, pero estoy cansada». Marta pregunta si puede hablar. Ana responde que sí, pero prefiere un mensaje. Marta escribe: «Voy a comprar comida. ¿Necesitas agua?». Ana contesta: «Sí, por favor». Marta va a dejar la compra en la puerta Ana va a descansar sin salir de casa.",
+            "glossary": [
+              [
+                "garganta",
+                "throat"
+              ],
+              [
+                "si",
+                "whether"
+              ]
+            ],
+            "stage": "A2.1"
+          },
+          "mode": "fact",
+          "topic": "How you feel",
+          "id": "a21u5story2-q1",
+          "sourceQuestionId": "a21u5story2-q1"
+        },
+        {
+          "type": "text",
+          "prompt": "When did the throat pain start?",
+          "answer": "This morning",
+          "accepted": [
+            "This morning",
+            "Esta mañana",
+            "Since this morning",
+            "Desde esta mañana"
+          ],
+          "language": "en-or-es",
+          "explanation": "Desde esta mañana gives the start.",
+          "reading": {
+            "title": "A short phone call",
+            "text": "Marta llama a Ana antes de salir. «Me duele la garganta desde esta mañana», dice Ana. «No tengo fiebre, pero estoy cansada». Marta pregunta si puede hablar. Ana responde que sí, pero prefiere un mensaje. Marta escribe: «Voy a comprar comida. ¿Necesitas agua?». Ana contesta: «Sí, por favor». Marta va a dejar la compra en la puerta Ana va a descansar sin salir de casa.",
+            "glossary": [
+              [
+                "garganta",
+                "throat"
+              ],
+              [
+                "si",
+                "whether"
+              ]
+            ],
+            "stage": "A2.1"
+          },
+          "mode": "context",
+          "topic": "How you feel",
+          "id": "a21u5story2-q2",
+          "sourceQuestionId": "a21u5story2-q2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which symptom is absent?",
+          "answer": "Fever",
+          "options": [
+            "Fever",
+            "Tiredness",
+            "A sore throat"
+          ],
+          "explanation": "No tengo fiebre explicitly denies fever.",
+          "reading": {
+            "title": "A short phone call",
+            "text": "Marta llama a Ana antes de salir. «Me duele la garganta desde esta mañana», dice Ana. «No tengo fiebre, pero estoy cansada». Marta pregunta si puede hablar. Ana responde que sí, pero prefiere un mensaje. Marta escribe: «Voy a comprar comida. ¿Necesitas agua?». Ana contesta: «Sí, por favor». Marta va a dejar la compra en la puerta Ana va a descansar sin salir de casa.",
+            "glossary": [
+              [
+                "garganta",
+                "throat"
+              ],
+              [
+                "si",
+                "whether"
+              ]
+            ],
+            "stage": "A2.1"
+          },
+          "mode": "inference",
+          "topic": "How you feel",
+          "id": "a21u5story2-q3",
+          "sourceQuestionId": "a21u5story2-q3"
+        },
+        {
+          "type": "text",
+          "prompt": "What drink does Ana request?",
+          "answer": "Water",
+          "accepted": [
+            "Water",
+            "Agua",
+            "Water, please",
+            "Agua, por favor"
+          ],
+          "language": "en-or-es",
+          "explanation": "Sí answers the offer of water.",
+          "reading": {
+            "title": "A short phone call",
+            "text": "Marta llama a Ana antes de salir. «Me duele la garganta desde esta mañana», dice Ana. «No tengo fiebre, pero estoy cansada». Marta pregunta si puede hablar. Ana responde que sí, pero prefiere un mensaje. Marta escribe: «Voy a comprar comida. ¿Necesitas agua?». Ana contesta: «Sí, por favor». Marta va a dejar la compra en la puerta Ana va a descansar sin salir de casa.",
+            "glossary": [
+              [
+                "garganta",
+                "throat"
+              ],
+              [
+                "si",
+                "whether"
+              ]
+            ],
+            "stage": "A2.1"
+          },
+          "mode": "sequence",
+          "topic": "How you feel",
+          "id": "a21u5story2-q4",
+          "sourceQuestionId": "a21u5story2-q4"
+        },
+        {
+          "type": "choice",
+          "prompt": "What is Marta trying to make easier?",
+          "answer": "Ana’s rest",
+          "options": [
+            "Ana’s rest",
+            "A museum booking",
+            "An early train"
+          ],
+          "explanation": "Leaving the food at the door reduces interruption.",
+          "reading": {
+            "title": "A short phone call",
+            "text": "Marta llama a Ana antes de salir. «Me duele la garganta desde esta mañana», dice Ana. «No tengo fiebre, pero estoy cansada». Marta pregunta si puede hablar. Ana responde que sí, pero prefiere un mensaje. Marta escribe: «Voy a comprar comida. ¿Necesitas agua?». Ana contesta: «Sí, por favor». Marta va a dejar la compra en la puerta Ana va a descansar sin salir de casa.",
+            "glossary": [
+              [
+                "garganta",
+                "throat"
+              ],
+              [
+                "si",
+                "whether"
+              ]
+            ],
+            "stage": "A2.1"
+          },
+          "mode": "response",
+          "topic": "How you feel",
+          "id": "a21u5story2-q5",
+          "sourceQuestionId": "a21u5story2-q5"
+        }
+      ],
+      "checkpoint": false,
+      "authorship": {
+        "kind": "original",
+        "referenceRecord": "docs/resources/CURRICULUM_REFERENCE.md"
+      },
+      "reading": {
+        "title": "A short phone call",
+        "text": "Marta llama a Ana antes de salir. «Me duele la garganta desde esta mañana», dice Ana. «No tengo fiebre, pero estoy cansada». Marta pregunta si puede hablar. Ana responde que sí, pero prefiere un mensaje. Marta escribe: «Voy a comprar comida. ¿Necesitas agua?». Ana contesta: «Sí, por favor». Marta va a dejar la compra en la puerta Ana va a descansar sin salir de casa.",
+        "glossary": [
+          [
+            "garganta",
+            "throat"
+          ],
+          [
+            "si",
+            "whether"
+          ]
+        ],
+        "stage": "A2.1"
+      }
+    },
+    "questions": [
+      {
+        "type": "choice",
+        "prompt": "Why does Ana prefer a message?",
+        "answer": "Her throat hurts",
+        "options": [
+          "Her throat hurts",
+          "Her phone is lost",
+          "Marta cannot read"
+        ],
+        "explanation": "A sore throat makes a message easier than talking.",
+        "reading": {
+          "title": "A short phone call",
+          "text": "Marta llama a Ana antes de salir. «Me duele la garganta desde esta mañana», dice Ana. «No tengo fiebre, pero estoy cansada». Marta pregunta si puede hablar. Ana responde que sí, pero prefiere un mensaje. Marta escribe: «Voy a comprar comida. ¿Necesitas agua?». Ana contesta: «Sí, por favor». Marta va a dejar la compra en la puerta Ana va a descansar sin salir de casa.",
+          "glossary": [
+            [
+              "garganta",
+              "throat"
+            ],
+            [
+              "si",
+              "whether"
+            ]
+          ],
+          "stage": "A2.1"
+        },
+        "mode": "fact",
+        "topic": "How you feel",
+        "id": "a21u5story2-q1",
+        "sourceQuestionId": "a21u5story2-q1"
+      },
+      {
+        "type": "text",
+        "prompt": "When did the throat pain start?",
+        "answer": "This morning",
+        "accepted": [
+          "This morning",
+          "Esta mañana",
+          "Since this morning",
+          "Desde esta mañana"
+        ],
+        "language": "en-or-es",
+        "explanation": "Desde esta mañana gives the start.",
+        "reading": {
+          "title": "A short phone call",
+          "text": "Marta llama a Ana antes de salir. «Me duele la garganta desde esta mañana», dice Ana. «No tengo fiebre, pero estoy cansada». Marta pregunta si puede hablar. Ana responde que sí, pero prefiere un mensaje. Marta escribe: «Voy a comprar comida. ¿Necesitas agua?». Ana contesta: «Sí, por favor». Marta va a dejar la compra en la puerta Ana va a descansar sin salir de casa.",
+          "glossary": [
+            [
+              "garganta",
+              "throat"
+            ],
+            [
+              "si",
+              "whether"
+            ]
+          ],
+          "stage": "A2.1"
+        },
+        "mode": "context",
+        "topic": "How you feel",
+        "id": "a21u5story2-q2",
+        "sourceQuestionId": "a21u5story2-q2"
+      },
+      {
+        "type": "choice",
+        "prompt": "Which symptom is absent?",
+        "answer": "Fever",
+        "options": [
+          "Fever",
+          "Tiredness",
+          "A sore throat"
+        ],
+        "explanation": "No tengo fiebre explicitly denies fever.",
+        "reading": {
+          "title": "A short phone call",
+          "text": "Marta llama a Ana antes de salir. «Me duele la garganta desde esta mañana», dice Ana. «No tengo fiebre, pero estoy cansada». Marta pregunta si puede hablar. Ana responde que sí, pero prefiere un mensaje. Marta escribe: «Voy a comprar comida. ¿Necesitas agua?». Ana contesta: «Sí, por favor». Marta va a dejar la compra en la puerta Ana va a descansar sin salir de casa.",
+          "glossary": [
+            [
+              "garganta",
+              "throat"
+            ],
+            [
+              "si",
+              "whether"
+            ]
+          ],
+          "stage": "A2.1"
+        },
+        "mode": "inference",
+        "topic": "How you feel",
+        "id": "a21u5story2-q3",
+        "sourceQuestionId": "a21u5story2-q3"
+      },
+      {
+        "type": "text",
+        "prompt": "What drink does Ana request?",
+        "answer": "Water",
+        "accepted": [
+          "Water",
+          "Agua",
+          "Water, please",
+          "Agua, por favor"
+        ],
+        "language": "en-or-es",
+        "explanation": "Sí answers the offer of water.",
+        "reading": {
+          "title": "A short phone call",
+          "text": "Marta llama a Ana antes de salir. «Me duele la garganta desde esta mañana», dice Ana. «No tengo fiebre, pero estoy cansada». Marta pregunta si puede hablar. Ana responde que sí, pero prefiere un mensaje. Marta escribe: «Voy a comprar comida. ¿Necesitas agua?». Ana contesta: «Sí, por favor». Marta va a dejar la compra en la puerta Ana va a descansar sin salir de casa.",
+          "glossary": [
+            [
+              "garganta",
+              "throat"
+            ],
+            [
+              "si",
+              "whether"
+            ]
+          ],
+          "stage": "A2.1"
+        },
+        "mode": "sequence",
+        "topic": "How you feel",
+        "id": "a21u5story2-q4",
+        "sourceQuestionId": "a21u5story2-q4"
+      },
+      {
+        "type": "choice",
+        "prompt": "What is Marta trying to make easier?",
+        "answer": "Ana’s rest",
+        "options": [
+          "Ana’s rest",
+          "A museum booking",
+          "An early train"
+        ],
+        "explanation": "Leaving the food at the door reduces interruption.",
+        "reading": {
+          "title": "A short phone call",
+          "text": "Marta llama a Ana antes de salir. «Me duele la garganta desde esta mañana», dice Ana. «No tengo fiebre, pero estoy cansada». Marta pregunta si puede hablar. Ana responde que sí, pero prefiere un mensaje. Marta escribe: «Voy a comprar comida. ¿Necesitas agua?». Ana contesta: «Sí, por favor». Marta va a dejar la compra en la puerta Ana va a descansar sin salir de casa.",
+          "glossary": [
+            [
+              "garganta",
+              "throat"
+            ],
+            [
+              "si",
+              "whether"
+            ]
+          ],
+          "stage": "A2.1"
+        },
+        "mode": "response",
+        "topic": "How you feel",
+        "id": "a21u5story2-q5",
+        "sourceQuestionId": "a21u5story2-q5"
+      }
+    ],
+    "index": 0,
+    "answers": [],
+    "selected": null,
+    "checked": false,
+    "readingReady": true,
+    "modelRevealed": false,
+    "audioPlayed": false,
+    "audioUnavailable": false
+  },
+  "recovery": []
+}

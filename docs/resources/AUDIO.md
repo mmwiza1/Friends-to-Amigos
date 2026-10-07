@@ -177,3 +177,9 @@ Any shipped human recording should pass all of these checks:
 For A1, prefer short conversational recordings. For B1+, progressively introduce more natural speed, longer turns, inference and accent variation.
 
 A2.1 adds original synthetic-speech tasks for recent/finished events, transport, bookings and symptoms. No researched human recordings have been incorporated. The existing curated-audio metadata path remains future-ready; recording/licensing/acoustic review remains a separate task.
+
+## Implemented focused-media release (0.8.0)
+
+Listening and Speaking each ship 56 original Friends to Amigos items per A1.1/A1.2/A2.1 stage (168 per mode), in balanced ten-item taught-material sessions. The banks combine 248 newly authored scenarios/prompts and 88 carefully reused original course items with independent stable practice identities/source-question provenance. Mistakes feed existing review and shared topic/outcome evidence; speaking remains self-assessed. Synthetic es-ES TTS, playback-start checks, .75×/1× replay and hidden transcripts/models are retained. First-use guidance has compact repeat-use presentation.
+
+CEFR/Cervantes/OER resources remain pedagogical references only. No external text/audio was copied or closely adapted, so no new third-party attribution entry is required. Large corpora and curated human recordings remain future work; no download, microphone, ASR or cloud grading was added. The four A2.1 corrections and full status are recorded in [the quality report](../LISTENING_SPEAKING_QUALITY.md); [BUILD_STATUS](../../BUILD_STATUS.md) contains actual validation results.

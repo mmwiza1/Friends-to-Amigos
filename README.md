@@ -78,7 +78,7 @@ npm run check:browser # requires a local Chrome/Chromium binary
 
 Open http://localhost:4173, or open `www/index.html` directly. File-origin storage and offline voice availability depend on the browser. `check` validates syntax, identities, ordering, grading data and future-stage availability. `audit` emits reproducible surface-word recycling statistics, with its limitations stated in the output.
 
-The suite has **292 individual tests**, including 60 new course/practice/mastery/UI regressions. It renders and completes all 216 activities/1,248 course questions, protects exact original A1 activity payloads and legacy backups, and checks table targets, eligibility, hints, recall, weak areas and daily review. See [BUILD_STATUS.md](BUILD_STATUS.md) for exact native/browser results and their limits.
+The suite has **351 individual tests**, including 59 new focused-media/content/compatibility regressions in this release. It renders and completes all 216 activities/1,248 course questions, protects exact original A1 activity payloads and legacy backups, and checks table targets, eligibility, hints, recall, weak areas and daily review. See [BUILD_STATUS.md](BUILD_STATUS.md) for exact native/browser results and their limits.
 
 ## Android build
 
@@ -88,7 +88,7 @@ Requirements: Java 17+, Gradle 8.9, Android SDK platform 35/build tools 35.0.0. 
 gradle -p android assembleDebug lintDebug testDebugUnitTest
 ```
 
-The APK is `android/app/build/outputs/apk/debug/app-debug.apk`. Version code 7/name 0.7.0 identifies this app update; it is not a CEFR level or a declaration of course certification.
+The APK is `android/app/build/outputs/apk/debug/app-debug.apk`. Version code 8/name 0.8.0 identifies this app update; it is not a CEFR level or a declaration of course certification.
 
 GitHub Actions runs static checks and tests on pushes/PRs. Android build, lint and unit checks now run on pushes/PRs as well as manual runs. The `friends-to-amigos-android` artifact contains the debug APK. A maintainer must preserve the signing key for in-place upgrades. Fresh CI debug keys may not match an already installed APK; do not uninstall a learner's app without first exporting and verifying a backup.
 
@@ -101,3 +101,11 @@ The current workspace has no Gradle, Android SDK, adb or emulator. GitHub CI per
 The course material is original Friends to Amigos content, informed by the documented CEFR/Cervantes and OER pedagogical references. No third-party exercise, story, translation or recording was copied or closely adapted. Future reuse requires exact-item licence verification and attribution. See [COURSE_DESIGN.md](COURSE_DESIGN.md), [resource status](docs/resources/README.md#implementation-status) and the [A1 audit](docs/A1_STABILITY_REPORT.md).
 
 Finite matching can reject valid unlisted paraphrases. TTS lacks human-speaker variation; speaking is self-assessed; independent conversation is not assessed. A native Spanish educator should review phrasing, pacing and accepted alternatives before a wider release. Broader free-form assessment, especially before B1, and curated human listening remain future work. A2.1 is implemented; A2.2 remains planned.
+
+## Focused Listening and Speaking (0.8.0)
+
+Home and course-completion maintenance offer repeatable ten-item sessions. Each mode has **168 local authored items: 56 each for A1.1, A1.2 and A2.1**. Completing a unit’s three teaching activities makes its practice eligible; earlier stages may be assumed through placement. No profile-only unlocks. A very early learner needs two taught units before ten distinct eligible items are available.
+
+Sessions rotate recent items, diversify topics/tasks, target mistakes and recycle earlier stages (normally 6 current + 4 earlier). Listening remains audio-first, with playback-start locking, Slow/Normal replay, transcript after checking and failure/skip-to-review. Speaking shows **One possible response** only after reveal and uses **I got it / Needs practice**: no microphone, recording, speech recognition or pronunciation assessment.
+
+Mistakes feed existing spaced review and understandable Weak Areas. Positive self-assessment is low-weight evidence, not proof of mastery. Save & leave keeps an independent ten-item snapshot without replacing your saved course lesson. First-use explanations become compact after successful listening or deliberate speaking self-assessment; expandable information remains available. See [the quality report](docs/LISTENING_SPEAKING_QUALITY.md) and [validation status](BUILD_STATUS.md).
