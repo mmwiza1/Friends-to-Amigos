@@ -2,7 +2,7 @@ const {test}=require('node:test'),assert=require('node:assert/strict'),fs=requir
 const C=require('../www/curriculum'),E=require('../www/engine'),P=require('../www/storage'),Clarity=require('../www/learner-clarity');
 const clone=v=>JSON.parse(JSON.stringify(v));
 function beforeClarity(){
- const source=fs.readFileSync(path.resolve('www/curriculum.js'),'utf8').replace('clarity.apply(data);','');
+ const source=fs.readFileSync(path.resolve('www/curriculum.js'),'utf8').replace('clarity.apply(data);','').replace('language.apply(data);','');
  const box={module:{exports:{}},require:createRequire(path.resolve('www/curriculum.js'))};vm.runInNewContext(source,box);return clone(box.module.exports);
 }
 const before=beforeClarity(),questions=c=>c.lessons.flatMap(l=>l.questions),find=id=>questions(C).find(q=>q.id===id);
@@ -13,7 +13,7 @@ test('learner wording audit covers every playable A1 question, including reading
 });
 test('prompt and feedback amendments preserve every ID, learning target, accepted answer, choice, passage and objective',()=>{
  assert.deepEqual(C.lessons.map(l=>({id:l.id,stage:l.stage,goal:l.goal,outcomeId:l.outcomeId,capability:l.capability})),before.lessons.map(l=>({id:l.id,stage:l.stage,goal:l.goal,outcomeId:l.outcomeId,capability:l.capability})));
- const immutable=q=>{const copy=clone(q);delete copy.prompt;delete copy.mistakes;delete copy.explanation;return copy;};assert.deepEqual(questions(C).map(immutable),questions(before).map(immutable));
+ const immutable=q=>{const copy=clone(q);delete copy.prompt;delete copy.mistakes;delete copy.explanation;for(const key of ['promptEs','englishHint','instructionLanguage','supportConcept'])delete copy[key];return copy;};assert.deepEqual(questions(C).map(immutable),questions(before).map(immutable));
  for(const old of questions(before))if(old.id!=='u0l0-q5')assert.equal(find(old.id).explanation,old.explanation,old.id);
  for(const key of ['placement','numbers','time','legacyQuestions','legacyLessons'])assert.deepEqual(clone(C[key]),before[key],key);
 });

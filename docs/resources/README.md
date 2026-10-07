@@ -53,7 +53,7 @@ CEFR/Cervantes remain reference-only. Semillas, Hola a Todos, Trayectos and othe
 
 ## A1 stability implementation status
 
-A1.1 and A1.2 remain playable: 16 practical units, 144 activities, 64 original stories and 832 question slots (416 per stage), including 240 Spanish-writing slots, 48 audio-first listening questions and 16 self-assessed speaking chunks. The JavaScript suite now covers 351 individual cases; exact native/browser validation is recorded in BUILD_STATUS.md. Stable question IDs, validated schema-v2 migration/import, original historical snapshots, practical checkpoints and an A1 completion experience are implemented. A2.1 is now playable; A2.2–B2.2 remain planned/unavailable.
+A1.1 and A1.2 remain playable: 16 practical units, 144 activities, 64 original stories and 832 question slots (416 per stage), including 240 Spanish-writing slots, 48 audio-first listening questions and 16 self-assessed speaking chunks. The JavaScript suite now covers 408 individual cases; exact native/browser validation is recorded in BUILD_STATUS.md. Stable question IDs, validated schema-v2 migration/import, original historical snapshots, practical checkpoints and an A1 completion experience are implemented. A2.1 is now playable; A2.2–B2.2 remain planned/unavailable.
 
 All new passages, listening transcripts, exercises and feedback are original Friends to Amigos content informed by documented teaching references. No third-party wording was copied/closely adapted, and no third-party recording or dataset was downloaded/vendored. Listening uses synthetic es-ES speech; speaking does not record or automatically grade pronunciation. Curated human recordings require exact-item review/attribution and remain future work. Native Android build/lint/unit validation is recorded in BUILD_STATUS.md; physical-device retest and independent educator review remain release gates. See [the A1 audit](../A1_STABILITY_REPORT.md) and [BUILD_STATUS.md](../../BUILD_STATUS.md).
 
@@ -61,7 +61,7 @@ All new passages, listening transcripts, exercises and feedback are original Fri
 
 All 832 A1 prompts and 240 Spanish-writing slots were audited. Presentation-only wording amendments and 342 new exact misconception examples improve learner instructions/feedback without changing targets or accepted answers. Incorrect writing displays the learner response, a natural model and a cautious deterministic comparison. Original authorship/reference-only policy remains unchanged; no third-party text, recordings or datasets were incorporated.
 
-Conjugations now adds a separate local bank of 208 original scenarios, with course-linked form prerequisites, varied retrieval, per-blank distractor feedback and adaptive practice. It does not expand or replace the course, reuse third-party exercises, download audio or expose A2.1.
+Conjugations now adds a separate local bank of 272 original scenarios (104 A1.1, 104 A1.2 and 64 A2.1), with course-linked teaching provenance, varied retrieval, per-blank distractor feedback and adaptive practice. It does not expand or replace the course, reuse third-party exercises, download audio or add new course stages.
 
 ## Connected practice and A2.1 implementation (0.7.0)
 
@@ -72,3 +72,7 @@ A2.1 now ships eight practical units, 72 activities, 416 question slots and 32 o
 Listening and Speaking each ship 56 original Friends to Amigos items per A1.1/A1.2/A2.1 stage (168 per mode), in balanced ten-item taught-material sessions. The banks combine 248 newly authored scenarios/prompts and 88 carefully reused original course items with independent stable practice identities/source-question provenance. Mistakes feed existing review and shared topic/outcome evidence; speaking remains self-assessed. Synthetic es-ES TTS, playback-start checks, .75×/1× replay and hidden transcripts/models are retained. First-use guidance has compact repeat-use presentation.
 
 CEFR/Cervantes/OER resources remain pedagogical references only. No external text/audio was copied or closely adapted, so no new third-party attribution entry is required. Large corpora and curated human recordings remain future work; no download, microphone, ASR or cloud grading was added. The four A2.1 corrections and full status are recorded in [the quality report](../LISTENING_SPEAKING_QUALITY.md); [BUILD_STATUS](../../BUILD_STATUS.md) contains actual validation results.
+
+### Implemented language/access amendment (0.9.0)
+
+A1.2/A2.1 now use original Spanish-first task instructions with optional English help. Hint-assisted successes remain correct but provide weaker evidence. Both grammar games are immediately available by selected level (current and earlier), with course sources serving provenance and recommendation weighting rather than access gates. The 35 curated paradigms remain unchanged; 64 original A2.1 sentence contexts extend the preserved 208 A1 game items. No external text/audio was copied, adapted or downloaded. See [the quality record](../SPANISH_FIRST_AND_GRAMMAR_LEVEL.md).

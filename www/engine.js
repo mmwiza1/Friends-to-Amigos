@@ -6,7 +6,7 @@ function fresh(){return {version:2,name:'',onboarded:false,stage:'A1.1',startSta
 function reviewKey(q){if(q.id)return q.id;const raw=JSON.stringify({type:q.type||'choice',prompt:q.prompt,answer:q.answer,accepted:q.accepted||null,options:q.options||null,reading:q.reading?{title:q.reading.title,text:q.reading.text}:null});let a=2166136261,b=5381;for(const c of raw){a=Math.imul(a^c.codePointAt(0),16777619);b=Math.imul(b,33)^c.codePointAt(0);}return 'legacy-'+(a>>>0).toString(16)+'-'+(b>>>0).toString(16);}
 function recordAnswer(s,q,correct,now=Date.now(),details={}) {
  const key=reviewKey(q),r=Object.prototype.hasOwnProperty.call(s.reviews,key)?s.reviews[key]:null;
- s.events.push({date:dayKey(new Date(now)),at:now,type:'answer',correct,topic:q.topic,questionId:key,...(details.skipped?{skipped:true}:{}),...(q.type==='speaking'?{selfAssessed:true}:{})});
+ s.events.push({date:dayKey(new Date(now)),at:now,type:'answer',correct,topic:q.topic,questionId:key,...(details.skipped?{skipped:true}:{}),...(details.assisted?{assisted:true}:{}),...(q.type==='speaking'?{selfAssessed:true}:{})});
  if(!correct){const snapshot=r&&!r.corrected?r.question:JSON.parse(JSON.stringify({...q,id:key}));s.reviews[key]={question:snapshot,topic:snapshot.topic,wrong:(r?.wrong||0)+1,success:0,due:now,corrected:false};}
  else if(r&&now>=r.due){r.success++;r.due=now+[1,3,7,14,30][Math.min(r.success-1,4)]*86400000;if(r.success>=3&&!r.corrected){r.corrected=true;s.events.push({date:dayKey(new Date(now)),at:now,type:'corrected',topic:q.topic,questionId:key});}}
 }
