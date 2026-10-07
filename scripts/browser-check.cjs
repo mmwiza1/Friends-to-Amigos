@@ -27,7 +27,8 @@ async function run(){ // Wait for the browser process before creating its first 
   {name:'landscape-dark-cutout',width:780,height:384,dark:true,bottom:24,left:32},
   {name:'s24-dark-keyboard-resized',width:384,height:470,dark:true,bottom:48,keyboard:true},
   {name:'narrow-light-keyboard-resized',width:320,height:430,dark:false,bottom:24,keyboard:true},
-  {name:'s24-dark-keyboard-overlap',width:384,height:824,dark:true,bottom:48,keyboard:true,overlap:340}
+  {name:'s24-dark-keyboard-overlap',width:384,height:824,dark:true,bottom:48,keyboard:true,overlap:340},
+  {name:'s24-dark-large-text',width:384,height:824,dark:true,bottom:48,fontScale:1.25}
  ];
  let totalChecks=0;
  for(const config of scenarios){
@@ -37,7 +38,7 @@ async function run(){ // Wait for the browser process before creating its first 
   await evaluate(sessionId,`new Promise((resolve,reject)=>{const started=Date.now();function ready(){if(window.FriendsToAmigos&&window.ViewportTools)resolve(true);else if(Date.now()-started>5000)reject(Error('App did not load'));else setTimeout(ready,10);}ready();})`);
   const report=await evaluate(sessionId,`(async()=>{
    let checks=0;const config=${JSON.stringify(config)},assert=(ok,message)=>{checks++;if(!ok)throw Error(config.name+': '+message);},frame=()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
-   localStorage.clear();state=E.fresh();state.onboarded=true;storageContext={readOnly:false};screen='main';tab='Learn';viewStage='A1.2';quiz=null;render();
+   document.body.style.fontSize=((config.fontScale||1)*16)+'px';localStorage.clear();state=E.fresh();state.onboarded=true;storageContext={readOnly:false};screen='main';tab='Learn';viewStage='A1.2';quiz=null;render();
    window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,false,0);await frame();
    assert(innerWidth===config.width&&innerHeight===config.height,'exact phone viewport');
    const nav=document.querySelector('nav'),rect=nav.getBoundingClientRect();assert(Math.abs(rect.bottom-(innerHeight-config.bottom))<2,'navigation clears native system bar');
@@ -102,16 +103,49 @@ async function run(){ // Wait for the browser process before creating its first 
    // Leave a representative written question ready for visual inspection.
    quiz.index=textIndex;quiz.selected=null;quiz.checked=false;quiz.answers=[];render();window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,Boolean(config.keyboard),config.overlap||0);
    if(config.keyboard){document.querySelector('#written-answer').focus();await frame();}else window.scrollTo(0,0);
+   // Focused media uses the actual browser DOM; synthetic speech start is simulated, not acoustically assessed.
+   const utterances=[];media.stop();media=SpeechTools.create({SpeechSynthesisUtterance:class{constructor(text){this.text=text;}},speechSynthesis:{getVoices:()=>[{lang:'es-ES',localService:true}],cancel(){},speak(u){utterances.push(u);}}},toast);
+   state.focused=F.empty();quiz=null;screen='main';tab='Home';listenRate=.75;actions.mediaPractice({dataset:{kind:'listening',stage:'A2.1'}});render();window.scrollTo(0,0);await frame();
+   assert(quiz.questions.length===10&&new Set(quiz.questions.map(q=>q.id)).size===10,'ten unique focused listening questions');
+   assert(document.querySelector('.listening').textContent.includes('Listen to familiar Spanish'),'first-use listening guidance');assert(!document.querySelector('details>summary')?.textContent.includes('Spanish transcript'),'no initial transcript');
+   for(let i=0;i<10;i++){
+    const q=currentQuestion();assert(!document.querySelector('.listening').textContent.includes(q.listening.transcript),'transcript hidden before attempt '+i);
+    actions.listen();render();assert(!quiz.audioPlayed,'delayed speech does not unlock '+i);utterances.at(-1).onstart();assert(quiz.audioPlayed,'actual simulated start unlocks '+i);
+    if(i===0){assert(utterances.at(-1).lang==='es-ES'&&utterances.at(-1).rate===.75,'Spain slow listening');actions.listenSpeed({dataset:{rate:'1'}});actions.listen();render();utterances.at(-1).onstart();assert(utterances.at(-1).rate===1,'normal listening rate');assert(!document.querySelector('.listening').textContent.includes(q.listening.transcript),'audio start alone does not reveal transcript');}
+    const value=i<8?q.answer:q.type==='text'?'wrong response':q.options.find(x=>x!==q.answer);
+    if(q.type==='text'){const input=document.querySelector('#written-answer');input.value=value;input.dispatchEvent(new Event('input',{bubbles:true}));input.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));}else {actions.answer({dataset:{index:String(q.options.indexOf(value))}});actions.check();render();}
+    assert(quiz.checked,'focused listening answer checks '+i);assert(document.querySelector('.listening').textContent.includes(q.listening.transcript),'transcript revealed after attempt '+i);
+    if(i===0){const id=q.id;assert(FriendsToAmigos.handleBack(),'focused listening Back handled');assert(state.focused.active.checked,'listening checked attempt saved');actions.focusedResume();render();assert(currentQuestion().id===id&&quiz.checked,'listening resumes same snapshot');}
+    if(i===1)assert(document.querySelector('.compact-media')&&document.querySelector('.media-info'),'compact listening keeps information access');
+    actions.next();render();
+   }
+   assert(screen==='focusedResult'&&document.querySelector('#app').textContent.includes('8/10 correct'),'listening result summary');assert(state.focused.history.at(-1).needs===2,'listening errors reinforced');
+   window.scrollTo(0,document.documentElement.scrollHeight);await frame();assert(document.querySelector('[data-action=home]').getBoundingClientRect().bottom<=innerHeight-config.bottom+1,'focused result Home reachable');actions.home();render();assert(document.querySelector('nav').getBoundingClientRect().bottom<=innerHeight-config.bottom+1,'focused Home restores safe navigation');
+   actions.mediaPractice({dataset:{kind:'speaking',stage:'A2.1'}});render();assert(quiz.questions.length===10,'ten speaking prompts');assert(document.querySelector('#app').textContent.includes('does not record'),'first-use no-recording explanation');
+   for(let i=0;i<10;i++){
+    const q=currentQuestion();assert(![...document.querySelectorAll('[lang=es]')].some(e=>e.textContent===q.spanish),'speaking model hidden '+i);actions.revealModel();render();assert(document.querySelector('#app').textContent.includes('One possible response'),'speaking model labelled as possible '+i);
+    if(i===0){actions.speak();assert(utterances.at(-1).text===q.spanish,'model uses existing speech');assert(FriendsToAmigos.handleBack(),'speaking Back handled');actions.focusedResume();render();assert(quiz.modelRevealed&&currentQuestion().id===q.id,'speaking reveal resumes');}
+    actions.selfAssess({dataset:{result:i<7?'got':'needs'}});render();assert(quiz.answers.length===i+1,'speaking single self-assessment '+i);actions.selfAssess({dataset:{result:'got'}});assert(quiz.answers.length===i+1,'speaking cannot double submit '+i);actions.next();render();
+    if(i===0)assert(document.querySelector('#app').textContent.includes('Say it aloud, then reveal')&&document.querySelector('.media-info'),'compact speaking retains self-assessment info');
+   }
+   assert(screen==='focusedResult'&&document.querySelector('#app').textContent.includes('7 “I got it”')&&document.querySelector('#app').textContent.includes('3 “Needs practice”'),'speaking judgment summary');assert(!document.querySelector('#app').textContent.includes('/10 correct'),'no fake speaking accuracy');assert(state.completed.length===beforeCourse,'focused modes cannot complete course activities');
+   state.mastery=M.empty();FocusedBank.items.filter(q=>q.practice.kind==='speaking'&&q.practice.stage==='A1.2'&&q.practice.unit===0).slice(0,2).forEach((q,i)=>F.record(state,q,false,{session:'browser-weak-'+i}));actions.weakAreas();render();assert(document.querySelector('#app').textContent.includes('Speaking ·'),'speaking weaknesses readable');actions.home();render();
    return {scenario:config.name,width:innerWidth,height:innerHeight,dark:config.dark,nativeInsets:true,simulatedKeyboard:Boolean(config.keyboard),checks};
   })()`);
   const screenshot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false},sessionId);fs.writeFileSync(path.join(output,config.name+'.png'),Buffer.from(screenshot.data,'base64'));totalChecks+=report.checks;console.log('PASS '+config.name+' ('+report.checks+' checks)');fs.writeFileSync(path.join(output,config.name+'.json'),JSON.stringify(report,null,2));
   if(['s24-dark-buttons','narrow-light-buttons'].includes(config.name)){
    await evaluate(sessionId,`(async()=>{window.FriendsToAmigosInsets(24,${config.bottom},${config.left||0},0,false,0);actions.leave();actions.tab({dataset:{tab:'Games'}});render();window.scrollTo(0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));})()`);
-   for(const view of ['games','round','feedback','tables','table-feedback']){
+   for(const view of ['games','round','feedback','tables','table-feedback','listening-first','listening-compact','listening-result','speaking-first','speaking-compact','speaking-result']){
     if(view==='round')await evaluate(sessionId,"actions.gameResume();render();window.scrollTo(0,0);");
     if(view==='tables')await evaluate(sessionId,"state.blanks.active=null;actions.blanksNormal();render();window.scrollTo(0,0);");
     if(view==='table-feedback')await evaluate(sessionId,"const a=state.blanks.active,t=a.tables[0];a.selected=t.rows.map((row,j)=>j===0?t.options[j].find(v=>v!==t.target.forms[row]):t.target.forms[row]);actions.blanksCheck();render();window.scrollTo(0,document.documentElement.scrollHeight);");
     if(view==='feedback')await evaluate(sessionId,"state.games.active.selected=state.games.active.questions[state.games.active.index].blanks.map(b=>b.options.find(x=>x!==b.answer));actions.gameCheck();render();window.scrollTo(0,document.documentElement.scrollHeight);");
+    if(view==='listening-first')await evaluate(sessionId,"quiz=null;state.focused.active=null;state.focused.seenInstructions.listening=false;actions.mediaPractice({dataset:{kind:'listening',stage:'A2.1'}});render();window.scrollTo(0,0);");
+    if(view==='listening-compact')await evaluate(sessionId,"state.focused.seenInstructions.listening=true;render();window.scrollTo(0,0);");
+    if(view==='listening-result')await evaluate(sessionId,"quiz.answers=quiz.questions.map((q,i)=>i<8);quiz.index=10;finishQuiz();render();window.scrollTo(0,0);");
+    if(view==='speaking-first')await evaluate(sessionId,"state.focused.seenInstructions.speaking=false;actions.mediaPractice({dataset:{kind:'speaking',stage:'A2.1'}});quiz.questions[0]=FocusedBank.items.filter(q=>q.practice.kind==='speaking'&&q.practice.stage==='A2.1').sort((a,b)=>b.prompt.length-a.prompt.length)[0];render();window.scrollTo(0,0);");
+    if(view==='speaking-compact')await evaluate(sessionId,"state.focused.seenInstructions.speaking=true;actions.revealModel();render();window.scrollTo(0,0);");
+    if(view==='speaking-result')await evaluate(sessionId,"quiz.answers=quiz.questions.map((q,i)=>i<7);quiz.index=10;finishQuiz();render();window.scrollTo(0,0);");
     await evaluate(sessionId,"document.querySelectorAll('.toast').forEach(e=>e.remove());new Promise(r=>setTimeout(r,250))");
     const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false},sessionId);fs.writeFileSync(path.join(output,config.name+'-'+view+'.png'),Buffer.from(shot.data,'base64'));
    }

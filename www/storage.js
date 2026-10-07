@@ -4,6 +4,7 @@ const E=typeof module!=='undefined'?require('./engine.js'):root.Engine;
 const Path=typeof module!=='undefined'?require('./course-path.js'):root.CoursePath;
 const Games=typeof module!=='undefined'?require('./games.js'):root.Conjugations;
 const Mastery=typeof module!=='undefined'?require('./mastery.js'):root.Mastery;
+const Focused=typeof module!=='undefined'?require('./focused-practice.js'):root.FocusedPractice;
 const Blanks=typeof module!=='undefined'?require('./blanks.js'):root.ConjugationBlanks;
 const VERSION=2,KEY='friends-to-amigos-v1'; // Keep the discovery key; version lives in the value.
 const object=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
@@ -34,6 +35,8 @@ function question(raw){
  if(text(raw.spanish,2000))q.spanish=raw.spanish;
  if(raw.reading!==undefined&&raw.reading!==null){q.reading=reading(raw.reading);if(!q.reading)return null;}
  if(raw.listening){if(!['choice','text'].includes(type)||!object(raw.listening)||!text(raw.listening.transcript,2000))return null;q.listening={transcript:raw.listening.transcript,lang:'es-ES',rate:number(raw.listening.rate,.85,1.25)||.85};if(text(raw.listening.audio,250)&&/^audio\/learning\/[a-zA-Z0-9/_-]+\.(mp3|ogg|wav)$/.test(raw.listening.audio))q.listening.audio=raw.listening.audio;}
+ if(raw.models!==undefined){if(type!=='speaking'||!Array.isArray(raw.models)||!raw.models.length||raw.models.length>3||raw.models.some(x=>!text(x,2000))||raw.models[0]!==q.spanish)return null;q.models=[...new Set(raw.models)];}
+ if(raw.practice!==undefined){const p=raw.practice;if(!object(p)||!['listening','speaking'].includes(p.kind)||!['A1.1','A1.2','A2.1'].includes(p.stage)||!Number.isInteger(p.unit)||p.unit<0||p.unit>7||!text(p.category,80)||!text(p.level,80)||!Array.isArray(p.requiredActivities)||!p.requiredActivities.length||p.requiredActivities.length>12||!p.requiredActivities.every(safeId)||!q.id?.startsWith(p.kind==='listening'?'focus-listen-':'focus-speak-')||(p.kind==='listening'?!q.listening:type!=='speaking'))return null;q.practice={kind:p.kind,stage:p.stage,unit:p.unit,category:p.category,level:p.level,...(safeId(p.outcomeId)?{outcomeId:p.outcomeId}:{}),requiredActivities:p.requiredActivities.slice(),authorship:'original Friends to Amigos'};}
  if(q.mode==='listening'&&!q.listening)return null;
  if(Array.isArray(raw.mistakes))q.mistakes=raw.mistakes.filter(m=>object(m)&&text(m.answer,2000)&&text(m.explanation,3000)).map(m=>({answer:m.answer,explanation:m.explanation}));
  return q;
@@ -105,6 +108,7 @@ function migrateState(raw,course,options={}){
  state.startStage=Path.inferStart({...state,startStage:raw.startStage},course);
  if(raw.mastery!==undefined)state.mastery=Mastery.sanitize(raw.mastery);
  if(raw.blanks!==undefined){const result=Blanks.sanitize(raw.blanks,state,course);state.blanks=result.data;if(result.warnings.length)quarantine('table practice','blanks',raw.blanks);}
+ if(raw.focused!==undefined){const result=Focused.sanitize(raw.focused,state,course,question);state.focused=result.data;if(result.warnings.length)quarantine('focused practice','focused',raw.focused);}
  if(raw.games!==undefined){const result=Games.sanitize(raw.games,state,course);state.games=result.data;if(result.warnings.length)quarantine('game','games',raw.games);}
  if(options.import&&warnings.some(message=>message.includes('damaged')))throw Error('This backup contains damaged questions or an unsafe unfinished attempt.');
  // Unknown fields never enter runtime state. Quarantine is exported, never rendered as code.

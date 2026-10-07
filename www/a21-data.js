@@ -1903,7 +1903,7 @@ const units=[
   "stories": [
    {
     "title": "The reception desk",
-    "text": "Ana y Marta llegaron al hotel después de comer. Ana dijo: «Tengo una reserva a nombre de Ana para dos noches». La recepcionista comprobó el nombre y les dio una llave. La recepcionista dice: «La habitación ya está lista». Ana preguntó a qué hora empieza el desayuno. La recepcionista respondió: «De ocho a diez». Marta guardó la llave y las dos subieron a la habitación.",
+    "text": "Ana y Marta llegaron al hotel después de comer. Ana dijo: «Tengo una reserva a nombre de Ana para dos noches». La recepcionista comprobó el nombre y les dio una llave. La recepcionista dijo: «La habitación ya está lista». Ana preguntó a qué hora empieza el desayuno. La recepcionista respondió: «De ocho a diez». Marta guardó la llave y las dos subieron a la habitación.",
     "glossary": [
      [
       "recepcionista",
@@ -1990,7 +1990,7 @@ const units=[
    },
    {
     "title": "The key problem",
-    "text": "Luis llegó al hotel a las nueve de la noche. Tiene una reserva, pero la llave no funcionó. Volvió a recepción y dijo: «La llave no funciona. ¿Tiene otra?». La recepcionista le dio otra llave y fue con él a la habitación. Esta vez la puerta abrió. Luis dio las gracias. Después llamó a Ana para decir que ya está en la habitación.",
+    "text": "Luis llegó al hotel a las nueve de la noche. Tiene una reserva, pero la llave no funcionó. Volvió a recepción y dijo: «La llave no funciona. ¿Tiene otra?». La recepcionista le dio otra llave y fue con él a la habitación. Esta vez la puerta se abrió. Luis dio las gracias. Después llamó a Ana para decir que ya está en la habitación.",
     "glossary": [
      [
       "funcionó",
@@ -2001,7 +2001,7 @@ const units=[
       "returned"
      ],
      [
-      "abrió",
+      "se abrió",
       "opened"
      ]
     ],
@@ -2505,7 +2505,7 @@ const units=[
    },
    {
     "title": "A short phone call",
-    "text": "Marta llama a Ana antes de salir. «Me duele la garganta desde esta mañana», dice Ana. «No tengo fiebre, pero estoy cansada». Marta pregunta si puede hablar. Ana responde que sí, pero prefiere un mensaje. Marta escribe: «Voy a comprar comida. ¿Necesitas agua?». Ana contesta: «Sí, por favor». Marta va a dejar la compra en la puerta Ana va a descansar sin salir de casa.",
+    "text": "Marta llama a Ana antes de salir. «Me duele la garganta desde esta mañana», dice Ana. «No tengo fiebre, pero estoy cansada». Marta pregunta si puede hablar. Ana responde que sí, pero prefiere un mensaje. Marta escribe: «Voy a comprar comida. ¿Necesitas agua?». Ana contesta: «Sí, por favor». Marta va a dejar la compra en la puerta. Ana va a descansar sin salir de casa.",
     "glossary": [
      [
       "garganta",
@@ -2748,10 +2748,10 @@ const units=[
   ],
   "writing": [
    [
-    "Ask where the nearest pharmacy is, using cerca.",
-    "¿Dónde hay una farmacia cerca?",
+    "Ask if there is a pharmacy nearby.",
+    "¿Hay una farmacia cerca?",
     [
-     "¿Hay una farmacia cerca?"
+     "¿Dónde hay una farmacia cerca?"
     ],
     "Hay asks whether a pharmacy exists nearby."
    ],
