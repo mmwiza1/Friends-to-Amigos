@@ -16,7 +16,7 @@ Before edits, `npm run check` and `npm test` passed. The Node 24 file-isolated s
 
 ## Validation status
 
-Local `npm run check` and `npm test` have passed. Node 24 file-isolated `npm test` reports 15 files; individual-case totals are recorded after the final run below. Local Chromium was attempted and blocked by sandbox `setsockopt: Operation not permitted` / ECONNRESET. Local Android tooling is unavailable; the existing GitHub CI workflow is being used for real Chromium and Gradle 8.9 / Java 17 / SDK 35 before main is updated.
+Local `npm run check` and `npm test` have passed. Node 24 file-isolated `npm test` reports 15 files; the final individual-case total is 481, with zero failures/skips. Local Chromium was attempted and blocked by sandbox `setsockopt: Operation not permitted` / ECONNRESET. Local Android tooling is unavailable; the existing GitHub CI workflow is being used for real Chromium and Gradle 8.9 / Java 17 / SDK 35 before main is updated.
 
 Validation branch results will be recorded here after completion. No physical Android device, emulator or acoustic TTS evaluation has been used in this workspace.
 

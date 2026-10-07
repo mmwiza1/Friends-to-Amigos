@@ -42,7 +42,7 @@ Focused media remains **taught-material gated**: all three teaching activities i
 
 Grammar games retain the 0.9.0 **independent level ceiling**: current/earlier grammar is available immediately at the selected level, with course sources used for provenance/recommendations. No game grants course completion, checkpoint achievements or a changed placement. Lowering the ceiling keeps higher unfinished snapshots for later resumption. The A2.2 sentence-game normal quota is six current + two A2.1 + one A1.2 + one A1.1 when inventory permits; weakness, diversity and recent history still influence selection.
 
-Listening errors and Needs practice feed existing stable-ID review and shared item/topic/outcome evidence. Table/game observations feed verb/tense/person/pattern records. These signals drive Weak Areas, focused reinforcement and Today’s Review. Positive hinted or self-assessed results are weaker than independent recall; repeated session answers do not create spaced mastery. No new unrelated practice queue was introduced.
+Listening errors and Needs practice feed existing stable-ID review and shared item/topic/outcome evidence. Table/game observations feed verb/tense/person/pattern records. These signals drive Weak Areas, focused reinforcement and Today’s Review. Ambiguous identical imperfect yo/third forms in course text supply pattern/tense evidence rather than unsupported dual-person mastery; labelled game/table decisions still supply precise person evidence. Positive hinted or self-assessed results are weaker than independent recall; repeated session answers do not create spaced mastery. No new unrelated practice queue was introduced.
 
 ## Vocabulary/content audit
 

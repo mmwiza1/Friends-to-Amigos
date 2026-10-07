@@ -131,7 +131,7 @@ If duplicate historical focused reviews claim one ID, the existing migration kee
 
 ## Additive language and grammar fields (schema v2, 0.9.0)
 
-Optional `grammarLevel` is one of A1.1/A1.2/A2.1. Absent fields resolve from the selected course stage/starting stage; explicit choices override this. Invalid optional level values are ignored safely. Course `stage`, `startStage`, placement and completions are not repurposed. Lowering the ceiling retains higher-level mastery and validated game/table snapshots; UI resume requires raising the ceiling again. Structural validation still rejects forged forms/options/results.
+Optional `grammarLevel` is one of A1.1/A1.2/A2.1/A2.2. Absent fields resolve from the selected course stage/starting stage; explicit choices override this. Invalid optional level values are ignored safely. Course `stage`, `startStage`, placement and completions are not repurposed. Lowering the ceiling retains higher-level mastery and validated game/table snapshots; UI resume requires raising the ceiling again. Structural validation still rejects forged forms/options/results.
 
 Fresh A1.2/A2.1 questions add `promptEs`, `englishHint`, `instructionLanguage: "es"` and `supportConcept`. Storage validates and retains these bounded strings; it never grafts them onto historical snapshots. Optional active-lesson `hintRevealed` persists reveal until moving to the next question. Answer events may add `assisted: true`; visible correctness/pass scoring is unchanged. Shared evidence discounts assisted success and tracks repeated English support by unit. Daily retrieval may revisit previously attempted supported questions; the existing SRS queue/schedules are unchanged. Focused-media state and bank instructions remain independent.
 
