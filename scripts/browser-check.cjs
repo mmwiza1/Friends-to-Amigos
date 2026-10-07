@@ -65,7 +65,7 @@ async function run(){ // Wait for the browser process before creating its first 
    assert(matchMedia('(prefers-color-scheme: dark)').matches===config.dark,'system colour preference');
    // Exercise five-tab navigation and a saved game in the same real layout.
    window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,false,0);actions.leave();
-   state.completed=C.lessons.map(l=>l.id);actions.tab({dataset:{tab:'Games'}});render();window.scrollTo(0,0);await frame();
+   state.completed=C.lessons.map(l=>l.id);state.stage='A2.1';actions.tab({dataset:{tab:'Games'}});render();window.scrollTo(0,0);await frame();
    const tabs=[...document.querySelectorAll('nav button')];assert(tabs.length===5,'five navigation tabs');assert(tabs.every(e=>e.getBoundingClientRect().width>=44&&e.getBoundingClientRect().height>=44),'five nav touch targets');
    assert(document.querySelector('nav').getBoundingClientRect().bottom<=innerHeight-config.bottom+1,'Games navigation clears system bar');
    assert(FriendsToAmigos.handleBack()&&tab==='Home','Games Back returns Home');actions.tab({dataset:{tab:'Games'}});actions.gameNew();render();await frame();
@@ -84,7 +84,7 @@ async function run(){ // Wait for the browser process before creating its first 
    assert(document.documentElement.scrollWidth<=innerWidth+1,'game has no horizontal overflow');
    actions.home();startQuiz('lesson',lesson.questions,lesson);quiz.answers=quiz.questions.map(()=>true);quiz.index=quiz.questions.length;render();assert(document.querySelector('[data-action=continueLearning]'),'passed lesson Continue learning');actions.continueLearning();render();assert(quiz.kind==='review','completed course gives due review priority');state.reviews={};startQuiz('lesson',lesson.questions,lesson);quiz.answers=quiz.questions.map(()=>true);quiz.index=quiz.questions.length;render();actions.continueLearning();render();assert(quiz.kind==='practice'&&quiz.questions[0].listening,'completed course continues to listening maintenance');
    startQuiz('lesson',lesson.questions,lesson);quiz.answers=quiz.questions.map(()=>false);quiz.index=quiz.questions.length;render();assert(!document.querySelector('[data-action=continueLearning]'),'failed lesson has no forward Continue');assert(document.querySelector('[data-action=lessonMistakes]'),'failed lesson offers mistake review');
-   actions.home();actions.blanksOpen();render();await frame();assert(document.querySelector('#table-count').options.length===5,'five bounded practice sizes');assert(document.querySelector('#table-scope').options.length===3,'three simple practice scopes');assert(document.documentElement.scrollWidth<=innerWidth+1,'table config does not overflow');
+   actions.home();actions.blanksOpen();render();await frame();assert(document.querySelector('#table-count').options.length===5,'five bounded practice sizes');assert(document.querySelector('#table-scope').options.length===5,'recommended, current, all, unit and custom practice scopes');assert(document.documentElement.scrollWidth<=innerWidth+1,'table config does not overflow');
    actions.blanksNormal();render();await frame();assert(state.blanks.active.tables.length===3,'normal game has three tables');assert(document.querySelectorAll('[role=rowheader]').length===6,'six fixed person rows');assert([...document.querySelectorAll('[role=rowheader]')].some(e=>e.textContent==='vosotros/as'),'Spain plural person visible');assert(document.querySelector('[data-action=blanksCheck]').disabled,'unfilled table locked');assert(document.documentElement.scrollWidth<=innerWidth+1,'table fits phone without horizontal scroll');
    const beforeCourse=state.completed.length,beforeEvents=state.events.length;
    for(let tableIndex=0;tableIndex<3;tableIndex++){
@@ -130,12 +130,66 @@ async function run(){ // Wait for the browser process before creating its first 
    }
    assert(screen==='focusedResult'&&document.querySelector('#app').textContent.includes('7 “I got it”')&&document.querySelector('#app').textContent.includes('3 “Needs practice”'),'speaking judgment summary');assert(!document.querySelector('#app').textContent.includes('/10 correct'),'no fake speaking accuracy');assert(state.completed.length===beforeCourse,'focused modes cannot complete course activities');
    state.mastery=M.empty();FocusedBank.items.filter(q=>q.practice.kind==='speaking'&&q.practice.stage==='A1.2'&&q.practice.unit===0).slice(0,2).forEach((q,i)=>F.record(state,q,false,{session:'browser-weak-'+i}));actions.weakAreas();render();assert(document.querySelector('#app').textContent.includes('Speaking ·'),'speaking weaknesses readable');actions.home();render();
+   // Amendment journeys: no teaching prerequisites; actual DOM controls on
+   // every phone/landscape/theme layout. Native speech start stays simulated.
+   window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,false,0);window.confirm=()=>true;
+   for(const level of ['A1.1','A1.2','A2.1']){
+    state={...E.fresh(),stage:level,onboarded:true};quiz=null;screen='main';tab='Games';render();window.scrollTo(0,0);await frame();
+    assert(document.querySelector('#grammar-level').value===level,'explicit grammar ceiling '+level);
+    assert(!document.querySelector('[data-action=gameNew]').disabled,'fresh playable sentence card '+level);
+    document.querySelector('[data-action=gameNew]').click();assert(state.games.active.questions.length===10,'zero-completion ten questions '+level);
+    assert(state.games.active.questions.every(q=>GrammarSyllabus.allowed(state,q.stage)),'sentence ceiling '+level);
+    assert(state.completed.length===0&&state.capabilities.length===0,'no fabricated course progress '+level);
+    FriendsToAmigos.handleBack();document.querySelector('[data-action=blanksOpen]').click();
+    assert(!document.querySelector('[data-action=blanksNormal]').disabled,'fresh playable table card '+level);
+    document.querySelector('[data-action=blanksNormal]').click();assert(state.blanks.active.tables.length===3,'fresh three tables '+level);
+    assert(state.blanks.active.tables.every(t=>t.rows.length===2),'selected level does not imply mastery '+level);
+    assert(state.blanks.active.tables.some(t=>t.target.stage===level),'current-level table represented '+level);
+    assert(document.querySelectorAll('[role=rowheader]').length===6,'six-person table on fresh profile '+level);
+    assert(document.documentElement.scrollWidth<=innerWidth+1,'fresh table mobile width '+level);FriendsToAmigos.handleBack();
+   }
+   // Lowering a ceiling pauses higher snapshots without erasing them.
+   const savedGame=JSON.stringify(state.games.active),savedTables=JSON.stringify(state.blanks.active);
+   document.querySelector('#grammar-level').value='A1.1';document.querySelector('[data-action=grammarLevel]').click();
+   assert(state.grammarLevel==='A1.1','lowered grammar level saved');document.querySelector('[data-action=gameResume]').click();
+   assert(screen==='main'&&JSON.stringify(state.games.active)===savedGame,'higher game kept while lowered');actions.blanksResume();render();
+   assert(screen==='main'&&JSON.stringify(state.blanks.active)===savedTables,'higher tables kept while lowered');
+   document.querySelector('#grammar-level').value='A2.1';document.querySelector('[data-action=grammarLevel]').click();actions.gameResume();render();assert(screen==='game','raise level resumes saved game');FriendsToAmigos.handleBack();state.games.active=null;state.blanks.active=null;
+   for(let n=0;n<2;n++)M.record(state,[{verb:'comer',tense:'present',person:'vosotros',pattern:'regular-er'}],false,{session:'browser-game-only',item:'g'+n},Date.now());
+   actions.weakAreas();render();assert(document.querySelector('#app').textContent.includes('vosotros'),'game-only weakness visible');actions.dailyReview();render();assert(screen==='blanks'&&state.completed.length===0,'game-only Today review launches');FriendsToAmigos.handleBack();state.blanks.active=null;
+   actions.blanksOpen();render();document.querySelector('#table-count').value='5';document.querySelector('#table-scope').value='custom';document.querySelector('#table-level').value='A2.1';document.querySelector('#table-grammar').value='preterite';actions.blanksPractice();render();assert(state.blanks.active.tables.length===5&&state.blanks.active.tables.every(t=>t.target.tense==='preterite'),'custom past practice within selected level');FriendsToAmigos.handleBack();
+   for(const stage of ['A1.2','A2.1']){
+    const l=C.lessons.find(l=>l.stage===stage&&!l.reading),q=l.questions[0];actions.lesson({dataset:{id:l.id}});render();window.scrollTo(0,0);await frame();
+    assert(document.querySelector('.question').textContent===q.promptEs,'Spanish question default '+stage);
+    assert(document.querySelector('#exercise-instruction').textContent==='Elige una respuesta','Spanish action '+stage);
+    assert(!document.querySelector('#english-hint'),'English hidden '+stage);
+    document.querySelector('[data-action=englishHint]').click();assert(document.querySelector('#english-hint').textContent.includes(q.englishHint),'deliberate English reveal '+stage);
+    assert(document.querySelector('[data-action=englishHint]').getAttribute('aria-expanded')==='true','accessible hint expanded '+stage);
+    assert(FriendsToAmigos.handleBack()&&state.active.hintRevealed,'hint saved on Back '+stage);actions.continue();render();assert(document.querySelector('#english-hint'),'hint restored '+stage);
+    actions.answer({dataset:{index:String(q.options.indexOf(q.answer))}});actions.check();render();assert(quiz.answers.at(-1)===true&&state.events.at(-1).assisted,'hinted answer correct and assisted '+stage);
+    assert(document.querySelector('[data-action=next]'),'Spanish feedback Next remains available '+stage);
+    window.scrollTo(0,document.documentElement.scrollHeight);await frame();assert(document.querySelector('[data-action=next]').getBoundingClientRect().bottom<=innerHeight-config.bottom+1,'hint feedback controls scroll above bars '+stage);
+    actions.next();render();assert(!document.querySelector('#english-hint'),'hint resets on next question '+stage);
+    // Listening help translates the question, never the audio.
+    const heard=C.lessons.find(l=>l.stage===stage&&l.questions.some(q=>q.listening));startQuiz('lesson',heard.questions,heard);quiz.index=heard.questions.findIndex(q=>q.listening);quiz.answers=quiz.questions.slice(0,quiz.index).map(()=>true);render();actions.englishHint();render();const audio=currentQuestion();
+    assert(!document.querySelector('.listening').textContent.includes(audio.listening.transcript),'English help keeps transcript concealed '+stage);
+    assert(!quiz.audioPlayed&&document.querySelector('#check-answer').disabled,'hint cannot unlock audio '+stage);
+    actions.listen();render();assert(!quiz.audioPlayed,'delayed audio still locked with hint '+stage);utterances.at(-1).onstart();assert(quiz.audioPlayed,'speech-start acknowledgement unlocks '+stage);
+    if(audio.type==='text'){const input=document.querySelector('#written-answer');input.value=audio.accepted[0];input.dispatchEvent(new Event('input',{bubbles:true}));input.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));}else{actions.answer({dataset:{index:String(audio.options.indexOf(audio.answer))}});actions.check();render();}
+    assert(document.querySelector('.listening').textContent.includes(audio.listening.transcript),'transcript revealed separately after attempt '+stage);FriendsToAmigos.handleBack();
+   }
+   // Browser import follows the same validated snapshot route as Android.
+   const backup=JSON.stringify(state),expected=state.active.questions[state.active.index].id;
+   const restored=P.parse(backup,C,{import:true}).state;state=restored;actions.continue();render();assert(currentQuestion().id===expected&&quiz.hintRevealed,'browser backup retains current hint and stable question');
+   assert(document.documentElement.scrollWidth<=innerWidth+1,'Spanish listening/hint fits narrow and large text layouts');
+   // Leave original screenshot subjects eligible; this does not grant game mastery.
+   state.completed=C.lessons.map(l=>l.id);state.stage='A2.1';state.grammarLevel='A2.1';state.games.active=null;state.blanks.active=null;state.focused=F.empty();quiz=null;actions.home();render();
    return {scenario:config.name,width:innerWidth,height:innerHeight,dark:config.dark,nativeInsets:true,simulatedKeyboard:Boolean(config.keyboard),checks};
   })()`);
   await evaluate(sessionId,"document.querySelectorAll('.toast').forEach(e=>e.remove());");
   const screenshot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false},sessionId);fs.writeFileSync(path.join(output,config.name+'.png'),Buffer.from(screenshot.data,'base64'));totalChecks+=report.checks;console.log('PASS '+config.name+' ('+report.checks+' checks)');fs.writeFileSync(path.join(output,config.name+'.json'),JSON.stringify(report,null,2));
   if(['s24-dark-buttons','narrow-light-buttons','landscape-dark-cutout','s24-dark-large-text'].includes(config.name)){
-   await evaluate(sessionId,`(async()=>{window.FriendsToAmigosInsets(24,${config.bottom},${config.left||0},0,false,0);actions.leave();actions.tab({dataset:{tab:'Games'}});render();window.scrollTo(0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));})()`);
+   await evaluate(sessionId,`(async()=>{window.FriendsToAmigosInsets(24,${config.bottom},${config.left||0},0,false,0);actions.leave();actions.tab({dataset:{tab:'Games'}});actions.gameNew();actions.gameLeave();render();window.scrollTo(0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));})()`);
    for(const view of ['games','round','feedback','tables','table-feedback','listening-first','listening-compact','listening-result','speaking-first','speaking-compact','speaking-result']){
     if(view==='round')await evaluate(sessionId,"actions.gameResume();render();window.scrollTo(0,0);");
     if(view==='tables')await evaluate(sessionId,"state.blanks.active=null;actions.blanksNormal();render();window.scrollTo(0,0);");

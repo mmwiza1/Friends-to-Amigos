@@ -309,6 +309,8 @@ contrast(102,0,['gustan','gusta','son','están'],{
  son:'Son describes what things are. To say you like books, use me gustan los libros.',
  'están':'Están locates things or describes their current state. Likes use me gustan with plural books.'
 });
+const extra=typeof module!=='undefined'?require('./a21-conjugations.js'):root.A21Conjugations;
+bank.push(...extra.create());
 root.ConjugationsBank={questions:bank,persons,definitions};
 if(typeof module!=='undefined')module.exports=root.ConjugationsBank;
 })(typeof window==='undefined'?globalThis:window);

@@ -300,5 +300,6 @@ const a21Factory=typeof module!=='undefined'?require('./a21.js'):root.FriendsA21
 const a21=a21Factory();data.stageUnits['A2.1']=a21.units;data.lessons.push(...a21.lessons);
 data.listeningPractice.push(...a21.lessons.filter(l=>!l.checkpoint).flatMap(l=>l.questions.filter(q=>q.listening)));
 data.speakingPractice.push(...a21.lessons.flatMap(l=>l.questions.filter(q=>q.type==='speaking')));
-root.Curriculum=data;if(typeof module!=='undefined')module.exports=data;
+root.Curriculum=data;const language=typeof module!=='undefined'?require('./course-language.js'):root.CourseLanguage;language.apply(data);
+if(typeof module!=='undefined')module.exports=data;
 })(typeof window==='undefined'?globalThis:window);

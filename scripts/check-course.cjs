@@ -18,7 +18,8 @@ const ids=new Set();for(const [activity,qs] of Object.entries(groups))for(const 
  for(const m of q.mistakes||[])assert.ok(!E.isCorrect(q,m.answer),'Misconception accepted: '+q.id);
 }
 const Bank=require('../www/conjugations-bank');
-assert.deepEqual(Bank.questions.map(q=>q.id),fixtures('conjugations-ids.json'),'Permanent game question IDs/order changed');
+assert.deepEqual(Bank.questions.filter(q=>q.stage!=='A2.1').map(q=>q.id),fixtures('conjugations-ids.json'),'Permanent game question IDs/order changed');
+assert.deepEqual(Bank.questions.filter(q=>q.stage==='A2.1').map(q=>q.id),fixtures('conjugations-a21-ids.json'),'Appended A2.1 game identities/order changed');
 const gameIds=new Set();for(const q of Bank.questions){
  assert.ok(!ids.has(q.id)&&!gameIds.has(q.id),'Game ID collision: '+q.id);gameIds.add(q.id);
  assert.ok(C.playableStages.includes(q.stage));assert.ok(q.blanks.length>=1&&q.blanks.length<=3);

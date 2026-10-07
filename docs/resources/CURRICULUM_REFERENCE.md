@@ -33,3 +33,7 @@ All 832 A1 prompts and 240 Spanish-writing slots were audited. Presentation-only
 ## Connected practice and A2.1 implementation (0.7.0)
 
 A2.1 now ships eight practical units, 72 activities, 416 question slots and 32 original stories. The whole course has 216 activities / 1,248 slots. The original A1 payloads/IDs remain unchanged. Curated Conjugation Blanks, 3–20-table practice, hints, shared mastery evidence, Today’s Review and Weak Areas are implemented offline. [The implementation record](../A2_AND_PRACTICE.md) describes progression, unlocks, finite grading and limitations. CEFR/Cervantes/OER sources remain pedagogical references: no third-party text was copied or closely adapted. Future reuse still requires item-level licence/attribution verification. No recording corpus was imported. A2.2 and B stages remain unavailable.
+
+### Implemented language/access amendment (0.9.0)
+
+A1.2/A2.1 now use original Spanish-first task instructions with optional English help. Hint-assisted successes remain correct but provide weaker evidence. Both grammar games are immediately available by selected level (current and earlier), with course sources serving provenance and recommendation weighting rather than access gates. The 35 curated paradigms remain unchanged; 64 original A2.1 sentence contexts extend the preserved 208 A1 game items. No external text/audio was copied, adapted or downloaded. See [the quality record](../SPANISH_FIRST_AND_GRAMMAR_LEVEL.md).
