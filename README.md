@@ -2,14 +2,14 @@
 
 An offline-first Android Spanish-learning app, built with vanilla HTML/CSS/JavaScript in a native WebView. It primarily teaches European Spanish. No account, backend, API key or runtime npm dependency is required.
 
-## Playable course through A2.1
+## Playable course through A2.2
 
-A1.1, A1.2 and A2.1 contain **216 activities, 1,248 question slots, 24 practical units and 96 original stories**. Each stage has 72 activities and 416 questions. Existing course targets, permanent IDs, activity ordering and historical snapshots are preserved. A1.2/A2.1 now add Spanish-first task instructions. A2.2 and B stages remain planned and unavailable.
+A1.1, A1.2, A2.1 and A2.2 contain **288 activities, 1,664 question slots, 32 practical units and 128 original stories**. Each stage has 72 activities and 416 questions. Existing course targets, permanent IDs, activity ordering and historical snapshots are preserved. A1.2/A2.1/A2.2 use Spanish-first task instructions with optional English support. B stages remain planned and unavailable.
 
 - Practical can-do goals, a recurring cast, and recognition → completion → recall → contextual response → transfer.
-- 360 constrained Spanish-writing slots, with authored alternatives and teaching feedback. Story comprehension accepts English or Spanish; writing requires Spanish. Matching tolerates punctuation, case, spaces and vowel accents, while preserving ñ and negation.
+- 480 constrained Spanish-writing slots, with authored alternatives and teaching feedback. Story comprehension accepts English or Spanish; writing requires Spanish. Matching tolerates punctuation, case, spaces and vowel accents, while preserving ñ and negation.
 - Four short stories per unit, with glossary support, learner-paced reading and passage rereading during questions and review.
-- **72 audio-first listening questions**, including one in every checkpoint. Listen to familiar Spanish before answering; the transcript appears only after submitting or deliberately skipping. Comprehension mixes choices and short typed responses.
+- **96 audio-first listening questions**, including one in every checkpoint. Listen to familiar Spanish before answering; the transcript appears only after submitting or deliberately skipping. Comprehension mixes choices and short typed responses.
 - **24 speak-aloud retrieval chunks**. Attempt aloud, reveal one possible model, optionally hear it, then choose “I got it” or “Needs practice”. Speaking is self-assessed, excluded from scored accuracy, and never automatically assesses pronunciation. Needs-practice responses enter spaced review.
 - Separate listening/speaking practice for each stage, selecting familiar units and rotating toward less recently retrieved items.
 - Nine-question practical checkpoints: contextual recognition, completion, listening and four distinct Spanish responses. The 80% threshold remains; repeating completion does not duplicate capabilities or lesson totals.
@@ -38,7 +38,7 @@ The launcher now shows the existing happy chibi bull’s face: full-colour adapt
 
 ## Games and lesson continuation
 
-The Games tab offers **Conjugations: 272 original authored questions (104 A1.1, 104 A1.2, 64 A2.1)**. Select forms to fill 1–3 blanks, then check the sentence. Each blank explains the chosen form and correct pattern; options are accessible radios with large touch targets. There are no lives or penalties.
+The Games tab offers **Conjugations: 336 original authored questions (104 A1.1, 104 A1.2, 64 A2.1, 64 A2.2)**. Select forms to fill 1–3 blanks, then check the sentence. Each blank explains the chosen form and correct pattern; options are accessible radios with large touch targets. There are no lives or penalties.
 
 Grammar availability follows the **selected grammar level**, not lesson completion. A fresh A1.1 learner can immediately practise A1.1; A1.2 includes A1.1+A1.2; A2.1 includes all three playable levels. Games shows the current grammar level and a simple Change level control. Placement/selected starting level supplies the default; an explicit grammar-level choice overrides it without changing the course path. Raising/lowering the ceiling retains history and mastery; higher saved attempts are kept but paused while above the ceiling.
 
@@ -87,7 +87,7 @@ npm run check:browser # requires a local Chrome/Chromium binary
 
 Open http://localhost:4173, or open `www/index.html` directly. File-origin storage and offline voice availability depend on the browser. `check` validates syntax, identities, ordering, grading data and future-stage availability. `audit` emits reproducible surface-word recycling statistics, with its limitations stated in the output.
 
-The suite has **408 individual tests**, including 57 additional Spanish-first/grammar-level/compatibility cases over the 351-test baseline. It renders and completes all 216 activities/1,248 course questions, protects exact original A1 activity payloads and legacy backups, and checks table targets, eligibility, hints, recall, weak areas and daily review. See [BUILD_STATUS.md](BUILD_STATUS.md) for exact native/browser results and their limits.
+The suite has **470 individual tests**, including 57 additional Spanish-first/grammar-level/compatibility cases over the 351-test baseline. It renders and completes all 216 activities/1,248 course questions, protects exact original A1 activity payloads and legacy backups, and checks table targets, eligibility, hints, recall, weak areas and daily review. See [BUILD_STATUS.md](BUILD_STATUS.md) for exact native/browser results and their limits.
 
 ## Android build
 
@@ -118,3 +118,11 @@ Home and course-completion maintenance offer repeatable ten-item sessions. Each 
 Sessions rotate recent items, diversify topics/tasks, target mistakes and recycle earlier stages (normally 6 current + 4 earlier). Listening remains audio-first, with playback-start locking, Slow/Normal replay, transcript after checking and failure/skip-to-review. Speaking shows **One possible response** only after reveal and uses **I got it / Needs practice**: no microphone, recording, speech recognition or pronunciation assessment.
 
 Mistakes feed existing spaced review and understandable Weak Areas. Positive self-assessment is low-weight evidence, not proof of mastery. Save & leave keeps an independent ten-item snapshot without replacing your saved course lesson. First-use explanations become compact after successful listening or deliberate speaking self-assessment; expandable information remains available. See [the quality report](docs/LISTENING_SPEAKING_QUALITY.md) and [validation status](BUILD_STATUS.md).
+
+## A2.2 quality expansion (0.10.0)
+
+Eight practical units add past routines/background, completed events, transport connections, restaurant and shopping problems, changed arrangements, polite opinions and a connected account of a difficult day. Imperfect versus preterite is taught through meaning and context, not a list of trigger words. Writing remains constrained to authored alternatives, reaching two to four connected sentences. No B course, broad subjunctive, new future/conditional system or unrestricted paragraph grading is shipped.
+
+Focused Listening and Speaking now each have **224 items: 56 per stage**. When taught material is available, A2.2 sessions use six A2.2, two A2.1, one A1.2 and one A1.1 item, with weakness weighting, recent rotation and no duplicate within ten items. Course teaching prerequisites still gate focused media. Grammar games instead respect the existing independently selected level ceiling; 20 additional source-linked targets add imperfect and selected completed-event forms without changing the original 35 targets. Games never complete course activities.
+
+The required course path now continues into A2.2. Finishing it shows an accurate course milestone and actual activity counts, with review and speaking/listening maintenance; earlier stages assumed through placement are not fabricated completions. The provisional eight-question recognition screen has not become an A2.2 diagnostic or certification. Schema 2 is unchanged; existing attempts retain their stored questions and passages. See [the A2.2 quality record](docs/A22_QUALITY_RELEASE.md) and [validation results](BUILD_STATUS.md).

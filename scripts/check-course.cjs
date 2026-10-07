@@ -4,9 +4,9 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
 const C=require('../www/curriculum'),E=require('../www/engine'),P=require('../www/storage');
 const fixtures=name=>JSON.parse(fs.readFileSync(path.join(__dirname,'../tests/fixtures',name),'utf8'));
 const groups=Object.fromEntries([...C.lessons.map(l=>[l.id,l.questions]),...['placement','numbers','time'].map(k=>[k,C[k]])]);
-assert.deepEqual(C.lessons.filter(l=>l.stage!=='A2.1').map(l=>l.id),fixtures('a1-activity-ids.json'),'Activity IDs/order changed');
-assert.deepEqual(Object.fromEntries(Object.entries(groups).filter(([k])=>!k.startsWith('a21')).map(([k,qs])=>[k,qs.map(q=>q.id)])),fixtures('question-ids.json'),'Question IDs/order changed');
-assert.deepEqual(C.playableStages,['A1.1','A1.2','A2.1']);assert.deepEqual(C.lessons.filter(l=>l.stage==='A2.1').map(l=>l.id),fixtures('a21-activity-ids.json'));assert.deepEqual(Object.fromEntries(C.lessons.filter(l=>l.stage==='A2.1').map(l=>[l.id,l.questions.map(q=>q.id)])),fixtures('a21-question-ids.json'));assert.ok(C.lessons.every(l=>C.playableStages.includes(l.stage)));
+assert.deepEqual(C.lessons.filter(l=>['A1.1','A1.2'].includes(l.stage)).map(l=>l.id),fixtures('a1-activity-ids.json'),'Activity IDs/order changed');
+assert.deepEqual(Object.fromEntries(Object.entries(groups).filter(([k])=>!/^a2[12]/.test(k)).map(([k,qs])=>[k,qs.map(q=>q.id)])),fixtures('question-ids.json'),'Question IDs/order changed');
+assert.deepEqual(C.playableStages,['A1.1','A1.2','A2.1','A2.2']);assert.deepEqual(C.lessons.filter(l=>l.stage==='A2.1').map(l=>l.id),fixtures('a21-activity-ids.json'));assert.deepEqual(Object.fromEntries(C.lessons.filter(l=>l.stage==='A2.1').map(l=>[l.id,l.questions.map(q=>q.id)])),fixtures('a21-question-ids.json'));assert.ok(C.lessons.every(l=>C.playableStages.includes(l.stage)));
 const ids=new Set();for(const [activity,qs] of Object.entries(groups))for(const q of qs){
  assert.ok(q.id.startsWith(activity+'-'));assert.ok(!ids.has(q.id),q.id);ids.add(q.id);
  assert.ok(P.question(q),'Invalid snapshot: '+q.id);
@@ -18,7 +18,7 @@ const ids=new Set();for(const [activity,qs] of Object.entries(groups))for(const 
  for(const m of q.mistakes||[])assert.ok(!E.isCorrect(q,m.answer),'Misconception accepted: '+q.id);
 }
 const Bank=require('../www/conjugations-bank');
-assert.deepEqual(Bank.questions.filter(q=>q.stage!=='A2.1').map(q=>q.id),fixtures('conjugations-ids.json'),'Permanent game question IDs/order changed');
+assert.deepEqual(Bank.questions.filter(q=>['A1.1','A1.2'].includes(q.stage)).map(q=>q.id),fixtures('conjugations-ids.json'),'Permanent game question IDs/order changed');
 assert.deepEqual(Bank.questions.filter(q=>q.stage==='A2.1').map(q=>q.id),fixtures('conjugations-a21-ids.json'),'Appended A2.1 game identities/order changed');
 const gameIds=new Set();for(const q of Bank.questions){
  assert.ok(!ids.has(q.id)&&!gameIds.has(q.id),'Game ID collision: '+q.id);gameIds.add(q.id);
@@ -28,7 +28,7 @@ const gameIds=new Set();for(const q of Bank.questions){
  assert.ok(q.blanks.every(b=>b.options.filter(x=>x===b.answer).length===1&&new Set(b.options).size===b.options.length&&b.explanation&&b.options.filter(x=>x!==b.answer).every(x=>b.mistakes[x])));
 }for(const stage of ['A1.1','A1.2'])assert.ok(Bank.questions.filter(q=>q.stage===stage).length>=100,'Too few authored '+stage+' game items');
 const Targets=require('../www/conjugation-targets');const targetIds=new Set();for(const t of Targets.targets){assert.ok(!targetIds.has(t.id));targetIds.add(t.id);assert.equal(t.forms.length,6);assert.ok(t.forms.every(Boolean));assert.ok(C.playableStages.includes(t.stage));assert.ok(C.lessons.some(l=>l.id===t.source&&l.stage===t.stage&&l.unit===t.unit));assert.ok(Targets.pattern(t));assert.ok(t.requiredActivities.every(id=>C.lessons.some(l=>l.id===id)));}
-const Focused=require('../www/focused-bank');assert.deepEqual(Focused.items.map(q=>q.id),fixtures('focused-question-ids.json'));for(const stage of C.playableStages)for(const kind of ['listening','speaking'])assert.ok(Focused.items.filter(q=>q.practice.stage===stage&&q.practice.kind===kind).length>=50);const focusedIds=new Set();for(const q of Focused.items){assert.ok(!ids.has(q.id)&&!gameIds.has(q.id)&&!targetIds.has(q.id)&&!focusedIds.has(q.id));focusedIds.add(q.id);assert.ok(P.question(q),q.id);assert.ok(q.practice.requiredActivities.every(id=>C.lessons.some(l=>l.id===id&&l.stage===q.practice.stage&&l.unit===q.practice.unit)));}
+const Focused=require('../www/focused-bank');assert.deepEqual(Focused.items.filter(q=>q.practice.stage!=='A2.2').map(q=>q.id),fixtures('focused-question-ids.json'));for(const stage of C.playableStages)for(const kind of ['listening','speaking'])assert.ok(Focused.items.filter(q=>q.practice.stage===stage&&q.practice.kind===kind).length>=50);const focusedIds=new Set();for(const q of Focused.items){assert.ok(!ids.has(q.id)&&!gameIds.has(q.id)&&!targetIds.has(q.id)&&!focusedIds.has(q.id));focusedIds.add(q.id);assert.ok(P.question(q),q.id);assert.ok(q.practice.requiredActivities.every(id=>C.lessons.some(l=>l.id===id&&l.stage===q.practice.stage&&l.unit===q.practice.unit)));}
 function files(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?files(path.join(dir,e.name)):[path.join(dir,e.name)]);}
 for(const file of [...files(path.join(__dirname,'../www')),...files(path.join(__dirname,'../tests')),...files(__dirname)].filter(f=>/\.(js|cjs)$/.test(f)))new vm.Script(fs.readFileSync(file,'utf8'),{filename:file});
 const tokens=text=>(text.normalize('NFC').toLowerCase().match(/[a-záéíóúüñ]+/g)||[]);

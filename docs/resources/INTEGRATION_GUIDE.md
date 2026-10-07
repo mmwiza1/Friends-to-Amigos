@@ -161,7 +161,7 @@ Both A1 stages are playable with 832 course question slots; 48 use original audi
 
 ## Connected practice and A2.1 implementation (0.7.0)
 
-A2.1 now ships eight practical units, 72 activities, 416 question slots and 32 original stories. The whole course has 216 activities / 1,248 slots. The original A1 payloads/IDs remain unchanged. Curated Conjugation Blanks, 3–20-table practice, hints, shared mastery evidence, Today’s Review and Weak Areas are implemented offline. [The implementation record](../A2_AND_PRACTICE.md) describes progression, unlocks, finite grading and limitations. CEFR/Cervantes/OER sources remain pedagogical references: no third-party text was copied or closely adapted. Future reuse still requires item-level licence/attribution verification. No recording corpus was imported. A2.2 and B stages remain unavailable.
+A2.1 now ships eight practical units, 72 activities, 416 question slots and 32 original stories. The whole course has 216 activities / 1,248 slots. The original A1 payloads/IDs remain unchanged. Curated Conjugation Blanks, 3–20-table practice, hints, shared mastery evidence, Today’s Review and Weak Areas are implemented offline. [The implementation record](../A2_AND_PRACTICE.md) describes progression, unlocks, finite grading and limitations. CEFR/Cervantes/OER sources remain pedagogical references: no third-party text was copied or closely adapted. Future reuse still requires item-level licence/attribution verification. No recording corpus was imported. At that release, A2.2 and B stages remained unavailable.
 
 ## Implemented focused-media release (0.8.0)
 
@@ -172,3 +172,9 @@ CEFR/Cervantes/OER resources remain pedagogical references only. No external tex
 ### Implemented language/access amendment (0.9.0)
 
 A1.2/A2.1 now use original Spanish-first task instructions with optional English help. Hint-assisted successes remain correct but provide weaker evidence. Both grammar games are immediately available by selected level (current and earlier), with course sources serving provenance and recommendation weighting rather than access gates. The 35 curated paradigms remain unchanged; 64 original A2.1 sentence contexts extend the preserved 208 A1 game items. No external text/audio was copied, adapted or downloaded. See [the quality record](../SPANISH_FIRST_AND_GRAMMAR_LEVEL.md).
+
+## Current implementation: A2.2 quality expansion (0.10.0)
+
+A1.1, A1.2, A2.1 and A2.2 are playable; B stages remain planned. The whole course has 288 activities / 1,664 slots / 128 original stories. A2.2 adds 72 activities / 416 slots / eight practical units, original past-background/event and routine-problem scenarios, Spanish-first tasks and optional English support. Listening and Speaking each have 224 items (56 per stage); Conjugations has 336 contexts; curated tables have 55 targets. The previous 216 course activities, 272 game items, 35 table targets and 336 focused items are payload-frozen.
+
+All new writing, stories, distractors and explanations are original Friends to Amigos material. CEFR, Cervantes and documented OER inform design; no third-party passage or exercise was copied/closely adapted. No recording/text corpus was downloaded. Listening remains synthetic es-ES; speaking is self-assessed without recording, microphone permission or ASR. Exact-item attribution rules still apply to any future external asset. See [the A2.2 quality record](../A22_QUALITY_RELEASE.md) and [BUILD_STATUS.md](../../BUILD_STATUS.md) for validation boundaries.

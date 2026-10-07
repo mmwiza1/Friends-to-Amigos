@@ -311,6 +311,7 @@ contrast(102,0,['gustan','gusta','son','están'],{
 });
 const extra=typeof module!=='undefined'?require('./a21-conjugations.js'):root.A21Conjugations;
 bank.push(...extra.create());
+const a22=typeof module!=='undefined'?require('./a22-conjugations.js'):root.A22Conjugations;bank.push(...a22.create());
 root.ConjugationsBank={questions:bank,persons,definitions};
 if(typeof module!=='undefined')module.exports=root.ConjugationsBank;
 })(typeof window==='undefined'?globalThis:window);

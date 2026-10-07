@@ -27,7 +27,7 @@ Recovery data is exported but never interpreted or rendered as executable conten
 
 `question-ids.js` contains an explicit permanent manifest for the original authored slots. Assembly assigns these names once before reviewed amendments; `a1-practice.js` explicitly names additional media slots. Examples: `u0story0-q2`, `a12u2check-q3`, `u0l1-listen1`, `a12u2l2-speak1`, `placement-q1`, `numbers-q1`, `time-q1`.
 
-There are 1,287 unique authored course/practice IDs: 1,248 course slots and 39 special-practice/placement questions. The original 871 A1/special-practice IDs remain unchanged; `a21-ids.js` names the 416 appended A2.1 slots. Activity IDs and intentional A1.1/A1.2 ordering are unchanged. Checkpoint slots have their own ID even when their content initially shares a source. `sourceQuestionId` is migration provenance, not the primary runtime review key.
+There are 1,703 unique authored course/practice IDs: 1,664 course slots and 39 special-practice/placement questions. The original 871 A1/special-practice IDs remain unchanged; `a21-ids.js` names the 416 appended A2.1 slots. Activity IDs and intentional A1.1/A1.2 ordering are unchanged. Checkpoint slots have their own ID even when their content initially shares a source. `sourceQuestionId` is migration provenance, not the primary runtime review key.
 
 `Engine.reviewKey` uses `question.id`. Prompt text is presentation. Historical unidentified content alone uses a deterministic signature/hash fallback. Reviews are snapshots with the assigned ID; retries/scheduled successes continue using that identity. A wording edit cannot create another review or overwrite an unfinished historical snapshot.
 
@@ -136,3 +136,9 @@ Optional `grammarLevel` is one of A1.1/A1.2/A2.1. Absent fields resolve from the
 Fresh A1.2/A2.1 questions add `promptEs`, `englishHint`, `instructionLanguage: "es"` and `supportConcept`. Storage validates and retains these bounded strings; it never grafts them onto historical snapshots. Optional active-lesson `hintRevealed` persists reveal until moving to the next question. Answer events may add `assisted: true`; visible correctness/pass scoring is unchanged. Shared evidence discounts assisted success and tracks repeated English support by unit. Daily retrieval may revisit previously attempted supported questions; the existing SRS queue/schedules are unchanged. Focused-media state and bank instructions remain independent.
 
 No new storage key or schema version is required. Missing fields remain safe; historical active games/tables are validated by identity/targets, not retroactively discarded because the learner lowered their grammar ceiling.
+
+## A2.2 additive compatibility (0.10.0)
+
+No schema bump or new persisted field is needed. Existing schema-2 stage/grammar-level validators now recognise playable A2.2; B values remain unavailable. New slots use `a22u{unit}{activity}-q{n}`, games `conj-a22-NNN`, focused items `focus-listen-…` / `focus-speak-…`, and curated paradigms `table-a22-{verb}-{tense}`. Fixtures protect all 0.9.0 course/game/table/focused payloads byte-for-byte. Checkpoint identity stays independent from its source content.
+
+Historical active lessons/reviews keep stored prompts, answers, story passages, language support, audio state and hint flags. New A2.2 games, table steps/history and focused practice are accepted by the same conservative validators; invalid imports still cannot overwrite the current save. Optional old mastery/practice fields retain their defaults. Lowering the grammar ceiling preserves higher unfinished games/tables for later resumption. Required course continuation naturally appends A2.2 without awarding skipped lessons or changing the starting stage.
