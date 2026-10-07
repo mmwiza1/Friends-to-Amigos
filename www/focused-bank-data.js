@@ -75,7 +75,7 @@ const listening={
 ],
 [
 ['colour-choice','Necesito una chaqueta. Prefiero la roja, no la azul.','Which jacket does the speaker prefer?','The red one','The blue one','The black one','La roja refers to the preferred jacket; la azul is rejected.','preference'],
-['size','¿Tiene la talla mediana? La pequeña me queda pequeña.','Which size is requested?','Medium','Small','Large','The request names mediana; the smaller garment does not fit.','fact'],
+['size','¿Tiene la talla mediana? No quiero la pequeña.','Which size is requested?','Medium','Small','Large','The request names mediana; the smaller garment does not fit.','fact'],
 ['plural-clothes','Quiero unos pantalones negros y una camiseta azul.','What colour are the trousers?','Black','Blue','Red','Negros agrees with pantalones; azul describes camiseta.','form'],
 ['need','Tengo una camiseta. Necesito una chaqueta para mañana.','What does the speaker still need?','A jacket','A T-shirt','Trousers','Tengo marks what is already owned; necesito marks the missing item.','intention']
 ],
@@ -143,7 +143,7 @@ const listening={
 [
 ['negative-symptom','Me duele la garganta. No tengo fiebre, pero estoy cansada.','Which symptom is denied?','Fever','Throat pain','Tiredness','No tengo fiebre is explicit negation; the other two conditions are present.','contrast'],
 ['since','Me duele la cabeza desde esta mañana. Necesito descansar.','When did the headache begin?','This morning','Yesterday evening','Tomorrow','Desde esta mañana gives the starting point, not the next plan.','time'],
-['body-plural','He caminado mucho. Me duelen los pies, pero no me duele la cabeza.','Which body parts hurt?','The feet','The head','The throat','Me duelen los pies affirms feet; no denies head pain.','form'],
+['body-plural','Hoy he visitado el parque. Me duelen los pies, pero no me duele la cabeza.','Which body parts hurt?','The feet','The head','The throat','Me duelen los pies affirms feet; no denies head pain.','form'],
 ['need-rest','Estoy cansado y tengo sed. Quiero agua y voy a descansar en casa.','Which two needs does the speaker express?','Water and rest','Food and a ticket','A doctor and a room','Tengo sed supports water; descansar gives rest.','reason'],
 ['health-response','Ana: «Me duele la garganta». Marta: «¿Necesitas agua?». Ana: «Sí, por favor».','What help does Ana accept?','Water','Shopping for clothes','A train booking','Sí accepts Marta’s explicit offer of water.','dialogue']
 ],
@@ -340,7 +340,7 @@ const speaking={
 [
 ['throat','Say your throat hurts and you need help.','Me duele la garganta y necesito ayuda'],
 ['since','Say your head has hurt since this morning.','Me duele la cabeza desde esta mañana'],
-['feet','You have walked a lot today. Say your feet hurt.','He caminado mucho hoy. Me duelen los pies'],
+['feet','You have visited the park today. Say your feet hurt.','He visitado el parque hoy. Me duelen los pies'],
 ['no-fever','You are Ana. Say you have no fever but are tired.','No tengo fiebre, pero estoy cansada'],
 ['rest','Explain that you need water and will rest at home.','Necesito agua y voy a descansar en casa'],
 ['decline-health','You have a fever and cannot meet today. Tell Luis.','Tengo fiebre y no puedo quedar hoy']
