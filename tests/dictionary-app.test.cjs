@@ -151,3 +151,10 @@ test('Saved Words search preserves an active IME composition and applies its com
  target.value='móvil';target.selectionStart=5;a.dispatch('compositionend',{target});assert.equal(renders,1);assert.equal(focuses,1);assert.deepEqual(selection,[5,5]);
  assert.match(a.el.innerHTML,/<h3 lang="es">móvil<\/h3>/);assert.doesNotMatch(a.el.innerHTML,/<h3 lang="es">tener hambre<\/h3>/);assert.deepEqual(learningState(a),learning);
 });
+
+test('English story titles are not mislabeled as Spanish dictionary text while the passage remains explorable',()=>{
+ const a=app();a.click('lesson',{id:'a21u0story0'});
+ assert.match(a.el.innerHTML,/<h2>A message before lunch<\/h2>/);
+ assert.doesNotMatch(a.el.innerHTML,/<h2[^>]*data-dictionary[^>]*>A message before lunch/);
+ assert.match(a.el.innerHTML,/<p lang="es" data-dictionary>/);
+});

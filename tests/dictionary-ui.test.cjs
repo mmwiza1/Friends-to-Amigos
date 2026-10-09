@@ -83,3 +83,22 @@ test('saved pronunciation reuses the supplied speech helper and removal changes 
 test('DOM-less test/native startup can construct the dictionary without eagerly mounting UI',()=>{
  const ui=UI.create({window:{},document:{},getState:()=>({})});assert.doesNotThrow(()=>ui.decorate({}));assert.equal(ui.open(entry),false);assert.equal(ui.isOpen(),false);assert.match(ui.savedView(),/Saved Words/);assert.doesNotThrow(()=>ui.destroy());
 });
+
+test('nearest Spanish language overrides an English document; inner English glosses stay undecorated',()=>{
+ const fixture=environment(),doc=fixture.document;
+ const section={hidden:false,textContent:'Tengo hambre.',dataset:{},closest:()=>null};
+ const englishDocument={getAttribute:()=> 'en'};
+ const spanish={getAttribute:()=> 'es',closest(selector){return selector==='[lang]'?this:selector.includes('[lang="en"]')?englishDocument:null;}};
+ const english={getAttribute:()=> 'en',closest(selector){return selector==='[lang]'?this:null;}};
+ let replaced=0,fragment;
+ const source={nodeValue:'Tengo hambre.',parentElement:spanish,replaceWith(value){replaced++;fragment=value;}};
+ const gloss={nodeValue:'I am hungry.',parentElement:english,replaceWith(){throw Error('English gloss must stay unchanged');}};
+ doc.createTreeWalker=()=>{let index=0;return {nextNode:()=>[source,gloss][index++]||null};};
+ doc.createDocumentFragment=()=>({children:[],append(child){this.children.push(child);}});
+ doc.createTextNode=text=>({textContent:text});
+ const container={querySelectorAll:()=>[section],addEventListener(){},contains:()=>true};
+ fixture.ui.decorate(container);assert.equal(replaced,1);
+ assert.equal(fragment.children.map(n=>n.textContent).join(''),'Tengo hambre.');
+ assert.equal(fragment.children.filter(n=>n.dataset?.dictionaryToken==='').length,2);
+ assert.ok(fragment.children.filter(n=>n.dataset).every(n=>n.attributes.role==='button'&&n.attributes.tabindex==='0'));
+});

@@ -159,7 +159,11 @@ function create({window:win=root,document:doc=win.document,lexicon=win.LearnerDi
    const walker=doc.createTreeWalker(section,4),nodes=[];let node,offset=0;
    while((node=walker.nextNode())){nodes.push({node,offset});offset+=node.nodeValue.length;}
    for(const {node,offset:start} of nodes){
-    if(!node.parentElement||node.parentElement.closest?.('[data-dictionary-token], button, input, textarea, select, script, style, [data-dictionary-skip], [lang="en"], [contenteditable="true"]'))continue;
+    if(!node.parentElement||node.parentElement.closest?.('[data-dictionary-token], button, input, textarea, select, script, style, [data-dictionary-skip], [contenteditable="true"]'))continue;
+    // The document is English; an inner Spanish boundary overrides its language.
+    // Only the nearest explicit language matters, including an English gloss inside it.
+    const language=node.parentElement.closest?.('[lang]')?.getAttribute?.('lang');
+    if(language&&!/^es(?:-|$)/i.test(language))continue;
     const parts=tokenParts(node.nodeValue);if(!parts.some(p=>p.word))continue;
     const fragment=doc.createDocumentFragment();
     for(const part of parts){
