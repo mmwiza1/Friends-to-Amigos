@@ -38,7 +38,7 @@ const audioWhy=[
  ['Puedo ir a las doce confirms noon. Desde ayer describes when the fever began.','Más despacio asks for a slower repetition, not a different appointment.'],
  ['Por eso voy a descansar links present tiredness to the next plan to rest.','Después fui al hotel places the hotel after the arrival, not before the bus journey.']
 ];
-const units=data.map(({id,title,goal,phrases,grammar})=>({id,title,goal,phrases,grammar,note:'Original Friends to Amigos scenarios. Spain-first usage; answers are short authored models, not unrestricted writing.'})),lessons=[];
+const units=data.map(({id,title,goal,phrases,grammar},unit)=>({id,title,goal,phrases,grammar,note:'Original Friends to Amigos scenarios. Spain-first usage; answers are short authored models, not unrestricted writing.'+(unit===2||unit===7?' 🇪🇸 Coger el tren/el autobús is usual for taking transport in Spain. Tomar el tren/el autobús is also valid Spanish.':'')})),lessons=[];
 for(let u=0;u<data.length;u++){
  const unit=data[u],make=(suffix,title,questions,extra={})=>({id:`a21u${u}${suffix}`,stage:'A2.1',unit:u,unitId:unit.id,outcomeId:unit.id,goal:unit.goal,title,questions:questions.map((q,i)=>({...clone(q),id:identities[`a21u${u}${suffix}`][i],sourceQuestionId:identities[`a21u${u}${suffix}`][i],topic:q.topic||unit.title})),checkpoint:false,authorship:{kind:'original',referenceRecord:'docs/resources/CURRICULUM_REFERENCE.md'},...extra});
  const core=unit.core.map((row,j)=>{

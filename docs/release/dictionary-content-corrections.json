@@ -1,0 +1,857 @@
+{
+  "baselineCommit": "baa70640135207a1a44f20cdfef355348d3c6028",
+  "policy": "Minimal content corrections requested for the dictionary/Spanish QA release. Stable identities, activity order and historical fixtures remain unchanged. All text is original Friends to Amigos material.",
+  "course": [
+    {
+      "activity": "a12u3l2",
+      "id": "a12u3l2-q3",
+      "stage": "A1.2",
+      "reason": "Accept natural Spain-shop size alternatives; preserve the original target and required details.",
+      "changes": [
+        {
+          "field": "accepted",
+          "before": [
+            "¿Tiene la talla mediana?",
+            "¿Tiene una talla mediana?"
+          ],
+          "after": [
+            "¿Tiene la talla mediana?",
+            "¿Tiene una talla mediana?",
+            "¿Tiene una talla M?",
+            "¿Tiene la talla M?",
+            "¿La tiene en una M?",
+            "¿La tiene en una talla M?"
+          ]
+        },
+        {
+          "field": "explanation",
+          "before": "Tiene is the polite usted form used with the shop assistant.",
+          "after": "Tiene is the polite usted form used with the shop assistant. M is a common label for medium; la can refer to the T-shirt being discussed."
+        }
+      ]
+    },
+    {
+      "activity": "a12u3write",
+      "id": "a12u3write-q4",
+      "stage": "A1.2",
+      "reason": "Accept natural Spain-shop size alternatives; preserve the original target and required details.",
+      "changes": [
+        {
+          "field": "accepted",
+          "before": [
+            "Necesito la talla mediana, no la pequeña",
+            "Necesito una talla mediana, no una pequeña",
+            "Yo necesito la talla mediana, no la pequeña"
+          ],
+          "after": [
+            "Necesito la talla mediana, no la pequeña",
+            "Necesito una talla mediana, no una pequeña",
+            "Necesito una M, no una S",
+            "Necesito una talla M, no una S",
+            "Necesito la talla M, no la S",
+            "Yo necesito la talla mediana, no la pequeña"
+          ]
+        },
+        {
+          "field": "explanation",
+          "before": "Both size descriptions agree with feminine talla.",
+          "after": "Both size descriptions agree with feminine talla. M and S are common size labels for medium and small."
+        }
+      ]
+    },
+    {
+      "activity": "a12u4l1",
+      "id": "a12u4l1-q5",
+      "stage": "A1.2",
+      "reason": "Accept natural Spain-shop size alternatives; preserve the original target and required details.",
+      "changes": [
+        {
+          "field": "accepted",
+          "before": [
+            "La camiseta me queda pequeña y necesito una talla más grande",
+            "Me queda pequeña y necesito una talla más grande"
+          ],
+          "after": [
+            "La camiseta me queda pequeña y necesito una talla más grande",
+            "Me queda pequeña y necesito una talla más grande",
+            "La camiseta me queda pequeña. Necesito una talla más grande.",
+            "La camiseta me queda pequeña y necesito una talla más grande. ¿La tiene?",
+            "Me queda pequeña. Necesito una talla más grande. ¿La tiene?"
+          ]
+        },
+        {
+          "field": "explanation",
+          "before": "Pequeña agrees with camiseta; talla más grande requests a larger size.",
+          "after": "Pequeña agrees with camiseta; talla más grande requests a larger size. You can also ask the assistant ¿La tiene? after stating what you need."
+        }
+      ]
+    },
+    {
+      "activity": "a12u4check",
+      "id": "a12u4check-q7",
+      "stage": "A1.2",
+      "reason": "Accept natural Spain-shop size alternatives; preserve the original target and required details.",
+      "changes": [
+        {
+          "field": "accepted",
+          "before": [
+            "La camiseta me queda pequeña y necesito una talla más grande",
+            "Me queda pequeña y necesito una talla más grande"
+          ],
+          "after": [
+            "La camiseta me queda pequeña y necesito una talla más grande",
+            "Me queda pequeña y necesito una talla más grande",
+            "La camiseta me queda pequeña. Necesito una talla más grande.",
+            "La camiseta me queda pequeña y necesito una talla más grande. ¿La tiene?",
+            "Me queda pequeña. Necesito una talla más grande. ¿La tiene?"
+          ]
+        },
+        {
+          "field": "explanation",
+          "before": "Pequeña agrees with camiseta; talla más grande requests a larger size.",
+          "after": "Pequeña agrees with camiseta; talla más grande requests a larger size. You can also ask the assistant ¿La tiene? after stating what you need."
+        }
+      ]
+    },
+    {
+      "activity": "a21u0write",
+      "id": "a21u0write-q2",
+      "stage": "A2.1",
+      "reason": "Make several directly addressed friends unambiguous; preserve ¿Habéis comido?.",
+      "changes": [
+        {
+          "field": "explanation",
+          "before": "Habéis addresses an informal group in Spain. The participle stays comido.",
+          "after": "Habéis addresses several friends as vosotros/vosotras, the usual informal plural you in most of Spain. The participle stays comido."
+        },
+        {
+          "field": "promptEs",
+          "before": "Pregunta a un grupo de amigos en España si ha comido.",
+          "after": "Pregunta directamente a varios amigos en España si ya han comido."
+        }
+      ]
+    },
+    {
+      "activity": "a21u7l1",
+      "id": "a21u7l1-q1",
+      "stage": "A2.1",
+      "reason": "Describe usual Peninsular transport usage and accept coger where the task allows; preserve regular tomar targets.",
+      "changes": [
+        {
+          "field": "explanation",
+          "before": "Tomar is regular -AR in the preterite. Join two finished events without changing back to the present.",
+          "after": "Tomar is regular -AR in the preterite. Join two finished events without changing back to the present. Coger el tren is usual in Spain; tomar el tren is also valid."
+        }
+      ]
+    },
+    {
+      "activity": "a21u7l1",
+      "id": "a21u7l1-q2",
+      "stage": "A2.1",
+      "reason": "Describe usual Peninsular transport usage and accept coger where the task allows; preserve regular tomar targets.",
+      "changes": [
+        {
+          "field": "explanation",
+          "before": "Tomar is regular -AR in the preterite. Join two finished events without changing back to the present.",
+          "after": "Tomar is regular -AR in the preterite. Join two finished events without changing back to the present. Coger el tren is usual in Spain; tomar el tren is also valid."
+        }
+      ]
+    },
+    {
+      "activity": "a21u7l1",
+      "id": "a21u7l1-q3",
+      "stage": "A2.1",
+      "reason": "Describe usual Peninsular transport usage and accept coger where the task allows; preserve regular tomar targets.",
+      "changes": [
+        {
+          "field": "explanation",
+          "before": "Tomar is regular -AR in the preterite. Join two finished events without changing back to the present.",
+          "after": "Tomar is regular -AR in the preterite. Join two finished events without changing back to the present. Coger el tren is usual in Spain; tomar el tren is also valid."
+        }
+      ]
+    },
+    {
+      "activity": "a21u7l1",
+      "id": "a21u7l1-q4",
+      "stage": "A2.1",
+      "reason": "Describe usual Peninsular transport usage and accept coger where the task allows; preserve regular tomar targets.",
+      "changes": [
+        {
+          "field": "explanation",
+          "before": "Tomar is regular -AR in the preterite. Join two finished events without changing back to the present.",
+          "after": "Tomar is regular -AR in the preterite. Join two finished events without changing back to the present. Coger el tren is usual in Spain; tomar el tren is also valid."
+        }
+      ]
+    },
+    {
+      "activity": "a21u7l1",
+      "id": "a21u7l1-q5",
+      "stage": "A2.1",
+      "reason": "Describe usual Peninsular transport usage and accept coger where the task allows; preserve regular tomar targets.",
+      "changes": [
+        {
+          "field": "accepted",
+          "before": [
+            "Ayer tomé el autobús y llegué a las nueve",
+            "Tomé el autobús ayer y llegué a las nueve"
+          ],
+          "after": [
+            "Ayer tomé el autobús y llegué a las nueve",
+            "Tomé el autobús ayer y llegué a las nueve",
+            "Ayer cogí el autobús y llegué a las nueve",
+            "Cogí el autobús ayer y llegué a las nueve"
+          ]
+        },
+        {
+          "field": "explanation",
+          "before": "Tomar is regular -AR in the preterite. Join two finished events without changing back to the present.",
+          "after": "Tomar is regular -AR in the preterite. Join two finished events without changing back to the present. Coger el tren is usual in Spain; tomar el tren is also valid."
+        },
+        {
+          "field": "promptEs",
+          "before": "Ayer viajaste en autobús; la llegada fue a las nueve. Cuenta las dos acciones con tomar y llegar.",
+          "after": "Ayer viajaste en autobús; la llegada fue a las nueve. Cuenta las dos acciones."
+        }
+      ]
+    },
+    {
+      "activity": "a21u7write",
+      "id": "a21u7write-q2",
+      "stage": "A2.1",
+      "reason": "Describe usual Peninsular transport usage and accept coger where the task allows; preserve regular tomar targets.",
+      "changes": [
+        {
+          "field": "accepted",
+          "before": [
+            "Ayer tomé el tren. El tren es más rápido que el autobús"
+          ],
+          "after": [
+            "Ayer tomé el tren. El tren es más rápido que el autobús",
+            "Ayer cogí el tren. El tren es más rápido que el autobús"
+          ]
+        },
+        {
+          "field": "explanation",
+          "before": "Ayer tomé reports your choice; a separate present sentence describes the options.",
+          "after": "Ayer tomé (also ayer cogí, usual in Spain) reports your choice; a separate present sentence describes the options. Tomar el tren is valid too."
+        },
+        {
+          "field": "promptEs",
+          "before": "Escribe dos frases: ayer viajaste en tren; el tren tarda menos que el autobús. Usa tomar y rápido.",
+          "after": "Escribe dos frases: ayer viajaste en tren; el tren tarda menos que el autobús. Usa rápido."
+        }
+      ]
+    },
+    {
+      "activity": "a21u7check",
+      "id": "a21u7check-q2",
+      "stage": "A2.1",
+      "reason": "Describe usual Peninsular transport usage and accept coger where the task allows; preserve regular tomar targets.",
+      "changes": [
+        {
+          "field": "explanation",
+          "before": "Tomar is regular -AR in the preterite. Join two finished events without changing back to the present.",
+          "after": "Tomar is regular -AR in the preterite. Join two finished events without changing back to the present. Coger el tren is usual in Spain; tomar el tren is also valid."
+        }
+      ]
+    },
+    {
+      "activity": "a21u7check",
+      "id": "a21u7check-q6",
+      "stage": "A2.1",
+      "reason": "Describe usual Peninsular transport usage and accept coger where the task allows; preserve regular tomar targets.",
+      "changes": [
+        {
+          "field": "accepted",
+          "before": [
+            "Ayer tomé el autobús y llegué a las nueve",
+            "Tomé el autobús ayer y llegué a las nueve"
+          ],
+          "after": [
+            "Ayer tomé el autobús y llegué a las nueve",
+            "Tomé el autobús ayer y llegué a las nueve",
+            "Ayer cogí el autobús y llegué a las nueve",
+            "Cogí el autobús ayer y llegué a las nueve"
+          ]
+        },
+        {
+          "field": "explanation",
+          "before": "Tomar is regular -AR in the preterite. Join two finished events without changing back to the present.",
+          "after": "Tomar is regular -AR in the preterite. Join two finished events without changing back to the present. Coger el tren is usual in Spain; tomar el tren is also valid."
+        },
+        {
+          "field": "promptEs",
+          "before": "Ayer viajaste en autobús; la llegada fue a las nueve. Cuenta las dos acciones con tomar y llegar.",
+          "after": "Ayer viajaste en autobús; la llegada fue a las nueve. Cuenta las dos acciones."
+        }
+      ]
+    },
+    {
+      "activity": "a22u2l0",
+      "id": "a22u2l0-q5",
+      "stage": "A2.2",
+      "reason": "Prefer coger in a transport plan; retain old tomar variants and align the explanation with the actual response.",
+      "changes": [
+        {
+          "field": "promptEs",
+          "before": "Perdiste el tren. Vas a tomar el autobús. Explica hecho y plan.",
+          "after": "Perdiste el tren. Vas a coger el autobús. Explica hecho y plan."
+        },
+        {
+          "field": "answer",
+          "before": "Perdí el tren. Voy a tomar el autobús.",
+          "after": "Perdí el tren. Voy a coger el autobús."
+        },
+        {
+          "field": "explanation",
+          "before": "Perdí reports the missed train, and llegué gives its cause. Regular -ER preterite uses -í for yo.",
+          "after": "Perdí reports the finished problem; voy a + infinitive gives the new plan. Coger el autobús is usual in Spain; tomar el autobús is also valid."
+        },
+        {
+          "field": "accepted",
+          "before": [
+            "Perdí el tren. Voy a tomar el autobús.",
+            "Perdí el tren y voy a tomar el autobús."
+          ],
+          "after": [
+            "Perdí el tren. Voy a coger el autobús.",
+            "Perdí el tren y voy a coger el autobús.",
+            "Perdí el tren. Voy a tomar el autobús.",
+            "Perdí el tren y voy a tomar el autobús."
+          ]
+        },
+        {
+          "field": "spanish",
+          "before": "Perdí el tren. Voy a tomar el autobús.",
+          "after": "Perdí el tren. Voy a coger el autobús."
+        }
+      ]
+    },
+    {
+      "activity": "a22u2write",
+      "id": "a22u2write-q4",
+      "stage": "A2.2",
+      "reason": "Prefer coger in a transport plan; retain old tomar variants and align the explanation with the actual response.",
+      "changes": [
+        {
+          "field": "promptEs",
+          "before": "El tren estaba parado. No pudiste salir. Ahora vas a tomar el autobús. Cuenta las tres ideas.",
+          "after": "El tren estaba parado. No pudiste salir. Ahora vas a coger el autobús. Cuenta las tres ideas."
+        },
+        {
+          "field": "answer",
+          "before": "El tren estaba parado. No pude salir. Ahora voy a tomar el autobús.",
+          "after": "El tren estaba parado. No pude salir. Ahora voy a coger el autobús."
+        },
+        {
+          "field": "explanation",
+          "before": "Estaba provides background; no pude is the result; voy a gives the new plan.",
+          "after": "Estaba provides background; no pude is the result; voy a gives the new plan. Coger el autobús is usual in Spain; tomar el autobús is also valid."
+        },
+        {
+          "field": "accepted",
+          "before": [
+            "El tren estaba parado. No pude salir. Ahora voy a tomar el autobús.",
+            "El tren estaba parado y no pude salir. Ahora voy a tomar el autobús."
+          ],
+          "after": [
+            "El tren estaba parado. No pude salir. Ahora voy a coger el autobús.",
+            "El tren estaba parado y no pude salir. Ahora voy a coger el autobús.",
+            "El tren estaba parado. No pude salir. Ahora voy a tomar el autobús.",
+            "El tren estaba parado y no pude salir. Ahora voy a tomar el autobús."
+          ]
+        },
+        {
+          "field": "spanish",
+          "before": "El tren estaba parado. No pude salir. Ahora voy a tomar el autobús.",
+          "after": "El tren estaba parado. No pude salir. Ahora voy a coger el autobús."
+        },
+        {
+          "field": "mistakes",
+          "before": [
+            {
+              "answer": "El tren estaba parado. No podía salir. Ahora voy a tomar el autobús.",
+              "explanation": "Pude reports whether the particular action was possible on that occasion; podía describes general/background ability."
+            },
+            {
+              "answer": "El tren estaba parado. No pude salir. Ahora voy tomar el autobús.",
+              "explanation": "Keep a between voy and the infinitive in a plan."
+            }
+          ],
+          "after": [
+            {
+              "answer": "El tren estaba parado. No podía salir. Ahora voy a coger el autobús.",
+              "explanation": "Pude reports whether the particular action was possible on that occasion; podía describes general/background ability."
+            },
+            {
+              "answer": "El tren estaba parado. No pude salir. Ahora voy coger el autobús.",
+              "explanation": "Keep a between voy and the infinitive in a plan."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "activity": "a22u2check",
+      "id": "a22u2check-q5",
+      "stage": "A2.2",
+      "reason": "Prefer coger in a transport plan; retain old tomar variants and align the explanation with the actual response.",
+      "changes": [
+        {
+          "field": "promptEs",
+          "before": "Perdiste el tren. Vas a tomar el autobús. Explica hecho y plan.",
+          "after": "Perdiste el tren. Vas a coger el autobús. Explica hecho y plan."
+        },
+        {
+          "field": "answer",
+          "before": "Perdí el tren. Voy a tomar el autobús.",
+          "after": "Perdí el tren. Voy a coger el autobús."
+        },
+        {
+          "field": "explanation",
+          "before": "Perdí reports the missed train, and llegué gives its cause. Regular -ER preterite uses -í for yo.",
+          "after": "Perdí reports the finished problem; voy a + infinitive gives the new plan. Coger el autobús is usual in Spain; tomar el autobús is also valid."
+        },
+        {
+          "field": "accepted",
+          "before": [
+            "Perdí el tren. Voy a tomar el autobús.",
+            "Perdí el tren y voy a tomar el autobús."
+          ],
+          "after": [
+            "Perdí el tren. Voy a coger el autobús.",
+            "Perdí el tren y voy a coger el autobús.",
+            "Perdí el tren. Voy a tomar el autobús.",
+            "Perdí el tren y voy a tomar el autobús."
+          ]
+        },
+        {
+          "field": "spanish",
+          "before": "Perdí el tren. Voy a tomar el autobús.",
+          "after": "Perdí el tren. Voy a coger el autobús."
+        }
+      ]
+    },
+    {
+      "activity": "a22u4l0",
+      "id": "a22u4l0-q5",
+      "stage": "A2.2",
+      "reason": "Accept a natural larger-size availability question and align the explanation with the actual shop response.",
+      "changes": [
+        {
+          "field": "explanation",
+          "before": "Quiero takes an infinitive, cambiar. Camiseta is feminine: esta camiseta.",
+          "after": "Me queda pequeña describes the fit; tengo el recibo confirms proof of purchase. Ask for a larger size with quiero/necesito una talla más grande or ¿La tiene en una talla más grande?"
+        },
+        {
+          "field": "accepted",
+          "before": [
+            "La camiseta me queda pequeña. Tengo el recibo. Quiero una talla más grande.",
+            "La camiseta me queda pequeña y tengo el recibo. Quiero una talla más grande."
+          ],
+          "after": [
+            "La camiseta me queda pequeña. Tengo el recibo. Quiero una talla más grande.",
+            "La camiseta me queda pequeña y tengo el recibo. Quiero una talla más grande.",
+            "La camiseta me queda pequeña. Tengo el recibo. ¿La tiene en una talla más grande?",
+            "La camiseta me queda pequeña. Tengo el recibo. Necesito una talla más grande."
+          ]
+        }
+      ]
+    },
+    {
+      "activity": "a22u4check",
+      "id": "a22u4check-q5",
+      "stage": "A2.2",
+      "reason": "Accept a natural larger-size availability question and align the explanation with the actual shop response.",
+      "changes": [
+        {
+          "field": "explanation",
+          "before": "Quiero takes an infinitive, cambiar. Camiseta is feminine: esta camiseta.",
+          "after": "Me queda pequeña describes the fit; tengo el recibo confirms proof of purchase. Ask for a larger size with quiero/necesito una talla más grande or ¿La tiene en una talla más grande?"
+        },
+        {
+          "field": "accepted",
+          "before": [
+            "La camiseta me queda pequeña. Tengo el recibo. Quiero una talla más grande.",
+            "La camiseta me queda pequeña y tengo el recibo. Quiero una talla más grande."
+          ],
+          "after": [
+            "La camiseta me queda pequeña. Tengo el recibo. Quiero una talla más grande.",
+            "La camiseta me queda pequeña y tengo el recibo. Quiero una talla más grande.",
+            "La camiseta me queda pequeña. Tengo el recibo. ¿La tiene en una talla más grande?",
+            "La camiseta me queda pequeña. Tengo el recibo. Necesito una talla más grande."
+          ]
+        }
+      ]
+    }
+  ],
+  "activities": [
+    {
+      "id": "a12u3l2",
+      "questions": [
+        "a12u3l2-q3"
+      ],
+      "beforeHash": "cd61c93a49ea051beab0ec7e791f62f4ff6d844688b48c68182cd87c02210f5e",
+      "afterHash": "74ff76d91cb78d65eada4caaafa7d5c748f470e178bb0d04c0435e6052f1a798"
+    },
+    {
+      "id": "a12u3write",
+      "questions": [
+        "a12u3write-q4"
+      ],
+      "beforeHash": "91e0a89c3e932ef57da10670eaf5739a000fef9e3be0da9df74b8cd25c8633fb",
+      "afterHash": "04e70de1d4898feadb4d313c0d5a4fce7a988fcce9e866ce2c402b841bb0c33c"
+    },
+    {
+      "id": "a12u4l1",
+      "questions": [
+        "a12u4l1-q5"
+      ],
+      "beforeHash": "24b709ddbb283486a9fd291ecf09b2085f6fd2962116cdb20efc4959c12bc285",
+      "afterHash": "51b15e8ef40b6767e9bff9b020683d2b64770bc301580b6caf81c67c4d6057b4"
+    },
+    {
+      "id": "a12u4check",
+      "questions": [
+        "a12u4check-q7"
+      ],
+      "beforeHash": "3486564e14828fee8ada710e3557902be7e212be717885b14f0d31565d7a1825",
+      "afterHash": "5408fcea68cc59f17804e7eff0bde724123f1c2e3dc8ea91115267a414f9b27a"
+    },
+    {
+      "id": "a21u0write",
+      "questions": [
+        "a21u0write-q2"
+      ],
+      "beforeHash": "15208e0613bea3528641757e8b71dd6b0ce8c01bcc0bea8c403ebbb05de3a348",
+      "afterHash": "108fb0c8d34264162cc93e8c21c787689fc7d57d4833b3021964a56e3ea12818"
+    },
+    {
+      "id": "a21u7l1",
+      "questions": [
+        "a21u7l1-q1",
+        "a21u7l1-q2",
+        "a21u7l1-q3",
+        "a21u7l1-q4",
+        "a21u7l1-q5"
+      ],
+      "beforeHash": "3505174fcc4e6ad653c7034b0a746772a0b0b38bd9a569b0dedf002e43cb8b0a",
+      "afterHash": "da9168be818a62f14262aa0f550f7579e1b68fab58c96c4963dbefe5ae1ccabf"
+    },
+    {
+      "id": "a21u7write",
+      "questions": [
+        "a21u7write-q2"
+      ],
+      "beforeHash": "57fbecab2456e77cfa809efa707fdbbdac73dd95c4480f09a6a46085d24834b3",
+      "afterHash": "6e193dc1f13b83786a688a298a151ce84b2c63b9cbe399b2130a27d22d6798de"
+    },
+    {
+      "id": "a21u7check",
+      "questions": [
+        "a21u7check-q2",
+        "a21u7check-q6"
+      ],
+      "beforeHash": "f75e1fef0bf39d94830fda0829f282ef7dee95c808f4ab84e59ad147d715a542",
+      "afterHash": "e8857cc09f1de6e9d34377f5949f0fa0db77231802f8d71f43d10367397622c8"
+    },
+    {
+      "id": "a22u2l0",
+      "questions": [
+        "a22u2l0-q5"
+      ],
+      "beforeHash": "39769d9ce03ee534f0099e2a3783ab9535ef3ebd2ba76dae4e6d45c15f1cb6b8",
+      "afterHash": "d373858a268f05097c2616c56c36c837537c9cc77af27893c53b22b5b75be247"
+    },
+    {
+      "id": "a22u2write",
+      "questions": [
+        "a22u2write-q4"
+      ],
+      "beforeHash": "b4a7f3f79e82f30326b5c8aa34c42bcd66041eb7a7fef3f9c3abb9bf29412629",
+      "afterHash": "f8e6de0374b523f10688e88abef4a22617f9903a4a4dc9851372a23adc343222"
+    },
+    {
+      "id": "a22u2check",
+      "questions": [
+        "a22u2check-q5"
+      ],
+      "beforeHash": "347497a6400bdec3628e0998681f1da5b515d003504b936b71ffabc8f43978cb",
+      "afterHash": "e9242a8cec84c1b9f835a2a96617b299f7c70143e0ef5eee196c6dc4f9b1239a"
+    },
+    {
+      "id": "a22u4l0",
+      "questions": [
+        "a22u4l0-q5"
+      ],
+      "beforeHash": "8fda1ea083dfd1c95076e66360586cf1f5f0febb97bec1bbe16996e1e474b5ab",
+      "afterHash": "9c7c83773b7dea59d05c8121a5f73e35f74abfd4c06441661f8727a7bbf44b63"
+    },
+    {
+      "id": "a22u4check",
+      "questions": [
+        "a22u4check-q5"
+      ],
+      "beforeHash": "a56aa28e7d3956c93967cd12af2aa4e9284ddd0b698d07d50bfb957201a35e70",
+      "afterHash": "6e5335feed1e83e911d936be9b10c443aa482b918c64c0ebe8c965f806a2810c"
+    }
+  ],
+  "games": [
+    {
+      "id": "conj-a11-025",
+      "stage": "A1.1",
+      "reason": "Remove awkward Para mí + quiero; preserve the first-person querer target.",
+      "before": "Para mí, ___ un café, por favor.",
+      "after": "___ un café, por favor.",
+      "changes": [
+        {
+          "field": "sentence",
+          "before": "Para mí, ___ un café, por favor.",
+          "after": "___ un café, por favor."
+        }
+      ],
+      "beforeHash": "19c518514cda6d10470347cc3afc57942d516c43b4f2251c1fe8f17ef2b0fd94",
+      "afterHash": "79c7e74dada3caabe5e84bf0ebcf25239c941622c14ba86efbf10280a5da8704",
+      "unchangedTargets": [
+        {
+          "verb": "querer",
+          "answer": "quiero",
+          "person": "yo",
+          "source": "u2l1"
+        }
+      ]
+    },
+    {
+      "id": "conj-a11-038",
+      "stage": "A1.1",
+      "reason": "Replace an artificial breakfast carrier with a familiar café order allocation; preserve es.",
+      "before": "Mi desayuno ___ un café y pan.",
+      "after": "El café con leche ___ para Ana.",
+      "changes": [
+        {
+          "field": "sentence",
+          "before": "Mi desayuno ___ un café y pan.",
+          "after": "El café con leche ___ para Ana."
+        }
+      ],
+      "beforeHash": "42aaeafe1d89711de6a4f5f29caa157c8df8e6e10fcbc6ba35f67739db8ae42e",
+      "afterHash": "3b2918a83f1d097a1a6d51c0a0fbe066d6e466e4ea4d470bfa4a5d4739e76d92",
+      "unchangedTargets": [
+        {
+          "verb": "ser",
+          "answer": "es",
+          "person": "third",
+          "source": "u1story3"
+        }
+      ]
+    },
+    {
+      "id": "conj-a11-049",
+      "stage": "A1.1",
+      "reason": "Ask naturally about money for the bill; preserve tienes.",
+      "before": "¿___ tú cinco euros para mí?",
+      "after": "¿___ cinco euros para la cuenta?",
+      "changes": [
+        {
+          "field": "sentence",
+          "before": "¿___ tú cinco euros para mí?",
+          "after": "¿___ cinco euros para la cuenta?"
+        },
+        {
+          "field": "blanks",
+          "before": [
+            {
+              "verb": "tener",
+              "answer": "tienes",
+              "person": "tu",
+              "source": "u1story1",
+              "options": [
+                "tienes",
+                "tengo",
+                "tiene",
+                "tener"
+              ],
+              "explanation": "For one friend use tienes. Age uses tener + number + años.",
+              "mistakes": {
+                "tengo": "“tengo” goes with I (yo). For one friend use tienes. Age uses tener + number + años.",
+                "tiene": "“tiene” goes with one person or thing (él/ella/usted). For one friend use tienes. Age uses tener + number + años.",
+                "tener": "This is the dictionary form. Use the conjugated form for this subject. For one friend use tienes. Age uses tener + number + años."
+              },
+              "concept": "irregular",
+              "infinitive": "tener"
+            }
+          ],
+          "after": [
+            {
+              "verb": "tener",
+              "answer": "tienes",
+              "person": "tu",
+              "source": "u1story1",
+              "options": [
+                "tienes",
+                "tengo",
+                "tiene",
+                "tener"
+              ],
+              "explanation": "When asking one friend about money they have, use tienes: tú tienes cinco euros. Tener expresses possession here.",
+              "mistakes": {
+                "tengo": "“tengo” goes with I (yo). When asking one friend about money they have, use tienes: tú tienes cinco euros. Tener expresses possession here.",
+                "tiene": "“tiene” goes with one person or thing (él/ella/usted). When asking one friend about money they have, use tienes: tú tienes cinco euros. Tener expresses possession here.",
+                "tener": "This is the dictionary form. Use the conjugated form for this subject. When asking one friend about money they have, use tienes: tú tienes cinco euros. Tener expresses possession here."
+              },
+              "concept": "irregular",
+              "infinitive": "tener"
+            }
+          ]
+        },
+        {
+          "field": "explanation",
+          "before": "For one friend use tienes. Age uses tener + number + años.",
+          "after": "When asking one friend about money they have, use tienes: tú tienes cinco euros. Tener expresses possession here."
+        }
+      ],
+      "beforeHash": "73fea590bc0fea75408c00e4a4df3061d351d10908c5dab173fa153b6cf6f048",
+      "afterHash": "1cf67b8ef2c032e2ce9f4ce947b6cb68e061bbc6403f60719308a01774f01fea",
+      "unchangedTargets": [
+        {
+          "verb": "tener",
+          "answer": "tienes",
+          "person": "tu",
+          "source": "u1story1"
+        }
+      ]
+    },
+    {
+      "id": "conj-a12-009",
+      "stage": "A1.2",
+      "reason": "Make pero contrast the usual enjoyment of walking with not wanting to walk today; preserve gusta/quiero and negation.",
+      "before": "Me ___ la música, pero no ___ caminar hoy.",
+      "after": "Me ___ caminar, pero no ___ caminar hoy.",
+      "changes": [
+        {
+          "field": "sentence",
+          "before": "Me ___ la música, pero no ___ caminar hoy.",
+          "after": "Me ___ caminar, pero no ___ caminar hoy."
+        }
+      ],
+      "beforeHash": "9fc2974184cff1711317c0db7d968ef45d5196934bc035731465bc614e7314dc",
+      "afterHash": "06e6f6e1bfdb70a472f9120ded937c40aa450968289999025ee07464a183aafd",
+      "unchangedTargets": [
+        {
+          "verb": "gustar",
+          "answer": "gusta",
+          "person": "third",
+          "source": "u2l1"
+        },
+        {
+          "verb": "querer",
+          "answer": "quiero",
+          "person": "yo",
+          "source": "u2l1"
+        }
+      ]
+    },
+    {
+      "id": "conj-a12-027",
+      "stage": "A1.2",
+      "reason": "Anchor venir at Diego’s café through direct address; preserve vamos a + infinitive.",
+      "before": "Nosotros ___ a venir al café mañana.",
+      "after": "Diego, mañana ___ a venir a tu café.",
+      "changes": [
+        {
+          "field": "sentence",
+          "before": "Nosotros ___ a venir al café mañana.",
+          "after": "Diego, mañana ___ a venir a tu café."
+        }
+      ],
+      "beforeHash": "a76005c1c3e6a1af4bc43856476186a8397e2bd4269a0049bddb9b4cf389bd31",
+      "afterHash": "c7a5de6c0e3e56fc6df493b84c4b38e88567c252fbad6cf9f43bf81a4da7e2ee",
+      "unchangedTargets": [
+        {
+          "verb": "ir",
+          "answer": "vamos",
+          "person": "nosotros",
+          "source": "u1story2"
+        }
+      ]
+    },
+    {
+      "id": "conj-a12-075",
+      "stage": "A1.2",
+      "reason": "Remove an unsupported contrast by joining the details with y; preserve está/voy.",
+      "before": "Mi piso ___ cerca de la estación, pero yo ___ al parque.",
+      "after": "Mi piso ___ cerca de la estación y yo ___ al parque.",
+      "changes": [
+        {
+          "field": "sentence",
+          "before": "Mi piso ___ cerca de la estación, pero yo ___ al parque.",
+          "after": "Mi piso ___ cerca de la estación y yo ___ al parque."
+        }
+      ],
+      "beforeHash": "0e54dd409b32399e4db7b97e3960bd102e2009149461eec4c2a8a47b078667bf",
+      "afterHash": "ae06a0a92f5507a54f0e090a8e9de228d01d313cdf06f3cfb9870d3b3aa4e420",
+      "unchangedTargets": [
+        {
+          "verb": "estar",
+          "answer": "está",
+          "person": "third",
+          "source": "u3story0"
+        },
+        {
+          "verb": "ir",
+          "answer": "voy",
+          "person": "yo",
+          "source": "u6l2"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "stage": "A1.1",
+      "unit": 1,
+      "reason": "Qualify the usual informal plural as most of Spain and retain the useful Latin-American note.",
+      "before": "🇪🇸 Vosotros (or vosotras for an all-female group) is informal plural you in Spain. 🌎 Ustedes is usual for groups in Latin America.",
+      "after": "🇪🇸 Vosotros/vosotras is the usual informal plural “you” in most of Spain; vosotras addresses an all-female group. 🌎 Ustedes is usual for groups in Latin America."
+    },
+    {
+      "stage": "A2.1",
+      "unit": 2,
+      "reason": "Prefer usual Spain transport vocabulary while explicitly retaining tomar as valid.",
+      "before": "Original Friends to Amigos scenarios. Spain-first usage; answers are short authored models, not unrestricted writing.",
+      "after": "Original Friends to Amigos scenarios. Spain-first usage; answers are short authored models, not unrestricted writing. 🇪🇸 Coger el tren/el autobús is usual for taking transport in Spain. Tomar el tren/el autobús is also valid Spanish."
+    },
+    {
+      "stage": "A2.1",
+      "unit": 7,
+      "reason": "Prefer usual Spain transport vocabulary while explicitly retaining tomar as valid.",
+      "before": "Original Friends to Amigos scenarios. Spain-first usage; answers are short authored models, not unrestricted writing.",
+      "after": "Original Friends to Amigos scenarios. Spain-first usage; answers are short authored models, not unrestricted writing. 🇪🇸 Coger el tren/el autobús is usual for taking transport in Spain. Tomar el tren/el autobús is also valid Spanish."
+    }
+  ],
+  "counts": {
+    "courseQuestionPayloads": 18,
+    "activities": 13,
+    "gameSentences": 6,
+    "unitNotes": 3
+  },
+  "sourceCorrections": [
+    {
+      "file": "a12.js",
+      "changes": [
+        {
+          "before": " ['From memory, ask “Do you have medium size?” using usted.','¿Tiene la talla mediana?',['¿Tiene una talla mediana?'],'Tiene is the polite usted form used with the shop assistant.'],\n",
+          "after": " ['From memory, ask “Do you have medium size?” using usted.','¿Tiene la talla mediana?',['¿Tiene una talla mediana?','¿Tiene una talla M?','¿Tiene la talla M?','¿La tiene en una M?','¿La tiene en una talla M?'],'Tiene is the polite usted form used with the shop assistant. M is a common label for medium; la can refer to the T-shirt being discussed.'],\n"
+        },
+        {
+          "before": " ['Say the T-shirt is too small on you and request a bigger size. Use queda and necesito.','La camiseta me queda pequeña y necesito una talla más grande',['Me queda pequeña y necesito una talla más grande'],'Pequeña agrees with camiseta; talla más grande requests a larger size.']),\n",
+          "after": " ['Say the T-shirt is too small on you and request a bigger size. Use queda and necesito.','La camiseta me queda pequeña y necesito una talla más grande',['Me queda pequeña y necesito una talla más grande','La camiseta me queda pequeña. Necesito una talla más grande.','La camiseta me queda pequeña y necesito una talla más grande. ¿La tiene?','Me queda pequeña. Necesito una talla más grande. ¿La tiene?'],'Pequeña agrees with camiseta; talla más grande requests a larger size. You can also ask the assistant ¿La tiene? after stating what you need.']),\n"
+        },
+        {
+          "before": " ['Say you need medium size, not small size. Use necesito.','Necesito la talla mediana, no la pequeña',['Necesito una talla mediana, no una pequeña'],'Both size descriptions agree with feminine talla.'],\n",
+          "after": " ['Say you need medium size, not small size. Use necesito.','Necesito la talla mediana, no la pequeña',['Necesito una talla mediana, no una pequeña','Necesito una M, no una S','Necesito una talla M, no una S','Necesito la talla M, no la S'],'Both size descriptions agree with feminine talla. M and S are common size labels for medium and small.'],\n"
+        }
+      ]
+    }
+  ]
+}

@@ -77,12 +77,12 @@ form('visto','vestirse','visto','yo','a12u6l1',['vesto','vistes','vestir'],'Use 
 form('acuesto','acostarse','acuesto','yo','a12u6l2',['acostas','acuestas','acostar'],'Use me acuesto for bedtime: o changes to ue. Keep me for your own routine.');
 // Every row below is an authored situation, with an explicit permanent number.
 const bank=[];
-function add(stage,number,unit,sentence,keys,hints=true){
- const blanks=keys.split(' ').map(key=>{const f=definitions[key];if(!f)throw Error(key);return {...f,infinitive:hints?f.verb:null,options:[...f.options],mistakes:{...f.mistakes}};});
+function add(stage,number,unit,sentence,keys,hints=true,teaching=[]){
+ const blanks=keys.split(' ').map((key,index)=>{const f=definitions[key];if(!f)throw Error(key);const explanation=teaching[index]||f.explanation;return {...f,explanation,infinitive:hints?f.verb:null,options:[...f.options],mistakes:Object.fromEntries(Object.entries(f.mistakes).map(([value,why])=>[value,why.replace(f.explanation,explanation)]))};});
  bank.push({id:'conj-'+(stage==='A1.1'?'a11':'a12')+'-'+String(number).padStart(3,'0'),stage,unit,requiredActivities:[...new Set([...[0,1,2].map(n=>(stage==='A1.1'?'u':'a12u')+unit+'l'+n),...blanks.map(f=>f.source)])],difficulty:blanks.length+(hints?0:1),concepts:[...new Set(blanks.flatMap(f=>[f.concept,'person-'+f.person]))],sentence,blanks,explanation:blanks.map(f=>f.explanation).join(' ')});
 }
-function a(n,u,s,k,h=true){add('A1.1',n,u,s,k,h);}
-function z(n,u,s,k,h=true){add('A1.2',n,u,s,k,h);}
+function a(n,u,s,k,h=true,teaching=[]){add('A1.1',n,u,s,k,h,teaching);}
+function z(n,u,s,k,h=true,teaching=[]){add('A1.2',n,u,s,k,h,teaching);}
 a(1,0,'Hola, me ___ Ana.','llamo');
 a(2,0,'¿Cómo te ___?','llamas');
 a(3,0,'Buenos días. Yo ___ Luis.','soy');
@@ -107,7 +107,7 @@ a(21,1,'Mi nombre ___ Ana.','es');
 a(22,1,'___ de España y vivo en Madrid.','soy');
 a(23,1,'Ana ___ una ficha de clase.','tiene');
 a(24,1,'Hoy ___ cansada, pero estoy bien, gracias.','estoy');
-a(25,2,'Para mí, ___ un café, por favor.','quiero');
+a(25,2,'___ un café, por favor.','quiero');
 a(26,2,'¿Tú ___ un té? Para mí, un café.','quieres');
 a(27,2,'___ hambre. Quiero pan.','tengo');
 a(28,2,'Me ___ el café con leche.','gusta');
@@ -120,7 +120,7 @@ a(34,2,'Nosotros ___ a clase. Hasta luego, Diego.','vamos');
 a(35,2,'Yo ___ agua, por favor.','quiero');
 a(36,2,'¿___ tú un té también?','quieres');
 a(37,2,'___ café para Ana y té para Luis.','hay');
-a(38,2,'Mi desayuno ___ un café y pan.','es');
+a(38,2,'El café con leche ___ para Ana.','es');
 a(39,3,'¿Cuánto ___ un café?','cuesta');
 a(40,3,'Un café y un té ___ cuatro euros.','cuestan');
 a(41,3,'Ana ___ en una tienda.','esta');
@@ -131,7 +131,7 @@ a(45,3,'¿Cuánto ___ los dos tés?','cuestan');
 a(46,3,'Esta libreta ___ para Ana.','es');
 a(47,3,'___ tres euros por un café y pan.','son');
 a(48,3,'Un té ___ dos euros. Quiero dos, por favor.','cuesta');
-a(49,3,'¿___ tú cinco euros para mí?','tienes');
+a(49,3,'¿___ cinco euros para la cuenta?','tienes',true,['When asking one friend about money they have, use tienes: tú tienes cinco euros. Tener expresses possession here.']);
 a(50,3,'___ un libro y una libreta en la tienda.','hay');
 a(51,4,'Mi hermana ___ alta.','es');
 a(52,4,'Mis padres ___ en el café.','estan');
@@ -195,7 +195,7 @@ z(5,0,'Luis ___ ir al parque esta tarde.','quiere');
 z(6,0,'Nosotros ___ café con Luis hoy.','tomamos');
 z(7,0,'Me ___ leer y me ___ los libros.','gusta gustan');
 z(8,0,'Yo ___ el parque, pero Luis ___ el cine.','prefiero quiere');
-z(9,0,'Me ___ la música, pero no ___ caminar hoy.','gusta quiero');
+z(9,0,'Me ___ caminar, pero no ___ caminar hoy.','gusta quiero');
 z(10,0,'Después de clase ___ café y ___ al parque.','tomamos vamos');
 z(11,0,'¿Vosotras ___ español? Nosotros ___ hablar juntos.','hablais podemos');
 z(12,0,'A Ana le ___ el cine; a Luis le ___ los libros.','gusta gustan',false);
@@ -213,7 +213,7 @@ z(23,1,'Luis ___ al parque porque le ___ caminar.','viene gusta');
 z(24,1,'Me ___ los cafés del parque, pero hoy no ___ ir.','gustan puedo');
 z(25,1,'¿___ tomar algo? Nosotros ___ café aquí.','quereis tomamos',false);
 z(26,1,'Sí, ___ ir; hoy ___ libre.','puedo estoy',false);
-z(27,2,'Nosotros ___ a venir al café mañana.','vamos');
+z(27,2,'Diego, mañana ___ a venir a tu café.','vamos');
 z(28,2,'Yo ___ a estudiar español esta tarde.','voy');
 z(29,2,'Ana y Marta ___ a ir al cine el sábado.','van');
 z(30,2,'¿A qué hora ___ nosotros?','quedamos');
@@ -261,7 +261,7 @@ z(71,5,'Mi cocina ___ pequeña, pero ___ una mesa.','es hay');
 z(72,5,'El ordenador ___ en el dormitorio; yo lo ___.','esta busco');
 z(73,5,'___ un sofá; las sillas ___ en la cocina.','hay estan');
 z(74,5,'¿___ venir? Nosotros ___ música en el salón.','puedes escuchamos');
-z(75,5,'Mi piso ___ cerca de la estación, pero yo ___ al parque.','esta voy');
+z(75,5,'Mi piso ___ cerca de la estación y yo ___ al parque.','esta voy');
 z(76,5,'Yo ___ aquí; mi piso ___ pequeño y ___ dos dormitorios.','vivo es tiene');
 z(77,5,'___ dos libros; ___ en la mesa y ___ de Ana.','hay estan son',false);
 z(78,5,'Mi salón ___ grande, ___ una ventana y nosotros ___ música aquí.','es hay escuchamos',false);

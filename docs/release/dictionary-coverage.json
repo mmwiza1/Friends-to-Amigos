@@ -1,0 +1,631 @@
+{
+  "authorship": "Original Friends to Amigos definitions, explicit authored glossary/phrase-bank translations and deterministic curated Spanish forms. No third-party dictionary data.",
+  "stats": {
+    "entries": 1212,
+    "words": 936,
+    "phrases": 276,
+    "formMappings": 1564
+  },
+  "method": "Exposure of canonical question Spanish/Spanish answers plus all story passages, with phrase-level lookup hits. Excludes listed proper names and digit-only tokens. Not an exhaustive bilingual dictionary, corpus frequency measure, assessment or mastery estimate. Source story sentences also recur in questions; these are exposure counts, not distinct vocabulary counts.",
+  "excludedProperNames": [
+    "ana",
+    "luis",
+    "marta",
+    "diego",
+    "elena",
+    "clara",
+    "toledo",
+    "madrid",
+    "inglaterra",
+    "españa"
+  ],
+  "excludedDigits": true,
+  "stages": {
+    "A1.1": {
+      "known": 1654,
+      "total": 1654,
+      "unmappedExposures": 0,
+      "lookupExposurePercent": 100,
+      "excluded": 259,
+      "unmappedDistinct": 0,
+      "mostFrequentUnmapped": []
+    },
+    "A1.2": {
+      "known": 3122,
+      "total": 3122,
+      "unmappedExposures": 0,
+      "lookupExposurePercent": 100,
+      "excluded": 206,
+      "unmappedDistinct": 0,
+      "mostFrequentUnmapped": []
+    },
+    "A2.1": {
+      "known": 4304,
+      "total": 4311,
+      "unmappedExposures": 7,
+      "lookupExposurePercent": 99.8,
+      "excluded": 259,
+      "unmappedDistinct": 7,
+      "mostFrequentUnmapped": [
+        {
+          "surface": "autobuses",
+          "exposures": 1
+        },
+        {
+          "surface": "ciento",
+          "exposures": 1
+        },
+        {
+          "surface": "decide",
+          "exposures": 1
+        },
+        {
+          "surface": "habitaciones",
+          "exposures": 1
+        },
+        {
+          "surface": "hoteles",
+          "exposures": 1
+        },
+        {
+          "surface": "precios",
+          "exposures": 1
+        },
+        {
+          "surface": "respondió",
+          "exposures": 1
+        }
+      ]
+    },
+    "A2.2": {
+      "known": 6444,
+      "total": 6697,
+      "unmappedExposures": 253,
+      "lookupExposurePercent": 96.2,
+      "excluded": 302,
+      "unmappedDistinct": 134,
+      "mostFrequentUnmapped": [
+        {
+          "surface": "faltaba",
+          "exposures": 8
+        },
+        {
+          "surface": "larga",
+          "exposures": 8
+        },
+        {
+          "surface": "color",
+          "exposures": 6
+        },
+        {
+          "surface": "frente",
+          "exposures": 6
+        },
+        {
+          "surface": "recto",
+          "exposures": 6
+        },
+        {
+          "surface": "misma",
+          "exposures": 5
+        },
+        {
+          "surface": "quería",
+          "exposures": 5
+        },
+        {
+          "surface": "sigue",
+          "exposures": 5
+        },
+        {
+          "surface": "costaba",
+          "exposures": 4
+        },
+        {
+          "surface": "detrás",
+          "exposures": 4
+        },
+        {
+          "surface": "escribió",
+          "exposures": 4
+        },
+        {
+          "surface": "gira",
+          "exposures": 4
+        },
+        {
+          "surface": "miró",
+          "exposures": 4
+        },
+        {
+          "surface": "querían",
+          "exposures": 4
+        },
+        {
+          "surface": "amabilidad",
+          "exposures": 3
+        },
+        {
+          "surface": "casi",
+          "exposures": 3
+        },
+        {
+          "surface": "concreto",
+          "exposures": 3
+        },
+        {
+          "surface": "decide",
+          "exposures": 3
+        },
+        {
+          "surface": "domingos",
+          "exposures": 3
+        },
+        {
+          "surface": "junto",
+          "exposures": 3
+        },
+        {
+          "surface": "nadie",
+          "exposures": 3
+        },
+        {
+          "surface": "ni",
+          "exposures": 3
+        },
+        {
+          "surface": "restaurante",
+          "exposures": 3
+        },
+        {
+          "surface": "salía",
+          "exposures": 3
+        },
+        {
+          "surface": "salida",
+          "exposures": 3
+        }
+      ]
+    },
+    "B1.1": {
+      "known": 7371,
+      "total": 8898,
+      "unmappedExposures": 1527,
+      "lookupExposurePercent": 82.8,
+      "excluded": 273,
+      "unmappedDistinct": 626,
+      "mostFrequentUnmapped": [
+        {
+          "surface": "pareció",
+          "exposures": 14
+        },
+        {
+          "surface": "encontramos",
+          "exposures": 13
+        },
+        {
+          "surface": "esperando",
+          "exposures": 12
+        },
+        {
+          "surface": "habido",
+          "exposures": 12
+        },
+        {
+          "surface": "historias",
+          "exposures": 12
+        },
+        {
+          "surface": "mismo",
+          "exposures": 12
+        },
+        {
+          "surface": "principio",
+          "exposures": 12
+        },
+        {
+          "surface": "entradas",
+          "exposures": 11
+        },
+        {
+          "surface": "explicarlo",
+          "exposures": 11
+        },
+        {
+          "surface": "banco",
+          "exposures": 10
+        },
+        {
+          "surface": "debía",
+          "exposures": 10
+        },
+        {
+          "surface": "difícil",
+          "exposures": 10
+        },
+        {
+          "surface": "manera",
+          "exposures": 10
+        },
+        {
+          "surface": "presentación",
+          "exposures": 10
+        },
+        {
+          "surface": "coche",
+          "exposures": 9
+        },
+        {
+          "surface": "correo",
+          "exposures": 9
+        },
+        {
+          "surface": "encontré",
+          "exposures": 9
+        },
+        {
+          "surface": "mirar",
+          "exposures": 9
+        },
+        {
+          "surface": "salida",
+          "exposures": 9
+        },
+        {
+          "surface": "cocinar",
+          "exposures": 8
+        },
+        {
+          "surface": "entendió",
+          "exposures": 8
+        },
+        {
+          "surface": "espacio",
+          "exposures": 8
+        },
+        {
+          "surface": "fechas",
+          "exposures": 8
+        },
+        {
+          "surface": "hubo",
+          "exposures": 8
+        },
+        {
+          "surface": "imprimir",
+          "exposures": 8
+        }
+      ]
+    },
+    "B1.2": {
+      "known": 7567,
+      "total": 9463,
+      "unmappedExposures": 1896,
+      "lookupExposurePercent": 80,
+      "excluded": 252,
+      "unmappedDistinct": 704,
+      "mostFrequentUnmapped": [
+        {
+          "surface": "consejo",
+          "exposures": 14
+        },
+        {
+          "surface": "excursión",
+          "exposures": 14
+        },
+        {
+          "surface": "debe",
+          "exposures": 13
+        },
+        {
+          "surface": "compruebo",
+          "exposures": 12
+        },
+        {
+          "surface": "fin",
+          "exposures": 12
+        },
+        {
+          "surface": "manera",
+          "exposures": 12
+        },
+        {
+          "surface": "permite",
+          "exposures": 12
+        },
+        {
+          "surface": "uso",
+          "exposures": 12
+        },
+        {
+          "surface": "forma",
+          "exposures": 11
+        },
+        {
+          "surface": "ni",
+          "exposures": 11
+        },
+        {
+          "surface": "organizando",
+          "exposures": 11
+        },
+        {
+          "surface": "página",
+          "exposures": 11
+        },
+        {
+          "surface": "significa",
+          "exposures": 11
+        },
+        {
+          "surface": "aplicación",
+          "exposures": 10
+        },
+        {
+          "surface": "dormido",
+          "exposures": 10
+        },
+        {
+          "surface": "escuchemos",
+          "exposures": 10
+        },
+        {
+          "surface": "incluye",
+          "exposures": 10
+        },
+        {
+          "surface": "oportunidad",
+          "exposures": 10
+        },
+        {
+          "surface": "parecida",
+          "exposures": 10
+        },
+        {
+          "surface": "pensé",
+          "exposures": 10
+        },
+        {
+          "surface": "práctica",
+          "exposures": 10
+        },
+        {
+          "surface": "reuniones",
+          "exposures": 10
+        },
+        {
+          "surface": "taller",
+          "exposures": 10
+        },
+        {
+          "surface": "tareas",
+          "exposures": 10
+        },
+        {
+          "surface": "continúa",
+          "exposures": 9
+        }
+      ]
+    },
+    "B2.1": {
+      "known": 7987,
+      "total": 10364,
+      "unmappedExposures": 2377,
+      "lookupExposurePercent": 77.1,
+      "excluded": 272,
+      "unmappedDistinct": 853,
+      "mostFrequentUnmapped": [
+        {
+          "surface": "conversación",
+          "exposures": 17
+        },
+        {
+          "surface": "participación",
+          "exposures": 17
+        },
+        {
+          "surface": "otros",
+          "exposures": 16
+        },
+        {
+          "surface": "breve",
+          "exposures": 15
+        },
+        {
+          "surface": "taller",
+          "exposures": 15
+        },
+        {
+          "surface": "posibilidad",
+          "exposures": 14
+        },
+        {
+          "surface": "solicito",
+          "exposures": 14
+        },
+        {
+          "surface": "materiales",
+          "exposures": 13
+        },
+        {
+          "surface": "debido",
+          "exposures": 12
+        },
+        {
+          "surface": "motivo",
+          "exposures": 12
+        },
+        {
+          "surface": "página",
+          "exposures": 12
+        },
+        {
+          "surface": "semanas",
+          "exposures": 12
+        },
+        {
+          "surface": "aumentaron",
+          "exposures": 11
+        },
+        {
+          "surface": "comentarios",
+          "exposures": 11
+        },
+        {
+          "surface": "lluvia",
+          "exposures": 11
+        },
+        {
+          "surface": "preocupación",
+          "exposures": 11
+        },
+        {
+          "surface": "probablemente",
+          "exposures": 11
+        },
+        {
+          "surface": "recibí",
+          "exposures": 11
+        },
+        {
+          "surface": "salida",
+          "exposures": 11
+        },
+        {
+          "surface": "afirma",
+          "exposures": 10
+        },
+        {
+          "surface": "cancelada",
+          "exposures": 10
+        },
+        {
+          "surface": "cifra",
+          "exposures": 10
+        },
+        {
+          "surface": "demuestra",
+          "exposures": 10
+        },
+        {
+          "surface": "larga",
+          "exposures": 10
+        },
+        {
+          "surface": "otras",
+          "exposures": 10
+        }
+      ]
+    },
+    "B2.2": {
+      "known": 9641,
+      "total": 13003,
+      "unmappedExposures": 3362,
+      "lookupExposurePercent": 74.1,
+      "excluded": 285,
+      "unmappedDistinct": 1052,
+      "mostFrequentUnmapped": [
+        {
+          "surface": "permite",
+          "exposures": 20
+        },
+        {
+          "surface": "sino",
+          "exposures": 18
+        },
+        {
+          "surface": "experiencias",
+          "exposures": 17
+        },
+        {
+          "surface": "problemas",
+          "exposures": 17
+        },
+        {
+          "surface": "tarea",
+          "exposures": 17
+        },
+        {
+          "surface": "ambas",
+          "exposures": 16
+        },
+        {
+          "surface": "apoya",
+          "exposures": 16
+        },
+        {
+          "surface": "demuestra",
+          "exposures": 16
+        },
+        {
+          "surface": "informe",
+          "exposures": 16
+        },
+        {
+          "surface": "medida",
+          "exposures": 16
+        },
+        {
+          "surface": "primera",
+          "exposures": 16
+        },
+        {
+          "surface": "quienes",
+          "exposures": 16
+        },
+        {
+          "surface": "recibimos",
+          "exposures": 16
+        },
+        {
+          "surface": "reconozco",
+          "exposures": 16
+        },
+        {
+          "surface": "según",
+          "exposures": 16
+        },
+        {
+          "surface": "sigue",
+          "exposures": 16
+        },
+        {
+          "surface": "añade",
+          "exposures": 15
+        },
+        {
+          "surface": "cierto",
+          "exposures": 15
+        },
+        {
+          "surface": "positiva",
+          "exposures": 15
+        },
+        {
+          "surface": "prioridad",
+          "exposures": 15
+        },
+        {
+          "surface": "resultados",
+          "exposures": 15
+        },
+        {
+          "surface": "breve",
+          "exposures": 14
+        },
+        {
+          "surface": "esfuerzo",
+          "exposures": 14
+        },
+        {
+          "surface": "evaluar",
+          "exposures": 14
+        },
+        {
+          "surface": "participación",
+          "exposures": 14
+        }
+      ]
+    }
+  }
+}

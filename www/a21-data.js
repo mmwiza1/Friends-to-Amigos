@@ -105,7 +105,7 @@ const units=[
     [
      "¿Vosotros habéis comido?"
     ],
-    "Habéis addresses an informal group in Spain. The participle stays comido."
+    "Habéis addresses several friends as vosotros/vosotras, the usual informal plural you in most of Spain. The participle stays comido."
    ],
    [
     "Say Ana has done the shopping today.",
@@ -3152,7 +3152,7 @@ const units=[
      "Tomo el tren ayer y después voy al hotel",
      "Tomé el tren ayer y después ir al hotel"
     ],
-    "Tomar is regular -AR in the preterite. Join two finished events without changing back to the present.",
+    "Tomar is regular -AR in the preterite. Join two finished events without changing back to the present. Coger el tren is usual in Spain; tomar el tren is also valid.",
     "Your friend asks how you travelled yesterday. You took the bus.",
     "Tomé el autobús",
     [
@@ -3162,7 +3162,9 @@ const units=[
     "Say you took the bus and arrived at nine yesterday.",
     "Ayer tomé el autobús y llegué a las nueve",
     [
-     "Tomé el autobús ayer y llegué a las nueve"
+     "Tomé el autobús ayer y llegué a las nueve",
+     "Ayer cogí el autobús y llegué a las nueve",
+     "Cogí el autobús ayer y llegué a las nueve"
     ]
    ],
    [
@@ -3198,8 +3200,10 @@ const units=[
    [
     "Write two sentences: yesterday you took the train; the train is faster than the bus.",
     "Ayer tomé el tren. El tren es más rápido que el autobús",
-    [],
-    "Ayer tomé reports your choice; a separate present sentence describes the options."
+    [
+     "Ayer cogí el tren. El tren es más rápido que el autobús"
+    ],
+    "Ayer tomé (also ayer cogí, usual in Spain) reports your choice; a separate present sentence describes the options. Tomar el tren is valid too."
    ],
    [
     "Tell Luis you arrived at nine and then went to the hotel.",

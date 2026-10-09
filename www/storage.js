@@ -7,6 +7,7 @@ const Games=typeof module!=='undefined'?require('./games.js'):root.Conjugations;
 const Mastery=typeof module!=='undefined'?require('./mastery.js'):root.Mastery;
 const Focused=typeof module!=='undefined'?require('./focused-practice.js'):root.FocusedPractice;
 const Blanks=typeof module!=='undefined'?require('./blanks.js'):root.ConjugationBlanks;
+const Dictionary=typeof module!=='undefined'?require('./learner-dictionary.js'):root.LearnerDictionary;
 const VERSION=2,KEY='friends-to-amigos-v1'; // Keep the discovery key; version lives in the value.
 const object=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
 const text=(x,max=500)=>typeof x==='string'&&x.length<=max?x:null;
@@ -51,6 +52,7 @@ function migrateState(raw,course,options={}){
  if(![1,2].includes(raw.version))throw Error(raw.version>VERSION?'This backup needs a newer version of Friends to Amigos.':'Unsupported progress format.');
  if(options.import&&(!Array.isArray(raw.completed)||!Array.isArray(raw.events)||!Array.isArray(raw.capabilities)||!object(raw.sessions)||!object(raw.reviews)))throw Error('This backup is missing essential progress records.');
  const state={version:VERSION,name:text(raw.name,40)||'',onboarded:raw.onboarded===true,stage:course.stages.includes(raw.stage)?raw.stage:'A1.1',placement:null,completed:[],capabilities:[],reviews:{},events:[],sessions:{},active:null,recovery:Array.isArray(raw.recovery)?JSON.parse(JSON.stringify(raw.recovery)):[]};
+ state.savedWords=Dictionary.sanitizeSaved(raw.savedWords);
  const archive=course.legacyQuestions||[],completedEvents=new Set(),current=courseIndex(course).questions;
 
  function snapshot(rawQuestion){const q=question(rawQuestion),authored=q&&current.get(q.id);return q&&((authored?.reading&&!q.reading)||(authored?.listening&&!q.listening))?null:q;}

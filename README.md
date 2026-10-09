@@ -17,7 +17,7 @@ An offline-first Android Spanish-learning app in a vanilla HTML/CSS/JavaScript W
 | B2.1 | 72 | 416 | 32 | 56 / 56 | 64 | 6 |
 | B2.2 | 72 | 416 | 32 | 56 / 56 | 64 | 6 |
 
-Each stage has eight units, three core lessons, four stories, a writing activity and a checkpoint per unit. Recognition → controlled completion → recall → contextual response → transfer remains the learning progression. A1–A2 activity/question IDs, ordering, passages, Spanish targets, accepted variants and historical snapshots are preserved. Only approved writing-assessment metadata is added to earlier dedicated writing activities.
+Each stage has eight units, three core lessons, four stories, a writing activity and a checkpoint per unit. Recognition → controlled completion → recall → contextual response → transfer remains the learning progression. All activity/question IDs, ordering, learning objectives and historical snapshots remain stable. The 1.1.0 dictionary release makes only the explicitly documented Spanish QA edits and adds accepted clothing/transport alternatives; every earlier accepted response remains valid. See the [correction manifest](docs/release/dictionary-content-corrections.json).
 
 B1 introduces connected narratives, practical advice, changes, viewpoints and limited wishes/necessity. B2 develops chronology, cause versus evidence, qualification, register, reported information, imagined conditions and integrated proposals. New material is original Friends to Amigos content; pedagogical references inform design without copied exercises.
 
@@ -53,11 +53,17 @@ Conjugations balances concepts/persons/verbs, shuffles questions/options, avoids
 
 Tables retain six Spain-first rows, varied blank positions, hints, typed recall, mastery-gated full blank tables and mistake practice. Practice supports 3/5/10/15/20 tables, Recommended/Current level/All up to current level and simple custom grammar filters. Curated targets avoid misleading constructions such as a generic doler/gustar paradigm. Taught B targets add future, conditional, subjunctive and compound forms; -ra and -se past-subjunctive alternatives retain the nosotros accent.
 
+## Explore Spanish and save vocabulary
+
+Tap visible Spanish in stories, glossaries, Spanish prompts, revealed models/transcripts, feedback or Conjugations sentences to open a compact contextual dictionary. Known expressions take priority; common verb forms link to their infinitive/person/tense. Ambiguous and unknown forms are handled conservatively. Hear uses the existing es-ES TTS; More offers a few useful senses/examples. Lookup and saving do not count as hints or affect course scores, review, mastery or progress.
+
+The offline bank contains **936 word entries, 276 expressions and 1,564 known form mappings**, compiled from original course glossaries/phrase banks and curated first-party definitions. No commercial dictionary service or third-party corpus is used. **Saved Words is inside Profile**, with count, search, All/Words/Phrases/Recently saved, pronunciation, More and Remove. Word forms deduplicate to the base; useful constructions save as phrases. See [dictionary architecture and coverage limits](docs/LEARNER_DICTIONARY.md).
+
 ## Mobile and learner data
 
 Home / Learn / Games / Review / Profile remain. Android Back saves lessons and returns secondary modes to their parent; main tabs return Home; Home backgrounds normally. Native WindowInsets are the sole safe-area source. Fixed navigation, final controls, status-bar spacing, cutouts, keyboard overlap and toasts retain the S24 protections. Input focus hides app navigation while the keyboard is open. Choice cards remain clear accessible radios. Light and system dark themes, the coral/teal identity and bull-face launcher assets are preserved.
 
-Storage remains **schema v2** under `friends-to-amigos-v1`. V1 migration, recovery/read-only protection, malformed import rejection and untouched historical snapshots remain. Optional question `writing`/`previousResponse` and active `writingResponses` fields default safely; no completion history is fabricated. Pending comparison, revised response and reflection resume/export/import. A later starting path assumes foundations without awarding skipped completions; actual completion statistics remain accurate.
+Storage remains **schema v2** under `friends-to-amigos-v1`. The optional `savedWords` list defaults safely for old saves, deduplicates and exports/imports without changing historical attempts or review records. V1 migration, recovery/read-only protection, malformed import rejection and untouched historical snapshots remain. Optional question `writing`/`previousResponse` and active `writingResponses` fields default safely; no completion history is fabricated. Pending comparison, revised response and reflection resume/export/import. A later starting path assumes foundations without awarding skipped completions; actual completion statistics remain accurate.
 
 ## Development and release validation
 
@@ -78,4 +84,4 @@ Preserve signing keys for in-place upgrades. A fresh CI debug key may differ fro
 
 ## Limits and next step
 
-The tiny placement screen is provisional and cannot establish CEFR speaking/writing competence. Finite controlled/comprehension matching can reject unlisted valid paraphrases; open writing deliberately admits uncertainty. The curated morphology/rules do not implement arbitrary Spanish parsing, dictionary spellchecking or authoritative essay grading. Listening lacks human-speaker variation; speaking is self-assessed. All eight stages should now undergo real learner and Spanish educator review, especially B-level pacing, naturalness, task ambiguity and false acceptance/rejection. Freeze expansion for user testing rather than begin C1/C2.
+The tiny placement screen is provisional and cannot establish CEFR speaking/writing competence. Finite controlled/comprehension matching can reject unlisted valid paraphrases; open writing deliberately admits uncertainty. The curated morphology/rules do not implement arbitrary Spanish parsing, general spellchecking or authoritative essay grading. The learner dictionary is a separate bounded vocabulary explorer. Listening lacks human-speaker variation; speaking is self-assessed. All eight stages should now undergo real learner and Spanish educator review, especially B-level pacing, naturalness, task ambiguity and false acceptance/rejection. Freeze expansion for user testing rather than begin C1/C2.

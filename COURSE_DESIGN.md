@@ -204,3 +204,11 @@ Grammar grows deliberately: B1.1 past-event/background integration, duration, fu
 The independent grammar level still controls table/sentence practice ceilings. It never changes course completion, placement or the required starting path. Spaced recall and assistance affect density and review priority. Unverified open writing only contributes modest self-assessed outcome/concept evidence, never inferred mastery of every form in the learner’s response. Needs-practice items retain historical question/model context and the previous response for revision.
 
 The final B2 Home milestone reports actual completed activities, assumed foundations if any, practical capabilities and review/media maintenance. It offers no unavailable C course and makes no formal CEFR claim. See [the release report](docs/release/V1_REPORT.md), [facts](docs/release/v1-audit.json), [writing audit](docs/release/a1-a2-writing-audit.json) and [user-test plan](docs/release/USER_TESTING.md).
+
+## Contextual vocabulary exploration (1.1.0)
+
+The offline learner dictionary adds exploration without altering the course progression or objectives. Visible Spanish has contextual word/expression lookup, known form→lemma metadata and existing es-ES pronunciation. Phrase meanings take precedence where confidently recognised; unknowns/homographs remain conservative. Profile holds Saved Words. Opening/saving vocabulary never counts as a hint, answer, mastery evidence or course completion.
+
+This release selectively improves six A1 Conjugations sentence carriers, the A2.1 plural-address instruction, natural clothing alternatives and Spain transport wording/notes. Original IDs, activity order, targets and historical accepted variants are retained; all changes are recorded in [the correction manifest](docs/release/dictionary-content-corrections.json). Tomar transport phrases stay valid; the regular Tomé teaching target is not replaced blindly. Vosotros/as is described as the usual informal plural in most of Spain, with useful Latin-American notes retained. Stories and wider learning objectives are unchanged.
+
+See [dictionary architecture](docs/LEARNER_DICTIONARY.md) for first-party provenance, exposure coverage and safe vocabulary extension. Word lookup is not a general writing grader; the existing controlled/guided/free uncertainty policy remains.

@@ -96,7 +96,7 @@ function create(){
  lesson('Sizes and preferences',
  ['You need medium size. Which request fits?','Necesito la talla mediana','Necesito la mesa mediana','Necesito el talla mediano','Talla means clothing size and is feminine; mesa means table.'],
  ['Necesito la ___ ___.','I need medium size','talla mediana','talla mediano','tallo mediano','Mediana agrees with feminine talla.'],
- ['From memory, ask “Do you have medium size?” using usted.','¿Tiene la talla mediana?',['¿Tiene una talla mediana?'],'Tiene is the polite usted form used with the shop assistant.'],
+ ['From memory, ask “Do you have medium size?” using usted.','¿Tiene la talla mediana?',['¿Tiene una talla mediana?','¿Tiene una talla M?','¿Tiene la talla M?','¿La tiene en una M?','¿La tiene en una talla M?'],'Tiene is the polite usted form used with the shop assistant. M is a common label for medium; la can refer to the T-shirt being discussed.'],
  ['The blue shirt is too large. You choose the red shirt.','Prefiero la roja','Prefiero el rojo','Prefiero los rojos','La roja stands for la camiseta roja.'],
  ['Ask politely for a small size using tiene.','¿Tiene la talla pequeña?',['¿Tiene una talla pequeña?'],'Change mediana to pequeña, retaining feminine agreement.'])
  ],
@@ -112,7 +112,7 @@ function create(){
  ['La chaqueta ___ ___ grande.','The jacket is too big on me','me queda','me quedo','te queda','Queda refers to the jacket; me identifies who is wearing it.'],
  ['From memory, say “It is too big on me”.','Me queda grande',[],'Me queda grande explains the fit of one garment.'],
  ['Your T-shirt is too small. What would help?','Una talla más grande','Una talla más pequeña','El mismo probador','A bigger size solves a too-small fit; a smaller one does not.'],
- ['Say the T-shirt is too small on you and request a bigger size. Use queda and necesito.','La camiseta me queda pequeña y necesito una talla más grande',['Me queda pequeña y necesito una talla más grande'],'Pequeña agrees with camiseta; talla más grande requests a larger size.']),
+ ['Say the T-shirt is too small on you and request a bigger size. Use queda and necesito.','La camiseta me queda pequeña y necesito una talla más grande',['Me queda pequeña y necesito una talla más grande','La camiseta me queda pequeña. Necesito una talla más grande.','La camiseta me queda pequeña y necesito una talla más grande. ¿La tiene?','Me queda pequeña. Necesito una talla más grande. ¿La tiene?'],'Pequeña agrees with camiseta; talla más grande requests a larger size. You can also ask the assistant ¿La tiene? after stating what you need.']),
  lesson('Making a purchase',
  ['You have chosen one jacket. Which reply makes the purchase clear?','Me llevo esta chaqueta','Me levanto esta chaqueta','Me gusta el café','Llevarse in a shop means take/buy an item; levantarse means get up.'],
  ['___ ___ esta chaqueta.','I will take this jacket','Me llevo','Me llevas','Me levanto','Llevo is the yo form. Me llevo esta is a natural purchasing phrase.'],
@@ -207,7 +207,7 @@ function create(){
  ['Ask for a white T-shirt politely, using quiero.','Quiero una camiseta blanca, por favor',['Por favor, quiero una camiseta blanca'],'Camiseta needs una and feminine blanca.'],
  ['Say you need a black jacket because it is cold. Use porque and hace frío.','Necesito una chaqueta negra porque hace frío',['Hace frío, por eso necesito una chaqueta negra'],'Chaqueta is feminine. Porque connects the clothing need to the weather reason.'],
  ['Choose the blue T-shirt rather than the red one. Use prefiero.','Prefiero la azul',['Prefiero la camiseta azul'],'La can stand for camiseta. Azul has the same masculine/feminine form.'],
- ['Say you need medium size, not small size. Use necesito.','Necesito la talla mediana, no la pequeña',['Necesito una talla mediana, no una pequeña'],'Both size descriptions agree with feminine talla.'],
+ ['Say you need medium size, not small size. Use necesito.','Necesito la talla mediana, no la pequeña',['Necesito una talla mediana, no una pequeña','Necesito una M, no una S','Necesito una talla M, no una S','Necesito la talla M, no la S'],'Both size descriptions agree with feminine talla. M and S are common size labels for medium and small.'],
  ['Tell the assistant you want black trousers and a blue T-shirt.','Quiero unos pantalones negros y una camiseta azul',['Quiero pantalones negros y una camiseta azul'],'Use plural negros for pantalones, but singular azul for camiseta.']
  ],
  [

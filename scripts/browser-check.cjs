@@ -224,6 +224,57 @@ async function run(){ // Wait for the browser process before creating its first 
     state.games.active=null;actions.gameNew();render();assert(state.games.active.stage===stage&&state.games.active.questions.length===10,stage+' contextual game level');actions.gameLeave();state.blanks.active=null;actions.blanksNormal();render();assert(state.blanks.active.tables.length===3&&document.querySelectorAll('[role=rowheader]').length===6,stage+' six person adaptive tables');FriendsToAmigos.handleBack();
    }
    state.completed=C.lessons.map(l=>l.id);state.active=null;quiz=null;actions.home();render();assert(document.querySelector('#app').textContent.includes('course through B2'), 'final B2 course milestone');assert(!document.querySelector('#app').textContent.includes('Continue to C'),'no invented C curriculum');
+   // The additive dictionary preserves the five-tab navigation and learning state.
+   window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,false,0);
+   state=E.fresh();state.onboarded=true;quiz=null;actions.home();render();
+   const navOrder=()=>[...document.querySelectorAll('nav [data-tab]')].map(e=>e.dataset.tab).join('|');
+   assert(navOrder()==='Home|Learn|Games|Review|Profile','dictionary preserves permanent navigation order');
+   const dictionaryLesson=C.lessons.find(l=>l.stage==='A1.1'&&l.reading&&l.reading.text.includes('Tengo hambre.'));
+   assert(Boolean(dictionaryLesson),'authored hunger story available for contextual lookup');
+   actions.lesson({dataset:{id:dictionaryLesson.id}});render();window.scrollTo(0,0);await frame();
+   const dictionaryBefore=()=>{const value=JSON.parse(JSON.stringify(state));delete value.savedWords;return JSON.stringify(value);};
+   const untouched=dictionaryBefore(),snapshot=JSON.stringify(state.active),storyText=document.querySelector('.story p[data-dictionary]').textContent;
+   assert(storyText===dictionaryLesson.reading.text,'dictionary tokenisation preserves authored story text');
+   let token=[...document.querySelectorAll('.story p [data-dictionary-token]')].find(e=>e.textContent==='Tengo');
+   assert(token&&token.getAttribute('role')==='button'&&token.tabIndex===0,'Spanish words have accessible delegated lookup');
+   token.scrollIntoView({block:'center'});await frame();token.click();await frame();
+   let popup=document.querySelector('.dictionary-popup');
+   assert(popup&&!popup.hidden&&popup.getAttribute('role')==='dialog','contextual popup opens without lesson navigation');
+   assert(popup.textContent.includes('tener hambre')&&popup.textContent.includes('to be hungry'),'phrase meaning takes priority over isolated hunger');
+   assert(popup.querySelector('[data-dict-action=save]').textContent==='Save phrase','recognized construction saves useful phrase');
+   const bounded=label=>{const bounds=popup.getBoundingClientRect();assert(bounds.left>=(config.left||0)+9&&bounds.right<=innerWidth-9,label+' horizontal usable viewport');assert(bounds.top>=33&&bounds.bottom<=innerHeight-config.bottom-9,label+' clears Android system bars');};
+   bounded('compact dictionary');assert(popup.querySelectorAll('button').length===4,'compact dictionary actions retained');
+   assert([...popup.querySelectorAll('button')].every(e=>e.getBoundingClientRect().height>=44),'dictionary controls meet mobile touch targets');
+   const utteranceCount=utterances.length;popup.querySelector('[data-dict-action=pronounce]').click();assert(utterances.length===utteranceCount+1&&utterances.at(-1).lang==='es-ES','dictionary uses existing Spain speech path');
+   popup.querySelector('[data-dict-action=more]').click();await frame();assert(popup.querySelector('#dictionary-more')&&popup.querySelector('[data-dict-action=more]').getAttribute('aria-expanded')==='true','More expands level-appropriate entry');bounded('expanded dictionary');
+   popup.querySelector('[data-dict-action=save]').click();await frame();assert(state.savedWords.length===1&&state.savedWords[0].kind==='phrase','phrase persists from popup');
+   popup.querySelector('[data-dict-action=save]').click();assert(state.savedWords.length===1,'repeat Save cannot duplicate vocabulary');assert(popup.querySelector('[data-dict-action=save]').getAttribute('aria-pressed')==='true','saved popup state is explicit');
+   assert(dictionaryBefore()===untouched&&JSON.stringify(state.active)===snapshot,'dictionary does not change score hint evidence SRS or active snapshot');
+   assert(JSON.parse(localStorage.getItem(P.KEY)).savedWords.length===1,'saved phrase written offline to existing backup schema');
+   popup.querySelector('[data-dict-action=close]').click();assert(popup.hidden&&document.activeElement===token,'closing dictionary restores selected word focus');
+   token.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));assert(!popup.hidden,'keyboard Enter opens dictionary');
+   document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true}));assert(popup.hidden,'Escape dismisses dictionary');
+   token.click();document.querySelector('.eyebrow').dispatchEvent(new Event('pointerdown',{bubbles:true}));assert(popup.hidden,'outside tap dismisses dictionary');
+   token.click();assert(FriendsToAmigos.handleBack()&&screen==='quiz'&&popup.hidden,'Android Back closes dictionary before leaving lesson');
+   assert(FriendsToAmigos.handleBack()&&screen==='main'&&state.active.lesson.id===dictionaryLesson.id,'next Back safely saves unchanged lesson');actions.continue();render();assert(JSON.stringify(state.active)===snapshot,'dictionary course snapshot resumes exactly');
+   token=[...document.querySelectorAll('.story p [data-dictionary-token]')].find(e=>e.textContent==='pan');token.click();await frame();popup=document.querySelector('.dictionary-popup');assert(popup.textContent.includes('bread'),'known noun context lookup');popup.querySelector('[data-dict-action=save]').click();assert(state.savedWords.length===2,'individual word saves alongside phrase');FriendsToAmigos.handleBack();FriendsToAmigos.handleBack();
+   actions.profile();render();assert(document.querySelector('#app').textContent.includes('2 saved words and phrases'),'Profile exposes saved vocabulary count');assert(navOrder()==='Home|Learn|Games|Review|Profile','Profile retains Review and all tab positions');
+   document.querySelector('[data-action=savedWords]').click();assert(screen==='savedWords'&&tab==='Profile'&&!document.querySelector('nav'),'Saved Words lives within Profile rather than new tab');
+   assert(document.querySelectorAll('.saved-word-row').length===2,'saved list renders both entry kinds');
+   document.querySelector('[data-action=savedFilter][data-filter=words]').click();assert(document.querySelectorAll('.saved-word-row').length===1&&document.querySelector('.saved-word-row h3').textContent==='pan','Words filter');
+   document.querySelector('[data-action=savedFilter][data-filter=phrases]').click();assert(document.querySelectorAll('.saved-word-row').length===1&&document.querySelector('.saved-word-row h3').textContent==='tener hambre','Phrases filter');
+   document.querySelector('[data-action=savedFilter][data-filter=all]').click();let search=document.querySelector('#saved-word-search');search.value='hungry';search.dispatchEvent(new Event('input',{bubbles:true}));assert(document.querySelectorAll('.saved-word-row').length===1&&document.querySelector('.saved-word-row h3').textContent==='tener hambre','saved meanings searchable');assert(document.activeElement.id==='saved-word-search','search focus survives results rendering');
+   search=document.querySelector('#saved-word-search');search.value='no match at all';search.dispatchEvent(new Event('input',{bubbles:true}));assert(document.querySelector('#app').textContent.includes('No saved words match'),'empty search explained');search=document.querySelector('#saved-word-search');search.value='';search.dispatchEvent(new Event('input',{bubbles:true}));
+   const recentTimes=state.savedWords.map((row,i)=>({...row,savedAt:i+100}));state.savedWords=recentTimes;render();document.querySelector('[data-action=savedFilter][data-filter=recent]').click();assert(document.querySelector('.saved-word-row h3').textContent==='pan','Recently saved orders latest first');
+   const savedSpeech=utterances.length;document.querySelector('[data-action=savedPronounce]').click();assert(utterances.length===savedSpeech+1&&utterances.at(-1).lang==='es-ES','saved vocabulary pronunciation uses es-ES');
+   document.querySelector('[data-action=savedOpen]').click();assert(!document.querySelector('.dictionary-popup').hidden,'saved row reopens full dictionary');assert(FriendsToAmigos.handleBack()&&screen==='savedWords','Back closes saved entry first');
+   document.querySelector('[data-action=savedRemove]').click();assert(state.savedWords.length===1&&document.querySelectorAll('.saved-word-row').length===1,'Remove persists without changing course');
+   assert(document.documentElement.scrollWidth<=innerWidth+1,'Saved Words fits narrow large-text and landscape screens');window.scrollTo(0,0);assert(FriendsToAmigos.handleBack()&&tab==='Profile'&&screen==='main','Saved Words Back returns Profile');
+   actions.tab({dataset:{tab:'Review'}});render();assert(document.querySelector('[data-action=review]'),'Review remains directly accessible after saved words');
+   const listenLesson=C.lessons.find(l=>l.stage==='A2.1'&&l.questions.some(q=>q.listening));startQuiz('lesson',listenLesson.questions,listenLesson);quiz.index=listenLesson.questions.findIndex(q=>q.listening);quiz.answers=Array(quiz.index).fill(true);render();
+   assert(!document.querySelector('.listening [data-dictionary-token]'),'dictionary cannot expose hidden listening transcript');assert(!document.querySelector('[role=radio] [data-dictionary-token]'),'dictionary cannot intercept answer options');
+   const speakLesson=C.lessons.find(l=>l.questions.some(q=>q.type==='speaking'));startQuiz('lesson',speakLesson.questions,speakLesson);quiz.index=speakLesson.questions.findIndex(q=>q.type==='speaking');render();assert(![...document.querySelectorAll('[data-dictionary]')].some(e=>e.textContent===currentQuestion().spanish),'dictionary cannot expose unrevealed speaking model');
+   actions.revealModel();render();assert([...document.querySelectorAll('[data-dictionary]')].some(e=>e.textContent===currentQuestion().spanish&&e.querySelector('[data-dictionary-token]')),'revealed model offers dictionary safely');FriendsToAmigos.handleBack();
    // Leave original screenshot subjects eligible; this does not grant game mastery.
    state.completed=C.lessons.map(l=>l.id);state.stage='A2.1';state.grammarLevel='A2.1';state.games.active=null;state.blanks.active=null;state.focused=F.empty();quiz=null;actions.home();render();
    return {scenario:config.name,width:innerWidth,height:innerHeight,dark:config.dark,nativeInsets:true,simulatedKeyboard:Boolean(config.keyboard),checks};
@@ -232,7 +283,7 @@ async function run(){ // Wait for the browser process before creating its first 
   const screenshot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false},sessionId);fs.writeFileSync(path.join(output,config.name+'.png'),Buffer.from(screenshot.data,'base64'));totalChecks+=report.checks;console.log('PASS '+config.name+' ('+report.checks+' checks)');fs.writeFileSync(path.join(output,config.name+'.json'),JSON.stringify(report,null,2));
   if(['s24-dark-buttons','narrow-light-buttons','landscape-dark-cutout','s24-dark-large-text'].includes(config.name)){
    await evaluate(sessionId,`(async()=>{window.FriendsToAmigosInsets(24,${config.bottom},${config.left||0},0,false,0);actions.leave();actions.tab({dataset:{tab:'Games'}});actions.gameNew();actions.gameLeave();render();window.scrollTo(0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));})()`);
-   for(const view of ['games','round','feedback','tables','table-feedback','listening-first','listening-compact','listening-result','speaking-first','speaking-compact','speaking-result','spanish-course','spanish-hint','spanish-listening','a22-writing','a22-story','a22-tables','b22-writing','b22-story','b22-writing-feedback']){
+   for(const view of ['games','round','feedback','tables','table-feedback','listening-first','listening-compact','listening-result','speaking-first','speaking-compact','speaking-result','spanish-course','spanish-hint','spanish-listening','a22-writing','a22-story','a22-tables','b22-writing','b22-story','b22-writing-feedback','dictionary-popup','saved-words']){
     if(view==='round')await evaluate(sessionId,"actions.gameResume();render();window.scrollTo(0,0);");
     if(view==='tables')await evaluate(sessionId,"state.blanks.active=null;actions.blanksNormal();render();window.scrollTo(0,0);");
     if(view==='table-feedback')await evaluate(sessionId,"const a=state.blanks.active,t=a.tables[0];a.selected=t.rows.map((row,j)=>j===0?t.options[j].find(v=>v!==t.target.forms[row]):t.target.forms[row]);actions.blanksCheck();render();window.scrollTo(0,document.documentElement.scrollHeight);");
@@ -252,6 +303,8 @@ async function run(){ // Wait for the browser process before creating its first 
     if(view==='b22-writing')await evaluate(sessionId,"actions.lesson({dataset:{id:'b22u7write'}});quiz.index=4;quiz.answers=[true,null,true,null];render();window.scrollTo(0,0);");
     if(view==='b22-story')await evaluate(sessionId,"actions.lesson({dataset:{id:'b22u7story3'}});render();window.scrollTo(0,0);");
     if(view==='b22-writing-feedback')await evaluate(sessionId,"actions.lesson({dataset:{id:'b22u7write'}});quiz.index=4;quiz.answers=[true,null,true,null];quiz.selected='Mi llamo Ana. Tengo una propuesta distinta.';actions.check();render();window.scrollTo(0,document.documentElement.scrollHeight);");
+    if(view==='dictionary-popup')await evaluate(sessionId,"actions.lesson({dataset:{id:C.lessons.find(l=>l.stage==='A1.1'&&l.reading&&l.reading.text.includes('Tengo hambre.')).id}});render();window.scrollTo(0,0);const token=[...document.querySelectorAll('.story p [data-dictionary-token]')].find(e=>e.textContent==='Tengo');token.scrollIntoView({block:'center'});token.click();");
+    if(view==='saved-words')await evaluate(sessionId,"dictionaryUI.saveCurrent();dictionaryUI.close();actions.profile();actions.savedWords();render();window.scrollTo(0,0);");
     await evaluate(sessionId,"document.querySelectorAll('.toast').forEach(e=>e.remove());new Promise(r=>setTimeout(r,250))");
     const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false},sessionId);fs.writeFileSync(path.join(output,config.name+'-'+view+'.png'),Buffer.from(shot.data,'base64'));
    }
