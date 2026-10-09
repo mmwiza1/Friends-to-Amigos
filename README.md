@@ -80,7 +80,7 @@ gradle -p android assembleDebug lintDebug testDebugUnitTest
 
 No new dependencies are needed. The established GitHub Actions workflow runs static, JS, rendered browser and Android build/lint/unit checks and uploads `friends-to-amigos-android` and reports. See [BUILD_STATUS.md](BUILD_STATUS.md) for exact performed results and limits, and the [user-testing checklist](docs/release/USER_TESTING.md) before wider distribution.
 
-Preserve signing keys for in-place upgrades. A fresh CI debug key may differ from an installed APK: verify an exported backup before any uninstall. Local Chromium file navigation is blocked by this execution environment, so rendered browser and native validation use CI. No physical-device, emulator, acoustic TTS or native-speaker validation is claimed for this release.
+Preserve signing keys for in-place upgrades. A fresh CI debug key may differ from an installed APK: verify an exported backup before any uninstall. Local Chromium cannot launch in this restricted execution environment, so rendered browser and native validation use CI. No physical-device, emulator, acoustic TTS or native-speaker validation is claimed for this release.
 
 ## Limits and next step
 
