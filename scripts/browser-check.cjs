@@ -276,7 +276,7 @@ async function run(){ // Wait for the browser process before creating its first 
    const speakLesson=C.lessons.find(l=>l.questions.some(q=>q.type==='speaking'));startQuiz('lesson',speakLesson.questions,speakLesson);quiz.index=speakLesson.questions.findIndex(q=>q.type==='speaking');render();assert(![...document.querySelectorAll('[data-dictionary]')].some(e=>e.textContent===currentQuestion().spanish),'dictionary cannot expose unrevealed speaking model');
    actions.revealModel();render();assert([...document.querySelectorAll('[data-dictionary]')].some(e=>e.textContent===currentQuestion().spanish&&e.querySelector('[data-dictionary-token]')),'revealed model offers dictionary safely');FriendsToAmigos.handleBack();
    // Leave original screenshot subjects eligible; this does not grant game mastery.
-   state.completed=C.lessons.map(l=>l.id);state.stage='A2.1';state.grammarLevel='A2.1';state.games.active=null;state.blanks.active=null;state.focused=F.empty();quiz=null;actions.home();render();
+   state.completed=C.lessons.map(l=>l.id);state.stage='A2.1';state.grammarLevel='A2.1';state.games=G.empty();state.blanks=B.empty();state.focused=F.empty();quiz=null;actions.home();render();
    return {scenario:config.name,width:innerWidth,height:innerHeight,dark:config.dark,nativeInsets:true,simulatedKeyboard:Boolean(config.keyboard),checks};
   })()`);
   await evaluate(sessionId,"document.querySelectorAll('.toast').forEach(e=>e.remove());");
