@@ -1,6 +1,6 @@
 # Codex resource reference
 
-Last reviewed: 2026-10-08
+Last reviewed: 2026-10-09
 
 For future curriculum, writing, listening or learning-engine work, inspect the relevant files in this directory before choosing third-party dependencies or designing new behaviour.
 
