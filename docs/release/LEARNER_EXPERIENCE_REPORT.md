@@ -1,6 +1,6 @@
 # 1.2.0 learner-experience quality report
 
-Baseline: main `e6a4eaed045c255beb6e663b46d24e9d81d0b8a5` (1.1.0/code 12). Candidate: **1.2.0/code 13**, storage schema **v2**. This release refines the existing learner experience; it adds no course stage or navigation tab.
+Baseline: main `e6a4eaed045c255beb6e663b46d24e9d81d0b8a5` (1.1.0/code 12). Release: **1.2.0/code 13**, storage schema **v2**. This release refines the existing learner experience; it adds no course stage or navigation tab.
 
 ## Beginner confidence without a lower A1 standard
 
@@ -70,13 +70,19 @@ The existing eleven rendered profiles gain four distinct named scenarios, for **
 | Galaxy S25 dark large-text cutout | 360×800 | Top 36/bottom 24, 8px side insets; text scale 1.35 |
 | Galaxy S25 light landscape cutout | 760×360 | Top 20/bottom 24, left 34/right 16; text scale 1.2 |
 
-Existing 320px, portrait/landscape, light/dark and resized-keyboard profiles remain. Native WindowInsets remain the sole safe-area source; no model detection, physical-pixel hard-coding or double padding is added. Choice radios have independent 44px targets, while sibling Spanish text wraps with zero horizontal overflow. Question/story/popup font sizing follows user text scaling without changing the palette. The popup/More uses available viewport/insets, avoids overlay keyboards, can scroll and closes on outside tap/Escape/Back. Existing keyboard Go, multiline newline, focused-input scrolling, Today, placement and Android Back stay intact.
+Existing 320px, portrait/landscape, light/dark and resized-keyboard profiles remain. Native WindowInsets remain the sole safe-area source; no model detection, physical-pixel hard-coding or double padding is added. Choice radios have independent 44px targets, while sibling Spanish text wraps with zero horizontal overflow. Question/story/popup font sizing follows user text scaling without changing the palette. The popup/More uses available viewport/insets, avoids overlay keyboards, can scroll and closes on outside tap/Escape/Back. Saved Words search has scalable label clearance so its focus ring does not obscure text. Existing keyboard Go, multiline newline, focused-input scrolling, Today, placement and Android Back stay intact.
 
 Regression subjects include all three opening lessons, first story, first written recall/transfer, mixed prompts, word lookup before selection, popup dismissal and later selection, Saved Words/search with IME, long options, dictionary More and multiline writing with IME. Native arithmetic tests cover density, gesture/three-button/cutout insets and resized-versus-overlay keyboards. Exact performed results and rendered manual review are recorded below and in [BUILD_STATUS.md](../../BUILD_STATUS.md).
 
 ## Validation
 
-**Final validation is pending during implementation.** Replace this section with the actual static, JavaScript, audit, rendered-browser and Android build/lint/unit counts before publishing. No physical-device, emulator, acoustic TTS or native-speaker validation is claimed by this draft report.
+The final code gate is [run 38480352996](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/38480352996), source `616247d825fb1a78be639b5255401c2b0d8d7bb4` followed only by final documentation updates. `npm run check` and local `npm run audit` pass. CI `npm test` reports **838 passed, 0 failed/cancelled/skipped/todo**, +84 over baseline. The local Node 24 runner reports **28 file-isolated suites passed**, zero failed/skipped.
+
+Rendered validation reports **20,640 assertions across all 15 layouts** (1,376 each), including all four named Samsung variations. `assembleDebug`, `lintDebug` and `testDebugUnitTest` succeed: **13 native tests passed**, zero failures/errors/skips; lint **0 errors / 12 existing warnings**. The downloaded **1,738,585-byte** debug APK contains all **64** web assets exactly as validated. See [BUILD_STATUS.md](../../BUILD_STATUS.md) for detailed results and the physical-device checklist.
+
+The resumed work retained the implementation and recovered the existing GitHub validation branch. The workspace has no `.git` directory, so existing commits/trees and byte-level comparisons supplied branch/diff verification instead of recreating a checkout. The completed fixture fix scopes every injected screenshot command in its own function; this eliminates the duplicated `const l` declarations without suppressing exceptions, skipping layouts or deleting assertions. Manual rendered review also caught a search focus ring crowding its label; a scoped scalable margin and a rendered clearance check fix it. The entire gate was rerun afterwards.
+
+Developer inspection included all opening lesson/story/recall/transfer screens, mixed prompts, answer-word popup/close/card selection, Saved Words, the named S22/S24/S25 layouts, large text, keyboard and landscape/cutout variants. Search labels are clear in the refreshed normal/large-text screenshots. No physical-device, emulator, acoustic TTS or native-speaker validation occurred.
 
 ## File inventory
 

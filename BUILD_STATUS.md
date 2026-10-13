@@ -1,6 +1,6 @@
 # Build and validation status
 
-Learner-experience candidate **1.2.0**, Android **versionCode 13**, storage schema **v2**.
+Learner-experience release **1.2.0**, Android **versionCode 13**, storage schema **v2**.
 Baseline: latest main `e6a4eaed045c255beb6e663b46d24e9d81d0b8a5` (1.1.0/code 12).
 
 ## Baseline and preserved contracts
@@ -13,7 +13,18 @@ The supported opening preserves the original checkpoints, objectives, writing pr
 
 ## Current release gate
 
-Local syntax/structural checks, the anchor audit and targeted compatibility/review tests pass. The final complete `npm test`, rendered mobile/browser and Android compile/lint/unit runs are in progress; exact counts and the successful workflow link will be recorded before publishing main.
+Final code gate: [GitHub Actions run 38480352996](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/38480352996), validated source `616247d825fb1a78be639b5255401c2b0d8d7bb4` (followed only by final release-documentation updates).
+
+- `npm run check`: **passed**; 576 activities, 3,328 slots, 3,367 permanent authored IDs, 592 game items, 896 focused items and the existing 1,212-entry/1,564-form dictionary checked.
+- `npm test` on CI Node 22: **838 passed, 0 failed, 0 cancelled, 0 skipped, 0 todo**, +84 individual cases over baseline. Local Node 24 reports **28 file-isolated suites passed**, with no failures/skips, in the full resumed/final reruns.
+- `npm run audit`: **passed locally**; the retained deterministic A1 report covers 15 anchors / 16 units and flags eight literal exposure gaps for educator interpretation, not automatic content insertion.
+- `npm run check:browser`: **20,640 assertions / 15 layouts**, 1,376 per layout. All eleven old profiles and four named Samsung profiles pass; the additional focus-ring/label clearance check is included in every layout.
+- `gradle -p android assembleDebug lintDebug testDebugUnitTest`: **BUILD SUCCESSFUL**, 47 tasks executed. JUnit XML: **13 passed, 0 failures, 0 errors, 0 skips** (eight inset, three native-policy and two launcher tests). Lint XML: **0 errors, 12 warnings**, the same warning count as baseline.
+- Test APK: **1,738,585 bytes**. All **64** bundled web assets match the validated workspace byte for byte, including the fixture-independent product code, CSS, dictionary, course, games and audio/mascot assets.
+
+The original screenshot failure was a DevTools lexical-scope collision, not a product exception. Every screenshot setup now runs in its own IIFE, with a regression guard; no layout or product assertion was removed. Manual review then found a search focus ring crowding its label. A scoped `.5rem` gap and real rendered geometry assertion fix that issue. The complete gate was rerun after this correction.
+
+Developer inspection covered opening lesson 1/2/3, first story, recall/transfer, the mixed-language prompt, pre-answer choice lookup/dismissal/selection, Saved Words, normal/large text, dark/light, keyboard and landscape/cutout renders. The refreshed S24/S25 search renders show label clearance. This is simulated rendered review, not physical-device testing.
 
 Local Chromium fails to launch under the execution sandbox (`ECONNRESET`, crashpad socket operation not permitted), so no local rendered pass is claimed. Local Gradle/Android SDK/adb/emulator are unavailable. The established GitHub Actions workflow runs `npm run check`, `npm test`, `npm run check:browser`, then `gradle -p android assembleDebug lintDebug testDebugUnitTest`. No emulator, physical-device, acoustic TTS or independent native-speaker validation is claimed.
 
