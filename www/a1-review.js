@@ -91,6 +91,34 @@ function apply(C){
  }
  const extra=[['u4write',1,'Mi hermano es simpática','Simpático agrees with masculine hermano; simpática would describe a feminine noun.'],['u4write',2,'Mi hermana es alto','Use feminine alta with hermana.'],['a12u3write',0,'Quiero un camiseta blanco, por favor','Camiseta is feminine: una camiseta blanca. Both article and adjective must agree.'],['a12u6write',1,'Te ducho a las nueve','Answer about yourself with me ducho; te ducho means I shower you.']];
  for(const [id,index,answer,explanation] of extra)lesson(id).questions[index].mistakes.push({answer,explanation});
+ // Confidence ramp: replace only the first three teaching activities after
+ // permanent identities and legacy snapshots have been captured. The checkpoint
+ // has its own question copies and intentionally retains its original demands.
+ const supported=(old,patch,spanish,meaning)=>{
+  const next={...old,...patch,teachingModel:{spanish,meaning}};
+  for(const field of ['accepted','language','mistakes','sentence','meaning'])delete next[field];
+  return next;
+ };
+ const discover=lesson('u0l0');
+ discover.questions[0]=supported(discover.questions[0],{prompt:'Which means “Hello”?',explanation:'Hola means hello. Use it when you meet someone.'},'Hola','Hello');
+ discover.questions[1]=supported(discover.questions[1],{type:'choice',mode:'recognition',prompt:'Ana says “Me llamo Ana”. What is she telling you?',answer:'Her name',options:['Her name','Her age','Where she lives'],spanish:'Me llamo Ana.',explanation:'Me llamo Ana means “My name is Ana”.'},'Me llamo Ana.','My name is Ana.');
+ discover.questions[2]={...supported(discover.questions[2],{type:'gap',mode:'completion',prompt:'Complete: Me ___ Ana. (“My name is Ana”)',answer:'llamo',options:['llamo','hola','gracias'],spanish:'Me llamo Ana.',explanation:'Me llamo Ana means “My name is Ana”.'},'Me llamo Ana.','My name is Ana.'),sentence:'Me ___ Ana.',meaning:'My name is Ana',spanishFragments:['Me ___ Ana.']};
+ discover.questions[3]=supported(discover.questions[3],{explanation:'¿Cómo te llamas? asks “What is your name?” Answer with your name: Me llamo Ana.'},'¿Cómo te llamas?','What is your name?');
+ discover.questions[4]=supported(discover.questions[4],{type:'choice',mode:'recognition',prompt:'You are leaving. Which phrase means “See you later”?',answer:'Hasta luego',options:['Hola','Hasta luego','Me llamo Ana'],spanish:'Hasta luego',explanation:'Hasta luego means “See you later”. Adiós is another way to say goodbye.'},'Adiós. Hasta luego.','Goodbye. See you later.');
+ const confidence=lesson('u0l1');
+ confidence.questions[0]=supported(confidence.questions[0],{explanation:'Buenos días means “Good morning”. Use it in the morning.'},'Buenos días','Good morning');
+ confidence.questions[1]={...supported(confidence.questions[1],{prompt:'Complete: ¿___ ___ llamas? (“What is your name?”)',options:['Cómo te','Hola','Gracias'],explanation:'Keep the familiar question together: ¿Cómo te llamas? means “What is your name?”'},'¿Cómo te llamas?','What is your name?'),sentence:'¿___ ___ llamas?',meaning:'What is your name?',spanishFragments:['¿___ ___ llamas?']};
+ confidence.questions[2]=supported(confidence.questions[2],{type:'choice',mode:'recognition',prompt:'Which question asks someone their name?',answer:'¿Cómo te llamas?',options:['Hasta luego','¿Cómo te llamas?','Me llamo Ana'],explanation:'¿Cómo te llamas? asks a name. Me llamo Ana gives a name.'},'¿Cómo te llamas?','What is your name?');
+ confidence.questions[3]=supported(confidence.questions[3],{},'Gracias. De nada.','Thank you. You’re welcome.');
+ confidence.questions[4]={...confidence.questions[4],mode:'recall',prompt:'From memory, write “My name is Ana”.',answer:'Me llamo Ana',accepted:['Me llamo Ana','Mi nombre es Ana'],spanish:'Me llamo Ana',explanation:'Me llamo Ana means “My name is Ana”. You have already seen and completed this phrase.',mistakes:[]};
+ const useIt=lesson('u0l2');
+ useIt.questions[1]={...useIt.questions[1],explanation:'Use the familiar phrase buenos días. It means “Good morning”.'};
+ useIt.questions[3]={...useIt.questions[3],teachingModel:{spanish:'¿Puedes repetir, por favor?',meaning:'Could you repeat, please?'}};
+ useIt.questions[4]={...useIt.questions[4],prompt:'You are Luis. Introduce yourself to a new classmate.',answer:'Me llamo Luis',accepted:['Me llamo Luis','Soy Luis','Mi nombre es Luis','Hola, me llamo Luis','Hola, soy Luis'],spanish:'Me llamo Luis',explanation:'Use me llamo with your name: Me llamo Luis. You can also say Soy Luis.',mistakes:[]};
+ // Familiar introductions and home-language support the next communicative goal.
+ // These two short additions leave the existing story questions/answers intact.
+ amendStory('u4story0','Ana: Hola, Marta.','Ana: Hola, Marta. Me llamo Ana.');
+ amendStory('a12u5story0','Ana: Este es el salón.','Ana: Vivo en este piso. Este es el salón.');
 }
 root.A1Review={apply};if(typeof module!=='undefined')module.exports=root.A1Review;
 })(typeof window==='undefined'?globalThis:window);

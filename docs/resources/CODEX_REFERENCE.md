@@ -1,6 +1,6 @@
 # Codex resource reference
 
-Last reviewed: 2026-10-09
+Last reviewed: 2026-10-13
 
 For future curriculum, writing, listening or learning-engine work, inspect the relevant files in this directory before choosing third-party dependencies or designing new behaviour.
 
@@ -35,6 +35,10 @@ When assessment is uncertain, prefer a model answer and coaching over falsely re
 
 The implemented first-party [learner dictionary](../LEARNER_DICTIONARY.md) is separate from the writing checker. Read that document before changing vocabulary data, phrase recognition or Saved Words. Rebuild from curated definitions and explicit original bilingual course glossaries; never invent token translations from a whole-sentence pair or silently add licensed dictionary data. Dictionary uncertainty must remain visible.
 
-Preserve the five tabs **Home / Learn / Games / Review / Profile**, including Review access and exact order. Saved Words belongs inside Profile; contextual popups stay inside the existing learning flow. Feature references are not navigation redesign instructions. Dictionary interactions are not hints, answers, review evidence or progress events. Storage stays v2 with optional validated `savedWords`; historical snapshots and stable IDs remain authoritative.
+Preserve the five tabs **Home / Learn / Games / Review / Profile**, including Review access and exact order. Saved Words belongs inside Profile; contextual popups stay inside the existing learning flow. Feature references are not navigation redesign instructions. Visible Spanish, including conservative mixed-language fragments and Spanish answer-option text, is explorable before answering. Tap a word for vocabulary help; tap the sibling radio/card/padding to select. Never nest token buttons inside an answer button, inspect hidden correctness metadata or reveal a hidden transcript/model.
+
+Dictionary interactions are not hints, answers, review evidence or progress events. Storage stays v2 with optional validated `savedWords` and true-only `dictionaryTipSeen`; historical snapshots and stable IDs remain authoritative. Visible `teachingModel` and Spanish-fragment metadata must survive validated snapshots without replacing old content on resume.
+
+The first three A1.1 Unit 0 teaching activities deliberately ramp recognition → supported completion → easy recall → contextual use → transfer. Meaning comes before grammar labels at the start. Later A1 checkpoints/learning objectives remain intact. Recycle familiar anchor language when communicatively natural; [the recurrence audit](../release/a1-anchor-recurrence.json) flags exposure gaps for review, not mandatory counts or mastery. Responsive Samsung profiles exercise CSS viewport/inset/keyboard/text variations, not model-specific resolution hacks.
 
 Typed-input tolerance for vowel accents/ü/punctuation is unchanged; authored Spanish stays canonical and ñ is distinct. See the [explicit Spanish QA manifest](../release/dictionary-content-corrections.json): requested carrier/instruction/native-alternative fixes are whitelisted against immutable historical fixtures, rather than weakening preservation tests.

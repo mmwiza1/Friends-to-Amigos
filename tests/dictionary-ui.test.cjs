@@ -1,7 +1,7 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),UI=require('../www/dictionary-ui.js');
 const entry={id:'verb-tener',kind:'word',surface:'tengo',lemma:'tener',pos:'verb',meaning:'I have',contextNote:'tengo que = I have to / must',grammar:'yo · present',pronunciation:'tengo',examples:[{es:'Tengo hambre.',en:'I am hungry.'}]};
-function environment({readOnly=false,persisted=true,width=320,height=640,capacity=Infinity,insets={},overlap=0,visualViewport=null}={}){
+function environment({readOnly=false,persisted=true,width=320,height=640,capacity=Infinity,insets={},overlap=0,visualViewport=null,onDiscover=()=>{}}={}){
  const listeners=new Map(),nodes=[];
  function node(tag){const handlers={};const value={tagName:tag.toUpperCase(),children:[],style:{},dataset:{},attributes:{},innerHTML:'',hidden:false,isConnected:true,
   setAttribute(name,value){this.attributes[name]=String(value);},append(child){this.children.push(child);},contains(child){return child===this||this.children.some(c=>c.contains?.(child)||c===child);},
@@ -12,7 +12,7 @@ function environment({readOnly=false,persisted=true,width=320,height=640,capacit
  const window={document,innerWidth:width,innerHeight:height,visualViewport,addEventListener(name,fn){listeners.set('window:'+name,fn);},removeEventListener(name){listeners.delete('window:'+name);},getComputedStyle(){return {getPropertyValue:name=>properties[name]||'0px'};},setTimeout:fn=>fn()};
  const state={savedWords:[],active:{index:2,answers:[true,false]},completed:{u0l0:1},mastery:{},placement:'A1.1'},effects={save:0,toasts:[],speech:[]};
  const lexicon={get:id=>id===entry.id?entry:null,addSaved:(rows,item)=>rows.concat({id:item.id,lemma:item.lemma,meaning:item.meaning,kind:item.kind,savedAt:123}).slice(0,capacity),removeSaved:(rows,id)=>rows.filter(row=>row.id!==id)};
- const ui=UI.create({window,document,lexicon,getState:()=>state,canSave:()=>!readOnly,save(){effects.save++;return persisted;},speak:text=>{effects.speech.push(text);return true;},toast:text=>effects.toasts.push(text)});
+ const ui=UI.create({window,document,lexicon,onDiscover,getState:()=>state,canSave:()=>!readOnly,save(){effects.save++;return persisted;},speak:text=>{effects.speech.push(text);return true;},toast:text=>effects.toasts.push(text)});
  const anchor=node('span');anchor.getBoundingClientRect=()=>({left:130,right:170,top:280,bottom:300});
  return {ui,state,effects,anchor,listeners,nodes,document,window,popup:()=>nodes.find(n=>n.attributes.role==='dialog')};
 }
@@ -101,4 +101,12 @@ test('nearest Spanish language overrides an English document; inner English glos
  assert.equal(fragment.children.map(n=>n.textContent).join(''),'Tengo hambre.');
  assert.equal(fragment.children.filter(n=>n.dataset?.dictionaryToken==='').length,2);
  assert.ok(fragment.children.filter(n=>n.dataset).every(n=>n.attributes.role==='button'&&n.attributes.tabindex==='0'));
+});
+
+
+test('successful discovery repositions after the one-time tip is removed, without changing learning state',()=>{
+ let moved=false,called=0;const f=environment({onDiscover(){moved=true;called++;}});
+ f.anchor.getBoundingClientRect=()=>({left:130,right:170,top:moved?180:280,bottom:moved?200:300});
+ const before=JSON.stringify(f.state);f.ui.open(entry,f.anchor);assert.equal(called,1);assert.equal(f.popup().style.top,'208px');assert.equal(JSON.stringify(f.state),before);
+ f.ui.close();f.ui.open({surface:'unknown'},f.anchor);assert.equal(called,1);
 });

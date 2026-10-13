@@ -25,17 +25,20 @@ test('every exercise has required content and choices have exactly one correct a
   }
  }
 });
-test('each regular lesson progresses through completion, recall, contextual response and transfer',()=>{
- for(const l of C.lessons.filter(l=>/^u\dl\d$/.test(l.id))){
+test('the confidence ramp delays recall while every later regular lesson retains recall and transfer',()=>{
+ const ramp=['u0l0','u0l1','u0l2'];
+ assert.deepEqual(ramp.map(id=>a11.find(l=>l.id===id).questions.slice(0,5).filter(q=>q.type==='text').length),[0,1,2]);
+ assert.deepEqual(a11.find(l=>l.id==='u0l0').questions.map(q=>q.type),['choice','choice','gap','choice','choice']);
+ for(const l of C.lessons.filter(l=>/^u\dl\d$/.test(l.id)&&!ramp.includes(l.id))){
   assert.equal(l.questions.length,l.id.endsWith('l0')?5:l.id.endsWith('l1')?6:7);assert.equal(l.questions[1].type,'gap');assert.equal(l.questions[2].mode,'recall');assert.equal(l.questions[2].language,'es');assert.equal(l.questions[4].type,'text');assert.equal(l.questions[4].language,'es');
   assert.ok(['response','context','inference','transfer','recognition'].includes(l.questions[3].mode));
  }
- const spanish=a11.flatMap(l=>l.questions).filter(q=>q.type==='text'&&q.language==='es');assert.equal(spanish.length,120);
+ const spanish=a11.flatMap(l=>l.questions).filter(q=>q.type==='text'&&q.language==='es');assert.equal(spanish.length,117);
 });
-test('completion gaps have two or three words, matched distractor lengths and complete pronunciation text',()=>{
+test('only the first supported completion has one blank; later gaps retain two or three words and complete pronunciation text',()=>{
  for(const q of C.lessons.filter(l=>['A1.1','A1.2'].includes(l.stage)).flatMap(l=>l.questions).filter(q=>q.type==='gap')){
-  const count=(q.sentence.match(/___/g)||[]).length;assert.ok(count===2||count===3,q.prompt);
-  for(const option of q.options)assert.equal(option.split(' ').length,count,q.prompt);
+  const count=(q.sentence.match(/___/g)||[]).length;if(q.id==='u0l0-q3')assert.equal(count,1);else assert.ok(count===2||count===3,q.prompt);
+  if(q.id==='u0l1-q2')assert.deepEqual(q.options,['Cómo te','Hola','Gracias'],'the second supported name question keeps clearly different familiar distractors');else for(const option of q.options)assert.equal(option.split(' ').length,count,q.prompt);
   assert.ok(!q.spanish.includes('___'));let index=0;assert.equal(q.spanish,q.sentence.replace(/___/g,()=>q.answer.split(' ')[index++]));
  }
 });

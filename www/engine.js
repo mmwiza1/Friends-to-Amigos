@@ -10,7 +10,10 @@ function recordAnswer(s,q,correct,now=Date.now(),details={}) {
  s.events.push({date:dayKey(new Date(now)),at:now,type:'answer',correct,topic:q.topic,questionId:key,...(details.skipped?{skipped:true}:{}),...(details.assisted?{assisted:true}:{}),...(q.type==='speaking'||details.unverified?{selfAssessed:true}:{})});
  if(details.unverified&&correct){if(r&&!r.corrected&&now>=r.due)r.due=now+86400000;return;}
  if(!correct){const snapshot=r&&!r.corrected?r.question:JSON.parse(JSON.stringify({...q,id:key}));s.reviews[key]={question:snapshot,topic:snapshot.topic,wrong:(r?.wrong||0)+1,success:0,due:now,corrected:false};}
- else if(r&&now>=r.due){r.success++;r.due=now+[1,3,7,14,30][Math.min(r.success-1,4)]*86400000;if(r.success>=3&&!r.corrected){r.corrected=true;s.events.push({date:dayKey(new Date(now)),at:now,type:'corrected',topic:q.topic,questionId:key});}}
+ // A permanent slot can receive a gentler task in a later release. Its saved
+ // harder/different review must be corrected using that original task, not by
+ // success on the replacement recognition item. Wording/accents remain safe.
+ else if(r&&now>=r.due&&r.question&&(r.question.type||'choice')===(q.type||'choice')&&normalizeAnswer(r.question.type==='speaking'?r.question.spanish:r.question.answer)===normalizeAnswer(q.type==='speaking'?q.spanish:q.answer)){r.success++;r.due=now+[1,3,7,14,30][Math.min(r.success-1,4)]*86400000;if(r.success>=3&&!r.corrected){r.corrected=true;s.events.push({date:dayKey(new Date(now)),at:now,type:'corrected',topic:q.topic,questionId:key});}}
 }
 
 function complete(s,lesson,score,count,details={}){const reflectionOnly=count===0&&!lesson.checkpoint&&lesson.questions?.length>0&&lesson.questions.every(q=>W.open(q))&&details.reflected===lesson.questions.length;

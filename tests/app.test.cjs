@@ -39,7 +39,7 @@ test('five-question lessons show the correct bull result',()=>{
  }
 });
 test('gap feedback shows the completed sentence and a missed gap survives resume',()=>{
- const a=app();a.click('begin');a.answer();a.click('check');a.click('next');
+ const a=app();locateQuestion(a,q=>q.type==='gap'&&/^Me llamo Ana[.!]?$/.test(q.spanish)&&/needs me/.test(q.explanation));
  assert.match(a.el.innerHTML,/Complete:/);assert.match(a.el.innerHTML,/fills all gaps, in order/);
  a.answer(false);a.click('check');assert.match(a.el.innerHTML.replace(/<\/?mark>/g,''),/Me llamo Ana/);assert.match(a.el.innerHTML,/needs me/);
  const review=Object.values(a.state().reviews)[0];assert.equal(review.question.type,'gap');
@@ -61,8 +61,8 @@ test('Spanish production rejects English, teaches the rule and retains context i
  a.answer();a.click('check');a.click('next');assert.match(a.el.innerHTML,/Read the story again|Volver a leer el texto/);assert.match(a.el.innerHTML,/Los dos entran en clase/);
 });
 test('recall answers cannot be heard before answering; both TTS paths remain available afterwards',()=>{
- const spoken=[],a=app({AndroidSpeech:{speak:text=>spoken.push(text)}});a.click('begin');
- for(let i=0;i<2;i++){a.answer();a.click('check');a.click('next');}
+ const spoken=[],a=app({AndroidSpeech:{speak:text=>spoken.push(text)}});
+ locateQuestion(a,q=>q.type==='text'&&q.answer==='Me llamo Ana'&&q.mode==='recall');
  assert.match(a.el.innerHTML,/From memory/);assert.doesNotMatch(a.el.innerHTML,/data-action="speak"/);
  a.answer();a.click('check');assert.match(a.el.innerHTML,/data-action="speak"/);a.click('speak');assert.deepEqual(spoken,['Me llamo Ana']);
  a.click('leave');a.click('lesson',{id:'u0story0'});a.click('speakStory');assert.equal(spoken[1],a.ctx.Curriculum.lessons.find(l=>l.id==='u0story0').reading.text);
@@ -99,7 +99,7 @@ test('Android and browser exports round-trip through import with old saved quest
 test('every revised activity and question renders, completes and can be retried',()=>{
  const a=app();for(const lesson of a.ctx.Curriculum.lessons){
   a.click('lesson',{id:lesson.id});if(lesson.reading)a.click('readStory');
-  for(const q of lesson.questions){assert.ok(a.el.innerHTML.includes((q.promptEs||q.prompt).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))));a.answer();a.click('check');assert.match(a.el.innerHTML,q.type==='speaking'?/You marked: I got it|Lo he conseguido/:q.writing?.mode&&q.writing.mode!=='controlled'?/natural response|possible model|accepted alternative/:/✓ Correct/);if(q.writing&&q.writing.mode!=='controlled')a.click('writingReflect',{result:'got'});const roundTrip=a.ctx.ProgressStore.parse(JSON.stringify(a.state()),a.ctx.Curriculum,{import:true}).state;assert.ok(roundTrip.active);assert.equal(roundTrip.active.questions[roundTrip.active.index].id,q.id);assert.equal(roundTrip.active.checked,true);a.click('next');}
+  for(const q of lesson.questions){assert.equal(a.el.innerHTML.match(/<h2 class="question"[^>]*>([\s\S]*?)<\/h2>/)?.[1].replace(/<[^>]*>/g,''),escapeHTML(q.promptEs||q.prompt),q.id+' visible prompt');a.answer();a.click('check');assert.match(a.el.innerHTML,q.type==='speaking'?/You marked: I got it|Lo he conseguido/:q.writing?.mode&&q.writing.mode!=='controlled'?/natural response|possible model|accepted alternative/:/✓ Correct/);if(q.writing&&q.writing.mode!=='controlled')a.click('writingReflect',{result:'got'});const roundTrip=a.ctx.ProgressStore.parse(JSON.stringify(a.state()),a.ctx.Curriculum,{import:true}).state;assert.ok(roundTrip.active);assert.equal(roundTrip.active.questions[roundTrip.active.index].id,q.id);assert.equal(roundTrip.active.checked,true);a.click('next');}
   assert.ok(a.state().completed.includes(lesson.id));a.click('retry');assert.equal(a.state().active.lesson.id,lesson.id);a.click('leave');
  }
  assert.equal(new Set(a.state().completed).size,a.ctx.Curriculum.lessons.length);
@@ -318,17 +318,17 @@ test('Go remains locked for a listening text question until audio genuinely star
 test('multiple choice exposes a radio group, clear selection and the unchanged select-then-check flow',()=>{
  const a=app();a.click('begin');const q=a.current(),index=q.options.indexOf(q.answer),events=a.state().events.length;
  assert.match(a.el.innerHTML,/Choose one answer/);assert.match(a.el.innerHTML,/class="choices quiz-choices" role="radiogroup"/);
- assert.equal((a.el.innerHTML.match(/role="radio" aria-checked="false"/g)||[]).length,q.options.length);
+ const options=[...a.el.innerHTML.matchAll(/<button\b([^>]*\brole="radio"[^>]*)>/g)];assert.equal(options.length,q.options.length);for(const [,attrs] of options)assert.match(attrs,/aria-checked="false"/);
  assert.equal((a.el.innerHTML.match(/class="option-indicator" aria-hidden="true"/g)||[]).length,q.options.length);
  a.click('answer',{index:String(index)});assert.equal(a.state().active.checked,false);assert.equal(a.state().events.length,events);
  assert.equal(a.effects.focused.at(-1),String(index));
- assert.match(a.el.innerHTML,new RegExp('data-index="'+index+'" role="radio" aria-checked="true" tabindex="0"'));
+ const selected=[...a.el.innerHTML.matchAll(/<button\b([^>]*\brole="radio"[^>]*)>/g)].find(([,attrs])=>attrs.includes('data-index="'+index+'"'));assert.ok(selected);assert.match(selected[1],/aria-checked="true"/);assert.match(selected[1],/tabindex="0"/);
  assert.equal((a.el.innerHTML.match(/aria-checked="true"/g)||[]).length,1);a.click('check');assert.equal(a.state().active.answers.at(-1),true);
  assert.equal(a.state().events.length,events+1);assert.match(a.el.innerHTML,/✓ Correct/);
 });
 test('radio arrow, Home and End keys select options without prematurely scoring',()=>{
  const a=app();a.click('begin');const q=a.current(),events=a.state().events.length;
- const key=(key,index)=>a.key(key,{target:{closest:()=>({dataset:{index:String(index)}})}});
+ const key=(key,index)=>a.key(key,{target:{closest:selector=>selector==='[data-action="answer"]'?{dataset:{index:String(index)}}:null}});
  assert.equal(key('ArrowRight',0),true);assert.equal(a.state().active.selected,q.options[1]);assert.equal(a.effects.focused.at(-1),'1');
  assert.equal(key('ArrowLeft',0),true);assert.equal(a.state().active.selected,q.options.at(-1));
  assert.equal(key('Home',q.options.length-1),true);assert.equal(a.state().active.selected,q.options[0]);assert.equal(a.effects.focused.at(-1),'0');

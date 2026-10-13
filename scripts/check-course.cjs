@@ -10,6 +10,7 @@ assert.deepEqual(C.playableStages,['A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2
 const ids=new Set();for(const [activity,qs] of Object.entries(groups))for(const q of qs){
  assert.ok(q.id.startsWith(activity+'-'));assert.ok(!ids.has(q.id),q.id);ids.add(q.id);
  assert.ok(P.question(q),'Invalid snapshot: '+q.id);
+ if(q.teachingModel){const saved=P.question(q);assert.deepEqual(saved.teachingModel,q.teachingModel,'Teaching model lost from snapshot: '+q.id);assert.ok(!q.listening&&q.type!=='speaking','Visible teaching model must not reveal a hidden media model: '+q.id);}
  if(q.type==='text'){
   assert.ok(q.accepted.every(a=>a.length<=(q.writing?.maxLength||160)),'Answer too long: '+q.id);
   assert.equal(new Set(q.accepted.map(E.normalizeAnswer)).size,q.accepted.length,'Accepted variants collide: '+q.id);
@@ -43,7 +44,7 @@ const units=C.playableStages.flatMap(stage=>C.stageUnits[stage].map((unit,index)
  const lessons=C.lessons.filter(l=>l.stage===stage&&l.unit===index);
  // Positive Spanish models only: exclude English, distractors, accepted variants,
  // checkpoints (copied retrieval), and repeated story text attached to questions.
- const texts=[...unit.phrases.map(x=>x[0]),...lessons.filter(l=>l.reading).map(l=>l.reading.text),...lessons.filter(l=>!l.reading&&!l.checkpoint).flatMap(l=>l.questions).map(q=>q.listening?.transcript||q.spanish||(q.language==='es'?q.answer:''))];
+ const texts=[...unit.phrases.map(x=>x[0]),...lessons.filter(l=>l.reading).map(l=>l.reading.text),...lessons.filter(l=>!l.reading&&!l.checkpoint).flatMap(l=>l.questions).flatMap(q=>[q.teachingModel?.spanish||'',q.listening?.transcript||q.spanish||(q.language==='es'?q.answer:'')])];
  return {id:unit.id,stage,index,title:unit.title,words:new Set(tokens(texts.join(' ')))};
 }));
 const vocabulary={};for(const term of ['hola','gracias','por','favor','café','pan','agua','hambre','años','móvil','ordenador','ordenadores','libro','libros','llaves','mesa','parque','mañana','porque','después'])vocabulary[term]=units.filter(u=>u.words.has(term)).map(u=>u.id);
@@ -52,6 +53,8 @@ const stageStats=C.playableStages.map(stage=>{
  return {stage,activities:lessons.length,questions:qs.length,units:C.stageUnits[stage].length,stories:stories.length,storyWords:{min:Math.min(...words),mean:Number((words.reduce((a,b)=>a+b,0)/words.length).toFixed(1)),max:Math.max(...words)},spanishWriting:qs.filter(q=>q.language==='es').length,listening:qs.filter(q=>q.listening).length,speaking:qs.filter(q=>q.type==='speaking').length,misconceptionExamples:qs.reduce((sum,q)=>sum+(q.mistakes||[]).length,0)};
 });
 const allWords=[...new Set(units.flatMap(u=>[...u.words]))],histogram={};for(const word of allWords){const count=units.filter(u=>u.words.has(word)).length;histogram[count]=(histogram[count]||0)+1;}
-const report={method:'Surface forms in positive Spanish teaching models, unit phrase banks and unique stories; excludes distractors, English, accepted variants and checkpoints. Unit coverage is exposure, not a measure of mastery. Inflections are not lemmatised.',stageStats,authoredQuestionIds:ids.size,dictionary:Lex.stats,vocabulary,unitCoverageHistogram:histogram};
+const anchors=require('./content/audit-a1-anchors.cjs').audit(C);
+assert.equal(anchors.anchors.length,15);assert.equal(anchors.units.length,16);assert.ok(anchors.anchors.every(a=>a.activityCount>0),'An A1 anchor has no authored exposure');
+const report={method:'Surface forms in positive Spanish teaching models, unit phrase banks and unique stories; excludes distractors, English, accepted variants and checkpoints. Unit coverage is exposure, not a measure of mastery. Inflections are not lemmatised.',stageStats,authoredQuestionIds:ids.size,dictionary:Lex.stats,vocabulary,unitCoverageHistogram:histogram,a1Anchors:{method:anchors.method,report:'docs/release/a1-anchor-recurrence.json',constructions:anchors.anchors.length,units:anchors.units.length,flags:anchors.flags,coverage:anchors.anchors.map(a=>({id:a.id,label:a.label,activityCount:a.activityCount,unitCount:a.unitCount}))}};
 if(process.argv.includes('--report'))console.log(JSON.stringify(report,null,2));else console.log('Syntax and curriculum checks passed: '+C.lessons.length+' activities, '+C.lessons.flatMap(l=>l.questions).length+' course questions, '+ids.size+' permanent IDs; '+gameIds.size+' separate game questions; '+focusedIds.size+' focused Listening/Speaking items; '+Lex.stats.entries+' dictionary entries / '+Lex.stats.formMappings+' known form mappings.');
 module.exports=report;

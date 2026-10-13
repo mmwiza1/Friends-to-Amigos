@@ -1,0 +1,2018 @@
+{
+  "baselineCommit": "e6a4eaed045c255beb6e663b46d24e9d81d0b8a5",
+  "policy": "Only first three regular A1.1 Unit 0 teaching activities receive structural pedagogical edits. Two existing stories gain one natural anchor sentence each. Stable IDs, course order, all checkpoints, legacy snapshots and A2/B content remain unchanged. All authored Spanish is original Friends to Amigos material.",
+  "course": [
+    {
+      "activity": "u0l0",
+      "id": "u0l0-q1",
+      "stage": "A1.1",
+      "reason": "Beginner confidence ramp: meaning first, supported recognition/completion, delayed short recall, then contextual use and role transfer. Same permanent slots.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "spanish",
+        "mode",
+        "id",
+        "sourceQuestionId"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "spanish",
+        "mode",
+        "id",
+        "sourceQuestionId",
+        "teachingModel"
+      ],
+      "changes": [
+        {
+          "field": "prompt",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "You meet Luis for the first time. Which greeting is neutral and friendly?",
+          "after": "Which means “Hello”?"
+        },
+        {
+          "field": "explanation",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "Hola opens an encounter. Adiós ends one; gracias thanks someone.",
+          "after": "Hola means hello. Use it when you meet someone."
+        },
+        {
+          "field": "teachingModel",
+          "beforePresent": false,
+          "afterPresent": true,
+          "after": {
+            "spanish": "Hola",
+            "meaning": "Hello"
+          }
+        }
+      ]
+    },
+    {
+      "activity": "u0l0",
+      "id": "u0l0-q2",
+      "stage": "A1.1",
+      "reason": "Beginner confidence ramp: meaning first, supported recognition/completion, delayed short recall, then contextual use and role transfer. Same permanent slots.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "spanish",
+        "mode",
+        "sentence",
+        "meaning",
+        "id",
+        "sourceQuestionId"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "spanish",
+        "mode",
+        "id",
+        "sourceQuestionId",
+        "teachingModel"
+      ],
+      "changes": [
+        {
+          "field": "type",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "gap",
+          "after": "choice"
+        },
+        {
+          "field": "prompt",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "Complete: ___ ___ Ana. (“My name is Ana”)",
+          "after": "Ana says “Me llamo Ana”. What is she telling you?"
+        },
+        {
+          "field": "answer",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "Me llamo",
+          "after": "Her name"
+        },
+        {
+          "field": "options",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": [
+            "Soy llamo",
+            "Me llama",
+            "Me llamo"
+          ],
+          "after": [
+            "Her name",
+            "Her age",
+            "Where she lives"
+          ]
+        },
+        {
+          "field": "explanation",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "Llamarse needs me when you give your own name. Me llama means someone calls me.",
+          "after": "Me llamo Ana means “My name is Ana”."
+        },
+        {
+          "field": "mode",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "completion",
+          "after": "recognition"
+        },
+        {
+          "field": "sentence",
+          "beforePresent": true,
+          "afterPresent": false,
+          "before": "___ ___ Ana."
+        },
+        {
+          "field": "meaning",
+          "beforePresent": true,
+          "afterPresent": false,
+          "before": "My name is Ana"
+        },
+        {
+          "field": "teachingModel",
+          "beforePresent": false,
+          "afterPresent": true,
+          "after": {
+            "spanish": "Me llamo Ana.",
+            "meaning": "My name is Ana."
+          }
+        }
+      ]
+    },
+    {
+      "activity": "u0l0",
+      "id": "u0l0-q3",
+      "stage": "A1.1",
+      "reason": "Beginner confidence ramp: meaning first, supported recognition/completion, delayed short recall, then contextual use and role transfer. Same permanent slots.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "accepted",
+        "language",
+        "explanation",
+        "topic",
+        "mode",
+        "spanish",
+        "mistakes",
+        "id",
+        "sourceQuestionId"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "explanation",
+        "topic",
+        "mode",
+        "spanish",
+        "id",
+        "sourceQuestionId",
+        "options",
+        "teachingModel",
+        "sentence",
+        "meaning",
+        "spanishFragments"
+      ],
+      "changes": [
+        {
+          "field": "type",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "text",
+          "after": "gap"
+        },
+        {
+          "field": "prompt",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "From memory, write “My name is Ana”.",
+          "after": "Complete: Me ___ Ana. (“My name is Ana”)"
+        },
+        {
+          "field": "answer",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "Me llamo Ana",
+          "after": "llamo"
+        },
+        {
+          "field": "accepted",
+          "beforePresent": true,
+          "afterPresent": false,
+          "before": [
+            "Me llamo Ana",
+            "Mi nombre es Ana"
+          ]
+        },
+        {
+          "field": "language",
+          "beforePresent": true,
+          "afterPresent": false,
+          "before": "es"
+        },
+        {
+          "field": "explanation",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "Me llamo is a complete first-person introduction; you do not need soy before it.",
+          "after": "Me llamo Ana means “My name is Ana”."
+        },
+        {
+          "field": "mode",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "recall",
+          "after": "completion"
+        },
+        {
+          "field": "spanish",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "Me llamo Ana",
+          "after": "Me llamo Ana."
+        },
+        {
+          "field": "mistakes",
+          "beforePresent": true,
+          "afterPresent": false,
+          "before": [
+            {
+              "answer": "mi llamo Ana",
+              "explanation": "Me llamo means “my name is”. Me is the little word used when talking about yourself with llamarse. Mi means “my”, as in mi nombre; it cannot replace me here."
+            },
+            {
+              "answer": "soy llamo Ana",
+              "explanation": "Use me llamo to give your name. It already means “my name is”; do not put soy before llamo. You can also use soy followed by your name."
+            },
+            {
+              "answer": "me llama Ana",
+              "explanation": "For your own name, use me llamo, with -o. Me llama means someone else calls me."
+            }
+          ]
+        },
+        {
+          "field": "options",
+          "beforePresent": false,
+          "afterPresent": true,
+          "after": [
+            "llamo",
+            "hola",
+            "gracias"
+          ]
+        },
+        {
+          "field": "teachingModel",
+          "beforePresent": false,
+          "afterPresent": true,
+          "after": {
+            "spanish": "Me llamo Ana.",
+            "meaning": "My name is Ana."
+          }
+        },
+        {
+          "field": "sentence",
+          "beforePresent": false,
+          "afterPresent": true,
+          "after": "Me ___ Ana."
+        },
+        {
+          "field": "meaning",
+          "beforePresent": false,
+          "afterPresent": true,
+          "after": "My name is Ana"
+        },
+        {
+          "field": "spanishFragments",
+          "beforePresent": false,
+          "afterPresent": true,
+          "after": [
+            "Me ___ Ana."
+          ]
+        }
+      ]
+    },
+    {
+      "activity": "u0l0",
+      "id": "u0l0-q4",
+      "stage": "A1.1",
+      "reason": "Beginner confidence ramp: meaning first, supported recognition/completion, delayed short recall, then contextual use and role transfer. Same permanent slots.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "spanish",
+        "mode",
+        "id",
+        "sourceQuestionId"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "spanish",
+        "mode",
+        "id",
+        "sourceQuestionId",
+        "teachingModel"
+      ],
+      "changes": [
+        {
+          "field": "explanation",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "He asks your name, not your country or a goodbye.",
+          "after": "¿Cómo te llamas? asks “What is your name?” Answer with your name: Me llamo Ana."
+        },
+        {
+          "field": "teachingModel",
+          "beforePresent": false,
+          "afterPresent": true,
+          "after": {
+            "spanish": "¿Cómo te llamas?",
+            "meaning": "What is your name?"
+          }
+        }
+      ]
+    },
+    {
+      "activity": "u0l0",
+      "id": "u0l0-q5",
+      "stage": "A1.1",
+      "reason": "Beginner confidence ramp: meaning first, supported recognition/completion, delayed short recall, then contextual use and role transfer. Same permanent slots.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "accepted",
+        "language",
+        "explanation",
+        "topic",
+        "mode",
+        "spanish",
+        "mistakes",
+        "id",
+        "sourceQuestionId"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "explanation",
+        "topic",
+        "mode",
+        "spanish",
+        "id",
+        "sourceQuestionId",
+        "options",
+        "teachingModel"
+      ],
+      "changes": [
+        {
+          "field": "type",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "text",
+          "after": "choice"
+        },
+        {
+          "field": "prompt",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "You are Luis. Write “My name is Luis” in Spanish.",
+          "after": "You are leaving. Which phrase means “See you later”?"
+        },
+        {
+          "field": "answer",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "Me llamo Luis",
+          "after": "Hasta luego"
+        },
+        {
+          "field": "accepted",
+          "beforePresent": true,
+          "afterPresent": false,
+          "before": [
+            "Me llamo Luis",
+            "Soy Luis",
+            "Mi nombre es Luis",
+            "Hola, me llamo Luis",
+            "Hola, soy Luis"
+          ]
+        },
+        {
+          "field": "language",
+          "beforePresent": true,
+          "afterPresent": false,
+          "before": "es"
+        },
+        {
+          "field": "explanation",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "Me llamo Luis gives your name. You can also say soy Luis. A short greeting can come first.",
+          "after": "Hasta luego means “See you later”. Adiós is another way to say goodbye."
+        },
+        {
+          "field": "mode",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "transfer",
+          "after": "recognition"
+        },
+        {
+          "field": "spanish",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "Me llamo Luis",
+          "after": "Hasta luego"
+        },
+        {
+          "field": "mistakes",
+          "beforePresent": true,
+          "afterPresent": false,
+          "before": [
+            {
+              "answer": "mi llamo Luis",
+              "explanation": "Me llamo means “my name is”. Me is the little word used when talking about yourself with llamarse. Mi means “my”, as in mi nombre; it cannot replace me here."
+            },
+            {
+              "answer": "soy llamo Luis",
+              "explanation": "Use me llamo to give your name. It already means “my name is”; do not put soy before llamo. You can also use soy followed by your name."
+            },
+            {
+              "answer": "me llama Luis",
+              "explanation": "For your own name, use me llamo, with -o. Me llama means someone else calls me."
+            }
+          ]
+        },
+        {
+          "field": "options",
+          "beforePresent": false,
+          "afterPresent": true,
+          "after": [
+            "Hola",
+            "Hasta luego",
+            "Me llamo Ana"
+          ]
+        },
+        {
+          "field": "teachingModel",
+          "beforePresent": false,
+          "afterPresent": true,
+          "after": {
+            "spanish": "Adiós. Hasta luego.",
+            "meaning": "Goodbye. See you later."
+          }
+        }
+      ]
+    },
+    {
+      "activity": "u0l1",
+      "id": "u0l1-q1",
+      "stage": "A1.1",
+      "reason": "Beginner confidence ramp: meaning first, supported recognition/completion, delayed short recall, then contextual use and role transfer. Same permanent slots.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "spanish",
+        "mode",
+        "id",
+        "sourceQuestionId"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "spanish",
+        "mode",
+        "id",
+        "sourceQuestionId",
+        "teachingModel"
+      ],
+      "changes": [
+        {
+          "field": "explanation",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "Buenos días is the usual morning greeting. Noches refers to night.",
+          "after": "Buenos días means “Good morning”. Use it in the morning."
+        },
+        {
+          "field": "teachingModel",
+          "beforePresent": false,
+          "afterPresent": true,
+          "after": {
+            "spanish": "Buenos días",
+            "meaning": "Good morning"
+          }
+        }
+      ]
+    },
+    {
+      "activity": "u0l1",
+      "id": "u0l1-q2",
+      "stage": "A1.1",
+      "reason": "Beginner confidence ramp: meaning first, supported recognition/completion, delayed short recall, then contextual use and role transfer. Same permanent slots.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "spanish",
+        "mode",
+        "sentence",
+        "meaning",
+        "id",
+        "sourceQuestionId"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "spanish",
+        "mode",
+        "id",
+        "sourceQuestionId",
+        "teachingModel",
+        "sentence",
+        "meaning",
+        "spanishFragments"
+      ],
+      "changes": [
+        {
+          "field": "options",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": [
+            "Cómo me",
+            "Qué te",
+            "Cómo te"
+          ],
+          "after": [
+            "Cómo te",
+            "Hola",
+            "Gracias"
+          ]
+        },
+        {
+          "field": "explanation",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "Te addresses the other person. Cómo me llamo asks your own name.",
+          "after": "Keep the familiar question together: ¿Cómo te llamas? means “What is your name?”"
+        },
+        {
+          "field": "teachingModel",
+          "beforePresent": false,
+          "afterPresent": true,
+          "after": {
+            "spanish": "¿Cómo te llamas?",
+            "meaning": "What is your name?"
+          }
+        },
+        {
+          "field": "spanishFragments",
+          "beforePresent": false,
+          "afterPresent": true,
+          "after": [
+            "¿___ ___ llamas?"
+          ]
+        }
+      ]
+    },
+    {
+      "activity": "u0l1",
+      "id": "u0l1-q3",
+      "stage": "A1.1",
+      "reason": "Beginner confidence ramp: meaning first, supported recognition/completion, delayed short recall, then contextual use and role transfer. Same permanent slots.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "accepted",
+        "language",
+        "explanation",
+        "topic",
+        "mode",
+        "spanish",
+        "mistakes",
+        "id",
+        "sourceQuestionId"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "explanation",
+        "topic",
+        "mode",
+        "spanish",
+        "id",
+        "sourceQuestionId",
+        "options",
+        "teachingModel"
+      ],
+      "changes": [
+        {
+          "field": "type",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "text",
+          "after": "choice"
+        },
+        {
+          "field": "prompt",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "From memory, ask one friend their name.",
+          "after": "Which question asks someone their name?"
+        },
+        {
+          "field": "accepted",
+          "beforePresent": true,
+          "afterPresent": false,
+          "before": [
+            "¿Cómo te llamas?",
+            "¿Cuál es tu nombre?"
+          ]
+        },
+        {
+          "field": "language",
+          "beforePresent": true,
+          "afterPresent": false,
+          "before": "es"
+        },
+        {
+          "field": "explanation",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "Use te llamas when speaking to one friend; me llamo introduces yourself.",
+          "after": "¿Cómo te llamas? asks a name. Me llamo Ana gives a name."
+        },
+        {
+          "field": "mode",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "recall",
+          "after": "recognition"
+        },
+        {
+          "field": "mistakes",
+          "beforePresent": true,
+          "afterPresent": false,
+          "before": [
+            {
+              "answer": "¿cómo me llamas?",
+              "explanation": "Te llamas asks the other person their name. Me llamas asks what the other person calls you; me changes who you are talking about."
+            },
+            {
+              "answer": "¿Cómo tú llamas?",
+              "explanation": "Use te llamas when asking one friend their name. Tú means “you”, but it cannot replace te in this phrase."
+            }
+          ]
+        },
+        {
+          "field": "options",
+          "beforePresent": false,
+          "afterPresent": true,
+          "after": [
+            "Hasta luego",
+            "¿Cómo te llamas?",
+            "Me llamo Ana"
+          ]
+        },
+        {
+          "field": "teachingModel",
+          "beforePresent": false,
+          "afterPresent": true,
+          "after": {
+            "spanish": "¿Cómo te llamas?",
+            "meaning": "What is your name?"
+          }
+        }
+      ]
+    },
+    {
+      "activity": "u0l1",
+      "id": "u0l1-q4",
+      "stage": "A1.1",
+      "reason": "Beginner confidence ramp: meaning first, supported recognition/completion, delayed short recall, then contextual use and role transfer. Same permanent slots.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "spanish",
+        "mode",
+        "id",
+        "sourceQuestionId"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "spanish",
+        "mode",
+        "id",
+        "sourceQuestionId",
+        "teachingModel"
+      ],
+      "changes": [
+        {
+          "field": "teachingModel",
+          "beforePresent": false,
+          "afterPresent": true,
+          "after": {
+            "spanish": "Gracias. De nada.",
+            "meaning": "Thank you. You’re welcome."
+          }
+        }
+      ]
+    },
+    {
+      "activity": "u0l1",
+      "id": "u0l1-q5",
+      "stage": "A1.1",
+      "reason": "Beginner confidence ramp: meaning first, supported recognition/completion, delayed short recall, then contextual use and role transfer. Same permanent slots.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "accepted",
+        "language",
+        "explanation",
+        "topic",
+        "mode",
+        "spanish",
+        "mistakes",
+        "id",
+        "sourceQuestionId"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "accepted",
+        "language",
+        "explanation",
+        "topic",
+        "mode",
+        "spanish",
+        "mistakes",
+        "id",
+        "sourceQuestionId"
+      ],
+      "changes": [
+        {
+          "field": "prompt",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "You thank Luis for helping. Write a brief thank-you.",
+          "after": "From memory, write “My name is Ana”."
+        },
+        {
+          "field": "answer",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "Gracias",
+          "after": "Me llamo Ana"
+        },
+        {
+          "field": "accepted",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": [
+            "Gracias",
+            "Muchas gracias",
+            "Gracias, Luis",
+            "Muchas gracias, Luis"
+          ],
+          "after": [
+            "Me llamo Ana",
+            "Mi nombre es Ana"
+          ]
+        },
+        {
+          "field": "explanation",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "Gracias thanks someone; por favor is used to make a request politely.",
+          "after": "Me llamo Ana means “My name is Ana”. You have already seen and completed this phrase."
+        },
+        {
+          "field": "mode",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "transfer",
+          "after": "recall"
+        },
+        {
+          "field": "spanish",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "Gracias",
+          "after": "Me llamo Ana"
+        },
+        {
+          "field": "mistakes",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": [],
+          "after": [
+            {
+              "answer": "mi llamo Ana",
+              "explanation": "Me llamo means “my name is”. Me is the little word used when talking about yourself with llamarse. Mi means “my”, as in mi nombre; it cannot replace me here."
+            },
+            {
+              "answer": "soy llamo Ana",
+              "explanation": "Use me llamo to give your name. It already means “my name is”; do not put soy before llamo. You can also use soy followed by your name."
+            },
+            {
+              "answer": "me llama Ana",
+              "explanation": "For your own name, use me llamo, with -o. Me llama means someone else calls me."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "activity": "u0l2",
+      "id": "u0l2-q2",
+      "stage": "A1.1",
+      "reason": "Beginner confidence ramp: meaning first, supported recognition/completion, delayed short recall, then contextual use and role transfer. Same permanent slots.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "spanish",
+        "mode",
+        "sentence",
+        "meaning",
+        "id",
+        "sourceQuestionId"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "spanish",
+        "mode",
+        "sentence",
+        "meaning",
+        "id",
+        "sourceQuestionId"
+      ],
+      "changes": [
+        {
+          "field": "explanation",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "Días is masculine plural, so use buenos. Buenas goes with tardes or noches.",
+          "after": "Use the familiar phrase buenos días. It means “Good morning”."
+        }
+      ]
+    },
+    {
+      "activity": "u0l2",
+      "id": "u0l2-q4",
+      "stage": "A1.1",
+      "reason": "Beginner confidence ramp: meaning first, supported recognition/completion, delayed short recall, then contextual use and role transfer. Same permanent slots.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "spanish",
+        "mode",
+        "id",
+        "sourceQuestionId"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "spanish",
+        "mode",
+        "id",
+        "sourceQuestionId",
+        "teachingModel"
+      ],
+      "changes": [
+        {
+          "field": "teachingModel",
+          "beforePresent": false,
+          "afterPresent": true,
+          "after": {
+            "spanish": "¿Puedes repetir, por favor?",
+            "meaning": "Could you repeat, please?"
+          }
+        }
+      ]
+    },
+    {
+      "activity": "u0l2",
+      "id": "u0l2-q5",
+      "stage": "A1.1",
+      "reason": "Beginner confidence ramp: meaning first, supported recognition/completion, delayed short recall, then contextual use and role transfer. Same permanent slots.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "accepted",
+        "language",
+        "explanation",
+        "topic",
+        "mode",
+        "spanish",
+        "mistakes",
+        "id",
+        "sourceQuestionId"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "accepted",
+        "language",
+        "explanation",
+        "topic",
+        "mode",
+        "spanish",
+        "mistakes",
+        "id",
+        "sourceQuestionId"
+      ],
+      "changes": [
+        {
+          "field": "prompt",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "You did not hear Luis’s name. Ask him to repeat politely.",
+          "after": "You are Luis. Introduce yourself to a new classmate."
+        },
+        {
+          "field": "answer",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "¿Puedes repetir, por favor?",
+          "after": "Me llamo Luis"
+        },
+        {
+          "field": "accepted",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": [
+            "¿Puedes repetir, por favor?",
+            "¿Puede repetir, por favor?",
+            "Luis, ¿puedes repetir, por favor?"
+          ],
+          "after": [
+            "Me llamo Luis",
+            "Soy Luis",
+            "Mi nombre es Luis",
+            "Hola, me llamo Luis",
+            "Hola, soy Luis"
+          ]
+        },
+        {
+          "field": "explanation",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "Use puedes for a friend or puede for polite usted. Repetir means repeat; por favor softens the request.",
+          "after": "Use me llamo with your name: Me llamo Luis. You can also say Soy Luis."
+        },
+        {
+          "field": "spanish",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": "¿Puedes repetir, por favor?",
+          "after": "Me llamo Luis"
+        },
+        {
+          "field": "mistakes",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": [
+            {
+              "answer": "¿Puedes repetir, para favor?",
+              "explanation": "Por favor is the fixed expression for “please”. Keep por; para favor is not the expression."
+            }
+          ],
+          "after": [
+            {
+              "answer": "mi llamo Luis",
+              "explanation": "Me llamo means “my name is”. Me is the little word used when talking about yourself with llamarse. Mi means “my”, as in mi nombre; it cannot replace me here."
+            },
+            {
+              "answer": "soy llamo Luis",
+              "explanation": "Use me llamo to give your name. It already means “my name is”; do not put soy before llamo. You can also use soy followed by your name."
+            },
+            {
+              "answer": "me llama Luis",
+              "explanation": "For your own name, use me llamo, with -o. Me llama means someone else calls me."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "activity": "u4story0",
+      "id": "u4story0-q1",
+      "stage": "A1.1",
+      "reason": "Selective natural reuse of an earlier anchor in the existing scenario; all story questions and accepted answers remain unchanged.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId"
+      ],
+      "changes": [
+        {
+          "field": "reading",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": {
+            "title": "Marta viene al café",
+            "text": "Luis y Ana están en el café. Marta entra.\nLuis: Ana, esta es mi hermana Marta.\nAna: Hola, Marta.\nMarta: Hola.\nDiego: Un té para Marta.\nLuis: Gracias, Diego.",
+            "glossary": [
+              [
+                "viene",
+                "comes"
+              ],
+              [
+                "mi hermana",
+                "my sister"
+              ]
+            ],
+            "stage": "A1.1"
+          },
+          "after": {
+            "title": "Marta viene al café",
+            "text": "Luis y Ana están en el café. Marta entra.\nLuis: Ana, esta es mi hermana Marta.\nAna: Hola, Marta. Me llamo Ana.\nMarta: Hola.\nDiego: Un té para Marta.\nLuis: Gracias, Diego.",
+            "glossary": [
+              [
+                "viene",
+                "comes"
+              ],
+              [
+                "mi hermana",
+                "my sister"
+              ]
+            ],
+            "stage": "A1.1"
+          }
+        }
+      ]
+    },
+    {
+      "activity": "u4story0",
+      "id": "u4story0-q2",
+      "stage": "A1.1",
+      "reason": "Selective natural reuse of an earlier anchor in the existing scenario; all story questions and accepted answers remain unchanged.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "accepted",
+        "language",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "accepted",
+        "language",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId"
+      ],
+      "changes": [
+        {
+          "field": "reading",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": {
+            "title": "Marta viene al café",
+            "text": "Luis y Ana están en el café. Marta entra.\nLuis: Ana, esta es mi hermana Marta.\nAna: Hola, Marta.\nMarta: Hola.\nDiego: Un té para Marta.\nLuis: Gracias, Diego.",
+            "glossary": [
+              [
+                "viene",
+                "comes"
+              ],
+              [
+                "mi hermana",
+                "my sister"
+              ]
+            ],
+            "stage": "A1.1"
+          },
+          "after": {
+            "title": "Marta viene al café",
+            "text": "Luis y Ana están en el café. Marta entra.\nLuis: Ana, esta es mi hermana Marta.\nAna: Hola, Marta. Me llamo Ana.\nMarta: Hola.\nDiego: Un té para Marta.\nLuis: Gracias, Diego.",
+            "glossary": [
+              [
+                "viene",
+                "comes"
+              ],
+              [
+                "mi hermana",
+                "my sister"
+              ]
+            ],
+            "stage": "A1.1"
+          }
+        }
+      ]
+    },
+    {
+      "activity": "u4story0",
+      "id": "u4story0-q3",
+      "stage": "A1.1",
+      "reason": "Selective natural reuse of an earlier anchor in the existing scenario; all story questions and accepted answers remain unchanged.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId"
+      ],
+      "changes": [
+        {
+          "field": "reading",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": {
+            "title": "Marta viene al café",
+            "text": "Luis y Ana están en el café. Marta entra.\nLuis: Ana, esta es mi hermana Marta.\nAna: Hola, Marta.\nMarta: Hola.\nDiego: Un té para Marta.\nLuis: Gracias, Diego.",
+            "glossary": [
+              [
+                "viene",
+                "comes"
+              ],
+              [
+                "mi hermana",
+                "my sister"
+              ]
+            ],
+            "stage": "A1.1"
+          },
+          "after": {
+            "title": "Marta viene al café",
+            "text": "Luis y Ana están en el café. Marta entra.\nLuis: Ana, esta es mi hermana Marta.\nAna: Hola, Marta. Me llamo Ana.\nMarta: Hola.\nDiego: Un té para Marta.\nLuis: Gracias, Diego.",
+            "glossary": [
+              [
+                "viene",
+                "comes"
+              ],
+              [
+                "mi hermana",
+                "my sister"
+              ]
+            ],
+            "stage": "A1.1"
+          }
+        }
+      ]
+    },
+    {
+      "activity": "u4story0",
+      "id": "u4story0-q4",
+      "stage": "A1.1",
+      "reason": "Selective natural reuse of an earlier anchor in the existing scenario; all story questions and accepted answers remain unchanged.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "accepted",
+        "language",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "accepted",
+        "language",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId"
+      ],
+      "changes": [
+        {
+          "field": "reading",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": {
+            "title": "Marta viene al café",
+            "text": "Luis y Ana están en el café. Marta entra.\nLuis: Ana, esta es mi hermana Marta.\nAna: Hola, Marta.\nMarta: Hola.\nDiego: Un té para Marta.\nLuis: Gracias, Diego.",
+            "glossary": [
+              [
+                "viene",
+                "comes"
+              ],
+              [
+                "mi hermana",
+                "my sister"
+              ]
+            ],
+            "stage": "A1.1"
+          },
+          "after": {
+            "title": "Marta viene al café",
+            "text": "Luis y Ana están en el café. Marta entra.\nLuis: Ana, esta es mi hermana Marta.\nAna: Hola, Marta. Me llamo Ana.\nMarta: Hola.\nDiego: Un té para Marta.\nLuis: Gracias, Diego.",
+            "glossary": [
+              [
+                "viene",
+                "comes"
+              ],
+              [
+                "mi hermana",
+                "my sister"
+              ]
+            ],
+            "stage": "A1.1"
+          }
+        }
+      ]
+    },
+    {
+      "activity": "u4story0",
+      "id": "u4story0-q5",
+      "stage": "A1.1",
+      "reason": "Selective natural reuse of an earlier anchor in the existing scenario; all story questions and accepted answers remain unchanged.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId"
+      ],
+      "changes": [
+        {
+          "field": "reading",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": {
+            "title": "Marta viene al café",
+            "text": "Luis y Ana están en el café. Marta entra.\nLuis: Ana, esta es mi hermana Marta.\nAna: Hola, Marta.\nMarta: Hola.\nDiego: Un té para Marta.\nLuis: Gracias, Diego.",
+            "glossary": [
+              [
+                "viene",
+                "comes"
+              ],
+              [
+                "mi hermana",
+                "my sister"
+              ]
+            ],
+            "stage": "A1.1"
+          },
+          "after": {
+            "title": "Marta viene al café",
+            "text": "Luis y Ana están en el café. Marta entra.\nLuis: Ana, esta es mi hermana Marta.\nAna: Hola, Marta. Me llamo Ana.\nMarta: Hola.\nDiego: Un té para Marta.\nLuis: Gracias, Diego.",
+            "glossary": [
+              [
+                "viene",
+                "comes"
+              ],
+              [
+                "mi hermana",
+                "my sister"
+              ]
+            ],
+            "stage": "A1.1"
+          }
+        }
+      ]
+    },
+    {
+      "activity": "a12u5story0",
+      "id": "a12u5story0-q1",
+      "stage": "A1.2",
+      "reason": "Selective natural reuse of an earlier anchor in the existing scenario; all story questions and accepted answers remain unchanged.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId",
+        "promptEs",
+        "englishHint",
+        "instructionLanguage",
+        "supportConcept"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId",
+        "promptEs",
+        "englishHint",
+        "instructionLanguage",
+        "supportConcept"
+      ],
+      "changes": [
+        {
+          "field": "reading",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": {
+            "title": "Una visita al piso",
+            "text": "Marta visita el piso de Ana.\nAna: Este es el salón. Hay un sofá y una mesa pequeña.\nMarta: Es cómodo. ¿Dónde está la cocina?\nAna: Al lado del salón. La cocina es pequeña, pero hay una mesa y dos sillas.\nMarta: Perfecto. Podemos tomar té allí.\nAna: Sí, y después escuchamos música en el salón.",
+            "glossary": [
+              [
+                "visita",
+                "visits"
+              ],
+              [
+                "cómodo",
+                "comfortable"
+              ],
+              [
+                "el salón",
+                "the living room"
+              ]
+            ],
+            "stage": "A1.2"
+          },
+          "after": {
+            "title": "Una visita al piso",
+            "text": "Marta visita el piso de Ana.\nAna: Vivo en este piso. Este es el salón. Hay un sofá y una mesa pequeña.\nMarta: Es cómodo. ¿Dónde está la cocina?\nAna: Al lado del salón. La cocina es pequeña, pero hay una mesa y dos sillas.\nMarta: Perfecto. Podemos tomar té allí.\nAna: Sí, y después escuchamos música en el salón.",
+            "glossary": [
+              [
+                "visita",
+                "visits"
+              ],
+              [
+                "cómodo",
+                "comfortable"
+              ],
+              [
+                "el salón",
+                "the living room"
+              ]
+            ],
+            "stage": "A1.2"
+          }
+        }
+      ]
+    },
+    {
+      "activity": "a12u5story0",
+      "id": "a12u5story0-q2",
+      "stage": "A1.2",
+      "reason": "Selective natural reuse of an earlier anchor in the existing scenario; all story questions and accepted answers remain unchanged.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "accepted",
+        "language",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId",
+        "promptEs",
+        "englishHint",
+        "instructionLanguage",
+        "supportConcept"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "accepted",
+        "language",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId",
+        "promptEs",
+        "englishHint",
+        "instructionLanguage",
+        "supportConcept"
+      ],
+      "changes": [
+        {
+          "field": "reading",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": {
+            "title": "Una visita al piso",
+            "text": "Marta visita el piso de Ana.\nAna: Este es el salón. Hay un sofá y una mesa pequeña.\nMarta: Es cómodo. ¿Dónde está la cocina?\nAna: Al lado del salón. La cocina es pequeña, pero hay una mesa y dos sillas.\nMarta: Perfecto. Podemos tomar té allí.\nAna: Sí, y después escuchamos música en el salón.",
+            "glossary": [
+              [
+                "visita",
+                "visits"
+              ],
+              [
+                "cómodo",
+                "comfortable"
+              ],
+              [
+                "el salón",
+                "the living room"
+              ]
+            ],
+            "stage": "A1.2"
+          },
+          "after": {
+            "title": "Una visita al piso",
+            "text": "Marta visita el piso de Ana.\nAna: Vivo en este piso. Este es el salón. Hay un sofá y una mesa pequeña.\nMarta: Es cómodo. ¿Dónde está la cocina?\nAna: Al lado del salón. La cocina es pequeña, pero hay una mesa y dos sillas.\nMarta: Perfecto. Podemos tomar té allí.\nAna: Sí, y después escuchamos música en el salón.",
+            "glossary": [
+              [
+                "visita",
+                "visits"
+              ],
+              [
+                "cómodo",
+                "comfortable"
+              ],
+              [
+                "el salón",
+                "the living room"
+              ]
+            ],
+            "stage": "A1.2"
+          }
+        }
+      ]
+    },
+    {
+      "activity": "a12u5story0",
+      "id": "a12u5story0-q3",
+      "stage": "A1.2",
+      "reason": "Selective natural reuse of an earlier anchor in the existing scenario; all story questions and accepted answers remain unchanged.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId",
+        "promptEs",
+        "englishHint",
+        "instructionLanguage",
+        "supportConcept"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId",
+        "promptEs",
+        "englishHint",
+        "instructionLanguage",
+        "supportConcept"
+      ],
+      "changes": [
+        {
+          "field": "reading",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": {
+            "title": "Una visita al piso",
+            "text": "Marta visita el piso de Ana.\nAna: Este es el salón. Hay un sofá y una mesa pequeña.\nMarta: Es cómodo. ¿Dónde está la cocina?\nAna: Al lado del salón. La cocina es pequeña, pero hay una mesa y dos sillas.\nMarta: Perfecto. Podemos tomar té allí.\nAna: Sí, y después escuchamos música en el salón.",
+            "glossary": [
+              [
+                "visita",
+                "visits"
+              ],
+              [
+                "cómodo",
+                "comfortable"
+              ],
+              [
+                "el salón",
+                "the living room"
+              ]
+            ],
+            "stage": "A1.2"
+          },
+          "after": {
+            "title": "Una visita al piso",
+            "text": "Marta visita el piso de Ana.\nAna: Vivo en este piso. Este es el salón. Hay un sofá y una mesa pequeña.\nMarta: Es cómodo. ¿Dónde está la cocina?\nAna: Al lado del salón. La cocina es pequeña, pero hay una mesa y dos sillas.\nMarta: Perfecto. Podemos tomar té allí.\nAna: Sí, y después escuchamos música en el salón.",
+            "glossary": [
+              [
+                "visita",
+                "visits"
+              ],
+              [
+                "cómodo",
+                "comfortable"
+              ],
+              [
+                "el salón",
+                "the living room"
+              ]
+            ],
+            "stage": "A1.2"
+          }
+        }
+      ]
+    },
+    {
+      "activity": "a12u5story0",
+      "id": "a12u5story0-q4",
+      "stage": "A1.2",
+      "reason": "Selective natural reuse of an earlier anchor in the existing scenario; all story questions and accepted answers remain unchanged.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "accepted",
+        "language",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId",
+        "promptEs",
+        "englishHint",
+        "instructionLanguage",
+        "supportConcept"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "accepted",
+        "language",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId",
+        "promptEs",
+        "englishHint",
+        "instructionLanguage",
+        "supportConcept"
+      ],
+      "changes": [
+        {
+          "field": "reading",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": {
+            "title": "Una visita al piso",
+            "text": "Marta visita el piso de Ana.\nAna: Este es el salón. Hay un sofá y una mesa pequeña.\nMarta: Es cómodo. ¿Dónde está la cocina?\nAna: Al lado del salón. La cocina es pequeña, pero hay una mesa y dos sillas.\nMarta: Perfecto. Podemos tomar té allí.\nAna: Sí, y después escuchamos música en el salón.",
+            "glossary": [
+              [
+                "visita",
+                "visits"
+              ],
+              [
+                "cómodo",
+                "comfortable"
+              ],
+              [
+                "el salón",
+                "the living room"
+              ]
+            ],
+            "stage": "A1.2"
+          },
+          "after": {
+            "title": "Una visita al piso",
+            "text": "Marta visita el piso de Ana.\nAna: Vivo en este piso. Este es el salón. Hay un sofá y una mesa pequeña.\nMarta: Es cómodo. ¿Dónde está la cocina?\nAna: Al lado del salón. La cocina es pequeña, pero hay una mesa y dos sillas.\nMarta: Perfecto. Podemos tomar té allí.\nAna: Sí, y después escuchamos música en el salón.",
+            "glossary": [
+              [
+                "visita",
+                "visits"
+              ],
+              [
+                "cómodo",
+                "comfortable"
+              ],
+              [
+                "el salón",
+                "the living room"
+              ]
+            ],
+            "stage": "A1.2"
+          }
+        }
+      ]
+    },
+    {
+      "activity": "a12u5story0",
+      "id": "a12u5story0-q5",
+      "stage": "A1.2",
+      "reason": "Selective natural reuse of an earlier anchor in the existing scenario; all story questions and accepted answers remain unchanged.",
+      "beforeKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId",
+        "promptEs",
+        "englishHint",
+        "instructionLanguage",
+        "supportConcept"
+      ],
+      "afterKeys": [
+        "type",
+        "prompt",
+        "answer",
+        "options",
+        "explanation",
+        "topic",
+        "mode",
+        "reading",
+        "id",
+        "sourceQuestionId",
+        "promptEs",
+        "englishHint",
+        "instructionLanguage",
+        "supportConcept"
+      ],
+      "changes": [
+        {
+          "field": "reading",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": {
+            "title": "Una visita al piso",
+            "text": "Marta visita el piso de Ana.\nAna: Este es el salón. Hay un sofá y una mesa pequeña.\nMarta: Es cómodo. ¿Dónde está la cocina?\nAna: Al lado del salón. La cocina es pequeña, pero hay una mesa y dos sillas.\nMarta: Perfecto. Podemos tomar té allí.\nAna: Sí, y después escuchamos música en el salón.",
+            "glossary": [
+              [
+                "visita",
+                "visits"
+              ],
+              [
+                "cómodo",
+                "comfortable"
+              ],
+              [
+                "el salón",
+                "the living room"
+              ]
+            ],
+            "stage": "A1.2"
+          },
+          "after": {
+            "title": "Una visita al piso",
+            "text": "Marta visita el piso de Ana.\nAna: Vivo en este piso. Este es el salón. Hay un sofá y una mesa pequeña.\nMarta: Es cómodo. ¿Dónde está la cocina?\nAna: Al lado del salón. La cocina es pequeña, pero hay una mesa y dos sillas.\nMarta: Perfecto. Podemos tomar té allí.\nAna: Sí, y después escuchamos música en el salón.",
+            "glossary": [
+              [
+                "visita",
+                "visits"
+              ],
+              [
+                "cómodo",
+                "comfortable"
+              ],
+              [
+                "el salón",
+                "the living room"
+              ]
+            ],
+            "stage": "A1.2"
+          }
+        }
+      ]
+    }
+  ],
+  "activityChanges": [
+    {
+      "id": "u4story0",
+      "reason": "Selective natural reuse of an earlier anchor in the existing scenario; all story questions and accepted answers remain unchanged.",
+      "beforeKeys": [
+        "id",
+        "stage",
+        "unit",
+        "title",
+        "reading",
+        "questions",
+        "checkpoint",
+        "goal",
+        "outcomeId",
+        "authorship"
+      ],
+      "afterKeys": [
+        "id",
+        "stage",
+        "unit",
+        "title",
+        "reading",
+        "questions",
+        "checkpoint",
+        "goal",
+        "outcomeId",
+        "authorship"
+      ],
+      "changes": [
+        {
+          "field": "reading",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": {
+            "title": "Marta viene al café",
+            "text": "Luis y Ana están en el café. Marta entra.\nLuis: Ana, esta es mi hermana Marta.\nAna: Hola, Marta.\nMarta: Hola.\nDiego: Un té para Marta.\nLuis: Gracias, Diego.",
+            "glossary": [
+              [
+                "viene",
+                "comes"
+              ],
+              [
+                "mi hermana",
+                "my sister"
+              ]
+            ],
+            "stage": "A1.1"
+          },
+          "after": {
+            "title": "Marta viene al café",
+            "text": "Luis y Ana están en el café. Marta entra.\nLuis: Ana, esta es mi hermana Marta.\nAna: Hola, Marta. Me llamo Ana.\nMarta: Hola.\nDiego: Un té para Marta.\nLuis: Gracias, Diego.",
+            "glossary": [
+              [
+                "viene",
+                "comes"
+              ],
+              [
+                "mi hermana",
+                "my sister"
+              ]
+            ],
+            "stage": "A1.1"
+          }
+        }
+      ]
+    },
+    {
+      "id": "a12u5story0",
+      "reason": "Selective natural reuse of an earlier anchor in the existing scenario; all story questions and accepted answers remain unchanged.",
+      "beforeKeys": [
+        "id",
+        "stage",
+        "unit",
+        "unitId",
+        "outcomeId",
+        "goal",
+        "title",
+        "questions",
+        "checkpoint",
+        "authorship",
+        "reading"
+      ],
+      "afterKeys": [
+        "id",
+        "stage",
+        "unit",
+        "unitId",
+        "outcomeId",
+        "goal",
+        "title",
+        "questions",
+        "checkpoint",
+        "authorship",
+        "reading"
+      ],
+      "changes": [
+        {
+          "field": "reading",
+          "beforePresent": true,
+          "afterPresent": true,
+          "before": {
+            "title": "Una visita al piso",
+            "text": "Marta visita el piso de Ana.\nAna: Este es el salón. Hay un sofá y una mesa pequeña.\nMarta: Es cómodo. ¿Dónde está la cocina?\nAna: Al lado del salón. La cocina es pequeña, pero hay una mesa y dos sillas.\nMarta: Perfecto. Podemos tomar té allí.\nAna: Sí, y después escuchamos música en el salón.",
+            "glossary": [
+              [
+                "visita",
+                "visits"
+              ],
+              [
+                "cómodo",
+                "comfortable"
+              ],
+              [
+                "el salón",
+                "the living room"
+              ]
+            ],
+            "stage": "A1.2"
+          },
+          "after": {
+            "title": "Una visita al piso",
+            "text": "Marta visita el piso de Ana.\nAna: Vivo en este piso. Este es el salón. Hay un sofá y una mesa pequeña.\nMarta: Es cómodo. ¿Dónde está la cocina?\nAna: Al lado del salón. La cocina es pequeña, pero hay una mesa y dos sillas.\nMarta: Perfecto. Podemos tomar té allí.\nAna: Sí, y después escuchamos música en el salón.",
+            "glossary": [
+              [
+                "visita",
+                "visits"
+              ],
+              [
+                "cómodo",
+                "comfortable"
+              ],
+              [
+                "el salón",
+                "the living room"
+              ]
+            ],
+            "stage": "A1.2"
+          }
+        }
+      ]
+    }
+  ],
+  "activities": [
+    {
+      "id": "u0l0",
+      "beforeHash": "02adf9716c96f9689ec2c8aa1f3b9d9bcf18a8c02bb17ff2f72382fdf616b21b",
+      "afterHash": "7b93518c74d4b7e76790a777003e46a99640c1d9fa2b885e41423088bfab5a3e"
+    },
+    {
+      "id": "u0l1",
+      "beforeHash": "485c16f3ec89565c56f9133a3739d7d1629722ac9a183c8cdb16e67d1c170e33",
+      "afterHash": "cd887555ecd207c35c8e37ce0ced0c95e36952a2422897ecf255b38a8ff698d4"
+    },
+    {
+      "id": "u0l2",
+      "beforeHash": "0c396aa5a04a96f4ce3004f3d2e7102fd3061f468200e8a68b215b211ea61b00",
+      "afterHash": "fd7cec06e42404e997a37e9bf4a66a0e314cb48bc5718251477c07cbb5c992de"
+    },
+    {
+      "id": "u4story0",
+      "beforeHash": "da22c7142460017834bfc19aa359d4e90374fa44c1dd585f6a451b54ca8be268",
+      "afterHash": "7cb7fe272c99fee4e00a7f306462db51900421814e004e8c9759e5984a0586dc"
+    },
+    {
+      "id": "a12u5story0",
+      "beforeHash": "2ef1649e8f4407b69ad3f59ab7077581b29102f897de183cbaf3e630e3e2a624",
+      "afterHash": "4ea33eca2718552b35abe71a5fd79b40f87479a5509fc92894bac38d9e1d9ed4"
+    }
+  ],
+  "sourceCorrections": [
+    {
+      "file": "www/a1-review.js",
+      "changes": [
+        {
+          "before": "",
+          "after": " // Confidence ramp: replace only the first three teaching activities after\n // permanent identities and legacy snapshots have been captured. The checkpoint\n // has its own question copies and intentionally retains its original demands.\n const supported=(old,patch,spanish,meaning)=>{\n  const next={...old,...patch,teachingModel:{spanish,meaning}};\n  for(const field of ['accepted','language','mistakes','sentence','meaning'])delete next[field];\n  return next;\n };\n const discover=lesson('u0l0');\n discover.questions[0]=supported(discover.questions[0],{prompt:'Which means “Hello”?',explanation:'Hola means hello. Use it when you meet someone.'},'Hola','Hello');\n discover.questions[1]=supported(discover.questions[1],{type:'choice',mode:'recognition',prompt:'Ana says “Me llamo Ana”. What is she telling you?',answer:'Her name',options:['Her name','Her age','Where she lives'],spanish:'Me llamo Ana.',explanation:'Me llamo Ana means “My name is Ana”.'},'Me llamo Ana.','My name is Ana.');\n discover.questions[2]={...supported(discover.questions[2],{type:'gap',mode:'completion',prompt:'Complete: Me ___ Ana. (“My name is Ana”)',answer:'llamo',options:['llamo','hola','gracias'],spanish:'Me llamo Ana.',explanation:'Me llamo Ana means “My name is Ana”.'},'Me llamo Ana.','My name is Ana.'),sentence:'Me ___ Ana.',meaning:'My name is Ana',spanishFragments:['Me ___ Ana.']};\n discover.questions[3]=supported(discover.questions[3],{explanation:'¿Cómo te llamas? asks “What is your name?” Answer with your name: Me llamo Ana.'},'¿Cómo te llamas?','What is your name?');\n discover.questions[4]=supported(discover.questions[4],{type:'choice',mode:'recognition',prompt:'You are leaving. Which phrase means “See you later”?',answer:'Hasta luego',options:['Hola','Hasta luego','Me llamo Ana'],spanish:'Hasta luego',explanation:'Hasta luego means “See you later”. Adiós is another way to say goodbye.'},'Adiós. Hasta luego.','Goodbye. See you later.');\n const confidence=lesson('u0l1');\n confidence.questions[0]=supported(confidence.questions[0],{explanation:'Buenos días means “Good morning”. Use it in the morning.'},'Buenos días','Good morning');\n confidence.questions[1]={...supported(confidence.questions[1],{prompt:'Complete: ¿___ ___ llamas? (“What is your name?”)',options:['Cómo te','Hola','Gracias'],explanation:'Keep the familiar question together: ¿Cómo te llamas? means “What is your name?”'},'¿Cómo te llamas?','What is your name?'),sentence:'¿___ ___ llamas?',meaning:'What is your name?',spanishFragments:['¿___ ___ llamas?']};\n confidence.questions[2]=supported(confidence.questions[2],{type:'choice',mode:'recognition',prompt:'Which question asks someone their name?',answer:'¿Cómo te llamas?',options:['Hasta luego','¿Cómo te llamas?','Me llamo Ana'],explanation:'¿Cómo te llamas? asks a name. Me llamo Ana gives a name.'},'¿Cómo te llamas?','What is your name?');\n confidence.questions[3]=supported(confidence.questions[3],{},'Gracias. De nada.','Thank you. You’re welcome.');\n confidence.questions[4]={...confidence.questions[4],mode:'recall',prompt:'From memory, write “My name is Ana”.',answer:'Me llamo Ana',accepted:['Me llamo Ana','Mi nombre es Ana'],spanish:'Me llamo Ana',explanation:'Me llamo Ana means “My name is Ana”. You have already seen and completed this phrase.',mistakes:[]};\n const useIt=lesson('u0l2');\n useIt.questions[1]={...useIt.questions[1],explanation:'Use the familiar phrase buenos días. It means “Good morning”.'};\n useIt.questions[3]={...useIt.questions[3],teachingModel:{spanish:'¿Puedes repetir, por favor?',meaning:'Could you repeat, please?'}};\n useIt.questions[4]={...useIt.questions[4],prompt:'You are Luis. Introduce yourself to a new classmate.',answer:'Me llamo Luis',accepted:['Me llamo Luis','Soy Luis','Mi nombre es Luis','Hola, me llamo Luis','Hola, soy Luis'],spanish:'Me llamo Luis',explanation:'Use me llamo with your name: Me llamo Luis. You can also say Soy Luis.',mistakes:[]};\n // Familiar introductions and home-language support the next communicative goal.\n // These two short additions leave the existing story questions/answers intact.\n amendStory('u4story0','Ana: Hola, Marta.','Ana: Hola, Marta. Me llamo Ana.');\n amendStory('a12u5story0','Ana: Este es el salón.','Ana: Vivo en este piso. Este es el salón.');\n"
+        }
+      ]
+    }
+  ]
+}

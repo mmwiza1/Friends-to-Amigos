@@ -1,4 +1,4 @@
-# Friends to Amigos course design through A2.2
+# Friends to Amigos course design through B2.2
 
 A1.1 and A1.2 form the playable A1 course. This design uses CEFR-style can-do outcomes and the Spanish-specific scope guidance documented for Instituto Cervantes, with communicative/OER teaching principles. It is not formal CEFR certification. All eight stages A1.1 through B2.2 are playable for user testing; no CEFR certification is claimed.
 
@@ -37,9 +37,23 @@ A1.2 ends each unit with its checkpoint:
 
 Discover → Story 1 → Build confidence → Story 2 → Use it → Story 3 → Write in Spanish → Story 4 → Checkpoint.
 
-Per unit: teaching activities have 5/6/7 questions; four stories and the writing activity have five each; checkpoint has nine. Total: **52 slots per unit, 416 per stage, 832 overall**, across the unchanged 144 activities. There are 240 scored Spanish-writing slots, 48 listening slots and 16 self-assessed speaking slots. Added media occupies existing teaching activities rather than inflating activity counts. One earlier checkpoint slot per unit is replaced by listening.
+Per unit: teaching activities have 5/6/7 questions; four stories and the writing activity have five each; checkpoint has nine. Total: **52 slots per unit, 416 per stage, 832 overall**, across the unchanged 144 A1 activities. The 1.2.0 beginner ramp changes three opening Spanish-writing slots into supported recognition/completion, leaving **237 Spanish-writing slots**, 48 listening slots and 16 self-assessed speaking slots in A1. Added media occupies existing teaching activities rather than inflating activity counts. One earlier checkpoint slot per unit is replaced by listening.
 
-The first five teaching questions retain the recognition/model → completion → recall → contextual response → transfer structure. New listening follows familiar models; speaking follows high-value communicative practice. A1.2 moves toward connected responses without extensive past narration or A2 grammar. Answer lists remain short and finite.
+After the opening confidence ramp, the first five teaching questions retain the recognition/model → completion → recall → contextual response → transfer structure. Listening follows familiar models; speaking follows high-value communicative practice. A1.2 moves toward connected responses without extensive past narration or A2 grammar. Answer lists remain short and finite.
+
+## A1.1 confidence ramp (1.2.0)
+
+The first three regular Unit 0 teaching activities keep their permanent activity/question IDs and their place among the original stories. The goal is a gentler first encounter, not a lower eventual A1 standard.
+
+| Activity | Intended learning burden | Current sequence |
+| --- | --- | --- |
+| `u0l0` — Discover | Useful meaning first; very strong support | Visible bilingual Hola / Me llamo / name-question / farewell models; recognition and an easy Me ___ Ana completion. No typed recall or role switching. |
+| `u0l1` — Build confidence | Mostly recognition/support; first short recall late | Four supported core items, then “My name is Ana” from memory. The existing familiar name-question listen remains. |
+| `u0l2` — Use it | Begin recalling and using familiar chunks | Farewell recognition/completion, short farewell recall, a modelled request for repetition, Luis name transfer, the existing name listen and spoken introduction. |
+
+The first lesson no longer asks the learner to generate Spanish from memory or switch identities before the chunks are familiar. Its distractors distinguish useful meanings rather than subtle conjugations, and feedback explains meanings without reflexive/infinitive terminology. The second lesson first retrieves **me llamo** at core question 5; the third restores simple independent transfer. Subsequent writing, stories, listening, speaking, Review and checkpoints remain. All A1 checkpoints retain their content and 80% pass rule.
+
+Visible bilingual `teachingModel` metadata expresses deliberate support. It is not an English task hint and cannot reveal a hidden listening transcript or speaking model. New attempts use the revised opening; historical saved attempts/reviews keep their saved questions and original task types. See [the exact release record](docs/release/LEARNER_EXPERIENCE_REPORT.md).
 
 ## Reading and vocabulary load
 
@@ -48,6 +62,10 @@ The 64 preserved A1 stories and 32 new A2.1 stories have three specific choices 
 With the audit's Spanish surface-token method, A1.1 stories average 28.4 words (21–35); A1.2 averages 48.4 (34–65). These counts exclude numerals and are a pacing indicator, not a proficiency measure. The audit retained natural original passages and changed three A1.2 stories only to recycle familiar water/food/hunger within plausible breakfast, shopping and outing contexts.
 
 Recycling also uses quantities, coffee/bills, keys/phones, home locations, invitations and changed times across units. [The audit report](docs/A1_STABILITY_REPORT.md) records baseline-to-final surface-word unit coverage. `npm run audit` reproduces it; inflections, names and function words are not lemmatised and exposure is not evidence of mastery.
+
+For ongoing authoring, previously learned high-frequency language should become scaffolding for new language. Seeing a chunk, recognising it, completing it, retrieving it, using/responding, transferring and combining it are different tasks; recycling need not repeat the same question. The 1.2.0 change adds two selective bridges: a family introduction reuses **me llamo**, and a flat visit reuses **vivo en** before introducing rooms with **hay**. Other natural A1 contexts remain intact.
+
+[The A1 anchor recurrence audit](docs/release/a1-anchor-recurrence.json) records fifteen constructions across sixteen units with activity examples. It deduplicates passage repetition inside an activity and excludes wrong options, surrounding English and explanations. It flags four or more intervening units without the literal anchor for pedagogical review. A flag is not a demand to re-introduce familiar characters unnaturally; planned course exposure, focused retrieval and personalised SRS serve complementary roles. Presence is neither learner recall nor mastery, and literal matching does not cover every equivalent form.
 
 ## Listening
 
@@ -65,7 +83,7 @@ One selected chunk per unit practises a useful utterance: greeting/introduction,
 
 The learner tries aloud, deliberately reveals one possible model, optionally hears it, then self-assesses. Different natural equivalents may also be considered successful. “Needs practice” enters spaced review. Speaking attempts are explicitly self-assessed, excluded from scored accuracy and cannot on their own earn a checkpoint/capability. The app neither records voice nor verifies pronunciation.
 
-Completion and Home practice sessions rotate through units already practised (or introductory chunks for a new learner), favouring less recently retrieved items. This supports continued retrieval after the playable course is completed rather than offering unavailable B material.
+Completion and Home practice sessions rotate through units already practised (or introductory chunks for a new learner), favouring less recently retrieved items. This supports continued retrieval after the playable course is completed rather than offering an unavailable later course.
 
 ## Assessment and teaching feedback
 
@@ -184,12 +202,12 @@ All A2.2 task prompts are Spanish-first with safe optional English task support.
 
 A2.2 adds 56 Listening, 56 Speaking, 64 contextual Conjugations and 20 curated table targets. Focused media follows completed teaching units/earlier placement assumptions; grammar games follow the existing level ceiling independently of course completion. The new material feeds existing stable-ID reviews, outcomes, weakness signals and Today’s Review. Full tables still require spaced unassisted recall. See [the quality report](docs/A22_QUALITY_RELEASE.md) for vocabulary findings and review limits.
 
-B1 is not implemented. Broad subjunctive, future/conditional paradigms, advanced object-pronoun instruction and unrestricted narratives remain outside this release. Before B1, obtain educator/native-speaker review, learner transfer evidence and a physical-device upgrade/TTS check; automated completion is not a pedagogical certification.
+At the historical A2.2 release boundary, B1 was not yet implemented; the full-course release below supersedes that availability statement. Educator/native-speaker review, learner transfer evidence and a physical-device upgrade/TTS check remain important; automated completion is not a pedagogical certification.
 
 
-## Full-course writing release
+## Full-course writing release (1.0.0 historical record)
 
-Current scope is A1.1–B2.2, 576 activities / 3,328 slots / 256 stories. The original 288 A1–A2 activities retain their complete content and identity contracts; the dedicated-writing audit adds assessment metadata without changing their objectives, answers or prompts. All new B activities are original, Spanish-first and include optional English help. Hints and model-assisted revision carry weaker evidence.
+The 1.0.0 release established A1.1–B2.2, 576 activities / 3,328 slots / 256 stories. At that release, the original 288 A1–A2 activities retained their complete content and identity contracts; the dedicated-writing audit added assessment metadata without changing their objectives, answers or prompts. All new B activities were original, Spanish-first and included optional English help. Hints and model-assisted revision carry weaker evidence. The selective 1.1.0 and 1.2.0 amendments below supersede only their explicitly documented earlier content.
 
 Writing modes are chosen by task openness, not response length alone. Named-role retrieval remains Controlled. Guided writing accepts known variants but treats an unexpected formulation as uncertain/model comparison, not failure. Free writing is never automatically verified. Coverage markers support reflection, not grammatical certification. Only narrow high-confidence rules and explicit morphology context diagnose errors. Quoted errors, article/verb homographs and proper names receive conservative safeguards.
 
@@ -212,3 +230,9 @@ The offline learner dictionary adds exploration without altering the course prog
 This release selectively improves six A1 Conjugations sentence carriers, the A2.1 plural-address instruction, natural clothing alternatives and Spain transport wording/notes. Original IDs, activity order, targets and historical accepted variants are retained; all changes are recorded in [the correction manifest](docs/release/dictionary-content-corrections.json). Tomar transport phrases stay valid; the regular Tomé teaching target is not replaced blindly. Vosotros/as is described as the usual informal plural in most of Spain, with useful Latin-American notes retained. Stories and wider learning objectives are unchanged.
 
 See [dictionary architecture](docs/LEARNER_DICTIONARY.md) for first-party provenance, exposure coverage and safe vocabulary extension. Word lookup is not a general writing grader; the existing controlled/guided/free uncertainty policy remains.
+
+## Visible-word help and responsive Android policy (1.2.0)
+
+Visible Spanish may be explored before submitting an answer, including a conservatively identified Spanish quotation in an English prompt and Spanish answer-option text. Tap a word for its contextual dictionary; tap the separate radio/card/padding to choose an answer. Radio selection and token lookup have independent keyboard/focus semantics, and interactive token controls are never nested inside the answer button. Hidden models/transcripts and correctness metadata remain inaccessible to lookup. This is vocabulary exploration, not a scoring hint or mastery event. The early discovery tip stops after successful lookup; Saved Words stays in Profile and Review stays in the original five-tab navigation.
+
+Samsung S22/S24/S25 represent responsive Android conditions rather than a physical-resolution target. CSS/native-inset tests vary portrait/landscape, gesture/three-button navigation, cutouts, overlay/resized keyboards, light/dark and large text. Safe areas still come from one native source. Long choices wrap beside a dedicated radio; the dictionary and More remain within the usable viewport and can scroll. These automated profiles do not replace real-device accessibility, acoustic TTS or educator review. Exact performed validation is recorded in [BUILD_STATUS.md](BUILD_STATUS.md).

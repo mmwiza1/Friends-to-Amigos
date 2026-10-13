@@ -1,38 +1,33 @@
 # Build and validation status
 
-Dictionary / Saved Words / Spanish QA release **1.1.0**, Android **versionCode 12**, storage schema **v2**.
-Baseline: latest main `baa70640135207a1a44f20cdfef355348d3c6028` (1.0.0/code 11).
+Learner-experience candidate **1.2.0**, Android **versionCode 13**, storage schema **v2**.
+Baseline: latest main `e6a4eaed045c255beb6e663b46d24e9d81d0b8a5` (1.1.0/code 12).
 
 ## Baseline and preserved contracts
 
-The immutable baseline was checked with local `npm run check` and `npm test`: Node 24 reported **17 file-isolated suites passed**, 0 failures/skips. Its prior full CI release had **649 individual cases**, **13,981 browser assertions / 11 layouts**, and **11 Android unit tests**, with lint **0 errors / 12 warnings**.
+The immutable main copy passed local `npm run check` and `npm test`: Node 24 reported **22 file-isolated suites passed**, 0 failures/skips. Published baseline CI reported **754 individual cases**, **14,531 browser assertions / 11 layouts**, **11 Android unit tests**, and lint **0 errors / 12 warnings**.
 
-All 576 activities, 3,328 slots, permanent course/game/table/media IDs, activity order, objectives and historical snapshots remain protected. The [explicit correction manifest](docs/release/dictionary-content-corrections.json) records the requested minimal Spanish edits. Existing immutable fixtures are retained; tests reverse only those declared changes (and assert their new values) before comparing historical hashes. No assertion is silently dropped or fixture blindly regenerated.
+All 576 activities, 3,328 course slots and permanent course/game/table/media identities and ordering remain protected. The new [baseline contract](docs/release/learner-experience-baseline-contract.json) also protects all 23 historical fixtures, navigation, 592 Conjugations items, 82 table targets and 896 focused media items. The [explicit on-ramp/recycling manifest](docs/release/learner-experience-content-corrections.json) records five intentionally amended activities and 23 question payloads. Tests assert the exact new values before reversing only those explicit changes for historical hashes; immutable fixtures are not regenerated.
 
-## Current validation
+The supported opening preserves the original checkpoints, objectives, writing practice and later expectations. Historical attempts use their saved questions. Review success on an easier/different replacement task cannot clear an original harder review under the same ID. Original snapshot practice retains the established schedule. Schema remains v2 with optional true-only product discovery `dictionaryTipSeen`, separate from hints/evidence/score.
 
-Final implementation gate: [GitHub Actions run 37888800033](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/37888800033), source head `1e41a2436b6c98f2ec9bed58e9eb288d064f23e4` (followed only by release-documentation updates).
+## Current release gate
 
-- `npm run check`: **passed**; 576 activities, 3,328 question slots, 3,367 authored permanent question IDs, 592 Conjugations payloads, 896 focused listening/speaking items, 1,212 dictionary entries and 1,564 known form mappings checked.
-- `npm test` on CI Node 22: **754 passed, 0 failed, 0 cancelled, 0 skipped, 0 todo**; **105 additional dictionary/Spanish-QA cases** compared with the 649-case baseline. The local Node 24 runner reports **22 file-isolated suites passed**, 0 failed/skipped.
-- `npm run audit`: **passed locally**, including dictionary exposure coverage. The original historical v1 release audit is retained; the new dictionary coverage has its own report.
-- `npm run check:browser`: **14,531 assertions passed across 11 layouts** (1,321 per layout; +550 over baseline), including dictionary and Saved Words journeys, narrow phones, S24-sized light/dark, large text, landscape/cutouts and keyboard/inset cases. Existing browser assertions remain.
-- `gradle -p android assembleDebug lintDebug testDebugUnitTest`: **BUILD SUCCESSFUL**, 47 tasks executed. JUnit reports: **11 passed, 0 failures, 0 errors, 0 skipped**. Lint XML: **0 errors, 12 warnings**, unchanged from baseline (target API, WebView/security declarations and launcher-resource advisories).
-- Downloaded debug APK **1,731,624 bytes**; the four dictionary runtime/data/CSS assets match the validated workspace byte for byte. No externally hosted dictionary dependency is required.
+Local syntax/structural checks, the anchor audit and targeted compatibility/review tests pass. The final complete `npm test`, rendered mobile/browser and Android compile/lint/unit runs are in progress; exact counts and the successful workflow link will be recorded before publishing main.
 
-Representative rendered popup/Saved Words screenshots were inspected in narrow light mode, S24 dark mode, landscape and large-text layouts. This is simulated browser/developer review, not physical-device validation. All existing compiled course/game payloads match the immutable baseline after reversing only the explicit correction manifest; immutable progress fixtures and the five-tab navigation are unchanged.
+Local Chromium fails to launch under the execution sandbox (`ECONNRESET`, crashpad socket operation not permitted), so no local rendered pass is claimed. Local Gradle/Android SDK/adb/emulator are unavailable. The established GitHub Actions workflow runs `npm run check`, `npm test`, `npm run check:browser`, then `gradle -p android assembleDebug lintDebug testDebugUnitTest`. No emulator, physical-device, acoustic TTS or independent native-speaker validation is claimed.
 
-Local Chromium failed to launch under the execution sandbox (`ECONNRESET`, crashpad socket operation not permitted); no local rendered pass is claimed. Local Gradle/Android SDK/adb/emulator are unavailable. Rendered-browser and native validation therefore run in the established GitHub Actions workflow. No emulator, physical-device, acoustic TTS or independent native-speaker validation is claimed.
+## Responsive / device checklist
 
-## Device checklist
+The rendered suite retains eleven previous profiles and adds four named Samsung scenarios: S22 360px light/three-button, S24 360px dark/gesture with overlay IME, S25 360px large text/bilateral cutouts, and S25 760×360 landscape/asymmetric cutouts. These vary CSS viewports and native inset values, not physical model resolution. Existing WindowInsets remain the single source of truth.
 
 Before wider distribution:
 
 1. Export a verified backup and confirm signing-key compatibility before installing; never uninstall an existing APK without a recovery plan.
-2. On S24 gesture and three-button navigation, portrait/landscape, light/dark and large text: open/scroll/dismiss the popup near each screen edge, show More, verify toasts and final controls above the keyboard/system bars.
-3. Tap the representative constructions listed in [dictionary documentation](docs/LEARNER_DICTIONARY.md), replay pronunciation using the installed offline es-ES voice, and check ambiguous/unknown words are honest.
-4. Save words/phrases, reopen Profile Saved Words, search/filter/remove, background/relaunch and export/import a backup.
-5. Verify a popup Back closes it first, the next Back saves/leaves, and unfinished lessons/Today/review resume exactly. Check keyboard Go and multiline newline retain their existing behaviour.
-6. Review the selective café/clothing/transport/plural-instruction corrections with a Spanish educator. Existing taking-transport alternatives remain valid.
+2. On real S22/S24/S25, try portrait/landscape, gesture/three-button, light/dark and large text. Open and scroll dictionary/More near each screen edge; verify final controls and navigation above system UI.
+3. In all three opening lessons, tap Spanish in the bilingual model, mixed prompt and options before answering. Word tap must open help; card/radio/padding must select. Back/Escape/outside closes help without answering. Check the product tip disappears only after successful dictionary use.
+4. Focus written responses and Saved Words search using the Samsung keyboard. Check Go submits once, multiline Enter adds a newline, inputs and Check remain reachable, and closing the IME restores layout.
+5. Save/remove/search/filter vocabulary, background/relaunch, resume a historical lesson and export/import. Verify Today, Review, placement, games/tables, accents and distinct ñ.
+6. Listen to dictionary pronunciation using an installed offline es-ES voice and obtain complete-beginner/educator feedback on the ramp and recurrence gaps.
 
-The eight-stage course remains a user-testing course milestone, not CEFR certification. See the historical [1.0 quality report](docs/release/V1_REPORT.md), [new dictionary architecture](docs/LEARNER_DICTIONARY.md), and [coverage report](docs/release/dictionary-coverage.json). No third-party dictionary/audio corpus, framework or runtime dependency was added.
+See [the learner-experience quality report](docs/release/LEARNER_EXPERIENCE_REPORT.md), [dictionary architecture](docs/LEARNER_DICTIONARY.md), [anchor recurrence](docs/release/a1-anchor-recurrence.json) and historical [1.1.0 report](docs/release/DICTIONARY_REPORT.md). This is a course/user-testing milestone, not CEFR certification. No framework, cloud service, runtime dependency, microphone or third-party corpus is added.

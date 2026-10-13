@@ -47,7 +47,7 @@ test('checkpoint transfer is not just a repeat of the preceding writing activity
  }
 });
 test('repair requests, price scaffolding, routine scaffolding and connector constraints are implemented',()=>{
- const find=id=>C.lessons.find(l=>l.id===id);assert.match(find('u0l2').questions[4].answer,/repetir/);assert.equal(find('u3l2').questions[1].answer,'veinte euros');assert.equal(find('a12u6l1').questions[1].answer,'me visto');
+ const find=id=>C.lessons.find(l=>l.id===id);assert.match(find('u0l2').questions[3].answer,/repetir/);assert.ok(find('u0l2').questions[3].teachingModel);assert.ok(find('u0check').questions.some(q=>q.type==='text'&&/repetir/.test(q.answer)),'independent repair request remains in the unchanged checkpoint');assert.equal(find('u3l2').questions[1].answer,'veinte euros');assert.equal(find('a12u6l1').questions[1].answer,'me visto');
  const q=find('a12u7l1').questions[2];assert.ok(q.accepted.every(a=>a.includes('porque')));assert.ok(!E.isCorrect(q,'Estoy cansada, por eso me quedo en casa'));
 });
 test('spoken self-assessment cannot earn a checkpoint or a lesson with zero scored evidence',()=>{

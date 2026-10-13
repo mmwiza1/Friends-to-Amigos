@@ -78,3 +78,16 @@ textarea { width:100%; max-width:100%; min-height:160px; resize:vertical; paddin
 .writing-why summary { min-height:44px; display:list-item; padding:10px 0; cursor:pointer; font-weight:700; }
 
 .filters[aria-label="Choose playable stage"]{flex-wrap:wrap;gap:8px}.filters[aria-label="Choose playable stage"] button{flex:1 1 20%;min-height:44px;white-space:nowrap}.writing-response{white-space:pre-wrap;overflow-wrap:anywhere}.writing-requirements{padding-left:22px;line-height:1.5}.previous-writing{margin:12px 0}
+
+/* Spanish help and answer selection have separate targets inside the same card. */
+.quiz-choices .choice{cursor:pointer;align-items:flex-start;gap:8px;min-width:0}
+.choice-select{display:grid;place-items:center;flex:none;width:44px;min-width:44px;height:44px;min-height:44px;padding:0;border:0;border-radius:10px;background:transparent;color:inherit;touch-action:manipulation}
+.choice-select:focus-visible{outline:3px solid var(--teal);outline-offset:1px}
+.choice[aria-disabled="true"]{cursor:default}
+.option-text{flex:1;min-width:0;align-self:center;overflow-wrap:break-word;line-height:1.45}
+.quiz-choices .choice,.game-options .choice{font-size:1rem}
+.question{font-size:1.5625rem;overflow-wrap:break-word}
+.story p{font-size:1.25rem}
+/* Preserve the normal theme while respecting larger browser/system text. */
+nav button{font-size:.6875rem;overflow-wrap:normal}
+.dictionary-discovery-tip{font-size:.875rem;line-height:1.4;margin:10px 0;color:var(--muted)}

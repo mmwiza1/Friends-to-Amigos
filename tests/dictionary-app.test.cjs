@@ -15,7 +15,7 @@ function popupDOM(a){
 function open(a,word='Tengo',sentence='Tengo hambre.'){
  return evaluate(a,'dictionaryUI.open(D.lookup('+JSON.stringify(word)+',{sentence:'+JSON.stringify(sentence)+',offset:'+sentence.toLocaleLowerCase('es').indexOf(word.toLocaleLowerCase('es'))+',stage:"A1.1"}))');
 }
-function learningState(a){const s=clone(evaluate(a,'state'));delete s.savedWords;return s;}
+function learningState(a){const s=clone(evaluate(a,'state'));delete s.savedWords;delete s.dictionaryTipSeen;return s;}
 function nav(html){return html.match(/<nav aria-label="Main navigation">([\s\S]*?)<\/nav>/)?.[1];}
 
 test('Saved Words is additive inside Profile; existing navigation labels, order and Review badge remain intact',()=>{
@@ -117,7 +117,7 @@ test('native interruption closes the dictionary and preserves both vocabulary an
  const resumed=app({},a.state());resumed.click('continue');assert.equal(resumed.current().id,active.questions[0].id);assert.match(resumed.el.innerHTML,/value="Hola, soy Ana"/);assert.deepEqual(resumed.state().savedWords,saved);
 });
 
-test('only canonical Spanish feedback and game carrier text receive dictionary boundaries; choices and learner mistakes do not',()=>{
+test('canonical feedback and game carrier text remain explorable while learner mistakes and game controls stay unmarked',()=>{
  const a=app();a.click('lesson',{id:'u0write'});a.input('Hola, mi llamo Ana');a.click('check');
  const feedback=[...a.el.innerHTML.matchAll(/<p class="feedback-answer"([^>]*)>([\s\S]*?)<\/p>/g)];assert.equal(feedback.length,2);
  assert.doesNotMatch(feedback[0][1],/data-dictionary/);assert.match(feedback[1][1],/lang="es" data-dictionary/);assert.match(feedback[1][2],/Me|me/);
@@ -157,4 +157,19 @@ test('English story titles are not mislabeled as Spanish dictionary text while t
  assert.match(a.el.innerHTML,/<h2>A message before lunch<\/h2>/);
  assert.doesNotMatch(a.el.innerHTML,/<h2[^>]*data-dictionary[^>]*>A message before lunch/);
  assert.match(a.el.innerHTML,/<p lang="es" data-dictionary>/);
+});
+
+test('a successful vocabulary lookup dismisses the one-time early tip without counting as a hint or learning event',()=>{
+ const a=app();popupDOM(a);a.click('begin');assert.match(a.el.innerHTML,/id="dictionary-discovery-tip"/);assert.match(a.el.innerHTML,/Tap any Spanish word for help/);
+ const before=learningState(a),snapshot=clone(a.state().active);assert.notEqual(a.state().dictionaryTipSeen,true);
+ assert.equal(open(a,'Hola','Hola'),true);assert.equal(a.state().dictionaryTipSeen,true);assert.deepEqual(learningState(a),before);assert.deepEqual(a.state().active,snapshot);
+ assert.equal(a.state().active.hintRevealed,false);assert.equal(a.state().active.answers.length,0);assert.equal(Object.keys(a.state().reviews).length,0);assert.equal(a.state().events.length,0);
+ a.ctx.FriendsToAmigos.handleBack();assert.equal(evaluate(a,'screen'),'quiz');assert.deepEqual(a.state().active,snapshot);assert.equal(evaluate(a,'dictionaryUI.isOpen()'),false);
+ a.click('leave');a.click('continue');assert.doesNotMatch(a.el.innerHTML,/id="dictionary-discovery-tip"/);assert.equal(a.state().dictionaryTipSeen,true);
+ const resumed=app({},a.state());resumed.click('continue');assert.doesNotMatch(resumed.el.innerHTML,/id="dictionary-discovery-tip"/);assert.equal(resumed.state().dictionaryTipSeen,true);
+});
+
+test('unknown dictionary help does not claim discovery and protected saves do not mutate the optional tip preference',()=>{
+ const a=app();popupDOM(a);a.click('begin');const before=clone(a.state());open(a,'palabraquenoexiste','palabraquenoexiste');assert.deepEqual(a.state(),before);assert.notEqual(a.state().dictionaryTipSeen,true);
+ const protectedSave={version:99,name:'Recovery state'},readOnly=app({},protectedSave);popupDOM(readOnly);const raw=readOnly.storage['friends-to-amigos-v1'];open(readOnly,'Hola','Hola');assert.notEqual(evaluate(readOnly,'state.dictionaryTipSeen'),true);assert.equal(readOnly.storage['friends-to-amigos-v1'],raw);
 });

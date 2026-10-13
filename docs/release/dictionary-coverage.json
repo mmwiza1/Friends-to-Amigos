@@ -22,17 +22,17 @@
   "excludedDigits": true,
   "stages": {
     "A1.1": {
-      "known": 1654,
-      "total": 1654,
+      "known": 1647,
+      "total": 1647,
       "unmappedExposures": 0,
       "lookupExposurePercent": 100,
-      "excluded": 259,
+      "excluded": 261,
       "unmappedDistinct": 0,
       "mostFrequentUnmapped": []
     },
     "A1.2": {
-      "known": 3122,
-      "total": 3122,
+      "known": 3126,
+      "total": 3126,
       "unmappedExposures": 0,
       "lookupExposurePercent": 100,
       "excluded": 206,

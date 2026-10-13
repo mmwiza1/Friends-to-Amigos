@@ -17,7 +17,7 @@ An offline-first Android Spanish-learning app in a vanilla HTML/CSS/JavaScript W
 | B2.1 | 72 | 416 | 32 | 56 / 56 | 64 | 6 |
 | B2.2 | 72 | 416 | 32 | 56 / 56 | 64 | 6 |
 
-Each stage has eight units, three core lessons, four stories, a writing activity and a checkpoint per unit. Recognition → controlled completion → recall → contextual response → transfer remains the learning progression. All activity/question IDs, ordering, learning objectives and historical snapshots remain stable. The 1.1.0 dictionary release makes only the explicitly documented Spanish QA edits and adds accepted clothing/transport alternatives; every earlier accepted response remains valid. See the [correction manifest](docs/release/dictionary-content-corrections.json).
+Each stage has eight units, three core lessons, four stories, a writing activity and a checkpoint per unit. Recognition → controlled completion → recall → contextual response → transfer remains the learning progression. All activity/question IDs, ordering, learning objectives and historical snapshots remain stable. The 1.2.0 learner-experience release deliberately eases the first three A1.1 teaching activities, then restores independent recall and transfer. Later content changes are limited to two natural A1 anchor-language bridges; the eventual A1 standard and checkpoints are unchanged. See the [learner-experience report](docs/release/LEARNER_EXPERIENCE_REPORT.md) and historical [1.1.0 Spanish corrections](docs/release/dictionary-content-corrections.json).
 
 B1 introduces connected narratives, practical advice, changes, viewpoints and limited wishes/necessity. B2 develops chronology, cause versus evidence, qualification, register, reported information, imagined conditions and integrated proposals. New material is original Friends to Amigos content; pedagogical references inform design without copied exercises.
 
@@ -53,23 +53,30 @@ Conjugations balances concepts/persons/verbs, shuffles questions/options, avoids
 
 Tables retain six Spain-first rows, varied blank positions, hints, typed recall, mastery-gated full blank tables and mistake practice. Practice supports 3/5/10/15/20 tables, Recommended/Current level/All up to current level and simple custom grammar filters. Curated targets avoid misleading constructions such as a generic doler/gustar paradigm. Taught B targets add future, conditional, subjunctive and compound forms; -ra and -se past-subjunctive alternatives retain the nosotros accent.
 
+## A gentler first encounter with Spanish
+
+The first Unit 0 teaching activity models useful chunks before easy recognition and supported completion. The second retains substantial support with one short recall near the end. The third brings back short written recall, contextual response and a simple role transfer. The intervening stories remain available; no lesson is added, removed or reordered. Early feedback teaches useful meaning before grammatical labels. Writing, listening, self-assessed speaking, transfer, checkpoints and personalised Review remain part of A1.
+
+Previously learned language should scaffold new language. A family introduction reuses **me llamo**; a later flat visit reuses **vivo en** before **hay** introduces rooms. The [A1 anchor recurrence report](docs/release/a1-anchor-recurrence.json) lists where fifteen useful constructions recur and flags long literal-form gaps for educator review. These are exposure observations, not mastery claims or rigid frequency targets.
+
 ## Explore Spanish and save vocabulary
 
-Tap visible Spanish in stories, glossaries, Spanish prompts, revealed models/transcripts, feedback or Conjugations sentences to open a compact contextual dictionary. Known expressions take priority; common verb forms link to their infinitive/person/tense. Ambiguous and unknown forms are handled conservatively. Hear uses the existing es-ES TTS; More offers a few useful senses/examples. Lookup and saving do not count as hints or affect course scores, review, mastery or progress.
+Tap visible Spanish before answering, including a Spanish quotation inside an English prompt and Spanish answer-option text, to open a compact contextual dictionary. **Tap a Spanish word for vocabulary help; tap the answer card, radio or padding to select an answer.** These are separate controls. Surrounding English stays undecorated; ambiguous unmarked language is handled conservatively. A small early tip disappears after a successful lookup. Known expressions take priority; common verb forms link to their infinitive/person/tense. Hear uses the existing es-ES TTS; More offers a few useful senses/examples. Lookup and saving do not count as hints or affect course scores, review, mastery or progress. Hidden listening transcripts and unrevealed speaking models stay hidden.
 
 The offline bank contains **936 word entries, 276 expressions and 1,564 known form mappings**, compiled from original course glossaries/phrase banks and curated first-party definitions. No commercial dictionary service or third-party corpus is used. **Saved Words is inside Profile**, with count, search, All/Words/Phrases/Recently saved, pronunciation, More and Remove. Word forms deduplicate to the base; useful constructions save as phrases. See [dictionary architecture and coverage limits](docs/LEARNER_DICTIONARY.md).
 
 ## Mobile and learner data
 
-Home / Learn / Games / Review / Profile remain. Android Back saves lessons and returns secondary modes to their parent; main tabs return Home; Home backgrounds normally. Native WindowInsets are the sole safe-area source. Fixed navigation, final controls, status-bar spacing, cutouts, keyboard overlap and toasts retain the S24 protections. Input focus hides app navigation while the keyboard is open. Choice cards remain clear accessible radios. Light and system dark themes, the coral/teal identity and bull-face launcher assets are preserved.
+Home / Learn / Games / Review / Profile remain in that exact order, including Review. Saved Words stays inside Profile. Android Back closes an open dictionary first, then saves/leaves or navigates as before; Home backgrounds normally. Native WindowInsets remain the sole safe-area source. Fixed navigation, final controls, status-bar spacing, cutouts, keyboard overlap and toasts retain their protections. Input focus hides app navigation while the keyboard is open. Choice radios and sibling vocabulary text wrap on narrow phones, with separate keyboard/focus behaviour. The named Galaxy S22/S24/S25 browser profiles vary CSS viewport, insets, keyboard, text scaling and theme rather than physical resolution or device detection. Light and system dark themes, coral/teal identity and bull-face launcher assets are preserved.
 
-Storage remains **schema v2** under `friends-to-amigos-v1`. The optional `savedWords` list defaults safely for old saves, deduplicates and exports/imports without changing historical attempts or review records. V1 migration, recovery/read-only protection, malformed import rejection and untouched historical snapshots remain. Optional question `writing`/`previousResponse` and active `writingResponses` fields default safely; no completion history is fabricated. Pending comparison, revised response and reflection resume/export/import. A later starting path assumes foundations without awarding skipped completions; actual completion statistics remain accurate.
+Storage remains **schema v2** under `friends-to-amigos-v1`. The optional `savedWords` list defaults safely for old saves, deduplicates and exports/imports without changing historical attempts or review records. Optional `dictionaryTipSeen` accepts only `true` to remember successful discovery; it is a product preference, never a learning hint. Visible teaching/Spanish-fragment metadata is validated in saved question snapshots. V1 migration, recovery/read-only protection, malformed import rejection and historical snapshots remain. Optional question `writing`/`previousResponse` and active `writingResponses` fields default safely; no completion history is fabricated. Pending comparison, revised response and reflection resume/export/import. A later starting path assumes foundations without awarding skipped completions; actual completion statistics remain accurate.
 
 ## Development and release validation
 
 ```sh
 npm run check
 npm test
+npm run audit
 npm run check:browser
 node scripts/release-audit.cjs
 ```

@@ -38,15 +38,21 @@ Dictionary lookup respects exact written accents first so si/sí, el/él, tu/tú
 
 ## UI and pronunciation
 
-Only explicitly marked, already-visible Spanish receives token lookups: story passages/glossaries, Spanish course instructions, revealed models/transcripts, canonical Spanish feedback and Conjugations sentences. Learner-entered text, choice controls, hidden listening transcripts and unrevealed speaking models are excluded. This preserves the answer interaction and audio-first flow.
+Already-visible Spanish receives token lookups before submission: story passages/glossaries, Spanish course instructions, Spanish fragments within English prompts, Spanish answer-option text, teaching models, revealed models/transcripts, canonical Spanish feedback and Conjugations sentences. Learner-entered text, input/radio controls, hidden listening transcripts and unrevealed speaking models remain excluded. The dictionary sees visible text and context only; it never receives correctness metadata or tells the learner which answer to choose.
+
+`www/spanish-fragments.js` provides a reusable visible-text boundary. Authored `spanishFragments` and per-option `optionSpanishFragments` may contain exact strings or `{text, start}` references; `optionsLanguage` / `optionLanguages` may explicitly declare Spanish. Otherwise the helper conservatively recognises Spanish quotations and inverted question/exclamation boundaries using known lexical/function-word evidence. Clearly Spanish standalone options may be recognised as a whole. Ordinary English homographs such as **me**, **no**, **he**, **has**, **plan** or **hotel** cannot by themselves establish Spanish. Ambiguous text should use explicit metadata rather than an increasingly permissive heuristic. The surrounding English is escaped and remains plain text. Completion options follow their existing Spanish task contract.
+
+The choice card is a non-interactive container with a dedicated 44px radio button and sibling option text. A dictionary token is never nested inside that radio button. Tapping the radio/card/padding selects the answer; tapping a decorated Spanish word opens the dictionary without selecting. Capture-phase delegation stops click and Enter/Space propagation from tokens. Radios retain full-option accessible names, `aria-checked`, roving focus, arrows and Home/End; word controls retain their own keyboard access. Closing a popup returns to the same unanswered state. Dotted underlines remain subtle; longer Spanish options wrap beside the aligned radio.
+
+An early Unit 0 product tip says “Tip: Tap any Spanish word for help.” A successful known-entry lookup acknowledges it, including lookup elsewhere in the app; a failed lookup does not. It disappears without changing lesson hint state, score, mastery, Review or streak. Read-only protection remains authoritative. Old saves show the tip until successfully acknowledged.
 
 The popup stays outside the quiz controller. Opening, More, pronunciation, saving and dismissal neither answer a question nor change the snapshot, score, hint flag, review evidence or streak. It repositions on page scroll, visual viewport and native inset changes, respects cutouts/overlay keyboards, and scrolls longer More content. Outside tap, Escape, close and Android Back dismiss it; a second Back retains the existing save-and-leave behaviour. Backgrounding/navigation closes it and cancels speech through the existing lifecycle.
 
-Hear uses the established Spanish (Spain) TTS layer. It is synthetic pronunciation, not recorded human audio or an acoustic quality guarantee. Controls have keyboard access, labels, visible focus and 44px touch targets; full lesson answer options retain their original accessible selection behaviour.
+Hear uses the established Spanish (Spain) TTS layer. It is synthetic pronunciation, not recorded human audio or an acoustic quality guarantee. Controls have keyboard access, labels, visible focus and 44px touch targets. Named Samsung-style browser profiles test responsive CSS, native-inset bridge values, resized/overlay keyboard viewports, portrait/landscape, light/dark and large text. They do not identify a device model or prove real Samsung keyboard/acoustic behaviour; physical-device validation remains necessary.
 
 ## Persistence and Profile
 
-The only new learner field is optional `savedWords`; storage stays **schema v2**, with the same key and v1→v2 migration. Old saves default to an empty list. A row stores only:
+Dictionary learner state remains additive: optional `savedWords` and optional true-only `dictionaryTipSeen`; storage stays **schema v2**, with the same key and v1→v2 migration. Old saves default to an empty saved list and unacknowledged discovery. A row stores only:
 
 ```js
 { id: 'lex-word-tener', kind: 'word', lemma: 'tener',
@@ -56,6 +62,10 @@ The only new learner field is optional `savedWords`; storage stays **schema v2**
 Known expressions save the canonical useful phrase. Entries deduplicate by dictionary ID. Validation caps the list at 1,000, bounds strings/timestamps and safely discards malformed optional rows. A full list produces clear guidance, not false success. Unknown but valid historical dictionary IDs retain their meaning. Protected read-only progress cannot be changed; unavailable storage is explicitly described as session-only, with export guidance.
 
 Profile shows the saved count and opens search (Spanish/English), All / Words / Phrases / Recently saved, Hear, More and Remove. Recent sorts by saved timestamp; other lists sort by Spanish lemma. Search preserves ñ and accepts accentless vowel queries. Composition input is retained until committed. Export/import includes the list alongside existing historical lesson/review snapshots.
+
+Saved question snapshots may retain validated optional `teachingModel` (`spanish`, `meaning`) and Spanish-fragment/language metadata. These render already-visible scaffolding without replacing historical questions from the current bank. Missing metadata remains valid; malformed optional metadata is ignored safely. The first three teaching activities intentionally change for new attempts, while existing active attempts and reviews keep their originally saved types, prompts and passages.
+
+An easier revised task cannot clear a historical review merely because it shares the same permanent question ID. Scheduled-success credit requires the task type and normalised canonical target to match that saved review. Correctly answering the original review snapshot still follows the existing 1/3/7-day schedule; harmless wording, punctuation and accent changes remain compatible. No review snapshot or identity is rewritten.
 
 ## Extending coverage safely
 

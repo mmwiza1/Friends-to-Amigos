@@ -34,6 +34,14 @@ function question(raw){
  }
  if(raw.instructionLanguage!==undefined){if(raw.instructionLanguage!=='es'||!text(raw.promptEs,2000)||!text(raw.englishHint,2000)||!safeId(raw.supportConcept))return null;q.instructionLanguage='es';q.promptEs=raw.promptEs;q.englishHint=raw.englishHint;q.supportConcept=raw.supportConcept;}
  if(type==='gap'){if(!text(raw.sentence,2000)||!text(raw.meaning,1000))return null;q.sentence=raw.sentence;q.meaning=raw.meaning;}
+ // Optional, visible teaching support belongs to the saved question snapshot.
+ // Never rebuild it from the current curriculum when a historical attempt resumes.
+ if(object(raw.teachingModel)&&text(raw.teachingModel.spanish,2000)&&text(raw.teachingModel.meaning,2000))q.teachingModel={spanish:raw.teachingModel.spanish,meaning:raw.teachingModel.meaning};
+ const fragments=items=>Array.isArray(items)&&items.length<=20?items.filter(x=>text(x,2000)||(object(x)&&text(x.text,2000)&&Number.isInteger(x.start)&&x.start>=0&&x.start<=2000)).map(x=>typeof x==='string'?x:{text:x.text,start:x.start}):null;
+ const promptFragments=fragments(raw.spanishFragments);if(promptFragments)q.spanishFragments=promptFragments;
+ if(['es','en'].includes(raw.optionsLanguage))q.optionsLanguage=raw.optionsLanguage;
+ if(Array.isArray(raw.optionLanguages)&&raw.optionLanguages.length===q.options?.length&&raw.optionLanguages.every(x=>x===null||['es','en'].includes(x)))q.optionLanguages=raw.optionLanguages.slice();
+ if(Array.isArray(raw.optionSpanishFragments)&&raw.optionSpanishFragments.length===q.options?.length){const rows=raw.optionSpanishFragments.map(fragments);if(rows.every(x=>x!==null))q.optionSpanishFragments=rows;}
  for(const key of ['id','sourceQuestionId'])if(safeId(raw[key]))q[key]=raw[key];
  if(text(raw.spanish,6000))q.spanish=raw.spanish;
  if(raw.reading!==undefined&&raw.reading!==null){q.reading=reading(raw.reading);if(!q.reading)return null;}
@@ -53,6 +61,8 @@ function migrateState(raw,course,options={}){
  if(options.import&&(!Array.isArray(raw.completed)||!Array.isArray(raw.events)||!Array.isArray(raw.capabilities)||!object(raw.sessions)||!object(raw.reviews)))throw Error('This backup is missing essential progress records.');
  const state={version:VERSION,name:text(raw.name,40)||'',onboarded:raw.onboarded===true,stage:course.stages.includes(raw.stage)?raw.stage:'A1.1',placement:null,completed:[],capabilities:[],reviews:{},events:[],sessions:{},active:null,recovery:Array.isArray(raw.recovery)?JSON.parse(JSON.stringify(raw.recovery)):[]};
  state.savedWords=Dictionary.sanitizeSaved(raw.savedWords);
+ // Product discovery is not a hint, answer, mastery or SRS record.
+ if(raw.dictionaryTipSeen===true)state.dictionaryTipSeen=true;
  const archive=course.legacyQuestions||[],completedEvents=new Set(),current=courseIndex(course).questions;
 
  function snapshot(rawQuestion){const q=question(rawQuestion),authored=q&&current.get(q.id);return q&&((authored?.reading&&!q.reading)||(authored?.listening&&!q.listening))?null:q;}

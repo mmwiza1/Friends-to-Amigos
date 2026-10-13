@@ -1,7 +1,7 @@
 const vm=require('node:vm'),fs=require('node:fs');
 function app(extra={},initial=null){
  const handlers={},lifecycle={},storage=initial?{'friends-to-amigos-v1':JSON.stringify(initial)}:{},effects={blobs:[],links:[],toasts:[],focused:[]};
- const el={innerHTML:'',addEventListener:(type,fn)=>handlers[type]=fn,querySelector:selector=>{const match=selector.match(/^\[data-action="answer"\]\[data-index="(\d+)"\]$/);return match?{focus(){effects.focused.push(match[1]);}}:null;}};
+ const el={innerHTML:'',addEventListener:(type,fn)=>handlers[type]=fn,querySelector:selector=>{const match=selector.match(/^\[data-action="answer"\]\[data-index="(\d+)"\]\[role="radio"\]$/);return match?{focus(){effects.focused.push(match[1]);}}:null;}};
  const nodes={app:el,stage:{value:'A2.2'},'check-answer':{disabled:true},importfile:{click(){}}};
  const ctx={console,Date,JSON,Math,String,Number,Object,Array,Set,Map,Blob,
   // Simulated installed voice. Individual failure tests override this explicitly.

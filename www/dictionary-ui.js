@@ -49,7 +49,7 @@ function savedHTML(items,{query='',filter='all'}={}){
    return '<article class="card saved-word-row"><h3 lang="es">'+esc(lemma)+'</h3><p class="saved-word-meaning">'+esc(entry.meaning||'')+'</p>'+(context?'<p class="muted">'+esc(context)+'</p>':example.es?'<p class="muted"><span lang="es">'+esc(example.es)+'</span></p>':'')+'<div class="saved-word-actions"><button type="button" class="pill" data-action="savedPronounce" data-id="'+esc(entry.id)+'" aria-label="Hear '+esc(lemma)+' in Spanish">Hear</button><button type="button" class="plain" data-action="savedOpen" data-id="'+esc(entry.id)+'" aria-label="Open dictionary for '+esc(lemma)+'">More</button><button type="button" class="plain danger" data-action="savedRemove" data-id="'+esc(entry.id)+'" aria-label="Remove '+esc(lemma)+' from Saved Words">Remove</button></div></article>';
   }).join('')+'</div>':'<div class="card empty"><p>'+esc(query?'No saved words match your search.':filter==='phrases'?'No phrases saved yet.':filter==='words'?'No words saved yet.':'Tap a Spanish word in the course, then choose Save word or Save phrase.')+'</p></div>');
 }
-function create({window:win=root,document:doc=win.document,lexicon=win.LearnerDictionary,getState=()=>({}),save=()=>{},canSave=()=>true,speak=()=>false,toast=()=>{},getStage=()=>undefined}={}){
+function create({window:win=root,document:doc=win.document,lexicon=win.LearnerDictionary,getState=()=>({}),save=()=>{},canSave=()=>true,speak=()=>false,toast=()=>{},getStage=()=>undefined,onDiscover=()=>{}}={}){
  let layer=null,popup=null,current=null,anchor=null,expanded=false,returnFocus=null,positionPending=false;
  const installed=new WeakSet(),tokens=new WeakMap(),cleanup=[],sessionOnly=new Set();
  const state=()=>getState()||{},savedRows=()=>Array.isArray(state().savedWords)?state().savedWords:[];
@@ -130,7 +130,7 @@ function create({window:win=root,document:doc=win.document,lexicon=win.LearnerDi
  }
  function close(restore=true){
   if(!current)return false;
-  current=null;expanded=false;
+  anchor?.classList?.remove('dictionary-active');current=null;expanded=false;
   if(popup)popup.hidden=true;
   const previous=returnFocus;returnFocus=null;anchor=null;
   if(restore&&previous?.isConnected!==false)previous?.focus?.({preventScroll:true});
@@ -138,7 +138,7 @@ function create({window:win=root,document:doc=win.document,lexicon=win.LearnerDi
  }
  function open(entry,target){
   if(!entry||!ensurePopup())return false;
-  returnFocus=target||doc.activeElement;anchor=target||null;current=entry;expanded=false;renderPopup();popup.querySelector?.('.dictionary-close')?.focus?.({preventScroll:true});return true;
+  anchor?.classList?.remove('dictionary-active');returnFocus=target||doc.activeElement;anchor=target||null;anchor?.classList?.add('dictionary-active');current=entry;expanded=false;renderPopup();popup.querySelector?.('.dictionary-close')?.focus?.({preventScroll:true});if(entry.id){onDiscover(entry);position();}return true;
  }
  function lookup(token){
   const context=tokens.get(token);if(!context)return false;
@@ -149,8 +149,10 @@ function create({window:win=root,document:doc=win.document,lexicon=win.LearnerDi
   if(!container?.querySelectorAll||!doc?.createTreeWalker||!doc.createDocumentFragment)return;
   if(!installed.has(container)){
    installed.add(container);
-   addListener(container,'click',event=>{const token=event.target.closest?.('[data-dictionary-token]');if(!token||!container.contains(token))return;event.preventDefault();event.stopPropagation();lookup(token);});
-   addListener(container,'keydown',event=>{const token=event.target.closest?.('[data-dictionary-token]');if(!token||!container.contains(token)||!['Enter',' '].includes(event.key))return;event.preventDefault();event.stopPropagation();lookup(token);});
+   // Capture before the application action handler: a word inside a choice is vocabulary help,
+   // while its sibling radio/card area keeps the normal select-then-check flow.
+   addListener(container,'click',event=>{const token=event.target.closest?.('[data-dictionary-token]');if(!token||!container.contains(token))return;event.preventDefault();event.stopPropagation();event.stopImmediatePropagation?.();lookup(token);},true);
+   addListener(container,'keydown',event=>{const token=event.target.closest?.('[data-dictionary-token]');if(!token||!container.contains(token)||!['Enter',' '].includes(event.key))return;event.preventDefault();event.stopPropagation();event.stopImmediatePropagation?.();if(!event.repeat)lookup(token);},true);
   }
   if(anchor&&anchor.isConnected===false)close(false);
   for(const section of container.querySelectorAll('[data-dictionary]')){

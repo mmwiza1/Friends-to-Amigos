@@ -1,0 +1,3728 @@
+{
+  "policy": "Original Friends to Amigos A1 anchor-language exposure audit. Flags are author-review prompts, not fixed frequency requirements or learner mastery claims.",
+  "method": "Unit presence and activity examples of canonical answers, authored Spanish sentences, visible teaching models, quoted task fragments containing the Spanish anchor, explicit Spanish prompts, listening transcripts and story passages. One activity counts once; the same passage embedded in each question is not multiplied. Excludes wrong options, English instructions and explanatory feedback. This audit covers the main A1 course, not personalised SRS or separate focused-practice banks.",
+  "gapFlag": "Four or more intervening practical units without the literal anchor. A repeated form does not imply retrieval or mastery; communicative suitability matters more than counts.",
+  "units": [
+    {
+      "id": "A1.1-u0",
+      "stage": "A1.1",
+      "unit": 0,
+      "title": "Greetings & introductions"
+    },
+    {
+      "id": "A1.1-u1",
+      "stage": "A1.1",
+      "unit": 1,
+      "title": "About you"
+    },
+    {
+      "id": "A1.1-u2",
+      "stage": "A1.1",
+      "unit": 2,
+      "title": "At the café"
+    },
+    {
+      "id": "A1.1-u3",
+      "stage": "A1.1",
+      "unit": 3,
+      "title": "Numbers & prices"
+    },
+    {
+      "id": "A1.1-u4",
+      "stage": "A1.1",
+      "unit": 4,
+      "title": "Family & people"
+    },
+    {
+      "id": "A1.1-u5",
+      "stage": "A1.1",
+      "unit": 5,
+      "title": "Everyday objects"
+    },
+    {
+      "id": "A1.1-u6",
+      "stage": "A1.1",
+      "unit": 6,
+      "title": "Around town"
+    },
+    {
+      "id": "A1.1-u7",
+      "stage": "A1.1",
+      "unit": 7,
+      "title": "Routines & meeting times"
+    },
+    {
+      "id": "A1.2-u0",
+      "stage": "A1.2",
+      "unit": 0,
+      "title": "Free time & preferences"
+    },
+    {
+      "id": "A1.2-u1",
+      "stage": "A1.2",
+      "unit": 1,
+      "title": "Inviting & responding"
+    },
+    {
+      "id": "A1.2-u2",
+      "stage": "A1.2",
+      "unit": 2,
+      "title": "Making plans"
+    },
+    {
+      "id": "A1.2-u3",
+      "stage": "A1.2",
+      "unit": 3,
+      "title": "Choosing clothes"
+    },
+    {
+      "id": "A1.2-u4",
+      "stage": "A1.2",
+      "unit": 4,
+      "title": "In the clothes shop"
+    },
+    {
+      "id": "A1.2-u5",
+      "stage": "A1.2",
+      "unit": 5,
+      "title": "At home"
+    },
+    {
+      "id": "A1.2-u6",
+      "stage": "A1.2",
+      "unit": 6,
+      "title": "A typical day"
+    },
+    {
+      "id": "A1.2-u7",
+      "stage": "A1.2",
+      "unit": 7,
+      "title": "A day together"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "hola",
+      "label": "Hola",
+      "activityCount": 12,
+      "unitCount": 4,
+      "units": [
+        "A1.1-u0",
+        "A1.1-u1",
+        "A1.1-u4",
+        "A1.2-u7"
+      ],
+      "activities": [
+        {
+          "id": "u0l0",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Discover: Greetings & introductions",
+          "modes": [
+            "recognition"
+          ],
+          "example": "Hola"
+        },
+        {
+          "id": "u0story0",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Story 1: La puerta de clase",
+          "modes": [
+            "meaning",
+            "response",
+            "fact",
+            "sequence"
+          ],
+          "example": "Luis: Hola, me llamo Luis. ¿Cómo te llamas?"
+        },
+        {
+          "id": "u0l1",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Build confidence: Greetings & introductions",
+          "modes": [
+            "listening"
+          ],
+          "example": "Hola, me llamo Marta. ¿Cómo te llamas?"
+        },
+        {
+          "id": "u0story1",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Story 2: Buenos días, Diego",
+          "modes": [
+            "response",
+            "fact",
+            "meaning"
+          ],
+          "example": "Diego: Hola, Ana."
+        },
+        {
+          "id": "u0l2",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Use it: Greetings & introductions",
+          "modes": [
+            "speaking"
+          ],
+          "example": "Hola, me llamo Ana"
+        },
+        {
+          "id": "u0story2",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Story 3: Una amiga más",
+          "modes": [
+            "meaning",
+            "fact",
+            "inference",
+            "response"
+          ],
+          "example": "Marta: Hola. Me llamo Marta."
+        },
+        {
+          "id": "u0write",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Write in Spanish: Greetings & introductions",
+          "modes": [
+            "contextual"
+          ],
+          "example": "Hola, me llamo Ana"
+        },
+        {
+          "id": "u0check",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Checkpoint: Greetings & introductions",
+          "modes": [
+            "recognition",
+            "listening",
+            "transfer"
+          ],
+          "example": "Hola"
+        },
+        {
+          "id": "u1story3",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Story 4: El grupo de amigos",
+          "modes": [
+            "meaning",
+            "fact",
+            "transfer"
+          ],
+          "example": "Marta: Hola, Ana. Soy de España."
+        },
+        {
+          "id": "u4story0",
+          "stage": "A1.1",
+          "unit": 4,
+          "title": "Story 1: Marta viene al café",
+          "modes": [
+            "meaning",
+            "fact",
+            "response",
+            "character",
+            "transfer"
+          ],
+          "example": "Ana: Hola, Marta. Me llamo Ana."
+        },
+        {
+          "id": "u4story1",
+          "stage": "A1.1",
+          "unit": 4,
+          "title": "Story 2: ¿Quién es tu hermano?",
+          "modes": [
+            "meaning",
+            "transfer",
+            "character",
+            "sequence"
+          ],
+          "example": "Ana: Hola, Luis."
+        },
+        {
+          "id": "a12u7story0",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Story 1: Un mensaje para Marta",
+          "modes": [
+            "meaning",
+            "sequence",
+            "inference",
+            "fact",
+            "response"
+          ],
+          "example": "Ana escribe: “Hola, Marta. Hoy me levanto a las ocho. Primero desayuno y después voy a clase. Por la tarde voy a leer en casa porque estoy cansada. ¿Quieres venir? Podemos tomar un té”."
+        }
+      ],
+      "longExposureGaps": [
+        {
+          "kind": "between-exposures",
+          "from": "A1.1-u4",
+          "to": "A1.2-u7",
+          "interveningUnits": 10
+        }
+      ]
+    },
+    {
+      "id": "buenos-dias",
+      "label": "Buenos días",
+      "activityCount": 4,
+      "unitCount": 1,
+      "units": [
+        "A1.1-u0"
+      ],
+      "activities": [
+        {
+          "id": "u0l1",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Build confidence: Greetings & introductions",
+          "modes": [
+            "recognition"
+          ],
+          "example": "Buenos días"
+        },
+        {
+          "id": "u0story1",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Story 2: Buenos días, Diego",
+          "modes": [
+            "response",
+            "fact",
+            "meaning"
+          ],
+          "example": "Ana: Buenos días."
+        },
+        {
+          "id": "u0l2",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Use it: Greetings & introductions",
+          "modes": [
+            "completion",
+            "listening"
+          ],
+          "example": "Buenos días, Luis."
+        },
+        {
+          "id": "u0check",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Checkpoint: Greetings & introductions",
+          "modes": [
+            "recognition"
+          ],
+          "example": "Buenos días"
+        }
+      ],
+      "longExposureGaps": [
+        {
+          "kind": "to-end-of-A1",
+          "from": "A1.1-u0",
+          "to": "A1.2-u7",
+          "interveningUnits": 15
+        }
+      ]
+    },
+    {
+      "id": "me-llamo",
+      "label": "Me llamo…",
+      "activityCount": 10,
+      "unitCount": 3,
+      "units": [
+        "A1.1-u0",
+        "A1.1-u1",
+        "A1.1-u4"
+      ],
+      "activities": [
+        {
+          "id": "u0l0",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Discover: Greetings & introductions",
+          "modes": [
+            "recognition",
+            "completion",
+            "response"
+          ],
+          "example": "Me llamo Ana."
+        },
+        {
+          "id": "u0story0",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Story 1: La puerta de clase",
+          "modes": [
+            "meaning",
+            "response",
+            "fact",
+            "sequence"
+          ],
+          "example": "Luis: Hola, me llamo Luis. ¿Cómo te llamas?"
+        },
+        {
+          "id": "u0l1",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Build confidence: Greetings & introductions",
+          "modes": [
+            "recall",
+            "listening"
+          ],
+          "example": "Me llamo Ana"
+        },
+        {
+          "id": "u0story1",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Story 2: Buenos días, Diego",
+          "modes": [
+            "response",
+            "fact",
+            "meaning"
+          ],
+          "example": "Diego: Buenos días. Me llamo Diego."
+        },
+        {
+          "id": "u0l2",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Use it: Greetings & introductions",
+          "modes": [
+            "transfer",
+            "listening",
+            "speaking"
+          ],
+          "example": "Me llamo Luis"
+        },
+        {
+          "id": "u0story2",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Story 3: Una amiga más",
+          "modes": [
+            "meaning",
+            "fact",
+            "inference",
+            "response"
+          ],
+          "example": "Marta: Hola. Me llamo Marta."
+        },
+        {
+          "id": "u0write",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Write in Spanish: Greetings & introductions",
+          "modes": [
+            "contextual"
+          ],
+          "example": "Hola, me llamo Ana"
+        },
+        {
+          "id": "u0check",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Checkpoint: Greetings & introductions",
+          "modes": [
+            "listening",
+            "completion",
+            "transfer"
+          ],
+          "example": "Me llamo Ana"
+        },
+        {
+          "id": "u1check",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Checkpoint: About you",
+          "modes": [
+            "listening"
+          ],
+          "example": "Me llamo Ana. Tengo veinte años y vivo en Madrid."
+        },
+        {
+          "id": "u4story0",
+          "stage": "A1.1",
+          "unit": 4,
+          "title": "Story 1: Marta viene al café",
+          "modes": [
+            "meaning",
+            "fact",
+            "response",
+            "character",
+            "transfer"
+          ],
+          "example": "Ana: Hola, Marta. Me llamo Ana."
+        }
+      ],
+      "longExposureGaps": [
+        {
+          "kind": "to-end-of-A1",
+          "from": "A1.1-u4",
+          "to": "A1.2-u7",
+          "interveningUnits": 11
+        }
+      ]
+    },
+    {
+      "id": "soy-de",
+      "label": "Soy de…",
+      "activityCount": 7,
+      "unitCount": 1,
+      "units": [
+        "A1.1-u1"
+      ],
+      "activities": [
+        {
+          "id": "u1l0",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Discover: About you",
+          "modes": [
+            "completion",
+            "context",
+            "transfer"
+          ],
+          "example": "Soy de Inglaterra."
+        },
+        {
+          "id": "u1story0",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Story 1: Una ficha nueva",
+          "modes": [
+            "transfer",
+            "fact",
+            "inference",
+            "meaning",
+            "response"
+          ],
+          "example": "Ana: Soy de Inglaterra, pero vivo en Madrid."
+        },
+        {
+          "id": "u1l1",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Build confidence: About you",
+          "modes": [
+            "listening"
+          ],
+          "example": "Soy de Inglaterra, pero vivo en Madrid. Tengo veinte años."
+        },
+        {
+          "id": "u1l2",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Use it: About you",
+          "modes": [
+            "listening",
+            "speaking"
+          ],
+          "example": "Soy de España. Hablo español. También hablo inglés."
+        },
+        {
+          "id": "u1write",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Write in Spanish: About you",
+          "modes": [
+            "response"
+          ],
+          "example": "Soy de Inglaterra"
+        },
+        {
+          "id": "u1check",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Checkpoint: About you",
+          "modes": [
+            "completion",
+            "transfer"
+          ],
+          "example": "Soy de Inglaterra."
+        },
+        {
+          "id": "u1story3",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Story 4: El grupo de amigos",
+          "modes": [
+            "meaning",
+            "fact",
+            "transfer"
+          ],
+          "example": "Marta: Hola, Ana. Soy de España."
+        }
+      ],
+      "longExposureGaps": [
+        {
+          "kind": "to-end-of-A1",
+          "from": "A1.1-u1",
+          "to": "A1.2-u7",
+          "interveningUnits": 14
+        }
+      ]
+    },
+    {
+      "id": "vivo-en",
+      "label": "Vivo en…",
+      "activityCount": 7,
+      "unitCount": 2,
+      "units": [
+        "A1.1-u1",
+        "A1.2-u5"
+      ],
+      "activities": [
+        {
+          "id": "u1l0",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Discover: About you",
+          "modes": [
+            "recall",
+            "context"
+          ],
+          "example": "Vivo en Madrid"
+        },
+        {
+          "id": "u1story0",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Story 1: Una ficha nueva",
+          "modes": [
+            "transfer",
+            "fact",
+            "inference",
+            "meaning",
+            "response"
+          ],
+          "example": "Ana: Soy de Inglaterra, pero vivo en Madrid."
+        },
+        {
+          "id": "u1l1",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Build confidence: About you",
+          "modes": [
+            "listening"
+          ],
+          "example": "Soy de Inglaterra, pero vivo en Madrid. Tengo veinte años."
+        },
+        {
+          "id": "u1l2",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Use it: About you",
+          "modes": [
+            "speaking"
+          ],
+          "example": "Soy de Inglaterra y vivo en Madrid"
+        },
+        {
+          "id": "u1write",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Write in Spanish: About you",
+          "modes": [
+            "contextual"
+          ],
+          "example": "Vivo en Madrid"
+        },
+        {
+          "id": "u1check",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Checkpoint: About you",
+          "modes": [
+            "listening",
+            "context"
+          ],
+          "example": "Me llamo Ana. Tengo veinte años y vivo en Madrid."
+        },
+        {
+          "id": "a12u5story0",
+          "stage": "A1.2",
+          "unit": 5,
+          "title": "Story 1: Una visita al piso",
+          "modes": [
+            "context",
+            "meaning",
+            "inference",
+            "fact",
+            "sequence"
+          ],
+          "example": "Ana: Vivo en este piso. Este es el salón. Hay un sofá y una mesa pequeña."
+        }
+      ],
+      "longExposureGaps": [
+        {
+          "kind": "between-exposures",
+          "from": "A1.1-u1",
+          "to": "A1.2-u5",
+          "interveningUnits": 11
+        }
+      ]
+    },
+    {
+      "id": "tengo",
+      "label": "Tengo…",
+      "activityCount": 22,
+      "unitCount": 11,
+      "units": [
+        "A1.1-u1",
+        "A1.1-u2",
+        "A1.1-u4",
+        "A1.1-u7",
+        "A1.2-u0",
+        "A1.2-u1",
+        "A1.2-u2",
+        "A1.2-u3",
+        "A1.2-u4",
+        "A1.2-u6",
+        "A1.2-u7"
+      ],
+      "activities": [
+        {
+          "id": "u1l1",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Build confidence: About you",
+          "modes": [
+            "recognition",
+            "completion",
+            "recall",
+            "context",
+            "transfer",
+            "listening"
+          ],
+          "example": "Tengo veinte años"
+        },
+        {
+          "id": "u1story1",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Story 2: ¿Veinte o veintiuno?",
+          "modes": [
+            "inference",
+            "fact",
+            "meaning",
+            "transfer"
+          ],
+          "example": "Ana: Tengo veinte años. ¿Y tú?"
+        },
+        {
+          "id": "u1write",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Write in Spanish: About you",
+          "modes": [
+            "contextual"
+          ],
+          "example": "Tengo veintiún años"
+        },
+        {
+          "id": "u1check",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Checkpoint: About you",
+          "modes": [
+            "recognition",
+            "listening",
+            "transfer"
+          ],
+          "example": "Tengo veinte años"
+        },
+        {
+          "id": "u2l1",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Build confidence: At the café",
+          "modes": [
+            "recognition",
+            "recall",
+            "listening"
+          ],
+          "example": "Tengo hambre"
+        },
+        {
+          "id": "u2story1",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Story 2: Algo de comer",
+          "modes": [
+            "character",
+            "inference",
+            "response",
+            "fact",
+            "meaning"
+          ],
+          "example": "Ana: Tengo hambre."
+        },
+        {
+          "id": "u2write",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Write in Spanish: At the café",
+          "modes": [
+            "contextual"
+          ],
+          "example": "Tengo hambre"
+        },
+        {
+          "id": "u2check",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Checkpoint: At the café",
+          "modes": [
+            "recognition",
+            "listening"
+          ],
+          "example": "Tengo hambre"
+        },
+        {
+          "id": "u4story2",
+          "stage": "A1.1",
+          "unit": 4,
+          "title": "Story 3: Una foto de familia",
+          "modes": [
+            "meaning",
+            "fact",
+            "inference",
+            "transfer"
+          ],
+          "example": "Marta: Soy yo. Tengo los ojos marrones."
+        },
+        {
+          "id": "u7story0",
+          "stage": "A1.1",
+          "unit": 7,
+          "title": "Story 1: ¿Qué hora es?",
+          "modes": [
+            "meaning",
+            "fact",
+            "sequence",
+            "transfer"
+          ],
+          "example": "Ana: Gracias. A las dos tengo clase."
+        },
+        {
+          "id": "a12u0story1",
+          "stage": "A1.2",
+          "unit": 0,
+          "title": "Story 2: Música en casa",
+          "modes": [
+            "meaning",
+            "character",
+            "inference",
+            "fact",
+            "response"
+          ],
+          "example": "Marta: Tengo música tranquila."
+        },
+        {
+          "id": "a12u1story1",
+          "stage": "A1.2",
+          "unit": 1,
+          "title": "Story 2: Hoy no puedo",
+          "modes": [
+            "inference",
+            "meaning",
+            "context",
+            "character",
+            "response"
+          ],
+          "example": "Ana: Lo siento, no puedo. Tengo que estudiar."
+        },
+        {
+          "id": "a12u1story2",
+          "stage": "A1.2",
+          "unit": 1,
+          "title": "Story 3: Un paseo corto",
+          "modes": [
+            "inference",
+            "fact",
+            "context",
+            "meaning",
+            "sequence"
+          ],
+          "example": "Diego: Sí, pero solo tengo media hora."
+        },
+        {
+          "id": "a12u2story1",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Story 2: Un cambio de hora",
+          "modes": [
+            "inference",
+            "meaning",
+            "sequence",
+            "character",
+            "response"
+          ],
+          "example": "Ana: A las cuatro tengo clase. ¿Podemos quedar a las cinco?"
+        },
+        {
+          "id": "a12u3story3",
+          "stage": "A1.2",
+          "unit": 3,
+          "title": "Story 4: La lista de ropa",
+          "modes": [
+            "inference",
+            "fact",
+            "meaning",
+            "response"
+          ],
+          "example": "Ana: No, tengo zapatos. Solo necesito la camiseta y los pantalones."
+        },
+        {
+          "id": "a12u4story3",
+          "stage": "A1.2",
+          "unit": 4,
+          "title": "Story 4: Antes de pagar",
+          "modes": [
+            "inference",
+            "fact",
+            "sequence",
+            "meaning",
+            "response"
+          ],
+          "example": "Ana: No, gracias. Tengo una mochila."
+        },
+        {
+          "id": "a12u6story3",
+          "stage": "A1.2",
+          "unit": 6,
+          "title": "Story 4: El domingo sin prisa",
+          "modes": [
+            "inference",
+            "fact",
+            "sequence",
+            "meaning",
+            "character"
+          ],
+          "example": "Ana: Normalmente me ducho antes del desayuno, pero hoy no tengo prisa."
+        },
+        {
+          "id": "a12u7l1",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Build confidence: A day together",
+          "modes": [
+            "response",
+            "transfer"
+          ],
+          "example": "Porque tengo que trabajar"
+        },
+        {
+          "id": "a12u7l2",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Use it: A day together",
+          "modes": [
+            "listening",
+            "speaking"
+          ],
+          "example": "No puedo venir porque tengo que trabajar. Mañana estoy libre."
+        },
+        {
+          "id": "a12u7story2",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Story 3: Trabajo primero",
+          "modes": [
+            "inference",
+            "character",
+            "meaning",
+            "fact",
+            "sequence"
+          ],
+          "example": "Diego escribe a Luis: “Hoy tengo que trabajar hasta las seis. Me gusta el fútbol, pero no puedo ir al parque esta tarde”."
+        },
+        {
+          "id": "a12u7write",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Write in Spanish: A day together",
+          "modes": [
+            "contextual"
+          ],
+          "example": "No puedo venir porque tengo que trabajar"
+        },
+        {
+          "id": "a12u7check",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Checkpoint: A day together",
+          "modes": [
+            "transfer"
+          ],
+          "example": "No puedo ir porque tengo que trabajar"
+        }
+      ],
+      "longExposureGaps": []
+    },
+    {
+      "id": "quiero",
+      "label": "Quiero…",
+      "activityCount": 16,
+      "unitCount": 7,
+      "units": [
+        "A1.1-u2",
+        "A1.1-u3",
+        "A1.2-u0",
+        "A1.2-u1",
+        "A1.2-u3",
+        "A1.2-u4",
+        "A1.2-u7"
+      ],
+      "activities": [
+        {
+          "id": "u2l1",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Build confidence: At the café",
+          "modes": [
+            "context",
+            "listening"
+          ],
+          "example": "No quiero café. Quiero agua"
+        },
+        {
+          "id": "u2story1",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Story 2: Algo de comer",
+          "modes": [
+            "character",
+            "inference",
+            "response",
+            "fact",
+            "meaning"
+          ],
+          "example": "Ana: Quiero pan, por favor."
+        },
+        {
+          "id": "u2l2",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Use it: At the café",
+          "modes": [
+            "listening"
+          ],
+          "example": "No quiero café hoy. Un té, por favor."
+        },
+        {
+          "id": "u2story2",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Story 3: Sin café hoy",
+          "modes": [
+            "character",
+            "meaning",
+            "fact",
+            "transfer"
+          ],
+          "example": "Luis: No, gracias. Hoy quiero agua."
+        },
+        {
+          "id": "u3story0",
+          "stage": "A1.1",
+          "unit": 3,
+          "title": "Story 1: El precio de la libreta",
+          "modes": [
+            "sequence",
+            "fact",
+            "inference",
+            "transfer"
+          ],
+          "example": "Ana: Bien. Quiero una libreta, por favor."
+        },
+        {
+          "id": "u3l1",
+          "stage": "A1.1",
+          "unit": 3,
+          "title": "Build confidence: Numbers & prices",
+          "modes": [
+            "completion",
+            "transfer"
+          ],
+          "example": "Quiero dos libros."
+        },
+        {
+          "id": "u3story2",
+          "stage": "A1.1",
+          "unit": 3,
+          "title": "Story 3: La coma en el precio",
+          "modes": [
+            "meaning",
+            "sequence",
+            "inference",
+            "fact",
+            "transfer"
+          ],
+          "example": "Ana: Quiero un té hoy, por favor."
+        },
+        {
+          "id": "u3check",
+          "stage": "A1.1",
+          "unit": 3,
+          "title": "Checkpoint: Numbers & prices",
+          "modes": [
+            "transfer"
+          ],
+          "example": "Quiero tres libros"
+        },
+        {
+          "id": "u3story3",
+          "stage": "A1.1",
+          "unit": 3,
+          "title": "Story 4: ¿Tengo suficiente?",
+          "modes": [
+            "inference",
+            "fact",
+            "response",
+            "meaning",
+            "sequence"
+          ],
+          "example": "Ana: Quiero un libro y una libreta."
+        },
+        {
+          "id": "a12u0story1",
+          "stage": "A1.2",
+          "unit": 0,
+          "title": "Story 2: Música en casa",
+          "modes": [
+            "meaning",
+            "character",
+            "inference",
+            "fact",
+            "response"
+          ],
+          "example": "Ana: Perfecto. Hoy no quiero salir. Podemos escuchar música aquí."
+        },
+        {
+          "id": "a12u1story0",
+          "stage": "A1.2",
+          "unit": 1,
+          "title": "Story 1: Una invitación sencilla",
+          "modes": [
+            "response"
+          ],
+          "example": "Sí, quiero venir"
+        },
+        {
+          "id": "a12u3l1",
+          "stage": "A1.2",
+          "unit": 3,
+          "title": "Build confidence: Choosing clothes",
+          "modes": [
+            "response"
+          ],
+          "example": "Quiero unos pantalones"
+        },
+        {
+          "id": "a12u3write",
+          "stage": "A1.2",
+          "unit": 3,
+          "title": "Write in Spanish: Choosing clothes",
+          "modes": [
+            "contextual"
+          ],
+          "example": "Quiero una camiseta blanca, por favor"
+        },
+        {
+          "id": "a12u3check",
+          "stage": "A1.2",
+          "unit": 3,
+          "title": "Checkpoint: Choosing clothes",
+          "modes": [
+            "listening",
+            "transfer"
+          ],
+          "example": "Quiero unos pantalones negros y una camiseta blanca."
+        },
+        {
+          "id": "a12u4story3",
+          "stage": "A1.2",
+          "unit": 4,
+          "title": "Story 4: Antes de pagar",
+          "modes": [
+            "inference",
+            "fact",
+            "sequence",
+            "meaning",
+            "response"
+          ],
+          "example": "Ana: Sí, tengo hambre. Quiero pan y agua. Primero pago y después salimos."
+        },
+        {
+          "id": "a12u7story1",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Story 2: Un plan con lluvia",
+          "modes": [
+            "inference",
+            "fact",
+            "context",
+            "meaning",
+            "sequence"
+          ],
+          "example": "Luis: Hoy quiero caminar en el parque."
+        }
+      ],
+      "longExposureGaps": [
+        {
+          "kind": "between-exposures",
+          "from": "A1.1-u3",
+          "to": "A1.2-u0",
+          "interveningUnits": 4
+        }
+      ]
+    },
+    {
+      "id": "me-gusta",
+      "label": "Me gusta… / Me gustan…",
+      "activityCount": 18,
+      "unitCount": 4,
+      "units": [
+        "A1.1-u2",
+        "A1.2-u0",
+        "A1.2-u3",
+        "A1.2-u7"
+      ],
+      "activities": [
+        {
+          "id": "u2l1",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Build confidence: At the café",
+          "modes": [
+            "completion"
+          ],
+          "example": "Me gusta el café."
+        },
+        {
+          "id": "u2story2",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Story 3: Sin café hoy",
+          "modes": [
+            "character",
+            "meaning",
+            "fact",
+            "transfer"
+          ],
+          "example": "Ana: A mí me gusta el café. Un café con leche, por favor."
+        },
+        {
+          "id": "u2write",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Write in Spanish: At the café",
+          "modes": [
+            "contextual"
+          ],
+          "example": "Me gusta el té"
+        },
+        {
+          "id": "a12u0l0",
+          "stage": "A1.2",
+          "unit": 0,
+          "title": "Discover: Free time & preferences",
+          "modes": [
+            "recognition",
+            "completion",
+            "recall",
+            "response",
+            "transfer"
+          ],
+          "example": "Me gusta leer"
+        },
+        {
+          "id": "a12u0story0",
+          "stage": "A1.2",
+          "unit": 0,
+          "title": "Story 1: Una tarde libre",
+          "modes": [
+            "inference",
+            "fact",
+            "meaning",
+            "context",
+            "sequence"
+          ],
+          "example": "Ana: No me gusta el fútbol, pero me gusta leer."
+        },
+        {
+          "id": "a12u0l1",
+          "stage": "A1.2",
+          "unit": 0,
+          "title": "Build confidence: Free time & preferences",
+          "modes": [
+            "recognition",
+            "completion",
+            "recall",
+            "response",
+            "transfer",
+            "listening"
+          ],
+          "example": "Me gustan los libros"
+        },
+        {
+          "id": "a12u0story1",
+          "stage": "A1.2",
+          "unit": 0,
+          "title": "Story 2: Música en casa",
+          "modes": [
+            "meaning",
+            "character",
+            "inference",
+            "fact",
+            "response"
+          ],
+          "example": "Marta: Me gusta escuchar música en casa. ¿Y a ti?"
+        },
+        {
+          "id": "a12u0l2",
+          "stage": "A1.2",
+          "unit": 0,
+          "title": "Use it: Free time & preferences",
+          "modes": [
+            "transfer",
+            "listening",
+            "speaking"
+          ],
+          "example": "Prefiero leer porque me gustan los libros"
+        },
+        {
+          "id": "a12u0story2",
+          "stage": "A1.2",
+          "unit": 0,
+          "title": "Story 3: Elegir juntos",
+          "modes": [
+            "meaning",
+            "fact",
+            "inference",
+            "character",
+            "response"
+          ],
+          "example": "Ana: Prefiero el cine porque me gustan las películas."
+        },
+        {
+          "id": "a12u0write",
+          "stage": "A1.2",
+          "unit": 0,
+          "title": "Write in Spanish: Free time & preferences",
+          "modes": [
+            "contextual"
+          ],
+          "example": "Sí, me gusta leer"
+        },
+        {
+          "id": "a12u0check",
+          "stage": "A1.2",
+          "unit": 0,
+          "title": "Checkpoint: Free time & preferences",
+          "modes": [
+            "recognition",
+            "listening",
+            "completion",
+            "transfer"
+          ],
+          "example": "Me gusta leer"
+        },
+        {
+          "id": "a12u3story2",
+          "stage": "A1.2",
+          "unit": 3,
+          "title": "Story 3: Una chaqueta para Marta",
+          "modes": [
+            "inference",
+            "meaning",
+            "character",
+            "sequence"
+          ],
+          "example": "Marta: La negra. Me gustan los pantalones negros también."
+        },
+        {
+          "id": "a12u7l1",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Build confidence: A day together",
+          "modes": [
+            "listening"
+          ],
+          "example": "Me gusta el cine, pero hoy voy a quedar con Marta."
+        },
+        {
+          "id": "a12u7l2",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Use it: A day together",
+          "modes": [
+            "response",
+            "transfer"
+          ],
+          "example": "Voy a leer porque me gustan los libros"
+        },
+        {
+          "id": "a12u7story2",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Story 3: Trabajo primero",
+          "modes": [
+            "inference",
+            "character",
+            "meaning",
+            "fact",
+            "sequence"
+          ],
+          "example": "Diego escribe a Luis: “Hoy tengo que trabajar hasta las seis. Me gusta el fútbol, pero no puedo ir al parque esta tarde”."
+        },
+        {
+          "id": "a12u7write",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Write in Spanish: A day together",
+          "modes": [
+            "contextual"
+          ],
+          "example": "Me gusta leer y también me gusta la música"
+        },
+        {
+          "id": "a12u7story3",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Story 4: Todo preparado",
+          "modes": [
+            "inference",
+            "fact",
+            "sequence",
+            "meaning",
+            "transfer"
+          ],
+          "example": "Ana escribe a Marta: “Mañana vamos al cine a las cinco. Me gusta caminar, pero primero voy a pasar por tu piso”."
+        },
+        {
+          "id": "a12u7check",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Checkpoint: A day together",
+          "modes": [
+            "transfer"
+          ],
+          "example": "Me gusta el cine, pero hoy voy a quedar con Luis"
+        }
+      ],
+      "longExposureGaps": [
+        {
+          "kind": "between-exposures",
+          "from": "A1.1-u2",
+          "to": "A1.2-u0",
+          "interveningUnits": 5
+        }
+      ]
+    },
+    {
+      "id": "donde-esta",
+      "label": "¿Dónde está…?",
+      "activityCount": 15,
+      "unitCount": 5,
+      "units": [
+        "A1.1-u5",
+        "A1.1-u6",
+        "A1.2-u4",
+        "A1.2-u5",
+        "A1.2-u7"
+      ],
+      "activities": [
+        {
+          "id": "u5l1",
+          "stage": "A1.1",
+          "unit": 5,
+          "title": "Build confidence: Everyday objects",
+          "modes": [
+            "response"
+          ],
+          "example": "¿Dónde está el libro?"
+        },
+        {
+          "id": "u5story1",
+          "stage": "A1.1",
+          "unit": 5,
+          "title": "Story 2: Las llaves de Ana",
+          "modes": [
+            "meaning",
+            "fact",
+            "inference",
+            "transfer"
+          ],
+          "example": "Ana: ¿Dónde están mis llaves?"
+        },
+        {
+          "id": "u6l0",
+          "stage": "A1.1",
+          "unit": 6,
+          "title": "Discover: Around town",
+          "modes": [
+            "response",
+            "completion",
+            "recall",
+            "transfer"
+          ],
+          "example": "¿Dónde está la estación?"
+        },
+        {
+          "id": "u6story0",
+          "stage": "A1.1",
+          "unit": 6,
+          "title": "Story 1: La farmacia cerca",
+          "modes": [
+            "meaning",
+            "sequence",
+            "inference",
+            "fact",
+            "response"
+          ],
+          "example": "Ana: ¿Dónde está la farmacia?"
+        },
+        {
+          "id": "u6story1",
+          "stage": "A1.1",
+          "unit": 6,
+          "title": "Story 2: El parque o la estación",
+          "modes": [
+            "meaning",
+            "fact",
+            "inference",
+            "transfer"
+          ],
+          "example": "Ana: Voy al parque. ¿Dónde está?"
+        },
+        {
+          "id": "u6l2",
+          "stage": "A1.1",
+          "unit": 6,
+          "title": "Use it: Around town",
+          "modes": [
+            "speaking"
+          ],
+          "example": "¿Dónde está la farmacia?"
+        },
+        {
+          "id": "u6story2",
+          "stage": "A1.1",
+          "unit": 6,
+          "title": "Story 3: ¿Está lejos?",
+          "modes": [
+            "sequence",
+            "fact",
+            "inference",
+            "meaning",
+            "transfer"
+          ],
+          "example": "Marta: ¿Dónde está la estación?"
+        },
+        {
+          "id": "u6write",
+          "stage": "A1.1",
+          "unit": 6,
+          "title": "Write in Spanish: Around town",
+          "modes": [
+            "contextual"
+          ],
+          "example": "¿Dónde está la farmacia?"
+        },
+        {
+          "id": "u6check",
+          "stage": "A1.1",
+          "unit": 6,
+          "title": "Checkpoint: Around town",
+          "modes": [
+            "response",
+            "completion",
+            "transfer"
+          ],
+          "example": "¿Dónde está la estación?"
+        },
+        {
+          "id": "a12u4story0",
+          "stage": "A1.2",
+          "unit": 4,
+          "title": "Story 1: En el probador",
+          "modes": [
+            "fact"
+          ],
+          "example": "¿Dónde está el probador?"
+        },
+        {
+          "id": "a12u4write",
+          "stage": "A1.2",
+          "unit": 4,
+          "title": "Write in Spanish: In the clothes shop",
+          "modes": [
+            "contextual"
+          ],
+          "example": "¿Dónde está el probador?"
+        },
+        {
+          "id": "a12u5story0",
+          "stage": "A1.2",
+          "unit": 5,
+          "title": "Story 1: Una visita al piso",
+          "modes": [
+            "context",
+            "meaning",
+            "inference",
+            "fact",
+            "sequence"
+          ],
+          "example": "Marta: Es cómodo. ¿Dónde está la cocina?"
+        },
+        {
+          "id": "a12u5l2",
+          "stage": "A1.2",
+          "unit": 5,
+          "title": "Use it: At home",
+          "modes": [
+            "response",
+            "listening"
+          ],
+          "example": "Luis: «¿Dónde está el baño?» Elige una respuesta útil."
+        },
+        {
+          "id": "a12u5story3",
+          "stage": "A1.2",
+          "unit": 5,
+          "title": "Story 4: Dormir y trabajar",
+          "modes": [
+            "inference",
+            "meaning",
+            "context",
+            "fact",
+            "response"
+          ],
+          "example": "Luis: ¿Dónde está tu ordenador?"
+        },
+        {
+          "id": "a12u7story3",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Story 4: Todo preparado",
+          "modes": [
+            "fact"
+          ],
+          "example": "¿Dónde está la chaqueta de Marta?"
+        }
+      ],
+      "longExposureGaps": [
+        {
+          "kind": "between-exposures",
+          "from": "A1.1-u6",
+          "to": "A1.2-u4",
+          "interveningUnits": 5
+        }
+      ]
+    },
+    {
+      "id": "hay",
+      "label": "Hay…",
+      "activityCount": 21,
+      "unitCount": 8,
+      "units": [
+        "A1.1-u2",
+        "A1.1-u3",
+        "A1.1-u5",
+        "A1.2-u0",
+        "A1.2-u3",
+        "A1.2-u5",
+        "A1.2-u6",
+        "A1.2-u7"
+      ],
+      "activities": [
+        {
+          "id": "u2story1",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Story 2: Algo de comer",
+          "modes": [
+            "character",
+            "inference",
+            "response",
+            "fact",
+            "meaning"
+          ],
+          "example": "Diego: Hay pan."
+        },
+        {
+          "id": "u3story0",
+          "stage": "A1.1",
+          "unit": 3,
+          "title": "Story 1: El precio de la libreta",
+          "modes": [
+            "sequence",
+            "fact",
+            "inference",
+            "transfer"
+          ],
+          "example": "Ana está en una tienda. Hay una libreta azul."
+        },
+        {
+          "id": "u5story0",
+          "stage": "A1.1",
+          "unit": 5,
+          "title": "Story 1: ¿Cuál es mi libro?",
+          "modes": [
+            "response",
+            "fact",
+            "meaning",
+            "sequence"
+          ],
+          "example": "En clase hay dos libros: un libro rojo y un libro azul."
+        },
+        {
+          "id": "u5story1",
+          "stage": "A1.1",
+          "unit": 5,
+          "title": "Story 2: Las llaves de Ana",
+          "modes": [
+            "meaning",
+            "fact",
+            "inference",
+            "transfer"
+          ],
+          "example": "Luis: Hay un móvil en la mesa."
+        },
+        {
+          "id": "u5l2",
+          "stage": "A1.1",
+          "unit": 5,
+          "title": "Use it: Everyday objects",
+          "modes": [
+            "context",
+            "completion",
+            "recall",
+            "listening"
+          ],
+          "example": "Hay un ordenador"
+        },
+        {
+          "id": "u5write",
+          "stage": "A1.1",
+          "unit": 5,
+          "title": "Write in Spanish: Everyday objects",
+          "modes": [
+            "contextual"
+          ],
+          "example": "Hay un ordenador"
+        },
+        {
+          "id": "u5check",
+          "stage": "A1.1",
+          "unit": 5,
+          "title": "Checkpoint: Everyday objects",
+          "modes": [
+            "listening",
+            "transfer"
+          ],
+          "example": "El móvil es negro. Está en la mesa. Hay un libro."
+        },
+        {
+          "id": "u5story3",
+          "stage": "A1.1",
+          "unit": 5,
+          "title": "Story 4: Un móvil en el café",
+          "modes": [
+            "character",
+            "fact",
+            "inference",
+            "sequence"
+          ],
+          "example": "Diego: Hay un móvil negro en la mesa. ¿Es tu móvil, Ana?"
+        },
+        {
+          "id": "a12u0story0",
+          "stage": "A1.2",
+          "unit": 0,
+          "title": "Story 1: Una tarde libre",
+          "modes": [
+            "inference",
+            "fact",
+            "meaning",
+            "context",
+            "sequence"
+          ],
+          "example": "Luis: A mí también me gustan los libros. En el parque hay una mesa."
+        },
+        {
+          "id": "a12u0l2",
+          "stage": "A1.2",
+          "unit": 0,
+          "title": "Use it: Free time & preferences",
+          "modes": [
+            "recognition"
+          ],
+          "example": "Solo hay tiempo para una actividad. ¿Qué frase expresa una preferencia?"
+        },
+        {
+          "id": "a12u3story0",
+          "stage": "A1.2",
+          "unit": 3,
+          "title": "Story 1: Para el parque",
+          "modes": [
+            "meaning",
+            "fact",
+            "inference",
+            "character",
+            "response"
+          ],
+          "example": "Marta: Aquí hay unos."
+        },
+        {
+          "id": "a12u5l0",
+          "stage": "A1.2",
+          "unit": 5,
+          "title": "Discover: At home",
+          "modes": [
+            "recognition",
+            "completion",
+            "recall",
+            "response",
+            "transfer"
+          ],
+          "example": "En el salón hay un sofá"
+        },
+        {
+          "id": "a12u5story0",
+          "stage": "A1.2",
+          "unit": 5,
+          "title": "Story 1: Una visita al piso",
+          "modes": [
+            "context",
+            "meaning",
+            "inference",
+            "fact",
+            "sequence"
+          ],
+          "example": "Ana: Vivo en este piso. Este es el salón. Hay un sofá y una mesa pequeña."
+        },
+        {
+          "id": "a12u5l1",
+          "stage": "A1.2",
+          "unit": 5,
+          "title": "Build confidence: At home",
+          "modes": [
+            "listening"
+          ],
+          "example": "En mi piso hay dos dormitorios. El salón es pequeño, pero cómodo."
+        },
+        {
+          "id": "a12u5story1",
+          "stage": "A1.2",
+          "unit": 5,
+          "title": "Story 2: Las llaves de Luis",
+          "modes": [
+            "meaning",
+            "fact",
+            "character",
+            "inference",
+            "transfer"
+          ],
+          "example": "Luis: No. En la mesa hay un libro."
+        },
+        {
+          "id": "a12u5story2",
+          "stage": "A1.2",
+          "unit": 5,
+          "title": "Story 3: Un rincón para leer",
+          "modes": [
+            "inference",
+            "fact",
+            "meaning",
+            "sequence"
+          ],
+          "example": "Ana: En mi dormitorio hay una cama, pero no hay una mesa."
+        },
+        {
+          "id": "a12u5write",
+          "stage": "A1.2",
+          "unit": 5,
+          "title": "Write in Spanish: At home",
+          "modes": [
+            "contextual"
+          ],
+          "example": "En mi piso hay dos dormitorios"
+        },
+        {
+          "id": "a12u5story3",
+          "stage": "A1.2",
+          "unit": 5,
+          "title": "Story 4: Dormir y trabajar",
+          "modes": [
+            "inference",
+            "meaning",
+            "context",
+            "fact",
+            "response"
+          ],
+          "example": "Marta: Hay un dormitorio y un salón. Mi piso es pequeño, pero cómodo."
+        },
+        {
+          "id": "a12u5check",
+          "stage": "A1.2",
+          "unit": 5,
+          "title": "Checkpoint: At home",
+          "modes": [
+            "recognition",
+            "listening",
+            "completion",
+            "transfer"
+          ],
+          "example": "En el salón hay un sofá"
+        },
+        {
+          "id": "a12u6story1",
+          "stage": "A1.2",
+          "unit": 6,
+          "title": "Story 2: Primero la ducha",
+          "modes": [
+            "sequence",
+            "fact",
+            "context",
+            "character",
+            "inference"
+          ],
+          "example": "Marta: Hay una azul en tu dormitorio."
+        },
+        {
+          "id": "a12u7story1",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Story 2: Un plan con lluvia",
+          "modes": [
+            "inference",
+            "fact",
+            "context",
+            "meaning",
+            "sequence"
+          ],
+          "example": "Marta: En mi salón hay un sofá y una mesa. Podemos leer y después escuchar música."
+        }
+      ],
+      "longExposureGaps": []
+    },
+    {
+      "id": "voy",
+      "label": "Voy…",
+      "activityCount": 33,
+      "unitCount": 9,
+      "units": [
+        "A1.1-u6",
+        "A1.1-u7",
+        "A1.2-u0",
+        "A1.2-u1",
+        "A1.2-u2",
+        "A1.2-u3",
+        "A1.2-u5",
+        "A1.2-u6",
+        "A1.2-u7"
+      ],
+      "activities": [
+        {
+          "id": "u6story0",
+          "stage": "A1.1",
+          "unit": 6,
+          "title": "Story 1: La farmacia cerca",
+          "modes": [
+            "meaning",
+            "sequence",
+            "inference",
+            "fact",
+            "response"
+          ],
+          "example": "Ana: Gracias. Voy a la farmacia."
+        },
+        {
+          "id": "u6story1",
+          "stage": "A1.1",
+          "unit": 6,
+          "title": "Story 2: El parque o la estación",
+          "modes": [
+            "meaning",
+            "fact",
+            "inference",
+            "transfer"
+          ],
+          "example": "Ana: Voy al parque. ¿Dónde está?"
+        },
+        {
+          "id": "u6l2",
+          "stage": "A1.1",
+          "unit": 6,
+          "title": "Use it: Around town",
+          "modes": [
+            "recognition",
+            "completion",
+            "transfer",
+            "listening"
+          ],
+          "example": "Voy al parque"
+        },
+        {
+          "id": "u6story2",
+          "stage": "A1.1",
+          "unit": 6,
+          "title": "Story 3: ¿Está lejos?",
+          "modes": [
+            "sequence",
+            "fact",
+            "inference",
+            "meaning",
+            "transfer"
+          ],
+          "example": "Marta: Ahora voy al café."
+        },
+        {
+          "id": "u6write",
+          "stage": "A1.1",
+          "unit": 6,
+          "title": "Write in Spanish: Around town",
+          "modes": [
+            "contextual",
+            "transfer"
+          ],
+          "example": "Voy al parque"
+        },
+        {
+          "id": "u6check",
+          "stage": "A1.1",
+          "unit": 6,
+          "title": "Checkpoint: Around town",
+          "modes": [
+            "transfer"
+          ],
+          "example": "Voy a la estación"
+        },
+        {
+          "id": "u6story3",
+          "stage": "A1.1",
+          "unit": 6,
+          "title": "Story 4: Un mensaje desde el parque",
+          "modes": [
+            "meaning",
+            "character",
+            "fact",
+            "transfer"
+          ],
+          "example": "Luis: Sí. Voy al parque."
+        },
+        {
+          "id": "u7story3",
+          "stage": "A1.1",
+          "unit": 7,
+          "title": "Story 4: Un cambio de hora",
+          "modes": [
+            "meaning",
+            "inference",
+            "fact",
+            "response"
+          ],
+          "example": "Marta: Son las tres menos cuarto. Voy al parque."
+        },
+        {
+          "id": "a12u0write",
+          "stage": "A1.2",
+          "unit": 0,
+          "title": "Write in Spanish: Free time & preferences",
+          "modes": [
+            "contextual"
+          ],
+          "example": "Prefiero leer, pero hoy voy al parque"
+        },
+        {
+          "id": "a12u1story2",
+          "stage": "A1.2",
+          "unit": 1,
+          "title": "Story 3: Un paseo corto",
+          "modes": [
+            "inference",
+            "fact",
+            "context",
+            "meaning",
+            "sequence"
+          ],
+          "example": "Diego: Buena idea. Después voy a casa."
+        },
+        {
+          "id": "a12u2l0",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Discover: Making plans",
+          "modes": [
+            "recognition",
+            "completion",
+            "recall",
+            "response",
+            "transfer"
+          ],
+          "example": "Voy a leer mañana"
+        },
+        {
+          "id": "a12u2story0",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Story 1: El sábado en el cine",
+          "modes": [
+            "inference",
+            "fact",
+            "meaning",
+            "sequence"
+          ],
+          "example": "Ana: Voy a ir al cine el sábado. ¿Quieres venir, Luis?"
+        },
+        {
+          "id": "a12u2l1",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Build confidence: Making plans",
+          "modes": [
+            "listening"
+          ],
+          "example": "Voy a trabajar el lunes. El domingo voy a leer."
+        },
+        {
+          "id": "a12u2story1",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Story 2: Un cambio de hora",
+          "modes": [
+            "inference",
+            "meaning",
+            "sequence",
+            "character",
+            "response"
+          ],
+          "example": "Ana: Perfecto. Voy a salir de clase y después voy al parque."
+        },
+        {
+          "id": "a12u2story2",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Story 3: Planes distintos",
+          "modes": [
+            "inference",
+            "fact",
+            "meaning",
+            "context"
+          ],
+          "example": "Luis: El domingo voy a jugar al fútbol por la mañana. ¿Y tú?"
+        },
+        {
+          "id": "a12u2write",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Write in Spanish: Making plans",
+          "modes": [
+            "contextual"
+          ],
+          "example": "Voy a trabajar el lunes"
+        },
+        {
+          "id": "a12u2check",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Checkpoint: Making plans",
+          "modes": [
+            "recognition",
+            "completion",
+            "transfer"
+          ],
+          "example": "Voy a leer mañana"
+        },
+        {
+          "id": "a12u3story2",
+          "stage": "A1.2",
+          "unit": 3,
+          "title": "Story 3: Una chaqueta para Marta",
+          "modes": [
+            "inference",
+            "meaning",
+            "character",
+            "sequence"
+          ],
+          "example": "Marta: Mañana voy a caminar y necesito una chaqueta."
+        },
+        {
+          "id": "a12u3story3",
+          "stage": "A1.2",
+          "unit": 3,
+          "title": "Story 4: La lista de ropa",
+          "modes": [
+            "inference",
+            "fact",
+            "meaning",
+            "response"
+          ],
+          "example": "Ana: Mediana. Voy a comprar la ropa mañana."
+        },
+        {
+          "id": "a12u5story2",
+          "stage": "A1.2",
+          "unit": 5,
+          "title": "Story 3: Un rincón para leer",
+          "modes": [
+            "inference",
+            "fact",
+            "meaning",
+            "sequence"
+          ],
+          "example": "Ana: Buena idea. Primero voy a preparar un té."
+        },
+        {
+          "id": "a12u5story3",
+          "stage": "A1.2",
+          "unit": 5,
+          "title": "Story 4: Dormir y trabajar",
+          "modes": [
+            "inference",
+            "meaning",
+            "context",
+            "fact",
+            "response"
+          ],
+          "example": "Marta: Voy a leer en el sofá. El dormitorio es para dormir."
+        },
+        {
+          "id": "a12u6story0",
+          "stage": "A1.2",
+          "unit": 6,
+          "title": "Story 1: Antes del trabajo",
+          "modes": [
+            "inference",
+            "sequence",
+            "response",
+            "fact"
+          ],
+          "example": "Diego: Sí, tomo un café y una tostada. También tomo agua. Después voy al trabajo a las ocho."
+        },
+        {
+          "id": "a12u6l2",
+          "stage": "A1.2",
+          "unit": 6,
+          "title": "Use it: A typical day",
+          "modes": [
+            "listening"
+          ],
+          "example": "Primero desayuno. Después me visto y voy a clase."
+        },
+        {
+          "id": "a12u6story2",
+          "stage": "A1.2",
+          "unit": 6,
+          "title": "Story 3: Una noche tranquila",
+          "modes": [
+            "meaning",
+            "fact",
+            "inference",
+            "response"
+          ],
+          "example": "Luis: Hoy voy a leer en casa."
+        },
+        {
+          "id": "a12u7l0",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Discover: A day together",
+          "modes": [
+            "recognition",
+            "completion",
+            "recall"
+          ],
+          "example": "Primero desayuno y después voy al trabajo"
+        },
+        {
+          "id": "a12u7story0",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Story 1: Un mensaje para Marta",
+          "modes": [
+            "meaning",
+            "sequence",
+            "inference",
+            "fact",
+            "response"
+          ],
+          "example": "Ana escribe: “Hola, Marta. Hoy me levanto a las ocho. Primero desayuno y después voy a clase. Por la tarde voy a leer en casa porque estoy cansada. ¿Quieres venir? Podemos tomar un té”."
+        },
+        {
+          "id": "a12u7l1",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Build confidence: A day together",
+          "modes": [
+            "listening"
+          ],
+          "example": "Me gusta el cine, pero hoy voy a quedar con Marta."
+        },
+        {
+          "id": "a12u7story1",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Story 2: Un plan con lluvia",
+          "modes": [
+            "inference",
+            "fact",
+            "context",
+            "meaning",
+            "sequence"
+          ],
+          "example": "Luis: Buena idea. Voy a llevar un libro."
+        },
+        {
+          "id": "a12u7l2",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Use it: A day together",
+          "modes": [
+            "completion",
+            "recall",
+            "response",
+            "transfer"
+          ],
+          "example": "Hoy voy a leer y después voy al cine."
+        },
+        {
+          "id": "a12u7story2",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Story 3: Trabajo primero",
+          "modes": [
+            "inference",
+            "character",
+            "meaning",
+            "fact",
+            "sequence"
+          ],
+          "example": "Diego: “Mañana estoy libre. Primero voy a desayunar en casa y después voy al parque”."
+        },
+        {
+          "id": "a12u7write",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Write in Spanish: A day together",
+          "modes": [
+            "contextual"
+          ],
+          "example": "Primero me visto y después voy a clase"
+        },
+        {
+          "id": "a12u7story3",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Story 4: Todo preparado",
+          "modes": [
+            "inference",
+            "fact",
+            "sequence",
+            "meaning",
+            "transfer"
+          ],
+          "example": "Ana escribe a Marta: “Mañana vamos al cine a las cinco. Me gusta caminar, pero primero voy a pasar por tu piso”."
+        },
+        {
+          "id": "a12u7check",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Checkpoint: A day together",
+          "modes": [
+            "recognition",
+            "listening",
+            "completion",
+            "transfer"
+          ],
+          "example": "Primero desayuno y después voy al trabajo"
+        }
+      ],
+      "longExposureGaps": []
+    },
+    {
+      "id": "voy-a",
+      "label": "Voy a + infinitive",
+      "activityCount": 20,
+      "unitCount": 5,
+      "units": [
+        "A1.2-u2",
+        "A1.2-u3",
+        "A1.2-u5",
+        "A1.2-u6",
+        "A1.2-u7"
+      ],
+      "activities": [
+        {
+          "id": "a12u2l0",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Discover: Making plans",
+          "modes": [
+            "recognition",
+            "completion",
+            "recall",
+            "response",
+            "transfer"
+          ],
+          "example": "Voy a leer mañana"
+        },
+        {
+          "id": "a12u2story0",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Story 1: El sábado en el cine",
+          "modes": [
+            "inference",
+            "fact",
+            "meaning",
+            "sequence"
+          ],
+          "example": "Ana: Voy a ir al cine el sábado. ¿Quieres venir, Luis?"
+        },
+        {
+          "id": "a12u2l1",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Build confidence: Making plans",
+          "modes": [
+            "listening"
+          ],
+          "example": "Voy a trabajar el lunes. El domingo voy a leer."
+        },
+        {
+          "id": "a12u2story1",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Story 2: Un cambio de hora",
+          "modes": [
+            "inference",
+            "meaning",
+            "sequence",
+            "character",
+            "response"
+          ],
+          "example": "Ana: Perfecto. Voy a salir de clase y después voy al parque."
+        },
+        {
+          "id": "a12u2story2",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Story 3: Planes distintos",
+          "modes": [
+            "inference",
+            "fact",
+            "meaning",
+            "context"
+          ],
+          "example": "Diego: Voy a trabajar por la mañana, pero por la tarde estoy libre."
+        },
+        {
+          "id": "a12u2write",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Write in Spanish: Making plans",
+          "modes": [
+            "contextual"
+          ],
+          "example": "Voy a trabajar el lunes"
+        },
+        {
+          "id": "a12u2check",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Checkpoint: Making plans",
+          "modes": [
+            "recognition",
+            "completion",
+            "transfer"
+          ],
+          "example": "Voy a leer mañana"
+        },
+        {
+          "id": "a12u3story2",
+          "stage": "A1.2",
+          "unit": 3,
+          "title": "Story 3: Una chaqueta para Marta",
+          "modes": [
+            "inference",
+            "meaning",
+            "character",
+            "sequence"
+          ],
+          "example": "Marta: Mañana voy a caminar y necesito una chaqueta."
+        },
+        {
+          "id": "a12u3story3",
+          "stage": "A1.2",
+          "unit": 3,
+          "title": "Story 4: La lista de ropa",
+          "modes": [
+            "inference",
+            "fact",
+            "meaning",
+            "response"
+          ],
+          "example": "Ana: Mediana. Voy a comprar la ropa mañana."
+        },
+        {
+          "id": "a12u5story2",
+          "stage": "A1.2",
+          "unit": 5,
+          "title": "Story 3: Un rincón para leer",
+          "modes": [
+            "inference",
+            "fact",
+            "meaning",
+            "sequence"
+          ],
+          "example": "Ana: Buena idea. Primero voy a preparar un té."
+        },
+        {
+          "id": "a12u5story3",
+          "stage": "A1.2",
+          "unit": 5,
+          "title": "Story 4: Dormir y trabajar",
+          "modes": [
+            "inference",
+            "meaning",
+            "context",
+            "fact",
+            "response"
+          ],
+          "example": "Marta: Voy a leer en el sofá. El dormitorio es para dormir."
+        },
+        {
+          "id": "a12u6story2",
+          "stage": "A1.2",
+          "unit": 6,
+          "title": "Story 3: Una noche tranquila",
+          "modes": [
+            "meaning",
+            "fact",
+            "inference",
+            "response"
+          ],
+          "example": "Luis: Hoy voy a leer en casa."
+        },
+        {
+          "id": "a12u7story0",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Story 1: Un mensaje para Marta",
+          "modes": [
+            "meaning",
+            "sequence",
+            "inference",
+            "fact",
+            "response"
+          ],
+          "example": "Ana escribe: “Hola, Marta. Hoy me levanto a las ocho. Primero desayuno y después voy a clase. Por la tarde voy a leer en casa porque estoy cansada. ¿Quieres venir? Podemos tomar un té”."
+        },
+        {
+          "id": "a12u7l1",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Build confidence: A day together",
+          "modes": [
+            "listening"
+          ],
+          "example": "Me gusta el cine, pero hoy voy a quedar con Marta."
+        },
+        {
+          "id": "a12u7story1",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Story 2: Un plan con lluvia",
+          "modes": [
+            "inference",
+            "fact",
+            "context",
+            "meaning",
+            "sequence"
+          ],
+          "example": "Luis: Buena idea. Voy a llevar un libro."
+        },
+        {
+          "id": "a12u7l2",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Use it: A day together",
+          "modes": [
+            "completion",
+            "recall",
+            "response",
+            "transfer"
+          ],
+          "example": "Hoy voy a leer y después voy al cine."
+        },
+        {
+          "id": "a12u7story2",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Story 3: Trabajo primero",
+          "modes": [
+            "inference",
+            "character",
+            "meaning",
+            "fact",
+            "sequence"
+          ],
+          "example": "Diego: “Mañana estoy libre. Primero voy a desayunar en casa y después voy al parque”."
+        },
+        {
+          "id": "a12u7write",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Write in Spanish: A day together",
+          "modes": [
+            "contextual"
+          ],
+          "example": "Mañana voy a leer y después voy al parque"
+        },
+        {
+          "id": "a12u7story3",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Story 4: Todo preparado",
+          "modes": [
+            "inference",
+            "fact",
+            "sequence",
+            "meaning",
+            "transfer"
+          ],
+          "example": "Ana escribe a Marta: “Mañana vamos al cine a las cinco. Me gusta caminar, pero primero voy a pasar por tu piso”."
+        },
+        {
+          "id": "a12u7check",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Checkpoint: A day together",
+          "modes": [
+            "listening",
+            "transfer"
+          ],
+          "example": "Primero voy a desayunar en casa. Después quedamos a las diez delante del parque."
+        }
+      ],
+      "longExposureGaps": []
+    },
+    {
+      "id": "por-favor",
+      "label": "por favor",
+      "activityCount": 24,
+      "unitCount": 7,
+      "units": [
+        "A1.1-u0",
+        "A1.1-u2",
+        "A1.1-u3",
+        "A1.1-u5",
+        "A1.1-u7",
+        "A1.2-u3",
+        "A1.2-u4"
+      ],
+      "activities": [
+        {
+          "id": "u0l2",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Use it: Greetings & introductions",
+          "modes": [
+            "context"
+          ],
+          "example": "¿Puedes repetir, por favor?"
+        },
+        {
+          "id": "u0check",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Checkpoint: Greetings & introductions",
+          "modes": [
+            "transfer"
+          ],
+          "example": "¿Puedes repetir, por favor?"
+        },
+        {
+          "id": "u2l0",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Discover: At the café",
+          "modes": [
+            "response",
+            "completion",
+            "recall",
+            "transfer"
+          ],
+          "example": "Un café con leche, por favor"
+        },
+        {
+          "id": "u2story0",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Story 1: El primer desayuno",
+          "modes": [
+            "character",
+            "fact",
+            "inference",
+            "meaning",
+            "transfer"
+          ],
+          "example": "Ana: Un café con leche, por favor."
+        },
+        {
+          "id": "u2l1",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Build confidence: At the café",
+          "modes": [
+            "transfer",
+            "listening"
+          ],
+          "example": "Pan, por favor"
+        },
+        {
+          "id": "u2story1",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Story 2: Algo de comer",
+          "modes": [
+            "character",
+            "inference",
+            "response",
+            "fact",
+            "meaning"
+          ],
+          "example": "Ana: Quiero pan, por favor."
+        },
+        {
+          "id": "u2l2",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Use it: At the café",
+          "modes": [
+            "response",
+            "completion",
+            "recall",
+            "listening",
+            "speaking"
+          ],
+          "example": "La cuenta, por favor"
+        },
+        {
+          "id": "u2story2",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Story 3: Sin café hoy",
+          "modes": [
+            "character",
+            "meaning",
+            "fact",
+            "transfer"
+          ],
+          "example": "Ana: A mí me gusta el café. Un café con leche, por favor."
+        },
+        {
+          "id": "u2write",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Write in Spanish: At the café",
+          "modes": [
+            "response",
+            "transfer"
+          ],
+          "example": "Un café con leche, por favor"
+        },
+        {
+          "id": "u2check",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Checkpoint: At the café",
+          "modes": [
+            "response",
+            "listening",
+            "completion",
+            "context",
+            "transfer"
+          ],
+          "example": "Un café con leche, por favor"
+        },
+        {
+          "id": "u2story3",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Story 4: La cuenta juntos",
+          "modes": [
+            "sequence",
+            "meaning",
+            "inference",
+            "fact",
+            "response"
+          ],
+          "example": "Ana: La cuenta, por favor."
+        },
+        {
+          "id": "u3story0",
+          "stage": "A1.1",
+          "unit": 3,
+          "title": "Story 1: El precio de la libreta",
+          "modes": [
+            "sequence",
+            "fact",
+            "inference",
+            "transfer"
+          ],
+          "example": "Ana: Bien. Quiero una libreta, por favor."
+        },
+        {
+          "id": "u3l1",
+          "stage": "A1.1",
+          "unit": 3,
+          "title": "Build confidence: Numbers & prices",
+          "modes": [
+            "listening"
+          ],
+          "example": "Dos cafés, por favor. Uno para Ana y uno para mí."
+        },
+        {
+          "id": "u3story1",
+          "stage": "A1.1",
+          "unit": 3,
+          "title": "Story 2: Dos cafés, no doce",
+          "modes": [
+            "inference",
+            "fact",
+            "character",
+            "meaning"
+          ],
+          "example": "Luis: Dos cafés, por favor."
+        },
+        {
+          "id": "u3story2",
+          "stage": "A1.1",
+          "unit": 3,
+          "title": "Story 3: La coma en el precio",
+          "modes": [
+            "meaning",
+            "sequence",
+            "inference",
+            "fact",
+            "transfer"
+          ],
+          "example": "Ana: Quiero un té hoy, por favor."
+        },
+        {
+          "id": "u3write",
+          "stage": "A1.1",
+          "unit": 3,
+          "title": "Write in Spanish: Numbers & prices",
+          "modes": [
+            "contextual",
+            "transfer"
+          ],
+          "example": "Dos cafés, por favor"
+        },
+        {
+          "id": "u3check",
+          "stage": "A1.1",
+          "unit": 3,
+          "title": "Checkpoint: Numbers & prices",
+          "modes": [
+            "transfer"
+          ],
+          "example": "Tres cafés, por favor"
+        },
+        {
+          "id": "u5story0",
+          "stage": "A1.1",
+          "unit": 5,
+          "title": "Story 1: ¿Cuál es mi libro?",
+          "modes": [
+            "response",
+            "fact",
+            "meaning",
+            "sequence"
+          ],
+          "example": "Ana: El rojo, por favor."
+        },
+        {
+          "id": "u7story1",
+          "stage": "A1.1",
+          "unit": 7,
+          "title": "Story 2: El desayuno de Diego",
+          "modes": [
+            "meaning",
+            "character",
+            "sequence",
+            "fact",
+            "response"
+          ],
+          "example": "Luis: Ahora son las nueve. Un café, por favor."
+        },
+        {
+          "id": "a12u3story1",
+          "stage": "A1.2",
+          "unit": 3,
+          "title": "Story 2: Dos tamaños",
+          "modes": [
+            "inference",
+            "fact",
+            "context",
+            "meaning",
+            "response"
+          ],
+          "example": "Luis: La mediana, por favor. ¿Es azul?"
+        },
+        {
+          "id": "a12u3l2",
+          "stage": "A1.2",
+          "unit": 3,
+          "title": "Use it: Choosing clothes",
+          "modes": [
+            "speaking"
+          ],
+          "example": "Una camiseta azul de talla mediana, por favor"
+        },
+        {
+          "id": "a12u3write",
+          "stage": "A1.2",
+          "unit": 3,
+          "title": "Write in Spanish: Choosing clothes",
+          "modes": [
+            "contextual"
+          ],
+          "example": "Quiero una camiseta blanca, por favor"
+        },
+        {
+          "id": "a12u3check",
+          "stage": "A1.2",
+          "unit": 3,
+          "title": "Checkpoint: Choosing clothes",
+          "modes": [
+            "context",
+            "transfer"
+          ],
+          "example": "La roja mediana, por favor"
+        },
+        {
+          "id": "a12u4story0",
+          "stage": "A1.2",
+          "unit": 4,
+          "title": "Story 1: En el probador",
+          "modes": [
+            "response"
+          ],
+          "example": "Una talla más grande, por favor"
+        }
+      ],
+      "longExposureGaps": []
+    },
+    {
+      "id": "gracias",
+      "label": "gracias",
+      "activityCount": 25,
+      "unitCount": 11,
+      "units": [
+        "A1.1-u0",
+        "A1.1-u1",
+        "A1.1-u2",
+        "A1.1-u3",
+        "A1.1-u4",
+        "A1.1-u5",
+        "A1.1-u6",
+        "A1.1-u7",
+        "A1.2-u1",
+        "A1.2-u4",
+        "A1.2-u5"
+      ],
+      "activities": [
+        {
+          "id": "u0l1",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Build confidence: Greetings & introductions",
+          "modes": [
+            "response"
+          ],
+          "example": "Gracias. De nada."
+        },
+        {
+          "id": "u0story2",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Story 3: Una amiga más",
+          "modes": [
+            "meaning",
+            "fact",
+            "inference",
+            "response"
+          ],
+          "example": "Marta: Gracias, Luis."
+        },
+        {
+          "id": "u0write",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Write in Spanish: Greetings & introductions",
+          "modes": [
+            "contextual",
+            "response"
+          ],
+          "example": "Gracias"
+        },
+        {
+          "id": "u0check",
+          "stage": "A1.1",
+          "unit": 0,
+          "title": "Checkpoint: Greetings & introductions",
+          "modes": [
+            "context",
+            "transfer"
+          ],
+          "example": "Gracias"
+        },
+        {
+          "id": "u1story1",
+          "stage": "A1.1",
+          "unit": 1,
+          "title": "Story 2: ¿Veinte o veintiuno?",
+          "modes": [
+            "inference",
+            "fact",
+            "meaning",
+            "transfer"
+          ],
+          "example": "Ana: Ah, veintiuno. Gracias."
+        },
+        {
+          "id": "u2l2",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Use it: At the café",
+          "modes": [
+            "transfer"
+          ],
+          "example": "Gracias"
+        },
+        {
+          "id": "u2story2",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Story 3: Sin café hoy",
+          "modes": [
+            "character",
+            "meaning",
+            "fact",
+            "transfer"
+          ],
+          "example": "Luis: No, gracias. Hoy quiero agua."
+        },
+        {
+          "id": "u2check",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Checkpoint: At the café",
+          "modes": [
+            "transfer"
+          ],
+          "example": "Gracias"
+        },
+        {
+          "id": "u2story3",
+          "stage": "A1.1",
+          "unit": 2,
+          "title": "Story 4: La cuenta juntos",
+          "modes": [
+            "sequence",
+            "meaning",
+            "inference",
+            "fact",
+            "response"
+          ],
+          "example": "Diego: Gracias."
+        },
+        {
+          "id": "u3story1",
+          "stage": "A1.1",
+          "unit": 3,
+          "title": "Story 2: Dos cafés, no doce",
+          "modes": [
+            "inference",
+            "fact",
+            "character",
+            "meaning"
+          ],
+          "example": "Luis: Gracias."
+        },
+        {
+          "id": "u4story0",
+          "stage": "A1.1",
+          "unit": 4,
+          "title": "Story 1: Marta viene al café",
+          "modes": [
+            "meaning",
+            "fact",
+            "response",
+            "character",
+            "transfer"
+          ],
+          "example": "Luis: Gracias, Diego."
+        },
+        {
+          "id": "u4story3",
+          "stage": "A1.1",
+          "unit": 4,
+          "title": "Story 4: La hermana simpática",
+          "modes": [
+            "meaning",
+            "character",
+            "inference",
+            "fact",
+            "response"
+          ],
+          "example": "Ana: Gracias, Marta."
+        },
+        {
+          "id": "u5story1",
+          "stage": "A1.1",
+          "unit": 5,
+          "title": "Story 2: Las llaves de Ana",
+          "modes": [
+            "meaning",
+            "fact",
+            "inference",
+            "transfer"
+          ],
+          "example": "Ana: Gracias."
+        },
+        {
+          "id": "u6story0",
+          "stage": "A1.1",
+          "unit": 6,
+          "title": "Story 1: La farmacia cerca",
+          "modes": [
+            "meaning",
+            "sequence",
+            "inference",
+            "fact",
+            "response"
+          ],
+          "example": "Ana: Gracias. Voy a la farmacia."
+        },
+        {
+          "id": "u6story2",
+          "stage": "A1.1",
+          "unit": 6,
+          "title": "Story 3: ¿Está lejos?",
+          "modes": [
+            "sequence",
+            "fact",
+            "inference",
+            "meaning",
+            "transfer"
+          ],
+          "example": "Marta: Bien, gracias."
+        },
+        {
+          "id": "u6story3",
+          "stage": "A1.1",
+          "unit": 6,
+          "title": "Story 4: Un mensaje desde el parque",
+          "modes": [
+            "meaning",
+            "character",
+            "fact",
+            "transfer"
+          ],
+          "example": "Luis: Gracias."
+        },
+        {
+          "id": "u7story0",
+          "stage": "A1.1",
+          "unit": 7,
+          "title": "Story 1: ¿Qué hora es?",
+          "modes": [
+            "meaning",
+            "fact",
+            "sequence",
+            "transfer"
+          ],
+          "example": "Ana: Gracias. A las dos tengo clase."
+        },
+        {
+          "id": "u7story3",
+          "stage": "A1.1",
+          "unit": 7,
+          "title": "Story 4: Un cambio de hora",
+          "modes": [
+            "meaning",
+            "inference",
+            "fact",
+            "response"
+          ],
+          "example": "Marta: Ah, a las tres y media. Gracias."
+        },
+        {
+          "id": "a12u1l1",
+          "stage": "A1.2",
+          "unit": 1,
+          "title": "Build confidence: Inviting & responding",
+          "modes": [
+            "response"
+          ],
+          "example": "Sí, gracias"
+        },
+        {
+          "id": "a12u1story1",
+          "stage": "A1.2",
+          "unit": 1,
+          "title": "Story 2: Hoy no puedo",
+          "modes": [
+            "inference",
+            "meaning",
+            "context",
+            "character",
+            "response"
+          ],
+          "example": "Ana: Mañana sí puedo. Gracias por invitarme."
+        },
+        {
+          "id": "a12u1write",
+          "stage": "A1.2",
+          "unit": 1,
+          "title": "Write in Spanish: Inviting & responding",
+          "modes": [
+            "contextual"
+          ],
+          "example": "Sí, buena idea. Gracias."
+        },
+        {
+          "id": "a12u1story3",
+          "stage": "A1.2",
+          "unit": 1,
+          "title": "Story 4: La invitación del grupo",
+          "modes": [
+            "meaning",
+            "character",
+            "inference",
+            "fact",
+            "response"
+          ],
+          "example": "Marta: Sí, gracias."
+        },
+        {
+          "id": "a12u1check",
+          "stage": "A1.2",
+          "unit": 1,
+          "title": "Checkpoint: Inviting & responding",
+          "modes": [
+            "context"
+          ],
+          "example": "Sí, gracias"
+        },
+        {
+          "id": "a12u4story3",
+          "stage": "A1.2",
+          "unit": 4,
+          "title": "Story 4: Antes de pagar",
+          "modes": [
+            "inference",
+            "fact",
+            "sequence",
+            "meaning",
+            "response"
+          ],
+          "example": "Ana: No, gracias. Tengo una mochila."
+        },
+        {
+          "id": "a12u5story1",
+          "stage": "A1.2",
+          "unit": 5,
+          "title": "Story 2: Las llaves de Luis",
+          "modes": [
+            "meaning",
+            "fact",
+            "character",
+            "inference",
+            "transfer"
+          ],
+          "example": "Luis: ¡Aquí están! Gracias."
+        }
+      ],
+      "longExposureGaps": []
+    },
+    {
+      "id": "a-las",
+      "label": "a las…",
+      "activityCount": 30,
+      "unitCount": 5,
+      "units": [
+        "A1.1-u7",
+        "A1.2-u1",
+        "A1.2-u2",
+        "A1.2-u6",
+        "A1.2-u7"
+      ],
+      "activities": [
+        {
+          "id": "u7story0",
+          "stage": "A1.1",
+          "unit": 7,
+          "title": "Story 1: ¿Qué hora es?",
+          "modes": [
+            "meaning",
+            "fact",
+            "sequence",
+            "transfer"
+          ],
+          "example": "Ana: Gracias. A las dos tengo clase."
+        },
+        {
+          "id": "u7l1",
+          "stage": "A1.1",
+          "unit": 7,
+          "title": "Build confidence: Routines & meeting times",
+          "modes": [
+            "context",
+            "completion",
+            "recall",
+            "response",
+            "transfer",
+            "listening"
+          ],
+          "example": "Desayuno a las ocho"
+        },
+        {
+          "id": "u7story1",
+          "stage": "A1.1",
+          "unit": 7,
+          "title": "Story 2: El desayuno de Diego",
+          "modes": [
+            "meaning",
+            "character",
+            "sequence",
+            "fact",
+            "response"
+          ],
+          "example": "Diego: Desayuno a las ocho. A las nueve trabajo en el café."
+        },
+        {
+          "id": "u7l2",
+          "stage": "A1.1",
+          "unit": 7,
+          "title": "Use it: Routines & meeting times",
+          "modes": [
+            "completion",
+            "transfer",
+            "listening"
+          ],
+          "example": "Nos vemos a las dos."
+        },
+        {
+          "id": "u7story2",
+          "stage": "A1.1",
+          "unit": 7,
+          "title": "Story 3: Nos vemos a las tres",
+          "modes": [
+            "meaning",
+            "fact",
+            "inference",
+            "transfer"
+          ],
+          "example": "Ana: A las tres."
+        },
+        {
+          "id": "u7write",
+          "stage": "A1.1",
+          "unit": 7,
+          "title": "Write in Spanish: Routines & meeting times",
+          "modes": [
+            "contextual",
+            "transfer"
+          ],
+          "example": "Desayuno a las nueve"
+        },
+        {
+          "id": "u7check",
+          "stage": "A1.1",
+          "unit": 7,
+          "title": "Checkpoint: Routines & meeting times",
+          "modes": [
+            "context",
+            "listening",
+            "transfer"
+          ],
+          "example": "Desayuno a las ocho"
+        },
+        {
+          "id": "u7story3",
+          "stage": "A1.1",
+          "unit": 7,
+          "title": "Story 4: Un cambio de hora",
+          "modes": [
+            "meaning",
+            "inference",
+            "fact",
+            "response"
+          ],
+          "example": "Ana: Nos vemos a las tres y media, no a las tres."
+        },
+        {
+          "id": "a12u1story2",
+          "stage": "A1.2",
+          "unit": 1,
+          "title": "Story 3: Un paseo corto",
+          "modes": [
+            "inference",
+            "fact",
+            "context",
+            "meaning",
+            "sequence"
+          ],
+          "example": "Diego termina de trabajar a las seis."
+        },
+        {
+          "id": "a12u2story0",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Story 1: El sábado en el cine",
+          "modes": [
+            "inference",
+            "fact",
+            "meaning",
+            "sequence"
+          ],
+          "example": "Ana: A las cinco, delante del cine. La película empieza a las cinco y media."
+        },
+        {
+          "id": "a12u2l1",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Build confidence: Making plans",
+          "modes": [
+            "recognition",
+            "completion",
+            "recall",
+            "response",
+            "transfer"
+          ],
+          "example": "«Quedamos el sábado a las cinco». ¿Cuándo es la cita?"
+        },
+        {
+          "id": "a12u2story1",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Story 2: Un cambio de hora",
+          "modes": [
+            "inference",
+            "meaning",
+            "sequence",
+            "character",
+            "response"
+          ],
+          "example": "Marta escribe a Ana: “Mañana vamos a quedar en el parque a las cuatro”."
+        },
+        {
+          "id": "a12u2l2",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Use it: Making plans",
+          "modes": [
+            "transfer",
+            "listening"
+          ],
+          "example": "Quedamos delante del café a las seis"
+        },
+        {
+          "id": "a12u2story2",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Story 3: Planes distintos",
+          "modes": [
+            "inference",
+            "fact",
+            "meaning",
+            "context"
+          ],
+          "example": "Diego: Sí. Voy a ir al parque a las seis."
+        },
+        {
+          "id": "a12u2write",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Write in Spanish: Making plans",
+          "modes": [
+            "contextual"
+          ],
+          "example": "Quedamos delante del parque a las diez"
+        },
+        {
+          "id": "a12u2story3",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Story 4: Dónde quedamos",
+          "modes": [
+            "meaning",
+            "fact",
+            "inference",
+            "sequence"
+          ],
+          "example": "Ana: ¿Quedamos delante del café a las diez?"
+        },
+        {
+          "id": "a12u2check",
+          "stage": "A1.2",
+          "unit": 2,
+          "title": "Checkpoint: Making plans",
+          "modes": [
+            "recognition",
+            "listening",
+            "transfer"
+          ],
+          "example": "«Quedamos el sábado a las cinco». ¿Cuándo es la cita?"
+        },
+        {
+          "id": "a12u6l0",
+          "stage": "A1.2",
+          "unit": 6,
+          "title": "Discover: A typical day",
+          "modes": [
+            "recognition",
+            "completion",
+            "recall",
+            "response",
+            "transfer"
+          ],
+          "example": "Me levanto a las siete"
+        },
+        {
+          "id": "a12u6story0",
+          "stage": "A1.2",
+          "unit": 6,
+          "title": "Story 1: Antes del trabajo",
+          "modes": [
+            "inference",
+            "sequence",
+            "response",
+            "fact"
+          ],
+          "example": "Diego: Me levanto a las siete. Primero me ducho y después desayuno."
+        },
+        {
+          "id": "a12u6l1",
+          "stage": "A1.2",
+          "unit": 6,
+          "title": "Build confidence: A typical day",
+          "modes": [
+            "listening"
+          ],
+          "example": "Me levanto a las siete y después me ducho."
+        },
+        {
+          "id": "a12u6l2",
+          "stage": "A1.2",
+          "unit": 6,
+          "title": "Use it: A typical day",
+          "modes": [
+            "recognition",
+            "completion",
+            "recall",
+            "response",
+            "transfer",
+            "speaking"
+          ],
+          "example": "Me acuesto a las once"
+        },
+        {
+          "id": "a12u6story2",
+          "stage": "A1.2",
+          "unit": 6,
+          "title": "Story 3: Una noche tranquila",
+          "modes": [
+            "meaning",
+            "fact",
+            "inference",
+            "response"
+          ],
+          "example": "Luis: Normalmente me acuesto a las once. ¿Y tú, Ana?"
+        },
+        {
+          "id": "a12u6write",
+          "stage": "A1.2",
+          "unit": 6,
+          "title": "Write in Spanish: A typical day",
+          "modes": [
+            "contextual"
+          ],
+          "example": "Me levanto a las ocho todos los días"
+        },
+        {
+          "id": "a12u6story3",
+          "stage": "A1.2",
+          "unit": 6,
+          "title": "Story 4: El domingo sin prisa",
+          "modes": [
+            "inference",
+            "fact",
+            "sequence",
+            "meaning",
+            "character"
+          ],
+          "example": "Ana: Hoy me levanto a las nueve, no a las siete."
+        },
+        {
+          "id": "a12u6check",
+          "stage": "A1.2",
+          "unit": 6,
+          "title": "Checkpoint: A typical day",
+          "modes": [
+            "recognition",
+            "listening",
+            "completion",
+            "context",
+            "transfer"
+          ],
+          "example": "Me levanto a las siete"
+        },
+        {
+          "id": "a12u7story0",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Story 1: Un mensaje para Marta",
+          "modes": [
+            "meaning",
+            "sequence",
+            "inference",
+            "fact",
+            "response"
+          ],
+          "example": "Ana escribe: “Hola, Marta. Hoy me levanto a las ocho. Primero desayuno y después voy a clase. Por la tarde voy a leer en casa porque estoy cansada. ¿Quieres venir? Podemos tomar un té”."
+        },
+        {
+          "id": "a12u7story1",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Story 2: Un plan con lluvia",
+          "modes": [
+            "inference",
+            "fact",
+            "context",
+            "meaning",
+            "sequence"
+          ],
+          "example": "Luis: Perfecto. Entonces voy a tu piso a las cinco."
+        },
+        {
+          "id": "a12u7story2",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Story 3: Trabajo primero",
+          "modes": [
+            "inference",
+            "character",
+            "meaning",
+            "fact",
+            "sequence"
+          ],
+          "example": "Luis: “Perfecto. Quedamos delante de la entrada a las diez”."
+        },
+        {
+          "id": "a12u7story3",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Story 4: Todo preparado",
+          "modes": [
+            "inference",
+            "fact",
+            "sequence",
+            "meaning",
+            "transfer"
+          ],
+          "example": "Ana escribe a Marta: “Mañana vamos al cine a las cinco. Me gusta caminar, pero primero voy a pasar por tu piso”."
+        },
+        {
+          "id": "a12u7check",
+          "stage": "A1.2",
+          "unit": 7,
+          "title": "Checkpoint: A day together",
+          "modes": [
+            "listening"
+          ],
+          "example": "Primero voy a desayunar en casa. Después quedamos a las diez delante del parque."
+        }
+      ],
+      "longExposureGaps": []
+    }
+  ],
+  "flags": [
+    {
+      "anchor": "hola",
+      "kind": "between-exposures",
+      "from": "A1.1-u4",
+      "to": "A1.2-u7",
+      "interveningUnits": 10
+    },
+    {
+      "anchor": "buenos-dias",
+      "kind": "to-end-of-A1",
+      "from": "A1.1-u0",
+      "to": "A1.2-u7",
+      "interveningUnits": 15
+    },
+    {
+      "anchor": "me-llamo",
+      "kind": "to-end-of-A1",
+      "from": "A1.1-u4",
+      "to": "A1.2-u7",
+      "interveningUnits": 11
+    },
+    {
+      "anchor": "soy-de",
+      "kind": "to-end-of-A1",
+      "from": "A1.1-u1",
+      "to": "A1.2-u7",
+      "interveningUnits": 14
+    },
+    {
+      "anchor": "vivo-en",
+      "kind": "between-exposures",
+      "from": "A1.1-u1",
+      "to": "A1.2-u5",
+      "interveningUnits": 11
+    },
+    {
+      "anchor": "quiero",
+      "kind": "between-exposures",
+      "from": "A1.1-u3",
+      "to": "A1.2-u0",
+      "interveningUnits": 4
+    },
+    {
+      "anchor": "me-gusta",
+      "kind": "between-exposures",
+      "from": "A1.1-u2",
+      "to": "A1.2-u0",
+      "interveningUnits": 5
+    },
+    {
+      "anchor": "donde-esta",
+      "kind": "between-exposures",
+      "from": "A1.1-u6",
+      "to": "A1.2-u4",
+      "interveningUnits": 5
+    }
+  ],
+  "qualityDecisions": [
+    "Most needs, café requests, preferences, locations, movement, time and politeness already recur across A1.1/A1.2; their valid content was retained.",
+    "An existing family introduction now reuses me llamo; an existing flat visit now reuses vivo en before introducing rooms with hay.",
+    "Literal name and origin chunks remain concentrated around first meetings. Their later gaps stay visible for educator review; familiar friends are not made to re-introduce themselves just to hit counts. Personalised review and focused speaking provide additional retrieval separately."
+  ]
+}

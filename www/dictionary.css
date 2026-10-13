@@ -15,3 +15,10 @@
 @media(prefers-color-scheme:dark){.dictionary-popup{background:rgba(32,42,56,.98);box-shadow:0 8px 28px #0008}.dictionary-context,.dictionary-actions [aria-pressed="true"]{background:#173d3b}.dictionary-actions .plain,.saved-word-actions .plain:not(.danger){color:var(--teal)}}
 @media(prefers-reduced-transparency:reduce){.dictionary-popup{backdrop-filter:none;-webkit-backdrop-filter:none;background:#fffdf9}@media(prefers-color-scheme:dark){.dictionary-popup{background:#202a38}}}
 @media(max-width:350px){.dictionary-popup{padding:14px}.dictionary-heading h3{font-size:20px}.dictionary-actions{gap:5px}.dictionary-actions button{padding:10px}.saved-word-row{padding:16px}.saved-word-actions{gap:5px}}
+/* Relative text sizes keep the floating explorer usable with large system text. */
+.dictionary-popup{font-size:.9375rem}
+.dictionary-heading h3{font-size:1.375rem}
+.dictionary-meaning{font-size:1.125rem}
+.dictionary-lemma,.dictionary-grammar,.dictionary-note,.dictionary-actions button{font-size:.8125rem}
+.dictionary-context,.dictionary-more h4{font-size:.875rem}
+.dictionary-word[aria-expanded="true"]{background:var(--cream)}

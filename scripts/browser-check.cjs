@@ -28,7 +28,12 @@ async function run(){ // Wait for the browser process before creating its first 
   {name:'s24-dark-keyboard-resized',width:384,height:470,dark:true,bottom:48,keyboard:true},
   {name:'narrow-light-keyboard-resized',width:320,height:430,dark:false,bottom:24,keyboard:true},
   {name:'s24-dark-keyboard-overlap',width:384,height:824,dark:true,bottom:48,keyboard:true,overlap:340},
-  {name:'s24-dark-large-text',width:384,height:824,dark:true,bottom:48,fontScale:1.25}
+  {name:'s24-dark-large-text',width:384,height:824,dark:true,bottom:48,fontScale:1.25},
+  // Named Samsung profiles exercise CSS viewports and actual environment variations, not device resolutions.
+  {name:'galaxy-s22-light-three-button',width:360,height:780,dark:false,top:28,bottom:48,right:4},
+  {name:'galaxy-s24-dark-gesture-overlay-ime',width:360,height:800,dark:true,top:28,bottom:24,keyboard:true,overlap:310},
+  {name:'galaxy-s25-dark-large-text-cutout',width:360,height:800,dark:true,top:36,bottom:24,left:8,right:8,fontScale:1.35},
+  {name:'galaxy-s25-light-landscape-cutout',width:760,height:360,dark:false,top:20,bottom:24,left:34,right:16,fontScale:1.2}
  ];
  let totalChecks=0;
  for(const config of scenarios){
@@ -38,33 +43,33 @@ async function run(){ // Wait for the browser process before creating its first 
   await evaluate(sessionId,`new Promise((resolve,reject)=>{const started=Date.now();function ready(){if(window.FriendsToAmigos&&window.ViewportTools)resolve(true);else if(Date.now()-started>5000)reject(Error('App did not load'));else setTimeout(ready,10);}ready();})`);
   const report=await evaluate(sessionId,`(async()=>{
    let checks=0;const config=${JSON.stringify(config)},assert=(ok,message)=>{checks++;if(!ok)throw Error(config.name+': '+message);},frame=()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
-   document.body.style.fontSize=((config.fontScale||1)*16)+'px';localStorage.clear();state=E.fresh();state.onboarded=true;storageContext={readOnly:false};screen='main';tab='Learn';viewStage='A1.2';quiz=null;render();
-   window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,false,0);await frame();
+   document.documentElement.style.fontSize=((config.fontScale||1)*16)+'px';document.body.style.fontSize=((config.fontScale||1)*16)+'px';localStorage.clear();state=E.fresh();state.onboarded=true;storageContext={readOnly:false};screen='main';tab='Learn';viewStage='A1.2';quiz=null;render();
+   window.FriendsToAmigosInsets(config.top||24,config.bottom,config.left||0,config.right||0,false,0);await frame();
    assert(innerWidth===config.width&&innerHeight===config.height,'exact phone viewport');
    const nav=document.querySelector('nav'),rect=nav.getBoundingClientRect();assert(Math.abs(rect.bottom-(innerHeight-config.bottom))<2,'navigation clears native system bar');
-   assert(document.querySelector('header').getBoundingClientRect().top>=24,'header clears status bar');
+   assert(document.querySelector('header').getBoundingClientRect().top>=(config.top||24),'header clears status bar');
    assert(document.documentElement.scrollWidth<=innerWidth+1,'no horizontal overflow');
    window.scrollTo(0,document.documentElement.scrollHeight);await frame();
    const last=[...document.querySelectorAll('#app button')].filter(e=>!e.closest('nav')).at(-1);assert(last.getBoundingClientRect().bottom<=rect.top+1,'last content reachable above fixed navigation');
-   toast('Layout check');assert(document.querySelector('.toast').getBoundingClientRect().top>=24,'toast clears status bar');
-   actions.profile();render();document.querySelector('#name').focus();window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,true,0);await frame();assert(getComputedStyle(document.querySelector('nav')).display==='none','navigation hidden while native keyboard open');
-   window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,false,0);await frame();assert(getComputedStyle(document.querySelector('nav')).display!=='none','native keyboard close restores navigation even with field focus');document.querySelector('#name').blur();
-   const lesson=C.lessons[0],textIndex=lesson.questions.findIndex(q=>q.type==='text');startQuiz('lesson',lesson.questions,lesson);quiz.index=textIndex;render();window.scrollTo(0,0);
+   toast('Layout check');assert(document.querySelector('.toast').getBoundingClientRect().top>=(config.top||24),'toast clears status bar');
+   actions.profile();render();document.querySelector('#name').focus();window.FriendsToAmigosInsets(config.top||24,config.bottom,config.left||0,config.right||0,true,0);await frame();assert(getComputedStyle(document.querySelector('nav')).display==='none','navigation hidden while native keyboard open');
+   window.FriendsToAmigosInsets(config.top||24,config.bottom,config.left||0,config.right||0,false,0);await frame();assert(getComputedStyle(document.querySelector('nav')).display!=='none','native keyboard close restores navigation even with field focus');document.querySelector('#name').blur();
+   const lesson=C.lessons[0],textLesson=C.lessons.find(l=>l.stage==='A1.1'&&l.questions.some(q=>q.type==='text'&&q.answer==='Me llamo Ana')),textIndex=textLesson.questions.findIndex(q=>q.type==='text'&&q.answer==='Me llamo Ana');startQuiz('lesson',textLesson.questions,textLesson);quiz.index=textIndex;render();window.scrollTo(0,0);
    let input=document.querySelector('#written-answer');assert(input.enterKeyHint==='go','Go keyboard hint');input.focus();input.value='Mi llamo Ana';input.dispatchEvent(new Event('input',{bubbles:true}));
-   window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,Boolean(config.keyboard),config.overlap||0);await frame();
+   window.FriendsToAmigosInsets(config.top||24,config.bottom,config.left||0,config.right||0,Boolean(config.keyboard),config.overlap||0);await frame();
    assert(document.documentElement.classList.contains('keyboard-open')===Boolean(config.keyboard),'native keyboard state controls focused input layout');
    assert(input.getBoundingClientRect().bottom<=innerHeight-(config.overlap||0)+1,'focused answer visible above keyboard');
    const check=document.querySelector('#check-answer');window.scrollTo(0,document.documentElement.scrollHeight);await frame();assert(check.getBoundingClientRect().bottom<=innerHeight-(config.overlap||0)+1,'Check button can scroll above keyboard');
    input.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));await frame();assert(quiz.checked&&quiz.answers.length===1,'Go uses existing check flow');
    document.querySelector('#written-answer').dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));assert(quiz.answers.length===1,'Go cannot double submit');
    const feedback=document.querySelector('.feedback');assert(feedback.textContent.includes('Mi llamo Ana')&&feedback.textContent.includes('Me llamo Ana'),'learner and model feedback');assert(feedback.querySelector('mark'),'difference underlined');
-   window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,false,0);actions.home();render();await frame();assert(!document.documentElement.classList.contains('keyboard-open'),'removed input does not leave keyboard layout stuck');assert(getComputedStyle(document.querySelector('nav')).display!=='none','main navigation restored');
+   window.FriendsToAmigosInsets(config.top||24,config.bottom,config.left||0,config.right||0,false,0);actions.home();render();await frame();assert(!document.documentElement.classList.contains('keyboard-open'),'removed input does not leave keyboard layout stuck');assert(getComputedStyle(document.querySelector('nav')).display!=='none','main navigation restored');
    startQuiz('lesson',lesson.questions,lesson);let radio=document.querySelector('[role=radio]');radio.focus();radio.click();await frame();assert(document.activeElement.matches('[role=radio]'),'selection retains radio focus');
    assert(document.querySelector('[aria-checked=true][role=radio]'),'choice selection is explicit');document.activeElement.dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowDown',bubbles:true,cancelable:true}));assert(document.activeElement.dataset.index==='1','radio arrow navigation after selection');
    assert(getComputedStyle(document.querySelector('.option-indicator')).width==='22px','visible radio indicator');assert(document.querySelector('#exercise-instruction').textContent==='Choose one answer','explicit choice action');
    assert(matchMedia('(prefers-color-scheme: dark)').matches===config.dark,'system colour preference');
    // Exercise five-tab navigation and a saved game in the same real layout.
-   window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,false,0);actions.leave();
+   window.FriendsToAmigosInsets(config.top||24,config.bottom,config.left||0,config.right||0,false,0);actions.leave();
    state.completed=C.lessons.map(l=>l.id);state.stage='A2.1';actions.tab({dataset:{tab:'Games'}});render();window.scrollTo(0,0);await frame();
    const tabs=[...document.querySelectorAll('nav button')];assert(tabs.length===5,'five navigation tabs');assert(tabs.every(e=>e.getBoundingClientRect().width>=44&&e.getBoundingClientRect().height>=44),'five nav touch targets');
    assert(document.querySelector('nav').getBoundingClientRect().bottom<=innerHeight-config.bottom+1,'Games navigation clears system bar');
@@ -94,14 +99,14 @@ async function run(){ // Wait for the browser process before creating its first 
    }
    assert(screen==='blanksResult'&&blanksResult.tables===3,'normal table session completes');assert(document.querySelector('[data-action=blanksMistakes]'),'table mistake practice offered');assert(state.completed.length===beforeCourse&&state.events.length===beforeEvents,'tables do not manufacture course progress');
    actions.blanksLeave();actions.blanksOpen();render();document.querySelector('#table-count').value='20';document.querySelector('#table-scope').value='all';document.querySelector('#table-entry').value='text';actions.blanksPractice();render();assert(state.blanks.active.tables.length===20,'twenty-table maximum practice');
-   const table=state.blanks.active.tables[0];let tableInput=document.querySelector('.table-input');tableInput.focus();window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,Boolean(config.keyboard),config.overlap||0);await frame();assert(tableInput.getBoundingClientRect().bottom<=innerHeight-(config.overlap||0)+1,'table recall stays above keyboard');
+   const table=state.blanks.active.tables[0];let tableInput=document.querySelector('.table-input');tableInput.focus();window.FriendsToAmigosInsets(config.top||24,config.bottom,config.left||0,config.right||0,Boolean(config.keyboard),config.overlap||0);await frame();assert(tableInput.getBoundingClientRect().bottom<=innerHeight-(config.overlap||0)+1,'table recall stays above keyboard');
    const htmlBefore=document.querySelector('#app').innerHTML;tableInput.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));assert(!state.blanks.active.checked&&document.querySelector('#app').innerHTML===htmlBefore,'empty table Go does not submit or replace input');
    table.rows.forEach((row,j)=>{const input=document.querySelector('#form-'+j);input.value=j===0?'wrong form':table.target.forms[row];input.dispatchEvent(new Event('input',{bubbles:true}));});tableInput.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));assert(state.blanks.active.checked,'table Go checks populated recall');assert(document.querySelector('.feedback').textContent.includes('wrong form'),'typed table feedback keeps answer');
-   const resultCount=state.blanks.active.results.length;document.querySelector('[data-action=blanksCheck]')?.click();assert(state.blanks.active.results.length===resultCount,'table cannot double check');FriendsToAmigos.handleBack();window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,false,0);
+   const resultCount=state.blanks.active.results.length;document.querySelector('[data-action=blanksCheck]')?.click();assert(state.blanks.active.results.length===resultCount,'table cannot double check');FriendsToAmigos.handleBack();window.FriendsToAmigosInsets(config.top||24,config.bottom,config.left||0,config.right||0,false,0);
    actions.weakAreas();render();assert(document.querySelector('h2').textContent==='Weak Areas / Mistakes','connected weakness screen');assert(FriendsToAmigos.handleBack()&&tab==='Review','weakness Back returns Review');actions.home();render();assert(document.querySelector('[data-action=dailyReview]'),'daily review is easy to find');
    startQuiz('lesson',lesson.questions,lesson);
-   // Leave a representative written question ready for visual inspection.
-   quiz.index=textIndex;quiz.selected=null;quiz.checked=false;quiz.answers=[];render();window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,Boolean(config.keyboard),config.overlap||0);
+   // Preserve the independent written-answer journey after the intentional beginner ramp.
+   startQuiz('lesson',textLesson.questions,textLesson);quiz.index=textIndex;quiz.selected=null;quiz.checked=false;quiz.answers=[];render();window.FriendsToAmigosInsets(config.top||24,config.bottom,config.left||0,config.right||0,Boolean(config.keyboard),config.overlap||0);
    if(config.keyboard){document.querySelector('#written-answer').focus();await frame();}else window.scrollTo(0,0);
    // Focused media uses the actual browser DOM; synthetic speech start is simulated, not acoustically assessed.
    const utterances=[];media.stop();media=SpeechTools.create({SpeechSynthesisUtterance:class{constructor(text){this.text=text;}},speechSynthesis:{getVoices:()=>[{lang:'es-ES',localService:true}],cancel(){},speak(u){utterances.push(u);}}},toast);
@@ -132,7 +137,7 @@ async function run(){ // Wait for the browser process before creating its first 
    state.mastery=M.empty();FocusedBank.items.filter(q=>q.practice.kind==='speaking'&&q.practice.stage==='A1.2'&&q.practice.unit===0).slice(0,2).forEach((q,i)=>F.record(state,q,false,{session:'browser-weak-'+i}));actions.weakAreas();render();assert(document.querySelector('#app').textContent.includes('Speaking ·'),'speaking weaknesses readable');actions.home();render();
    // Amendment journeys: no teaching prerequisites; actual DOM controls on
    // every phone/landscape/theme layout. Native speech start stays simulated.
-   window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,false,0);window.confirm=()=>true;
+   window.FriendsToAmigosInsets(config.top||24,config.bottom,config.left||0,config.right||0,false,0);window.confirm=()=>true;
    for(const level of ['A1.1','A1.2','A2.1','A2.2']){
     state={...E.fresh(),stage:level,onboarded:true};quiz=null;screen='main';tab='Games';render();window.scrollTo(0,0);await frame();
     assert(document.querySelector('#grammar-level').value===level,'explicit grammar ceiling '+level);
@@ -225,14 +230,67 @@ async function run(){ // Wait for the browser process before creating its first 
    }
    state.completed=C.lessons.map(l=>l.id);state.active=null;quiz=null;actions.home();render();assert(document.querySelector('#app').textContent.includes('course through B2'), 'final B2 course milestone');assert(!document.querySelector('#app').textContent.includes('Continue to C'),'no invented C curriculum');
    // The additive dictionary preserves the five-tab navigation and learning state.
-   window.FriendsToAmigosInsets(24,config.bottom,config.left||0,0,false,0);
+   window.FriendsToAmigosInsets(config.top||24,config.bottom,config.left||0,config.right||0,false,0);
    state=E.fresh();state.onboarded=true;quiz=null;actions.home();render();
    const navOrder=()=>[...document.querySelectorAll('nav [data-tab]')].map(e=>e.dataset.tab).join('|');
    assert(navOrder()==='Home|Learn|Games|Review|Profile','dictionary preserves permanent navigation order');
+   // Zero-beginner confidence ramp and visible-Spanish assistance use the actual DOM.
+   for(const id of ['u0l0','u0l1','u0l2']){
+    const opening=C.lessons.find(l=>l.id===id);actions.lesson({dataset:{id}});render();window.scrollTo(0,0);await frame();
+    assert(document.querySelector('.question'),'opening teaching activity renders '+id);
+    assert(document.querySelector('#check-answer'),'opening teaching keeps visible Check '+id);
+    if(id==='u0l0'){assert(opening.questions.every(q=>q.type!=='text'&&q.type!=='speaking'),'first lesson has no unsupported typed or spoken transfer');assert(document.querySelector('#app').textContent.includes('Hello'),'first model teaches meaning before recall');}
+    if(id==='u0l1')assert(opening.questions.some(q=>q.type==='text'),'second lesson restores easy recall');
+    if(id==='u0l2')assert(opening.questions.some(q=>q.type==='text'&&q.answer.includes('Luis')),'third lesson restores simple role transfer');
+    assert(document.documentElement.scrollWidth<=innerWidth+1,'opening lesson wraps without overflow '+id);FriendsToAmigos.handleBack();
+   }
+   const firstStory=C.lessons.find(l=>l.id==='u0story0');actions.lesson({dataset:{id:firstStory.id}});render();assert(document.querySelector('.story'),'opening read-first story remains present');actions.readStory();render();assert(document.querySelector('.question'),'first story comprehension remains playable');FriendsToAmigos.handleBack();
+   const nameQuestion={...C.lessons.find(l=>l.id==='u0l0').questions[3],type:'choice',prompt:'Luis says “¿Cómo te llamas?” What answers his question?',options:['Hasta luego','Me llamo Ana','Soy de Inglaterra'],answer:'Me llamo Ana',explanation:'Me llamo Ana gives your name.'};
+   delete nameQuestion.promptEs;delete nameQuestion.teachingModel;delete nameQuestion.listening;delete nameQuestion.spanishFragments;delete nameQuestion.optionsLanguage;delete nameQuestion.optionLanguages;delete nameQuestion.optionSpanishFragments;
+   const fixtureLesson={...C.lessons.find(l=>l.id==='u0l0'),questions:[nameQuestion]};startQuiz('lesson',fixtureLesson.questions,fixtureLesson);render();window.scrollTo(0,0);await frame();
+   const learningOnly=()=>{const copy=JSON.parse(JSON.stringify(state));delete copy.savedWords;delete copy.dictionaryTipSeen;return JSON.stringify(copy);};
+   const beforeLookup=learningOnly(),beforeAnswers=JSON.stringify(quiz.answers),beforeHint=quiz.hintRevealed,unansweredQuestion=currentQuestion();
+   const promptTokens=[...document.querySelectorAll('.question [data-dictionary-token]')];
+   for(const word of ['Cómo','te','llamas'])assert(promptTokens.some(t=>t.textContent===word),'mixed prompt Spanish word enabled before attempt '+word);
+   assert(promptTokens.every(t=>['Cómo','te','llamas'].includes(t.textContent)),'surrounding English and proper name remain plain');
+   const cards=[...document.querySelectorAll('.quiz-choices .choice')];assert(cards.length===3,'all explicit scenario choices rendered');
+   assert(cards.every(card=>card.querySelector('[data-dictionary-token]')),'Spanish inside every answer choice is discoverable before selection');
+   assert(document.querySelectorAll('[role=radio] button,[role=radio] [role=button]').length===0,'choice radio has no nested interactive dictionary control');
+   assert(cards.every(card=>card.querySelector('.choice-select[role=radio]').getBoundingClientRect().width>=44),'radio selection has its own accessible touch target');
+   const answerWord=[...cards[1].querySelectorAll('[data-dictionary-token]')].find(t=>t.textContent==='llamo');answerWord.scrollIntoView({block:'center'});await frame();answerWord.click();await frame();
+   assert(!document.querySelector('.dictionary-popup').hidden,'answer-choice word opens dictionary before submission');
+   assert(quiz.selected===null&&!quiz.checked&&quiz.answers.length===0,'dictionary word does not select or check answer');
+   assert(!document.querySelector('[role=radio][aria-checked=true]'),'no radio selected by dictionary word');
+   assert(quiz.hintRevealed===beforeHint&&JSON.stringify(quiz.answers)===beforeAnswers&&learningOnly()===beforeLookup,'dictionary changes no hint score review mastery progress or active snapshot');
+   assert(currentQuestion()===unansweredQuestion,'dictionary retains identical unanswered question object');
+   const helpPopup=document.querySelector('.dictionary-popup'),helpBounds=helpPopup.getBoundingClientRect();assert(helpBounds.left>=(config.left||0)+9&&helpBounds.right<=innerWidth-(config.right||0)-9,'pre-answer popup stays horizontally in safe viewport');
+   assert(helpBounds.top>=(config.top||24)+9&&helpBounds.bottom<=innerHeight-config.bottom-9,'pre-answer popup clears system bars');
+   helpPopup.querySelector('[data-dict-action=close]').click();assert(helpPopup.hidden&&quiz.selected===null&&learningOnly()===beforeLookup,'close restores same unanswered state');
+   cards[1].click();await frame();assert(quiz.selected===nameQuestion.answer&&document.querySelector('[role=radio][aria-checked=true]'),'card padding selects separately');
+   document.querySelector('#check-answer').click();assert(quiz.checked&&quiz.answers[0]===true,'normal Check scoring still works after dictionary exploration');
+   assert(state.dictionaryTipSeen===true,'successful dictionary use acknowledges product discovery tip');
+   const mixedExamples=[
+    {prompt:'She says “Tengo hambre”. What does she need?',words:['Tengo','hambre'],options:['Food','A ticket','A room'],answer:'Food'},
+    {prompt:'Luis asks “¿Dónde está la estación?” Choose the useful reply.',words:['Dónde','está','la','estación'],options:['Está aquí','Hasta luego','Soy de Inglaterra'],answer:'Está aquí'},
+    {prompt:'You hear “Hasta luego”. What kind of expression is this?',words:['Hasta','luego'],options:['A goodbye','A number','A price'],answer:'A goodbye'}
+   ];
+   for(const example of mixedExamples){
+    const question={...nameQuestion,...example};startQuiz('lesson',[question],{...fixtureLesson,questions:[question]});render();const tokens=[...document.querySelectorAll('.question [data-dictionary-token]')];
+    for(const word of example.words)assert(tokens.some(t=>t.textContent===word),'mixed quoted Spanish recognized '+word);
+    assert(tokens.every(t=>example.words.includes(t.textContent)),'English words and homographs are not decorated '+example.prompt);
+   }
+   // Long choices, multiline writing and saved-search use the same inset/IME source of truth.
+   const longQuestion={...nameQuestion,prompt:'Choose the invitation you would like to accept.',options:['Hola, me llamo Ana y quiero ir al café con Luis mañana a las seis, por favor.','Me gusta este café porque es barato, pero hoy voy a quedar con Marta en la estación.','Hasta luego, Ana. Gracias por venir al café con nosotros.'],answer:'Hola, me llamo Ana y quiero ir al café con Luis mañana a las seis, por favor.'};
+   startQuiz('lesson',[longQuestion],{...fixtureLesson,questions:[longQuestion]});render();await frame();assert(document.documentElement.scrollWidth<=innerWidth+1,'long Spanish choices wrap with large text and cutout insets');
+   const longCard=document.querySelector('.choice'),longRadio=longCard.querySelector('[role=radio]'),longText=longCard.querySelector('.option-text');assert(longRadio.getBoundingClientRect().right<=longText.getBoundingClientRect().left+1,'radio remains separate from wrapped word targets');
+   actions.lesson({dataset:{id:'b22u7write'}});quiz.index=4;quiz.answers=[true,null,true,null];render();const multiline=document.querySelector('textarea');multiline.focus();window.FriendsToAmigosInsets(config.top||24,config.bottom,config.left||0,config.right||0,true,config.overlap||0);await frame();
+   assert(getComputedStyle(document.querySelector('nav')||document.createElement('nav')).display==='none'||!document.querySelector('nav'),'multiline writing does not overlay native keyboard with app nav');
+   window.scrollTo(0,document.documentElement.scrollHeight);await frame();assert(document.querySelector('#check-answer').getBoundingClientRect().bottom<=innerHeight-(config.overlap||0)+1,'multiline Check can scroll above keyboard');
+   window.FriendsToAmigosInsets(config.top||24,config.bottom,config.left||0,config.right||0,false,0);FriendsToAmigos.handleBack();state=E.fresh();state.onboarded=true;quiz=null;actions.home();render();
    const dictionaryLesson=C.lessons.find(l=>l.stage==='A1.1'&&l.reading&&l.reading.text.includes('Tengo hambre.'));
    assert(Boolean(dictionaryLesson),'authored hunger story available for contextual lookup');
    actions.lesson({dataset:{id:dictionaryLesson.id}});render();window.scrollTo(0,0);await frame();
-   const dictionaryBefore=()=>{const value=JSON.parse(JSON.stringify(state));delete value.savedWords;return JSON.stringify(value);};
+   const dictionaryBefore=()=>{const value=JSON.parse(JSON.stringify(state));delete value.savedWords;delete value.dictionaryTipSeen;return JSON.stringify(value);};
    const untouched=dictionaryBefore(),snapshot=JSON.stringify(state.active),storyText=document.querySelector('.story p[data-dictionary]').textContent;
    assert(storyText===dictionaryLesson.reading.text,'dictionary tokenisation preserves authored story text');
    let token=[...document.querySelectorAll('.story p [data-dictionary-token]')].find(e=>e.textContent==='Tengo');
@@ -242,7 +300,7 @@ async function run(){ // Wait for the browser process before creating its first 
    assert(popup&&!popup.hidden&&popup.getAttribute('role')==='dialog','contextual popup opens without lesson navigation');
    assert(popup.textContent.includes('tener hambre')&&popup.textContent.includes('to be hungry'),'phrase meaning takes priority over isolated hunger');
    assert(popup.querySelector('[data-dict-action=save]').textContent==='Save phrase','recognized construction saves useful phrase');
-   const bounded=label=>{const bounds=popup.getBoundingClientRect();assert(bounds.left>=(config.left||0)+9&&bounds.right<=innerWidth-9,label+' horizontal usable viewport');assert(bounds.top>=33&&bounds.bottom<=innerHeight-config.bottom-9,label+' clears Android system bars');};
+   const bounded=label=>{const bounds=popup.getBoundingClientRect();assert(bounds.left>=(config.left||0)+9&&bounds.right<=innerWidth-(config.right||0)-9,label+' horizontal usable viewport');assert(bounds.top>=(config.top||24)+9&&bounds.bottom<=innerHeight-config.bottom-9,label+' clears Android system bars');};
    bounded('compact dictionary');assert(popup.querySelectorAll('button').length===4,'compact dictionary actions retained');
    assert([...popup.querySelectorAll('button')].every(e=>e.getBoundingClientRect().height>=44),'dictionary controls meet mobile touch targets');
    const utteranceCount=utterances.length;popup.querySelector('[data-dict-action=pronounce]').click();assert(utterances.length===utteranceCount+1&&utterances.at(-1).lang==='es-ES','dictionary uses existing Spain speech path');
@@ -264,6 +322,13 @@ async function run(){ // Wait for the browser process before creating its first 
    document.querySelector('[data-action=savedFilter][data-filter=words]').click();assert(document.querySelectorAll('.saved-word-row').length===1&&document.querySelector('.saved-word-row h3').textContent==='pan','Words filter');
    document.querySelector('[data-action=savedFilter][data-filter=phrases]').click();assert(document.querySelectorAll('.saved-word-row').length===1&&document.querySelector('.saved-word-row h3').textContent==='tener hambre','Phrases filter');
    document.querySelector('[data-action=savedFilter][data-filter=all]').click();let search=document.querySelector('#saved-word-search');search.value='hungry';search.dispatchEvent(new Event('input',{bubbles:true}));assert(document.querySelectorAll('.saved-word-row').length===1&&document.querySelector('.saved-word-row h3').textContent==='tener hambre','saved meanings searchable');assert(document.activeElement.id==='saved-word-search','search focus survives results rendering');
+   const searchOverlap=config.overlap||Math.round(innerHeight*.38);search=document.querySelector('#saved-word-search');search.focus();window.FriendsToAmigosInsets(config.top||24,config.bottom,config.left||0,config.right||0,true,searchOverlap);await frame();
+   assert(search.getBoundingClientRect().bottom<=innerHeight-searchOverlap+1,'Saved Words search remains above Samsung-style keyboard');
+   search.value='hungry';search.dispatchEvent(new Event('input',{bubbles:true}));await frame();assert(document.activeElement.id==='saved-word-search','Saved Words keyboard search retains focused field');
+   const keyboardMore=document.querySelector('[data-action=savedOpen]');keyboardMore.scrollIntoView({block:'center'});await frame();window.scrollBy(0,keyboardMore.getBoundingClientRect().top-((config.top||24)+70));await frame();keyboardMore.click();await frame();
+   popup=document.querySelector('.dictionary-popup');assert(!popup.hidden,'saved entry popup opens with keyboard visible');let imeBounds=popup.getBoundingClientRect();assert(imeBounds.top>=(config.top||24)+9&&imeBounds.bottom<=innerHeight-searchOverlap-9,'popup avoids native overlay keyboard');
+   popup.querySelector('[data-dict-action=more]').click();await frame();imeBounds=popup.getBoundingClientRect();assert(imeBounds.bottom<=innerHeight-searchOverlap-9&&getComputedStyle(popup).overflowY==='auto','More remains internally scrollable above keyboard');FriendsToAmigos.handleBack();
+   window.FriendsToAmigosInsets(config.top||24,config.bottom,config.left||0,config.right||0,false,0);await frame();
    search=document.querySelector('#saved-word-search');search.value='no match at all';search.dispatchEvent(new Event('input',{bubbles:true}));assert(document.querySelector('#app').textContent.includes('No saved words match'),'empty search explained');search=document.querySelector('#saved-word-search');search.value='';search.dispatchEvent(new Event('input',{bubbles:true}));
    const recentTimes=state.savedWords.map((row,i)=>({...row,savedAt:i+100}));state.savedWords=recentTimes;render();document.querySelector('[data-action=savedFilter][data-filter=recent]').click();assert(document.querySelector('.saved-word-row h3').textContent==='pan','Recently saved orders latest first');
    const savedSpeech=utterances.length;document.querySelector('[data-action=savedPronounce]').click();assert(utterances.length===savedSpeech+1&&utterances.at(-1).lang==='es-ES','saved vocabulary pronunciation uses es-ES');
@@ -272,18 +337,18 @@ async function run(){ // Wait for the browser process before creating its first 
    assert(document.documentElement.scrollWidth<=innerWidth+1,'Saved Words fits narrow large-text and landscape screens');window.scrollTo(0,0);assert(FriendsToAmigos.handleBack()&&tab==='Profile'&&screen==='main','Saved Words Back returns Profile');
    actions.tab({dataset:{tab:'Review'}});render();assert(document.querySelector('[data-action=review]'),'Review remains directly accessible after saved words');
    const listenLesson=C.lessons.find(l=>l.stage==='A2.1'&&l.questions.some(q=>q.listening));startQuiz('lesson',listenLesson.questions,listenLesson);quiz.index=listenLesson.questions.findIndex(q=>q.listening);quiz.answers=Array(quiz.index).fill(true);render();
-   assert(!document.querySelector('.listening [data-dictionary-token]'),'dictionary cannot expose hidden listening transcript');assert(!document.querySelector('[role=radio] [data-dictionary-token]'),'dictionary cannot intercept answer options');
+   assert(!document.querySelector('.listening [data-dictionary-token]'),'dictionary cannot expose hidden listening transcript');assert(!quiz.checked&&!document.querySelector('.feedback'),'listening choices expose no correctness or future feedback before attempt');
    const speakLesson=C.lessons.find(l=>l.questions.some(q=>q.type==='speaking'));startQuiz('lesson',speakLesson.questions,speakLesson);quiz.index=speakLesson.questions.findIndex(q=>q.type==='speaking');render();assert(![...document.querySelectorAll('[data-dictionary]')].some(e=>e.textContent===currentQuestion().spanish),'dictionary cannot expose unrevealed speaking model');
    actions.revealModel();render();assert([...document.querySelectorAll('[data-dictionary]')].some(e=>e.textContent===currentQuestion().spanish&&e.querySelector('[data-dictionary-token]')),'revealed model offers dictionary safely');FriendsToAmigos.handleBack();
    // Leave original screenshot subjects eligible; this does not grant game mastery.
    state.completed=C.lessons.map(l=>l.id);state.stage='A2.1';state.grammarLevel='A2.1';state.games=G.empty();state.blanks=B.empty();state.focused=F.empty();quiz=null;actions.home();render();
-   return {scenario:config.name,width:innerWidth,height:innerHeight,dark:config.dark,nativeInsets:true,simulatedKeyboard:Boolean(config.keyboard),checks};
+   return {scenario:config.name,width:innerWidth,height:innerHeight,dark:config.dark,nativeInsets:true,simulatedKeyboard:Boolean(config.keyboard),insets:{top:config.top||24,bottom:config.bottom,left:config.left||0,right:config.right||0},fontScale:config.fontScale||1,checks};
   })()`);
   await evaluate(sessionId,"document.querySelectorAll('.toast').forEach(e=>e.remove());");
   const screenshot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false},sessionId);fs.writeFileSync(path.join(output,config.name+'.png'),Buffer.from(screenshot.data,'base64'));totalChecks+=report.checks;console.log('PASS '+config.name+' ('+report.checks+' checks)');fs.writeFileSync(path.join(output,config.name+'.json'),JSON.stringify(report,null,2));
-  if(['s24-dark-buttons','narrow-light-buttons','landscape-dark-cutout','s24-dark-large-text'].includes(config.name)){
-   await evaluate(sessionId,`(async()=>{window.FriendsToAmigosInsets(24,${config.bottom},${config.left||0},0,false,0);actions.leave();actions.tab({dataset:{tab:'Games'}});actions.gameNew();actions.gameLeave();render();window.scrollTo(0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));})()`);
-   for(const view of ['games','round','feedback','tables','table-feedback','listening-first','listening-compact','listening-result','speaking-first','speaking-compact','speaking-result','spanish-course','spanish-hint','spanish-listening','a22-writing','a22-story','a22-tables','b22-writing','b22-story','b22-writing-feedback','dictionary-popup','saved-words']){
+  if(['s24-dark-buttons','narrow-light-buttons','landscape-dark-cutout','s24-dark-large-text'].includes(config.name)||config.name.startsWith('galaxy-')){
+   await evaluate(sessionId,`(async()=>{window.FriendsToAmigosInsets(${config.top||24},${config.bottom},${config.left||0},${config.right||0},false,0);actions.leave();actions.tab({dataset:{tab:'Games'}});actions.gameNew();actions.gameLeave();render();window.scrollTo(0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));})()`);
+   for(const view of ['games','round','feedback','tables','table-feedback','listening-first','listening-compact','listening-result','speaking-first','speaking-compact','speaking-result','spanish-course','spanish-hint','spanish-listening','a22-writing','a22-story','a22-tables','b22-writing','b22-story','b22-writing-feedback','dictionary-popup','saved-words','opening-first','opening-second','opening-third','opening-story','opening-recall','opening-transfer','mixed-question','choice-dictionary','choice-selected','dictionary-more','saved-keyboard','writing-keyboard']){
     if(view==='round')await evaluate(sessionId,"actions.gameResume();render();window.scrollTo(0,0);");
     if(view==='tables')await evaluate(sessionId,"state.blanks.active=null;actions.blanksNormal();render();window.scrollTo(0,0);");
     if(view==='table-feedback')await evaluate(sessionId,"const a=state.blanks.active,t=a.tables[0];a.selected=t.rows.map((row,j)=>j===0?t.options[j].find(v=>v!==t.target.forms[row]):t.target.forms[row]);actions.blanksCheck();render();window.scrollTo(0,document.documentElement.scrollHeight);");
@@ -305,6 +370,16 @@ async function run(){ // Wait for the browser process before creating its first 
     if(view==='b22-writing-feedback')await evaluate(sessionId,"actions.lesson({dataset:{id:'b22u7write'}});quiz.index=4;quiz.answers=[true,null,true,null];quiz.selected='Mi llamo Ana. Tengo una propuesta distinta.';actions.check();render();window.scrollTo(0,document.documentElement.scrollHeight);");
     if(view==='dictionary-popup')await evaluate(sessionId,"actions.lesson({dataset:{id:C.lessons.find(l=>l.stage==='A1.1'&&l.reading&&l.reading.text.includes('Tengo hambre.')).id}});render();window.scrollTo(0,0);const token=[...document.querySelectorAll('.story p [data-dictionary-token]')].find(e=>e.textContent==='Tengo');token.scrollIntoView({block:'center'});token.click();");
     if(view==='saved-words')await evaluate(sessionId,"dictionaryUI.saveCurrent();dictionaryUI.close();actions.profile();actions.savedWords();render();window.scrollTo(0,0);");
+    if(view==='opening-first'||view==='opening-second'||view==='opening-third')await evaluate(sessionId,"dictionaryUI.close();window.FriendsToAmigosInsets("+(config.top||24)+","+config.bottom+","+(config.left||0)+","+(config.right||0)+",false,0);actions.lesson({dataset:{id:'"+({ 'opening-first':'u0l0','opening-second':'u0l1','opening-third':'u0l2' }[view])+"'}});render();window.scrollTo(0,0);");
+    if(view==='opening-story')await evaluate(sessionId,"actions.lesson({dataset:{id:'u0story0'}});render();window.scrollTo(0,0);");
+    if(view==='opening-recall')await evaluate(sessionId,"actions.lesson({dataset:{id:'u0l1'}});quiz.index=quiz.questions.findIndex(q=>q.type==='text');quiz.answers=Array(quiz.index).fill(true);render();window.scrollTo(0,0);");
+    if(view==='opening-transfer')await evaluate(sessionId,"actions.lesson({dataset:{id:'u0l2'}});quiz.index=quiz.questions.findIndex(q=>q.type==='text'&&q.answer.includes('Luis'));quiz.answers=Array(quiz.index).fill(true);render();window.scrollTo(0,0);");
+    if(view==='mixed-question')await evaluate(sessionId,"const l=C.lessons.find(l=>l.id==='u0l0'),q={...l.questions[3],type:'choice',prompt:'Luis says “¿Cómo te llamas?” What answers his question?',options:['Hasta luego','Me llamo Ana','Soy de Inglaterra'],answer:'Me llamo Ana',explanation:'Me llamo Ana gives your name.'};delete q.promptEs;delete q.teachingModel;delete q.spanishFragments;delete q.optionsLanguage;delete q.optionLanguages;delete q.optionSpanishFragments;startQuiz('lesson',[q],{...l,questions:[q]});render();window.scrollTo(0,0);");
+    if(view==='choice-dictionary')await evaluate(sessionId,"const word=[...document.querySelectorAll('.choice [data-dictionary-token]')].find(t=>t.textContent==='llamo');word.scrollIntoView({block:'center'});word.click();");
+    if(view==='choice-selected')await evaluate(sessionId,"dictionaryUI.close();document.querySelectorAll('.quiz-choices .choice')[1].click();window.scrollTo(0,0);");
+    if(view==='dictionary-more')await evaluate(sessionId,"const word=[...document.querySelectorAll('.choice [data-dictionary-token]')].find(t=>t.textContent==='llamo');word.scrollIntoView({block:'center'});word.click();document.querySelector('[data-dict-action=more]').click();");
+    if(view==='saved-keyboard')await evaluate(sessionId,"dictionaryUI.close();actions.profile();actions.savedWords();render();const field=document.querySelector('#saved-word-search');field.focus();window.FriendsToAmigosInsets("+(config.top||24)+","+config.bottom+","+(config.left||0)+","+(config.right||0)+",true,"+(config.overlap||Math.round(config.height*.38))+");");
+    if(view==='writing-keyboard')await evaluate(sessionId,"actions.lesson({dataset:{id:'b22u7write'}});quiz.index=4;quiz.answers=[true,null,true,null];render();document.querySelector('textarea').focus();window.FriendsToAmigosInsets("+(config.top||24)+","+config.bottom+","+(config.left||0)+","+(config.right||0)+",true,"+(config.overlap||Math.round(config.height*.38))+");window.scrollTo(0,document.documentElement.scrollHeight);");
     await evaluate(sessionId,"document.querySelectorAll('.toast').forEach(e=>e.remove());new Promise(r=>setTimeout(r,250))");
     const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false},sessionId);fs.writeFileSync(path.join(output,config.name+'-'+view+'.png'),Buffer.from(shot.data,'base64'));
    }
