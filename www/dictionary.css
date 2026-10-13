@@ -12,6 +12,8 @@
 .dictionary-actions .plain,.saved-word-actions .plain:not(.danger){color:#087873}
 .saved-word-filters{flex-wrap:wrap;margin:14px 0}.saved-word-filters button{flex:1 1 40%;min-height:44px}.saved-word-filters [aria-pressed="true"]{outline:2px solid var(--teal);outline-offset:-2px}.saved-word-row h3{font-size:21px;margin-bottom:6px}.saved-word-row p{margin:7px 0}.saved-word-meaning{font-weight:600}.saved-word-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.saved-word-actions button{min-height:44px;font-size:14px}.saved-word-list{margin-top:16px}
 .saved-word-row{overflow-wrap:anywhere}
+/* Leave room for the search focus ring without painting over its label. */
+#saved-word-search{margin-top:.5rem}
 @media(prefers-color-scheme:dark){.dictionary-popup{background:rgba(32,42,56,.98);box-shadow:0 8px 28px #0008}.dictionary-context,.dictionary-actions [aria-pressed="true"]{background:#173d3b}.dictionary-actions .plain,.saved-word-actions .plain:not(.danger){color:var(--teal)}}
 @media(prefers-reduced-transparency:reduce){.dictionary-popup{backdrop-filter:none;-webkit-backdrop-filter:none;background:#fffdf9}@media(prefers-color-scheme:dark){.dictionary-popup{background:#202a38}}}
 @media(max-width:350px){.dictionary-popup{padding:14px}.dictionary-heading h3{font-size:20px}.dictionary-actions{gap:5px}.dictionary-actions button{padding:10px}.saved-word-row{padding:16px}.saved-word-actions{gap:5px}}

@@ -27,6 +27,7 @@ test('choice wrapping and selection targets retain fixed touch size with flexibl
 });
 test('dictionary large-text and keyboard behaviour retain a scrollable compact overlay',()=>{
  const css=fs.readFileSync('www/dictionary.css','utf8');assert.match(css,/\.dictionary-popup\{[^}]*overflow:auto/);assert.match(css,/\.dictionary-popup\{font-size:\.9375rem/);assert.match(css,/\.dictionary-actions button\{[^}]*min-height:44px/);
+ assert.match(css,/#saved-word-search\{margin-top:\.5rem\}/,'search focus ring has scalable clearance from its label');
  const source=fs.readFileSync('www/dictionary-ui.js','utf8');assert.match(source,/--android-keyboard-overlap/);assert.match(source,/visualViewport/);assert.match(source,/maxHeight=availableHeight/);
 });
 test('rendered profiles vary usable geometry without changing permanent five-tab navigation',()=>{
