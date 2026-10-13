@@ -32,3 +32,7 @@ test('dictionary large-text and keyboard behaviour retain a scrollable compact o
 test('rendered profiles vary usable geometry without changing permanent five-tab navigation',()=>{
  const source=fs.readFileSync('scripts/browser-check.cjs','utf8');for(const name of ['galaxy-s22-light-three-button','galaxy-s24-dark-gesture-overlay-ime','galaxy-s25-dark-large-text-cutout','galaxy-s25-light-landscape-cutout'])assert.ok(source.includes(name));assert.match(source,/Home\|Learn\|Games\|Review\|Profile/);assert.match(source,/simulatedKeyboard:Boolean\(config.keyboard\)/);
 });
+test('screenshot setup isolates lexical declarations across repeated DevTools evaluations',()=>{
+ const source=fs.readFileSync('scripts/browser-check.cjs','utf8');assert.ok(source.includes("async function fixture(session,statements){return evaluate(session,'(()=>{'+statements+'})()');}"));assert.doesNotMatch(source,/^\s*if\(view===.*await evaluate\(sessionId,/m);
+ const vm=require('node:vm'),context=vm.createContext({result:0});for(let n=0;n<3;n++)vm.runInContext('(()=>{const l=1,word="hola";result+=l+word.length;})()',context);assert.equal(context.result,15);
+});
