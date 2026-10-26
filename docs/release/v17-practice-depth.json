@@ -1,0 +1,962 @@
+{
+  "builder": {
+    "A1.1": {
+      "eligible": 270,
+      "current": 270,
+      "uniqueSentences": 203,
+      "concepts": 13,
+      "topics": 36
+    },
+    "A1.2": {
+      "eligible": 620,
+      "current": 350,
+      "uniqueSentences": 310,
+      "concepts": 14,
+      "topics": 32
+    },
+    "A2.1": {
+      "eligible": 903,
+      "current": 283,
+      "uniqueSentences": 249,
+      "concepts": 17,
+      "topics": 8
+    },
+    "A2.2": {
+      "eligible": 1274,
+      "current": 371,
+      "uniqueSentences": 338,
+      "concepts": 20,
+      "topics": 8
+    },
+    "B1.1": {
+      "eligible": 1708,
+      "current": 434,
+      "uniqueSentences": 399,
+      "concepts": 18,
+      "topics": 8
+    },
+    "B1.2": {
+      "eligible": 2137,
+      "current": 429,
+      "uniqueSentences": 396,
+      "concepts": 18,
+      "topics": 8
+    },
+    "B2.1": {
+      "eligible": 2591,
+      "current": 454,
+      "uniqueSentences": 418,
+      "concepts": 21,
+      "topics": 8
+    },
+    "B2.2": {
+      "eligible": 3103,
+      "current": 512,
+      "uniqueSentences": 477,
+      "concepts": 23,
+      "topics": 8
+    }
+  },
+  "spot": {
+    "total": 185,
+    "byStage": {
+      "A1.1": 30,
+      "A1.2": 25,
+      "A2.1": 25,
+      "A2.2": 25,
+      "B1.1": 20,
+      "B1.2": 20,
+      "B2.1": 20,
+      "B2.2": 20
+    }
+  },
+  "numbers": {
+    "A1.1": {
+      "variants": 855,
+      "baseValues": 285
+    },
+    "A1.2": {
+      "variants": 2517,
+      "baseValues": 839
+    },
+    "A2.1": {
+      "variants": 5232,
+      "baseValues": 1744
+    },
+    "A2.2": {
+      "variants": 5232,
+      "baseValues": 1744
+    },
+    "B1.1": {
+      "variants": 8418,
+      "baseValues": 2806
+    },
+    "B1.2": {
+      "variants": 8418,
+      "baseValues": 2806
+    },
+    "B2.1": {
+      "variants": 8418,
+      "baseValues": 2806
+    },
+    "B2.2": {
+      "variants": 8418,
+      "baseValues": 2806
+    }
+  },
+  "replay": {
+    "builder": {
+      "A1.1": {
+        "served": 200,
+        "uniqueIDs": 200,
+        "exactRepeatedIDs": 0,
+        "exactRepeatedPrompts": 0,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "present-regular-ar": 22,
+          "gustar-singular": 22,
+          "present-names": 4,
+          "sentence-building": 28,
+          "agreement": 24,
+          "present-querer": 22,
+          "present-tener": 22,
+          "present-ser": 76,
+          "present-estar": 76,
+          "present-ir": 76,
+          "present-regular-ir": 2,
+          "ser-estar-hay": 31,
+          "basic-questions": 26
+        },
+        "stages": {
+          "A1.1": 200
+        }
+      },
+      "A1.2": {
+        "served": 200,
+        "uniqueIDs": 200,
+        "exactRepeatedIDs": 0,
+        "exactRepeatedPrompts": 0,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "present-regular-ar": 31,
+          "sentence-building": 50,
+          "simple-connectors": 14,
+          "present-ser": 33,
+          "present-estar": 33,
+          "present-ir": 33,
+          "present-stem-changes": 10,
+          "gustar-plural": 20,
+          "reflexive-routines": 12,
+          "present-names": 9,
+          "ir-a-infinitive": 19,
+          "agreement": 4,
+          "present-tener": 27,
+          "present-querer": 27,
+          "present-shopping": 16,
+          "basic-questions": 7,
+          "gustar-singular": 8,
+          "ser-estar-hay": 6
+        },
+        "stages": {
+          "A1.2": 159,
+          "A1.1": 41
+        }
+      },
+      "A2.1": {
+        "served": 200,
+        "uniqueIDs": 200,
+        "exactRepeatedIDs": 0,
+        "exactRepeatedPrompts": 0,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "present-tener": 31,
+          "present-querer": 31,
+          "health-doler": 18,
+          "present-ir": 35,
+          "present-ser": 35,
+          "present-estar": 35,
+          "practical-modals": 17,
+          "present-stem-changes": 6,
+          "comparisons": 20,
+          "present-regular-er": 2,
+          "present-consolidation": 4,
+          "linked-messages": 13,
+          "present-perfect": 15,
+          "gustar-singular": 3,
+          "selected-preterite": 26,
+          "present-regular-ar": 18,
+          "gustar-plural": 5,
+          "present-shopping": 11,
+          "sentence-building": 26,
+          "ir-a-infinitive": 4,
+          "basic-questions": 6,
+          "agreement": 4,
+          "present-regular-ir": 2,
+          "ser-estar-hay": 5,
+          "reflexive-routines": 5,
+          "simple-connectors": 4,
+          "present-names": 3
+        },
+        "stages": {
+          "A2.1": 132,
+          "A1.1": 33,
+          "A1.2": 35
+        }
+      },
+      "A2.2": {
+        "served": 200,
+        "uniqueIDs": 200,
+        "exactRepeatedIDs": 0,
+        "exactRepeatedPrompts": 0,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "routine-problems": 21,
+          "preterite-er-ir": 10,
+          "preterite-practical-irregulars": 19,
+          "present-ser": 25,
+          "present-estar": 25,
+          "present-ir": 25,
+          "linked-messages": 3,
+          "present-perfect": 4,
+          "selected-preterite": 18,
+          "sentence-building": 30,
+          "connected-past-plans": 14,
+          "imperfect-background": 34,
+          "present-shopping": 6,
+          "present-regular-ar": 14,
+          "present-tener": 24,
+          "present-querer": 24,
+          "opinions-agreement": 17,
+          "practical-modals": 4,
+          "present-consolidation": 7,
+          "agreement": 4,
+          "present-stem-changes": 5,
+          "simple-connectors": 2,
+          "gustar-singular": 5,
+          "present-regular-ir": 1,
+          "ir-a-infinitive": 6,
+          "gustar-plural": 6,
+          "past-event-background": 14,
+          "health-doler": 4,
+          "reflexive-routines": 5,
+          "present-regular-er": 3,
+          "ser-estar-hay": 3,
+          "comparisons": 2,
+          "basic-questions": 1
+        },
+        "stages": {
+          "A2.2": 130,
+          "A2.1": 23,
+          "A1.2": 29,
+          "A1.1": 18
+        }
+      },
+      "B1.1": {
+        "served": 200,
+        "uniqueIDs": 200,
+        "exactRepeatedIDs": 0,
+        "exactRepeatedPrompts": 0,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "ir-a-infinitive": 2,
+          "present-ser": 17,
+          "present-estar": 17,
+          "present-ir": 17,
+          "conditional-advice": 6,
+          "future-plans": 4,
+          "sentence-building": 47,
+          "present-regular-ar": 26,
+          "present-consolidation": 9,
+          "preterite-er-ir": 9,
+          "past-duration": 19,
+          "opinions-agreement": 4,
+          "gustar-singular": 4,
+          "present-stem-changes": 6,
+          "imperfect-background": 25,
+          "present-tener": 23,
+          "present-querer": 23,
+          "selected-preterite": 13,
+          "present-regular-ir": 5,
+          "gustar-plural": 2,
+          "connected-past-plans": 4,
+          "agreement": 3,
+          "present-perfect": 5,
+          "present-names": 2,
+          "present-shopping": 4,
+          "ser-estar-hay": 3,
+          "past-event-background": 2,
+          "comparisons": 3,
+          "present-regular-er": 1,
+          "basic-questions": 1,
+          "preterite-practical-irregulars": 7,
+          "reflexive-routines": 2,
+          "practical-modals": 1
+        },
+        "stages": {
+          "A1.2": 14,
+          "B1.1": 132,
+          "A2.2": 21,
+          "A1.1": 19,
+          "A2.1": 14
+        }
+      },
+      "B1.2": {
+        "served": 200,
+        "uniqueIDs": 200,
+        "exactRepeatedIDs": 0,
+        "exactRepeatedPrompts": 0,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "present-tener": 35,
+          "present-querer": 35,
+          "past-duration": 5,
+          "present-regular-ar": 23,
+          "sentence-building": 56,
+          "comparisons": 2,
+          "imperfect-background": 15,
+          "preterite-practical-irregulars": 9,
+          "agreement": 4,
+          "present-ser": 21,
+          "present-estar": 21,
+          "present-ir": 21,
+          "ser-estar-hay": 4,
+          "practical-modals": 4,
+          "present-stem-changes": 10,
+          "present-shopping": 5,
+          "selected-preterite": 7,
+          "health-doler": 4,
+          "gustar-singular": 2,
+          "conditional-advice": 2,
+          "wishes-necessity": 5,
+          "present-names": 1,
+          "reflexive-routines": 2,
+          "present-regular-ir": 8,
+          "present-regular-er": 7,
+          "present-consolidation": 7,
+          "preterite-er-ir": 9,
+          "gustar-plural": 1,
+          "linked-messages": 2,
+          "connected-past-plans": 4,
+          "simple-connectors": 2,
+          "past-event-background": 3,
+          "ir-a-infinitive": 1,
+          "opinions-agreement": 1,
+          "basic-questions": 2,
+          "routine-problems": 1
+        },
+        "stages": {
+          "B1.2": 124,
+          "B1.1": 20,
+          "A2.1": 13,
+          "A2.2": 17,
+          "A1.1": 16,
+          "A1.2": 10
+        }
+      },
+      "B2.1": {
+        "served": 200,
+        "uniqueIDs": 200,
+        "exactRepeatedIDs": 0,
+        "exactRepeatedPrompts": 0,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "present-regular-ar": 28,
+          "present-regular-er": 1,
+          "present-consolidation": 4,
+          "preterite-er-ir": 8,
+          "sentence-building": 52,
+          "connected-past-plans": 2,
+          "selected-preterite": 6,
+          "imperfect-background": 16,
+          "gustar-plural": 4,
+          "present-ser": 18,
+          "present-estar": 18,
+          "present-ir": 18,
+          "present-shopping": 7,
+          "present-tener": 28,
+          "present-querer": 28,
+          "simple-connectors": 3,
+          "present-perfect": 3,
+          "preterite-practical-irregulars": 7,
+          "past-event-background": 3,
+          "present-names": 2,
+          "uncertainty-viewpoints": 20,
+          "present-stem-changes": 11,
+          "health-doler": 2,
+          "conditional-advice": 5,
+          "wishes-necessity": 3,
+          "reflexive-routines": 1,
+          "past-duration": 4,
+          "ser-estar-hay": 2,
+          "basic-questions": 4,
+          "future-plans": 2,
+          "gustar-singular": 2,
+          "routine-problems": 3,
+          "present-regular-ir": 2,
+          "prior-past-events": 1,
+          "agreement": 1,
+          "imagined-present": 2,
+          "practical-modals": 2,
+          "comparisons": 1
+        },
+        "stages": {
+          "B2.1": 127,
+          "B1.2": 9,
+          "A2.2": 15,
+          "A1.2": 11,
+          "A2.1": 10,
+          "A1.1": 13,
+          "B1.1": 15
+        }
+      },
+      "B2.2": {
+        "served": 200,
+        "uniqueIDs": 200,
+        "exactRepeatedIDs": 0,
+        "exactRepeatedPrompts": 0,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "possible-completed-change": 2,
+          "present-ser": 15,
+          "present-estar": 15,
+          "present-ir": 15,
+          "sentence-building": 54,
+          "register-reporting": 22,
+          "imperfect-background": 12,
+          "selected-preterite": 11,
+          "present-regular-ar": 26,
+          "opinions-agreement": 4,
+          "preterite-practical-irregulars": 8,
+          "present-tener": 17,
+          "present-querer": 17,
+          "present-regular-er": 7,
+          "present-consolidation": 9,
+          "present-stem-changes": 10,
+          "preterite-er-ir": 10,
+          "imagined-present": 4,
+          "conditional-advice": 8,
+          "basic-questions": 1,
+          "past-duration": 1,
+          "gustar-plural": 2,
+          "past-alternatives": 2,
+          "present-shopping": 9,
+          "present-perfect": 4,
+          "wishes-necessity": 3,
+          "past-event-background": 2,
+          "uncertainty-viewpoints": 2,
+          "future-plans": 1,
+          "gustar-singular": 2,
+          "simple-connectors": 2,
+          "ser-estar-hay": 2,
+          "agreement": 1,
+          "reflexive-routines": 2,
+          "present-names": 2,
+          "ir-a-infinitive": 1,
+          "routine-problems": 3,
+          "comparisons": 1,
+          "connected-past-plans": 1,
+          "practical-modals": 1,
+          "linked-messages": 1
+        },
+        "stages": {
+          "B2.2": 125,
+          "B2.1": 10,
+          "A2.1": 11,
+          "A1.2": 13,
+          "A2.2": 15,
+          "B1.2": 10,
+          "A1.1": 7,
+          "B1.1": 9
+        }
+      }
+    },
+    "spot": {
+      "A1.1": {
+        "served": 200,
+        "uniqueIDs": 30,
+        "exactRepeatedIDs": 170,
+        "exactRepeatedPrompts": 170,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "basic-questions": 7,
+          "present-ser": 27,
+          "ser-estar-hay": 13,
+          "present-regular-ir": 13,
+          "present-tener": 20,
+          "agreement": 20,
+          "present-regular-ar": 14,
+          "present-regular-er": 14,
+          "present-ir": 6
+        },
+        "stages": {
+          "A1.1": 200
+        }
+      },
+      "A1.2": {
+        "served": 200,
+        "uniqueIDs": 55,
+        "exactRepeatedIDs": 145,
+        "exactRepeatedPrompts": 145,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "reflexive-routines": 24,
+          "present-stem-changes": 15,
+          "present-consolidation": 4,
+          "simple-connectors": 12,
+          "ir-a-infinitive": 16,
+          "gustar-plural": 19,
+          "basic-questions": 4,
+          "agreement": 11,
+          "present-ser": 15,
+          "present-shopping": 7,
+          "present-regular-ar": 8,
+          "present-ir": 4,
+          "present-regular-ir": 7,
+          "ser-estar-hay": 7,
+          "present-tener": 9,
+          "present-regular-er": 6
+        },
+        "stages": {
+          "A1.2": 97,
+          "A1.1": 103
+        }
+      },
+      "A2.1": {
+        "served": 200,
+        "uniqueIDs": 80,
+        "exactRepeatedIDs": 120,
+        "exactRepeatedPrompts": 120,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "selected-preterite": 12,
+          "comparisons": 12,
+          "gustar-plural": 11,
+          "practical-modals": 12,
+          "present-perfect": 24,
+          "linked-messages": 6,
+          "simple-connectors": 7,
+          "ir-a-infinitive": 9,
+          "present-regular-er": 5,
+          "present-regular-ir": 5,
+          "present-tener": 7,
+          "present-regular-ar": 5,
+          "present-ser": 9,
+          "health-doler": 9,
+          "ser-estar-hay": 5,
+          "basic-questions": 3,
+          "agreement": 7,
+          "reflexive-routines": 14,
+          "present-stem-changes": 8,
+          "present-shopping": 4,
+          "present-consolidation": 2,
+          "present-ir": 2
+        },
+        "stages": {
+          "A2.1": 75,
+          "A1.2": 55,
+          "A1.1": 70
+        }
+      },
+      "A2.2": {
+        "served": 200,
+        "uniqueIDs": 105,
+        "exactRepeatedIDs": 95,
+        "exactRepeatedPrompts": 95,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "preterite-er-ir": 10,
+          "practical-modals": 8,
+          "present-perfect": 15,
+          "present-stem-changes": 7,
+          "imperfect-background": 14,
+          "preterite-practical-irregulars": 12,
+          "past-event-background": 6,
+          "routine-problems": 2,
+          "opinions-agreement": 4,
+          "health-doler": 6,
+          "present-regular-ir": 4,
+          "ser-estar-hay": 4,
+          "agreement": 6,
+          "connected-past-plans": 2,
+          "present-ser": 8,
+          "present-shopping": 4,
+          "gustar-plural": 8,
+          "selected-preterite": 8,
+          "ir-a-infinitive": 7,
+          "present-consolidation": 2,
+          "reflexive-routines": 10,
+          "present-regular-er": 4,
+          "simple-connectors": 6,
+          "present-ir": 2,
+          "comparisons": 8,
+          "present-tener": 5,
+          "present-regular-ar": 4,
+          "linked-messages": 4,
+          "basic-questions": 2
+        },
+        "stages": {
+          "A2.2": 50,
+          "A2.1": 49,
+          "A1.2": 44,
+          "A1.1": 57
+        }
+      },
+      "B1.1": {
+        "served": 200,
+        "uniqueIDs": 125,
+        "exactRepeatedIDs": 75,
+        "exactRepeatedPrompts": 75,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "present-perfect": 12,
+          "conditional-advice": 18,
+          "future-plans": 18,
+          "preterite-er-ir": 8,
+          "health-doler": 4,
+          "past-duration": 4,
+          "ir-a-infinitive": 6,
+          "basic-questions": 2,
+          "gustar-plural": 9,
+          "preterite-practical-irregulars": 9,
+          "imperfect-background": 9,
+          "routine-problems": 2,
+          "present-ser": 5,
+          "present-tener": 6,
+          "agreement": 5,
+          "past-event-background": 4,
+          "present-regular-ir": 4,
+          "comparisons": 6,
+          "linked-messages": 3,
+          "present-stem-changes": 7,
+          "reflexive-routines": 9,
+          "selected-preterite": 6,
+          "simple-connectors": 4,
+          "practical-modals": 6,
+          "present-shopping": 3,
+          "ser-estar-hay": 3,
+          "opinions-agreement": 3,
+          "present-ir": 1,
+          "present-regular-er": 2,
+          "connected-past-plans": 1,
+          "present-consolidation": 1,
+          "present-regular-ar": 2
+        },
+        "stages": {
+          "A2.1": 37,
+          "B1.1": 40,
+          "A2.2": 36,
+          "A1.1": 48,
+          "A1.2": 39
+        }
+      },
+      "B1.2": {
+        "served": 200,
+        "uniqueIDs": 145,
+        "exactRepeatedIDs": 55,
+        "exactRepeatedPrompts": 55,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "wishes-necessity": 36,
+          "preterite-er-ir": 7,
+          "present-ir": 2,
+          "health-doler": 4,
+          "present-regular-er": 3,
+          "present-tener": 5,
+          "present-regular-ar": 3,
+          "future-plans": 13,
+          "preterite-practical-irregulars": 8,
+          "gustar-plural": 7,
+          "selected-preterite": 6,
+          "reflexive-routines": 9,
+          "present-stem-changes": 5,
+          "past-duration": 3,
+          "past-event-background": 5,
+          "conditional-advice": 11,
+          "agreement": 4,
+          "present-shopping": 3,
+          "ir-a-infinitive": 6,
+          "opinions-agreement": 3,
+          "connected-past-plans": 2,
+          "present-perfect": 9,
+          "imperfect-background": 10,
+          "ser-estar-hay": 3,
+          "linked-messages": 3,
+          "practical-modals": 4,
+          "present-regular-ir": 2,
+          "comparisons": 4,
+          "present-ser": 4,
+          "simple-connectors": 3,
+          "basic-questions": 1,
+          "routine-problems": 1,
+          "present-consolidation": 1
+        },
+        "stages": {
+          "B1.2": 36,
+          "A2.2": 36,
+          "A1.1": 37,
+          "A2.1": 30,
+          "B1.1": 27,
+          "A1.2": 34
+        }
+      },
+      "B2.1": {
+        "served": 200,
+        "uniqueIDs": 165,
+        "exactRepeatedIDs": 35,
+        "exactRepeatedPrompts": 35,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "imagined-present": 17,
+          "past-duration": 3,
+          "uncertainty-viewpoints": 8,
+          "comparisons": 5,
+          "reflexive-routines": 7,
+          "prior-past-events": 14,
+          "wishes-necessity": 21,
+          "ser-estar-hay": 3,
+          "health-doler": 4,
+          "present-tener": 4,
+          "gustar-plural": 7,
+          "future-plans": 11,
+          "present-perfect": 9,
+          "simple-connectors": 4,
+          "conditional-advice": 10,
+          "preterite-practical-irregulars": 7,
+          "imperfect-background": 8,
+          "present-regular-ar": 2,
+          "present-stem-changes": 4,
+          "preterite-er-ir": 5,
+          "present-shopping": 2,
+          "opinions-agreement": 2,
+          "present-ir": 1,
+          "routine-problems": 1,
+          "past-event-background": 3,
+          "present-consolidation": 1,
+          "selected-preterite": 4,
+          "ir-a-infinitive": 4,
+          "present-regular-ir": 2,
+          "connected-past-plans": 1,
+          "present-regular-er": 2,
+          "practical-modals": 4,
+          "linked-messages": 2,
+          "basic-questions": 1,
+          "present-ser": 4,
+          "agreement": 3
+        },
+        "stages": {
+          "B2.1": 39,
+          "B1.1": 24,
+          "A2.1": 28,
+          "A1.2": 29,
+          "B1.2": 21,
+          "A1.1": 32,
+          "A2.2": 27
+        }
+      },
+      "B2.2": {
+        "served": 200,
+        "uniqueIDs": 185,
+        "exactRepeatedIDs": 15,
+        "exactRepeatedPrompts": 15,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "possible-completed-change": 9,
+          "imagined-past-condition": 8,
+          "conditional-advice": 10,
+          "prior-past-events": 8,
+          "future-plans": 10,
+          "register-reporting": 6,
+          "selected-preterite": 5,
+          "past-alternatives": 7,
+          "reflexive-routines": 7,
+          "gustar-plural": 5,
+          "simple-connectors": 3,
+          "preterite-practical-irregulars": 6,
+          "imperfect-background": 7,
+          "ir-a-infinitive": 4,
+          "wishes-necessity": 20,
+          "present-perfect": 8,
+          "ser-estar-hay": 2,
+          "health-doler": 3,
+          "practical-modals": 4,
+          "uncertainty-viewpoints": 4,
+          "imagined-present": 9,
+          "comparisons": 4,
+          "basic-questions": 1,
+          "present-stem-changes": 4,
+          "agreement": 3,
+          "past-duration": 2,
+          "connected-past-plans": 1,
+          "past-event-background": 3,
+          "present-ser": 4,
+          "present-regular-ar": 2,
+          "present-tener": 3,
+          "routine-problems": 1,
+          "present-ir": 1,
+          "preterite-er-ir": 5,
+          "opinions-agreement": 2,
+          "linked-messages": 2,
+          "present-shopping": 2,
+          "present-regular-ir": 2,
+          "present-regular-er": 2,
+          "present-consolidation": 1
+        },
+        "stages": {
+          "B2.2": 30,
+          "B1.1": 22,
+          "B2.1": 21,
+          "A2.1": 26,
+          "A1.2": 26,
+          "A2.2": 25,
+          "B1.2": 20,
+          "A1.1": 30
+        }
+      }
+    },
+    "numbers": {
+      "A1.1": {
+        "served": 200,
+        "uniqueIDs": 200,
+        "exactRepeatedIDs": 0,
+        "exactRepeatedPrompts": 0,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "practice-prices": 80,
+          "practice-time": 99,
+          "practice-numbers": 21
+        },
+        "stages": {
+          "A1.1": 200
+        }
+      },
+      "A1.2": {
+        "served": 200,
+        "uniqueIDs": 200,
+        "exactRepeatedIDs": 0,
+        "exactRepeatedPrompts": 0,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "practice-time": 55,
+          "practice-numbers": 56,
+          "practice-prices": 89
+        },
+        "stages": {
+          "A1.1": 83,
+          "A1.2": 117
+        }
+      },
+      "A2.1": {
+        "served": 200,
+        "uniqueIDs": 200,
+        "exactRepeatedIDs": 0,
+        "exactRepeatedPrompts": 0,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "practice-dates": 48,
+          "practice-time": 40,
+          "practice-prices": 65,
+          "practice-numbers": 47
+        },
+        "stages": {
+          "A2.1": 128,
+          "A1.1": 46,
+          "A1.2": 26
+        }
+      },
+      "A2.2": {
+        "served": 200,
+        "uniqueIDs": 200,
+        "exactRepeatedIDs": 0,
+        "exactRepeatedPrompts": 0,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "practice-time": 47,
+          "practice-numbers": 48,
+          "practice-prices": 57,
+          "practice-dates": 48
+        },
+        "stages": {
+          "A1.1": 50,
+          "A1.2": 24,
+          "A2.1": 126
+        }
+      },
+      "B1.1": {
+        "served": 200,
+        "uniqueIDs": 200,
+        "exactRepeatedIDs": 0,
+        "exactRepeatedPrompts": 0,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "practice-prices": 63,
+          "practice-dates": 47,
+          "practice-numbers": 49,
+          "practice-time": 41
+        },
+        "stages": {
+          "A2.1": 94,
+          "A1.2": 16,
+          "B1.1": 42,
+          "A1.1": 48
+        }
+      },
+      "B1.2": {
+        "served": 200,
+        "uniqueIDs": 200,
+        "exactRepeatedIDs": 0,
+        "exactRepeatedPrompts": 0,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "practice-numbers": 44,
+          "practice-prices": 70,
+          "practice-dates": 45,
+          "practice-time": 41
+        },
+        "stages": {
+          "A2.1": 91,
+          "B1.1": 47,
+          "A1.1": 42,
+          "A1.2": 20
+        }
+      },
+      "B2.1": {
+        "served": 200,
+        "uniqueIDs": 200,
+        "exactRepeatedIDs": 0,
+        "exactRepeatedPrompts": 0,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "practice-prices": 64,
+          "practice-time": 45,
+          "practice-numbers": 48,
+          "practice-dates": 43
+        },
+        "stages": {
+          "B1.1": 44,
+          "A1.1": 48,
+          "A1.2": 19,
+          "A2.1": 89
+        }
+      },
+      "B2.2": {
+        "served": 200,
+        "uniqueIDs": 200,
+        "exactRepeatedIDs": 0,
+        "exactRepeatedPrompts": 0,
+        "consecutiveRepeats": 0,
+        "concepts": {
+          "practice-dates": 42,
+          "practice-prices": 74,
+          "practice-numbers": 43,
+          "practice-time": 41
+        },
+        "stages": {
+          "A2.1": 90,
+          "A1.2": 16,
+          "B1.1": 49,
+          "A1.1": 45
+        }
+      }
+    }
+  }
+}

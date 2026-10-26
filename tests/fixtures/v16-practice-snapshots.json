@@ -1,0 +1,501 @@
+{
+  "builder": {
+    "version": 2,
+    "name": "",
+    "onboarded": true,
+    "stage": "A1.1",
+    "startStage": "A1.1",
+    "placement": null,
+    "completed": [],
+    "capabilities": [],
+    "reviews": {},
+    "events": [],
+    "sessions": {},
+    "active": null,
+    "recovery": [],
+    "savedWords": [],
+    "practiceHub": {
+      "recent": [
+        "skill-builder-starter-04",
+        "skill-builder-starter-03",
+        "skill-builder-starter-08",
+        "skill-builder-starter-05",
+        "skill-builder-starter-09",
+        "skill-builder-starter-10",
+        "skill-builder-starter-11",
+        "skill-builder-starter-06",
+        "skill-builder-starter-12",
+        "skill-builder-starter-07"
+      ],
+      "history": [],
+      "active": {
+        "kind": "skill",
+        "skillKind": "builder",
+        "skillStage": "A1.1",
+        "sessionId": "practice-1700000000000-230000",
+        "questions": [
+          {
+            "id": "skill-builder-starter-04",
+            "type": "tiles",
+            "prompt": "Build: What is your name?",
+            "answer": "¿Cómo te llamas?",
+            "explanation": "Build the greeting in its natural order. ¿Cómo te llamas? means “What is your name?”.",
+            "topic": "Greetings",
+            "mode": "recognition",
+            "accepted": [
+              "¿Cómo te llamas?"
+            ],
+            "language": "es",
+            "sourceQuestionId": "u0l0-q1",
+            "tiles": [
+              "te",
+              "¿Cómo",
+              "llamas?"
+            ],
+            "tileKind": "word"
+          },
+          {
+            "id": "skill-builder-starter-03",
+            "type": "tiles",
+            "prompt": "Build: See you later",
+            "answer": "Hasta luego",
+            "explanation": "Build the greeting in its natural order. Hasta luego means “See you later”.",
+            "topic": "Greetings",
+            "mode": "recognition",
+            "accepted": [
+              "Hasta luego"
+            ],
+            "language": "es",
+            "sourceQuestionId": "u0l0-q1",
+            "tiles": [
+              "luego",
+              "Hasta"
+            ],
+            "tileKind": "word"
+          },
+          {
+            "id": "skill-builder-starter-08",
+            "type": "tiles",
+            "prompt": "Build: Hello, Luis",
+            "answer": "Hola, Luis",
+            "explanation": "Build the greeting in its natural order. Hola, Luis means “Hello, Luis”.",
+            "topic": "Greetings",
+            "mode": "recognition",
+            "accepted": [
+              "Hola, Luis"
+            ],
+            "language": "es",
+            "sourceQuestionId": "u0l0-q1",
+            "tiles": [
+              "Hola,",
+              "Luis"
+            ],
+            "tileKind": "word"
+          },
+          {
+            "id": "skill-builder-starter-05",
+            "type": "tiles",
+            "prompt": "Build: My name is Ana",
+            "answer": "Me llamo Ana",
+            "explanation": "Build the greeting in its natural order. Me llamo Ana means “My name is Ana”.",
+            "topic": "Greetings",
+            "mode": "recognition",
+            "accepted": [
+              "Me llamo Ana"
+            ],
+            "language": "es",
+            "sourceQuestionId": "u0l0-q1",
+            "tiles": [
+              "Ana",
+              "Me",
+              "llamo"
+            ],
+            "tileKind": "word"
+          },
+          {
+            "id": "skill-builder-starter-09",
+            "type": "tiles",
+            "prompt": "Build: Goodbye, Ana",
+            "answer": "Adiós, Ana",
+            "explanation": "Build the greeting in its natural order. Adiós, Ana means “Goodbye, Ana”.",
+            "topic": "Greetings",
+            "mode": "recognition",
+            "accepted": [
+              "Adiós, Ana"
+            ],
+            "language": "es",
+            "sourceQuestionId": "u0l0-q1",
+            "tiles": [
+              "Ana",
+              "Adiós,"
+            ],
+            "tileKind": "word"
+          },
+          {
+            "id": "skill-builder-starter-10",
+            "type": "tiles",
+            "prompt": "Build: Goodbye, Luis",
+            "answer": "Adiós, Luis",
+            "explanation": "Build the greeting in its natural order. Adiós, Luis means “Goodbye, Luis”.",
+            "topic": "Greetings",
+            "mode": "recognition",
+            "accepted": [
+              "Adiós, Luis"
+            ],
+            "language": "es",
+            "sourceQuestionId": "u0l0-q1",
+            "tiles": [
+              "Luis",
+              "Adiós,"
+            ],
+            "tileKind": "word"
+          },
+          {
+            "id": "skill-builder-starter-11",
+            "type": "tiles",
+            "prompt": "Build: See you later, Ana",
+            "answer": "Hasta luego, Ana",
+            "explanation": "Build the greeting in its natural order. Hasta luego, Ana means “See you later, Ana”.",
+            "topic": "Greetings",
+            "mode": "recognition",
+            "accepted": [
+              "Hasta luego, Ana"
+            ],
+            "language": "es",
+            "sourceQuestionId": "u0l0-q1",
+            "tiles": [
+              "Ana",
+              "luego,",
+              "Hasta"
+            ],
+            "tileKind": "word"
+          },
+          {
+            "id": "skill-builder-starter-06",
+            "type": "tiles",
+            "prompt": "Build: My name is Luis",
+            "answer": "Me llamo Luis",
+            "explanation": "Build the greeting in its natural order. Me llamo Luis means “My name is Luis”.",
+            "topic": "Greetings",
+            "mode": "recognition",
+            "accepted": [
+              "Me llamo Luis"
+            ],
+            "language": "es",
+            "sourceQuestionId": "u0l0-q1",
+            "tiles": [
+              "llamo",
+              "Me",
+              "Luis"
+            ],
+            "tileKind": "word"
+          },
+          {
+            "id": "skill-builder-starter-12",
+            "type": "tiles",
+            "prompt": "Build: See you later, Luis",
+            "answer": "Hasta luego, Luis",
+            "explanation": "Build the greeting in its natural order. Hasta luego, Luis means “See you later, Luis”.",
+            "topic": "Greetings",
+            "mode": "recognition",
+            "accepted": [
+              "Hasta luego, Luis"
+            ],
+            "language": "es",
+            "sourceQuestionId": "u0l0-q1",
+            "tiles": [
+              "Hasta",
+              "luego,",
+              "Luis"
+            ],
+            "tileKind": "word"
+          },
+          {
+            "id": "skill-builder-starter-07",
+            "type": "tiles",
+            "prompt": "Build: Hello, Ana",
+            "answer": "Hola, Ana",
+            "explanation": "Build the greeting in its natural order. Hola, Ana means “Hello, Ana”.",
+            "topic": "Greetings",
+            "mode": "recognition",
+            "accepted": [
+              "Hola, Ana"
+            ],
+            "language": "es",
+            "sourceQuestionId": "u0l0-q1",
+            "tiles": [
+              "Ana",
+              "Hola,"
+            ],
+            "tileKind": "word"
+          }
+        ],
+        "index": 0,
+        "answers": [],
+        "selected": null,
+        "checked": false,
+        "readingReady": true,
+        "modelRevealed": false,
+        "audioPlayed": false,
+        "audioUnavailable": false,
+        "spanishHelpRevealed": false,
+        "scaffoldRevealed": false,
+        "confidence": null
+      }
+    }
+  },
+  "numbers": {
+    "version": 2,
+    "name": "",
+    "onboarded": true,
+    "stage": "A1.1",
+    "startStage": "A1.1",
+    "placement": null,
+    "completed": [],
+    "capabilities": [],
+    "reviews": {},
+    "events": [],
+    "sessions": {},
+    "active": null,
+    "recovery": [],
+    "savedWords": [],
+    "practiceHub": {
+      "recent": [
+        "skill-numbers-time-q2",
+        "skill-numbers-time-q5",
+        "skill-numbers-numbers-q15",
+        "skill-numbers-numbers-q9",
+        "skill-numbers-numbers-q16",
+        "skill-numbers-time-q4",
+        "skill-numbers-time-q3",
+        "skill-numbers-numbers-q14",
+        "skill-numbers-numbers-q13",
+        "skill-numbers-time-q1"
+      ],
+      "history": [],
+      "active": {
+        "kind": "skill",
+        "skillKind": "numbers",
+        "skillStage": "A1.1",
+        "sessionId": "practice-1700000000000-230000",
+        "questions": [
+          {
+            "type": "gap",
+            "prompt": "Complete: ___ ___ dos. (“It is two o’clock”)",
+            "answer": "Son las",
+            "options": [
+              "Son la",
+              "Son las",
+              "Es la"
+            ],
+            "explanation": "Two o’clock uses plural son las dos. The singular pattern belongs to one o’clock.",
+            "topic": "Time",
+            "spanish": "Son las dos.",
+            "mode": "completion",
+            "sentence": "___ ___ dos.",
+            "meaning": "It is two o’clock",
+            "id": "skill-numbers-time-q2",
+            "sourceQuestionId": "time-q2"
+          },
+          {
+            "type": "tiles",
+            "prompt": "Which Spanish expression matches the clock?",
+            "answer": "Son las tres",
+            "accepted": [
+              "Son las tres",
+              "Son las tres en punto"
+            ],
+            "language": "es",
+            "explanation": "Use plural son las for three o’clock, transferring the pattern from two.",
+            "topic": "Time",
+            "mode": "transfer",
+            "spanish": "Son las tres",
+            "mistakes": [],
+            "id": "skill-numbers-time-q5",
+            "sourceQuestionId": "time-q5",
+            "tiles": [
+              "las",
+              "tres",
+              "Son"
+            ],
+            "tileKind": "word",
+            "practiceVisual": {
+              "kind": "clock",
+              "hour": 3,
+              "minute": 0
+            }
+          },
+          {
+            "type": "choice",
+            "prompt": "What number is cien?",
+            "answer": "100",
+            "options": [
+              "10",
+              "1000",
+              "100"
+            ],
+            "explanation": "Cien is exactly one hundred. Ciento is used before more numbers.",
+            "topic": "Numbers and prices",
+            "spanish": "Cien",
+            "mode": "recognition",
+            "id": "skill-numbers-numbers-q15",
+            "sourceQuestionId": "numbers-q15"
+          },
+          {
+            "type": "choice",
+            "prompt": "A price label says “3,50 €”. Which amount matches it?",
+            "answer": "Tres euros con cincuenta",
+            "options": [
+              "Tres euros con cincuenta",
+              "Treinta y cinco euros",
+              "Tres euros con cinco"
+            ],
+            "explanation": "Spain uses a decimal comma. ,50 is fifty cents, not five cents or thirty-five euros.",
+            "topic": "Numbers and prices",
+            "spanish": "",
+            "mode": "context",
+            "id": "skill-numbers-numbers-q9",
+            "sourceQuestionId": "numbers-q9"
+          },
+          {
+            "type": "choice",
+            "prompt": "What number is mil?",
+            "answer": "1000",
+            "options": [
+              "10000",
+              "1000",
+              "100"
+            ],
+            "explanation": "Mil is one thousand.",
+            "topic": "Numbers and prices",
+            "spanish": "Mil",
+            "mode": "recognition",
+            "id": "skill-numbers-numbers-q16",
+            "sourceQuestionId": "numbers-q16"
+          },
+          {
+            "type": "choice",
+            "prompt": "Which Spanish expression matches the clock?",
+            "answer": "Son las dos y media",
+            "options": [
+              "Son las dos y media",
+              "Son las dos menos cuarto",
+              "Es la dos y medio"
+            ],
+            "explanation": "Y media means half past. Menos cuarto is a quarter before the named hour.",
+            "topic": "Time",
+            "spanish": "",
+            "mode": "response",
+            "id": "skill-numbers-time-q4",
+            "sourceQuestionId": "time-q4",
+            "practiceVisual": {
+              "kind": "clock",
+              "hour": 2,
+              "minute": 30
+            }
+          },
+          {
+            "type": "tiles",
+            "prompt": "From memory, say “It is one o’clock”. Use the supplied parts.",
+            "answer": "Es la una",
+            "accepted": [
+              "Es la una",
+              "Es la una en punto"
+            ],
+            "language": "es",
+            "explanation": "Use es la una: singular verb and article, with una for the hour.",
+            "topic": "Time",
+            "mode": "recall",
+            "spanish": "Es la una",
+            "mistakes": [
+              {
+                "answer": "Son las una",
+                "explanation": "One o’clock takes singular es la una; other hours use son las."
+              }
+            ],
+            "id": "skill-numbers-time-q3",
+            "sourceQuestionId": "time-q3",
+            "tiles": [
+              "la",
+              "una",
+              "Es"
+            ],
+            "tileKind": "word"
+          },
+          {
+            "type": "tiles",
+            "prompt": "Two coffees cost four euros in total. Tell Ana the total in Spanish words. Use the supplied parts.",
+            "answer": "Son cuatro euros",
+            "accepted": [
+              "Son cuatro euros",
+              "Cuatro euros",
+              "En total, son cuatro euros"
+            ],
+            "language": "es",
+            "explanation": "Use son with the plural amount. Do not give the price of just one coffee.",
+            "topic": "Numbers and prices",
+            "mode": "transfer",
+            "spanish": "Son cuatro euros",
+            "mistakes": [],
+            "id": "skill-numbers-numbers-q14",
+            "sourceQuestionId": "numbers-q14",
+            "tiles": [
+              "Son",
+              "euros",
+              "cuatro"
+            ],
+            "tileKind": "word"
+          },
+          {
+            "type": "choice",
+            "prompt": "Ana has 10 €. The book costs 5 €. Which statement fits?",
+            "answer": "She has enough to buy it",
+            "options": [
+              "She has enough to buy it",
+              "She needs twenty euros",
+              "The book is free"
+            ],
+            "explanation": "Ten euros covers the five-euro price. This uses the numbers to make a simple purchase decision.",
+            "topic": "Numbers and prices",
+            "spanish": "",
+            "mode": "inference",
+            "id": "skill-numbers-numbers-q13",
+            "sourceQuestionId": "numbers-q13"
+          },
+          {
+            "type": "choice",
+            "prompt": "Which Spanish expression matches the clock?",
+            "answer": "Es la una",
+            "options": [
+              "Son las una",
+              "Es las uno",
+              "Es la una"
+            ],
+            "explanation": "One o’clock is singular: es la una. Other hours use son las.",
+            "topic": "Time",
+            "spanish": "",
+            "mode": "recognition",
+            "id": "skill-numbers-time-q1",
+            "sourceQuestionId": "time-q1",
+            "practiceVisual": {
+              "kind": "clock",
+              "hour": 1,
+              "minute": 0
+            }
+          }
+        ],
+        "index": 0,
+        "answers": [],
+        "selected": null,
+        "checked": false,
+        "readingReady": true,
+        "modelRevealed": false,
+        "audioPlayed": false,
+        "audioUnavailable": false,
+        "spanishHelpRevealed": false,
+        "scaffoldRevealed": false,
+        "confidence": null
+      }
+    }
+  }
+}

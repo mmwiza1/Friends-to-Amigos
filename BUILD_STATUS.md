@@ -1,3 +1,9 @@
+# v1.7.0 release validation
+
+Implementation complete; the full gate and showcase recapture are in progress. Do not treat this working-branch section as a passed release. Exact results will be recorded after CI browser/native validation. Version 1.7.0 / Android 18. No physical-device or human educator/native-speaker validation is claimed. See [the v1.7 report](docs/release/V1_7_REPORT.md).
+
+<details><summary>Historical validation through v1.6</summary>
+
 # Build and validation status — 1.6.0
 
 Android versionCode **17**; schema-v2 retained. Base main: `36352bdca18c1ed397c3bd9634e801301b501cb5`. Course identities, order and content remain unchanged: A1.1–B2.2, 576 activities / 3,328 course slots / 256 stories. See [implementation](docs/release/V1_6_REPORT.md), [release notes](docs/release/V1_6_RELEASE_NOTES.md) and [manual QA](docs/release/V1_6_MANUAL_QA.md).
@@ -132,6 +138,8 @@ Eleven additional profiles retain 320px, resized/overlap keyboards, gesture/thre
 The APK is suitable for this physical-device testing, not a claim of hardware validation or CEFR certification. Recommendations may change availability; the catalogue documents near-term RTVE expiries and partial YouTube verification. Existing [user-testing guidance](docs/release/USER_TESTING.md) still applies.
 
 Historical v1.2 results: 838 JS cases / 20,640 browser assertions / 13 native tests, lint 0 errors / 12 warnings. They remain baseline evidence rather than current-release totals. See [the baseline build record](https://github.com/mmwiza1/Friends-to-Amigos/blob/3af8d73b0a25c40bc8802122c4ad068ba0ebf6c8/BUILD_STATUS.md).
+
+</details>
 
 </details>
 

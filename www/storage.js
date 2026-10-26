@@ -40,6 +40,8 @@ function question(raw){
   q.options=raw.options.slice();
  }
  if(raw.practiceVisual!==undefined){const v=raw.practiceVisual;if(!object(v)||v.kind!=='clock'||!Number.isInteger(v.hour)||v.hour<0||v.hour>23||!Number.isInteger(v.minute)||v.minute<0||v.minute>59)return null;q.practiceVisual={kind:'clock',hour:v.hour,minute:v.minute};}
+ if(raw.practicePerson!==undefined){if(!['yo','tu','third','nosotros','vosotros','plural'].includes(raw.practicePerson))return null;q.practicePerson=raw.practicePerson;}
+ if(raw.practiceCategory!==undefined){if(!['numbers','time','prices','dates'].includes(raw.practiceCategory))return null;q.practiceCategory=raw.practiceCategory;}
  if(raw.practiceForm!==undefined){const T=typeof module!=='undefined'?require('./conjugation-targets'):root.ConjugationTargets;if(!object(raw.practiceForm)||!T.targets.some(t=>t.id===raw.practiceForm.targetId)||!Number.isInteger(raw.practiceForm.row)||raw.practiceForm.row<0||raw.practiceForm.row>5)return null;q.practiceForm={targetId:raw.practiceForm.targetId,row:raw.practiceForm.row};}
  if(raw.qualityConcept!==undefined){const S=typeof module!=='undefined'?require('./grammar-syllabus'):root.GrammarSyllabus;if(!S.concepts.some(c=>c.id===raw.qualityConcept))return null;q.qualityConcept=raw.qualityConcept;}
  if(raw.shadowing===true&&type==='speaking')q.shadowing=true;

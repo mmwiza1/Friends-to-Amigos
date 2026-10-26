@@ -17,6 +17,8 @@ jobs:
       - run: npm run audit:recommendations
       - run: npm run audit:learning
       - run: npm run audit:stories
+      - run: npm run audit:practice-depth
+      - run: node scripts/learner-release-audit.cjs
       - run: npm test
       - run: npm run check:browser
         if: always()

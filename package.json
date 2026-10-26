@@ -1,6 +1,6 @@
 {
   "name": "friends-to-amigos",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "private": true,
   "scripts": {
     "start": "python3 -m http.server 4173 --directory www",
@@ -10,6 +10,7 @@
     "check:browser": "node scripts/browser-check.cjs",
     "audit:recommendations": "node scripts/audit-recommendations.cjs",
     "audit:learning": "node scripts/audit-learning-quality.cjs",
-    "audit:stories": "node scripts/audit-stories.cjs"
+    "audit:stories": "node scripts/audit-stories.cjs",
+    "audit:practice-depth": "node scripts/practice-depth-audit.cjs"
   }
 }
