@@ -4,7 +4,7 @@ final class NativePolicy {
         try {
             java.net.URI uri = new java.net.URI(value);
             if (!"https".equals(uri.getScheme()) || uri.getUserInfo() != null || uri.getPort() != -1) return false;
-            return java.util.Arrays.asList("www.rtve.es", "difusion.com", "www.thefablecottage.com",
+            return java.util.Arrays.asList("www.muzzybbc.com", "www.dreaming.com", "www.easy-spanish.org", "1001reasonstolearnspanish.com", "www.spanishlanguagecoach.com", "www.rtve.es", "difusion.com", "www.thefablecottage.com",
                 "store.steampowered.com", "www.youtube.com", "www.planetadelibros.com",
                 "www.planetadelibros.cl", "albalearning.com", "librivox.org").contains(uri.getHost());
         } catch (java.net.URISyntaxException | NullPointerException error) { return false; }

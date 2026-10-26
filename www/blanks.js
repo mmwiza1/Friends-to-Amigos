@@ -8,7 +8,7 @@ const clone=x=>JSON.parse(JSON.stringify(x)),empty=()=>({steps:{},recent:[],hist
 function eligible(state,C){return T.targets.filter(t=>S.allowed(state,t.stage));}
 function current(state,C){const stage=S.level(state),next=Path.next(state,C);return {stage,unit:next?.stage===stage?next.unit:next?0:7};}
 function pool(state,C,scope='all',focus='',filters={}){const cur=current(state,C);return eligible(state,C).filter(t=>(!['stage','current'].includes(scope)||t.stage===cur.stage)&&(!focus||tagMatch(t,focus))&&(!filters.level||t.stage===filters.level)&&(!filters.grammar||filters.grammar==='all'||(filters.grammar==='reflexive'?t.pattern.startsWith('reflexive'):t.tense===filters.grammar)));}
-function tagMatch(t,key){return ['verb:'+t.verb,'tense:'+t.tense,'pattern:'+t.pattern,...T.persons.map(p=>'form:'+t.verb+':'+t.tense+':'+p),...T.persons.map(p=>'person:'+p)].includes(key);}
+function tagMatch(t,key){const c=S.concepts.find(c=>key==='concept:'+c.id);if(c)return c.category==='conjugation'&&c.tense===t.tense&&(c.pattern===t.pattern||c.exampleVerbs.includes(t.verb));return ['verb:'+t.verb,'tense:'+t.tense,'pattern:'+t.pattern,...T.persons.map(p=>'form:'+t.verb+':'+t.tense+':'+p),...T.persons.map(p=>'person:'+p)].includes(key);}
 function shuffle(xs,rng){const a=xs.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function fullReady(state,t){return T.persons.every(p=>{const r=state.mastery?.records['form:'+t.verb+':'+t.tense+':'+p];return r&&r.spaced>=3&&r.recent.length>=3&&r.recent.filter(Boolean).length/r.recent.length>=.85;});}
 function weight(state,t,now){return T.persons.reduce((n,p)=>n+M.priority(state,'form:'+t.verb+':'+t.tense+':'+p,now),0)/6;}
@@ -22,7 +22,7 @@ function build(state,C,options={},rng=Math.random,now=Date.now()){
   const weights=choices.map(t=>weight(state,t,now)*(['recommended','unit'].includes(scope)?S.recommendation(state,C,t,now):1)*(scope==='unit'&&T.unitVerbs[cur.stage]?.[cur.unit]?.includes(t.verb)?2.5:1)*(options.mistakes?.includes(t.id)?4:1));let ticket=rng()*weights.reduce((a,b)=>a+b,0),t=choices.at(-1);for(let i=0;i<choices.length;i++){ticket-=weights[i];if(ticket<=0){t=choices[i];break;}}chosen.push(t);recent.add(t.id);
  }
  const entry=options.recall===true||phase>=2?'text':'choice';
- const tables=chosen.map(t=>{const full=(phase===3||mode==='practice'&&entry==='text')&&fullReady(state,t),density=full?6:mode==='practice'?4:[2,3,4,5][phase];const ranked=shuffle([0,1,2,3,4,5],rng).map(row=>({row,rank:rng()*M.priority(state,'form:'+t.verb+':'+t.tense+':'+T.persons[row],now)})).sort((a,b)=>b.rank-a.rank).map(x=>x.row);const focusPerson=options.focus?.split(':').at(-1),focusRow=T.persons.indexOf(focusPerson);if(focusRow>=0){ranked.splice(ranked.indexOf(focusRow),1);ranked.unshift(focusRow);}const rows=ranked.slice(0,density).sort((a,b)=>a-b);return {target:clone(t),rows,options:rows.map(()=>shuffle([...new Set(t.forms)],rng))};});
+ const tables=chosen.map(t=>{const records=T.persons.map(p=>state.mastery?.records['form:'+t.verb+':'+t.tense+':'+p]).filter(Boolean),struggling=records.some(r=>r.recent.slice(-4).filter(x=>!x).length>=2),supportedPhase=struggling?Math.min(phase,1):phase;const full=!struggling&&(phase===3||mode==='practice'&&entry==='text')&&fullReady(state,t),density=full?6:mode==='practice'?4:[2,3,4,5][supportedPhase];const ranked=shuffle([0,1,2,3,4,5],rng).map(row=>({row,rank:rng()*M.priority(state,'form:'+t.verb+':'+t.tense+':'+T.persons[row],now)})).sort((a,b)=>b.rank-a.rank).map(x=>x.row);const focusPerson=options.focus?.split(':').at(-1),focusRow=T.persons.indexOf(focusPerson);if(focusRow>=0){ranked.splice(ranked.indexOf(focusRow),1);ranked.unshift(focusRow);}const rows=ranked.slice(0,density).sort((a,b)=>a-b);return {target:clone(t),rows,options:rows.map(()=>shuffle([...new Set(t.forms)],rng))};});
  return {mode,scope,phase,entry,stage:cur.stage,unit:cur.unit,started:now,tables,index:0,selected:tables[0].rows.map(()=>null),assisted:tables[0].rows.map(()=>false),checked:false,results:[]};
 }
 function hint(t,row){const ending=T.pattern(t);return 'For '+T.labels[row]+': '+ending+(t.pattern.startsWith('irregular')?' Try starting with “'+t.forms[row].slice(0,-2)+'…”.':'');}
@@ -31,12 +31,12 @@ function details(table,selected,assisted){return table.rows.map((row,i)=>({row,p
 function check(state,now=Date.now()){
  const a=state.blanks?.active,table=a?.tables[a.index];if(!table||a.checked||a.selected.some((v,i)=>a.entry==='text'?typeof v!=='string'||!v.trim():!table.options[i].includes(v)))return null;
  const result={id:table.target.id,details:details(table,a.selected,a.assisted)};a.results.push(result);a.checked=true;
- for(const d of result.details)M.record(state,[{verb:table.target.verb,tense:table.target.tense,pattern:table.target.pattern,person:d.person}],d.correct,{item:table.target.id+'-'+d.person,session:'blanks-'+a.started,assisted:d.assisted,recall:a.entry==='text',density:table.rows.length,difficulty:a.phase},now);
+ for(const d of result.details)M.record(state,[{verb:table.target.verb,tense:table.target.tense,pattern:table.target.pattern,person:d.person}],d.correct,{item:table.target.id+'-'+d.person,session:'blanks-'+a.started,assisted:d.assisted,confidence:a.confidence,recall:a.entry==='text',density:table.rows.length,difficulty:a.phase},now);
  // Selectable forms are recognition; only deliberate typed retrieval counts as recall.
  return result;
 }
 function next(state,now=Date.now()){
- const data=state.blanks,a=data?.active;if(!a?.checked)return null;data.recent=[...data.recent,a.tables[a.index].target.id].slice(-8);a.index++;a.checked=false;
+ const data=state.blanks,a=data?.active;if(!a?.checked)return null;data.recent=[...data.recent,a.tables[a.index].target.id].slice(-8);a.index++;a.checked=false;delete a.confidence;
  if(a.index<a.tables.length){a.selected=a.tables[a.index].rows.map(()=>null);a.assisted=a.selected.map(()=>false);return null;}
  const ds=a.results.flatMap(r=>r.details),round={at:now,mode:a.mode,stage:a.stage,unit:a.unit,tables:a.tables.length,forms:ds.length,correct:ds.filter(d=>d.correct).length,assisted:ds.filter(d=>d.assisted).length,mistakes:[...new Set(a.results.filter(r=>r.details.some(d=>!d.correct)).map(r=>r.id))],signals:summary(ds)};
  data.history=[...data.history,round].slice(-30);if(a.mode==='normal'&&round.correct/round.forms>=.8)data.steps[a.stage+'-'+a.unit]=Math.max(data.steps[a.stage+'-'+a.unit]||0,Math.min(3,a.phase+1));data.active=null;return round;
@@ -55,7 +55,7 @@ function sanitize(raw,state,C){
   if(!Number.isInteger(a.index)||a.index<0||a.index>=tables.length||typeof a.checked!=='boolean'||!Array.isArray(a.selected)||a.selected.length!==tables[a.index].rows.length||a.selected.some((x,i)=>x!==null&&(a.entry==='text'?typeof x!=='string'||x.length>100:!tables[a.index].options[i].includes(x)))||!Array.isArray(a.assisted)||a.assisted.length!==a.selected.length||a.assisted.some(x=>typeof x!=='boolean')||!Array.isArray(a.results)||a.results.length!==a.index+(a.checked?1:0))throw Error();
   const results=a.results.map((r,i)=>{if(r.id!==tables[i].target.id||!Array.isArray(r.details)||r.details.length!==tables[i].rows.length||r.details.some((d,j)=>(a.entry==='text'?typeof d.selected!=='string'||d.selected.length>100:!tables[i].options[j].includes(d.selected))||typeof d.assisted!=='boolean'||d.correct!==isCorrect(tables[i],tables[i].rows[j],d.selected)))throw Error();return {id:r.id,details:details(tables[i],r.details.map(d=>d.selected),r.details.map(d=>d.assisted))};});
   if(a.checked&&(a.selected.some(x=>x===null)||JSON.stringify(details(tables[a.index],a.selected,a.assisted))!==JSON.stringify(results.at(-1).details)))throw Error();
-  data.active={mode:a.mode,scope:a.scope,phase:a.phase,entry:a.entry,stage:a.stage,unit:a.unit,started:a.started,tables,index:a.index,selected:a.selected.slice(),assisted:a.assisted.slice(),checked:a.checked,results};
+  data.active={...(['sure','unsure'].includes(a.confidence)?{confidence:a.confidence}:{}),mode:a.mode,scope:a.scope,phase:a.phase,entry:a.entry,stage:a.stage,unit:a.unit,started:a.started,tables,index:a.index,selected:a.selected.slice(),assisted:a.assisted.slice(),checked:a.checked,results};
  }catch{warnings.push('Damaged unfinished table practice');}}
  return {data,warnings};
 }

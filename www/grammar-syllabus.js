@@ -5,7 +5,7 @@ const levels=['A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2'];
 // Curriculum references document where a concept is modelled, not access gates.
 const rows=[
  ['present-regular-ar','A1.1','conjugation','present','regular-ar','Regular -AR present','u1l2',['hablar','trabajar','desayunar']],
- ['present-regular-er','A1.2','conjugation','present','regular-er','Regular -ER present consolidation','a12u7l2',['comer']],
+ ['present-regular-er','A1.1','conjugation','present','regular-er','Regular -ER present','u2l1',['comer']],
  ['present-regular-ir','A1.1','conjugation','present','regular-ir','Regular -IR present','u1l0',['vivir']],
  ['present-ser','A1.1','conjugation','present','irregular','Identity and description with ser','u1l0',['ser']],
  ['present-estar','A1.1','conjugation','present','irregular','Feelings and location with estar','u5l2',['estar']],

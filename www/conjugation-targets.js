@@ -25,7 +25,7 @@ const rows=[
  ['ducharse','present','reflexive-ar','A1.2',6,'a12u6l1',['me ducho','te duchas','se ducha','nos duchamos','os ducháis','se duchan']],
  ['vestirse','present','reflexive-e-i','A1.2',6,'a12u6l1',['me visto','te vistes','se viste','nos vestimos','os vestís','se visten'],'E becomes i in stressed forms; vestimos and vestís keep e. Match me/te/se/nos/os/se to the person.'],
  ['acostarse','present','reflexive-o-ue','A1.2',6,'a12u6l2',['me acuesto','te acuestas','se acuesta','nos acostamos','os acostáis','se acuestan'],'O becomes ue in stressed forms. Match me/te/se/nos/os/se to the person.'],
- ['comer','present','regular-er','A1.2',7,'a12u7l2',['como','comes','come','comemos','coméis','comen']],
+ ['comer','present','regular-er','A1.1',2,'u2l1',['como','comes','come','comemos','coméis','comen']],
  ['tomar','present','regular-ar','A1.2',7,'a12u7l0',['tomo','tomas','toma','tomamos','tomáis','toman']],
  ['escuchar','present','regular-ar','A1.2',7,'a12u7l0',['escucho','escuchas','escucha','escuchamos','escucháis','escuchan']],
  ['salir','present','irregular-yo','A1.2',7,'a12u7l0',['salgo','sales','sale','salimos','salís','salen'],'Yo is irregular: salgo. Other forms use regular -IR present endings.'],
@@ -42,7 +42,7 @@ const rows=[
  ['volver','present-perfect','compound-irregular','A2.1',7,'a21u7l0',['he vuelto','has vuelto','ha vuelto','hemos vuelto','habéis vuelto','han vuelto'],'Volver has the irregular participle vuelto. Change haber for the person.'],
  ['tomar','preterite','regular-ar','A2.1',7,'a21u7l1',['tomé','tomaste','tomó','tomamos','tomasteis','tomaron']]
 ].concat(typeof module!=='undefined'?require('./a22-targets.js'):root.A22Targets).concat(typeof module!=='undefined'?require('./b-targets.js'):root.BTargets).filter(r=>r[7]!=='NOT_TABLE');
-const targets=rows.map(([verb,tense,pattern,stage,unit,source,forms,note])=>({id:'table-'+stage.replace('.','').toLowerCase()+'-'+verb+'-'+tense,verb,tense,pattern,stage,unit,source,forms,accepted:forms.map(x=>tense==='imperfect-subjunctive'?[x,x.replace(/ra(mos|is|n|s)?$/,'se$1')]:tense==='pluperfect-subjunctive'?[x,x.replace(/hubi([eé])ra/, 'hubi$1se')]:[x]),note:note||'',requiredActivities:[...new Set([source,...(stage==='A1.1'?['u1l2']:tense==='present-perfect'?['a21u0l2']:[])])],authorship:'original Friends to Amigos'}));
+const targets=rows.map(([verb,tense,pattern,stage,unit,source,forms,note])=>({id:verb==='comer'&&tense==='present'?'table-a12-comer-present':'table-'+stage.replace('.','').toLowerCase()+'-'+verb+'-'+tense,verb,tense,pattern,stage,unit,source,forms,...(verb==='comer'&&tense==='present'?{consolidationSource:'a12u7l2'}:{}),accepted:forms.map(x=>tense==='imperfect-subjunctive'?[x,x.replace(/ra(mos|is|n|s)?$/,'se$1')]:tense==='pluperfect-subjunctive'?[x,x.replace(/hubi([eé])ra/, 'hubi$1se')]:[x]),note:note||'',requiredActivities:[...new Set([source,...(stage==='A1.1'?['u1l2']:tense==='present-perfect'?['a21u0l2']:[])])],authorship:'original Friends to Amigos'}));
 // Related earlier targets are part of a unit's retrieval, never unlocked by this list.
 const unitVerbs={
  'A1.1':[['llamarse'],['llamarse','ser','tener','hablar','vivir'],['querer','tener','ser'],['querer','tener','ser'],['ser','tener'],['estar','ser','tener'],['ir','estar'],['desayunar','trabajar','ir']],

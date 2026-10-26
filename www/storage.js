@@ -39,6 +39,9 @@ function question(raw){
   if(!Array.isArray(raw.options)||raw.options.length<2||raw.options.length>12||raw.options.some(a=>!text(a,6000))||raw.options.filter(a=>a===raw.answer).length!==1||new Set(raw.options.map(E.normalizeAnswer)).size!==raw.options.length)return null;
   q.options=raw.options.slice();
  }
+ if(raw.practiceForm!==undefined){const T=typeof module!=='undefined'?require('./conjugation-targets'):root.ConjugationTargets;if(!object(raw.practiceForm)||!T.targets.some(t=>t.id===raw.practiceForm.targetId)||!Number.isInteger(raw.practiceForm.row)||raw.practiceForm.row<0||raw.practiceForm.row>5)return null;q.practiceForm={targetId:raw.practiceForm.targetId,row:raw.practiceForm.row};}
+ if(raw.qualityConcept!==undefined){const S=typeof module!=='undefined'?require('./grammar-syllabus'):root.GrammarSyllabus;if(!S.concepts.some(c=>c.id===raw.qualityConcept))return null;q.qualityConcept=raw.qualityConcept;}
+ if(raw.shadowing===true&&type==='speaking')q.shadowing=true;
  if(raw.instructionLanguage!==undefined){if(raw.instructionLanguage!=='es'||!text(raw.promptEs,2000)||!text(raw.englishHint,2000)||!safeId(raw.supportConcept))return null;q.instructionLanguage='es';q.promptEs=raw.promptEs;q.englishHint=raw.englishHint;q.supportConcept=raw.supportConcept;}
  if(type==='gap'){if(!text(raw.sentence,2000)||!text(raw.meaning,1000))return null;q.sentence=raw.sentence;q.meaning=raw.meaning;}
  // Optional, visible teaching support belongs to the saved question snapshot.
@@ -94,6 +97,7 @@ function migrateState(raw,course,options={}){
   if(!object(e)||!date(e.date)||!['answer','lesson','corrected'].includes(e.type))continue;
   const copy={date:e.date,at:number(e.at),type:e.type};
   if(e.type==='answer'){if(typeof e.correct!=='boolean')continue;copy.correct=e.correct;if(text(e.topic,200))copy.topic=e.topic;if(e.selfAssessed===true)copy.selfAssessed=true;if(e.skipped===true)copy.skipped=true;if(e.assisted===true)copy.assisted=true;}
+  if(e.type==='answer'){if(['spanish','english','independent'].includes(e.support))copy.support=e.support;if(['sure','unsure'].includes(e.confidence))copy.confidence=e.confidence;}
   if(e.type==='lesson'){if(!safeId(e.id)||completedEvents.has(e.id))continue;completedEvents.add(e.id);copy.id=e.id;}
   if(e.type==='corrected'&&text(e.topic,200))copy.topic=e.topic;
   if(safeId(e.questionId))copy.questionId=e.questionId;state.events.push(copy);
@@ -126,7 +130,7 @@ function migrateState(raw,course,options={}){
     const writingDone=a.checked&&W.open(currentQ)&&submitted===null&&object(a.writingResponses)&&object(a.writingResponses[a.index])&&a.writingResponses[a.index].response===selected&&['got','needs'].includes(a.writingResponses[a.index].reflection);
     const inconsistent=a.checked&&!pendingWriting&&!writingDone&&((currentQ?.listening&&submitted!==null&&a.audioPlayed!==true)||(submitted===null?(!currentQ?.listening||selected!==null):(!selected?.trim()||submitted!==(currentQ?.type==='speaking'?selected==='got':E.isCorrect(currentQ,selected)))));
     if(inconsistent||a.checked&&W.open(currentQ)&&!selected?.trim()||a.checked&&currentQ?.type==='speaking'&&(!a.modelRevealed||!['got','needs'].includes(selected))||selected===null&&a.selected!==null||currentQ&&currentQ.options&&selected!==null&&!currentQ.options.includes(selected)||Structured.active(currentQ)&&selected!==null&&(!Structured.partial(currentQ,selected)||!Structured.ready(currentQ,selected)&&a.checked)||a.checked&&selected===null&&a.answers.at(-1)!==null)quarantine('active attempt','active',a);
-    else state.active={kind:'lesson',lesson,questions:qs,index:a.index,answers:a.answers.slice(),selected,checked:a.checked,readingReady:a.readingReady===true,modelRevealed:a.modelRevealed===true,audioPlayed:a.audioPlayed===true,audioUnavailable:a.audioUnavailable===true,...(typeof a.hintRevealed==='boolean'?{hintRevealed:a.hintRevealed}:{}),...(object(a.writingResponses)?{writingResponses:Object.fromEntries(Object.entries(a.writingResponses).filter(([k,v])=>Number.isInteger(Number(k))&&Number(k)>=0&&Number(k)<qs.length&&W.open(qs[Number(k)])&&object(v)&&text(v.response,6000)&&['got','needs'].includes(v.reflection)).map(([k,v])=>[k,{response:v.response,reflection:v.reflection,outcome:W.assess(qs[Number(k)],v.response).outcome}]))}:{})};
+    else state.active={kind:'lesson',lesson,questions:qs,index:a.index,answers:a.answers.slice(),selected,checked:a.checked,readingReady:a.readingReady===true,modelRevealed:a.modelRevealed===true,audioPlayed:a.audioPlayed===true,audioUnavailable:a.audioUnavailable===true,...(typeof module!=='undefined'?require('./learning-quality'):root.LearningQuality).attemptFields(a,qs.length),...(typeof a.hintRevealed==='boolean'?{hintRevealed:a.hintRevealed}:{}),...(object(a.writingResponses)?{writingResponses:Object.fromEntries(Object.entries(a.writingResponses).filter(([k,v])=>Number.isInteger(Number(k))&&Number(k)>=0&&Number(k)<qs.length&&W.open(qs[Number(k)])&&object(v)&&text(v.response,6000)&&['got','needs'].includes(v.reflection)).map(([k,v])=>[k,{response:v.response,reflection:v.reflection,outcome:W.assess(qs[Number(k)],v.response).outcome}]))}:{})};
    }
   }
  }

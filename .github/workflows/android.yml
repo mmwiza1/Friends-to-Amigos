@@ -14,8 +14,11 @@ jobs:
         with:
           node-version: '22'
       - run: npm run check
+      - run: npm run audit:recommendations
+      - run: npm run audit:learning
       - run: npm test
       - run: npm run check:browser
+        if: always()
       - uses: actions/upload-artifact@v4
         if: always()
         with:

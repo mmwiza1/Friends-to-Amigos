@@ -21,6 +21,7 @@ function reverseFields(target,changes,label,beforeKeys,afterKeys){
 }
 function beforeLearnerExperienceCorrections(item,kind='course'){
  const policy=require('../../www/assessment-policy');const copy=clone(kind==='course'&&item.questions?{...item,questions:item.questions.map(policy.prior)}:item);
+ if(kind==='tables'&&copy.id==='table-a12-comer-present'){assert.equal(copy.consolidationSource,'a12u7l2');delete copy.consolidationSource;assert.equal(copy.stage,'A1.1');assert.equal(copy.unit,2);assert.equal(copy.source,'u2l1');assert.deepEqual(copy.requiredActivities,['u2l1','u1l2']);copy.stage='A1.2';copy.unit=7;copy.source='a12u7l2';copy.requiredActivities=['a12u7l2'];}
  if(kind==='course'){
   for(const record of learnerExperienceManifest.course||[]){const q=copy.questions?.find(q=>q.id===record.id);if(q)reverseFields(q,record.changes,record.id,record.beforeKeys,record.afterKeys);}
   for(const record of learnerExperienceManifest.activityChanges||[])if(copy.id===record.id)reverseFields(copy,record.changes,record.id,record.beforeKeys,record.afterKeys);
@@ -30,6 +31,7 @@ function beforeLearnerExperienceCorrections(item,kind='course'){
 function beforeRequestedCorrections(item,kind='course'){
  const copy=beforeLearnerExperienceCorrections(item,kind);
  if(kind==='course')for(const record of manifest.course){const q=copy.questions?.find(q=>q.id===record.id);if(q)reverseFields(q,record.changes,record.id);}
+
  if(kind==='games'){const record=manifest.games.find(q=>q.id===copy.id);if(record)reverseFields(copy,record.changes||[{field:'sentence',before:record.before,after:record.after}],record.id);}
  return copy;
 }
