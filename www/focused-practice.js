@@ -36,7 +36,7 @@ function select(state,C,kind,ceiling,focus='',rng=Math.random,now=Date.now()){
 }
 function remember(state,q){state.focused=state.focused||empty();const kind=q.practice.kind,id=q.shadowing?q.id.replace('focus-speak-shadow-','focus-speak-'):q.id;state.focused.recent[kind]=[...state.focused.recent[kind].filter(x=>x!==id),id].slice(-30);}
 function record(state,q,correct,details={},now=Date.now()){
- if(details.skipped)return;const kind=q.practice.kind;state.focused=state.focused||empty();M.record(state,[{key:'skill:'+q.id},{key:topicKey(q)},...(q.practice.outcomeId?[{key:'outcome:'+q.practice.outcomeId}]:[]),...(!details.skipped&&q.supportConcept?[{key:'concept:'+q.supportConcept}]:[])],correct,{item:q.id,session:details.session||'media-review-'+E.dayKey(new Date(now)),selfAssessed:kind==='speaking',assisted:details.assisted===true,support:details.support,confidence:details.confidence},now);
+ if(details.skipped){state.focused=state.focused||empty();return;}const kind=q.practice.kind;state.focused=state.focused||empty();M.record(state,[{key:'skill:'+q.id},{key:topicKey(q)},...(q.practice.outcomeId?[{key:'outcome:'+q.practice.outcomeId}]:[]),...(!details.skipped&&q.supportConcept?[{key:'concept:'+q.supportConcept}]:[])],correct,{item:q.id,session:details.session||'media-review-'+E.dayKey(new Date(now)),selfAssessed:kind==='speaking',assisted:details.assisted===true,support:details.support,confidence:details.confidence},now);
  // A successful checked listen or deliberate model/self-assessment establishes first-use understanding.
  if(!details.skipped&&(kind==='speaking'||correct))state.focused.seenInstructions[kind]=true;
 }
