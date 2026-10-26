@@ -6,6 +6,7 @@ An offline-first Android Spanish-learning app in a vanilla HTML/CSS/JavaScript W
 
 ## App preview
 
+<!-- app-showcase:start -->
 Screens from the validated 1.7 UI, using simulated Samsung-size profiles and illustrative progress. Light and dark mode share the same five-tab navigation.
 
 | Learn with support | Build and explore | Keep progressing |
@@ -15,6 +16,7 @@ Screens from the validated 1.7 UI, using simulated Samsung-size profiles and ill
 | <img src="docs/screenshots/story.png" width="180" alt="Standalone episodes with word help"><br>Standalone episodes with word help | <img src="docs/screenshots/feedback.png" width="180" alt="Compare your answer and learn why"><br>Compare your answer and learn why | <img src="docs/screenshots/games.png" width="180" alt="The Practice hub"><br>The Practice hub |
 | <img src="docs/screenshots/conjugations.png" width="180" alt="Verb in Context"><br>Verb in Context | <img src="docs/screenshots/review.png" width="180" alt="Scheduled review and weak areas"><br>Scheduled review and weak areas | <img src="docs/screenshots/profile.png" width="180" alt="Level, progress and Vocabulary"><br>Level, progress and Vocabulary |
 | <img src="docs/screenshots/saved-words.png" width="180" alt="Your personal vocabulary"><br>Your personal vocabulary | <img src="docs/screenshots/learner-dictionary.png" width="180" alt="Search English or Spanish"><br>Search English or Spanish | <img src="docs/screenshots/lesson-complete.png" width="180" alt="Continue straight to the next activity"><br>Continue straight to the next activity |
+<!-- app-showcase:end -->
 
 [Build results and device-testing limits](BUILD_STATUS.md) · [Release details](docs/release/V1_7_REPORT.md)
 

@@ -19,3 +19,17 @@ Every GitHub Release page must use the detailed Friends to Amigos product-update
 - ensure the release notes describe the same commit/build as the attached APK.
 
 Treat this release-note requirement as part of release completion, alongside tests and the Android build. A release task is not complete until its GitHub Release notes are ready in this format.
+
+## GitHub application showcase (release gate)
+
+Read and follow [docs/SCREENSHOT_POLICY.md](docs/SCREENSHOT_POLICY.md) and [the visual release checklist](docs/RELEASE_SHOWCASE_CHECKLIST.md) when preparing a user-facing release from `main`.
+
+- README screenshots must accurately represent the UI shipped by that release. The README showcase should allow someone visiting the repository to understand what they would actually install.
+- Material changes to Home, Learn, Practice, Review, Profile, lesson UI, navigation, colours, cards, major interactions or any showcased screen require regeneration of affected screenshots from the final validated UI. Do not reuse old screenshots merely because they exist.
+- Never knowingly publish README version X with screenshots described as X-1. Unchanged images may be retained only under the documented fingerprint/review procedure, with an explicit reason; do not falsify their generation version or source commit.
+- Showcase screenshots are part of release completion. A release is not complete until `npm run check:screenshots` passes and every published image has a recorded visual review. Run `npm run check:release` for the local gate and preserve the full Android/browser gates.
+- Capture claims must identify the same actual UI/build as the release using the manifest's version and deterministic source fingerprint. A capture commit is provenance, not an invented future final SHA. Do not claim physical-device captures for browser simulations.
+- Preserve the learner-visible product navigation: **Home · Learn · Practice · Review · Profile**. Internal `Games` route identifiers are compatibility details, not public tab names. Validate actual rendered labels and their order.
+- Capture clean usable app viewports. Do not fake Samsung status/navigation UI or expose page content in an artificial system-bar gap. Keep native-inset/keyboard stress captures separate from public showcase images.
+- Update release reporting with screenshot count, manifest app version, regenerated/retained files and reasons, profiles, automated validation and manual visual-review result. Include remaining human-judgement/device limitations honestly.
+- When adding a renderer or moving visible UI into another module, update `scripts/showcase/config.cjs` so its source participates in the freshness fingerprint. Do not bypass freshness checks by editing hashes without a new capture or permitted unchanged-UI review.

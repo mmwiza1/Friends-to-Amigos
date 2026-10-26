@@ -5,12 +5,16 @@
   "scripts": {
     "start": "python3 -m http.server 4173 --directory www",
     "test": "node --test tests/*.test.cjs",
-    "check": "node scripts/check-course.cjs",
+    "check": "node scripts/check-course.cjs && npm run check:screenshots",
     "audit": "node scripts/check-course.cjs --report",
     "check:browser": "node scripts/browser-check.cjs",
     "audit:recommendations": "node scripts/audit-recommendations.cjs",
     "audit:learning": "node scripts/audit-learning-quality.cjs",
     "audit:stories": "node scripts/audit-stories.cjs",
-    "audit:practice-depth": "node scripts/practice-depth-audit.cjs"
+    "audit:practice-depth": "node scripts/practice-depth-audit.cjs",
+    "check:screenshots": "node scripts/check-screenshots.cjs",
+    "capture:showcase": "node scripts/capture-showcase.cjs",
+    "showcase:adopt": "node scripts/showcase/adopt.cjs",
+    "check:release": "npm run check && npm run audit && npm run audit:recommendations && npm run audit:learning && npm run audit:stories && npm run audit:practice-depth && node scripts/learner-release-audit.cjs && npm test && npm run check:browser"
   }
 }

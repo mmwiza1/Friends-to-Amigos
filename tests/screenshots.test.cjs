@@ -1,0 +1,48 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path'),zlib=require('node:zlib');
+const C=require('../scripts/showcase/config.cjs'),PNG=require('../scripts/showcase/png.cjs'),{validate}=require('../scripts/check-screenshots.cjs'),{adopt,gallery}=require('../scripts/showcase/adopt.cjs');
+const repo=path.resolve(__dirname,'..');
+// Synthetic validator fixtures use existing PNG bytes. They are never published
+// or claimed to be captures from the fresh UI. Real rendering runs in Chromium.
+function fixture(){const root=fs.mkdtempSync(path.join(os.tmpdir(),'fta-showcase-test-'));for(const dir of ['www','scripts/showcase','docs/screenshots','docs/release','android/app'])fs.mkdirSync(path.join(root,dir),{recursive:true});fs.cpSync(path.join(repo,'www'),path.join(root,'www'),{recursive:true});for(const f of ['scripts/showcase/config.cjs','scripts/capture-showcase.cjs','package.json','android/app/build.gradle'])fs.copyFileSync(path.join(repo,f),path.join(root,f));const version=C.versions(root),fp=C.fingerprint(root),now=new Date().toISOString();const screenshots=C.screens.map(r=>{const old=path.join(repo,'docs/screenshots',r.filename),fallback=path.join(repo,'docs/screenshots/home.png'),bytes=fs.readFileSync(fs.existsSync(old)?old:fallback),dims=PNG.inspect(bytes);fs.writeFileSync(path.join(root,'docs/screenshots',r.filename),bytes);return {filename:r.filename,screen:r.screen,description:r.description,theme:r.theme,simulated:true,profile:{name:'clean-app-portrait',...dims,deviceScaleFactor:1,insets:{top:0,bottom:0,left:0,right:0},keyboard:false},firstGeneratedVersion:version.appVersion,refreshedInVersion:version.appVersion,reviewedForVersion:version.appVersion,sha256:C.hash(bytes),layout:{...dims,overflow:false,keyboard:false,animations:0,popupFits:true,insets:['0px','0px','0px','0px'],navigationLabels:r.active?C.navigation.slice():[],active:r.active||null,navBottom:r.active?dims.height:null,navTop:dims.height-80,targetBottom:dims.height-100}};});const m={schemaVersion:1,...version,generatedAt:now,sourceCommit:null,validationRun:null,captureMode:'clean-app-viewport',sourceFingerprint:fp,screenshotCount:screenshots.length,navigationLabels:C.navigation.slice(),screenshots,manualReview:{status:'approved',images:Object.fromEntries(screenshots.map(r=>[r.filename,r.sha256])),reviewer:'Synthetic test',reviewedAt:now,appVersion:version.appVersion,sourceFingerprint:fp.sha256,report:'docs/release/REVIEW.md'}};fs.writeFileSync(path.join(root,'docs/release/REVIEW.md'),'<!-- showcase-review: '+fp.sha256+' -->\n'+screenshots.map(r=>'`'+r.filename+'` '+r.sha256).join('\n'));fs.writeFileSync(path.join(root,'README.md'),'**'+version.appVersion+' · Test app**\n'+gallery(m));return {root,m,save(){fs.writeFileSync(path.join(root,'docs/screenshots/manifest.json'),JSON.stringify(m));},close(){fs.rmSync(root,{recursive:true,force:true});}};}
+function check(name,mutate,pattern){test(name,()=>{const f=fixture();try{f.save();mutate(f);f.save();assert.throws(()=>validate(f.root),pattern);}finally{f.close();}});}
+test('current manifest schema / 15-image evidence passes without a fabricated final SHA',()=>{const f=fixture();try{f.save();assert.equal(validate(f.root).count,15);assert.equal(f.m.sourceCommit,null);}finally{f.close();}});
+check('old ad-hoc schema is actionable',f=>delete f.m.schemaVersion,/schemaVersion/);
+check('stale manifest release is rejected',f=>f.m.appVersion='1.5.0',/contains 1.5.0/);
+check('Android code mismatch rejected',f=>f.m.androidVersionCode=1,/versionCode/);
+check('invalid generation timestamp rejected',f=>f.m.generatedAt='tomorrow',/generation date/);
+check('fabricated non-SHA commit rejected',f=>f.m.sourceCommit='final-current-main',/capture commit/);
+check('invalid CI run rejected',f=>f.m.validationRun='latest',/validationRun/);
+check('wrong public Practice label rejected',f=>f.m.navigationLabels[2]='Games',/visible Home/);
+check('duplicate filename rejected',f=>f.m.screenshots[1].filename=f.m.screenshots[0].filename,/visual review|Duplicate/);
+check('out of policy count rejected',f=>{f.m.screenshotCount=16;},/10–15/);
+check('missing file rejected',f=>fs.unlinkSync(path.join(f.root,'docs/screenshots',f.m.screenshots[0].filename)),/Missing screenshot/);
+check('zero-byte file rejected',f=>fs.writeFileSync(path.join(f.root,'docs/screenshots',f.m.screenshots[0].filename),''),/Empty, tiny/);
+check('changed bytes rejected',f=>{const p=path.join(f.root,'docs/screenshots',f.m.screenshots[0].filename),b=fs.readFileSync(p);b[100]^=1;fs.writeFileSync(p,b);},/checksum|pixel data/);
+check('missing description rejected',f=>f.m.screenshots[0].description='',/description/);
+check('wrong theme rejected',f=>f.m.screenshots[0].theme='auto',/theme/);
+check('physical device claim rejected for simulated captures',f=>f.m.screenshots[0].simulated=false,/simulation/);
+check('viewport mismatch rejected',f=>f.m.screenshots[0].profile.width=400,/dimensions/);
+check('fake system bar space rejected',f=>f.m.screenshots[0].profile.insets.bottom=48,/usable-viewport/);
+check('keyboard artefact rejected',f=>f.m.screenshots[0].layout.keyboard=true,/geometry/);
+check('horizontal overflow rejected',f=>f.m.screenshots[0].layout.overflow=true,/geometry/);
+check('animation frame rejected',f=>f.m.screenshots[0].layout.animations=1,/geometry/);
+check('dictionary clipping rejected',f=>f.m.screenshots[0].layout.popupFits=false,/geometry/);
+check('navbar gap rejected',f=>f.m.screenshots[0].layout.navBottom-=48,/system-bar gap/);
+check('internal Games label cannot replace visible Practice',f=>f.m.screenshots[0].layout.navigationLabels=['Home','Learn','Games','Review','Profile'],/visible navigation/);
+check('primary boundary under nav rejected',f=>f.m.screenshots[0].layout.targetBottom=f.m.screenshots[0].layout.navTop+10,/Clipped/);
+check('pending manual review rejected',f=>f.m.manualReview.status='pending',/review/);
+check('review before generation rejected',f=>f.m.manualReview.reviewedAt='2000-01-01T00:00:00Z',/predates/);
+check('stale screenshot review version rejected',f=>f.m.screenshots[0].reviewedForVersion='1.5.0',/Stale screenshot release/);
+check('old retained image needs reason',f=>f.m.screenshots[0].refreshedInVersion='1.6.0',/retention reason/);
+check('stale UI fingerprint rejected',f=>fs.appendFileSync(path.join(f.root,'www/screens.js'),'\n// UI changed'),/sources changed/);
+check('CSS/theme change requires refresh',f=>fs.appendFileSync(path.join(f.root,'www/style.css'),'\n.card{border-radius:2px}'),/sources changed/);
+check('new UI module automatically requires review',f=>fs.writeFileSync(path.join(f.root,'www/new-screen-view.js'),'window.NEW_UI=true;'),/sources changed/);
+check('capture recipe change requires refresh',f=>fs.appendFileSync(path.join(f.root,'scripts/capture-showcase.cjs'),'\n// changed capture'),/sources changed/);
+check('README old screenshot prose rejected',f=>{const p=path.join(f.root,'README.md');fs.writeFileSync(p,fs.readFileSync(p,'utf8').replace('Showcase UI: **1.7.0**','Screens from the validated 1.5 UI. Showcase UI: **1.7.0**'));},/older\/different UI/);
+check('README advertised app version rejected',f=>{const p=path.join(f.root,'README.md');fs.writeFileSync(p,fs.readFileSync(p,'utf8').replace('**1.7.0 · Test','**1.6.0 · Test'));},/advertised app version/);
+check('README orphan reference rejected',f=>fs.appendFileSync(path.join(f.root,'README.md'),'\n<img src="docs/screenshots/missing.png">'),/missing from the manifest/);
+check('missing README reference rejected',f=>{const p=path.join(f.root,'README.md');fs.writeFileSync(p,fs.readFileSync(p,'utf8').replace('docs/screenshots/home.png','gone.png'));},/absent from README/);
+test('documentation-only and internal-engine changes do not force screenshot binaries to change',()=>{const f=fixture();try{f.save();fs.writeFileSync(path.join(f.root,'docs/INTERNAL.md'),'New developer notes');fs.appendFileSync(path.join(f.root,'www/engine.js'),'\n// internal');assert.equal(validate(f.root).count,15);}finally{f.close();}});
+test('unchanged images can be retained for a reviewed version-only update without falsifying provenance',()=>{const f=fixture();try{f.save();const previous=f.m.generatedAt;const p=path.join(f.root,'package.json'),pkg=JSON.parse(fs.readFileSync(p));pkg.version='1.7.1';fs.writeFileSync(p,JSON.stringify(pkg));const g=path.join(f.root,'android/app/build.gradle');fs.writeFileSync(g,fs.readFileSync(g,'utf8').replace('1.7.0','1.7.1').replace('versionCode 18','versionCode 19'));const readme=path.join(f.root,'README.md');fs.writeFileSync(readme,fs.readFileSync(readme,'utf8').replace('**1.7.0 · Test','**1.7.1 · Test'));adopt({root:f.root,retainReason:'Only internal release bookkeeping changed; all reviewed UI sources remain identical.',reviewer:'Test',report:'docs/release/REVIEW.md'});const m=JSON.parse(fs.readFileSync(path.join(f.root,'docs/screenshots/manifest.json')));assert.equal(m.appVersion,'1.7.1');assert.equal(m.generatedAt,previous);assert.equal(m.sourceCommit,null);assert.equal(m.screenshots[0].refreshedInVersion,'1.7.0');assert.equal(m.screenshots[0].reviewedForVersion,'1.7.1');assert.ok(m.screenshots[0].retainedReason);}finally{f.close();}});
+test('retention never bypasses changed UI fingerprints',()=>{const f=fixture();try{f.save();fs.appendFileSync(path.join(f.root,'www/quiz-view.js'),'\n// UI');assert.throws(()=>adopt({root:f.root,retainReason:'Pretend nothing changed in the UI.',reviewer:'Test',report:'docs/release/REVIEW.md'}),/stale/);}finally{f.close();}});

@@ -42,7 +42,7 @@ async function run(){ // Wait for the browser process before creating its first 
   {name:'pixel-class-dark-large-text',width:412,height:892,dark:true,top:28,bottom:24,fontScale:1.35}
  ];
  let totalChecks=0;
- for(const config of scenarios){
+ for(const config of process.argv.includes('--showcase-only')?[]:scenarios){
   await send('Emulation.setDeviceMetricsOverride',{width:config.width,height:config.height,deviceScaleFactor:1,mobile:true},sessionId);
   await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-color-scheme',value:config.dark?'dark':'light'}]},sessionId);
   const navigation=await send('Page.navigate',{url:'file://'+path.resolve('www/index.html')},sessionId);if(navigation.errorText)throw Error('Navigation failed: '+navigation.errorText);
@@ -358,11 +358,14 @@ async function run(){ // Wait for the browser process before creating its first 
    state={...E.fresh(),onboarded:true};state.completed=[];state.active=null;quiz=null;actions.home();render();window.scrollTo(0,0);await frame();
    assert([...document.querySelectorAll('[data-home-section]')].map(e=>e.dataset.homeSection).join('|')==='continue|today|practice','Practice release Home prioritises course and one optional shortcut');
    assert(document.querySelector('[data-home-section=continue] .primary'),'Continue Learning is primary');
+   {const sections=[...document.querySelectorAll('[data-home-section]')];for(let i=1;i<sections.length;i++)assert(sections[i].getBoundingClientRect().top>=sections[i-1].getBoundingClientRect().bottom,'Home sections form an ordered readable vertical hierarchy');assert(document.querySelector('[data-home-section=today]').textContent.includes('Today'),'Home Today is learner-visible');}
    const primaryStyle=getComputedStyle(document.querySelector('[data-home-section=continue] .primary')),probe=document.createElement('span');probe.style.color='var(--teal)';document.body.append(probe);const expectedTeal=getComputedStyle(probe).color;probe.remove();assert(primaryStyle.backgroundColor===expectedTeal,'teal primary replaces coral');
    const luminance=color=>{const channels=color.match(/[0-9.]+/g).slice(0,3).map(Number).map(n=>{const c=n/255;return c<=.04045?c/12.92:((c+.055)/1.055)**2.4;});return channels[0]*.2126+channels[1]*.7152+channels[2]*.0722;},contrast=(a,b)=>{const x=luminance(a),y=luminance(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05);};
    assert(contrast(primaryStyle.color,primaryStyle.backgroundColor)>=4.5,'primary text contrast');const continueStyle=getComputedStyle(document.querySelector('.continue-card'));assert(contrast(continueStyle.color,continueStyle.backgroundColor)>=4.5,'Continue card text contrast');
    assert(document.documentElement.scrollWidth<=innerWidth+1,'new Home wraps in viewport');
    actions.profile();render();await frame();assert([...document.querySelectorAll('[data-profile-section]')].map(e=>e.dataset.profileSection).join('|')==='summary|level-streak|vocabulary|progress|capabilities|content|settings','v1.3 Profile hierarchy');
+   {const sections=[...document.querySelectorAll('[data-profile-section]')];for(let i=0;i<sections.length;i++){const r=sections[i].getBoundingClientRect();assert(r.width>0&&r.width<=innerWidth&&r.left>=0,'Profile card fits viewport');if(i)assert(r.top>=sections[i-1].getBoundingClientRect().bottom,'Profile semantic sections stay ordered');}for(const text of ['Level','Streak','Dictionary','Saved Words','Content for Your Level','Your Progress','Settings','Data & backup'])assert(document.querySelector('#app').textContent.includes(text),'Profile exposes '+text);}
+
    assert(navOrder()==='Home|Learn|Games|Review|Profile','new Profile retains all five tabs');assert(document.documentElement.scrollWidth<=innerWidth+1,'new Profile fits large text');const statsPanel=document.querySelector('#profile-period-stats');statsPanel.open=true;await frame();document.querySelector('[data-action=filter][data-filter=week]').click();await frame();assert(document.querySelector('#profile-period-stats').open&&document.querySelector('[data-action=filter][data-filter=week]').getAttribute('aria-pressed')==='true','period stats remain open after filtering');assert(document.querySelector('.weekchart')&&document.querySelectorAll('.period-stats tr').length===8,'detailed statistics and chart retained');
    document.querySelector('[data-action=content]').click();await frame();assert(screen==='content'&&tab==='Profile','recommendations are secondary');assert(document.querySelectorAll('.recommendation').length===15,'fifteen level-filtered recommendations');assert(document.querySelectorAll('.recommendation-category').length===5,'five recommendation categories');assert(document.documentElement.scrollWidth<=innerWidth+1,'recommendations fit landscape and large text');
    window.scrollTo(0,document.documentElement.scrollHeight);await frame();assert([...document.querySelectorAll('[data-action=externalContent]')].at(-1).getBoundingClientRect().bottom<=innerHeight-config.bottom+1,'last external action clears system navigation');assert(FriendsToAmigos.handleBack()&&tab==='Profile'&&screen==='main','recommendation Back returns Profile');
@@ -403,6 +406,7 @@ async function run(){ // Wait for the browser process before creating its first 
    assert([...document.querySelectorAll('[data-practice-section]')].map(e=>e.dataset.practiceSection).join('|')==='recommended|games|media|grammar|vocabulary|mistakes','Practice exact section order');
    assert(!document.querySelector('#app>header')&&document.querySelector('.practice-heading h1'),'Practice has its own accessible compact heading');assert(document.querySelector('.practice-heading').getBoundingClientRect().top>=(config.top||24),'Practice heading clears status bar');assert(document.querySelectorAll('.practice-activity').length===11,'all eleven real activities');assert(!document.querySelector('#grammar-level'),'no global grammar picker');assert(!document.querySelector('[data-action=gameChallenge]'),'advanced setup is secondary');
    assert([...document.querySelectorAll('nav button')].map(e=>e.textContent.replace(/[⌂▤↻☺]/g,'').trim()).join('|')==='Home|Learn|Practice|Review|Profile','visible five-tab Practice navigation');
+   {const labels=[...document.querySelectorAll('nav button')].map(b=>{const c=b.cloneNode(true);c.querySelectorAll('[aria-hidden],.badge').forEach(e=>e.remove());return c.textContent.trim();});assert(JSON.stringify(labels)===JSON.stringify(["Home", "Learn", "Practice", "Review", "Profile"]),'actual public navigation labels, without decorative icons or badge counts');}
    const practiceCards=[...document.querySelectorAll('[data-practice-section=games] .practice-activity')];
    for(const card of document.querySelectorAll('.practice-activity')){const title=card.querySelector('.practice-name');assert(title.textContent.length>0&&getComputedStyle(title).overflowWrap==='normal','activity title wraps whole words');assert(card.getBoundingClientRect().height>=44,'activity full touch target');assert(card.querySelector('svg'),'bundled vector icons');}
    if(config.width>=350&&config.height>=740&&(config.fontScale||1)===1)assert(Math.abs(practiceCards[0].getBoundingClientRect().top-practiceCards[1].getBoundingClientRect().top)<2,'normal phone practice cards side by side');
@@ -511,7 +515,8 @@ async function run(){ // Wait for the browser process before creating its first 
   }
 
  }
- console.log('Browser checks passed: '+scenarios.length+' layouts, '+totalChecks+' layout/interaction assertions. Native insets/keyboard are simulated, not device-tested.');
+ await require('./capture-showcase.cjs').capture({send,evaluate,fixture,sessionId,output});
+ if(!process.argv.includes('--showcase-only'))console.log('Browser checks passed: '+scenarios.length+' layouts, '+totalChecks+' layout/interaction assertions. Native insets/keyboard are simulated, not device-tested.');
 }
 run().catch(error=>{console.error(error.stack);process.exitCode=1;}).finally(async()=>{
  // Chrome must stop writing its profile before cleanup removes it.
