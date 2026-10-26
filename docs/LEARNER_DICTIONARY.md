@@ -76,3 +76,7 @@ This is intentionally a bounded learner dictionary, not a general translator, sp
 ## v1.3 structured practice
 
 Word/phrase bank text and visible cloze passages/options use the same pre-answer dictionary boundary. Vocabulary spans and Add/Choose/Remove controls are siblings, so lookup never constructs or scores a response. Historical typed snapshots still retain their original interaction. Structural review contracts prevent easier replacement scaffolding from correcting older reviews. The five tabs and Profile Saved Words are unchanged.
+
+## v1.4 preservation
+
+Grammar Reference and refresher examples use the existing bounded contextual dictionary. Pre-answer Spanish lookup, sibling answer-card controls, Saved Words and es-ES pronunciation remain. Looking up a word never sets Spanish Help/English Hint/scaffolding/confidence, scores, review events or mastery. Optional instructional support is a separate learner action. Hidden listening transcripts and unrevealed speaking/shadowing models remain unavailable to lookup.

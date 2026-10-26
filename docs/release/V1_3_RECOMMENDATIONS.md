@@ -1,3 +1,5 @@
+> Historical 1.3 release record. Current resource availability and quality changes are documented in [the 1.4 report](V1_4_REPORT.md) and [recommendation review](V1_4_RECOMMENDATIONS.md); earlier expiry/access observations are not current recommendations.
+
 # Recommendation curation and link review
 
 Reviewed 25–26 October 2026 using provider/store/publisher pages and indexed creator records. The app ships first-party editorial descriptions and external links only; no covers, audio, video, books, store descriptions or third-party exercises are copied into the APK. Suitability is editorial, not an official CEFR classification. A1.1 suggestions generally require short samples, repetition and support; a cartoon is not automatically easy merely because it is for children.

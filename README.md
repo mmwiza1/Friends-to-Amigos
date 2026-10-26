@@ -1,12 +1,12 @@
 # Friends to Amigos
 
-**1.3.0 · Build Spanish before writing freely.** A calmer learning journey, structured A1/A2 production and genuine guided expression at higher levels.
+**1.4.0 · Learn, understand mistakes and recall later.** Adaptive support, connected review, Grammar Reference and self-assessed shadowing strengthen the existing A1.1–B2.2 journey.
 
 An offline-first Android Spanish-learning app in a vanilla HTML/CSS/JavaScript WebView. European Spanish is the primary variety, including vosotros/as. No account, backend, runtime API, cloud grader or runtime npm dependency is required.
 
 ## App preview
 
-Screens from the validated 1.3 UI, using simulated Samsung-size profiles and illustrative progress. Light and dark mode share the same five-tab navigation.
+Screens from the validated 1.4 UI, using simulated Samsung-size profiles and illustrative progress. Light and dark mode share the same five-tab navigation.
 
 | Learn with support | Build and explore | Keep progressing |
 | --- | --- | --- |
@@ -16,7 +16,7 @@ Screens from the validated 1.3 UI, using simulated Samsung-size profiles and ill
 | <img src="docs/screenshots/conjugations.png" width="180" alt="Conjugations in context"><br>Conjugations in context | <img src="docs/screenshots/review.png" width="180" alt="Scheduled review and weak areas"><br>Scheduled review and weak areas | <img src="docs/screenshots/profile.png" width="180" alt="Your level, streak and capabilities"><br>Your level, streak and capabilities |
 | <img src="docs/screenshots/saved-words.png" width="180" alt="Your personal vocabulary"><br>Your personal vocabulary | <img src="docs/screenshots/content-for-your-level.png" width="180" alt="Curated Spanish beyond the app"><br>Curated Spanish beyond the app | <img src="docs/screenshots/lesson-complete.png" width="180" alt="Continue straight to the next activity"><br>Continue straight to the next activity |
 
-[Build results and device-testing limits](BUILD_STATUS.md) · [Release details](docs/release/V1_3_REPORT.md)
+[Build results and device-testing limits](BUILD_STATUS.md) · [Release details](docs/release/V1_4_REPORT.md)
 
 ## Full course for user testing
 
@@ -24,8 +24,8 @@ Screens from the validated 1.3 UI, using simulated Samsung-size profiles and ill
 
 | Stage | Activities | Slots | Stories | Focused Listening / Speaking | Conjugations | Table targets |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| A1.1 | 72 | 416 | 32 | 56 / 56 | 104 | 10 |
-| A1.2 | 72 | 416 | 32 | 56 / 56 | 104 | 14 |
+| A1.1 | 72 | 416 | 32 | 56 / 56 | 104 | 11 |
+| A1.2 | 72 | 416 | 32 | 56 / 56 | 104 | 13 |
 | A2.1 | 72 | 416 | 32 | 56 / 56 | 64 | 11 |
 | A2.2 | 72 | 416 | 32 | 56 / 56 | 64 | 20 |
 | B1.1 | 72 | 416 | 32 | 56 / 56 | 64 | 8 |
@@ -33,9 +33,24 @@ Screens from the validated 1.3 UI, using simulated Samsung-size profiles and ill
 | B2.1 | 72 | 416 | 32 | 56 / 56 | 64 | 6 |
 | B2.2 | 72 | 416 | 32 | 56 / 56 | 64 | 6 |
 
-Each stage has eight units, three core lessons, four stories, a production activity and a checkpoint per unit. Recognition → controlled completion → recall → contextual response → transfer remains the learning progression. All activity/question IDs, ordering, canonical Spanish targets, learning objectives and historical snapshots remain stable. Version 1.3 changes how specific targets are practised, with no new stage or story rewrite. See the [1.3 release report](docs/release/V1_3_REPORT.md), [assessment audit](docs/release/v13-assessment-audit.json) and historical [1.2 on-ramp report](docs/release/LEARNER_EXPERIENCE_REPORT.md).
+Each stage has eight units, three core lessons, four stories, a production activity and a checkpoint per unit. Recognition → controlled completion → recall → contextual response → transfer remains the learning progression. All activity/question IDs, ordering, canonical Spanish targets, learning objectives and historical snapshots remain stable. Version 1.3 changed the interaction model. Version 1.4 retains those targets and adds two explicitly documented B1 glossary supports, with no new stage or story rewrite. See the [1.3 release report](docs/release/V1_3_REPORT.md), [assessment audit](docs/release/v13-assessment-audit.json) and historical [1.2 on-ramp report](docs/release/LEARNER_EXPERIENCE_REPORT.md).
 
 B1 introduces connected narratives, practical advice, changes, viewpoints and limited wishes/necessity. B2 develops chronology, cause versus evidence, qualification, register, reported information, imagined conditions and integrated proposals. New material is original Friends to Amigos content; pedagogical references inform design without copied exercises.
+
+## A connected learning loop
+
+Learn → optional grammar reinforcement → understand mistakes → retrieve later → focus weak areas → maintain practical ability. Continue Learning stays primary; games and refreshers are optional.
+
+- **Support changes, the target stays the same.** Relevant repeated errors restore a pattern guide or a smaller controlled step. Less support requires sustained independent, spaced evidence; selecting a level or succeeding once is insufficient.
+- **Spanish help before English.** Appropriate Spanish-first tasks offer simpler Spanish guidance, then the existing English hint. Support changes evidence strength, never visible correctness. Dictionary lookup remains a vocabulary aid and never counts as a hint.
+- **Today’s Review** mixes due snapshots, weak concepts, older success, recent completed material and confidence-building retrieval. Later levels interleave topics; first-stage review stays more focused. Optional Sure / Not sure captures uncertainty without penalising scores.
+- **Grammar Reference** covers all 44 central syllabus concepts, with patterns, examples, common mistakes and level-controlled practice. Weak Areas can open a short refresher and 3–5 targeted questions, then continue practice. Completion and the evidence states Practising / Improving / Strong / Needs practice are separate.
+- **Speaking → Shadowing** reuses existing eligible authored phrases. Hear, repeat aloud, reveal suggested chunks and self-assess. This is assisted imitation, with weaker evidence than recall. No microphone, recording, speech recognition or pronunciation scoring is involved.
+- **Listening** remains audio-first. After an attempt, replay short phrases with a visible selected chunk. Synthetic Spanish (Spain) speech depends on the installed voice; there is no human-speaker or timed acoustic-alignment claim.
+
+The regular -ER present pattern now joins -AR/-IR in A1.1 grammar practice, with explicit teaching support. The original comer target identity remains unchanged; A1.2 consolidates it. Practice follows the existing manually selected grammar level, while course/focused-media eligibility keeps its existing progression rules.
+
+The [quality report](docs/release/V1_4_REPORT.md), [load audit](docs/release/v14-learning-load.json) and [current recommendation review](docs/release/V1_4_RECOMMENDATIONS.md) record the evidence and limitations. Recommendations load locally; external sites alone need internet. The developer recommendation audit checks dates, expiry, allowed providers and access metadata without requiring a live runtime request.
 
 ## Build first, then express yourself
 
@@ -115,6 +130,8 @@ Storage remains **schema v2** under `friends-to-amigos-v1`. The optional `savedW
 npm run check
 npm test
 npm run audit
+npm run audit:learning
+npm run audit:recommendations
 npm run check:browser
 node scripts/learner-release-audit.cjs
 ```

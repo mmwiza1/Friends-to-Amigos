@@ -1,3 +1,5 @@
+> Historical 1.3 release record. Current resource availability and quality changes are documented in [the 1.4 report](V1_4_REPORT.md) and [recommendation review](V1_4_RECOMMENDATIONS.md); earlier expiry/access observations are not current recommendations.
+
 # Friends to Amigos 1.3.0 learner-experience release
 
 Baseline: main `3af8d73b0a25c40bc8802122c4ad068ba0ebf6c8`, version 1.2.0 / Android code 13. Candidate: 1.3.0 / code 14. Storage remains schema v2 under the same discovery key. This is an interaction/UX release; it adds no course stage, changes no unit/activity ordering and retains all canonical course targets and stories.
