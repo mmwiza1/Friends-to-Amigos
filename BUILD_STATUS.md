@@ -1,3 +1,13 @@
+# Build and validation status — 1.6.0 candidate
+
+Android versionCode **17**; schema-v2 retained. Base main: `36352bdca18c1ed397c3bd9634e801301b501cb5`. Course identities, order and content remain unchanged: A1.1–B2.2, 576 activities / 3,328 course slots / 256 stories. See [implementation](docs/release/V1_6_REPORT.md), [release notes](docs/release/V1_6_RELEASE_NOTES.md) and [manual QA](docs/release/V1_6_MANUAL_QA.md).
+
+Local syntax/course validation, curriculum audit, recommendation audit, learning-load audit, story audit and learner-release audit passed. The combined new-activity/progression/legacy compatibility group passed **74 cases, 0 failures/skips**; the existing experience/Spanish-level group passed **138 cases, 0 failures/skips**. Full release validation and refreshed showcase are in progress on the validation branch; this is not a claim of release readiness.
+
+Local Chromium is blocked by the workspace socket policy (`setsockopt: Operation not permitted`); the established hosted workflow is used for rendered browser and Android compilation/lint/unit checks. Seventeen simulated responsive profiles preserve the previous fifteen and add two generic Pixel-class widths/text conditions requested for this release. No physical-device, emulator, acoustic, native-speaker or educator validation is claimed.
+
+<details><summary>Historical 1.5 validation record</summary>
+
 # Build and validation status — 1.5.0
 
 Android versionCode **16**; schema-v2 compatibility retained. Starting main: `39ad8188e985277468619326e9ddbf5bdf3f8d67`. The course remains 576 activities / 3,328 slots / 256 stories, A1.1–B2.2. [Implementation report](docs/release/V1_5_REPORT.md), [release notes](docs/release/V1_5_RELEASE_NOTES.md), [Story Bible](docs/STORY_BIBLE.md) and [manual QA](docs/release/V1_5_MANUAL_QA.md) record scope and limits.
@@ -107,6 +117,8 @@ Eleven additional profiles retain 320px, resized/overlap keyboards, gesture/thre
 The APK is suitable for this physical-device testing, not a claim of hardware validation or CEFR certification. Recommendations may change availability; the catalogue documents near-term RTVE expiries and partial YouTube verification. Existing [user-testing guidance](docs/release/USER_TESTING.md) still applies.
 
 Historical v1.2 results: 838 JS cases / 20,640 browser assertions / 13 native tests, lint 0 errors / 12 warnings. They remain baseline evidence rather than current-release totals. See [the baseline build record](https://github.com/mmwiza1/Friends-to-Amigos/blob/3af8d73b0a25c40bc8802122c4ad068ba0ebf6c8/BUILD_STATUS.md).
+
+</details>
 
 </details>
 
