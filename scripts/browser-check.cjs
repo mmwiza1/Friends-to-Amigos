@@ -460,7 +460,7 @@ async function run(){ // Wait for the browser process before creating its first 
     if(view==='story-perspectives')await fixture(sessionId,"actions.lesson({dataset:{id:'b21u0story0'}});render();window.scrollTo(0,0);");
     if(view==='spanish-transition-v15')await fixture(sessionId,"delete state.spanishTransitionSeen;actions.lesson({dataset:{id:'a12u0l0'}});render();window.scrollTo(0,0);");
     if(view==='games')await fixture(sessionId,"state.completed=C.lessons.map(l=>l.id);state.grammarLevel='A2.1';state.games=G.empty();state.blanks=B.empty();quiz=null;actions.tab({dataset:{tab:'Games'}});actions.gameNew();actions.gameLeave();render();window.scrollTo(0,0);");
-    if(view==='round')await fixture(sessionId,"actions.gameResume();render();window.scrollTo(0,0);");
+    if(view==='round')await fixture(sessionId,"if(!state.games?.active){state.completed=C.lessons.map(l=>l.id);state.grammarLevel='A2.1';state.games=G.empty();actions.gameNew();}actions.gameResume();render();window.scrollTo(0,0);");
     if(view==='tables')await fixture(sessionId,"state.blanks.active=null;actions.blanksNormal();render();window.scrollTo(0,0);");
     if(view==='table-feedback')await fixture(sessionId,"const a=state.blanks.active,t=a.tables[0];a.selected=t.rows.map((row,j)=>j===0?t.options[j].find(v=>v!==t.target.forms[row]):t.target.forms[row]);actions.blanksCheck();render();window.scrollTo(0,document.documentElement.scrollHeight);");
     if(view==='feedback')await fixture(sessionId,"state.games.active.selected=state.games.active.questions[state.games.active.index].blanks.map(b=>b.options.find(x=>x!==b.answer));actions.gameCheck();render();window.scrollTo(0,document.documentElement.scrollHeight);");
