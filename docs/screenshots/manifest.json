@@ -1,7 +1,7 @@
 {
   "version": "1.7.0",
-  "sourceCommit": "cce5ed2a8f6a7ccdfc6156e3a6d44c33e3d7b45a",
-  "validationRun": 40415569843,
+  "sourceCommit": "6a1de1f17ca64ed1ea47411efe91e70d658772a4",
+  "validationRun": 40418035901,
   "note": "Unmodified PNGs from the successful 17-layout / 38,868-assertion browser step for this exact 77-file runtime. Simulated viewport/inset/keyboard conditions, not physical-device captures. Full JS/native evidence is recorded in BUILD_STATUS.md.",
   "screenshots": [
     {
@@ -62,7 +62,7 @@
       "file": "conjugations.png",
       "source": "s24-dark-buttons-round.png",
       "caption": "Verb in Context",
-      "sha256": "4c7ebde88ffced1136ff197a12bfc8ece7817d62cd9c0aacc6666ccaecb12538"
+      "sha256": "2ab054da5a4456640485a45a0629e925b24c7876fd03255a1af9cafe15d0a458"
     },
     {
       "file": "review.png",

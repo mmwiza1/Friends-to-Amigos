@@ -4,13 +4,13 @@ Base main: `d69d64f727ea9eee5520057e5ac2bb4df00b94ab`. Version **1.7.0**, Androi
 
 ## Performed release gate
 
-The complete runtime gate passed in [run 40415569843](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/40415569843), commit `cce5ed2a8f6a7ccdfc6156e3a6d44c33e3d7b45a`:
+The complete runtime gate passed in [run 40418035901](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/40418035901), commit `6a1de1f17ca64ed1ea47411efe91e70d658772a4`:
 
 - `npm run check`, `npm run audit`, recommendation/learning/story audits and `node scripts/learner-release-audit.cjs`: passed (report audit also performed locally).
-- `npm test` (CI Node 22): **2,068 passed, 0 failed, 0 cancelled, 0 skipped, 0 todo**. All previous cases remain; **334** focused Practice-depth cases cover the new formatters, explicit errors, source gates, replay, snapshots and evidence.
+- `npm test` (CI Node 22): **2,069 passed, 0 failed, 0 cancelled, 0 skipped, 0 todo**. All previous cases remain; **335** focused Practice-depth cases cover the new formatters, explicit errors, source gates, replay, snapshots and evidence.
 - `npm run audit:practice-depth`: passed. Twenty rounds for each activity/stage: **4,800 questions**. Builder/Numbers show zero exact repeats at every stage. Spot exhausts eligible authored contexts before repetition, with 15 necessary repeats over 200 questions at full B2.2 eligibility. Tests also complete **800 Builder rounds / 8,000 questions**.
 - `npm run check:browser`: **17 layouts, 38,868 assertions, 0 failed layouts**. Retains Samsung profiles and generic Pixel-class widths; adds generated clocks/dates, granular mixed rounds and related-challenge resume. Conditions are simulated, not real device/keyboard/acoustic validation.
-- `gradle -p android assembleDebug lintDebug testDebugUnitTest`: **BUILD SUCCESSFUL in 17s, 47 tasks executed**. Downloaded JUnit XML confirms **15 tests, 0 failures/errors/skips** (launcher 2, insets 8, native policy 5). Downloaded lint XML confirms **0 errors/fatal issues, 12 existing warnings**.
+- `gradle -p android assembleDebug lintDebug testDebugUnitTest`: **BUILD SUCCESSFUL in 23s, 47 tasks executed**. Downloaded JUnit XML confirms **15 tests, 0 failures/errors/skips** (launcher 2, insets 8, native policy 5). Downloaded lint XML confirms **0 errors/fatal issues, 12 existing warnings**.
 - Downloaded APK integrity: **all 77 web files exactly match** the runtime/showcase SHA-256 manifest. Fifteen README PNGs were copied unmodified from this run; every PNG and every web asset is checked by the showcase regression.
 
 The documentation/showcase release commit repeats the complete workflow before main promotion. The runtime is unchanged from the validated capture. The new [implementation report](docs/release/V1_7_REPORT.md), [replay data](docs/release/v17-practice-depth.json), [release notes](docs/release/V1_7_RELEASE_NOTES.md) and [manual QA](docs/release/V1_7_MANUAL_QA.md) describe exact boundaries.
