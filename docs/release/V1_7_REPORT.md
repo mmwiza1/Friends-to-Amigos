@@ -35,3 +35,22 @@ Implementation validation is in progress. Exact performed counts, replay tables,
 ## Limitations / human review
 
 A small newly unlocked pool necessarily repeats; 185 total Spot scenarios cannot provide 200 never-repeated errors, and A1.1 alone has 30. Related contexts preserve concept repetition rather than promise no repetition forever. No new custom filter/setup surface is added. Builder remains finite reconstruction, not arbitrary word-order grading. Dates omit leap day, clocks explicitly use 12-hour semantics, and numeric sampling is bounded. Independent Spanish educator/native-speaker review of the new repairs, excerpt suitability and accepted order remains required. Physical keyboard/system bars and acoustic TTS need actual-device testing. No physical-device, emulator, human-audio or educator validation is inferred from automated tests.
+
+## Performed depth and replay audit
+
+The deterministic stage-end audit completed successfully. The full reproducible question/concept/stage distribution is in [v17-practice-depth.json](v17-practice-depth.json). Values below count exact normalised Spanish targets, not shuffled options or cosmetic framing.
+
+| Stage | Eligible Builder records | Current-stage records | Unique current-stage sentences | Concepts | Topics | Numeric base values / direction variants |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| A1.1 | 270 | 270 | 203 | 13 | 36 | 285 / 855 |
+| A1.2 | 620 | 350 | 310 | 14 | 32 | 839 / 2517 |
+| A2.1 | 903 | 283 | 249 | 17 | 8 | 1744 / 5232 |
+| A2.2 | 1274 | 371 | 338 | 20 | 8 | 1744 / 5232 |
+| B1.1 | 1708 | 434 | 399 | 18 | 8 | 2806 / 8418 |
+| B1.2 | 2137 | 429 | 396 | 18 | 8 | 2806 / 8418 |
+| B2.1 | 2591 | 454 | 418 | 21 | 8 | 2806 / 8418 |
+| B2.2 | 3103 | 512 | 477 | 23 | 8 | 2806 / 8418 |
+
+Each activity/stage simulation served 200 questions over 20 normal rounds (4,800 served in total across the three activities and eight stages). Builder and Numbers had **0 repeated exact prompts, 0 repeated IDs and 0 consecutive-round repeats at every stage**. Spot used the whole eligible bank before repetition: repeated IDs/prompts were **170 / 145 / 120 / 95 / 75 / 55 / 35 / 15** from A1.1 through B2.2, with **0 consecutive-round repeats**. This is the unavoidable consequence of 30 / 55 / 80 / 105 / 125 / 145 / 165 / 185 eligible authored scenarios; it is not hidden as a zero-repeat claim. Tests additionally complete 100 Builder rounds for each stage (8,000 Builder questions).
+
+At B levels the sampled numeric pool comprises 885 number, 432 time, 6,006 price and 1,095 date direction variants: 2,806 base identities / 8,418 directions total. The formatter supports more values than this bounded representative pool, but the app does not claim to serve every mathematical combination. No new custom filters are required to start practice.

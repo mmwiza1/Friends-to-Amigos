@@ -1,0 +1,359 @@
+[
+  {
+    "id": "skill-spot-a11-01",
+    "wrong": "Me llamas Ana.",
+    "bad": "llamas",
+    "answer": "llamo",
+    "good": "Me llamo Ana."
+  },
+  {
+    "id": "skill-spot-a11-02",
+    "wrong": "¿Cómo te llamo?",
+    "bad": "llamo",
+    "answer": "llamas",
+    "good": "¿Cómo te llamas?"
+  },
+  {
+    "id": "skill-spot-a11-03",
+    "wrong": "Buenos día.",
+    "bad": "día",
+    "answer": "días",
+    "good": "Buenos días."
+  },
+  {
+    "id": "skill-spot-a11-04",
+    "wrong": "Buenas días.",
+    "bad": "Buenas",
+    "answer": "Buenos",
+    "good": "Buenos días."
+  },
+  {
+    "id": "skill-spot-a11-05",
+    "wrong": "Hasta luegos.",
+    "bad": "luegos",
+    "answer": "luego",
+    "good": "Hasta luego."
+  },
+  {
+    "id": "skill-spot-a11-06",
+    "wrong": "Me llama Luis.",
+    "bad": "llama",
+    "answer": "llamo",
+    "good": "Me llamo Luis."
+  },
+  {
+    "id": "skill-spot-a11-07",
+    "wrong": "¿Cómo me llamas?",
+    "bad": "me",
+    "answer": "te",
+    "good": "¿Cómo te llamas?"
+  },
+  {
+    "id": "skill-spot-a11-08",
+    "wrong": "Hola, me llamo Ana. ¿Y yo?",
+    "bad": "yo",
+    "answer": "tú",
+    "good": "Hola, me llamo Ana. ¿Y tú?"
+  },
+  {
+    "id": "skill-spot-a11-09",
+    "wrong": "Muchas gracia.",
+    "bad": "gracia",
+    "answer": "gracias",
+    "good": "Muchas gracias."
+  },
+  {
+    "id": "skill-spot-a11-10",
+    "wrong": "Por favores.",
+    "bad": "favores",
+    "answer": "favor",
+    "good": "Por favor."
+  },
+  {
+    "id": "skill-spot-a11-11",
+    "wrong": "Yo eres de Londres.",
+    "bad": "eres",
+    "answer": "soy",
+    "good": "Yo soy de Londres."
+  },
+  {
+    "id": "skill-spot-a11-12",
+    "wrong": "Yo soy veinte años.",
+    "bad": "soy",
+    "answer": "tengo",
+    "good": "Yo tengo veinte años."
+  },
+  {
+    "id": "skill-spot-a11-13",
+    "wrong": "Nosotros habla español.",
+    "bad": "habla",
+    "answer": "hablamos",
+    "good": "Nosotros hablamos español."
+  },
+  {
+    "id": "skill-spot-a11-14",
+    "wrong": "Vosotros comen pan.",
+    "bad": "comen",
+    "answer": "coméis",
+    "good": "Vosotros coméis pan."
+  },
+  {
+    "id": "skill-spot-a11-15",
+    "wrong": "Tú vive en Madrid.",
+    "bad": "vive",
+    "answer": "vives",
+    "good": "Tú vives en Madrid."
+  },
+  {
+    "id": "skill-spot-a11-16",
+    "wrong": "La estación es cerca.",
+    "bad": "es",
+    "answer": "está",
+    "good": "La estación está cerca."
+  },
+  {
+    "id": "skill-spot-a11-17",
+    "wrong": "Mi hermana es simpático.",
+    "bad": "simpático",
+    "answer": "simpática",
+    "good": "Mi hermana es simpática."
+  },
+  {
+    "id": "skill-spot-a11-18",
+    "wrong": "Yo estoy hambre.",
+    "bad": "estoy",
+    "answer": "tengo",
+    "good": "Yo tengo hambre."
+  },
+  {
+    "id": "skill-spot-a12-01",
+    "wrong": "Me gusta los libros.",
+    "bad": "gusta",
+    "answer": "gustan",
+    "good": "Me gustan los libros."
+  },
+  {
+    "id": "skill-spot-a12-02",
+    "wrong": "Yo gusto el cine.",
+    "bad": "Yo gusto",
+    "answer": "Me gusta",
+    "good": "Me gusta el cine."
+  },
+  {
+    "id": "skill-spot-a12-03",
+    "wrong": "Mañana voy ir al cine.",
+    "bad": "voy",
+    "answer": "voy a",
+    "good": "Mañana voy a ir al cine."
+  },
+  {
+    "id": "skill-spot-a12-04",
+    "wrong": "Yo se levanto a las ocho.",
+    "bad": "se",
+    "answer": "me",
+    "good": "Yo me levanto a las ocho."
+  },
+  {
+    "id": "skill-spot-a12-05",
+    "wrong": "Vosotros se levantáis temprano.",
+    "bad": "se",
+    "answer": "os",
+    "good": "Vosotros os levantáis temprano."
+  },
+  {
+    "id": "skill-spot-a12-06",
+    "wrong": "Yo prefero el té.",
+    "bad": "prefero",
+    "answer": "prefiero",
+    "good": "Yo prefiero el té."
+  },
+  {
+    "id": "skill-spot-a12-07",
+    "wrong": "Voy al café y no voy al cine por estoy cansada.",
+    "bad": "por",
+    "answer": "porque",
+    "good": "Voy al café y no voy al cine porque estoy cansada."
+  },
+  {
+    "id": "skill-spot-a21-01",
+    "wrong": "Hoy yo ha comido en casa.",
+    "bad": "ha",
+    "answer": "he",
+    "good": "Hoy yo he comido en casa."
+  },
+  {
+    "id": "skill-spot-a21-02",
+    "wrong": "Esta semana hemos hacer la compra.",
+    "bad": "hacer",
+    "answer": "hecho",
+    "good": "Esta semana hemos hecho la compra."
+  },
+  {
+    "id": "skill-spot-a21-03",
+    "wrong": "Ayer yo fui al museo y comió allí.",
+    "bad": "comió",
+    "answer": "comí",
+    "good": "Ayer yo fui al museo y comí allí."
+  },
+  {
+    "id": "skill-spot-a21-04",
+    "wrong": "El tren es más rápido como el autobús.",
+    "bad": "como",
+    "answer": "que",
+    "good": "El tren es más rápido que el autobús."
+  },
+  {
+    "id": "skill-spot-a21-05",
+    "wrong": "Me duele las piernas.",
+    "bad": "duele",
+    "answer": "duelen",
+    "good": "Me duelen las piernas."
+  },
+  {
+    "id": "skill-spot-a21-06",
+    "wrong": "Tengo ir a la farmacia.",
+    "bad": "Tengo",
+    "answer": "Tengo que",
+    "good": "Tengo que ir a la farmacia."
+  },
+  {
+    "id": "skill-spot-a22-01",
+    "wrong": "Antes nosotros vivía en Madrid.",
+    "bad": "vivía",
+    "answer": "vivíamos",
+    "good": "Antes nosotros vivíamos en Madrid."
+  },
+  {
+    "id": "skill-spot-a22-02",
+    "wrong": "Mientras Ana cocinaba, sonaba el teléfono una sola vez.",
+    "bad": "sonaba",
+    "answer": "sonó",
+    "good": "Mientras Ana cocinaba, sonó el teléfono una sola vez."
+  },
+  {
+    "id": "skill-spot-a22-03",
+    "wrong": "Ayer nosotros comieron juntos.",
+    "bad": "comieron",
+    "answer": "comimos",
+    "good": "Ayer nosotros comimos juntos."
+  },
+  {
+    "id": "skill-spot-a22-04",
+    "wrong": "Ayer yo tuvo un problema.",
+    "bad": "tuvo",
+    "answer": "tuve",
+    "good": "Ayer yo tuve un problema."
+  },
+  {
+    "id": "skill-spot-b11-01",
+    "wrong": "Mañana yo iremos al médico.",
+    "bad": "iremos",
+    "answer": "iré",
+    "good": "Mañana yo iré al médico."
+  },
+  {
+    "id": "skill-spot-b11-02",
+    "wrong": "El próximo año nosotros viajarán más.",
+    "bad": "viajarán",
+    "answer": "viajaremos",
+    "good": "El próximo año nosotros viajaremos más."
+  },
+  {
+    "id": "skill-spot-b11-03",
+    "wrong": "Yo, en tu lugar, comprarías el billete ahora.",
+    "bad": "comprarías",
+    "answer": "compraría",
+    "good": "Yo, en tu lugar, compraría el billete ahora."
+  },
+  {
+    "id": "skill-spot-b11-04",
+    "wrong": "Nosotros podrías ayudar.",
+    "bad": "podrías",
+    "answer": "podríamos",
+    "good": "Nosotros podríamos ayudar."
+  },
+  {
+    "id": "skill-spot-b12-01",
+    "wrong": "Quiero que tú vienes mañana.",
+    "bad": "vienes",
+    "answer": "vengas",
+    "good": "Quiero que tú vengas mañana."
+  },
+  {
+    "id": "skill-spot-b12-02",
+    "wrong": "Es necesario que vosotros estudian.",
+    "bad": "estudian",
+    "answer": "estudiéis",
+    "good": "Es necesario que vosotros estudiéis."
+  },
+  {
+    "id": "skill-spot-b12-03",
+    "wrong": "Espero que Ana llega pronto.",
+    "bad": "llega",
+    "answer": "llegue",
+    "good": "Espero que Ana llegue pronto."
+  },
+  {
+    "id": "skill-spot-b12-04",
+    "wrong": "Ojalá podemos quedar mañana.",
+    "bad": "podemos",
+    "answer": "podamos",
+    "good": "Ojalá podamos quedar mañana."
+  },
+  {
+    "id": "skill-spot-b21-01",
+    "wrong": "Cuando llegué, Ana ya ha salido.",
+    "bad": "ha",
+    "answer": "había",
+    "good": "Cuando llegué, Ana ya había salido."
+  },
+  {
+    "id": "skill-spot-b21-02",
+    "wrong": "Nosotros ya habían comprado los billetes cuando llamó Luis.",
+    "bad": "habían",
+    "answer": "habíamos",
+    "good": "Nosotros ya habíamos comprado los billetes cuando llamó Luis."
+  },
+  {
+    "id": "skill-spot-b21-03",
+    "wrong": "No creo que Ana está en casa.",
+    "bad": "está",
+    "answer": "esté",
+    "good": "No creo que Ana esté en casa."
+  },
+  {
+    "id": "skill-spot-b21-04",
+    "wrong": "Si tendría más tiempo, viajaría más.",
+    "bad": "tendría",
+    "answer": "tuviera",
+    "good": "Si tuviera más tiempo, viajaría más."
+  },
+  {
+    "id": "skill-spot-b22-01",
+    "wrong": "Con más tiempo, yo había revisado el informe.",
+    "bad": "había",
+    "answer": "habría",
+    "good": "Con más tiempo, yo habría revisado el informe."
+  },
+  {
+    "id": "skill-spot-b22-02",
+    "wrong": "Le agradecería que me ayudaras, señora.",
+    "bad": "ayudaras",
+    "answer": "ayudara",
+    "good": "Le agradecería que me ayudara, señora."
+  },
+  {
+    "id": "skill-spot-b22-03",
+    "wrong": "Si habría tenido tiempo, habría ido.",
+    "bad": "habría",
+    "answer": "hubiera",
+    "good": "Si hubiera tenido tiempo, habría ido."
+  },
+  {
+    "id": "skill-spot-b22-04",
+    "wrong": "Es posible que ha cambiado el horario.",
+    "bad": "ha",
+    "answer": "haya",
+    "good": "Es posible que haya cambiado el horario."
+  }
+]
