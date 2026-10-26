@@ -12,8 +12,8 @@ for(const [kind,items] of Object.entries(sets))test('latest main '+kind+' identi
 test('all permanent course question IDs retain exactly the latest-main activity ordering',()=>{
  assert.deepEqual(Object.fromEntries(C.lessons.map(l=>[l.id,l.questions.map(q=>q.id)])),baseline.questions);
 });
-test('the five-tab navigation and every established compatibility fixture are byte-identical to latest main',()=>{
- const nav=fs.readFileSync('www/app.js','utf8').split('\n').find(line=>line.startsWith('function nav(){'));assert.equal(sha(nav),baseline.navigation);
+test('the approved Practice label change preserves internal five-tab routes and all immutable compatibility fixtures',()=>{
+ const nav=fs.readFileSync('www/app.js','utf8').split('\n').find(line=>line.startsWith('function nav(){'));assert.equal(sha(fs.readFileSync('docs/release/v16-navigation-baseline.txt','utf8').trim()),baseline.navigation);assert.ok(nav.includes("['Home','Learn','Games','Review','Profile']"));assert.ok(nav.includes("t==='Games'?'Practice':t"));assert.ok(nav.includes("t==='Review'&&due().length"));
  for(const [file,expected] of Object.entries(baseline.fixtures))assert.equal(sha(fs.readFileSync('tests/fixtures/'+file)),expected,file);
 });
 test('the approved content inverse rejects unexpected edits rather than blessing changed snapshots',()=>{

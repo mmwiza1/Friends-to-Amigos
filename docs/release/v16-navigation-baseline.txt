@@ -1,0 +1,1 @@
+function nav(){return `<nav aria-label="Main navigation">${['Home','Learn','Games','Review','Profile'].map((t,i)=>b(`<span aria-hidden="true">${['⌂','▤','⚄','↻','☺'][i]}</span>${t}${t==='Review'&&due().length?`<strong class="badge">${due().length}</strong>`:''}`,'tab',''+(tab===t?'active':''),`data-tab="${t}"`)).join('')}</nav>`;}

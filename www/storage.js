@@ -39,6 +39,7 @@ function question(raw){
   if(!Array.isArray(raw.options)||raw.options.length<2||raw.options.length>12||raw.options.some(a=>!text(a,6000))||raw.options.filter(a=>a===raw.answer).length!==1||new Set(raw.options.map(E.normalizeAnswer)).size!==raw.options.length)return null;
   q.options=raw.options.slice();
  }
+ if(raw.practiceVisual!==undefined){const v=raw.practiceVisual;if(!object(v)||v.kind!=='clock'||!Number.isInteger(v.hour)||v.hour<0||v.hour>23||!Number.isInteger(v.minute)||v.minute<0||v.minute>59)return null;q.practiceVisual={kind:'clock',hour:v.hour,minute:v.minute};}
  if(raw.practiceForm!==undefined){const T=typeof module!=='undefined'?require('./conjugation-targets'):root.ConjugationTargets;if(!object(raw.practiceForm)||!T.targets.some(t=>t.id===raw.practiceForm.targetId)||!Number.isInteger(raw.practiceForm.row)||raw.practiceForm.row<0||raw.practiceForm.row>5)return null;q.practiceForm={targetId:raw.practiceForm.targetId,row:raw.practiceForm.row};}
  if(raw.qualityConcept!==undefined){const S=typeof module!=='undefined'?require('./grammar-syllabus'):root.GrammarSyllabus;if(!S.concepts.some(c=>c.id===raw.qualityConcept))return null;q.qualityConcept=raw.qualityConcept;}
  if(raw.shadowing===true&&type==='speaking')q.shadowing=true;
@@ -143,6 +144,7 @@ function migrateState(raw,course,options={}){
  if(raw.mastery!==undefined)state.mastery=Mastery.sanitize(raw.mastery);
  if(raw.blanks!==undefined){const result=Blanks.sanitize(raw.blanks,state,course);state.blanks=result.data;if(result.warnings.length)quarantine('table practice','blanks',raw.blanks);}
  if(raw.focused!==undefined){const result=Focused.sanitize(raw.focused,state,course,question);state.focused=result.data;if(result.warnings.length)quarantine('focused practice','focused',raw.focused);}
+ if(raw.practiceHub!==undefined){const result=(typeof module!=='undefined'?require('./practice-skills'):root.PracticeSkills).sanitize(raw.practiceHub,course,question);state.practiceHub=result.data;if(result.warnings.length)quarantine('skill practice','practiceHub',raw.practiceHub);}
  if(raw.games!==undefined){const result=Games.sanitize(raw.games,state,course);state.games=result.data;if(result.warnings.length)quarantine('game','games',raw.games);}
  if(options.import&&warnings.some(message=>message.includes('damaged')))throw Error('This backup contains damaged questions or an unsafe unfinished attempt.');
  // Unknown fields never enter runtime state. Quarantine is exported, never rendered as code.
