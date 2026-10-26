@@ -12,7 +12,7 @@ Lessons add orientation/type labels, concise wrong-answer teaching and optional 
 
 ## Dictionary and private feedback
 
-The bidirectional learner dictionary retains all 1,212 existing entries and adds 18 original episode nouns (1,230 total), with 1,564 existing form mappings. No external dataset/service is added. English matching offers multiple analyses; saber/conocer have explicit original explanations. Thirty high-frequency noun notes add gender/examples in the searchable view, without changing permanent dictionary IDs or historical Saved Words. Existing senses, region notes, forms, Hear, Save/Remove and More remain. Unknown queries receive an honest bounded-dictionary message.
+The bidirectional learner dictionary retains all 1,212 existing entries and adds 18 original episode nouns (1,230 total), with 1,564 existing form mappings. No external dataset/service is added. English matching offers multiple analyses; saber/conocer have explicit original explanations. Thirty high-frequency noun notes plus the eighteen episode entries add gender/examples in the searchable view, without changing permanent dictionary IDs or historical Saved Words. Existing senses, region notes, forms, Hear, Save/Remove and More remain. Unknown queries receive an honest bounded-dictionary message.
 
 Answer reports store the permanent question/activity IDs, response/model, stage/unit/type and timestamp locally; 200 bounded records, short-term duplicate protection and optional safe import defaults. Export is explicit through browser JSON or the existing Android document-save mechanism. The native answer-report bridge uses a separate default filename from progress backups; older wrappers retain the compatible fallback. Reporting never changes correctness, reviews, mastery or completion; no writing is uploaded.
 
@@ -38,6 +38,6 @@ A few presentation assertions intentionally change: compact Home/Profile hierarc
 
 ## Validation and limits
 
-The new regression file covers 58 cases, including every revised episode's grading/snapshot, dictionary directions/ambiguity, private export, optional preferences, Games/Back and safe substitution. Browser coverage retains the existing Samsung profiles and adds new layout/dictionary/report/story checks. Exact final totals/build results will be recorded after execution, not invented here.
+The new regression file covers 59 cases, including every revised episode's grading/snapshot, dictionary directions/ambiguity, private export, optional preferences, Games/Back and safe substitution. Browser coverage retains the existing Samsung profiles and adds new layout/dictionary/report/story checks. Exact final totals/build results will be recorded after execution, not invented here.
 
 No new stage, large game, cloud dictionary, backend, account, microphone/ASR, pronunciation score or Pixel-specific test infrastructure is introduced. Android/Samsung safe areas, keyboard/Go, Back and dark/light behaviour remain. [Manual QA](V1_5_MANUAL_QA.md) and [release notes](V1_5_RELEASE_NOTES.md) are prepared. No physical-device, acoustic TTS or external human validation is claimed.
