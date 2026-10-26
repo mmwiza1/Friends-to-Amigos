@@ -10,7 +10,7 @@ The dictionary is a vocabulary explorer, separate from scoring, hints, writing a
 - `www/learner-dictionary.js`: pure lookup, contextual phrase matching, saved-list validation/search and state adapters.
 - `www/dictionary-ui.js` and `www/dictionary.css`: reusable token decoration, anchored popup and Saved Words renderer.
 
-Current inventory: **1,212 entries: 936 words and 276 expressions, plus 1,564 known form mappings**. Definitions/meanings come from original Friends to Amigos material; no third-party dictionary, Hunspell data, commercial service or text/audio corpus is bundled. A phrase translation is not split into invented individual word translations. Proper names and unknown words can have no entry.
+Current inventory: **1,230 entries: 954 words and 276 expressions, plus 1,564 known form mappings**. Definitions/meanings come from original Friends to Amigos material; no third-party dictionary, Hunspell data, commercial service or text/audio corpus is bundled. A phrase translation is not split into invented individual word translations. Proper names and unknown words can have no entry.
 
 ```sh
 node scripts/content/build-learner-dictionary.cjs
@@ -83,6 +83,6 @@ Grammar Reference and refresher examples use the existing bounded contextual dic
 
 ## v1.5 searchable learner dictionary
 
-Profile → Vocabulary now exposes Dictionary and Saved Words; neither is a new tab or buried in Settings. `learner-experience.js` searches the existing 1,212 entries in either language, ranks exact/whole-term matches and returns up to 40 entries. Vowel-folded search retains ñ. Ambiguous English queries can show multiple analyses; original saber/conocer contrast notes explain facts/skills versus familiarity. Thirty common noun notes provide gender/examples without renaming IDs or changing historical Saved Words. Existing senses, form metadata, region notes and the popup More/Hear/Save paths remain. Unknown results are explicitly unavailable; this is not an exhaustive/cloud dictionary.
+Profile → Vocabulary now exposes Dictionary and Saved Words; neither is a new tab or buried in Settings. `learner-experience.js` searches the 1,230 entries (all 1,212 existing entries plus 18 original episode nouns) in either language, ranks exact/whole-term matches and returns up to 40 entries. Vowel-folded search retains ñ. Ambiguous English queries can show multiple analyses; original saber/conocer contrast notes explain facts/skills versus familiarity. Thirty common noun notes provide gender/examples without renaming IDs or changing historical Saved Words. Existing senses, form metadata, region notes and the popup More/Hear/Save paths remain. Unknown results are explicitly unavailable; this is not an exhaustive/cloud dictionary.
 
 The discovery tip is acknowledged by lookup or dismissal and otherwise bounded to three early question views. Those preferences never count as a hint, grade or learning event. New optional state defaults safely for older saves. The pronunciation primer uses existing synthetic es-ES speech with no microphone or acoustic assessment.

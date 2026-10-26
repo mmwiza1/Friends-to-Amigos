@@ -1,6 +1,7 @@
 (function(root){
 'use strict';
 const data=typeof module!=='undefined'?require('./learner-dictionary-data.js'):root.LearnerDictionaryData;
+(typeof module!=='undefined'?require('./story-vocabulary'):root.StoryVocabulary).apply(data);
 // Dictionary lookup is separate from assessment. Exact accents distinguish esta/está,
 // si/sí etc.; a vowel-folded fallback is used only when there is one lexical analysis.
 const exact=x=>String(x||'').normalize('NFC').toLowerCase().trim().replace(/[¿?¡!.,;:«»“”"'…]/g,'').replace(/\s+/g,' ');

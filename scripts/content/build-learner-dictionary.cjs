@@ -16,7 +16,8 @@ function seed(es,en,stage,activity,text,origin){if(typeof es!=='string'||typeof 
  const ex=example(text||'',es);if(ex&&!e.examples.includes(ex)&&e.examples.length<3)e.examples.push(ex);
  if(en!==e.meaning&&!e.senses.some(s=>s.meaning===en))e.senses.push({meaning:en,example:ex,stage,source:activity});
 }
-for(const l of C.lessons)if(l.reading)for(const [es,en]of l.reading.glossary||[])seed(es,en,l.stage,l.id,l.reading.text,'original-course-glossary');
+const priorReadings=new Map(require('../../docs/release/v15-content-changes.json').changes.filter(r=>r.before.reading).map(r=>[r.id,r.before.reading]));
+for(const l of C.lessons){const reading=priorReadings.get(l.id)||l.reading;if(reading)for(const [es,en]of reading.glossary||[])seed(es,en,l.stage,l.id,reading.text,'original-course-glossary');}
 for(const stage of C.stages){for(const [u,unit]of (C.stageUnits[stage]||[]).entries())for(const [es,en]of unit.phrases||[])seed(es,en,stage,unit.id||stage+'u'+u,'','original-course-phrase-bank');}
 // A1 keeps its tuple API; its separate learner metadata is the authoritative phrase bank.
 for(const [u,unit]of (C.unitInfo||[]).entries())for(const [es,en]of unit.phrases||[])seed(es,en,'A1.1','u'+u,'','original-course-phrase-bank');

@@ -54,6 +54,8 @@ async function run(){ // Wait for the browser process before creating its first 
    const nav=document.querySelector('nav'),rect=nav.getBoundingClientRect();assert(Math.abs(rect.bottom-(innerHeight-config.bottom))<2,'navigation clears native system bar');
    assert(document.querySelector('header').getBoundingClientRect().top>=(config.top||24),'header clears status bar');
    assert(document.documentElement.scrollWidth<=innerWidth+1,'no horizontal overflow');
+   // Revision is deliberately disclosed; open the last unit before testing its final control.
+   document.querySelector('.course-units').open=true;const finalUnit=document.querySelector('.course-units .journey-unit:last-child details');if(finalUnit)finalUnit.open=true;
    window.scrollTo(0,document.documentElement.scrollHeight);await frame();
    const last=[...document.querySelectorAll('#app button')].filter(e=>!e.closest('nav')).at(-1);assert(last.getBoundingClientRect().bottom<=rect.top+1,'last content reachable above fixed navigation');
    toast('Layout check');assert(document.querySelector('.toast').getBoundingClientRect().top>=(config.top||24),'toast clears status bar');
