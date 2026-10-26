@@ -38,7 +38,20 @@ A few presentation assertions intentionally change: compact Home/Profile hierarc
 
 ## Validation and limits
 
-The new regression file covers 60 cases, including every revised episode's grading/snapshot, dictionary directions/ambiguity, private export, optional preferences, Games/Back and safe substitution. Browser coverage retains the existing Samsung profiles and adds new layout/dictionary/report/story checks. Exact final totals/build results will be recorded after execution, not invented here.
+The new regression file covers 60 cases, including every revised episode's grading/snapshot, dictionary directions/ambiguity, private export, optional preferences, Games/Back and safe substitution. Browser coverage retains the existing Samsung profiles and adds new layout/dictionary/report/story checks. The combined gate passed in [run 40363368277](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/40363368277), candidate `14052d517b0c3fcaba3b89c400b7cadccc3421d2`. All 73 packaged APK assets exactly match the runtime/showcase. The documentation-only final commit repeats the gate without changing runtime assets.
+
+| Validation | Performed result |
+| --- | --- |
+| `npm run check` | Pass; 576 activities / 3,328 course slots / unchanged permanent identities |
+| `npm test`, CI Node 22 | 1,675 passed; 0 failed/cancelled/skipped/todo |
+| `npm test`, local Node 24 | 33 file-isolated suites passed; 0 failed/skipped; 242,753.678411ms |
+| `npm run audit`, learner-release audit | Pass; strict legacy/current content, snapshots, progression and identity contracts |
+| Recommendation / learning / story audits | Pass; 30 recommendation records, 360 advanced activities, 44 references, all 256 stories / 24 editions and all 96 B core substitution rows |
+| Rendered browser | 29,818 assertions / all 15 profiles; no failed layout; all 3,328 live slots render on S24 |
+| Android `assembleDebug lintDebug testDebugUnitTest` | BUILD SUCCESSFUL; 47 tasks executed in 22s; 15 native tests, 0 failures/errors/skips; lint 0 errors / 12 existing warnings |
+| Showcase/APK integrity | 15 unmodified current PNGs; 73 exact runtime hashes in showcase and downloaded APK |
+
+Current first-party availability notes for the unchanged recommendations remain in the v1.4 review; automated metadata/link diagnostics do not prove paid/region-specific playback. All test/build results above were actually performed; local Chromium is restricted and no local Android SDK/Gradle exists, so rendered/native gates ran in the established CI environment.
 
 No new stage, large game, cloud dictionary, backend, account, microphone/ASR, pronunciation score or Pixel-specific test infrastructure is introduced. Android/Samsung safe areas, keyboard/Go, Back and dark/light behaviour remain. [Manual QA](V1_5_MANUAL_QA.md) and [release notes](V1_5_RELEASE_NOTES.md) are prepared. No physical-device, acoustic TTS or external human validation is claimed.
 

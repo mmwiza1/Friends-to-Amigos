@@ -1,12 +1,23 @@
-# Build and validation status — 1.5.0 candidate
+# Build and validation status — 1.5.0
 
-Android code 16; schema-v2 compatibility retained. Starting main: `39ad8188e985277468619326e9ddbf5bdf3f8d67`. The course remains 576 activities / 3,328 slots / 256 stories, A1.1–B2.2. [Implementation report](docs/release/V1_5_REPORT.md), [release notes](docs/release/V1_5_RELEASE_NOTES.md), [Story Bible](docs/STORY_BIBLE.md) and [manual QA](docs/release/V1_5_MANUAL_QA.md) record scope and limits.
+Android versionCode **16**; schema-v2 compatibility retained. Starting main: `39ad8188e985277468619326e9ddbf5bdf3f8d67`. The course remains 576 activities / 3,328 slots / 256 stories, A1.1–B2.2. [Implementation report](docs/release/V1_5_REPORT.md), [release notes](docs/release/V1_5_RELEASE_NOTES.md), [Story Bible](docs/STORY_BIBLE.md) and [manual QA](docs/release/V1_5_MANUAL_QA.md) record scope and limits.
 
-The final 73-asset runtime passed **29,818 layout/interaction assertions across all 15 profiles** in [rendered run 40361789202](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/40361789202), source `025b3f2f8999331db68f1dd53754b776933e9073`. All 3,328 live course slots render on S24; Samsung/narrow/theme/large-text/IME/landscape profiles remain. Fifteen unmodified current-build PNGs replace the old showcase; all 73 hashes and PNG integrity checks pass locally. The only prior unit failure was the intentionally stale showcase manifest, now replaced. The complete combined gate and native results remain pending and will be recorded after execution.
+## Complete performed gate
 
-Static/content, learner-release compatibility, recommendations, learning-load and story/distractor audits pass. The focused regression run passes **69 cases (60 experience + 9 Samsung), 0 failed/skipped**. The dictionary has 1,230 entries (954 words / 276 expressions) and 1,564 known form mappings. All previous 1,212 lexical identities remain.
+The complete combined gate passed in [run 40363368277](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/40363368277), candidate `14052d517b0c3fcaba3b89c400b7cadccc3421d2`. The final documentation commit repeats that gate; all 73 runtime assets remain frozen and exactly match the validated showcase and APK.
 
-No physical-device, emulator, acoustic TTS, native-speaker or educator validation is claimed. No Pixel/Gboard-specific infrastructure is added. Exactly 24 story editions were revised; the other 232 original stories are retained.
+- `npm run check`: passed — syntax, 576 activities, 3,328 course slots / 3,367 authored question IDs, 592 game questions, 896 focused items, 82 curated table targets and 1,230 dictionary entries / 1,564 forms.
+- `npm test` (CI Node 22): **1,675 passed, 0 failed, 0 cancelled, 0 skipped, 0 todo**. Local Node 24 independently passed all **33 file-isolated suites, 0 failed/skipped**, 242,753.678411ms. The focused experience/Samsung run passed 69 cases, including the 60-case experience suite.
+- `npm run audit` and `node scripts/learner-release-audit.cjs`: passed locally. Permanent identities/order, strict before/after content contracts, historical snapshots, current assessment policies, recommendation quotas and anchor-language audit remain. Eight literal-anchor gaps remain editorial QA prompts, not mastery claims.
+- `npm run audit:recommendations`: passed — 30 records / 29 links, no metadata warnings. Catalogue/provider availability notes remain in the v1.4 review; no new runtime fetch is introduced.
+- `npm run audit:learning`: passed — all 360 A2.2–B2.2 activities / 160 stories and 44 references; structural QA does not certify naturalness or cognitive load.
+- `npm run audit:stories`: passed — all 256 story records/snapshots, 24 revised editions (8 everyday / 8 social / 8 comedy), all 96 B core substitution rows and known-malformation scans across course, game and focused banks.
+- `npm run check:browser`: **29,818 assertions / 15 layouts, 0 failed layouts**. All 3,328 live course slots render on S24. All original profiles/assertion intentions remain; additional checks cover the new UX, dictionary, report export, story interaction, title wrapping and stacked-action reachability. Fifteen unmodified v1.5 PNGs / all 73 hashes pass the showcase integrity guard; capture source is [run 40361789202](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/40361789202).
+- `gradle -p android assembleDebug lintDebug testDebugUnitTest`: **BUILD SUCCESSFUL in 22s, 47 tasks executed** in CI. Native JUnit reports: **15 tests, 0 failures/errors/skips** (policy 5, insets 8, launcher resources 2). Lint: **0 errors, 12 existing warnings** (target/attribute/API/WebView/data-extraction and launcher-shape/monochrome advisories). The downloaded APK contains all 73 runtime files with exact validated hashes.
+
+The dictionary has 954 words / 276 expressions; all prior 1,212 lexical identities remain, with 18 original episode nouns appended. Existing source fixtures are unchanged. Seventy release files cover the implementation, compatibility tests, documentation and showcase.
+
+**Ready for merge and physical-device test distribution, with release notes prepared.** No physical-device, emulator, acoustic TTS, independent native-speaker or educator validation is claimed. No Pixel/Gboard-specific infrastructure is added. Exactly 24 story editions were revised; the other 232 original stories are retained. Human/editorial/real-learner QA remains necessary before broad release. Debug signing keys may differ between CI builds; verify a backup before any uninstall.
 
 <details><summary>Historical 1.4 validation record</summary>
 
