@@ -1,7 +1,7 @@
 {
   "version": "1.6.0",
-  "sourceCommit": "25a1e38b451900844f81e1e14905b914d93f6d7b",
-  "validationRun": 40394784705,
+  "sourceCommit": "9eaacf35d4e326b0f028ad7c12b84ca4be1d0435",
+  "validationRun": 40400907561,
   "note": "Unmodified PNGs from the successful 17-layout / 38,630-assertion browser step for this exact 76-file runtime. Simulated viewport/inset/keyboard conditions, not physical-device captures. The combined JavaScript/browser/native gate is recorded separately in BUILD_STATUS.md.",
   "screenshots": [
     {
@@ -62,7 +62,7 @@
       "file": "conjugations.png",
       "source": "s24-dark-buttons-round.png",
       "caption": "Verb in Context",
-      "sha256": "24c2cd52744afb274e7a518da64053a39eb45f82816d13263cd28910cead5bab"
+      "sha256": "9afc5e977f26a21a251b8ebad87446d9b0e2d01b10ae587c6e8ba3b8e93e6617"
     },
     {
       "file": "review.png",
@@ -137,7 +137,7 @@
     "focused-bank.js": "d9fb7ed95eb5129dd3211d932176cb735ad67c041c7c9c9b8702b1c50fa02823",
     "focused-practice.js": "19fbe9063cb1d7e40bc99a427164788df651b6b869573aa87918d62441ba465b",
     "focused-view.js": "5230e2213fc43ff805a9536bea3b6f0a1637fa4df790491cbb5cec76bb44096a",
-    "games-view.js": "ad0199df5154b9f14cdd5ecdf4034cfe34f8e10f119e6c3f0bef9436bb0d933e",
+    "games-view.js": "4f9f68ecb83c7a2f007284f666910e2f618237a6b5714038238e3179c3709ad6",
     "games.js": "e43c66678350ced336671519190cd263817ccbd55f2bafb4af6f6806b0dfa2a5",
     "grammar-syllabus.js": "ef4326e50a0064b0d9f8577106fe0860881d5f92c0c216ffec31cd5132bdfc10",
     "images/lesson-bulls.webp": "a6f888db34d0f7332dda8515b09c2e85f1d0b8dd1b210d422272dfd7b74fc749",
@@ -150,7 +150,7 @@
     "learning-quality.js": "dd381029b82c570cba661dd6661e6275185fc5e177597d6d02573211ba326b71",
     "mastery.js": "32c077a526dbaea0a082d319d88ab8369a60ed3e67bf69b2b5d946f53150872b",
     "practice-errors.js": "e919f07f5e2b8227b78d3e99bc2e2decfad9d749f2f82d96916aa3f7b91dba4a",
-    "practice-hub.js": "ad133b8f68f0b5f378c96eb010706e14530ac7c47f00bdccb2e3bfc455e0cff5",
+    "practice-hub.js": "c32beef8759ad009c0350b4318ae73cc7c2a751e85d0ec1c1e285ffe265e3c14",
     "practice-skills.js": "71281a87c3b72938abdc594abd0b4b335b98ff273966f5fbf1a9374b210365b1",
     "practice-view.js": "32f7c9a958fa99a646349c939deef176b8cb5f34e946a4f3880ef2664cda1e7c",
     "quality-view.js": "c26b5082513bed6d672c2f04e93c5c5328e8c6eb773478a24eea7b8040e732a5",
