@@ -35,3 +35,12 @@ test('failed completion, Finish for now, Today and placement keep required path 
 test('the explicit v1.2 main contract and current release audit protect every source payload without rewriting fixtures',()=>{
  const audit=require('../scripts/learner-release-audit.cjs');assert.equal(audit.baseline,'3af8d73b0a25c40bc8802122c4ad068ba0ebf6c8');assert.equal(audit.schema,2);assert.equal(audit.stageStats.length,8);assert.ok(audit.stageStats.slice(0,3).every(s=>s.afterText===0));assert.equal(audit.recommendations.perStage,15);assert.equal(audit.focused.finiteTextAdapted,133);
 });
+test('Profile retains detailed period stats and the seven-day chart, and a filter keeps those results open',()=>{
+ const a=app();a.click('profile');assert.match(a.el.innerHTML,/class="weekchart"/);assert.match(a.el.innerHTML,/Selected period/);a.click('filter',{filter:'week'});assert.match(a.el.innerHTML,/<details id="profile-period-stats" open/);assert.match(a.el.innerHTML,/aria-pressed="true" data-filter="week"/);for(const label of ['Lessons completed','Learning time','Mistakes corrected','Current streak','Longest streak','Days practised','Milestones achieved','Review points retained'])assert.ok(a.el.innerHTML.includes(label));
+});
+test('Home Needs Attention includes shared practice weaknesses even without a course Review item',()=>{
+ const M=require('../www/mastery'),s=state();M.record(s,[{verb:'comer',tense:'present',person:'vosotros',pattern:'regular-er'}],false,{session:'g1',item:'1'},1000);M.record(s,[{verb:'comer',tense:'present',person:'vosotros',pattern:'regular-er'}],false,{session:'g2',item:'2'},2000);const a=app({},s);assert.deepEqual(a.state().reviews,{});const attention=a.el.innerHTML.split('data-home-section="attention"')[1].split('</section>')[0];assert.match(attention,/vosotros/);assert.match(attention,/weakAreas/);
+});
+test('new structured activities say Build in Spanish while historical typed titles and activity IDs remain intact',()=>{
+ const Policy=require('../www/assessment-policy'),l=C.lessons.find(l=>l.id==='u0write'),historical={...l,questions:l.questions.map(Policy.prior)};assert.match(Policy.title(l),/^Build in Spanish/);assert.equal(Policy.title(historical),historical.title);assert.match(Policy.title(C.lessons.find(l=>l.id==='a22u0write')),/^Guided writing/);assert.equal(l.id,'u0write');const a=app();a.click('lesson',{id:l.id});assert.match(a.el.innerHTML,/Build in Spanish/);a.click('home');a.click('tab',{tab:'Learn'});assert.match(a.el.innerHTML,/Build in Spanish/);
+});

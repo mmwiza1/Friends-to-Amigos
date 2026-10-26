@@ -27,7 +27,7 @@ function question(raw){
   if(!Structured.validate(raw)||!Array.isArray(raw.accepted)||!raw.accepted.length||raw.accepted.length>100||raw.accepted.some(x=>!text(x,6000)))return null;
   q.accepted=[...new Set(raw.accepted)];q.language='es';
   if(type==='tiles'){q.tiles=raw.tiles.slice();q.tileKind=raw.tileKind;if(raw.solution)q.solution=raw.solution.slice();}
-  else q.cloze=JSON.parse(JSON.stringify(raw.cloze));
+  else q.cloze={segments:raw.cloze.segments.slice(),blanks:raw.cloze.blanks.map(b=>({answer:b.answer,options:b.options.slice(),explanation:b.explanation,...(b.mistakes?{mistakes:b.mistakes.map(m=>({answer:m.answer,explanation:m.explanation}))}:{})}))};
   if(!Structured.correct(q,Structured.canonical(q))||Structured.normalize(Structured.response(q,Structured.canonical(q)))!==Structured.normalize(q.answer))return null;
  }else if(type==='text'){
   if(!Array.isArray(raw.accepted)||!raw.accepted.length||raw.accepted.length>100)return null;

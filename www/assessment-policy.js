@@ -15,9 +15,9 @@ function comprehension(q,lesson,original){const answers=lesson.questions.filter(
     // Distractors are other authored comprehension responses, never guessed translations.
     const norm=S.normalize,accepted=new Set((q.accepted||[q.answer]).map(norm));
     const local=original.filter(l=>l.stage===lesson.stage&&l.unit===lesson.unit).flatMap(l=>l.questions).filter(x=>x.type==='text'&&x.language!=='es').map(x=>x.answer);
-    const stem=precisePrompt(q.prompt,q.answer).toLowerCase(),spanish=!/[a-z]+ \/ [a-z]+/i.test(q.answer)&&lesson.stage==='A2.2';
+    const stem=precisePrompt(q.prompt,q.answer).toLowerCase(),spanish=lesson.stage==='A2.2'||lesson.stage.startsWith('B');
     let authored=[];
-    if(/^(who|whose)|which (person|character)/.test(stem))authored=['Ana','Luis','Marta','Diego','Ana and Luis','Marta and Diego'];
+    if(/^(who|whose)|which (person|character)/.test(stem))authored=spanish?['Ana','Luis','Marta','Diego','Ana y Luis','Marta y Diego']:['Ana','Luis','Marta','Diego','Ana and Luis','Marta and Diego'];
     else if(/time of day/.test(stem))authored=spanish?['Por la mañana','Por la tarde','Por la noche']:['In the morning','In the afternoon','At night'];
     else if(/what time|at what time|when.*(arrive|leave|finish|appointment|meet|breakfast|bed)|until what time/.test(stem))authored=spanish?['A las ocho','A las nueve','A las diez','A las doce','Por la mañana','Por la tarde']:['At eight','At nine','At ten','At twelve','In the morning','In the afternoon'];
     else if(/^when|which day|what day/.test(stem))authored=spanish?['Ayer','Hoy','Mañana','Por la mañana','Por la tarde']:['Yesterday','Today','Tomorrow','In the morning','In the afternoon'];
@@ -31,8 +31,12 @@ function comprehension(q,lesson,original){const answers=lesson.questions.filter(
     if(result.options.some(x=>x.includes(' / ')))result.optionSpanishFragments=result.options.map(x=>x.includes(' / ')?[x.split(' / ').slice(1).join(' / ')]:[]);
     return result;
 }
-function apply(C){const changes=[],original=C.lessons.map(l=>({...l,questions:l.questions.slice()}));
- for(const lesson of C.lessons){const early=['A1.1','A1.2','A2.1'].includes(lesson.stage),answers=lesson.questions.filter(q=>q.type==='text'&&q.language!=='es').map(q=>q.answer);
+function apply(C){const changes=[],original=C.lessons.map(l=>({...l,questions:l.questions.slice()})),knownByUnit=new Map(),seen=new Set();
+ for(const stage of C.playableStages)for(let unit=0;unit<C.stageUnits[stage].length;unit++){
+  const texts=original.filter(l=>l.stage===stage&&l.unit===unit).flatMap(l=>[l.reading?.text||'',...l.questions.flatMap(q=>[q.spanish||'',q.language==='es'?q.answer:''])]);
+  for(const token of texts.join(' ').split(/[^A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+/))if(token)seen.add(token.normalize('NFC').toLowerCase());knownByUnit.set(stage+'-'+unit,new Set(seen));
+ }
+ for(const lesson of C.lessons){const known=knownByUnit.get(lesson.stage+'-'+lesson.unit);const early=['A1.1','A1.2','A2.1'].includes(lesson.stage),answers=lesson.questions.filter(q=>q.type==='text'&&q.language!=='es').map(q=>q.answer);
   lesson.questions=lesson.questions.map((q,index)=>{if(q.type!=='text')return q;
    if(!early&&['guided','free'].includes(q.writing?.mode)&&q.language==='es'){
     const result={...q,prompt:q.prompt+' Use your own wording. Compare with one possible model; other natural responses are possible.'};
@@ -44,7 +48,7 @@ function apply(C){const changes=[],original=C.lessons.map(l=>({...l,questions:l.
    }
    let result;
    if(q.language==='es'){
-    result=q.answer==='Gracias'?{...q,type:'choice',options:S.shuffle(['Gracias','Por favor','De nada','Hasta luego'],q.id),optionsLanguage:'es'}:!q.listening&&q.answer.split(/\s+/).length>=5&&(index+lesson.unit)%3===0?S.cloze(q):S.tiles(q,lesson.stage);
+    result=q.answer==='Gracias'?{...q,type:'choice',options:S.shuffle(['Gracias','Por favor','De nada','Hasta luego'],q.id),optionsLanguage:'es'}:!q.listening&&q.answer.split(/\s+/).length>=5&&(index+lesson.unit)%3===0?S.cloze(q,known,lesson.questions.filter(g=>g.type==='gap'&&S.normalize(g.spanish)===S.normalize(q.answer)).flatMap(g=>g.answer.match(/[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+/g)||[]),lesson.stage):S.tiles(q,lesson.stage);
     result.prompt=q.prompt.replace(/^From memory,?\s*/i,'').replace(/\bWrite\b/gi,'Build').replace(/\bType\b/gi,'Build')+' Use the supplied '+(result.type==='tiles'?'parts.':result.type==='cloze'?'gap options.':'reply options.');
     if(q.promptEs)result.promptEs=q.promptEs.replace(/\bEscribe\b/g,'Construye').replace(/\bRedacta\b/g,'Construye')+' Usa las opciones.';
     delete result.writing;if(result.type==='choice')delete result.accepted;
@@ -68,5 +72,6 @@ const mediaCache=new WeakMap(),mediaSources=new WeakMap();
 function media(q,C,bank){if(q.type!=='text'||!C.assessmentChanges)return q;if(mediaCache.has(q))return mediaCache.get(q);if(!mediaSources.has(C))mediaSources.set(C,new Map(C.lessons.flatMap(l=>l.questions.map(q=>[q.id,q]))));const source=mediaSources.get(C).get(q.sourceQuestionId);let result;
  if(source?.type==='choice'&&source.answer===q.answer){result={...q,type:'choice',options:source.options.slice(),optionsLanguage:source.optionsLanguage||'en',...(source.optionSpanishFragments?{optionSpanishFragments:source.optionSpanishFragments.map(x=>x.slice())}:{})};delete result.accepted;delete result.writing;}
  else {const group={stage:q.practice.stage,unit:q.practice.unit,questions:bank.filter(x=>x.practice.stage===q.practice.stage&&x.practice.unit===q.practice.unit)};result=comprehension(q,group,[group]);}mediaCache.set(q,result);return result;}
-root.AssessmentPolicy={apply,prior,media};if(typeof module!=='undefined')module.exports=root.AssessmentPolicy;
+function title(lesson,questions){if(!lesson)return '';const items=questions||lesson.questions||[];if(!/write$/.test(lesson.id))return lesson.title;const topic=lesson.title.replace(/^Write in Spanish:\s*/,'');if(items.some(S.active)&&!items.some(q=>q.type==='text'))return 'Build in Spanish: '+topic;if(lesson.stage==='A2.2'&&items.some(q=>q.writing&&q.writing.mode!=='controlled'))return 'Guided writing & practice: '+topic;return lesson.title;}
+root.AssessmentPolicy={apply,prior,media,title};if(typeof module!=='undefined')module.exports=root.AssessmentPolicy;
 })(typeof window==='undefined'?globalThis:window);

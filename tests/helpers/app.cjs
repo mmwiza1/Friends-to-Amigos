@@ -6,7 +6,7 @@ function app(extra={},initial=null){
  const ctx={console,Date,JSON,Math,String,Number,Object,Array,Set,Map,Blob,
   // Simulated installed voice. Individual failure tests override this explicitly.
   SpeechSynthesisUtterance:class{constructor(text){this.text=text;}},speechSynthesis:{getVoices:()=>[{lang:'es-ES',localService:true}],cancel(){},speak(u){u.onstart?.();}},
-  URL:Object.assign(URL,{createObjectURL(blob){effects.blobs.push(blob);return 'blob:backup';},revokeObjectURL(){}}),
+  URL:class extends URL{static createObjectURL(blob){effects.blobs.push(blob);return 'blob:backup';}static revokeObjectURL(){}},
   setInterval:()=>{},setTimeout:()=>{},confirm:()=>true,
   localStorage:{getItem:k=>storage[k]||null,setItem:(k,v)=>storage[k]=v},
   document:{hidden:false,getElementById:id=>nodes[id]||null,addEventListener:()=>{},createElement:tag=>({className:'',textContent:'',remove(){},click(){effects.links.push(this);}}),body:{append(el){effects.toasts.push(el);}}}
