@@ -103,15 +103,17 @@ public class MainActivity extends Activity {
                     catch(android.content.ActivityNotFoundException error){Toast.makeText(MainActivity.this,"Install a browser to open this recommendation.",Toast.LENGTH_LONG).show();}
                 });
             }
-            @JavascriptInterface public void exportProgress(String json){runOnUiThread(()->{
-                exportData=json;
-                Intent intent=new Intent(Intent.ACTION_CREATE_DOCUMENT).addCategory(Intent.CATEGORY_OPENABLE).setType("application/json").putExtra(Intent.EXTRA_TITLE,"friends-to-amigos-progress.json");
-                startActivityForResult(intent,11);
-            });}
+            @JavascriptInterface public void exportProgress(String json){exportJsonDocument(json,"friends-to-amigos-progress.json");}
+            @JavascriptInterface public void exportAnswerReports(String json){exportJsonDocument(json,"friends-to-amigos-answer-reports.json");}
         },"AndroidSpeech");
         web.loadUrl("file:///android_asset/index.html");
         web.requestApplyInsets();
     }
+    private void exportJsonDocument(String json,String filename){runOnUiThread(()->{
+        exportData=json;
+        Intent intent=new Intent(Intent.ACTION_CREATE_DOCUMENT).addCategory(Intent.CATEGORY_OPENABLE).setType("application/json").putExtra(Intent.EXTRA_TITLE,filename);
+        startActivityForResult(intent,11);
+    });}
     private void speakText(String text,float rate){runOnUiThread(()->{
         if(speechReady){speech.setSpeechRate(rate);speech.speak(text,TextToSpeech.QUEUE_FLUSH,null,"spanish");}
         else Toast.makeText(MainActivity.this,"Install an offline Spanish (Spain) voice in Android speech settings.",Toast.LENGTH_LONG).show();

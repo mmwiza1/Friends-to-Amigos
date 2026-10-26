@@ -49,7 +49,7 @@ Your existing progress, unfinished lessons, scheduled reviews and Saved Words re
 ### Writing, feedback and reliability
 
 - Incorrect answers foreground the learner response, natural answer and a concise explanation, with fuller teaching behind Why.
-- “I think my answer may also be valid” saves an editorial report locally. Export reports from Profile → Data & backup only when you choose. Reports never automatically change correctness or upload writing.
+- “I think my answer may also be valid” saves an editorial report locally. Export reports from Profile → Data & backup only when you choose; the report filename is distinct from a progress backup. Reports never automatically change correctness or upload writing.
 - B1/B2 distractor corrections replace malformed or contradictory alternatives with more plausible learner confusions. Whole-form substitution prevents an `es` replacement from corrupting `Desde`.
 - Permanent course/game/media/table IDs and schema-v2 saves remain. Historical review passages stay authoritative; success on a different new story cannot silently clear an older passage-based review.
 - Existing Samsung/Android insets, keyboard, Back, dark/light mode and accessibility protections remain. No new Pixel/Gboard-specific test infrastructure is included.
