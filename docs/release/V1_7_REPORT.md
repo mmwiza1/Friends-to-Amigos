@@ -30,7 +30,11 @@ Schema/key remain v2 / friends-to-amigos-v1. Optional validated practiceCategory
 
 ## Validation evidence
 
-Implementation validation is in progress. Exact performed counts, replay tables, rendered capture and native build evidence will be filled after the full release gate; no pending check is claimed passed.
+The complete runtime gate passed in [run 40415569843](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/40415569843), runtime commit `cce5ed2a8f6a7ccdfc6156e3a6d44c33e3d7b45a`. Static/course checks and all recommendation, learning-load, story, learner-release and Practice-depth audits passed. CI `npm test`: **2,068 passed / 0 failed / 0 cancelled / 0 skipped / 0 todo**, including 334 new depth cases. The suite covers all 10,000 cardinal values, exact 0–100 spellings, representative/edge hundreds and noun agreement, all 24-hour/five-minute formatter combinations and SVG hand angles, 365 valid non-leap dates, 99,900 integer-cent price checks, every error row, old snapshots, actual taught sources, no fake course completion and no doubled grammar evidence. Granular numeric weaknesses remain in Fix My Mistakes even after an exact Review is corrected.
+
+Rendered Chromium: **38,868 assertions / 17 layouts / 0 failed layouts**, including original narrow/Samsung/Pixel-class, large-text, landscape/cutout and simulated IME/inset conditions. Fifteen README images are unmodified captures from the same exact 77-file runtime. Representative final dark clock and large-text Builder captures, plus narrow date and landscape correction captures, were visually inspected. They require scrolling at large text/short landscape heights; controls remain reachable and no horizontal overflow was detected.
+
+Android: **assembleDebug, lintDebug and testDebugUnitTest passed**, BUILD SUCCESSFUL in 17s / 47 tasks. Downloaded native reports: **15 tests / 0 failures, errors or skips**; lint **0 errors / 12 existing warnings**. All 77 packaged runtime SHA-256s equal the showcase manifest. The documentation/showcase-only release commit repeats the full gate before main promotion; runtime remains identical. See BUILD_STATUS.md for evidence and device limits.
 
 ## Limitations / human review
 

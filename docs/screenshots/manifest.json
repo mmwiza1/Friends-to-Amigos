@@ -1,8 +1,8 @@
 {
   "version": "1.7.0",
-  "sourceCommit": "9eaacf35d4e326b0f028ad7c12b84ca4be1d0435",
-  "validationRun": 40400907561,
-  "note": "Validation candidate: final screenshots will be recaptured before main promotion. Runtime asset manifest is checked on every gate.",
+  "sourceCommit": "cce5ed2a8f6a7ccdfc6156e3a6d44c33e3d7b45a",
+  "validationRun": 40415569843,
+  "note": "Unmodified PNGs from the successful 17-layout / 38,868-assertion browser step for this exact 77-file runtime. Simulated viewport/inset/keyboard conditions, not physical-device captures. Full JS/native evidence is recorded in BUILD_STATUS.md.",
   "screenshots": [
     {
       "file": "home.png",
@@ -62,7 +62,7 @@
       "file": "conjugations.png",
       "source": "s24-dark-buttons-round.png",
       "caption": "Verb in Context",
-      "sha256": "9afc5e977f26a21a251b8ebad87446d9b0e2d01b10ae587c6e8ba3b8e93e6617"
+      "sha256": "4c7ebde88ffced1136ff197a12bfc8ece7817d62cd9c0aacc6666ccaecb12538"
     },
     {
       "file": "review.png",

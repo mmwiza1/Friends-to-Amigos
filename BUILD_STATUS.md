@@ -1,6 +1,21 @@
-# v1.7.0 release validation
+# Build and validation status — 1.7.0
 
-Implementation complete; the full gate and showcase recapture are in progress. Do not treat this working-branch section as a passed release. Exact results will be recorded after CI browser/native validation. Version 1.7.0 / Android 18. No physical-device or human educator/native-speaker validation is claimed. See [the v1.7 report](docs/release/V1_7_REPORT.md).
+Base main: `d69d64f727ea9eee5520057e5ac2bb4df00b94ab`. Version **1.7.0**, Android **versionCode 18**. Same eleven Practice activities and A1.1–B2.2 course; no course-content, ID, schema or dependency expansion.
+
+## Performed release gate
+
+The complete runtime gate passed in [run 40415569843](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/40415569843), commit `cce5ed2a8f6a7ccdfc6156e3a6d44c33e3d7b45a`:
+
+- `npm run check`, `npm run audit`, recommendation/learning/story audits and `node scripts/learner-release-audit.cjs`: passed (report audit also performed locally).
+- `npm test` (CI Node 22): **2,068 passed, 0 failed, 0 cancelled, 0 skipped, 0 todo**. All previous cases remain; **334** focused Practice-depth cases cover the new formatters, explicit errors, source gates, replay, snapshots and evidence.
+- `npm run audit:practice-depth`: passed. Twenty rounds for each activity/stage: **4,800 questions**. Builder/Numbers show zero exact repeats at every stage. Spot exhausts eligible authored contexts before repetition, with 15 necessary repeats over 200 questions at full B2.2 eligibility. Tests also complete **800 Builder rounds / 8,000 questions**.
+- `npm run check:browser`: **17 layouts, 38,868 assertions, 0 failed layouts**. Retains Samsung profiles and generic Pixel-class widths; adds generated clocks/dates, granular mixed rounds and related-challenge resume. Conditions are simulated, not real device/keyboard/acoustic validation.
+- `gradle -p android assembleDebug lintDebug testDebugUnitTest`: **BUILD SUCCESSFUL in 17s, 47 tasks executed**. Downloaded JUnit XML confirms **15 tests, 0 failures/errors/skips** (launcher 2, insets 8, native policy 5). Downloaded lint XML confirms **0 errors/fatal issues, 12 existing warnings**.
+- Downloaded APK integrity: **all 77 web files exactly match** the runtime/showcase SHA-256 manifest. Fifteen README PNGs were copied unmodified from this run; every PNG and every web asset is checked by the showcase regression.
+
+The documentation/showcase release commit repeats the complete workflow before main promotion. The runtime is unchanged from the validated capture. The new [implementation report](docs/release/V1_7_REPORT.md), [replay data](docs/release/v17-practice-depth.json), [release notes](docs/release/V1_7_RELEASE_NOTES.md) and [manual QA](docs/release/V1_7_MANUAL_QA.md) describe exact boundaries.
+
+**Ready for physical-device testing after the final main gate.** No physical device, emulator, acoustic TTS, independent educator or native-speaker validation is claimed. Finite reconstruction, a bounded early correction pool, twelve-hour clock tasks and non-leap dates are intentional limits. Preserve an exported backup if CI debug signing differs and an uninstall is necessary.
 
 <details><summary>Historical validation through v1.6</summary>
 

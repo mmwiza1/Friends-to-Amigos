@@ -165,7 +165,7 @@ Optional reading `episode` metadata validates the three-character primary IDs, c
 
 ## Optional v1.6 Practice data
 
-`practiceHub` is optional under schema v2: bounded `recent` (100), `history` (40) and one `active` ten-item quiz snapshot. Missing fields do not invalidate old saves. The active snapshot validates kind/stage, unique question IDs, selections, question contracts, playback/model gates and checked results; it is never regenerated from live content. `practiceVisual` may contain `{kind:"clock",hour:0..23,minute:0..59}` on a question, retained by snapshot validation. Recognition/self-assessment is not independent recall; skips are not mastery successes. No practice path calls `Engine.complete`. Internal Games routes, games/blanks data, schema version/key and historical Review snapshots remain intact. B-level best keys now survive strict existing game sanitisation.
+`practiceHub` is optional under schema v2: bounded `recent` (100 in v1.6, 300 from v1.7), `history` (40) and one `active` ten-item quiz snapshot. Missing fields do not invalidate old saves. The active snapshot validates kind/stage, unique question IDs, selections, question contracts, playback/model gates and checked results; it is never regenerated from live content. `practiceVisual` may contain `{kind:"clock",hour:0..23,minute:0..59}` on a question, retained by snapshot validation. Recognition/self-assessment is not independent recall; skips are not mastery successes. No practice path calls `Engine.complete`. Internal Games routes, games/blanks data, schema version/key and historical Review snapshots remain intact. B-level best keys now survive strict existing game sanitisation.
 
 ## v1.7 Practice depth
 

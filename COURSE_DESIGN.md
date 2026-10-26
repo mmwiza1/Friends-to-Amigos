@@ -1,4 +1,4 @@
-## Current experience and Stories policy (v1.6)
+## Current experience and Stories policy (v1.7)
 
 One obvious next action, then optional detail. Home prioritises Continue / Today / relevant Needs Attention and one recommendation. Practice is the optional skill hub, separate from scheduled Review. Verb in Context preserves ten-question Conjugations; Verb Trainer preserves six-person table drills. Grammar controls live inside each engine’s Custom practice, with deliberate advanced choices available. New skills use reached activities and encountered vocabulary; beginners receive greeting/name construction first. Learn keeps the current unit first and revision accessible. Profile retains Vocabulary, Grammar Reference and progress. Review groups Due Today / Weak Areas / Past Mistakes. The visible five-tab order is Home / Learn / Practice / Review / Profile; internal Games routes remain compatible.
 
