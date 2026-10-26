@@ -6,7 +6,7 @@ Android versionCode **15**; progress storage remains **schema v2**. Starting mai
 
 Final gate results will be recorded here after the current candidate completes. The previous rendered candidate passed all fifteen layouts / 29,126 assertions; the new candidate adds phrase-replay assertions and final snapshot fixes. The screenshot guard deliberately blocks promotion until current-build images have been captured. No failed assertion or profile is removed.
 
-Local syntax/content, full audit, learner contract, recommendation metadata and learning-load checks have passed. The new quality test file passes **84 / 84** cases. All **1,506** original JS cases remain; the expected final combined count is **1,590**, to be confirmed by the performed final gate.
+Local syntax/content, full audit, learner contract, recommendation metadata and learning-load checks have passed. The new quality test file passes **85 / 85** cases. All **1,506** original JS cases remain; the expected final combined count is **1,591**, to be confirmed by the performed final gate.
 
 ## Validation scope and device limits
 
