@@ -1,7 +1,7 @@
 {
   "version": "1.6.0",
-  "sourceCommit": "0d9fde272246a6540eedddbffd3abe3b1f1ca415",
-  "validationRun": 40391214800,
+  "sourceCommit": "25a1e38b451900844f81e1e14905b914d93f6d7b",
+  "validationRun": 40394784705,
   "note": "Unmodified PNGs from the successful 17-layout / 38,630-assertion browser step for this exact 76-file runtime. Simulated viewport/inset/keyboard conditions, not physical-device captures. The combined JavaScript/browser/native gate is recorded separately in BUILD_STATUS.md.",
   "screenshots": [
     {
@@ -62,7 +62,7 @@
       "file": "conjugations.png",
       "source": "s24-dark-buttons-round.png",
       "caption": "Verb in Context",
-      "sha256": "c7a222ab0adeada34745db20aca6d343fece90116f5ff7a17c6700afed2b2ae4"
+      "sha256": "24c2cd52744afb274e7a518da64053a39eb45f82816d13263cd28910cead5bab"
     },
     {
       "file": "review.png",
@@ -153,7 +153,7 @@
     "practice-hub.js": "ad133b8f68f0b5f378c96eb010706e14530ac7c47f00bdccb2e3bfc455e0cff5",
     "practice-skills.js": "71281a87c3b72938abdc594abd0b4b335b98ff273966f5fbf1a9374b210365b1",
     "practice-view.js": "32f7c9a958fa99a646349c939deef176b8cb5f34e946a4f3880ef2664cda1e7c",
-    "quality-view.js": "78043dcc157c08283591fdfc957c37d0700922189a0e746062fb30faa5c4445d",
+    "quality-view.js": "c26b5082513bed6d672c2f04e93c5c5328e8c6eb773478a24eea7b8040e732a5",
     "question-ids.js": "6e8ba0cd046e0e617f997a4f5964b439eeffe22be691152b22e37499547ec520",
     "quiz-view.js": "baeb89c213c784f144e1c70e2d1107a6fc35e64da6f873917d69ca88b4a51cfb",
     "recommendations.js": "55b498e278d4bfb9275543ded9bb9561846030399984cf5bc1d55c2a7b9c96a4",
