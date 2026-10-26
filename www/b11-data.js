@@ -1099,6 +1099,10 @@ const data={
       [
        "repartir",
        "share out"
+      ],
+      [
+       "No los compres aún",
+       "Do not buy them yet (a useful fixed request here)"
       ]
      ],
      "questions": [
@@ -1585,6 +1589,10 @@ const data={
       [
        "una actualización",
        "an update"
+      ],
+      [
+       "no le dijera simplemente qué debía comprar",
+       "did not simply tell him what to buy (a fixed chunk here; the pattern is developed later)"
       ]
      ],
      "questions": [

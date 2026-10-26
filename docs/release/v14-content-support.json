@@ -1,0 +1,63 @@
+{
+  "baseline": "77ff528a6dd13f5cbc6d03b08c5a17c4b9b93191",
+  "changes": [
+    {
+      "activity": "b11u2story0",
+      "text": "Elena organiza una reunión para preparar una exposición. En el grupo alguien escribió que sería el viernes, pero todavía no era una fecha confirmada. Luis pensó que podía comprar los billetes del tren. Elena le llamó antes de la compra: «No los compres aún; mañana hablaré con el museo». Después envió un mensaje más claro. Van a reunirse el sábado a las diez, y la sala ya está reservada. Luis respondió que llegará a las nueve y media. Ana va a preparar una lista de preguntas. No necesitan terminar todo ese día; quieren repartir las tareas. La nueva comunicación distingue una idea inicial, una decisión pendiente y un horario que todos han aceptado.",
+      "before": [
+        [
+          "confirmada",
+          "confirmed"
+        ],
+        [
+          "repartir",
+          "share out"
+        ]
+      ],
+      "after": [
+        [
+          "confirmada",
+          "confirmed"
+        ],
+        [
+          "repartir",
+          "share out"
+        ],
+        [
+          "No los compres aún",
+          "Do not buy them yet (a useful fixed request here)"
+        ]
+      ],
+      "reason": "Gloss an incidental command/subjunctive chunk without requiring a new paradigm during the unit target."
+    },
+    {
+      "activity": "b11u3story0",
+      "text": "Luis se queja de que su ordenador funciona despacio. Quiere comprar uno nuevo esa misma tarde porque tiene una entrega al día siguiente. Clara le pregunta primero qué ocurre. El problema empezó después de instalar un programa y no afecta a todos los documentos. Clara no promete arreglarlo. Sugiere guardar una copia del trabajo y consultar al servicio técnico antes de gastar dinero. «Podrías usar el ordenador de la biblioteca para terminar», añade. Luis acepta esa solución temporal. Después descubre que una actualización resuelve el problema. Agradece que Clara no le dijera simplemente qué debía comprar. El consejo le dio opciones y protegió su trabajo sin presentar una opinión como un diagnóstico seguro.",
+      "before": [
+        [
+          "la entrega",
+          "submission deadline"
+        ],
+        [
+          "una actualización",
+          "an update"
+        ]
+      ],
+      "after": [
+        [
+          "la entrega",
+          "submission deadline"
+        ],
+        [
+          "una actualización",
+          "an update"
+        ],
+        [
+          "no le dijera simplemente qué debía comprar",
+          "did not simply tell him what to buy (a fixed chunk here; the pattern is developed later)"
+        ]
+      ],
+      "reason": "Gloss an incidental command/subjunctive chunk without requiring a new paradigm during the unit target."
+    }
+  ]
+}

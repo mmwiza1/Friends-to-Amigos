@@ -5,7 +5,7 @@ const C=require('../www/curriculum'),Policy=require('../www/assessment-policy'),
 const hash=x=>crypto.createHash('sha256').update(JSON.stringify(x)).digest('hex');
 const baseline=require('../docs/release/v13-main-contract.json');
 assert.deepEqual(C.lessons.map(l=>l.id),Object.keys(baseline.lessons));
-for(const l of C.lessons)assert.equal(hash({...l,questions:l.questions.map(Policy.prior)}),baseline.lessons[l.id],l.id+' original target/context changed');
+for(const l of C.lessons)assert.equal(hash(require('./content/quality-support.cjs').beforeQualitySupport({...l,questions:l.questions.map(Policy.prior)})),baseline.lessons[l.id],l.id+' original target/context changed');
 for(const kind of ['numbers','time','placement'])assert.equal(hash(C[kind].map(Policy.prior)),baseline.special[kind],kind+' original contract changed');
 const stageStats=C.playableStages.map(stage=>{const ls=C.lessons.filter(l=>l.stage===stage),qs=ls.flatMap(l=>l.questions);return {stage,units:C.stageUnits[stage].length,activities:ls.length,slots:qs.length,stories:ls.filter(l=>l.reading).length,beforeText:qs.filter(q=>Policy.prior(q).type==='text').length,afterText:qs.filter(q=>q.type==='text').length,types:qs.reduce((a,q)=>(a[q.type]=(a[q.type]||0)+1,a),{}),guided:qs.filter(q=>q.writing?.mode==='guided').length,free:qs.filter(q=>q.writing?.mode==='free').length};});
 const all=[...C.lessons.flatMap(l=>l.questions),...C.numbers,...C.time,...C.placement],ids=new Set();
