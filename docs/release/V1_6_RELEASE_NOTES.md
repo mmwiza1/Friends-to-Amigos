@@ -43,6 +43,7 @@ Version 1.6.0 uses Android versionCode 17 and the existing schema-v2 storage. An
 
 ### Bug fixes
 
+- Returning from completed practice cannot recreate an invalid unfinished snapshot.
 - Valid B1/B2 Conjugations best scores survive sanitisation and import even when their source rounds have left bounded history.
 
 ## Previous release highlights
