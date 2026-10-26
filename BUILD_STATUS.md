@@ -6,6 +6,8 @@ Local syntax/course validation, curriculum audit, recommendation audit, learning
 
 Local Chromium is blocked by the workspace socket policy (`setsockopt: Operation not permitted`); the established hosted workflow is used for rendered browser and Android compilation/lint/unit checks. Seventeen simulated responsive profiles preserve the previous fifteen and add two generic Pixel-class widths/text conditions requested for this release. No physical-device, emulator, acoustic, native-speaker or educator validation is claimed.
 
+Final runtime capture: [run 40391214800](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/40391214800), source `0d9fde272246a6540eedddbffd3abe3b1f1ca415`, passed **38,630 browser assertions / 17 layouts**. The stale v1.5 showcase guard was the only JS failure (1,733 / 1,734 passed); all 15 PNGs and the 76-file runtime integrity record are now refreshed and the showcase test passes locally. The combined gate, including Android, is being repeated before promotion.
+
 <details><summary>Historical 1.5 validation record</summary>
 
 # Build and validation status — 1.5.0
