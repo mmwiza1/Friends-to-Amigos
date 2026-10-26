@@ -1,0 +1,167 @@
+{
+  "version": "1.3.0",
+  "sourceCommit": "71def79d40a3f510634db5acbd45b3e628096729",
+  "validationRun": 40257313103,
+  "note": "Unmodified PNGs from the validated rendered-browser build. Simulated phone/inset profiles and illustrative test progress, not physical-device captures. All runtime assets remain identical in the final release.",
+  "screenshots": [
+    {
+      "file": "home.png",
+      "source": "s24-dark-buttons-home-v13.png",
+      "caption": "Continue Learning and Today",
+      "sha256": "0bb0091ec5174d419f7751a6d9c319266b7f8bf5d3ca32e9b65615840187de30"
+    },
+    {
+      "file": "learn.png",
+      "source": "galaxy-s22-light-three-button-learn-v13.png",
+      "caption": "The course journey",
+      "sha256": "922f00b2b2b4aee5ab333e6c6863d4d2fd99e9d3c51d81c28d8c240f932aa381"
+    },
+    {
+      "file": "beginner.png",
+      "source": "galaxy-s22-light-three-button-opening-first.png",
+      "caption": "A supported first Spanish lesson",
+      "sha256": "d63bb0c20b273d8683e957c511f1426d5ee469c23c1deb730c36160a79517570"
+    },
+    {
+      "file": "cloze.png",
+      "source": "s24-dark-buttons-cloze-v13.png",
+      "caption": "Contextual multi-gap Spanish",
+      "sha256": "a68962541091ef86a12374c84add149ccef84d47419036ea61fd8d3dcded2d5f"
+    },
+    {
+      "file": "sentence-building.png",
+      "source": "s24-dark-buttons-tiles-v13.png",
+      "caption": "Build Spanish with supplied words",
+      "sha256": "953e432e40050e25559718e3d0889bb23e7f8d1bec7e65435a3524edfdf88353"
+    },
+    {
+      "file": "dictionary.png",
+      "source": "s24-dark-buttons-choice-dictionary.png",
+      "caption": "Vocabulary help before answering",
+      "sha256": "53484940a2f3b99aaf84cac85acda6fa08b92cba3ecf6e5207383bb20de05aa7"
+    },
+    {
+      "file": "story.png",
+      "source": "galaxy-s22-light-three-button-opening-story.png",
+      "caption": "Original stories with word help",
+      "sha256": "151b97101b54b5dd42fd08a1ff3df1a8a4c6cdc2e382f16a945c29815bad4021"
+    },
+    {
+      "file": "feedback.png",
+      "source": "s24-dark-buttons-structured-feedback-v13.png",
+      "caption": "Compare your answer and learn why",
+      "sha256": "4237e6504a59e7d5eaada91fa7087f1306ad7f231775f10514022614041c6941"
+    },
+    {
+      "file": "games.png",
+      "source": "s24-dark-buttons-games.png",
+      "caption": "Conjugations and Tables",
+      "sha256": "c3864f58fedc35ea5576f072902f6c425ed45051de9e0b89a4d01354323c58ee"
+    },
+    {
+      "file": "conjugations.png",
+      "source": "s24-dark-buttons-round.png",
+      "caption": "Conjugations in context",
+      "sha256": "a49fe5698c06e450bd03abae205e9f9488fa0d62a63ec302fb52448425200377"
+    },
+    {
+      "file": "review.png",
+      "source": "s24-dark-buttons-review-v13.png",
+      "caption": "Scheduled review and weak areas",
+      "sha256": "65f429759facc07cb78804d58dbe882204cdd35b003a5097402c6b0e22a95036"
+    },
+    {
+      "file": "profile.png",
+      "source": "s24-dark-buttons-profile-v13.png",
+      "caption": "Your level, streak and capabilities",
+      "sha256": "6cb07917dca721e5c6e2c8860ea857ee203b0d5c219838d51d94666d13978507"
+    },
+    {
+      "file": "saved-words.png",
+      "source": "galaxy-s22-light-three-button-saved-words.png",
+      "caption": "Your personal vocabulary",
+      "sha256": "40b992879b42965b215dca0be84a1ba398bdb57e80e19768cd6b7f4f66c1b252"
+    },
+    {
+      "file": "content-for-your-level.png",
+      "source": "s24-dark-buttons-recommendations-v13.png",
+      "caption": "Curated Spanish beyond the app",
+      "sha256": "10f0639b6d341ad0e55a810d6244628140c9c1f2b3832277964c7a13b06e7ac6"
+    },
+    {
+      "file": "lesson-complete.png",
+      "source": "s24-dark-buttons-completion-v13.png",
+      "caption": "Continue straight to the next activity",
+      "sha256": "16a6e5ccd1568ea39effee782f5543135bd460316e0edd8384e87b43192beb04"
+    }
+  ],
+  "webAssets": {
+    "a1-practice.js": "0d39beec2d894ac4ca60cd8d5ba3f46dbe8238900d5a7627128ca3aaaba78644",
+    "a1-review.js": "a29b80594cce69e291416325da5bd107adfa9802becd5e57d57c1800495f50ea",
+    "a12-stories.js": "6468a83f9f9b8407ea501f6e587ac9e4a7047eb31dd0bd05cfeb42c1739b3b28",
+    "a12.js": "eab2c0facea80dc8fdb78437f069f011a9a32fb3b121bbf7e4757f8d44284665",
+    "a21-conjugations.js": "4891d6525f8ec49ccde6e080e25c4bad09bcbcac08333d152277381adc874fd8",
+    "a21-data.js": "75e6fdeb2ec614c9968a9bb89584d2024792dd45c4567bdcf0992e7775ef25f8",
+    "a21-ids.js": "34a65f11415d0e866bb88333b1d9393e01d8721fe0e2e7f2bfe74d54ee42a444",
+    "a21.js": "65f74f58f5de7df1148a26f2026669fe5ceab56a524f38127eaa66cd8d338bda",
+    "a22-conjugations.js": "2c5be7691ecc677992dfea37c6108658b48836bfb8cf330d4ef98ab9c82f71d3",
+    "a22-data.js": "41b329ec6cc634cc73955c4c74f47f0071a4650f1ce9f0918496f1d554b32e16",
+    "a22-focused-data.js": "9c1156ff39656843f50b64bae1e15d62886a2419637d8ba097ee954d6cd5673b",
+    "a22-stories.js": "2d5a5a794ac358c3cda171ed56dc18163e01461f9b3ba6c2b32e4cb19693c04c",
+    "a22-targets.js": "f9ffb625e4b68033fc857b81411b3aeaa434c34480f60bfabf3f65c54668e19a",
+    "a22.js": "7c1f4837610069f23908cf8ec3e6467322ff34996b70885a6e4aebbb6e8caaf1",
+    "answer-feedback.js": "fa4295df967656e4e051b2fae2e794903f1fdb963a5cbae52706cd6de9e8fae0",
+    "app.js": "8cfaf00d282e432e4f30ddd85789437faeb6da31fb4a990bed90578700bf13de",
+    "assessment-policy.js": "86859060160c31dcf62a2409755705f77eb5c517aa8d9b52e715abc9cdce8e0e",
+    "audio/failure.mp3": "ba30af47a229b4652517c2997aca074d23db368cf5e9091f1fd5d698abdb3805",
+    "audio/success.mp3": "d01036a8585a6a0f18ddb10c078c0b189b7d416f4ea12710eca0d4ef59730e42",
+    "b-conjugations-data.js": "94acb7241df729b051677493329343e469579fe8b94ee4ee43d5805bfbf241f9",
+    "b-course.js": "ed75244ea9ccb63af5911d51bb22ce23effc38bc701d19c2538cc8d85093f335",
+    "b-focused-data.js": "3572ef09d146822dbc5c37ded5664ff5905c776389c7f7702084788d69aa51bc",
+    "b-targets.js": "7ca111a566f6fcbfd4db1688e51310872f5a48eb732bdc1a4767253f976a31ae",
+    "b11-data.js": "b5152185174c7fa61f7b8116646357c32474473c64570d4b8a113d5a0e12db6c",
+    "b12-data.js": "14bb9fa562f40a7c41950dfc0eba9358e63351688b0dbe304d0ed09b5189c3a9",
+    "b21-data.js": "51f4848630d3b600ef9eb4094108ef7acf1bef7e2568bcef7e5f600e5582eacc",
+    "b22-data.js": "83550da4500cf37659ff3ec0f409570d1cb3efe84ea0bafdde587badb5dce13a",
+    "blanks.js": "f370ddc74c615bcefe2453dfd115e71742f0ae00340f12ccf0a6721b66d15812",
+    "conjugation-targets.js": "abd349b22a4775a424a07a95608a0b272beaf22315ed25c9c6959efb470d76ec",
+    "conjugations-bank.js": "e247605018a7d35da30f6feab68e2e7f6ef4ef88defbd4da0f0f7bfdc46609d5",
+    "course-language-data.js": "8096d735944200f619c8c9f45b57523d5d698f035c3fedd2a5452116af674a15",
+    "course-language.js": "1f37270f8efa0d763abfeec1dd46ff4e591caa6bb0637337fd05ad3e59d87326",
+    "course-path.js": "744d64acf465c106a228532b04afddb677b33faac6404a485e805025064c6ec2",
+    "curriculum.js": "a85e0d0dabe2abb59409c222ca7d007c10436f8a3d5b478ede1df8ae0e2c99ca",
+    "dictionary-ui.js": "87ac830242711931e78b268ad20a58c2a5e1f2cf5244f267431915a6dbd2395b",
+    "dictionary.css": "9a0312b5606d1aa284f4997859762910748ca2c8cf1862fed0b54eb4fa82b32b",
+    "engine.js": "c6c3dea7c355020a5c9be2fd6d4346a71dbe9aeba982a736b49f4fab530a4053",
+    "focused-bank-data.js": "ca617671d3deb1d739c8507b24e4789d26ba71131a31895af10f56cc36474320",
+    "focused-bank.js": "d9fb7ed95eb5129dd3211d932176cb735ad67c041c7c9c9b8702b1c50fa02823",
+    "focused-practice.js": "e02d8bfe1dba079a1ba838a5c2beeda96b11706ba5b17a80c900416328e59e7c",
+    "focused-view.js": "871a426abcd0be69da522f51c7b02d7fb34aedcbe2aac57bef8d62db7fe4d3a1",
+    "games-view.js": "8983bd105161b63d63ac0b976b96c56b8bbf1adef5f8c720ffb96eabc3d50659",
+    "games.js": "65367927cfb3de23571c238b63a6275e0390a83c2a916ea0821eb7a208371151",
+    "grammar-syllabus.js": "e83730ab4548142c1734e3e2f1cc2ae17e88bef7815e0aa4e6f07974db8ff457",
+    "images/lesson-bulls.webp": "a6f888db34d0f7332dda8515b09c2e85f1d0b8dd1b210d422272dfd7b74fc749",
+    "index.html": "1cb5fefc1749322d2c7779a5fd63d846f62868b1b130c10e2f60cd13f9bb30fd",
+    "learner-clarity.js": "db98092255dae0c59cd9d8c9c3a1d94ef8d7d632b7e64c8dcafbb33d9c47029e",
+    "learner-dictionary-data.js": "0f5e2692467cc99165dcbe278ed0690041a08ffddcc0a462fee5262a8c7e0c4c",
+    "learner-dictionary.js": "32214f4c57a7fa3d1d4acbfeabbf49f4d218b236dcb48fe90e5abad643f7fad5",
+    "learning-practice.js": "06d1bb673ffabca27c7e522dee6f153552cab01250e86e191bc7cca3d02cf348",
+    "mastery.js": "07cbfe4fc493c7d95a20480ceb0cc4d43b716fd9e8c7de71622a65a382c4ef0b",
+    "practice-view.js": "975f6236bb03171b51091cc45a60fce578cef8fb623fa02bae5cc3dacd1fbbbc",
+    "question-ids.js": "6e8ba0cd046e0e617f997a4f5964b439eeffe22be691152b22e37499547ec520",
+    "quiz-view.js": "421cefd63f5ce94b791cf8ed618840291bb08e78259d8bb993eb97211054ab0d",
+    "recommendations.js": "4710f649b8bc5131d5734679adb6912dfde53068bc2999ab121b3ad8c899015c",
+    "screens.js": "f3a80f345d9f729281931ab640a82759f5c4119889f936837d1e9195fb75d7d2",
+    "spanish-fragments.js": "a2b3b282e90f7c7b698e3447d8c87f61a18c487de73d2780be21ffe95418ce16",
+    "speech.js": "d91666644892a209debcf671031109f3fb44c0a5b0f5b32f45688886a62e2819",
+    "storage.js": "1e8034fb29db431348fd0bf36fae71568a7e5975488f387b5465fa4a4c8a5a2b",
+    "stories.js": "9ff2d21d2b1b2e7b24f5d7dce5c023e1235e5b82ece6bc379452d4001ab0aa01",
+    "structured.js": "441849cc0b6c7ecd11b85135ca3305710379c09be70771697c74a35fe9d92667",
+    "style.css": "4a25421568a1bb7b4a9b714df407522b3dc9a23c050194d89edcbf570cd735b4",
+    "verb-diagnostics.js": "8e4f5c42e168003a98e107d50c5e50980ab48b67c9109f4750e7b9aa85149e3a",
+    "viewport.js": "478c8e84dd3fa7a7e7b33d915abb52da44fa324acaa2e845476e9fd674aa7d1c",
+    "writing-audit.js": "7616f15474d66e631a5ce626c0b642652ecb29eb2acb5d8cde0e635fc1511e04",
+    "writing-rules.js": "ea74ac8efdc9438e57137e1ea0a548783d9910be83e4b527392e807ab3c5408e",
+    "writing.js": "5e526db59755aaf663091155c28f5d09e3026a4f4128648817687beb8d21d03f"
+  }
+}

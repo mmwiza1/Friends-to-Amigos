@@ -1,50 +1,47 @@
-# v1.3 candidate validation
+# Build and validation status — 1.3.0
 
-Version 1.3.0 / Android versionCode 14 is in validation; main remains the verified 1.2.0 baseline until the full gate is green. The candidate adds structured assessment, seamless continuation, local recommendations and Home/Profile semantic cards. See [the release report](docs/release/V1_3_REPORT.md). Final test, rendered-browser, Android and screenshot results will replace this candidate notice after actual validation.
+Android versionCode **14**; progress storage remains **schema v2**. Baseline main is `3af8d73b0a25c40bc8802122c4ad068ba0ebf6c8` (1.2.0 / code 13). No stage, activity order, permanent ID, canonical course target, story or historical fixture is removed/replaced. See [the release report](docs/release/V1_3_REPORT.md) and [assessment audit](docs/release/v13-assessment-audit.json).
 
-The original v1.2 results below are historical baseline evidence, not a claim that v1.3 has already passed.
+## Performed validation
 
-# Build and validation status
+The complete code gate passed in [run 40257313103](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/40257313103), candidate `71def79d40a3f510634db5acbd45b3e628096729`.
 
-Learner-experience release **1.2.0**, Android **versionCode 13**, storage schema **v2**.
-Baseline: latest main `e6a4eaed045c255beb6e663b46d24e9d81d0b8a5` (1.1.0/code 12).
+- `npm run check`: passed. Syntax, 576 activities, 3,328 course slots, 3,367 authored question IDs, 592 game questions, 896 focused items and 1,212 dictionary entries / 1,564 known forms validated.
+- `npm test` on CI Node 22: **1,505 passed, 0 failed, 0 cancelled, 0 skipped, 0 todo**. All 838 original compatibility cases remain; 667 live v1.3 cases were added. Local Node 24 independently passed 30 file-isolated suites (0 failures/skips, 170,142ms).
+- `npm run audit`: passed locally; 15 A1 anchor constructions / 16 units, with eight literal-form gaps retained for educator interpretation. `node scripts/learner-release-audit.cjs` also passed: original payload/ID/order contracts, all current structured models, controlled-media adaptation and recommendation quotas.
+- `npm run check:browser`: **28,556 assertions / 15 layouts**, 0 failed layouts. The previous 20,640 assertions remain; 7,916 new assertions cover v1.3. All 3,328 live questions render without horizontal overflow on the S24 profile; structured interactions, dictionary isolation, hierarchy, palette contrast, progress, recommendations and completion are covered across all layouts.
+- `gradle -p android assembleDebug lintDebug testDebugUnitTest`: **BUILD SUCCESSFUL**, 47 tasks executed. JUnit XML: **14 passed, 0 failures, 0 errors, 0 skipped** (eight native inset, four native policy, two launcher tests). Lint XML: **0 errors / 12 warnings**, the same warning count as v1.2.
+- Built APK: **1,757,599 bytes**. All **67** bundled web assets match this worktree byte for byte.
 
-## Baseline and preserved contracts
+The final README showcase adds one integrity test: 15 unmodified validated PNGs, relative README references and exact runtime-asset hashes. That test passed separately; the final combined gate is rerun before main is updated. The final combined CI result will be recorded after it completes.
 
-The immutable main copy passed local `npm run check` and `npm test`: Node 24 reported **22 file-isolated suites passed**, 0 failures/skips. Published baseline CI reported **754 individual cases**, **14,531 browser assertions / 11 layouts**, **11 Android unit tests**, and lint **0 errors / 12 warnings**.
+The browser fixture fixes preserve all assertions/profiles: isolated lexical scope, scroll a vocabulary anchor into the usable viewport before tapping, and initialize optional focused state after resetting an illustrative screenshot profile. No product error is suppressed.
 
-All 576 activities, 3,328 course slots and permanent course/game/table/media identities and ordering remain protected. The new [baseline contract](docs/release/learner-experience-baseline-contract.json) also protects all 23 historical fixtures, navigation, 592 Conjugations items, 82 table targets and 896 focused media items. The [explicit on-ramp/recycling manifest](docs/release/learner-experience-content-corrections.json) records five intentionally amended activities and 23 question payloads. Tests assert the exact new values before reversing only those explicit changes for historical hashes; immutable fixtures are not regenerated.
+## Rendered review and Samsung profiles
 
-The supported opening preserves the original checkpoints, objectives, writing practice and later expectations. Historical attempts use their saved questions. Review success on an easier/different replacement task cannot clear an original harder review under the same ID. Original snapshot practice retains the established schedule. Schema remains v2 with optional true-only product discovery `dictionaryTipSeen`, separate from hints/evidence/score.
+Developer visual review covered light/dark Home/Profile, recommendations, all three opening teaching lessons, first story, structured recall/transfer, word banks, multi-gap Spanish, diagnostic feedback, pre-answer dictionary, Saved Words, completion, games, Review, A2.2 guided writing and B-level expression. Phone-size renders were inspected at normal and large text; S24 overlay-keyboard and S25 landscape/cutout scenarios were also inspected. [Fifteen showcase images](docs/screenshots/manifest.json) come from the validated browser artifact; these use illustrative test progress, not learner data.
 
-## Current release gate
+Named profiles vary actual layout conditions rather than physical device resolution:
 
-Final code gate: [GitHub Actions run 38480352996](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/38480352996), validated source `616247d825fb1a78be639b5255401c2b0d8d7bb4` (followed only by final release-documentation updates).
+| Profile | Conditions | Result |
+| --- | --- | --- |
+| S22 | 360×780, light, three-button inset, right cutout | Passed |
+| S24 | 360×800, dark, gesture inset, simulated overlay IME | Passed |
+| S25 portrait | 360×800, dark, 1.35× text, bilateral cutouts | Passed |
+| S25 landscape | 760×360, light, 1.2× text, asymmetric cutouts | Passed |
 
-- `npm run check`: **passed**; 576 activities, 3,328 slots, 3,367 permanent authored IDs, 592 game items, 896 focused items and the existing 1,212-entry/1,564-form dictionary checked.
-- `npm test` on CI Node 22: **838 passed, 0 failed, 0 cancelled, 0 skipped, 0 todo**, +84 individual cases over baseline. Local Node 24 reports **28 file-isolated suites passed**, with no failures/skips, in the full resumed/final reruns.
-- `npm run audit`: **passed locally**; the retained deterministic A1 report covers 15 anchors / 16 units and flags eight literal exposure gaps for educator interpretation, not automatic content insertion.
-- `npm run check:browser`: **20,640 assertions / 15 layouts**, 1,376 per layout. All eleven old profiles and four named Samsung profiles pass; the additional focus-ring/label clearance check is included in every layout.
-- `gradle -p android assembleDebug lintDebug testDebugUnitTest`: **BUILD SUCCESSFUL**, 47 tasks executed. JUnit XML: **13 passed, 0 failures, 0 errors, 0 skips** (eight inset, three native-policy and two launcher tests). Lint XML: **0 errors, 12 warnings**, the same warning count as baseline.
-- Test APK: **1,738,585 bytes**. All **64** bundled web assets match the validated workspace byte for byte, including the fixture-independent product code, CSS, dictionary, course, games and audio/mascot assets.
+Eleven additional profiles retain 320px, resized/overlap keyboards, gesture/three-button, dark/light, landscape and large-text checks. Insets/IME and speech acknowledgement are simulated. No physical-device, emulator, acoustic TTS or independent native-speaker/educator test is claimed. Local Chromium cannot launch under the managed sandbox; Gradle/Android SDK/adb are unavailable locally. The established CI supplies the real Android compile/lint/JUnit validation.
 
-The original screenshot failure was a DevTools lexical-scope collision, not a product exception. Every screenshot setup now runs in its own IIFE, with a regression guard; no layout or product assertion was removed. Manual review then found a search focus ring crowding its label. A scoped `.5rem` gap and real rendered geometry assertion fix that issue. The complete gate was rerun after this correction.
+## Physical-device release checklist
 
-Developer inspection covered opening lesson 1/2/3, first story, recall/transfer, the mixed-language prompt, pre-answer choice lookup/dismissal/selection, Saved Words, normal/large text, dark/light, keyboard and landscape/cutout renders. The refreshed S24/S25 search renders show label clearance. This is simulated rendered review, not physical-device testing.
+1. Export and verify a backup before installation. A fresh CI debug signing key can differ from an installed APK; never uninstall without a recovery plan.
+2. On real S22/S24/S25, verify portrait/landscape, gesture/three-button, large text, light/dark, status/cutouts and bottom controls. Scroll to every final control.
+3. Try word/phrase Add/Remove/reset, duplicate words, multi-gap selection, checking and per-gap feedback; dictionary lookup must not select, hint or score.
+4. Complete a lesson, Continue directly to the next story/checkpoint/unit, and Finish for now. Test Today precedence, later starting path and historical active-attempt recovery.
+5. Test Saved Words search and open writing with Samsung keyboard: short historical Go submits once, multiline Enter adds a newline, popup stays above IME and navigation restores after close.
+6. Verify Review, games/tables, placement, import/export and installed offline es-ES audio. Check external recommendations open a separate browser and return safely.
+7. Obtain beginner/educator feedback on structured task ambiguity, distractor quality, safe alternate orders and the A2.2 writing bridge; check B-level pacing and naturalness.
 
-Local Chromium fails to launch under the execution sandbox (`ECONNRESET`, crashpad socket operation not permitted), so no local rendered pass is claimed. Local Gradle/Android SDK/adb/emulator are unavailable. The established GitHub Actions workflow runs `npm run check`, `npm test`, `npm run check:browser`, then `gradle -p android assembleDebug lintDebug testDebugUnitTest`. No emulator, physical-device, acoustic TTS or independent native-speaker validation is claimed.
+The APK is suitable for this physical-device testing, not a claim of hardware validation or CEFR certification. Recommendations may change availability; the catalogue documents near-term RTVE expiries and partial YouTube verification. Existing [user-testing guidance](docs/release/USER_TESTING.md) still applies.
 
-## Responsive / device checklist
-
-The rendered suite retains eleven previous profiles and adds four named Samsung scenarios: S22 360px light/three-button, S24 360px dark/gesture with overlay IME, S25 360px large text/bilateral cutouts, and S25 760×360 landscape/asymmetric cutouts. These vary CSS viewports and native inset values, not physical model resolution. Existing WindowInsets remain the single source of truth.
-
-Before wider distribution:
-
-1. Export a verified backup and confirm signing-key compatibility before installing; never uninstall an existing APK without a recovery plan.
-2. On real S22/S24/S25, try portrait/landscape, gesture/three-button, light/dark and large text. Open and scroll dictionary/More near each screen edge; verify final controls and navigation above system UI.
-3. In all three opening lessons, tap Spanish in the bilingual model, mixed prompt and options before answering. Word tap must open help; card/radio/padding must select. Back/Escape/outside closes help without answering. Check the product tip disappears only after successful dictionary use.
-4. Focus written responses and Saved Words search using the Samsung keyboard. Check Go submits once, multiline Enter adds a newline, inputs and Check remain reachable, and closing the IME restores layout.
-5. Save/remove/search/filter vocabulary, background/relaunch, resume a historical lesson and export/import. Verify Today, Review, placement, games/tables, accents and distinct ñ.
-6. Listen to dictionary pronunciation using an installed offline es-ES voice and obtain complete-beginner/educator feedback on the ramp and recurrence gaps.
-
-See [the learner-experience quality report](docs/release/LEARNER_EXPERIENCE_REPORT.md), [dictionary architecture](docs/LEARNER_DICTIONARY.md), [anchor recurrence](docs/release/a1-anchor-recurrence.json) and historical [1.1.0 report](docs/release/DICTIONARY_REPORT.md). This is a course/user-testing milestone, not CEFR certification. No framework, cloud service, runtime dependency, microphone or third-party corpus is added.
+Historical v1.2 results: 838 JS cases / 20,640 browser assertions / 13 native tests, lint 0 errors / 12 warnings. They remain baseline evidence rather than current-release totals. See [the baseline build record](https://github.com/mmwiza1/Friends-to-Amigos/blob/3af8d73b0a25c40bc8802122c4ad068ba0ebf6c8/BUILD_STATUS.md).

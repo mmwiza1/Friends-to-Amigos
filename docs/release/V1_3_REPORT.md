@@ -42,8 +42,35 @@ Visible Spanish stays dictionary-enabled before answering, including tile-bank w
 
 Each card explains why to try it, access/audio/subtitle/variety limits and opens in an external browser. No media is embedded/downloaded and no new Android permission is requested. HTTPS provider allowlists exist in JavaScript and native policy; external pages never load inside the privileged app WebView. See [source verification](V1_3_RECOMMENDATIONS.md).
 
+## Quantified interaction change
+
+| Stage | Previous text slots | Current text slots | Sentence/phrase builders | Contextual cloze |
+| --- | ---: | ---: | ---: | ---: |
+| A1.1 | 193 | 0 | 108 | 5 |
+| A1.2 | 193 | 0 | 95 | 25 |
+| A2.1 | 192 | 0 | 95 | 25 |
+| A2.2 | 192 | 23 | 72 | 25 |
+| B1.1 | 192 | 80 | 27 | 13 |
+| B1.2 | 192 | 80 | 29 | 11 |
+| B2.1 | 192 | 80 | 25 | 15 |
+| B2.2 | 192 | 80 | 26 | 14 |
+
+A total of 1,195 course text-slot representations are replaced: 585 become controlled comprehension/reply choices; 610 become construction/cloze. This includes 18 early guided-labelled tasks whose finite models benefit from structured use; 1,177 were strictly finite tasks. Another 11 Numbers/Time tasks use sentence building, and 133 finite listening tasks become controlled choices only when new focused sessions are generated. The catalogue itself keeps its permanent IDs and old snapshot semantics. Across course and special practice there are 488 tile banks and 133 cloze tasks; 343 genuine writing slots remain (23 A2.2 plus 80 in each B stage).
+
+The opening IDs remain `u0l0`, `u0l1`, `u0l2`, with their intervening stories in the same course order. The first teaching activity retains its five meaning-first model/recognition/completion items. The second replaces its first finite typed recall with a word bank; the third uses contextual construction and supported role transfer. Independent expression begins in the A2.2 bridge rather than an exact-string A1 textbox. Later Unit 0 construction/transfer, all original checkpoints and final targets remain. The café time-of-day prompt is clarified without changing its accepted underlying meaning. No original story, objective or Spanish model is rewritten.
+
+The recurrence audit covers 15 anchors over 16 A1 units. Its eight literal-form gaps remain visible in the retained report for educator judgement; visible banks/cloze additionally re-expose the same canonical language. No artificial repeated sentence is inserted merely to raise a count.
+
+## File and test architecture
+
+Added product modules: `www/structured.js`, `www/assessment-policy.js`, `www/recommendations.js`. The existing controller, quiz view, screens, engine, storage, focused-session construction and retrieval modules integrate them without a framework/dependency or backend. Source generators stay unchanged behind the adapter; future authored content should preferably declare its structured target directly.
+
+Added validation: `tests/structured-release.test.cjs`, `tests/product-v13.test.cjs`, explicit `tests/helpers/v12-course.cjs` / `v12-app.cjs`, `scripts/learner-release-audit.cjs`, the captured main contract and current audit. Existing compatibility cases use original question data against the new runtime; the live suites separately exercise current questions, completion, malformed imports, structured feedback, responsive interaction and recommendation safety. Android native policy gains an external-browser allowlist regression test.
+
 ## Validation and screenshots
 
-Validation is in progress on the release worktree/validation branch. Main is not to be updated until check, tests, audit, all rendered profiles, Android assemble/lint/unit checks and representative visual review are green. Final results, screenshots and the APK will be recorded here after those checks actually run.
+The complete code gate passed in [run 40257313103](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/40257313103): 1,505 JavaScript cases (0 failed/skipped), 28,556 rendered assertions across all 15 layouts, and successful Android assemble/lint/unit tasks. Native XML reports 14 tests passed with no failures/errors/skips, and lint 0 errors / 12 warnings. Local syntax, course/recycling audits and 30 file-isolated suites passed independently. [BUILD_STATUS.md](../../BUILD_STATUS.md) records exact evidence and limits. The README showcase adds one separately passed asset-integrity test; its final combined CI rerun precedes main promotion.
+
+Fifteen unmodified final-UI screenshots are in `docs/screenshots/`, with source run, capture profile, image hashes and all 67 runtime-asset hashes in the manifest. README uses a compact three-column grid. The APK contains exactly those validated 67 assets. Developer inspection covered opening lessons/story, A1.2 construction, A2.1 cloze, A2.2/B writing, Home/Profile, recommendations, completion, dictionary, Saved Words, games and Review, including light/dark, large text, landscape/cutouts and simulated keyboard. No original launcher/mascot resource is altered.
 
 No physical-device, emulator, acoustic TTS or native-speaker review has occurred during this release. Samsung S22/S24/S25 profiles simulate viewport/inset/IME/text conditions, not device hardware. The release retains offline synthetic es-ES speech, self-assessed speaking, optional input vowel accents/opening punctuation, distinct ñ, and Spain-first language. No cloud grader, ASR, microphone, account, backend or runtime dependency is added.

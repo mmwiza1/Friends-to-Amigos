@@ -1,6 +1,22 @@
 # Friends to Amigos
 
+**1.3.0 · Build Spanish before writing freely.** A calmer learning journey, structured A1/A2 production and genuine guided expression at higher levels.
+
 An offline-first Android Spanish-learning app in a vanilla HTML/CSS/JavaScript WebView. European Spanish is the primary variety, including vosotros/as. No account, backend, runtime API, cloud grader or runtime npm dependency is required.
+
+## App preview
+
+Screens from the validated 1.3 UI, using simulated Samsung-size profiles and illustrative progress. Light and dark mode share the same five-tab navigation.
+
+| Learn with support | Build and explore | Keep progressing |
+| --- | --- | --- |
+| <img src="docs/screenshots/home.png" width="180" alt="Continue Learning and Today"><br>Continue Learning and Today | <img src="docs/screenshots/learn.png" width="180" alt="The course journey"><br>The course journey | <img src="docs/screenshots/beginner.png" width="180" alt="A supported first Spanish lesson"><br>A supported first Spanish lesson |
+| <img src="docs/screenshots/cloze.png" width="180" alt="Contextual multi-gap Spanish"><br>Contextual multi-gap Spanish | <img src="docs/screenshots/sentence-building.png" width="180" alt="Build Spanish with supplied words"><br>Build Spanish with supplied words | <img src="docs/screenshots/dictionary.png" width="180" alt="Vocabulary help before answering"><br>Vocabulary help before answering |
+| <img src="docs/screenshots/story.png" width="180" alt="Original stories with word help"><br>Original stories with word help | <img src="docs/screenshots/feedback.png" width="180" alt="Compare your answer and learn why"><br>Compare your answer and learn why | <img src="docs/screenshots/games.png" width="180" alt="Conjugations and Tables"><br>Conjugations and Tables |
+| <img src="docs/screenshots/conjugations.png" width="180" alt="Conjugations in context"><br>Conjugations in context | <img src="docs/screenshots/review.png" width="180" alt="Scheduled review and weak areas"><br>Scheduled review and weak areas | <img src="docs/screenshots/profile.png" width="180" alt="Your level, streak and capabilities"><br>Your level, streak and capabilities |
+| <img src="docs/screenshots/saved-words.png" width="180" alt="Your personal vocabulary"><br>Your personal vocabulary | <img src="docs/screenshots/content-for-your-level.png" width="180" alt="Curated Spanish beyond the app"><br>Curated Spanish beyond the app | <img src="docs/screenshots/lesson-complete.png" width="180" alt="Continue straight to the next activity"><br>Continue straight to the next activity |
+
+[Build results and device-testing limits](BUILD_STATUS.md) · [Release details](docs/release/V1_3_REPORT.md)
 
 ## Full course for user testing
 
@@ -17,13 +33,27 @@ An offline-first Android Spanish-learning app in a vanilla HTML/CSS/JavaScript W
 | B2.1 | 72 | 416 | 32 | 56 / 56 | 64 | 6 |
 | B2.2 | 72 | 416 | 32 | 56 / 56 | 64 | 6 |
 
-Each stage has eight units, three core lessons, four stories, a writing activity and a checkpoint per unit. Recognition → controlled completion → recall → contextual response → transfer remains the learning progression. All activity/question IDs, ordering, learning objectives and historical snapshots remain stable. The 1.2.0 learner-experience release deliberately eases the first three A1.1 teaching activities, then restores independent recall and transfer. Later content changes are limited to two natural A1 anchor-language bridges; the eventual A1 standard and checkpoints are unchanged. See the [learner-experience report](docs/release/LEARNER_EXPERIENCE_REPORT.md) and historical [1.1.0 Spanish corrections](docs/release/dictionary-content-corrections.json).
+Each stage has eight units, three core lessons, four stories, a production activity and a checkpoint per unit. Recognition → controlled completion → recall → contextual response → transfer remains the learning progression. All activity/question IDs, ordering, canonical Spanish targets, learning objectives and historical snapshots remain stable. Version 1.3 changes how specific targets are practised, with no new stage or story rewrite. See the [1.3 release report](docs/release/V1_3_REPORT.md), [assessment audit](docs/release/v13-assessment-audit.json) and historical [1.2 on-ramp report](docs/release/LEARNER_EXPERIENCE_REPORT.md).
 
 B1 introduces connected narratives, practical advice, changes, viewpoints and limited wishes/necessity. B2 develops chronology, cause versus evidence, qualification, register, reported information, imagined conditions and integrated proposals. New material is original Friends to Amigos content; pedagogical references inform design without copied exercises.
 
+## Build first, then express yourself
+
+**A textbox means expression. A specific language target uses a structured interaction.**
+
+| Stage | Live assessment approach | Guided/free writing slots |
+| --- | --- | ---: |
+| A1.1 | Models, recognition, supported completion, word banks and sentence building | 0 |
+| A1.2 | Sentence/phrase construction, dialogue completion and contextual cloze | 0 |
+| A2.1 | Connected multi-gap passages and more demanding phrase construction | 0 |
+| A2.2 | Structured practice alongside an intentional guided-writing bridge | 23 |
+| Each B1/B2 stage | Structured reproduction alongside genuine connected expression | 80 |
+
+**1,195 course text-slot representations** become controlled interactions; another 11 Numbers/Time and 133 newly generated focused-listening items use controlled responses. This includes 18 early guided-labelled tasks whose finite targets are better practised through construction. Word/phrase tiles, duplicate tokens, reset/remove, contextual one-to-multiple gaps, per-gap feedback and narrow safe alternative orderings support active production without an apparently unrestricted textbox. Factual story comprehension uses precise controlled choices. No checkpoint threshold or final-stage objective is lowered.
+
 ## Writing that can admit uncertainty
 
-- **Controlled**: narrow authored retrieval and named details use exact accepted variants. Case, punctuation, spacing, vowel accents and ü are tolerant; ñ and negation remain meaningful. No substring grading.
+- **Controlled**: supplied banks, gaps and choices assess the named target. Historical typed-answer snapshots still use their original accepted variants. Case, punctuation, spacing, vowel accents and ü remain tolerant where applicable; ñ and negation remain meaningful. No substring grading.
 - **Guided**: accepted formulations can be verified. Other natural formulations survive as uncertain/model comparison, rather than automatic incorrect answers. Task-coverage evidence is not proof of grammar.
 - **Free**: independent connected responses receive conservative coaching, model comparison and reflection. Even an exact model match is not automatically essay-graded.
 
@@ -43,7 +73,7 @@ Listening is audio-first: answers stay locked until actual recording/TTS start; 
 
 Speaking is **self-assessed**. Say the response, reveal one possible model, optionally hear it, choose “I got it” / “Needs practice”. The app does not request a microphone, record, transcribe or assess pronunciation. Weak items/concepts return later, and same-session repetition cannot manufacture spaced mastery. First-use explanations become compact after successful use; accessible information remains available.
 
-Today resumes unfinished work first, then guides due review, the next required lesson and short media retrieval. Today’s Review combines due SRS mistakes and eligible weak/older practice. Weak Areas translates evidence into useful labels and launches eligible targeted practice. Normal passed lessons offer Continue learning; failed lessons offer retry/mistake review without skipping ahead.
+Today resumes unfinished work first, then guides due review, the next required lesson and short media retrieval. Today’s Review combines due SRS mistakes and eligible weak/older practice. Weak Areas translates evidence into useful labels and launches eligible targeted practice. Passed lessons preview the actual next required activity and Continue goes straight there, including stories, checkpoints, next units and stages. **Finish for now** returns Home. Today continuation takes precedence; failed lessons offer retry/mistake review without skipping ahead. Completed paths lead to review/maintenance rather than a fabricated next lesson.
 
 ## Games and grammar levels
 
@@ -55,7 +85,7 @@ Tables retain six Spain-first rows, varied blank positions, hints, typed recall,
 
 ## A gentler first encounter with Spanish
 
-The first Unit 0 teaching activity models useful chunks before easy recognition and supported completion. The second retains substantial support with one short recall near the end. The third brings back short written recall, contextual response and a simple role transfer. The intervening stories remain available; no lesson is added, removed or reordered. Early feedback teaches useful meaning before grammatical labels. Writing, listening, self-assessed speaking, transfer, checkpoints and personalised Review remain part of A1.
+The first Unit 0 teaching activity models useful chunks before easy recognition and supported completion. The second retains substantial support with easy sentence-bank recall near the end. The third builds contextual responses and a simple role transfer using supplied Spanish. Genuine unrestricted writing waits until the A2.2 bridge. The intervening stories remain available; no lesson is added, removed or reordered. Early feedback teaches useful meaning before grammatical labels. Productive construction, listening, self-assessed speaking, transfer, checkpoints and personalised Review remain part of A1.
 
 Previously learned language should scaffold new language. A family introduction reuses **me llamo**; a later flat visit reuses **vivo en** before **hay** introduces rooms. The [A1 anchor recurrence report](docs/release/a1-anchor-recurrence.json) lists where fifteen useful constructions recur and flags long literal-form gaps for educator review. These are exposure observations, not mastery claims or rigid frequency targets.
 
@@ -65,11 +95,19 @@ Tap visible Spanish before answering, including a Spanish quotation inside an En
 
 The offline bank contains **936 word entries, 276 expressions and 1,564 known form mappings**, compiled from original course glossaries/phrase banks and curated first-party definitions. No commercial dictionary service or third-party corpus is used. **Saved Words is inside Profile**, with count, search, All/Words/Phrases/Recently saved, pronunciation, More and Remove. Word forms deduplicate to the base; useful constructions save as phrases. See [dictionary architecture and coverage limits](docs/LEARNER_DICTIONARY.md).
 
+## A calmer Home and Profile
+
+Home puts **Continue Learning** first, then **Today**, **Needs Attention** and compact **Practice** tools. Today groups streak, reviews and learning time; Needs Attention includes shared course/game/table/media weaknesses. Profile groups your summary, level/streak, practical capabilities, recommendations, Saved Words and progress. Detailed period statistics and the seven-day chart remain available; placement, export/import and reset sit below them.
+
+**Content for Your Level** is a Profile secondary screen, not another tab. A local catalogue has 30 editorial entries / 29 distinct links. Each stage shows 15 recommendations: three Films/TV, Books, Audiobooks/narrated stories, Steam games and YouTube channels. Suitability ranges deliberately reuse resources. Comfortable/Stretch advice describes likely learner challenge, not certified CEFR levels. Each card includes access, subtitle/audio and variety caveats; external links open in a browser. The catalogue works offline; external content needs internet and may need payment/registration. See [provider verification and availability limits](docs/release/V1_3_RECOMMENDATIONS.md).
+
+Warm cream/pale blue-grey light surfaces and softer navy/charcoal dark cards retain the app identity. Teal/mint supports primary actions and active navigation, terracotta marks attention and gold supports streaks/milestones. Red is reserved for errors and destructive operations. Icons, text and borders accompany colour states.
+
 ## Mobile and learner data
 
-Home / Learn / Games / Review / Profile remain in that exact order, including Review. Saved Words stays inside Profile. Android Back closes an open dictionary first, then saves/leaves or navigates as before; Home backgrounds normally. Native WindowInsets remain the sole safe-area source. Fixed navigation, final controls, status-bar spacing, cutouts, keyboard overlap and toasts retain their protections. Input focus hides app navigation while the keyboard is open. Choice radios and sibling vocabulary text wrap on narrow phones, with separate keyboard/focus behaviour. The named Galaxy S22/S24/S25 browser profiles vary CSS viewport, insets, keyboard, text scaling and theme rather than physical resolution or device detection. Light and system dark themes, coral/teal identity and bull-face launcher assets are preserved.
+Home / Learn / Games / Review / Profile remain in that exact order, including Review. Saved Words stays inside Profile. Android Back closes an open dictionary first, then saves/leaves or navigates as before; Home backgrounds normally. Native WindowInsets remain the sole safe-area source. Fixed navigation, final controls, status-bar spacing, cutouts, keyboard overlap and toasts retain their protections. Input focus hides app navigation while the keyboard is open. Choice radios and sibling vocabulary text wrap on narrow phones, with separate keyboard/focus behaviour. The named Galaxy S22/S24/S25 browser profiles vary CSS viewport, insets, keyboard, text scaling and theme rather than physical resolution or device detection. Light and system dark themes and bull-face launcher assets are preserved; primary actions now use the calmer teal/mint palette.
 
-Storage remains **schema v2** under `friends-to-amigos-v1`. The optional `savedWords` list defaults safely for old saves, deduplicates and exports/imports without changing historical attempts or review records. Optional `dictionaryTipSeen` accepts only `true` to remember successful discovery; it is a product preference, never a learning hint. Visible teaching/Spanish-fragment metadata is validated in saved question snapshots. V1 migration, recovery/read-only protection, malformed import rejection and historical snapshots remain. Optional question `writing`/`previousResponse` and active `writingResponses` fields default safely; no completion history is fabricated. Pending comparison, revised response and reflection resume/export/import. A later starting path assumes foundations without awarding skipped completions; actual completion statistics remain accurate.
+Storage remains **schema v2** under `friends-to-amigos-v1`. The optional `savedWords` list defaults safely for old saves, deduplicates and exports/imports without changing historical attempts or review records. Optional `dictionaryTipSeen` accepts only `true` to remember successful discovery; it is a product preference, never a learning hint. Visible teaching/Spanish-fragment metadata is validated in saved question snapshots. V1 migration, recovery/read-only protection, malformed import rejection and historical snapshots remain. Optional question `writing`/`previousResponse` and active `writingResponses` fields default safely; no completion history is fabricated. Pending comparison, revised response and reflection resume/export/import. New structured snapshots contain bounded tile/gap data and partial selections; invalid imported selections are rejected before replacing valid progress. Historical typed attempts are never replaced by live adapted content. A structured success cannot clear an older typed Review snapshot; structurally different scaffolding also cannot clear it. A later starting path assumes foundations without awarding skipped completions; actual completion statistics remain accurate.
 
 ## Development and release validation
 
@@ -78,7 +116,7 @@ npm run check
 npm test
 npm run audit
 npm run check:browser
-node scripts/release-audit.cjs
+node scripts/learner-release-audit.cjs
 ```
 
 ```sh
@@ -91,4 +129,4 @@ Preserve signing keys for in-place upgrades. A fresh CI debug key may differ fro
 
 ## Limits and next step
 
-The tiny placement screen is provisional and cannot establish CEFR speaking/writing competence. Finite controlled/comprehension matching can reject unlisted valid paraphrases; open writing deliberately admits uncertainty. The curated morphology/rules do not implement arbitrary Spanish parsing, general spellchecking or authoritative essay grading. The learner dictionary is a separate bounded vocabulary explorer. Listening lacks human-speaker variation; speaking is self-assessed. All eight stages should now undergo real learner and Spanish educator review, especially B-level pacing, naturalness, task ambiguity and false acceptance/rejection. Freeze expansion for user testing rather than begin C1/C2.
+The tiny placement screen is provisional and cannot establish CEFR speaking/writing competence. Structured tasks assess supplied language and authored alternative orders, rather than arbitrary paraphrases; historical finite text matching can still reject unlisted alternatives. Open writing deliberately admits uncertainty. The curated morphology/rules do not implement arbitrary Spanish parsing, general spellchecking or authoritative essay grading. The learner dictionary is a separate bounded vocabulary explorer. Listening lacks human-speaker variation; speaking is self-assessed. All eight stages should now undergo real learner and Spanish educator review, especially B-level pacing, naturalness, task ambiguity and false acceptance/rejection. Freeze expansion for user testing rather than begin C1/C2.
