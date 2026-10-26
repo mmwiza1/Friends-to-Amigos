@@ -4,9 +4,18 @@ Android versionCode **15**; progress storage remains **schema v2**. Starting mai
 
 ## Current release validation
 
-Final gate results will be recorded here after the current candidate completes. The previous rendered candidate passed all fifteen layouts / 29,126 assertions; the new candidate adds phrase-replay assertions and final snapshot fixes. The screenshot guard deliberately blocks promotion until current-build images have been captured. No failed assertion or profile is removed.
+The complete combined gate passed JavaScript, rendered and Android checks in [run 40325727162](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/40325727162), candidate `dbfce17213df69644588496c61bef944b996d9a0`. Its 69 runtime assets exactly match the source of the current showcase. The final documentation commit repeats the established gate before main promotion; runtime assets remain frozen.
 
-Local syntax/content, full audit, learner contract, recommendation metadata and learning-load checks have passed. The new quality test file passes **85 / 85** cases. All **1,506** original JS cases remain; the expected final combined count is **1,591**, to be confirmed by the performed final gate.
+- `npm run check`: passed — syntax, 576 activities, 3,328 course slots, 3,367 permanent authored IDs, 592 separate game questions, 896 focused items, 1,212 dictionary entries / 1,564 forms.
+- `npm test` (CI Node 22): **1,591 passed, 0 failed, 0 cancelled, 0 skipped, 0 todo**. All 1,506 baseline cases remain, with 85 quality cases added. Local Node 24 independently passed all **32 file-isolated suites, 0 failed/skipped**, 203,353.730614ms.
+- `npm run audit`, `node scripts/learner-release-audit.cjs`: passed locally. Original ID/order/content contracts, live structured models, media adaptation, recommendation quotas and the fifteen-anchor / sixteen-unit recurrence audit remain. Eight literal-anchor gaps are QA prompts, not mastery claims.
+- `npm run audit:recommendations`: passed — 30 records / 29 URLs, no metadata warnings at the 2026-10-26 review date. Public first-party availability verification is documented separately; optional developer network diagnostics were not used as proof of playback.
+- `npm run audit:learning`: passed — all 360 A2.2–B2.2 activities / 160 stories, all 44 references, no structural threshold/duplicate-word flags. This is not automated naturalness or cognitive-load certification.
+- `npm run check:browser`: **29,156 assertions / 15 layouts, 0 failed layouts**. All previous 28,556 assertions/profiles remain; 600 assertions cover quality surfaces. All 3,328 course questions still render on the S24 profile. Fifteen current-build showcase PNGs and all 69 runtime hashes pass the screenshot integrity guard.
+
+- `gradle -p android assembleDebug lintDebug testDebugUnitTest`: **BUILD SUCCESSFUL**, 47 tasks executed. JUnit XML: **15 passed, 0 failures, 0 errors, 0 skipped** (eight inset, five policy, two launcher tests). Lint XML: **0 errors / 12 warnings**, matching the baseline warning count.
+- Validated code-gate APK: **1,776,875 bytes**, SHA-256 `212c527f7a03d9c1258f5ab40a826d1fd1dc91cf2269fe578aa3199b52b0bc83`. All **69** packaged `assets/` files match the current web source byte for byte. Debug signing keys and APK container bytes may differ on subsequent equivalent builds; compare runtime hashes and retain backup/signing precautions.
+- The final diff was reviewed: original fixtures/identity manifests are unchanged; five-tab navigation, dictionary isolation, accent/ñ policy, course/placement/Today/review/game/writing compatibility remain covered. No new stage, runtime dependency, cloud service or app permission was introduced.
 
 ## Validation scope and device limits
 

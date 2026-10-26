@@ -58,10 +58,71 @@ All 30 records / 29 URLs were checked against current public first-party informa
 
 Schema-v2 discovery, v1 migration, invalid-import protection, recovery/read-only handling, active lessons, writing reflections, all permanent course/game/Table/media IDs, historical review snapshots, scheduling, Saved Words, placement, Today, five tabs and native Back remain. New optional support/confidence/presentation fields are bounded/whitelisted. Scaffolded success cannot clear an older harder review. Original historical fixture payloads are unchanged; strict developer-only inverses recognise the two exact live glossary additions and the intentionally moved -ER metadata, never mutate learner history.
 
-85 new JS cases cover all references, support thresholds/spacing, unsure/assisted evidence, diagnostic contrasts, retry, interleaving, snapshot isolation, safe shadow resume and speech-start gating, actual concept/form mapping, glossary whitelisting, mini-practice continuation and chunk replay. All 1,506 baseline cases remain. Browser checks retain all previous 28,556 assertions/profiles and add quality surfaces on fifteen layouts. The updated showcase must be captured from the current runtime before the final integrity gate passes. Native tests add an allowlist/lookalike check for replacement providers. Exact final results belong in [BUILD_STATUS](../../BUILD_STATUS.md).
+85 new JS cases cover all references, support thresholds/spacing, unsure/assisted evidence, diagnostic contrasts, retry, interleaving, snapshot isolation, safe shadow resume and speech-start gating, actual concept/form mapping, glossary whitelisting, mini-practice continuation and chunk replay. All 1,506 baseline cases remain. Browser checks retain all previous 28,556 assertions/profiles and add quality surfaces on fifteen layouts. The fifteen-image showcase was recaptured from the current runtime, and its integrity guard passes. Native tests add an allowlist/lookalike check for replacement providers. Performed combined validation: **1,591 JS cases passed / 0 failed / 0 skipped**, **29,156 browser assertions / 15 layouts**, Android **BUILD SUCCESSFUL**, **15 native tests passed / 0 failures/errors/skips**, lint **0 errors / 12 baseline warnings** in [run 40325727162](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/40325727162). Syntax/content, full audit, learner contract, recommendation and load audits passed. Local Node 24 also passed all 32 file-isolated suites. All 69 APK web assets were verified byte for byte. The final documentation commit repeats the gate before main promotion. Exact evidence/limits belong in [BUILD_STATUS](../../BUILD_STATUS.md).
 
 ## Freeze recommendation and remaining validation
 
 Freeze feature/content expansion and begin serious learner and educator validation of the existing A1.1–B2.2 product. The release supplies deterministic connected support and regression protection, not proof of learning effectiveness. Before adding course content, prioritise physical-device TTS/IME/navigation, beginner comprehension, longitudinal review effectiveness, B-level naturalness/register/inference, conservative-writing false acceptance/rejection and recommendation regional access. No C1/C2 expansion is recommended.
 
 No physical-device/emulator/acoustic TTS test, human educator review, native-speaker review, formal CEFR assessment, arbitrary prose grammar checking or AI adaptation is claimed.
+
+## Files in this release
+
+- `docs/release/V1_4_RECOMMENDATIONS.md`
+- `docs/release/V1_4_REPORT.md`
+- `docs/release/v14-content-support.json`
+- `docs/release/v14-learning-load.json`
+- `scripts/audit-learning-quality.cjs`
+- `scripts/audit-recommendations.cjs`
+- `scripts/content/quality-support.cjs`
+- `tests/quality-release.test.cjs`
+- `www/learning-quality.js`
+- `www/quality-view.js`
+- `.github/workflows/android.yml`
+- `BUILD_STATUS.md`
+- `COURSE_DESIGN.md`
+- `README.md`
+- `android/app/build.gradle`
+- `android/app/src/main/java/com/friendstoamigos/app/NativePolicy.java`
+- `android/app/src/test/java/com/friendstoamigos/app/NativePolicyTest.java`
+- `docs/LEARNER_DICTIONARY.md`
+- `docs/STATE_AND_QUESTIONS.md`
+- `docs/release/V1_3_RECOMMENDATIONS.md`
+- `docs/release/V1_3_REPORT.md`
+- `docs/resources/CODEX_REFERENCE.md`
+- `docs/resources/INTEGRATION_GUIDE.md`
+- `docs/screenshots/cloze.png`
+- `docs/screenshots/conjugations.png`
+- `docs/screenshots/feedback.png`
+- `docs/screenshots/manifest.json`
+- `docs/screenshots/profile.png`
+- `docs/screenshots/review.png`
+- `docs/screenshots/sentence-building.png`
+- `package.json`
+- `scripts/browser-check.cjs`
+- `scripts/learner-release-audit.cjs`
+- `tests/expansion.test.cjs`
+- `tests/helpers/content-corrections.cjs`
+- `tests/showcase-v13.test.cjs`
+- `tests/spanish-level.test.cjs`
+- `www/a22-conjugations.js`
+- `www/answer-feedback.js`
+- `www/app.js`
+- `www/b11-data.js`
+- `www/blanks.js`
+- `www/conjugation-targets.js`
+- `www/engine.js`
+- `www/focused-practice.js`
+- `www/focused-view.js`
+- `www/grammar-syllabus.js`
+- `www/index.html`
+- `www/learning-practice.js`
+- `www/mastery.js`
+- `www/practice-view.js`
+- `www/quiz-view.js`
+- `www/recommendations.js`
+- `www/screens.js`
+- `www/storage.js`
+- `www/style.css`
+
+Screenshot files were recaptured from the final runtime; identical PNG bytes remain unchanged in Git. Original fixtures and permanent-identity manifests are unchanged. The final tree/commit and performed gate are linked from BUILD_STATUS and the delivery report.
