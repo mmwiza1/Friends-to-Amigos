@@ -298,8 +298,8 @@ async function run(){ // Wait for the browser process before creating its first 
    assert(Boolean(dictionaryLesson),'authored hunger story available for contextual lookup');
    actions.lesson({dataset:{id:dictionaryLesson.id}});render();window.scrollTo(0,0);await frame();
    const dictionaryBefore=()=>{const value=JSON.parse(JSON.stringify(state));delete value.savedWords;delete value.dictionaryTipSeen;return JSON.stringify(value);};
-   const untouched=dictionaryBefore(),snapshot=JSON.stringify(state.active),storyText=document.querySelector('.story p[data-dictionary]').textContent;
-   assert(storyText===dictionaryLesson.reading.text,'dictionary tokenisation preserves authored story text');
+   const untouched=dictionaryBefore(),snapshot=JSON.stringify(state.active),storyText=[...document.querySelectorAll('.story > p[lang=es][data-dictionary]:not(.episode-hook)')].map(p=>p.textContent).join('\\n');
+   assert(storyText===dictionaryLesson.reading.text.replace(/\\n{2,}/g,'\\n'),'dictionary tokenisation preserves authored story text across reading paragraphs');
    let token=[...document.querySelectorAll('.story p [data-dictionary-token]')].find(e=>e.textContent==='Tengo');
    assert(token&&token.getAttribute('role')==='button'&&token.tabIndex===0,'Spanish words have accessible delegated lookup');
    token.scrollIntoView({block:'center'});await frame();token.click();await frame();
