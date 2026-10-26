@@ -2,9 +2,11 @@
 
 Android code 16; schema-v2 compatibility retained. Starting main: `39ad8188e985277468619326e9ddbf5bdf3f8d67`. The course remains 576 activities / 3,328 slots / 256 stories, A1.1–B2.2. [Implementation report](docs/release/V1_5_REPORT.md), [release notes](docs/release/V1_5_RELEASE_NOTES.md), [Story Bible](docs/STORY_BIBLE.md) and [manual QA](docs/release/V1_5_MANUAL_QA.md) record scope and limits.
 
-The baseline main workflow passed, and local baseline Node 24 passed all 32 test files (0 failures/skips). The current local regression run passes 32 of 33 files; the remaining screenshot integrity guard deliberately requires current-build captures. The new 55-case experience suite passes. Static/content, strict historical contracts and story/distractor audits have passed. Full rendered and native validation are pending; results will be replaced with exact performed totals before release readiness is claimed.
+The final 73-asset runtime passed **29,818 layout/interaction assertions across all 15 profiles** in [rendered run 40361789202](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/40361789202), source `025b3f2f8999331db68f1dd53754b776933e9073`. All 3,328 live course slots render on S24; Samsung/narrow/theme/large-text/IME/landscape profiles remain. Fifteen unmodified current-build PNGs replace the old showcase; all 73 hashes and PNG integrity checks pass locally. The only prior unit failure was the intentionally stale showcase manifest, now replaced. The complete combined gate and native results remain pending and will be recorded after execution.
 
-No physical-device, emulator, acoustic TTS, native-speaker or educator validation is claimed. Existing fifteen Samsung/Android responsive profiles are retained; no Pixel/Gboard-specific infrastructure is added. The other 232 original stories are retained, not described as newly rewritten.
+Static/content, learner-release compatibility, recommendations, learning-load and story/distractor audits pass. The focused regression run passes **69 cases (60 experience + 9 Samsung), 0 failed/skipped**. The dictionary has 1,230 entries (954 words / 276 expressions) and 1,564 known form mappings. All previous 1,212 lexical identities remain.
+
+No physical-device, emulator, acoustic TTS, native-speaker or educator validation is claimed. No Pixel/Gboard-specific infrastructure is added. Exactly 24 story editions were revised; the other 232 original stories are retained.
 
 <details><summary>Historical 1.4 validation record</summary>
 
