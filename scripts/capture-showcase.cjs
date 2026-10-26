@@ -24,7 +24,7 @@ async function capture({send,evaluate,fixture,sessionId,output}){
    feedback:"const l=C.lessons.find(l=>l.id==='u0l1');startQuiz('lesson',l.questions,l);quiz.index=4;quiz.answers=Array(4).fill(true);quiz.selected=JSON.stringify(Structured.selection(Structured.canonical(currentQuestion())).reverse());actions.check();",
    practice:"actions.practiceHub();",
    context:"state.completed=C.lessons.filter(l=>l.stage==='A1.1').map(l=>l.id);state.grammarLevel='A1.1';state.games=G.empty();actions.gameNew();const a=state.games.active,i=a.questions.findIndex(q=>q.blanks.length===1);if(i<0)throw Error('No single-blank game fixture');[a.questions[0],a.questions[i]]=[a.questions[i],a.questions[0]];a.selected=[null];",
-   review:"actions.reviewHome();",
+   review:"E.recordAnswer(state,C.lessons[0].questions[0],false);actions.reviewHome();",
    profile:"actions.profile();",
    saved:"actions.lesson({dataset:{id:'u0l0'}});quiz.index=3;quiz.answers=[true,true,true];",
    content:"actions.content();",
@@ -33,17 +33,13 @@ async function capture({send,evaluate,fixture,sessionId,output}){
   await fixture(sessionId,setup+'render();window.scrollTo(0,0);');
   // Natural card boundaries define the viewport. Long activities use a semantic
   // anchor; no card/text is removed or masked to manufacture a layout.
-  const anchor=recipe.screen==='feedback'?'.feedback':recipe.screen==='dictionary'?'#exercise-instruction':null;
+  const anchor=recipe.anchor||null;
   let end=recipe.end;
-  if(recipe.screen==='context')end='[data-action=gameCheck]';
   if(recipe.screen==='saved'){
    // Use the same dictionary save interaction as the product, with a known form.
    await fixture(sessionId,"dictionaryUI.close();const w=[...document.querySelectorAll('.choice [data-dictionary-token]')].find(w=>w.textContent==='llamo');w.click();dictionaryUI.saveCurrent();dictionaryUI.close();actions.savedWords();render();");
-   await evaluate(sessionId,'new Promise(r=>setTimeout(r,3600))');end='.saved-word-row';
+   await evaluate(sessionId,'new Promise(r=>setTimeout(r,3600))');
   }
-  if(recipe.screen==='content')end='.recommendation';
-  if(recipe.screen==='completion')end='[data-action=home]';
-  if(recipe.screen==='dictionary')end=null;
   await evaluate(sessionId,'document.fonts.ready');
   const metric=await evaluate(sessionId,`(()=>{const a=${JSON.stringify(anchor)},end=${JSON.stringify(end)},anchor=a?document.querySelector(a):null,target=end?document.querySelector(end):null;const nav=document.querySelector('nav');return {anchor:anchor?anchor.getBoundingClientRect().top+scrollY-24:0,bottom:target?target.getBoundingClientRect().bottom+scrollY:null,nav:nav?nav.getBoundingClientRect().height:0};})()`);
   assert(!end||metric.bottom!==null,recipe.screen+' has capture boundary '+end);

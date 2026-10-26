@@ -10,16 +10,16 @@ const screens=[
  ['beginner.png','beginner','A supported first Spanish lesson','light','#check-answer',null],
  ['cloze.png','cloze','Build a connected message with contextual gaps','dark','#check-answer',null],
  ['sentence-building.png','tiles','Construct Spanish with supplied word tiles','light','#check-answer',null],
- ['dictionary.png','dictionary','Explore a Spanish word before selecting an answer','light','.dictionary-popup',null],
+ ['dictionary.png','dictionary','Explore a Spanish word before selecting an answer','light','#check-answer',null],
  ['story.png','story','A standalone reading episode with vocabulary support','light','[data-action=readStory]',null],
  ['feedback.png','feedback','Understand a mistake and compare natural Spanish','dark','[data-action=next]',null],
  ['games.png','practice','The Practice hub and optional activities','light','[data-practice-section=games]','Practice'],
- ['conjugations.png','context','Verb in Context with separate answers for each blank','dark','.game-choices',null],
+ ['conjugations.png','context','Verb in Context with separate answers for each blank','dark','[data-action=gameCheck]',null],
  ['review.png','review','Due Today, Weak Areas and Past Mistakes','light','#app > details.card','Review'],
  ['profile.png','profile','Your level, streak and Vocabulary tools','dark','[data-profile-section=vocabulary]','Profile'],
- ['saved-words.png','saved','Your personal saved vocabulary','light',null,null],
- ['recommendations.png','content','Content for Your Level with editorial guidance','light',null,null],
- ['lesson-complete.png','completion','Continue directly to the next required activity','dark','.up-next',null]
+ ['saved-words.png','saved','Your personal saved vocabulary','light','.saved-word-row',null],
+ ['recommendations.png','content','Content for Your Level with editorial guidance','light','.recommendation',null],
+ ['lesson-complete.png','completion','Continue directly to the next required activity','dark','#app > .card.empty',null]
 ].map(([filename,screen,description,theme,end,active])=>({filename,screen,description,theme,end,active}));
 function files(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?files(path.join(dir,e.name)):[path.join(dir,e.name)]);}
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
