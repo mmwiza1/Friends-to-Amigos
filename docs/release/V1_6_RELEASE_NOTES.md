@@ -16,6 +16,7 @@ Version 1.6.0 uses Android versionCode 17 and the existing schema-v2 storage. An
 
 - Practice replaces the Games tab label; its underlying saved routes remain compatible. Review stays a separate tab.
 - A prominent recommendation uses unfinished sessions, meaningful weaknesses, repeated mistakes and neglected listening/speaking, then current-path reinforcement.
+- The hero checks actual grammar prerequisites; when a full level is not yet taught, it recommends familiar sentence construction. Explicit optional level-preview play remains available.
 - Home keeps Continue Learning, Today, relevant Needs Attention and one Practice shortcut instead of a full optional-practice catalogue.
 - Bundled vector target, controller, headphones, book, star and tools icons render consistently without platform emoji.
 
