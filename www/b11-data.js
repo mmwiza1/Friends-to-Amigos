@@ -29,8 +29,8 @@ const data={
       "Choose the appropriate response to this exchange.",
       "Estaba esperando el autobús.",
       [
-       "Esperaré ayer.",
-       "He esperado mañana."
+       "Esperé el autobús y ya me fui.",
+       "Mañana esperaré el autobús."
       ],
       "Estaba frames the ongoing scene; empezó introduces a new event."
      ],
@@ -561,7 +561,7 @@ const data={
       "Vivo aquí desde 2024.",
       [
        "Desde hace 2024.",
-       "Hasta ayer mañana."
+       "Dentro de dos años."
       ],
       "Desde hace introduces an elapsed duration extending to now; desde introduces a starting point."
      ],
@@ -1149,7 +1149,7 @@ const data={
        "Choose the response appropriate to the passage.",
        "Llegaré a las nueve y media.",
        [
-        "Quizá fue ayer mañana.",
+        "Todavía no puedo confirmar la hora.",
         "No hay ninguna reunión."
        ],
        "The story contrasts tentative intentions with agreed arrangements."
@@ -1704,7 +1704,7 @@ const data={
        "¿Podría enviarme la confirmación por escrito?",
        [
         "No quiero conocer el precio.",
-        "La reserva es ayer mañana."
+        "Entonces prefiero cancelar la reserva."
        ],
        "Advice prepares a calm exchange and leaves the choice with the learner."
       ]
@@ -2017,7 +2017,7 @@ const data={
       "Sí, lo pasé muy bien.",
       [
        "Sí, lo fui muy bien.",
-       "No tengo mañana ayer."
+       "Sí, pasé por allí, pero no entré."
       ],
       "Tenía ganas de gives the prior wish; lo pasé bien describes the completed experience."
      ],
@@ -2450,11 +2450,11 @@ const data={
      "translation": "I think the train is better because it allows us to rest.",
      "gap": "Creo",
      "gapWrong": [
-      "Creí ayer mañana",
+      "Creía",
       "Creer"
      ],
      "wrong": [
-      "Creí ayer mañana que el tren es mejor porque permite descansar.",
+      "Creía que el tren es mejor porque permite descansar.",
       "Creer que el tren es mejor porque permite descansar."
      ],
      "why": "Positive creo que normally takes indicative; porque supplies support, not certainty for everyone.",
@@ -2952,7 +2952,7 @@ const data={
       "Creo que ha habido un error; reservé dos noches.",
       [
        "Nunca hay una reserva posible.",
-       "Sí, reservé mañana ayer."
+       "Mi reserva era para una noche."
       ],
       "Impersonal haber stays singular: ha habido un error / varios errores."
      ],

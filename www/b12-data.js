@@ -1485,7 +1485,7 @@ const data={
       "Choose the appropriate response to this exchange.",
       "Desde ayer por la tarde.",
       [
-       "Dentro de ayer mañana.",
+       "Desde la semana que viene.",
        "Desde hace ayer."
       ],
       "La espalda is singular, so duele; desde ayer gives onset rather than diagnosis."
@@ -1955,12 +1955,12 @@ const data={
      "translation": "I would recommend visiting the market in the morning.",
      "gap": "recomendaría",
      "gapWrong": [
-      "recomendé mañana",
-      "recomendaré ayer"
+      "recomendarás",
+      "recomendarías"
      ],
      "wrong": [
-      "Te recomendé mañana visitar el mercado por la mañana.",
-      "Te recomendaré ayer visitar el mercado por la mañana."
+      "Te recomendarás visitar el mercado por la mañana.",
+      "Te recomendarías visitar el mercado por la mañana."
      ],
      "why": "Conditional recommendation allows for the visitor’s preferences.",
      "ask": "Elige la frase que comunica: «I would recommend visiting the market in the morning.».",

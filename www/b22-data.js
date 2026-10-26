@@ -51,8 +51,8 @@ const data={
       "son"
      ],
      "wrong": [
-      "Dsoyde mi punto de vista, la prioridad es aclarar las condiciones.",
-      "Dsonde mi punto de vista, la prioridad es aclarar las condiciones."
+      "Desde mi punto de vista, la prioridad soy aclarar las condiciones.",
+      "Desde mi punto de vista, la prioridad son aclarar las condiciones."
      ],
      "why": "The subject la prioridad is singular; viewpoint attribution leaves room for another priority.",
      "ask": "Elige la frase que comunica: «From my point of view, the priority is to clarify the conditions.».",

@@ -20,7 +20,7 @@ function reverseFields(target,changes,label,beforeKeys,afterKeys){
  }
 }
 function beforeLearnerExperienceCorrections(item,kind='course'){
- const policy=require('../../www/assessment-policy');const authored=kind==='course'&&item.questions?{...item,questions:item.questions.map(policy.prior)}:item;const source=require('../../scripts/content/quality-support.cjs').beforeQualitySupport(authored,kind);const copy=clone(source);
+ const policy=require('../../www/assessment-policy');const authored=kind==='course'&&item.questions?{...item,questions:item.questions.map(policy.prior)}:item;const source=require('../../scripts/content/quality-support.cjs').beforeQualitySupport(require('../../scripts/content/experience-support.cjs').beforeExperience(authored,kind),kind);const copy=clone(source);
  if(kind==='tables'&&copy.id==='table-a12-comer-present'){assert.equal(copy.consolidationSource,'a12u7l2');delete copy.consolidationSource;assert.equal(copy.stage,'A1.1');assert.equal(copy.unit,2);assert.equal(copy.source,'u2l1');assert.deepEqual(copy.requiredActivities,['u2l1','u1l2']);copy.stage='A1.2';copy.unit=7;copy.source='a12u7l2';copy.requiredActivities=['a12u7l2'];}
  if(kind==='course'){
   for(const record of learnerExperienceManifest.course||[]){const q=copy.questions?.find(q=>q.id===record.id);if(q)reverseFields(q,record.changes,record.id,record.beforeKeys,record.afterKeys);}

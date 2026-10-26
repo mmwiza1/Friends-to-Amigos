@@ -372,8 +372,8 @@
   "answer": "Estaba esperando el autobús.",
   "options": [
    "Estaba esperando el autobús.",
-   "Esperaré ayer.",
-   "He esperado mañana."
+   "Esperé el autobús y ya me fui.",
+   "Mañana esperaré el autobús."
   ],
   "explanation": "Estaba frames the ongoing scene; empezó introduces a new event.",
   "spanish": "Luis: «¿Qué hacías cuando empezó la lluvia?» «Estaba esperando el autobús.».",
@@ -3334,7 +3334,7 @@
   "options": [
    "Creo que ha habido un error; reservé dos noches.",
    "Nunca hay una reserva posible.",
-   "Sí, reservé mañana ayer."
+   "Mi reserva era para una noche."
   ],
   "explanation": "Impersonal haber stays singular: ha habido un error / varios errores.",
   "spanish": "Recepción: «Solo tenemos una noche». Tú reservaste dos. «Creo que ha habido un error; reservé dos noches.».",
@@ -5801,7 +5801,7 @@
   "options": [
    "Desde ayer por la tarde.",
    "Desde hace ayer.",
-   "Dentro de ayer mañana."
+   "Desde la semana que viene."
   ],
   "explanation": "La espalda is singular, so duele; desde ayer gives onset rather than diagnosis.",
   "spanish": "Profesional: «¿Desde cuándo le duele?» «Desde ayer por la tarde.».",

@@ -80,3 +80,9 @@ Word/phrase bank text and visible cloze passages/options use the same pre-answer
 ## v1.4 preservation
 
 Grammar Reference and refresher examples use the existing bounded contextual dictionary. Pre-answer Spanish lookup, sibling answer-card controls, Saved Words and es-ES pronunciation remain. Looking up a word never sets Spanish Help/English Hint/scaffolding/confidence, scores, review events or mastery. Optional instructional support is a separate learner action. Hidden listening transcripts and unrevealed speaking/shadowing models remain unavailable to lookup.
+
+## v1.5 searchable learner dictionary
+
+Profile → Vocabulary now exposes Dictionary and Saved Words; neither is a new tab or buried in Settings. `learner-experience.js` searches the existing 1,212 entries in either language, ranks exact/whole-term matches and returns up to 40 entries. Vowel-folded search retains ñ. Ambiguous English queries can show multiple analyses; original saber/conocer contrast notes explain facts/skills versus familiarity. Thirty common noun notes provide gender/examples without renaming IDs or changing historical Saved Words. Existing senses, form metadata, region notes and the popup More/Hear/Save paths remain. Unknown results are explicitly unavailable; this is not an exhaustive/cloud dictionary.
+
+The discovery tip is acknowledged by lookup or dismissal and otherwise bounded to three early question views. Those preferences never count as a hint, grade or learning event. New optional state defaults safely for older saves. The pronunciation primer uses existing synthetic es-ES speech with no microphone or acoustic assessment.

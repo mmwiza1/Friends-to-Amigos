@@ -1,12 +1,12 @@
 # Friends to Amigos
 
-**1.4.0 · Learn, understand mistakes and recall later.** Adaptive support, connected review, Grammar Reference and self-assessed shadowing strengthen the existing A1.1–B2.2 journey.
+**1.5.0 · Clearer practice, memorable stories.** A simpler mobile journey, searchable English ⇄ Spanish learner dictionary and carefully revised standalone episodes across the existing A1.1–B2.2 course.
 
 An offline-first Android Spanish-learning app in a vanilla HTML/CSS/JavaScript WebView. European Spanish is the primary variety, including vosotros/as. No account, backend, runtime API, cloud grader or runtime npm dependency is required.
 
 ## App preview
 
-Screens from the validated 1.4 UI, using simulated Samsung-size profiles and illustrative progress. Light and dark mode share the same five-tab navigation.
+Screens from the validated 1.5 UI, using simulated Samsung-size profiles and illustrative progress. Light and dark mode share the same five-tab navigation.
 
 | Learn with support | Build and explore | Keep progressing |
 | --- | --- | --- |
@@ -16,7 +16,7 @@ Screens from the validated 1.4 UI, using simulated Samsung-size profiles and ill
 | <img src="docs/screenshots/conjugations.png" width="180" alt="Conjugations in context"><br>Conjugations in context | <img src="docs/screenshots/review.png" width="180" alt="Scheduled review and weak areas"><br>Scheduled review and weak areas | <img src="docs/screenshots/profile.png" width="180" alt="Your level, streak and capabilities"><br>Your level, streak and capabilities |
 | <img src="docs/screenshots/saved-words.png" width="180" alt="Your personal vocabulary"><br>Your personal vocabulary | <img src="docs/screenshots/content-for-your-level.png" width="180" alt="Curated Spanish beyond the app"><br>Curated Spanish beyond the app | <img src="docs/screenshots/lesson-complete.png" width="180" alt="Continue straight to the next activity"><br>Continue straight to the next activity |
 
-[Build results and device-testing limits](BUILD_STATUS.md) · [Release details](docs/release/V1_4_REPORT.md)
+[Build results and device-testing limits](BUILD_STATUS.md) · [Release details](docs/release/V1_5_REPORT.md)
 
 ## Full course for user testing
 
@@ -33,9 +33,23 @@ Screens from the validated 1.4 UI, using simulated Samsung-size profiles and ill
 | B2.1 | 72 | 416 | 32 | 56 / 56 | 64 | 6 |
 | B2.2 | 72 | 416 | 32 | 56 / 56 | 64 | 6 |
 
-Each stage has eight units, three core lessons, four stories, a production activity and a checkpoint per unit. Recognition → controlled completion → recall → contextual response → transfer remains the learning progression. All activity/question IDs, ordering, canonical Spanish targets, learning objectives and historical snapshots remain stable. Version 1.3 changed the interaction model. Version 1.4 retains those targets and adds two explicitly documented B1 glossary supports, with no new stage or story rewrite. See the [1.3 release report](docs/release/V1_3_REPORT.md), [assessment audit](docs/release/v13-assessment-audit.json) and historical [1.2 on-ramp report](docs/release/LEARNER_EXPERIENCE_REPORT.md).
+Each stage has eight units, three core lessons, four stories, a production activity and a checkpoint per unit. Recognition → controlled completion → recall → contextual response → transfer remains the learning progression. Activity/question IDs, ordering, practical unit goals and historical snapshots remain stable. The 1.5 story editions deliberately revise 24 passages and their comprehension tasks; the manifest records those changes, and old saved passages remain authoritative. Version 1.3 changed the interaction model. Version 1.4 retains those targets and adds two explicitly documented B1 glossary supports, with no new stage or story rewrite. See the [1.3 release report](docs/release/V1_3_REPORT.md), [assessment audit](docs/release/v13-assessment-audit.json) and historical [1.2 on-ramp report](docs/release/LEARNER_EXPERIENCE_REPORT.md).
 
 B1 introduces connected narratives, practical advice, changes, viewpoints and limited wishes/necessity. B2 develops chronology, cause versus evidence, qualification, register, reported information, imagined conditions and integrated proposals. New material is original Friends to Amigos content; pedagogical references inform design without copied exercises.
+
+## Stories and everyday Spanish
+
+Ana, Luis and Marta are the three primary recurring characters in the [Story Bible](docs/STORY_BIBLE.md). All 256 existing story slots gain clearer reading presentation, episode metadata and hooks. Twenty-four carefully authored editions (three per stage) balance practical, social and comedy/chaos episodes, including the wrong wedding venue, a sofa reserved for a plant and a supposedly talking toaster. The remaining 232 original episodes are retained; this is a bounded editorial pass, not a claim that every story has been rewritten or evenly category-balanced.
+
+Stories stand alone, use useful Spanish, and can include chat, notes, reviews, optional ungraded prediction and different perspectives. Controlled inference, sequence/viewpoint and supplied-message construction preserve five permanent question slots. [The story audit](docs/release/v15-story-audit.json) and [manual QA checklist](docs/release/V1_5_MANUAL_QA.md) describe coverage and limits. Independent educator/native-speaker review remains necessary.
+
+## Vocabulary and private answer reports
+
+Profile → Vocabulary offers **Dictionary** and **Saved Words**. Search English → Spanish or Spanish → English using the existing offline learner vocabulary, including known forms, multiple senses and region notes where available. “To know” distinguishes saber and conocer. Thirty common nouns receive curated gender/example notes. Hear, Save/Remove and More use the existing local dictionary tools. This is a bounded course learner dictionary, not every word in Spanish.
+
+An optional approximately five-minute pronunciation primer covers key Spain-Spanish sounds with synthetic examples. It records nothing and does not grade pronunciation.
+
+If an answer may also be valid, save a private editorial report without changing its score. Profile → Data & backup exports the reports, including your response, model and permanent identity, only when you choose. Nothing is uploaded; exported reports can contain your writing. See [release notes](docs/release/V1_5_RELEASE_NOTES.md).
 
 ## A connected learning loop
 
@@ -92,11 +106,11 @@ Today resumes unfinished work first, then guides due review, the next required l
 
 ## Games and grammar levels
 
-Games contains **Conjugations** (592 original sentence contexts, ten-question rounds) and **Conjugation Tables / Blanks** (82 curated verb/tense targets, normal three-table rounds). The established independent grammar-level selector controls the practice ceiling; source activities document where material is taught. Course progress and weaknesses recommend content, while game success never completes lessons, checkpoints, stages or placement.
+Games contains **Conjugations** (592 original sentence contexts, ten-question rounds) and **Verb Tables** (82 curated verb/tense targets, normal three-table rounds). The established independent grammar-level selector controls the practice ceiling; source activities document where material is taught. Course progress and weaknesses recommend content, while game success never completes lessons, checkpoints, stages or placement.
 
 Conjugations balances concepts/persons/verbs, shuffles questions/options, avoids recent items and weights weak evidence. Mistake and Challenge modes use only the selected grammar ceiling. Feedback evaluates each blank separately and teaches distractor-specific person/tense patterns. Homographic nouns/connectors are excluded from new B-bank matching, and ambiguous shared forms do not generate artificial person mastery.
 
-Tables retain six Spain-first rows, varied blank positions, hints, typed recall, mastery-gated full blank tables and mistake practice. Practice supports 3/5/10/15/20 tables, Recommended/Current level/All up to current level and simple custom grammar filters. Curated targets avoid misleading constructions such as a generic doler/gustar paradigm. Taught B targets add future, conditional, subjunctive and compound forms; -ra and -se past-subjunctive alternatives retain the nosotros accent.
+Verb Tables retain six Spain-first rows, varied blank positions, hints, typed recall, mastery-gated full blank tables and mistake practice. Practice supports 3/5/10/15/20 tables, Recommended/Current level/All up to current level and simple custom grammar filters. Curated targets avoid misleading constructions such as a generic doler/gustar paradigm. Taught B targets add future, conditional, subjunctive and compound forms; -ra and -se past-subjunctive alternatives retain the nosotros accent.
 
 ## A gentler first encounter with Spanish
 
@@ -112,7 +126,7 @@ The offline bank contains **936 word entries, 276 expressions and 1,564 known fo
 
 ## A calmer Home and Profile
 
-Home puts **Continue Learning** first, then **Today**, **Needs Attention** and compact **Practice** tools. Today groups streak, reviews and learning time; Needs Attention includes shared course/game/table/media weaknesses. Profile groups your summary, level/streak, practical capabilities, recommendations, Saved Words and progress. Detailed period statistics and the seven-day chart remain available; placement, export/import and reset sit below them.
+Home puts **Continue Learning** first, then **Today** and **Quick Practice**. Weak coaching and advanced tools use progressive disclosure. Today groups streak, reviews and learning time; Needs Attention includes shared course/game/table/media weaknesses. Profile groups your summary, level/streak, Vocabulary/Dictionary, progress, practical capabilities and recommendations. Name editing, placement and data controls are expandable. Detailed period statistics and the seven-day chart remain available; placement, export/import and reset sit below them.
 
 **Content for Your Level** is a Profile secondary screen, not another tab. A local catalogue has 30 editorial entries / 29 distinct links. Each stage shows 15 recommendations: three Films/TV, Books, Audiobooks/narrated stories, Steam games and YouTube channels. Suitability ranges deliberately reuse resources. Comfortable/Stretch advice describes likely learner challenge, not certified CEFR levels. Each card includes access, subtitle/audio and variety caveats; external links open in a browser. The catalogue works offline; external content needs internet and may need payment/registration. See [current provider verification and availability limits](docs/release/V1_4_RECOMMENDATIONS.md).
 
@@ -131,6 +145,7 @@ npm run check
 npm test
 npm run audit
 npm run audit:learning
+npm run audit:stories
 npm run audit:recommendations
 npm run check:browser
 node scripts/learner-release-audit.cjs

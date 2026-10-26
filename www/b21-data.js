@@ -1065,7 +1065,7 @@ const data={
       "No la sé; probablemente llegaremos después de las seis.",
       [
        "Sé exactamente que no sé.",
-       "Llegamos ayer mañana."
+       "Llegaremos exactamente a las seis, sin ninguna duda."
       ],
       "Es posible que presents an uncertain possibility; -AR subjunctive nosotros uses -emos with spelling preserved."
      ],
@@ -3571,11 +3571,11 @@ const data={
      "gap": "probáramos",
      "gapWrong": [
       "probaríamos",
-      "probamos ayer mañana"
+      "probaremos"
      ],
      "wrong": [
       "Si probaríamos una sesión corta, podríamos evaluar la demanda.",
-      "Si probamos ayer mañana una sesión corta, podríamos evaluar la demanda."
+      "Si probaremos una sesión corta, podríamos evaluar la demanda."
      ],
      "why": "Hypothetical si takes imperfect subjunctive; conditional result explains a possible benefit.",
      "ask": "Elige la frase que comunica: «If we tried a short session, we could evaluate demand.».",

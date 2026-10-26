@@ -1,6 +1,7 @@
 (function(root){
 'use strict';
 const sources=typeof module!=='undefined'?[require('./b11-data.js'),require('./b12-data.js'),require('./b21-data.js'),require('./b22-data.js')]:[root.B11Data,root.B12Data,root.B21Data,root.B22Data];
+const Forms=typeof module!=='undefined'?require('./spanish-forms'):root.SpanishForms;
 const clone=x=>JSON.parse(JSON.stringify(x));
 const norm=x=>x.normalize('NFC').toLowerCase().replace(/[áéíóúü]/g,c=>({á:'a',é:'e',í:'i',ó:'o',ú:'u',ü:'u'}[c])).replace(/[¿?¡!.,;:”“"']/g,' ').replace(/\s+/g,' ').trim();
 const uniq=xs=>xs.filter((x,i)=>xs.findIndex(y=>norm(x)===norm(y))===i);
@@ -11,8 +12,8 @@ function create(){const stages={};
  data.units.forEach((u,n)=>{
   const make=(suffix,title,questions,extra={})=>({id:code+'u'+n+suffix,stage,unit:n,unitId:code+'-'+n,outcomeId:code+'-'+n,title,goal:u.goal,checkpoint:false,authorship:{kind:'original',referenceRecord:'docs/resources/CURRICULUM_REFERENCE.md'},questions:questions.map((q,i)=>({...clone(q),...(q.writing?{writing:{...clone(q.writing),unit:n}}:{}),...(q.type==='text'&&q.language==='es'&&!q.writing?{writing:{mode:q.mode==='transfer'?'guided':'controlled',stage,unit:n,multiline:q.mode==='transfer',maxLength:q.mode==='transfer'?1500:160,requirements:[]}}:{}),id:code+'u'+n+suffix+'-q'+(i+1),sourceQuestionId:code+'u'+n+suffix+'-q'+(i+1),topic:u.title,supportConcept:'english-support-'+code+'-'+n})),...extra});
   const core=u.core.map((r,j)=>{
-   const sentence=r.model.replace(r.gap,'___');
-   const qs=[choice(r.ask,r.help,r.model,r.wrong,r.why),{...choice('Completa: '+sentence,'Complete the sentence with the taught form.',r.gap,r.gapWrong,r.why,'completion'),type:'gap',sentence,meaning:r.translation,spanish:r.model},text('Escribe en español: «'+r.translation+'».','Write the taught meaning in Spanish: '+r.translation,r.model,r.variants||[],r.why,'recall'),choice(r.dialogue[0],r.dialogue[1],r.dialogue[2],r.dialogue[3],r.dialogue[4]||r.why,'response'),text(r.transfer[0],r.transfer[1],r.transfer[2],r.transfer[3]||[],r.transfer[4]||r.why,'transfer')];
+   const sentence=Forms.replaceForm(r.model,r.gap,'___');
+   const qs=[choice(r.ask,r.help,r.model,r.gapWrong.map(w=>Forms.replaceForm(r.model,r.gap,w)),r.why),{...choice('Completa: '+sentence,'Complete the sentence with the taught form.',r.gap,r.gapWrong,r.why,'completion'),type:'gap',sentence,meaning:r.translation,spanish:r.model},text('Escribe en español: «'+r.translation+'».','Write the taught meaning in Spanish: '+r.translation,r.model,r.variants||[],r.why,'recall'),choice(r.dialogue[0],r.dialogue[1],r.dialogue[2],r.dialogue[3],r.dialogue[4]||r.why,'response'),text(r.transfer[0],r.transfer[1],r.transfer[2],r.transfer[3]||[],r.transfer[4]||r.why,'transfer')];
    if(j<2){const a=u.audio[j];const q=j===0?choice(a[1],a[2],a[3],a[4],a[5],'listening'):text(a[1],a[2],a[3],a[4],a[5],'listening','en-or-es');qs.push({...q,spanish:a[0],listening:{transcript:a[0],lang:'es-ES',rate:.9}});}
    else {const q=text(r.transfer[0],r.transfer[1],r.transfer[2],[],r.why);delete q.accepted;delete q.language;qs.push({...q,type:'speaking',mode:'speaking'});}
    return make('l'+j,['Descubre','Practica','Comunica'][j]+': '+u.title,qs);

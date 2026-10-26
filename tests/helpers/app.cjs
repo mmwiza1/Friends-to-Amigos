@@ -15,7 +15,7 @@ function app(extra={},initial=null){
  // The current Android wrapper acknowledges actual TTS start by request ID.
  if(ctx.AndroidSpeech?.speak&&!ctx.AndroidSpeech.listen){ctx.AndroidSpeech={...ctx.AndroidSpeech,isReady:ctx.AndroidSpeech.isReady||(()=>true),listen(text,rate,id){this.speak(text);ctx.FriendsToAmigosSpeechResult(id,true);}};}
  ctx.window=ctx;ctx.globalThis=ctx;ctx.addEventListener=(name,fn)=>lifecycle[name]=fn;vm.createContext(ctx);
- for(const f of [...fs.readFileSync('www/index.html','utf8').matchAll(/<script src="([^"]+)"/g)].map(m=>m[1])){vm.runInContext(fs.readFileSync('www/'+f,'utf8'),ctx);if(testLegacyCurriculum&&f==='assessment-policy.js')vm.runInContext('AssessmentPolicy.apply=()=>[]',ctx);}
+ for(const f of [...fs.readFileSync('www/index.html','utf8').matchAll(/<script src="([^"]+)"/g)].map(m=>m[1])){vm.runInContext(fs.readFileSync('www/'+f,'utf8'),ctx);if(testLegacyCurriculum&&f==='assessment-policy.js')vm.runInContext('AssessmentPolicy.apply=()=>[]',ctx);if(testLegacyCurriculum&&f==='curriculum.js'){const historical=require('./v12-course.cjs');vm.runInContext('Curriculum.lessons='+JSON.stringify(historical.lessons),ctx);}}
  const api={el,ctx,effects,nodes,storage,lifecycle,click:(action,data={})=>handlers.click({target:{closest:()=>({dataset:{action,...data}})}}),
   change:target=>handlers.change({target}),
   input:value=>handlers.input({target:{id:'written-answer',value}}),

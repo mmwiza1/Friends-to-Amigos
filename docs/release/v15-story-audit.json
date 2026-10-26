@@ -1,0 +1,3574 @@
+{
+  "stories": 256,
+  "revised": 24,
+  "primaryCast": [
+    "Ana",
+    "Luis",
+    "Marta"
+  ],
+  "revisedCategories": {
+    "Everyday": 8,
+    "Social": 8,
+    "Comedy": 8
+  },
+  "rows": [
+    {
+      "id": "u0story0",
+      "stage": "A1.1",
+      "title": "Hola, Ana",
+      "edition": true,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 25,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "u0story1",
+      "stage": "A1.1",
+      "title": "Buenos días, Diego",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 25,
+      "characters": [
+        "ana"
+      ]
+    },
+    {
+      "id": "u0story2",
+      "stage": "A1.1",
+      "title": "Una amiga más",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 21,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "u0story3",
+      "stage": "A1.1",
+      "title": "Hasta mañana",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 21,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "u1story0",
+      "stage": "A1.1",
+      "title": "Una ficha nueva",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 33,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "u1story1",
+      "stage": "A1.1",
+      "title": "¿Veinte o veintiuno?",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 23,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "u1story2",
+      "stage": "A1.1",
+      "title": "Un poco de español",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 26,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "u1story3",
+      "stage": "A1.1",
+      "title": "El grupo de amigos",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 29,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "u2story0",
+      "stage": "A1.1",
+      "title": "El primer desayuno",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 35,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "u2story1",
+      "stage": "A1.1",
+      "title": "Dos cafés, por favor",
+      "edition": true,
+      "category": "Social",
+      "tone": "Awkward",
+      "format": "dialogue",
+      "words": 32,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "u2story2",
+      "stage": "A1.1",
+      "title": "Sin café hoy",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 33,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "u2story3",
+      "stage": "A1.1",
+      "title": "La cuenta juntos",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 27,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "u3story0",
+      "stage": "A1.1",
+      "title": "El precio de la libreta",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 28,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "u3story1",
+      "stage": "A1.1",
+      "title": "Dos cafés, no doce",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 27,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "u3story2",
+      "stage": "A1.1",
+      "title": "La coma en el precio",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 28,
+      "characters": [
+        "ana"
+      ]
+    },
+    {
+      "id": "u3story3",
+      "stage": "A1.1",
+      "title": "¿Tengo suficiente?",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 29,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "u4story0",
+      "stage": "A1.1",
+      "title": "Marta viene al café",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 32,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "u4story1",
+      "stage": "A1.1",
+      "title": "¿Quién es tu hermano?",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 28,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "u4story2",
+      "stage": "A1.1",
+      "title": "Una foto de familia",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 29,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "u4story3",
+      "stage": "A1.1",
+      "title": "La hermana simpática",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 32,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "u5story0",
+      "stage": "A1.1",
+      "title": "¿Cuál es mi libro?",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 29,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "u5story1",
+      "stage": "A1.1",
+      "title": "Las llaves de Ana",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 30,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "u5story2",
+      "stage": "A1.1",
+      "title": "El móvil de Luis",
+      "edition": true,
+      "category": "Comedy",
+      "tone": "Mystery",
+      "format": "prose",
+      "words": 38,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "u5story3",
+      "stage": "A1.1",
+      "title": "Un móvil en el café",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 31,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "u6story0",
+      "stage": "A1.1",
+      "title": "La farmacia cerca",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 31,
+      "characters": [
+        "ana"
+      ]
+    },
+    {
+      "id": "u6story1",
+      "stage": "A1.1",
+      "title": "El parque o la estación",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 28,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "u6story2",
+      "stage": "A1.1",
+      "title": "¿Está lejos?",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 23,
+      "characters": [
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "u6story3",
+      "stage": "A1.1",
+      "title": "Un mensaje desde el parque",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 32,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "u7story0",
+      "stage": "A1.1",
+      "title": "¿Qué hora es?",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 29,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "u7story1",
+      "stage": "A1.1",
+      "title": "El desayuno de Diego",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 33,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "u7story2",
+      "stage": "A1.1",
+      "title": "Nos vemos a las tres",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 29,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "u7story3",
+      "stage": "A1.1",
+      "title": "Un cambio de hora",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 33,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u0story0",
+      "stage": "A1.2",
+      "title": "Un plan con libros",
+      "edition": true,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "chat",
+      "words": 45,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u0story1",
+      "stage": "A1.2",
+      "title": "Música en casa",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 48,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u0story2",
+      "stage": "A1.2",
+      "title": "Elegir juntos",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 46,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u0story3",
+      "stage": "A1.2",
+      "title": "Un libro para Diego",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 55,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u1story0",
+      "stage": "A1.2",
+      "title": "Una invitación sencilla",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 38,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u1story1",
+      "stage": "A1.2",
+      "title": "Hoy no puedo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 34,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u1story2",
+      "stage": "A1.2",
+      "title": "Un paseo corto",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 43,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "a12u1story3",
+      "stage": "A1.2",
+      "title": "La invitación del grupo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 44,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u2story0",
+      "stage": "A1.2",
+      "title": "El sábado en el cine",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 45,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "a12u2story1",
+      "stage": "A1.2",
+      "title": "La hora del mensaje",
+      "edition": true,
+      "category": "Social",
+      "tone": "Awkward",
+      "format": "chat",
+      "words": 54,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u2story2",
+      "stage": "A1.2",
+      "title": "Planes distintos",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 53,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "a12u2story3",
+      "stage": "A1.2",
+      "title": "Dónde quedamos",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 52,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u3story0",
+      "stage": "A1.2",
+      "title": "Para el parque",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 44,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u3story1",
+      "stage": "A1.2",
+      "title": "Dos tamaños",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 43,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "a12u3story2",
+      "stage": "A1.2",
+      "title": "Una chaqueta para Marta",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 48,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u3story3",
+      "stage": "A1.2",
+      "title": "La lista de ropa",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 44,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "a12u4story0",
+      "stage": "A1.2",
+      "title": "En el probador",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 45,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u4story1",
+      "stage": "A1.2",
+      "title": "La chaqueta grande",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 40,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "a12u4story2",
+      "stage": "A1.2",
+      "title": "Otro color",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 45,
+      "characters": [
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u4story3",
+      "stage": "A1.2",
+      "title": "Antes de pagar",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 44,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u5story0",
+      "stage": "A1.2",
+      "title": "Una visita al piso",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 60,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u5story1",
+      "stage": "A1.2",
+      "title": "Las llaves de Luis",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 45,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u5story2",
+      "stage": "A1.2",
+      "title": "Un sofá para la planta",
+      "edition": true,
+      "category": "Comedy",
+      "tone": "Chaos",
+      "format": "prose",
+      "words": 70,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u5story3",
+      "stage": "A1.2",
+      "title": "Dormir y trabajar",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 54,
+      "characters": [
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u6story0",
+      "stage": "A1.2",
+      "title": "Antes del trabajo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 55,
+      "characters": [
+        "ana"
+      ]
+    },
+    {
+      "id": "a12u6story1",
+      "stage": "A1.2",
+      "title": "Primero la ducha",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 48,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u6story2",
+      "stage": "A1.2",
+      "title": "Una noche tranquila",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 52,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "a12u6story3",
+      "stage": "A1.2",
+      "title": "El domingo sin prisa",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 51,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u7story0",
+      "stage": "A1.2",
+      "title": "Un mensaje para Marta",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 52,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u7story1",
+      "stage": "A1.2",
+      "title": "Un plan con lluvia",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 51,
+      "characters": [
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a12u7story2",
+      "stage": "A1.2",
+      "title": "Trabajo primero",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 54,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "a12u7story3",
+      "stage": "A1.2",
+      "title": "Todo preparado",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 65,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u0story0",
+      "stage": "A2.1",
+      "title": "La foto que falta",
+      "edition": true,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "chat",
+      "words": 63,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u0story1",
+      "stage": "A2.1",
+      "title": "The group chat",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 59,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u0story2",
+      "stage": "A2.1",
+      "title": "Dinner at home",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 63,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u0story3",
+      "stage": "A2.1",
+      "title": "A useful update",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 64,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u1story0",
+      "stage": "A2.1",
+      "title": "The Saturday plan worked",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 65,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u1story1",
+      "stage": "A2.1",
+      "title": "Two different days",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 63,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u1story2",
+      "stage": "A2.1",
+      "title": "A missing friend",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 59,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u1story3",
+      "stage": "A2.1",
+      "title": "A short weekend message",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 68,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "a21u2story0",
+      "stage": "A2.1",
+      "title": "Price or time?",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 67,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u2story1",
+      "stage": "A2.1",
+      "title": "El billete barato",
+      "edition": true,
+      "category": "Social",
+      "tone": "Travel",
+      "format": "dialogue",
+      "words": 80,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "a21u2story2",
+      "stage": "A2.1",
+      "title": "Two useful options",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 67,
+      "characters": [
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u2story3",
+      "stage": "A2.1",
+      "title": "The return matters",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 64,
+      "characters": [
+        "ana"
+      ]
+    },
+    {
+      "id": "a21u3story0",
+      "stage": "A2.1",
+      "title": "A call to the hotel",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 63,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u3story1",
+      "stage": "A2.1",
+      "title": "Checking the details",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 57,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "a21u3story2",
+      "stage": "A2.1",
+      "title": "A cheaper room",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 63,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u3story3",
+      "stage": "A2.1",
+      "title": "A booking message",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 66,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u4story0",
+      "stage": "A2.1",
+      "title": "The reception desk",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 65,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u4story1",
+      "stage": "A2.1",
+      "title": "The key problem",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 64,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "a21u4story2",
+      "stage": "A2.1",
+      "title": "A late arrival",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 62,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "a21u4story3",
+      "stage": "A2.1",
+      "title": "No hot water",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 61,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u5story0",
+      "stage": "A2.1",
+      "title": "A quieter day",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "dialogue",
+      "words": 61,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u5story1",
+      "stage": "A2.1",
+      "title": "After a long walk",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 59,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "a21u5story2",
+      "stage": "A2.1",
+      "title": "La farmacia con zapatos",
+      "edition": true,
+      "category": "Comedy",
+      "tone": "Chaos",
+      "format": "prose",
+      "words": 81,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u5story3",
+      "stage": "A2.1",
+      "title": "Explaining clearly",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 64,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "a21u6story0",
+      "stage": "A2.1",
+      "title": "Finding the pharmacy",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 63,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u6story1",
+      "stage": "A2.1",
+      "title": "Checking an instruction",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 65,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "a21u6story2",
+      "stage": "A2.1",
+      "title": "An appointment for today",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 65,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "a21u6story3",
+      "stage": "A2.1",
+      "title": "Better, but still careful",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 63,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "a21u7story0",
+      "stage": "A2.1",
+      "title": "Home again",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 64,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u7story1",
+      "stage": "A2.1",
+      "title": "The next trip",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 63,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u7story2",
+      "stage": "A2.1",
+      "title": "A message with a reason",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "dialogue",
+      "words": 65,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a21u7story3",
+      "stage": "A2.1",
+      "title": "Putting the plan together",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 70,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u0story0",
+      "stage": "A2.2",
+      "title": "El banco de antes",
+      "edition": true,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 82,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "a22u0story1",
+      "stage": "A2.2",
+      "title": "El turno de Diego",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 85,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u0story2",
+      "stage": "A2.2",
+      "title": "El camino a clase",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 91,
+      "characters": [
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u0story3",
+      "stage": "A2.2",
+      "title": "Un parque distinto",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 89,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "a22u1story0",
+      "stage": "A2.2",
+      "title": "Una llamada a las seis",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 83,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "a22u1story1",
+      "stage": "A2.2",
+      "title": "Dos años en Madrid",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 97,
+      "characters": [
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u1story2",
+      "stage": "A2.2",
+      "title": "Antes de la lluvia",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 81,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u1story3",
+      "stage": "A2.2",
+      "title": "La mesa de siempre",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 85,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "a22u2story0",
+      "stage": "A2.2",
+      "title": "El andén nuevo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 91,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u2story1",
+      "stage": "A2.2",
+      "title": "Dos salidas",
+      "edition": true,
+      "category": "Social",
+      "tone": "Travel",
+      "format": "chat",
+      "words": 84,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u2story2",
+      "stage": "A2.2",
+      "title": "Una conexión con tiempo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 87,
+      "characters": [
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u2story3",
+      "stage": "A2.2",
+      "title": "El tren parado",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 86,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u3story0",
+      "stage": "A2.2",
+      "title": "Una mesa para cuatro",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 86,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u3story1",
+      "stage": "A2.2",
+      "title": "Falta un café",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 85,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "a22u3story2",
+      "stage": "A2.2",
+      "title": "La sopa equivocada",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 84,
+      "characters": [
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u3story3",
+      "stage": "A2.2",
+      "title": "Una cuenta para comprobar",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 86,
+      "characters": [
+        "ana"
+      ]
+    },
+    {
+      "id": "a22u4story0",
+      "stage": "A2.2",
+      "title": "La camiseta mediana",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 85,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "a22u4story1",
+      "stage": "A2.2",
+      "title": "El móvil con recibo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 84,
+      "characters": [
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u4story2",
+      "stage": "A2.2",
+      "title": "La bolsa rota",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 83,
+      "characters": [
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u4story3",
+      "stage": "A2.2",
+      "title": "Dos chaquetas",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 89,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "a22u5story0",
+      "stage": "A2.2",
+      "title": "La hora nueva",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 91,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u5story1",
+      "stage": "A2.2",
+      "title": "Una tarde de trabajo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 86,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u5story2",
+      "stage": "A2.2",
+      "title": "La fiesta del portal",
+      "edition": true,
+      "category": "Comedy",
+      "tone": "Chaos",
+      "format": "prose",
+      "words": 96,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u5story3",
+      "stage": "A2.2",
+      "title": "Sábado, no domingo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 97,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u6story0",
+      "stage": "A2.2",
+      "title": "El tren y el precio",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 91,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u6story1",
+      "stage": "A2.2",
+      "title": "Una película larga",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 107,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u6story2",
+      "stage": "A2.2",
+      "title": "También y tampoco",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 95,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u6story3",
+      "stage": "A2.2",
+      "title": "El café tranquilo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 90,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u7story0",
+      "stage": "A2.2",
+      "title": "La mañana del viaje",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 93,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "a22u7story1",
+      "stage": "A2.2",
+      "title": "La comida y la cuenta",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 88,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u7story2",
+      "stage": "A2.2",
+      "title": "La chaqueta antes de volver",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 84,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "a22u7story3",
+      "stage": "A2.2",
+      "title": "Un mensaje para Diego",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 95,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b11u0story0",
+      "stage": "B1.1",
+      "title": "La llave del vecino",
+      "edition": true,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 101,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b11u0story1",
+      "stage": "B1.1",
+      "title": "La llamada del museo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 114,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b11u0story2",
+      "stage": "B1.1",
+      "title": "Las llaves del local",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 111,
+      "characters": [
+        "marta"
+      ]
+    },
+    {
+      "id": "b11u0story3",
+      "stage": "B1.1",
+      "title": "Dos versiones",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 109,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b11u1story0",
+      "stage": "B1.1",
+      "title": "La bicicleta de Clara",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 113,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "b11u1story1",
+      "stage": "B1.1",
+      "title": "Un barrio distinto",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 115,
+      "characters": [
+        "ana"
+      ]
+    },
+    {
+      "id": "b11u1story2",
+      "stage": "B1.1",
+      "title": "Una amistad que continúa",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 113,
+      "characters": [
+        "marta"
+      ]
+    },
+    {
+      "id": "b11u1story3",
+      "stage": "B1.1",
+      "title": "El nuevo horario de Diego",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 113,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "b11u2story0",
+      "stage": "B1.1",
+      "title": "Una fecha confirmada",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 113,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b11u2story1",
+      "stage": "B1.1",
+      "title": "Una mesa para dos planes",
+      "edition": true,
+      "category": "Social",
+      "tone": "Awkward",
+      "format": "chat",
+      "words": 104,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b11u2story2",
+      "stage": "B1.1",
+      "title": "Una promesa pequeña",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 111,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b11u2story3",
+      "stage": "B1.1",
+      "title": "Un viaje sin demasiados planes",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 112,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b11u3story0",
+      "stage": "B1.1",
+      "title": "El ordenador lento",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 113,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "b11u3story1",
+      "stage": "B1.1",
+      "title": "La reserva equivocada",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 113,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "b11u3story2",
+      "stage": "B1.1",
+      "title": "Una tarea demasiado grande",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 110,
+      "characters": []
+    },
+    {
+      "id": "b11u3story3",
+      "stage": "B1.1",
+      "title": "Consejos que no son órdenes",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 110,
+      "characters": [
+        "marta"
+      ]
+    },
+    {
+      "id": "b11u4story0",
+      "stage": "B1.1",
+      "title": "Una exposición inesperada",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 107,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b11u4story1",
+      "stage": "B1.1",
+      "title": "La primera presentación",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 111,
+      "characters": []
+    },
+    {
+      "id": "b11u4story2",
+      "stage": "B1.1",
+      "title": "Una cena con opiniones distintas",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 111,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b11u4story3",
+      "stage": "B1.1",
+      "title": "Volver al sendero",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 109,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b11u5story0",
+      "stage": "B1.1",
+      "title": "Una reunión en línea",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 114,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b11u5story1",
+      "stage": "B1.1",
+      "title": "El banco de la plaza",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 118,
+      "characters": [
+        "marta"
+      ]
+    },
+    {
+      "id": "b11u5story2",
+      "stage": "B1.1",
+      "title": "La mejor mesa de la boda",
+      "edition": true,
+      "category": "Comedy",
+      "tone": "Chaos",
+      "format": "dialogue",
+      "words": 114,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b11u5story3",
+      "stage": "B1.1",
+      "title": "Dos formas de aprender",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 113,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "b11u6story0",
+      "stage": "B1.1",
+      "title": "Una entrega sin paquete",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 111,
+      "characters": [
+        "marta"
+      ]
+    },
+    {
+      "id": "b11u6story1",
+      "stage": "B1.1",
+      "title": "Una mochila reconocible",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 112,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "b11u6story2",
+      "stage": "B1.1",
+      "title": "Dos personas con el mismo nombre",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 108,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b11u6story3",
+      "stage": "B1.1",
+      "title": "Una instrucción incompleta",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 110,
+      "characters": []
+    },
+    {
+      "id": "b11u7story0",
+      "stage": "B1.1",
+      "title": "La semana de la exposición",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 112,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b11u7story1",
+      "stage": "B1.1",
+      "title": "El viaje de Clara",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 115,
+      "characters": []
+    },
+    {
+      "id": "b11u7story2",
+      "stage": "B1.1",
+      "title": "Un proyecto compartido",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 114,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b11u7story3",
+      "stage": "B1.1",
+      "title": "La conversación del domingo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 114,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b12u0story0",
+      "stage": "B1.2",
+      "title": "El mensaje demasiado corto",
+      "edition": true,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "chat",
+      "words": 104,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b12u0story1",
+      "stage": "B1.2",
+      "title": "El grupo del curso",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 116,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "b12u0story2",
+      "stage": "B1.2",
+      "title": "Dos amigos, dos planes",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 119,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b12u0story3",
+      "stage": "B1.2",
+      "title": "La foto compartida",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 120,
+      "characters": []
+    },
+    {
+      "id": "b12u1story0",
+      "stage": "B1.2",
+      "title": "Una solicitud con ejemplos",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 121,
+      "characters": []
+    },
+    {
+      "id": "b12u1story1",
+      "stage": "B1.2",
+      "title": "Repartir el trabajo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 115,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "b12u1story2",
+      "stage": "B1.2",
+      "title": "Un curso compatible",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 117,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b12u1story3",
+      "stage": "B1.2",
+      "title": "Pedir comentarios útiles",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 119,
+      "characters": []
+    },
+    {
+      "id": "b12u2story0",
+      "stage": "B1.2",
+      "title": "Una noticia en el grupo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 119,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b12u2story1",
+      "stage": "B1.2",
+      "title": "La foto que no era pública",
+      "edition": true,
+      "category": "Social",
+      "tone": "Awkward",
+      "format": "chat",
+      "words": 110,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b12u2story2",
+      "stage": "B1.2",
+      "title": "La llamada familiar",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 118,
+      "characters": []
+    },
+    {
+      "id": "b12u2story3",
+      "stage": "B1.2",
+      "title": "Tiempo conectado",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 120,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b12u3story0",
+      "stage": "B1.2",
+      "title": "Preparar la consulta",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 116,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "b12u3story1",
+      "stage": "B1.2",
+      "title": "Una rutina posible",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 115,
+      "characters": []
+    },
+    {
+      "id": "b12u3story2",
+      "stage": "B1.2",
+      "title": "En la farmacia",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 119,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "b12u3story3",
+      "stage": "B1.2",
+      "title": "Caminar sin competir",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 115,
+      "characters": [
+        "ana"
+      ]
+    },
+    {
+      "id": "b12u4story0",
+      "stage": "B1.2",
+      "title": "La recomendación de Elena",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 118,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "b12u4story1",
+      "stage": "B1.2",
+      "title": "Una costumbre observada",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 120,
+      "characters": [
+        "ana"
+      ]
+    },
+    {
+      "id": "b12u4story2",
+      "stage": "B1.2",
+      "title": "La visita que cambió de ritmo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 118,
+      "characters": [
+        "ana"
+      ]
+    },
+    {
+      "id": "b12u4story3",
+      "stage": "B1.2",
+      "title": "El billete y la experiencia",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 122,
+      "characters": [
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b12u5story0",
+      "stage": "B1.2",
+      "title": "Una tarde imaginada",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 111,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "b12u5story1",
+      "stage": "B1.2",
+      "title": "La casa cerca del trabajo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 117,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b12u5story2",
+      "stage": "B1.2",
+      "title": "El piso con terraza imaginaria",
+      "edition": true,
+      "category": "Comedy",
+      "tone": "Chaos",
+      "format": "prose",
+      "words": 105,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b12u5story3",
+      "stage": "B1.2",
+      "title": "Una segunda oportunidad",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 115,
+      "characters": []
+    },
+    {
+      "id": "b12u6story0",
+      "stage": "B1.2",
+      "title": "Una invitación con un deseo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 114,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b12u6story1",
+      "stage": "B1.2",
+      "title": "Una noticia de Elena",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 119,
+      "characters": []
+    },
+    {
+      "id": "b12u6story2",
+      "stage": "B1.2",
+      "title": "Escuchar antes de votar",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 119,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b12u6story3",
+      "stage": "B1.2",
+      "title": "Un mensaje antes del viaje",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 118,
+      "characters": [
+        "ana"
+      ]
+    },
+    {
+      "id": "b12u7story0",
+      "stage": "B1.2",
+      "title": "Un taller para empezar",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 118,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b12u7story1",
+      "stage": "B1.2",
+      "title": "La biblioteca por la tarde",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 117,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "b12u7story2",
+      "stage": "B1.2",
+      "title": "Menos ruido, más opciones",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 118,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "b12u7story3",
+      "stage": "B1.2",
+      "title": "La propuesta que evolucionó",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 122,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b21u0story0",
+      "stage": "B2.1",
+      "title": "Dos versiones del ascensor",
+      "edition": true,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "perspectives",
+      "words": 124,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b21u0story1",
+      "stage": "B2.1",
+      "title": "El relato del encargado",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 146,
+      "characters": [
+        "ana"
+      ]
+    },
+    {
+      "id": "b21u0story2",
+      "stage": "B2.1",
+      "title": "Antes de la llamada",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 140,
+      "characters": [
+        "marta"
+      ]
+    },
+    {
+      "id": "b21u0story3",
+      "stage": "B2.1",
+      "title": "La historia que faltaba",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 137,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b21u1story0",
+      "stage": "B2.1",
+      "title": "Más gente en la biblioteca",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 142,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "b21u1story1",
+      "stage": "B2.1",
+      "title": "El retraso en cadena",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 138,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b21u1story2",
+      "stage": "B2.1",
+      "title": "El precio y la asistencia",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 134,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "b21u1story3",
+      "stage": "B2.1",
+      "title": "Una puerta, varios efectos",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 135,
+      "characters": []
+    },
+    {
+      "id": "b21u2story0",
+      "stage": "B2.1",
+      "title": "La sala sin luces",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 140,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b21u2story1",
+      "stage": "B2.1",
+      "title": "La reserva y el silencio",
+      "edition": true,
+      "category": "Social",
+      "tone": "Awkward",
+      "format": "messages",
+      "words": 124,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b21u2story2",
+      "stage": "B2.1",
+      "title": "Una explicación que no basta",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 128,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "b21u2story3",
+      "stage": "B2.1",
+      "title": "La previsión del paseo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 130,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b21u3story0",
+      "stage": "B2.1",
+      "title": "Una inscripción para todos",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 132,
+      "characters": [
+        "marta"
+      ]
+    },
+    {
+      "id": "b21u3story1",
+      "stage": "B2.1",
+      "title": "Más plazas no siempre bastan",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 135,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "b21u3story2",
+      "stage": "B2.1",
+      "title": "La experiencia de un barrio",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 132,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "b21u3story3",
+      "stage": "B2.1",
+      "title": "Una respuesta sin atacar",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 129,
+      "characters": []
+    },
+    {
+      "id": "b21u4story0",
+      "stage": "B2.1",
+      "title": "Una reclamación concreta",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 134,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "b21u4story1",
+      "stage": "B2.1",
+      "title": "Preguntar antes de pagar",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 125,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "b21u4story2",
+      "stage": "B2.1",
+      "title": "El tono de dos mensajes",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 127,
+      "characters": [
+        "ana"
+      ]
+    },
+    {
+      "id": "b21u4story3",
+      "stage": "B2.1",
+      "title": "Cerrar una reclamación",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 126,
+      "characters": []
+    },
+    {
+      "id": "b21u5story0",
+      "stage": "B2.1",
+      "title": "Una cifra y un titular",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 139,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b21u5story1",
+      "stage": "B2.1",
+      "title": "Lo que dijo la vecina",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 139,
+      "characters": []
+    },
+    {
+      "id": "b21u5story2",
+      "stage": "B2.1",
+      "title": "El perro del aviso",
+      "edition": true,
+      "category": "Comedy",
+      "tone": "Mystery",
+      "format": "notice",
+      "words": 130,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b21u5story3",
+      "stage": "B2.1",
+      "title": "Un mensaje que cambió al pasar",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 131,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b21u6story0",
+      "stage": "B2.1",
+      "title": "Una condición abierta",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 124,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b21u6story1",
+      "stage": "B2.1",
+      "title": "Imaginando otro horario",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 126,
+      "characters": []
+    },
+    {
+      "id": "b21u6story2",
+      "stage": "B2.1",
+      "title": "La opción de Luis",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 122,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "b21u6story3",
+      "stage": "B2.1",
+      "title": "Una decisión de grupo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 122,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b21u7story0",
+      "stage": "B2.1",
+      "title": "Un horario difícil",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 141,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b21u7story1",
+      "stage": "B2.1",
+      "title": "Una solución demasiado rápida",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 128,
+      "characters": [
+        "ana"
+      ]
+    },
+    {
+      "id": "b21u7story2",
+      "stage": "B2.1",
+      "title": "La sala compartida",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 134,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b21u7story3",
+      "stage": "B2.1",
+      "title": "Una propuesta revisada",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 129,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u0story0",
+      "stage": "B2.2",
+      "title": "Silencio a las diez",
+      "edition": true,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "perspectives",
+      "words": 122,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u0story1",
+      "stage": "B2.2",
+      "title": "La palabra «todos»",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 165,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b22u0story2",
+      "stage": "B2.2",
+      "title": "Mirar desde otro lugar",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 163,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u0story3",
+      "stage": "B2.2",
+      "title": "Una prioridad discutida",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 154,
+      "characters": [
+        "ana"
+      ]
+    },
+    {
+      "id": "b22u1story0",
+      "stage": "B2.2",
+      "title": "Una semana contada después",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 174,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b22u1story1",
+      "stage": "B2.2",
+      "title": "El viaje que parecía fallido",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 156,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b22u1story2",
+      "stage": "B2.2",
+      "title": "Una decisión vista desde lejos",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 162,
+      "characters": []
+    },
+    {
+      "id": "b22u1story3",
+      "stage": "B2.2",
+      "title": "La historia de una puerta abierta",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 153,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "b22u2story0",
+      "stage": "B2.2",
+      "title": "Abrir los domingos",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 176,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u2story1",
+      "stage": "B2.2",
+      "title": "Cinco estrellas y una cuenta",
+      "edition": true,
+      "category": "Social",
+      "tone": "Awkward",
+      "format": "review",
+      "words": 135,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u2story2",
+      "stage": "B2.2",
+      "title": "Un límite para los móviles",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 180,
+      "characters": [
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u2story3",
+      "stage": "B2.2",
+      "title": "La ruta más corta",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 178,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u3story0",
+      "stage": "B2.2",
+      "title": "Dos tardes de trabajo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 181,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "b22u3story1",
+      "stage": "B2.2",
+      "title": "Una gestión que cambió",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 186,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u3story2",
+      "stage": "B2.2",
+      "title": "Aprender fuera del aula",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 178,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b22u3story3",
+      "stage": "B2.2",
+      "title": "La plaza sin coches",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 178,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u4story0",
+      "stage": "B2.2",
+      "title": "La misma petición, dos mensajes",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Travel",
+      "format": "prose",
+      "words": 179,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u4story1",
+      "stage": "B2.2",
+      "title": "Una factura discutida",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 176,
+      "characters": [
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u4story2",
+      "stage": "B2.2",
+      "title": "El correo del equipo",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 180,
+      "characters": [
+        "luis"
+      ]
+    },
+    {
+      "id": "b22u4story3",
+      "stage": "B2.2",
+      "title": "Una invitación para varios públicos",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 181,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u5story0",
+      "stage": "B2.2",
+      "title": "El resumen que cambió una condición",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 175,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u5story1",
+      "stage": "B2.2",
+      "title": "Una noticia todavía provisional",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 179,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b22u5story2",
+      "stage": "B2.2",
+      "title": "La tostadora con testigo",
+      "edition": true,
+      "category": "Comedy",
+      "tone": "Mystery",
+      "format": "email",
+      "words": 150,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u5story3",
+      "stage": "B2.2",
+      "title": "Ayer ya no es hoy",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 172,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u6story0",
+      "stage": "B2.2",
+      "title": "La reserva que faltó",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 173,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u6story1",
+      "stage": "B2.2",
+      "title": "Una sala que quizá cambió",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 181,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b22u6story2",
+      "stage": "B2.2",
+      "title": "El plan y sus condiciones",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 183,
+      "characters": [
+        "ana",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u6story3",
+      "stage": "B2.2",
+      "title": "Una ayuda que llegó tarde",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 175,
+      "characters": [
+        "ana",
+        "luis"
+      ]
+    },
+    {
+      "id": "b22u7story0",
+      "stage": "B2.2",
+      "title": "Un informe después de la prueba",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 195,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u7story1",
+      "stage": "B2.2",
+      "title": "La presentación y la pregunta difícil",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 189,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u7story2",
+      "stage": "B2.2",
+      "title": "Dos textos para una decisión",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 194,
+      "characters": [
+        "luis",
+        "marta"
+      ]
+    },
+    {
+      "id": "b22u7story3",
+      "stage": "B2.2",
+      "title": "El cierre que dejó una pregunta",
+      "edition": false,
+      "category": "Everyday",
+      "tone": "Everyday",
+      "format": "prose",
+      "words": 191,
+      "characters": [
+        "ana",
+        "luis",
+        "marta"
+      ]
+    }
+  ],
+  "limitations": [
+    "The remaining 232 original stories are retained, not claimed as rewritten or category-balanced.",
+    "Stage-boundary patterns, word counts and glossary checks are QA aids, not a CEFR or vocabulary-knowledge measure.",
+    "No independent educator/native-speaker validation has occurred."
+  ]
+}

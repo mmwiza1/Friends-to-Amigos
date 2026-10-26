@@ -1,3 +1,11 @@
+## v1.5 experience and Stories policy
+
+One obvious next action, then optional detail. Games recommends a grammar level but does not lock deliberate advanced choices. Conjugations remains ten-question contextual practice; the learner-facing drill name is Verb Tables. Home prioritises Continue / Today / Quick Practice; Learn puts the current unit first and keeps all revision activities accessible. Profile prioritises Vocabulary and progress; Review groups Due Today / Weak Areas / Past Mistakes. The five tabs remain unchanged.
+
+Stories use [the maintained three-character bible](docs/STORY_BIBLE.md). A bounded 24-episode conversion, balanced practical/social/comedy, improves existing slots without expanding levels or changing IDs/order/unit outcomes. All 256 slots gain metadata and reading comfort. Remaining original stories are retained for future careful editorial passes rather than uncontrolled mass rewriting. Optional predictions are ungraded; five permanent question slots remain, with supplied construction and supported comprehension. Story language aims to reuse familiar material; no automated 80–90% familiarity claim is made.
+
+Historical passages remain snapshots. Success on a different live story cannot clear an older same-ID passage review. [The explicit content manifest](docs/release/v15-content-changes.json) and strict developer-only inverse protect original fixtures while new live tests cover the new editions. B-level substitution uses whole forms, never arbitrary substrings. See [release report](docs/release/V1_5_REPORT.md) for the editorial boundary and human-review needs.
+
 ## v1.4 connected quality policy
 
 The content ceiling remains A1.1–B2.2. Course completion records activities; mastery records uncertain, changing evidence. Neither is certification. Relevant optional reinforcement follows passed lessons without displacing Continue. A weak concept opens a brief authored reference, 3–5 controlled questions and further eligible practice; it cannot award course completions.
