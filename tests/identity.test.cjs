@@ -1,5 +1,5 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs');
-const C=require('../www/curriculum'),E=require('../www/engine'),P=require('../www/storage');
+const C=require('./helpers/v12-course.cjs'),E=require('../www/engine'),P=require('../www/storage');
 const groups=Object.fromEntries([...C.lessons.map(l=>[l.id,l.questions]),...['placement','numbers','time'].map(id=>[id,C[id]])]);
 test('all 144 activity IDs and their intentional stage ordering match the protected baseline',()=>{
  assert.deepEqual(C.lessons.filter(l=>['A1.1','A1.2'].includes(l.stage)).map(l=>l.id),JSON.parse(fs.readFileSync('tests/fixtures/a1-activity-ids.json','utf8')));

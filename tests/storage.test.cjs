@@ -1,5 +1,5 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs');
-const C=require('../www/curriculum'),E=require('../www/engine'),P=require('../www/storage');
+const C=require('./helpers/v12-course.cjs'),E=require('../www/engine'),P=require('../www/storage');
 const fixture=()=>JSON.parse(fs.readFileSync('tests/fixtures/v1-mixed-progress.json','utf8'));
 const clone=x=>JSON.parse(JSON.stringify(x));
 function memory(raw){const values=raw?{[P.KEY]:raw}:{};return {values,getItem:k=>values[k]||null,setItem:(k,v)=>values[k]=v};}

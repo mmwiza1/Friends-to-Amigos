@@ -72,3 +72,7 @@ An easier revised task cannot clear a historical review merely because it shares
 When adding course vocabulary, supply a clear original bilingual glossary/phrase pair or a reviewed curated entry. For new forms, verify irregularity, spelling changes, accents, person/tense and ambiguity. Add construction rules only when the context can be identified reliably. Test both a positive example and misleading near contexts. Inspect the exposure report, but do not interpret coverage as translation accuracy, mastery or complete Spanish understanding.
 
 This is intentionally a bounded learner dictionary, not a general translator, spellchecker, sentence parser or grammar grader. Unknown vocabulary and unlisted constructions remain possible. Device acoustic quality and native-speaker review still require human testing.
+
+## v1.3 structured practice
+
+Word/phrase bank text and visible cloze passages/options use the same pre-answer dictionary boundary. Vocabulary spans and Add/Choose/Remove controls are siblings, so lookup never constructs or scores a response. Historical typed snapshots still retain their original interaction. Structural review contracts prevent easier replacement scaffolding from correcting older reviews. The five tabs and Profile Saved Words are unchanged.

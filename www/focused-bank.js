@@ -3,6 +3,7 @@
 const C=typeof module!=='undefined'?require('./curriculum.js'):root.Curriculum;
 const D=typeof module!=='undefined'?require('./focused-bank-data.js'):root.FocusedBankData;
 const A22=typeof module!=='undefined'?require('./a22-focused-data.js'):root.A22FocusedData;
+const Policy=typeof module!=='undefined'?require('./assessment-policy.js'):root.AssessmentPolicy;
 const source={listening:{...D.listening,'A2.2':A22.listening},speaking:{...D.speaking,'A2.2':A22.speaking}};
 const clone=x=>JSON.parse(JSON.stringify(x)),code=s=>s.replace('.','').toLowerCase();
 const items=[];
@@ -10,7 +11,7 @@ for(const stage of C.playableStages.filter(s=>s.startsWith('A')))for(let unit=0;
  const lessons=C.lessons.filter(l=>l.stage===stage&&l.unit===unit),title=C.stageUnits[stage][unit].title;
  const requiredActivities=lessons.filter(l=>/l[012]$/.test(l.id)).map(l=>l.id);
  const attach=(original,kind,category,level)=>{const q={...original};for(const key of ['promptEs','englishHint','instructionLanguage','supportConcept'])delete q[key];return ({...q,practice:{kind,stage,unit,category,level,outcomeId:C.stageUnits[stage][unit].id,requiredActivities:requiredActivities.slice(),authorship:'original Friends to Amigos'},topic:title});};
- const heard=new Set();for(const l of lessons)for(const q of l.questions){
+ const heard=new Set();for(const l of lessons)for(const authored of l.questions){const q=Policy.prior(authored);
   if(q.listening&&!heard.has(q.listening.transcript)){heard.add(q.listening.transcript);items.push(attach({...clone(q),id:'focus-listen-'+q.id,sourceQuestionId:q.id},'listening','course-comprehension','supported'));}
   if(q.type==='speaking')items.push(attach({...clone(q),id:'focus-speak-'+q.id,sourceQuestionId:q.id,models:[q.spanish]},'speaking','course-response','contextual'));
  }

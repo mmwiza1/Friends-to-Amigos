@@ -96,6 +96,13 @@ public class MainActivity extends Activity {
                 speech.setSpeechRate(NativePolicy.rate(rate));
                 if(speech.speak(text,TextToSpeech.QUEUE_FLUSH,null,id)==TextToSpeech.ERROR)speechResult(id,false);
             });}
+            @JavascriptInterface public void openExternal(String url){
+                if(!NativePolicy.externalUrl(url))return;
+                runOnUiThread(()->{
+                    try { startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(url)).addCategory(Intent.CATEGORY_BROWSABLE)); }
+                    catch(android.content.ActivityNotFoundException error){Toast.makeText(MainActivity.this,"Install a browser to open this recommendation.",Toast.LENGTH_LONG).show();}
+                });
+            }
             @JavascriptInterface public void exportProgress(String json){runOnUiThread(()->{
                 exportData=json;
                 Intent intent=new Intent(Intent.ACTION_CREATE_DOCUMENT).addCategory(Intent.CATEGORY_OPENABLE).setType("application/json").putExtra(Intent.EXTRA_TITLE,"friends-to-amigos-progress.json");

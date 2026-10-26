@@ -1,3 +1,9 @@
+# v1.3 candidate validation
+
+Version 1.3.0 / Android versionCode 14 is in validation; main remains the verified 1.2.0 baseline until the full gate is green. The candidate adds structured assessment, seamless continuation, local recommendations and Home/Profile semantic cards. See [the release report](docs/release/V1_3_REPORT.md). Final test, rendered-browser, Android and screenshot results will replace this candidate notice after actual validation.
+
+The original v1.2 results below are historical baseline evidence, not a claim that v1.3 has already passed.
+
 # Build and validation status
 
 Learner-experience release **1.2.0**, Android **versionCode 13**, storage schema **v2**.

@@ -1,5 +1,5 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),crypto=require('node:crypto');
-const C=require('../www/curriculum'),E=require('../www/engine'),P=require('../www/storage'),G=require('../www/conjugations-bank'),T=require('../www/conjugation-targets');
+const C=require('./helpers/v12-course.cjs'),E=require('../www/engine'),P=require('../www/storage'),G=require('../www/conjugations-bank'),T=require('../www/conjugation-targets');
 const corrections=require('../docs/release/dictionary-content-corrections.json');
 const questions=new Map(C.lessons.flatMap(l=>l.questions).map(q=>[q.id,q]));
 const hash=l=>crypto.createHash('sha256').update(JSON.stringify(l,(k,v)=>k==='writing'?undefined:v)).digest('hex');

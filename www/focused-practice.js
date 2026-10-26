@@ -1,6 +1,7 @@
 (function(root){
 'use strict';
 const Bank=typeof module!=='undefined'?require('./focused-bank.js'):root.FocusedBank;
+const Policy=typeof module!=='undefined'?require('./assessment-policy.js'):root.AssessmentPolicy;
 const E=typeof module!=='undefined'?require('./engine.js'):root.Engine;
 const M=typeof module!=='undefined'?require('./mastery.js'):root.Mastery;
 const Path=typeof module!=='undefined'?require('./course-path.js'):root.CoursePath;
@@ -31,7 +32,7 @@ function select(state,C,kind,ceiling,focus='',rng=Math.random,now=Date.now()){
  }
  for(const [s,n] of Object.entries(quotas))for(let i=0;i<n;i++)if(!draw(s))break;
  while(picked.length<10)if(!draw())return null;
- return {kind:'focused',mediaKind:kind,stage,ceiling,focus,sessionId:'focused-'+kind+'-'+now+'-'+Math.floor(rng()*1000000000),started:now,questions:shuffle(picked,rng).map(q=>({...clone(q),...(q.options?{options:shuffle(q.options,rng)}:{})})),lesson:null,index:0,answers:[],selected:null,checked:false,readingReady:false,modelRevealed:false,audioPlayed:false,audioUnavailable:false,hintRevealed:false};
+ return {kind:'focused',mediaKind:kind,stage,ceiling,focus,sessionId:'focused-'+kind+'-'+now+'-'+Math.floor(rng()*1000000000),started:now,questions:shuffle(picked,rng).map(original=>{const q=Policy.media(original,C,Bank.items);return {...clone(q),...(q.options?{options:shuffle(q.options,rng)}:{})};}),lesson:null,index:0,answers:[],selected:null,checked:false,readingReady:false,modelRevealed:false,audioPlayed:false,audioUnavailable:false,hintRevealed:false};
 }
 function remember(state,q){state.focused=state.focused||empty();const kind=q.practice.kind;state.focused.recent[kind]=[...state.focused.recent[kind].filter(id=>id!==q.id),q.id].slice(-30);}
 function record(state,q,correct,details={},now=Date.now()){

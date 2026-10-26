@@ -1,5 +1,5 @@
 const {test}=require('node:test'),assert=require('node:assert/strict');
-const W=require('../www/writing'),R=require('../www/writing-rules'),V=require('../www/verb-diagnostics'),E=require('../www/engine'),C=require('../www/curriculum'),P=require('../www/storage');
+const W=require('../www/writing'),R=require('../www/writing-rules'),V=require('../www/verb-diagnostics'),E=require('../www/engine'),C=require('./helpers/v12-course.cjs'),P=require('../www/storage');
 const task=(mode='guided',stage='A1.1')=>({type:'text',language:'es',prompt:'Introduce yourself.',answer:'Me llamo Ana.',accepted:['Me llamo Ana.','Soy Ana.'],explanation:'Introduce yourself.',topic:'Introductions',writing:{mode,stage,requirements:[],multiline:mode!=='controlled',maxLength:1500}});
 test('all historical exact variants retain highest-confidence acceptance',()=>{for(const q of require('./fixtures/v0100-writing-variants.json'))for(const a of q.accepted)assert.equal(W.assess({...q,writing:{mode:'controlled',stage:q.stage}},a).verified,true,q.id);});
 test('normalisation protects ñ and historical accent/ü/punctuation policy',()=>{assert.equal(W.normalize(' ¡TÚ,  HABLÁIS! '),'tu hablais');assert.equal(W.normalize('pingüino'),'pinguino');assert.notEqual(W.normalize('año'),W.normalize('ano'));});

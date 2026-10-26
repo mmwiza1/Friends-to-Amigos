@@ -1,6 +1,6 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict'),crypto=require('node:crypto');
-const C=require('../www/curriculum'),E=require('../www/engine'),S=require('../www/storage');
+const C=require('./helpers/v12-course.cjs'),E=require('../www/engine'),S=require('../www/storage');
 const {audit}=require('../scripts/content/audit-a1-anchors.cjs');
 const corrections=require('../docs/release/learner-experience-content-corrections.json');
 const lesson=id=>C.lessons.find(l=>l.id===id),question=id=>C.lessons.flatMap(l=>l.questions).find(q=>q.id===id);

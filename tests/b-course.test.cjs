@@ -1,5 +1,5 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require('node:crypto');
-const C=require('../www/curriculum'),E=require('../www/engine'),P=require('../www/storage'),W=require('../www/writing'),F=require('../www/focused-practice'),FB=require('../www/focused-bank'),G=require('../www/games'),Bank=require('../www/conjugations-bank'),T=require('../www/conjugation-targets'),B=require('../www/blanks'),M=require('../www/mastery'),Path=require('../www/course-path'),app=require('./helpers/app.cjs');
+const C=require('./helpers/v12-course.cjs'),E=require('../www/engine'),P=require('../www/storage'),W=require('../www/writing'),F=require('../www/focused-practice'),FB=require('../www/focused-bank'),G=require('../www/games'),Bank=require('../www/conjugations-bank'),T=require('../www/conjugation-targets'),B=require('../www/blanks'),M=require('../www/mastery'),Path=require('../www/course-path'),app=require('./helpers/v12-app.cjs');
 const {beforeRequestedCorrections}=require('./helpers/content-corrections.cjs');
 const stages=['B1.1','B1.2','B2.1','B2.2'],code=s=>s.replace('.','').toLowerCase(),clone=x=>JSON.parse(JSON.stringify(x)),rng=(seed=1)=>()=>((seed=Math.imul(seed,1664525)+1013904223>>>0)/4294967296);
 for(const stage of stages){const ls=C.lessons.filter(l=>l.stage===stage);

@@ -308,5 +308,6 @@ const bCourse=typeof module!=='undefined'?require('./b-course.js'):root.BCourse;
 for(const [stage,content] of Object.entries(bCourse.create())){data.stageUnits[stage]=content.units;data.lessons.push(...content.lessons);data.listeningPractice.push(...content.lessons.filter(l=>!l.checkpoint).flatMap(l=>l.questions.filter(q=>q.listening)));data.speakingPractice.push(...content.lessons.flatMap(l=>l.questions.filter(q=>q.type==='speaking')));}
 root.Curriculum=data;const language=typeof module!=='undefined'?require('./course-language.js'):root.CourseLanguage;language.apply(data);
 const writingAudit=typeof module!=='undefined'?require('./writing-audit.js'):root.WritingAudit;data.writingAudit=writingAudit.apply(data);
+const policy=typeof module!=='undefined'?require('./assessment-policy.js'):root.AssessmentPolicy;policy.apply(data);
 if(typeof module!=='undefined')module.exports=data;
 })(typeof window==='undefined'?globalThis:window);

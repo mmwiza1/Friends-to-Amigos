@@ -2,7 +2,7 @@ const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const E=require('../www/engine.js');
-const C=require('../www/curriculum.js');
+const C=require('./helpers/v12-course.cjs');
 const a11=C.lessons.filter(l=>l.stage==='A1.1');
 const allQuestions=[...C.lessons.flatMap(l=>l.questions),...C.placement,...C.numbers,...C.time];
 test('all playable lesson IDs remain valid and in their original course order',()=>{

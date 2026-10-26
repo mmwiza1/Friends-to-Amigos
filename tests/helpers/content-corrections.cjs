@@ -20,7 +20,7 @@ function reverseFields(target,changes,label,beforeKeys,afterKeys){
  }
 }
 function beforeLearnerExperienceCorrections(item,kind='course'){
- const copy=clone(item);
+ const policy=require('../../www/assessment-policy');const copy=clone(kind==='course'&&item.questions?{...item,questions:item.questions.map(policy.prior)}:item);
  if(kind==='course'){
   for(const record of learnerExperienceManifest.course||[]){const q=copy.questions?.find(q=>q.id===record.id);if(q)reverseFields(q,record.changes,record.id,record.beforeKeys,record.afterKeys);}
   for(const record of learnerExperienceManifest.activityChanges||[])if(copy.id===record.id)reverseFields(copy,record.changes,record.id,record.beforeKeys,record.afterKeys);

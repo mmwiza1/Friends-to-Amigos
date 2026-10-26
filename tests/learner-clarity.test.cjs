@@ -1,9 +1,9 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),{createRequire}=require('node:module');
-const C=require('../www/curriculum'),E=require('../www/engine'),P=require('../www/storage'),Clarity=require('../www/learner-clarity');
+const C=require('./helpers/v12-course.cjs'),E=require('../www/engine'),P=require('../www/storage'),Clarity=require('../www/learner-clarity');
 const {beforeLearnerExperienceCorrections,beforeRequestedSourceCorrections}=require('./helpers/content-corrections.cjs');
 const clone=v=>JSON.parse(JSON.stringify(v));
 function beforeClarity(){
- const source=fs.readFileSync(path.resolve('www/curriculum.js'),'utf8').replace('clarity.apply(data);','').replace('language.apply(data);','');
+ const source=fs.readFileSync(path.resolve('www/curriculum.js'),'utf8').replace('clarity.apply(data);','').replace('language.apply(data);','').replace('policy.apply(data);','');
  const originalRequire=createRequire(path.resolve('www/curriculum.js')),reviewBox={module:{exports:{}},require:createRequire(path.resolve('www/a1-review.js'))};
  vm.runInNewContext(beforeRequestedSourceCorrections('a1-review.js',fs.readFileSync('www/a1-review.js','utf8')),reviewBox);
  const box={module:{exports:{}},require:name=>name==='./a1-review.js'?reviewBox.module.exports:originalRequire(name)};vm.runInNewContext(source,box);return clone(box.module.exports);

@@ -1,3 +1,9 @@
+## v1.3 interaction policy
+
+Textbox = genuine expression; structured interaction = a specific language target. A1.1 is heavily scaffolded onboarding; A1.2 uses structured construction; A2.1 adds connected cloze/phrase control; A2.2 deliberately bridges into guided writing; B1/B2 retain increasing genuine expression. The final objectives and 80% checkpoint rule remain. Source generators retain permanent identities and original targets; the live assessment adapter changes the interaction, never historical snapshots. Open writing uses conservative diagnosis/model comparison, not finite rejection of arbitrary prose.
+
+Continue starts the next required activity directly; Finish for now returns Home. Stories/checkpoints/unit order and placement starting path remain authoritative. Familiar A1 anchors remain natural scaffolding for new material. See [v1.3 report](docs/release/V1_3_REPORT.md) and [current assessment audit](docs/release/v13-assessment-audit.json). Older reports below describe earlier authoring/assessment snapshots; their historical counts are not the current live interaction distribution.
+
 # Friends to Amigos course design through B2.2
 
 A1.1 and A1.2 form the playable A1 course. This design uses CEFR-style can-do outcomes and the Spanish-specific scope guidance documented for Instituto Cervantes, with communicative/OER teaching principles. It is not formal CEFR certification. All eight stages A1.1 through B2.2 are playable for user testing; no CEFR certification is claimed.

@@ -1,0 +1,19 @@
+'use strict';
+// A factual release audit, not a CEFR certification or mastery estimate.
+const fs=require('node:fs'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const C=require('../www/curriculum'),Policy=require('../www/assessment-policy'),S=require('../www/structured'),E=require('../www/engine'),P=require('../www/storage'),Bank=require('../www/focused-bank'),R=require('../www/recommendations');
+const hash=x=>crypto.createHash('sha256').update(JSON.stringify(x)).digest('hex');
+const baseline=require('../docs/release/v13-main-contract.json');
+assert.deepEqual(C.lessons.map(l=>l.id),Object.keys(baseline.lessons));
+for(const l of C.lessons)assert.equal(hash({...l,questions:l.questions.map(Policy.prior)}),baseline.lessons[l.id],l.id+' original target/context changed');
+for(const kind of ['numbers','time','placement'])assert.equal(hash(C[kind].map(Policy.prior)),baseline.special[kind],kind+' original contract changed');
+const stageStats=C.playableStages.map(stage=>{const ls=C.lessons.filter(l=>l.stage===stage),qs=ls.flatMap(l=>l.questions);return {stage,units:C.stageUnits[stage].length,activities:ls.length,slots:qs.length,stories:ls.filter(l=>l.reading).length,beforeText:qs.filter(q=>Policy.prior(q).type==='text').length,afterText:qs.filter(q=>q.type==='text').length,types:qs.reduce((a,q)=>(a[q.type]=(a[q.type]||0)+1,a),{}),guided:qs.filter(q=>q.writing?.mode==='guided').length,free:qs.filter(q=>q.writing?.mode==='free').length};});
+const all=[...C.lessons.flatMap(l=>l.questions),...C.numbers,...C.time,...C.placement],ids=new Set();
+for(const q of all){assert.ok(!ids.has(q.id));ids.add(q.id);assert.ok(P.question(q),q.id);if(S.active(q))assert.ok(E.isCorrect(q,S.canonical(q)),q.id);if(q.type==='text')assert.ok(q.writing&&q.writing.mode!=='controlled',q.id+' misleading textbox');}
+const adaptedMedia=Bank.items.map(q=>Policy.media(q,C,Bank.items));assert.ok(adaptedMedia.every(q=>q.type!=='text'));assert.ok(adaptedMedia.every(P.question));
+for(const stage of C.playableStages){const items=R.forStage(stage);assert.equal(items.length,15);for(const category of R.categories)assert.equal(items.filter(r=>r.category===category).length,3);}
+const anchors=require('./content/audit-a1-anchors.cjs').audit(C);
+const report={baseline:baseline.commit,version:require('../package.json').version,schema:P.VERSION,stageStats,changes:C.assessmentChanges.map(row=>{const q=all.find(q=>q.id===row.id);return {...row,beforeHash:hash(Policy.prior(q)),afterHash:hash(q)};}),focused:{items:Bank.items.length,finiteTextAdapted:Bank.items.filter(q=>q.type==='text').length,rawBankRetained:true,types:adaptedMedia.reduce((a,q)=>(a[q.type]=(a[q.type]||0)+1,a),{})},recommendations:{entries:R.catalogue.length,uniqueUrls:new Set(R.catalogue.map(r=>r.url)).size,perStage:15,perCategory:3,editorialSuitability:true},anchors:{constructions:anchors.anchors.length,units:anchors.units.length,flags:anchors.flags,coverage:anchors.anchors.map(a=>({id:a.id,activities:a.activityCount,units:a.unitCount}))},limitations:['Finite structured tasks accept authored formulations and narrow safe temporal reorderings; they do not grade unrestricted prose.','Open writing uses conservative rules and model comparison, not automatic essay scoring.','Recommendations are editorial; external availability, access, subtitles and prices may change.','Browser native insets/IME and TTS acknowledgement are simulations; real Samsung/acoustic testing is still required.']};
+if(process.argv.includes('--write'))fs.writeFileSync('docs/release/v13-assessment-audit.json',JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify({version:report.version,stages:stageStats,changes:C.assessmentChanges.length,focused:report.focused,recommendations:report.recommendations,anchorFlags:anchors.flags.length},null,2));
+module.exports=report;

@@ -1,6 +1,6 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict'),vm=require('node:vm'),fs=require('node:fs');
-const app=require('./helpers/app.cjs');
+const app=require('./helpers/v12-app.cjs');
 const evaluate=(a,source)=>vm.runInContext(source,a.ctx);
 const clone=value=>JSON.parse(JSON.stringify(value));
 function popupDOM(a){

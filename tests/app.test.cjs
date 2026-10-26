@@ -2,7 +2,7 @@ const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const vm=require('node:vm');
 const fs=require('node:fs');
-const app=require('./helpers/app.cjs');
+const app=require('./helpers/v12-app.cjs');
 test('new learner starts, misses a question, sees review and resumes correctly',()=>{
  const a=app();assert.match(a.el.innerHTML,/Start learning/);a.click('continue');assert.match(a.el.innerHTML,/Where shall we begin/);a.click('begin');
  a.answer(false);a.click('check');assert.match(a.el.innerHTML,/Let’s learn from this/);a.click('leave');assert.match(a.el.innerHTML,/Resume lesson/);assert.equal(Object.keys(a.state().reviews).length,1);
@@ -411,7 +411,7 @@ test('unsafe game import never overwrites current valid progress',async()=>{
  const a=app({},gameLearner()),before=a.state(),damaged=gameLearner();damaged.games={active:{mode:'normal',questions:[]}};await a.import(damaged);assert.deepEqual(a.state(),before);assert.match(a.effects.toasts.at(-1).textContent,/current progress has not changed/);
 });
 test('passed normal lesson offers Continue learning and starts the next required lesson',()=>{
- const a=app();a.click('begin');finishLesson(a);assert.match(a.el.innerHTML,/Continue learning/);assert.match(a.el.innerHTML,/Back to Home/);assert.equal(a.state().completed[0],'u0l0');a.click('continueLearning');assert.equal(a.state().active.lesson.id,require('../www/curriculum').lessons[1].id);
+ const a=app();a.click('begin');finishLesson(a);assert.match(a.el.innerHTML,/Continue to story/);assert.match(a.el.innerHTML,/Finish for now/);assert.equal(a.state().completed[0],'u0l0');a.click('continueLearning');assert.equal(a.state().active.lesson.id,require('../www/curriculum').lessons[1].id);
 });
 test('failed normal lesson offers retry and mistake review and cannot jump forwards',()=>{
  const a=app();a.click('begin');finishLesson(a,false);assert.doesNotMatch(a.el.innerHTML,/Continue learning/);assert.match(a.el.innerHTML,/Try again/);assert.match(a.el.innerHTML,/Review mistakes/);a.click('continueLearning');assert.equal(a.state().active,null);assert.deepEqual(a.state().completed,[]);a.click('lessonMistakes');assert.equal(vm.runInContext('quiz.kind',a.ctx),'review');assert.match(a.el.innerHTML,/Question 1/);

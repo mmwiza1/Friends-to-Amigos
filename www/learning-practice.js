@@ -27,7 +27,7 @@ function today(state,C,now=Date.now()){
  const focus=M.areas(state,C).find(a=>a.status==='Needs practice'&&B.pool(state,C,'all',a.key).length)?.key||'';
  const last={};for(const e of state.events)if(e.questionId)last[e.questionId]=Math.max(last[e.questionId]||0,e.at||0);
  const support=M.areas(state,C).filter(a=>a.key.startsWith('concept:english-support-')&&a.status==='Practise without English support').flatMap(a=>focusedQuestions(state,C,a.key)).filter(q=>withinLevel(q,state,C)&&!seen.has(q.id)&&now-(last[q.id]||0)>=86400000).slice(0,2);for(const q of support)seen.add(q.id);
- const retrieval=C.lessons.filter(l=>state.completed.includes(l.id)&&!l.checkpoint).flatMap(l=>l.questions).filter(q=>withinLevel(q,state,C)&&!seen.has(q.id)&&(q.type==='text'||q.listening)&&!q.reading&&now-(last[q.id]||0)>=86400000).sort((a,b)=>(last[a.id]||0)-(last[b.id]||0)).slice(0,due.length?2:4);
+ const retrieval=C.lessons.filter(l=>state.completed.includes(l.id)&&!l.checkpoint).flatMap(l=>l.questions).filter(q=>withinLevel(q,state,C)&&!seen.has(q.id)&&(q.type==='text'||q.type==='tiles'||q.type==='cloze'||q.listening)&&!q.reading&&now-(last[q.id]||0)>=86400000).sort((a,b)=>(last[a.id]||0)-(last[b.id]||0)).slice(0,due.length?2:4);
  return {questions:[...due,...support,...retrieval],focus,items:due.length+support.length+retrieval.length+(focus?3:0),minutes:Math.max(1,Math.ceil((due.length+support.length+retrieval.length+(focus?6:0))*.45))};
 }
 function withinLevel(q,state,C){const lesson=index(C).get(q.sourceQuestionId||q.id),stage=q.practice?.stage||lesson?.stage;return !stage||S.allowed(state,stage);}

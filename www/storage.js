@@ -8,6 +8,7 @@ const Mastery=typeof module!=='undefined'?require('./mastery.js'):root.Mastery;
 const Focused=typeof module!=='undefined'?require('./focused-practice.js'):root.FocusedPractice;
 const Blanks=typeof module!=='undefined'?require('./blanks.js'):root.ConjugationBlanks;
 const Dictionary=typeof module!=='undefined'?require('./learner-dictionary.js'):root.LearnerDictionary;
+const Structured=typeof module!=='undefined'?require('./structured.js'):root.Structured;
 const VERSION=2,KEY='friends-to-amigos-v1'; // Keep the discovery key; version lives in the value.
 const object=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
 const text=(x,max=500)=>typeof x==='string'&&x.length<=max?x:null;
@@ -16,13 +17,19 @@ const number=(x,fallback=0,max=4102444800000)=>typeof x==='number'&&Number.isFin
 const count=(x,fallback=0)=>Number.isInteger(x)&&x>=0&&x<=1000000?x:fallback;
 function date(x){if(typeof x!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(x))return null;const d=new Date(x+'T12:00:00Z');return Number.isFinite(d.getTime())&&d.getUTCFullYear()>=1970&&d.getUTCFullYear()<=2100&&d.toISOString().slice(0,10)===x?x:null;}
 function hash(value){let a=2166136261,b=5381;for(const c of value){a=Math.imul(a^c.codePointAt(0),16777619);b=Math.imul(b,33)^c.codePointAt(0);}return (a>>>0).toString(16)+'-'+(b>>>0).toString(16);}
-function signature(q){return JSON.stringify({type:q.type||'choice',prompt:q.prompt,answer:q.answer,accepted:q.accepted||null,options:q.options||null,reading:q.reading?{title:q.reading.title,text:q.reading.text}:null});}
+function signature(q){return JSON.stringify({type:q.type||'choice',prompt:q.prompt,answer:q.answer,accepted:q.accepted||null,options:q.options||null,...(Structured.active(q)?{structure:Structured.contract(q)}:{}),reading:q.reading?{title:q.reading.title,text:q.reading.text}:null});}
 function reading(r){if(!object(r)||!text(r.title,200)||!text(r.text,20000))return null;return {title:r.title,text:r.text,...(text(r.stage,10)?{stage:r.stage}:{}),glossary:Array.isArray(r.glossary)?r.glossary.filter(x=>Array.isArray(x)&&x.length===2&&text(x[0],200)&&text(x[1],300)).map(x=>x.slice()):[]};}
 function question(raw){
  if(!object(raw)||!text(raw.prompt,2000)||!text(raw.answer,6000)||!text(raw.explanation,3000)||!text(raw.topic,200))return null;
- const type=raw.type||'choice';if(!['choice','gap','text','speaking'].includes(type))return null;
+ const type=raw.type||'choice';if(!['choice','gap','text','speaking','tiles','cloze'].includes(type))return null;
  const q={type,prompt:raw.prompt,answer:raw.answer,explanation:raw.explanation,topic:raw.topic,mode:text(raw.mode,80)||'recognition'};
- if(type==='text'){
+ if(Structured.active(raw)){
+  if(!Structured.validate(raw)||!Array.isArray(raw.accepted)||!raw.accepted.length||raw.accepted.length>100||raw.accepted.some(x=>!text(x,6000)))return null;
+  q.accepted=[...new Set(raw.accepted)];q.language='es';
+  if(type==='tiles'){q.tiles=raw.tiles.slice();q.tileKind=raw.tileKind;if(raw.solution)q.solution=raw.solution.slice();}
+  else q.cloze=JSON.parse(JSON.stringify(raw.cloze));
+  if(!Structured.correct(q,Structured.canonical(q))||Structured.normalize(Structured.response(q,Structured.canonical(q)))!==Structured.normalize(q.answer))return null;
+ }else if(type==='text'){
   if(!Array.isArray(raw.accepted)||!raw.accepted.length||raw.accepted.length>100)return null;
   if(raw.accepted.some(a=>!text(a,6000)))return null;
   q.accepted=[...new Set(raw.accepted)];q.language=['es','en-or-es'].includes(raw.language)?raw.language:'en-or-es';
@@ -45,7 +52,7 @@ function question(raw){
  for(const key of ['id','sourceQuestionId'])if(safeId(raw[key]))q[key]=raw[key];
  if(text(raw.spanish,6000))q.spanish=raw.spanish;
  if(raw.reading!==undefined&&raw.reading!==null){q.reading=reading(raw.reading);if(!q.reading)return null;}
- if(raw.listening){if(!['choice','text'].includes(type)||!object(raw.listening)||!text(raw.listening.transcript,2000))return null;q.listening={transcript:raw.listening.transcript,lang:'es-ES',rate:number(raw.listening.rate,.85,1.25)||.85};if(text(raw.listening.audio,250)&&/^audio\/learning\/[a-zA-Z0-9/_-]+\.(mp3|ogg|wav)$/.test(raw.listening.audio))q.listening.audio=raw.listening.audio;}
+ if(raw.listening){if(!['choice','text','tiles','cloze'].includes(type)||!object(raw.listening)||!text(raw.listening.transcript,2000))return null;q.listening={transcript:raw.listening.transcript,lang:'es-ES',rate:number(raw.listening.rate,.85,1.25)||.85};if(text(raw.listening.audio,250)&&/^audio\/learning\/[a-zA-Z0-9/_-]+\.(mp3|ogg|wav)$/.test(raw.listening.audio))q.listening.audio=raw.listening.audio;}
  if(raw.writing!==undefined){q.writing=W.metadata(raw.writing);if(type!=='text'||!q.writing)return null;}
  if(text(raw.previousResponse,6000))q.previousResponse=raw.previousResponse;
  if(raw.models!==undefined){if(type!=='speaking'||!Array.isArray(raw.models)||!raw.models.length||raw.models.length>3||raw.models.some(x=>!text(x,2000))||raw.models[0]!==q.spanish)return null;q.models=[...new Set(raw.models)];}
@@ -73,7 +80,7 @@ function migrateState(raw,course,options={}){
   const ids=[...(signatures.get(signature(q))||[])];
   const candidate=ids.length===1?current.get(ids[0]):null;
   // Wording/variant edits are safe; a replaced teaching target is not the same item.
-  return candidate&&candidate.type===q.type&&E.normalizeAnswer(candidate.answer)===E.normalizeAnswer(q.answer)?ids[0]:'legacy-'+hash(signature(q));
+  return candidate&&candidate.type===q.type&&(!Structured.active(q)||Structured.contract(candidate)===Structured.contract(q))&&E.normalizeAnswer(candidate.answer)===E.normalizeAnswer(q.answer)?ids[0]:'legacy-'+hash(signature(q));
  }
  const quarantine=(kind,key,data)=>{warnings.push('Some damaged '+kind+' data was preserved for recovery.');state.recovery.push({kind,key,data:data===undefined?null:JSON.parse(JSON.stringify(data))});};
  for(const key of ['completed','events','capabilities'])if(raw[key]!==undefined&&!Array.isArray(raw[key]))quarantine('saved records',key,raw[key]);
@@ -118,7 +125,7 @@ function migrateState(raw,course,options={}){
     const pendingWriting=a.checked&&W.open(currentQ)&&a.answers.length===a.index;
     const writingDone=a.checked&&W.open(currentQ)&&submitted===null&&object(a.writingResponses)&&object(a.writingResponses[a.index])&&a.writingResponses[a.index].response===selected&&['got','needs'].includes(a.writingResponses[a.index].reflection);
     const inconsistent=a.checked&&!pendingWriting&&!writingDone&&((currentQ?.listening&&submitted!==null&&a.audioPlayed!==true)||(submitted===null?(!currentQ?.listening||selected!==null):(!selected?.trim()||submitted!==(currentQ?.type==='speaking'?selected==='got':E.isCorrect(currentQ,selected)))));
-    if(inconsistent||a.checked&&W.open(currentQ)&&!selected?.trim()||a.checked&&currentQ?.type==='speaking'&&(!a.modelRevealed||!['got','needs'].includes(selected))||selected===null&&a.selected!==null||currentQ&&currentQ.options&&selected!==null&&!currentQ.options.includes(selected)||a.checked&&selected===null&&a.answers.at(-1)!==null)quarantine('active attempt','active',a);
+    if(inconsistent||a.checked&&W.open(currentQ)&&!selected?.trim()||a.checked&&currentQ?.type==='speaking'&&(!a.modelRevealed||!['got','needs'].includes(selected))||selected===null&&a.selected!==null||currentQ&&currentQ.options&&selected!==null&&!currentQ.options.includes(selected)||Structured.active(currentQ)&&selected!==null&&(!Structured.partial(currentQ,selected)||!Structured.ready(currentQ,selected)&&a.checked)||a.checked&&selected===null&&a.answers.at(-1)!==null)quarantine('active attempt','active',a);
     else state.active={kind:'lesson',lesson,questions:qs,index:a.index,answers:a.answers.slice(),selected,checked:a.checked,readingReady:a.readingReady===true,modelRevealed:a.modelRevealed===true,audioPlayed:a.audioPlayed===true,audioUnavailable:a.audioUnavailable===true,...(typeof a.hintRevealed==='boolean'?{hintRevealed:a.hintRevealed}:{}),...(object(a.writingResponses)?{writingResponses:Object.fromEntries(Object.entries(a.writingResponses).filter(([k,v])=>Number.isInteger(Number(k))&&Number(k)>=0&&Number(k)<qs.length&&W.open(qs[Number(k)])&&object(v)&&text(v.response,6000)&&['got','needs'].includes(v.reflection)).map(([k,v])=>[k,{response:v.response,reflection:v.reflection,outcome:W.assess(qs[Number(k)],v.response).outcome}]))}:{})};
    }
   }

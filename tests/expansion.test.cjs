@@ -1,6 +1,6 @@
 const {beforeRequestedCorrections}=require('./helpers/content-corrections.cjs');
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require('node:crypto');
-const C=require('../www/curriculum'),E=require('../www/engine'),P=require('../www/storage'),M=require('../www/mastery'),T=require('../www/conjugation-targets'),B=require('../www/blanks'),L=require('../www/learning-practice'),G=require('../www/games');
+const C=require('./helpers/v12-course.cjs'),E=require('../www/engine'),P=require('../www/storage'),M=require('../www/mastery'),T=require('../www/conjugation-targets'),B=require('../www/blanks'),L=require('../www/learning-practice'),G=require('../www/games');
 const clone=x=>JSON.parse(JSON.stringify(x)),all=()=>({...E.fresh(),onboarded:true,stage:'A2.1',completed:C.lessons.map(l=>l.id)}),rng=(seed=1)=>()=>((seed=Math.imul(seed,1664525)+1013904223>>>0)/4294967296);
 const a21=C.lessons.filter(l=>l.stage==='A2.1');
 test('all 144 A1 activity payloads retain the exact baseline outside documented QA corrections',()=>{const hashes=require('./fixtures/a1-content-hashes.json');assert.equal(Object.keys(hashes).length,144);for(const l of C.lessons.filter(l=>['A1.1','A1.2'].includes(l.stage)))assert.equal(crypto.createHash('sha256').update(JSON.stringify(beforeRequestedCorrections(l),(key,value)=>['promptEs','englishHint','instructionLanguage','supportConcept','writing'].includes(key)?undefined:value)).digest('hex'),hashes[l.id],l.id);});
