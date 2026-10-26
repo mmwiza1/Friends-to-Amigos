@@ -15,3 +15,9 @@ Use backed-up test progress, not production learner history. Browser profiles si
 - Fix My Mistakes: due/recent and related contrasts, no future material or fake completion, retry self-assessed speaking without an accuracy score.
 - Results: honest score or self-assessment counts, Strong today/Keep practising only when supported, another round, mistakes and Back to Practice.
 - Compatibility: active historical lesson plus each practice session, export/import, old Games routes, B-stage best without source history, Review and Saved Words unchanged.
+
+## Performed and remaining
+
+Performed: full real-DOM flows on 17 simulated browser profiles, including all new rounds/results, native-inset/keyboard simulations and legacy resume. Light/dark compact hubs, narrow matching, large-text construction and landscape captures were visually inspected. The hosted Android debug build, lint and native unit tests passed; APK web-asset hashes were verified. Full exact results are in BUILD_STATUS.md.
+
+Remaining: physical Samsung/Pixel-class phones with actual gesture/three-button navigation, real IME and installed es-ES voice; acoustic review; independent native-speaker/educator review of the authored error contrasts, translation distractors and pacing. This checklist is not a claim that physical/manual sessions were performed.
