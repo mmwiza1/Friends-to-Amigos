@@ -10,7 +10,7 @@ Practice keeps its recommendation first. Early A1.1 gets familiar construction/l
 
 ## Local diagnostics
 
-Separate bounded storage, schema 1, up to 500 events / 30 days; Profile data controls export/pause/reset. Exact event allowlist and privacy contract: [BETA_DIAGNOSTICS.md](../BETA_DIAGNOSTICS.md). All writes are whitelist-sanitized; learner names, answers/free writing, searches, audio, arbitrary strings/device identifiers are excluded. Importing progress cannot adopt diagnostic fields. Storage failure is non-blocking. Duration is sampled active time, not exact attention. Reset never changes learning evidence. Android adds a dedicated export filename through the existing document API, with no new permission.
+Separate bounded storage, schema 1, up to 500 events / 30 days; Profile data controls export/pause/reset. Exact event allowlist and privacy contract: [BETA_DIAGNOSTICS.md](../BETA_DIAGNOSTICS.md). All writes are whitelist-sanitized; learner names, answers/free writing, searches, audio, arbitrary strings/device identifiers are excluded. Importing progress cannot adopt diagnostic fields. Storage failure is non-blocking; optional diagnostics are discarded before retrying a quota-blocked progress write. Backwards clock changes cannot subtract learning time. Duration is sampled active time, not exact attention. Reset never changes learning evidence. Android adds a dedicated export filename through the existing document API, with no new permission.
 
 ## Surgical Spanish / continuity
 
@@ -20,11 +20,11 @@ Separate bounded storage, schema 1, up to 500 events / 30 days; Profile data con
 - E: “Luis le preguntó si había venido a pie”; a glossary explains the fixed reported-past chunk. This explicit requested naturalness exception is documented in the story scope audit; no new paradigm is added.
 - F: “antes de que empezara la película” in the live focused listening and Conjugations contexts that still use that cinema scenario. The current course Story Edition has a different everyday-neighbour plot, so it was not replaced with an old story.
 - G: “responde a las necesidades de todos”. H: explicit “el método” in the qualified-experience model, with matching English support and diagnostic wrong forms.
-- I: existing coger preferences and accepted tomar variants remain. Intentional A2.1 tomar conjugation targets stay tomar; changing the teaching verb would violate identity/objective safety.
+- I: two additional modal carriers (`a22u2check-q9`, `a22u7l1-q6`) prefer coger, with every previous tomar answer retained and a note explaining both are valid. Existing coger preferences remain. Intentional A2.1 tomar conjugation targets stay tomar; changing the teaching verb would violate identity/objective safety.
 - J: no live “hacía … desayuno” model was found; no speculative breakfast rewrite was made.
 - Six A1 glossary replacements: más→de nada; juntos→la cuenta; suficiente→libreta; viene→entra; ¿cuál?→en clase; un cambio→nos vemos. Passages/answers stay unchanged for these glossary fixes.
 
-The existing 24 standalone editions, three primary characters and supporting cast remain. Everyday/social/comedy scenarios are preserved alongside strong B2 analysis. Future B additions must consider adult social life; no arbitrary ratio or mass B2 rewrite was imposed. Internal polish is not independent native/educator review.
+The surgical overlay amends 79 existing question slots, preserving identities/order. The existing 24 standalone editions, three primary characters and supporting cast remain. Everyday/social/comedy scenarios are preserved alongside strong B2 analysis. Future B additions must consider adult social life; no arbitrary ratio or mass B2 rewrite was imposed. Internal polish is not independent native/educator review.
 
 ## Governance / architecture / recommendations
 
