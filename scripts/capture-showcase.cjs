@@ -22,7 +22,7 @@ async function capture({send,evaluate,fixture,sessionId,output}){
    dictionary:"actions.lesson({dataset:{id:'u0l0'}});quiz.index=3;quiz.answers=[true,true,true];",
    story:"actions.lesson({dataset:{id:'u0story0'}});",
    feedback:"const l=C.lessons.find(l=>l.id==='u0l1');startQuiz('lesson',l.questions,l);quiz.index=4;quiz.answers=Array(4).fill(true);quiz.selected=JSON.stringify(Structured.selection(Structured.canonical(currentQuestion())).reverse());actions.check();",
-   practice:"actions.practiceHub();render();document.querySelector('.practice-catalogue summary')?.click();",
+   practice:"state.completed=C.lessons.slice(0,3).map(l=>l.id);actions.practiceHub();",
    context:"state.completed=C.lessons.filter(l=>l.stage==='A1.1').map(l=>l.id);state.grammarLevel='A1.1';state.games=G.empty();actions.gameNew();const a=state.games.active,i=a.questions.findIndex(q=>q.blanks.length===1);if(i<0)throw Error('No single-blank game fixture');[a.questions[0],a.questions[i]]=[a.questions[i],a.questions[0]];a.selected=[null];",
    review:"E.recordAnswer(state,C.lessons[0].questions[0],false);actions.reviewHome();",
    profile:"actions.profile();",
@@ -41,7 +41,8 @@ async function capture({send,evaluate,fixture,sessionId,output}){
    await evaluate(sessionId,'new Promise(r=>setTimeout(r,3600))');
   }
   await evaluate(sessionId,'document.fonts.ready');
-  const metric=await evaluate(sessionId,`(()=>{const a=${JSON.stringify(anchor)},end=${JSON.stringify(end)},anchor=a?document.querySelector(a):null,target=end?document.querySelector(end):null;const nav=document.querySelector('nav');return {anchor:anchor?anchor.getBoundingClientRect().top+scrollY-24:0,bottom:target?target.getBoundingClientRect().bottom+scrollY:null,nav:nav?nav.getBoundingClientRect().height:0};})()`);
+  const metric=await evaluate(sessionId,`(()=>{const a=${JSON.stringify(anchor)},end=${JSON.stringify(end)},anchor=a?document.querySelector(a):null,target=end?document.querySelector(end):null;const nav=document.querySelector('nav');return {anchor:anchor?anchor.getBoundingClientRect().top+scrollY-24:0,visible:!target||target.getBoundingClientRect().height>0,bottom:target?target.getBoundingClientRect().bottom+scrollY:null,nav:nav?nav.getBoundingClientRect().height:0};})()`);
+  assert(metric.visible,recipe.screen+' capture boundary is actually visible');
   assert(!end||metric.bottom!==null,recipe.screen+' has capture boundary '+end);
   let height=Math.ceil(metric.bottom===null?824:metric.bottom-metric.anchor+metric.nav+8);height=Math.max(480,height);
   assert(height<=1600,recipe.screen+' needs a shorter meaningful capture boundary ('+height+'px)');
