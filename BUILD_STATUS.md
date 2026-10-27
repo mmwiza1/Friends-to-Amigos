@@ -2,6 +2,8 @@
 
 The app/runtime remains 1.7.0 / Android versionCode 18, based on main `37761ab9e8375f6476dbb950f83918f589b8d5f2`. All fifteen public images were regenerated and visually reviewed as clean, simulated app viewports. The permanent manifest gate binds UI/capture source fingerprints, versions, image bytes and manual review. See the [performed validation and per-image review](docs/release/SHOWCASE_HARDENING_REPORT.md), [policy](docs/SCREENSHOT_POLICY.md) and [checklist](docs/RELEASE_SHOWCASE_CHECKLIST.md).
 
+Performed hardening gate: [run 40424118507](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/40424118507) passed checks/capture/Android build. **2,116 JS tests passed, 0 failed/skipped/cancelled/todo; 17 browser layouts / 39,327 assertions; 15 public captures / 176 assertions; Android 15 unit tests / 0 failures, lint 0 errors / 12 existing warnings.** All 77 APK web assets match source. Local course/showcase/recommendation/learning/story/depth/learner audits passed. The final documentation/test-portability commit repeats the complete hosted gate before main promotion.
+
 The following v1.7 release evidence is historical; the new process gate results are recorded in the report above. No physical-device capture/testing is claimed.
 
 # Build and validation status — 1.7.0

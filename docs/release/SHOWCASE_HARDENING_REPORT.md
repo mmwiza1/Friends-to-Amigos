@@ -40,4 +40,16 @@ These are Chromium browser simulations at 384 CSS px / DPR 1, light and dark the
 
 ## Full validation
 
-Pending the complete gate against the adopted manifest; results will be recorded before main promotion.
+The adopted gallery and permanent gate passed the complete hosted checks job in [run 40424118507](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/40424118507), candidate `a0bedc52234f269da757abd00fe0e5b0eb7a2a6b`:
+
+- `npm run check` and `npm run check:screenshots`: passed; 15 current, hash-bound images / 1.7.0 / Android 18.
+- `npm test` (hosted Node 22): **2,116 passed, 0 failed, 0 cancelled, 0 skipped, 0 todo**. This adds **47** validator/retention/negative cases and preserves the former one-off showcase case as a permanent gate. Obsolete hard-coded release/run values were intentionally replaced; historical learner fixtures were not changed.
+- `npm run check:browser`: **17 layouts, 39,327 layout/interaction assertions, 0 failed layouts**, plus **176 public-capture assertions / 15 images**. All prior Samsung, generic Android, narrow, large-text, landscape, inset and keyboard simulations remain. Visible Home/Learn/Practice/Review/Profile labels are asserted independently of internal route names, alongside Home hierarchy/Needs Attention and Profile semantics/order/geometry.
+- Local `npm run check`, `npm run audit`, recommendation/learning/story/depth audits and learner-release audit: passed. Local Node 24 additionally passed **36 file-isolated suites, 0 failures/cancellations/skips/todo**; hosted Node 22 supplies individual-case totals.
+- `gradle -p android assembleDebug lintDebug testDebugUnitTest`: **BUILD SUCCESSFUL in 26s; 47 tasks executed**. Downloaded JUnit XML: **15 tests, 0 failures/errors/skips**. Downloaded lint XML: **0 errors/fatal issues, 12 existing warnings**. All **77 packaged web assets** match current source bytes exactly. This was hosted Android compilation/lint/unit validation; local Chromium socket restrictions and absence of local Gradle/SDK were handled by the established CI environment.
+
+The final validator/tests also allow an omitted optional CI run ID and derive fixture versions/codes from the current release, avoiding another hard-coded future version trap. The final documentation/validator-test portability commit repeats the complete hosted gate before main promotion. It changes no capture-relevant UI inputs. No runtime, learner schema, course IDs or saved snapshots were edited; no app version bump or new product Release/tag is created by this repository-only change. Existing v1.7 product release notes and the release-note template remain intact.
+
+## Limits / future release duties
+
+Fingerprinting is intentionally conservative for rendering/content/CSS inputs, with an explicit small internal-algorithm exemption list. A developer moving visible UI there must maintain that list. CI cannot assess editorial representativeness or prove an honest manual inspection: every image still requires the recorded visual checklist. Browser simulations are not physical-device validation. This work does not configure GitHub account/branch administration or publish a GitHub Release; it makes the existing checks/dependent Android workflow fail for stale showcase evidence.

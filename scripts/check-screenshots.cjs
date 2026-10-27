@@ -14,7 +14,7 @@ function validate(root=path.resolve(__dirname,'..')){
   const old=m.sourceFingerprint?.sources||{},changed=fingerprint.sources&&Object.keys({...old,...fingerprint.sources}).filter(k=>old[k]!==fingerprint.sources[k]);fail('Showcased UI/capture sources changed without a refreshed manifest: '+changed.join(', ')+'. Regenerate affected screenshots from the final UI.');
  }
  if(!Array.isArray(m.screenshots)||m.screenshotCount!==m.screenshots.length||m.screenshotCount<10||m.screenshotCount>15)fail('Showcase needs 10–15 representative screenshots with matching screenshotCount.');
- if(m.validationRun!==null&&(!Number.isSafeInteger(m.validationRun)||m.validationRun<=0))fail('Invalid screenshot validationRun.');
+ if(m.validationRun!=null&&(!Number.isSafeInteger(m.validationRun)||m.validationRun<=0))fail('Invalid screenshot validationRun.');
  if(new Set(m.screenshots.map(r=>r?.filename)).size!==m.screenshots.length)fail('Duplicate screenshot filename in manifest.');
  const readme=fs.readFileSync(path.join(root,'README.md'),'utf8'),advertised=readme.match(/\*\*(\d+\.\d+\.\d+)(?:\s|\s*·)/)?.[1];
  if(advertised!==v.appVersion)fail('README advertised app version '+advertised+' disagrees with '+v.appVersion+'.');
