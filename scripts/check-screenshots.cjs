@@ -40,6 +40,7 @@ function validate(root=path.resolve(__dirname,'..')){
   if(row.layout.targetBottom!==null&&row.layout.targetBottom>row.layout.navTop+1)fail('Clipped capture boundary in '+row.filename);
   if(!references.includes(row.filename)||!preview.includes('docs/screenshots/'+row.filename)||(!review.includes('`'+row.filename+'`')||!review.includes(row.sha256)))fail('Screenshot is absent from README showcase or manual review: '+row.filename);
  }
+ for(const screen of ['home','learn','practice','review','profile'])if(!screens.has(screen))fail('Showcase is missing the primary '+screen+' screen.');
  for(const ref of references)if(!files.has(ref))fail('README screenshot '+ref+' is missing from the manifest.');
  return {appVersion:v.appVersion,androidVersionCode:v.androidVersionCode,count:files.size,sourceFingerprint:fingerprint.sha256,manualReview:manual.report};
 }

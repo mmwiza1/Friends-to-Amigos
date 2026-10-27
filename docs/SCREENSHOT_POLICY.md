@@ -13,7 +13,7 @@ Learner-visible navigation is **Home · Learn · Practice · Review · Profile**
 1. Finish and validate the intended UI. Read AGENTS.md and the release-note template.
 2. Run `npm run capture:showcase` (requires Chromium) or the existing CI browser job. The regular browser suite retains all native-inset/keyboard stress profiles and also captures the public showcase separately. Candidate PNGs and `manifest.json` are written to `browser-reports/showcase/`.
 3. Inspect **every** candidate using the [release checklist](RELEASE_SHOWCASE_CHECKLIST.md). Download CI's browser artefact if local Chromium is unavailable. Do not treat passing bridge calls, snapshots or pixel hashes as physical-device or acoustic testing.
-4. Record the UI fingerprint, version, profiles, all filenames, acceptance results and limitations in `docs/release/NAME.md`, including `<!-- showcase-review: SHA256 -->` for the candidate fingerprint.
+4. Record the UI fingerprint, version, profiles, all filenames and full PNG SHA-256 hashes, acceptance results and limitations in `docs/release/NAME.md`, including `<!-- showcase-review: SHA256 -->` for the candidate fingerprint.
 5. Adopt only those reviewed bytes: `npm run showcase:adopt -- --from browser-reports/showcase --reviewer "NAME / agent" --review-report docs/release/NAME.md`. An external absolute candidate directory is also accepted. Adoption verifies the candidate's current UI fingerprint, image hashes and review record; copies the original PNGs, updates the manifest/README grid and removes retired PNGs. It does not edit pixels.
 6. Run `npm run check:screenshots`, then `npm run check:release` and Android validation. Do not promote main until all gates pass. If capture-relevant code changes while fixing failures, capture/review again.
 
@@ -33,7 +33,7 @@ Stress captures with cutouts, keyboard overlap or simulated native system spaces
 - `captureMode`, exact learner-visible `navigationLabels`, `screenshotCount`;
 - `sourceFingerprint`: SHA-256 of an ordered source-file/hash map covering UI renderers, styles, navigation, content and the capture recipes/tool;
 - per-image filename, screen, description, theme, actual viewport/profile/insets, simulation flag, PNG SHA-256, first-generation/refreshed/reviewed-for versions and observed layout checks;
-- approved manual-review author/date, release version, matching fingerprint and a repository review report.
+- approved manual-review author/date, release version, matching fingerprint, exact filename/hash map and a repository review report.
 
 The deterministic **release version + UI source fingerprint** is authoritative for freshness. A CI capture records the actual `GITHUB_SHA` that rendered it. Local captures without trustworthy commit provenance record `sourceCommit: null`. Never invent the future final commit SHA. A later documentation/manifest-only commit legitimately has the same captured UI fingerprint. A different UI fingerprint cannot be adopted as if it had been captured.
 

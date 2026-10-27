@@ -7,18 +7,18 @@ An offline-first Android Spanish-learning app in a vanilla HTML/CSS/JavaScript W
 ## App preview
 
 <!-- app-showcase:start -->
-Screens from the validated 1.7 UI, using simulated Samsung-size profiles and illustrative progress. Light and dark mode share the same five-tab navigation.
+Showcase UI: **1.7.0** · Android versionCode 18. Clean browser-simulated app viewports with illustrative learner data; no Android system UI or physical-device capture is claimed.
 
 | Learn with support | Build and explore | Keep progressing |
 | --- | --- | --- |
-| <img src="docs/screenshots/home.png" width="180" alt="Continue Learning and Today"><br>Continue Learning and Today | <img src="docs/screenshots/learn.png" width="180" alt="The course journey"><br>The course journey | <img src="docs/screenshots/beginner.png" width="180" alt="A supported first Spanish lesson"><br>A supported first Spanish lesson |
-| <img src="docs/screenshots/cloze.png" width="180" alt="Contextual multi-gap Spanish"><br>Contextual multi-gap Spanish | <img src="docs/screenshots/sentence-building.png" width="180" alt="Build Spanish with supplied words"><br>Build Spanish with supplied words | <img src="docs/screenshots/dictionary.png" width="180" alt="Vocabulary help before answering"><br>Vocabulary help before answering |
-| <img src="docs/screenshots/story.png" width="180" alt="Standalone episodes with word help"><br>Standalone episodes with word help | <img src="docs/screenshots/feedback.png" width="180" alt="Compare your answer and learn why"><br>Compare your answer and learn why | <img src="docs/screenshots/games.png" width="180" alt="The Practice hub"><br>The Practice hub |
-| <img src="docs/screenshots/conjugations.png" width="180" alt="Verb in Context"><br>Verb in Context | <img src="docs/screenshots/review.png" width="180" alt="Scheduled review and weak areas"><br>Scheduled review and weak areas | <img src="docs/screenshots/profile.png" width="180" alt="Level, progress and Vocabulary"><br>Level, progress and Vocabulary |
-| <img src="docs/screenshots/saved-words.png" width="180" alt="Your personal vocabulary"><br>Your personal vocabulary | <img src="docs/screenshots/learner-dictionary.png" width="180" alt="Search English or Spanish"><br>Search English or Spanish | <img src="docs/screenshots/lesson-complete.png" width="180" alt="Continue straight to the next activity"><br>Continue straight to the next activity |
+| <img src="docs/screenshots/home.png" width="180" alt="Continue Learning and Today"><br>Continue Learning and Today | <img src="docs/screenshots/learn.png" width="180" alt="Your current course position and next activity"><br>Your current course position and next activity | <img src="docs/screenshots/beginner.png" width="180" alt="A supported first Spanish lesson"><br>A supported first Spanish lesson |
+| <img src="docs/screenshots/cloze.png" width="180" alt="Build a connected message with contextual gaps"><br>Build a connected message with contextual gaps | <img src="docs/screenshots/sentence-building.png" width="180" alt="Construct Spanish with supplied word tiles"><br>Construct Spanish with supplied word tiles | <img src="docs/screenshots/dictionary.png" width="180" alt="Explore a Spanish word before selecting an answer"><br>Explore a Spanish word before selecting an answer |
+| <img src="docs/screenshots/story.png" width="180" alt="A standalone reading episode with vocabulary support"><br>A standalone reading episode with vocabulary support | <img src="docs/screenshots/feedback.png" width="180" alt="Understand a mistake and compare natural Spanish"><br>Understand a mistake and compare natural Spanish | <img src="docs/screenshots/games.png" width="180" alt="The Practice hub and optional activities"><br>The Practice hub and optional activities |
+| <img src="docs/screenshots/conjugations.png" width="180" alt="Verb in Context with separate answers for each blank"><br>Verb in Context with separate answers for each blank | <img src="docs/screenshots/review.png" width="180" alt="Due Today, Weak Areas and Past Mistakes"><br>Due Today, Weak Areas and Past Mistakes | <img src="docs/screenshots/profile.png" width="180" alt="Your level, streak and Vocabulary tools"><br>Your level, streak and Vocabulary tools |
+| <img src="docs/screenshots/saved-words.png" width="180" alt="Your personal saved vocabulary"><br>Your personal saved vocabulary | <img src="docs/screenshots/recommendations.png" width="180" alt="Content for Your Level with editorial guidance"><br>Content for Your Level with editorial guidance | <img src="docs/screenshots/lesson-complete.png" width="180" alt="Continue directly to the next required activity"><br>Continue directly to the next required activity |
 <!-- app-showcase:end -->
 
-[Build results and device-testing limits](BUILD_STATUS.md) · [Release details](docs/release/V1_7_REPORT.md)
+[Build results and device-testing limits](BUILD_STATUS.md) · [Release details](docs/release/V1_7_REPORT.md) · [Showcase policy and release gate](docs/SCREENSHOT_POLICY.md)
 
 ## Full course for user testing
 

@@ -1,3 +1,9 @@
+# Current GitHub showcase process hardening — app 1.7.0
+
+The app/runtime remains 1.7.0 / Android versionCode 18, based on main `37761ab9e8375f6476dbb950f83918f589b8d5f2`. All fifteen public images were regenerated and visually reviewed as clean, simulated app viewports. The permanent manifest gate binds UI/capture source fingerprints, versions, image bytes and manual review. See the [performed validation and per-image review](docs/release/SHOWCASE_HARDENING_REPORT.md), [policy](docs/SCREENSHOT_POLICY.md) and [checklist](docs/RELEASE_SHOWCASE_CHECKLIST.md).
+
+The following v1.7 release evidence is historical; the new process gate results are recorded in the report above. No physical-device capture/testing is claimed.
+
 # Build and validation status — 1.7.0
 
 Base main: `d69d64f727ea9eee5520057e5ac2bb4df00b94ab`. Version **1.7.0**, Android **versionCode 18**. Same eleven Practice activities and A1.1–B2.2 course; no course-content, ID, schema or dependency expansion.

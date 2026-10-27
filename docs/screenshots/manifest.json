@@ -1,177 +1,799 @@
 {
-  "version": "1.7.0",
-  "sourceCommit": "6a1de1f17ca64ed1ea47411efe91e70d658772a4",
-  "validationRun": 40418035901,
-  "note": "Unmodified PNGs from the successful 17-layout / 38,868-assertion browser step for this exact 77-file runtime. Simulated viewport/inset/keyboard conditions, not physical-device captures. Full JS/native evidence is recorded in BUILD_STATUS.md.",
+  "schemaVersion": 1,
+  "appVersion": "1.7.0",
+  "androidVersionCode": 18,
+  "generatedAt": "2026-10-26T23:57:13.920Z",
+  "sourceCommit": "f2e469c0a8093e8defb9e69524b78ff02a121142",
+  "validationRun": 40423162466,
+  "captureMode": "clean-app-viewport",
+  "sourceFingerprint": {
+    "algorithm": "sha256",
+    "sources": {
+      "scripts/capture-showcase.cjs": "a167674082a058d472ee061275b816fe9d59c12f3ee2246d10dc17ce0ad56b67",
+      "scripts/showcase/config.cjs": "93938b5012b8ffb6eafa6c71ee03dbb2fad88e4d2b108e4777834ad1d4f27bda",
+      "www/a1-practice.js": "0d39beec2d894ac4ca60cd8d5ba3f46dbe8238900d5a7627128ca3aaaba78644",
+      "www/a1-review.js": "a29b80594cce69e291416325da5bd107adfa9802becd5e57d57c1800495f50ea",
+      "www/a12-stories.js": "6468a83f9f9b8407ea501f6e587ac9e4a7047eb31dd0bd05cfeb42c1739b3b28",
+      "www/a12.js": "eab2c0facea80dc8fdb78437f069f011a9a32fb3b121bbf7e4757f8d44284665",
+      "www/a21-conjugations.js": "4891d6525f8ec49ccde6e080e25c4bad09bcbcac08333d152277381adc874fd8",
+      "www/a21-data.js": "75e6fdeb2ec614c9968a9bb89584d2024792dd45c4567bdcf0992e7775ef25f8",
+      "www/a21-ids.js": "34a65f11415d0e866bb88333b1d9393e01d8721fe0e2e7f2bfe74d54ee42a444",
+      "www/a21.js": "65f74f58f5de7df1148a26f2026669fe5ceab56a524f38127eaa66cd8d338bda",
+      "www/a22-conjugations.js": "8c5b5d4a6987f7cc5809329a0effb553c983231692f316902bc377d2f2882416",
+      "www/a22-data.js": "41b329ec6cc634cc73955c4c74f47f0071a4650f1ce9f0918496f1d554b32e16",
+      "www/a22-focused-data.js": "9c1156ff39656843f50b64bae1e15d62886a2419637d8ba097ee954d6cd5673b",
+      "www/a22-stories.js": "2d5a5a794ac358c3cda171ed56dc18163e01461f9b3ba6c2b32e4cb19693c04c",
+      "www/a22-targets.js": "f9ffb625e4b68033fc857b81411b3aeaa434c34480f60bfabf3f65c54668e19a",
+      "www/a22.js": "7c1f4837610069f23908cf8ec3e6467322ff34996b70885a6e4aebbb6e8caaf1",
+      "www/answer-feedback.js": "f206b05c31b14f8598878749b0fda8b32e4c55fac771cbc26fceff2beb9b4f1f",
+      "www/app.js": "393f31d6c87adcef7814e7e1d3570911e73aa1b3ddc9e0c2169949c2228dcc4f",
+      "www/assessment-policy.js": "86859060160c31dcf62a2409755705f77eb5c517aa8d9b52e715abc9cdce8e0e",
+      "www/audio/failure.mp3": "ba30af47a229b4652517c2997aca074d23db368cf5e9091f1fd5d698abdb3805",
+      "www/audio/success.mp3": "d01036a8585a6a0f18ddb10c078c0b189b7d416f4ea12710eca0d4ef59730e42",
+      "www/b-conjugations-data.js": "94acb7241df729b051677493329343e469579fe8b94ee4ee43d5805bfbf241f9",
+      "www/b-course.js": "2a9623e0a2d534cc50bcf60af9bf92e441a46fe92fb2f09373203f0a66458325",
+      "www/b-focused-data.js": "ca6b922b4a60714cb25108edd5bb04ad5ab932887541dad2d343cb95b3b36d1a",
+      "www/b-targets.js": "7ca111a566f6fcbfd4db1688e51310872f5a48eb732bdc1a4767253f976a31ae",
+      "www/b11-data.js": "c88a2b8a91df0974cfb3fe4819e0ed78f748a23f4d1a40961f390c01a06d5c26",
+      "www/b12-data.js": "39f2eed70c70ce8e0e3bbe9b4c1b1f947085d11e925c75dbc2d50b790690e9e5",
+      "www/b21-data.js": "e7c946375e206bc7030a5dc113745113dc6275ef428990537db2cbacc9e34398",
+      "www/b22-data.js": "4981f7d409bcfe2195c5f7374100a0fc240f382c38528fb1ee60b224f609df19",
+      "www/conjugation-targets.js": "693cec7a919ca3f6c4dfbeb2df0277c640ecd408b00ab1165d985604b0a19b9e",
+      "www/conjugations-bank.js": "e247605018a7d35da30f6feab68e2e7f6ef4ef88defbd4da0f0f7bfdc46609d5",
+      "www/course-language-data.js": "8096d735944200f619c8c9f45b57523d5d698f035c3fedd2a5452116af674a15",
+      "www/course-language.js": "1f37270f8efa0d763abfeec1dd46ff4e591caa6bb0637337fd05ad3e59d87326",
+      "www/course-path.js": "744d64acf465c106a228532b04afddb677b33faac6404a485e805025064c6ec2",
+      "www/curriculum.js": "2272876005301b8e57131fc738d8ee34f6590dc78e773162aa2e86e98e29ee42",
+      "www/dictionary-ui.js": "87ac830242711931e78b268ad20a58c2a5e1f2cf5244f267431915a6dbd2395b",
+      "www/dictionary.css": "9a0312b5606d1aa284f4997859762910748ca2c8cf1862fed0b54eb4fa82b32b",
+      "www/focused-bank-data.js": "ca617671d3deb1d739c8507b24e4789d26ba71131a31895af10f56cc36474320",
+      "www/focused-bank.js": "d9fb7ed95eb5129dd3211d932176cb735ad67c041c7c9c9b8702b1c50fa02823",
+      "www/focused-practice.js": "19fbe9063cb1d7e40bc99a427164788df651b6b869573aa87918d62441ba465b",
+      "www/focused-view.js": "5230e2213fc43ff805a9536bea3b6f0a1637fa4df790491cbb5cec76bb44096a",
+      "www/games-view.js": "4f9f68ecb83c7a2f007284f666910e2f618237a6b5714038238e3179c3709ad6",
+      "www/grammar-syllabus.js": "ef4326e50a0064b0d9f8577106fe0860881d5f92c0c216ffec31cd5132bdfc10",
+      "www/images/lesson-bulls.webp": "a6f888db34d0f7332dda8515b09c2e85f1d0b8dd1b210d422272dfd7b74fc749",
+      "www/index.html": "c321c31fe8937197d44feddd2c94a1ba221a950007ef6e6da2d2d6d5e0a527bb",
+      "www/learner-clarity.js": "db98092255dae0c59cd9d8c9c3a1d94ef8d7d632b7e64c8dcafbb33d9c47029e",
+      "www/learner-dictionary-data.js": "0f5e2692467cc99165dcbe278ed0690041a08ffddcc0a462fee5262a8c7e0c4c",
+      "www/learner-dictionary.js": "d5e5c9ab4d57f41d37deef2cc92e5d07a840a8962324116029e7828faf615bbe",
+      "www/learner-experience.js": "45dedcff8962b1369ec2a73f0f58a64db74db182f8f1fb793d437525e6935558",
+      "www/practice-errors.js": "4ab9fa06c4fb56653fd4c9dff4c17f868591f645b6eb1acb8481640c5f01101f",
+      "www/practice-hub.js": "f5669291f03a72e6d577808c1423cb199188dfc66e3ec47458cb52835962b9be",
+      "www/practice-view.js": "a6c0d14b2a84803edc771fce2e58ded9fc97aa8693c9b3db6af03cb607169b4e",
+      "www/quality-view.js": "c26b5082513bed6d672c2f04e93c5c5328e8c6eb773478a24eea7b8040e732a5",
+      "www/question-ids.js": "6e8ba0cd046e0e617f997a4f5964b439eeffe22be691152b22e37499547ec520",
+      "www/quiz-view.js": "baeb89c213c784f144e1c70e2d1107a6fc35e64da6f873917d69ca88b4a51cfb",
+      "www/recommendations.js": "55b498e278d4bfb9275543ded9bb9561846030399984cf5bc1d55c2a7b9c96a4",
+      "www/screens.js": "7ff41b2fa56d5160e2add6c4620f9e239dfd25c8b8aac7fb1c226c40b4df0c49",
+      "www/spanish-forms.js": "e494d107d1199332e8352a2f46e00750b5ca1751bff0b851d4cc85103b642d75",
+      "www/spanish-fragments.js": "a2b3b282e90f7c7b698e3447d8c87f61a18c487de73d2780be21ffe95418ce16",
+      "www/stories.js": "9ff2d21d2b1b2e7b24f5d7dce5c023e1235e5b82ece6bc379452d4001ab0aa01",
+      "www/story-editions.js": "e21b84389a60b3c20ae48bf57a58e137b6d4f500bce540a965b7c11e84f974bd",
+      "www/story-vocabulary.js": "7b69ec88f6878fd5133f95a225439c38784f77f96ef419e2ad6602c3fffac077",
+      "www/structured.js": "441849cc0b6c7ecd11b85135ca3305710379c09be70771697c74a35fe9d92667",
+      "www/style.css": "da9ba6819e948f1433dab571ff987e79c7eda3482d997f15d74a5348a81ffac5",
+      "www/verb-diagnostics.js": "8e4f5c42e168003a98e107d50c5e50980ab48b67c9109f4750e7b9aa85149e3a",
+      "www/viewport.js": "478c8e84dd3fa7a7e7b33d915abb52da44fa324acaa2e845476e9fd674aa7d1c",
+      "www/writing-audit.js": "7616f15474d66e631a5ce626c0b642652ecb29eb2acb5d8cde0e635fc1511e04",
+      "www/writing-rules.js": "ea74ac8efdc9438e57137e1ea0a548783d9910be83e4b527392e807ab3c5408e",
+      "www/writing.js": "5e526db59755aaf663091155c28f5d09e3026a4f4128648817687beb8d21d03f"
+    },
+    "sha256": "432935d3c942e69813cb821b67b6e7fc6f6063a3d39f4ccfc204b0827769415e"
+  },
+  "screenshotCount": 15,
+  "navigationLabels": [
+    "Home",
+    "Learn",
+    "Practice",
+    "Review",
+    "Profile"
+  ],
   "screenshots": [
     {
-      "file": "home.png",
-      "source": "s24-dark-buttons-home-v13.png",
-      "caption": "Continue Learning and Today",
-      "sha256": "d7b08a29a95e0833cef7559ab2d2a9d7a7042c60dfb78349a8a5a58d5ef54f68"
+      "filename": "home.png",
+      "screen": "home",
+      "description": "Continue Learning and Today",
+      "theme": "dark",
+      "profile": {
+        "name": "clean-app-portrait",
+        "width": 384,
+        "height": 1012,
+        "deviceScaleFactor": 1,
+        "insets": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "keyboard": false
+      },
+      "simulated": true,
+      "firstGeneratedVersion": "1.7.0",
+      "refreshedInVersion": "1.7.0",
+      "reviewedForVersion": "1.7.0",
+      "sha256": "c50f945b142514dff7079ae4cd6dda8c6b0c42322e214909d084ef47ded855ae",
+      "layout": {
+        "width": 384,
+        "height": 1012,
+        "scrollY": 0,
+        "overflow": false,
+        "keyboard": false,
+        "insets": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "navigationLabels": [
+          "Home",
+          "Learn",
+          "Practice",
+          "Review",
+          "Profile"
+        ],
+        "active": "⌂Home",
+        "navBottom": 1012,
+        "navTop": 927,
+        "targetBottom": 918.53125,
+        "popupFits": true,
+        "animations": 0
+      }
     },
     {
-      "file": "learn.png",
-      "source": "galaxy-s22-light-three-button-learn-v13.png",
-      "caption": "The course journey",
-      "sha256": "17352cde53ebe33f8a4a6c392af4d3a8073295d226e35fd66456cd21c2d9733b"
+      "filename": "learn.png",
+      "screen": "learn",
+      "description": "Your current course position and next activity",
+      "theme": "light",
+      "profile": {
+        "name": "clean-app-portrait",
+        "width": 384,
+        "height": 839,
+        "deviceScaleFactor": 1,
+        "insets": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "keyboard": false
+      },
+      "simulated": true,
+      "firstGeneratedVersion": "1.7.0",
+      "refreshedInVersion": "1.7.0",
+      "reviewedForVersion": "1.7.0",
+      "sha256": "2f571af6abc3913fda73a64d48194febdfc5d923f81c5a2386c9acf7634bf7ff",
+      "layout": {
+        "width": 384,
+        "height": 839,
+        "scrollY": 0,
+        "overflow": false,
+        "keyboard": false,
+        "insets": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "navigationLabels": [
+          "Home",
+          "Learn",
+          "Practice",
+          "Review",
+          "Profile"
+        ],
+        "active": "▤Learn",
+        "navBottom": 839,
+        "navTop": 754,
+        "targetBottom": 745.78125,
+        "popupFits": true,
+        "animations": 0
+      }
     },
     {
-      "file": "beginner.png",
-      "source": "galaxy-s22-light-three-button-opening-first.png",
-      "caption": "A supported first Spanish lesson",
-      "sha256": "4b8ded9e697d81cb4361ded1044771f1b99790f7049135af2c8fb0e6b0cdeab4"
+      "filename": "beginner.png",
+      "screen": "beginner",
+      "description": "A supported first Spanish lesson",
+      "theme": "light",
+      "profile": {
+        "name": "clean-app-portrait",
+        "width": 384,
+        "height": 888,
+        "deviceScaleFactor": 1,
+        "insets": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "keyboard": false
+      },
+      "simulated": true,
+      "firstGeneratedVersion": "1.7.0",
+      "refreshedInVersion": "1.7.0",
+      "reviewedForVersion": "1.7.0",
+      "sha256": "f40038c790e68c3220b2071383a591f6c93fb51514df33de92b6599b34807204",
+      "layout": {
+        "width": 384,
+        "height": 888,
+        "scrollY": 0,
+        "overflow": false,
+        "keyboard": false,
+        "insets": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "navigationLabels": [],
+        "navBottom": null,
+        "navTop": 888,
+        "targetBottom": 879.1875,
+        "popupFits": true,
+        "animations": 0
+      }
     },
     {
-      "file": "cloze.png",
-      "source": "s24-dark-buttons-cloze-v13.png",
-      "caption": "Contextual multi-gap Spanish",
-      "sha256": "000ff258a251753f99dfa36f79e18b37a07ff6ae5e136d1e8a67c390de587773"
+      "filename": "cloze.png",
+      "screen": "cloze",
+      "description": "Build a connected message with contextual gaps",
+      "theme": "dark",
+      "profile": {
+        "name": "clean-app-portrait",
+        "width": 384,
+        "height": 1421,
+        "deviceScaleFactor": 1,
+        "insets": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "keyboard": false
+      },
+      "simulated": true,
+      "firstGeneratedVersion": "1.7.0",
+      "refreshedInVersion": "1.7.0",
+      "reviewedForVersion": "1.7.0",
+      "sha256": "46624abbdc108ef8b855526fc715688fff276a62ec4d6910197d63e9de78eb52",
+      "layout": {
+        "width": 384,
+        "height": 1421,
+        "scrollY": 0,
+        "overflow": false,
+        "keyboard": false,
+        "insets": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "navigationLabels": [],
+        "navBottom": null,
+        "navTop": 1421,
+        "targetBottom": 1412.1875,
+        "popupFits": true,
+        "animations": 0
+      }
     },
     {
-      "file": "sentence-building.png",
-      "source": "s24-dark-buttons-tiles-v13.png",
-      "caption": "Build Spanish with supplied words",
-      "sha256": "ff2306b5a8cf817541a7aebf655d9d5b2df3a48ca86b3c606fddad9d2b9c0b2d"
+      "filename": "sentence-building.png",
+      "screen": "tiles",
+      "description": "Construct Spanish with supplied word tiles",
+      "theme": "light",
+      "profile": {
+        "name": "clean-app-portrait",
+        "width": 384,
+        "height": 943,
+        "deviceScaleFactor": 1,
+        "insets": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "keyboard": false
+      },
+      "simulated": true,
+      "firstGeneratedVersion": "1.7.0",
+      "refreshedInVersion": "1.7.0",
+      "reviewedForVersion": "1.7.0",
+      "sha256": "ee9e8a347ec133eb55332cb6518a43cbc2bcce1ebbcaa8727e751cb48c2f0968",
+      "layout": {
+        "width": 384,
+        "height": 943,
+        "scrollY": 0,
+        "overflow": false,
+        "keyboard": false,
+        "insets": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "navigationLabels": [],
+        "navBottom": null,
+        "navTop": 943,
+        "targetBottom": 934.1875,
+        "popupFits": true,
+        "animations": 0
+      }
     },
     {
-      "file": "dictionary.png",
-      "source": "s24-dark-buttons-choice-dictionary.png",
-      "caption": "Vocabulary help before answering",
-      "sha256": "6a57ae94f8d650bcb22528ed5e05718f99b6347d8c7f7e76ce18cefbc2b09974"
+      "filename": "dictionary.png",
+      "screen": "dictionary",
+      "description": "Explore a Spanish word before selecting an answer",
+      "theme": "light",
+      "profile": {
+        "name": "clean-app-portrait",
+        "width": 384,
+        "height": 953,
+        "deviceScaleFactor": 1,
+        "insets": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "keyboard": false
+      },
+      "simulated": true,
+      "firstGeneratedVersion": "1.7.0",
+      "refreshedInVersion": "1.7.0",
+      "reviewedForVersion": "1.7.0",
+      "sha256": "ed0f22c77951699588050f4dca6cd61bc26bc062c949d746f650c6eac8786279",
+      "layout": {
+        "width": 384,
+        "height": 953,
+        "scrollY": 0,
+        "overflow": false,
+        "keyboard": false,
+        "insets": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "navigationLabels": [],
+        "navBottom": null,
+        "navTop": 953,
+        "targetBottom": 944.1875,
+        "popupFits": true,
+        "animations": 0
+      }
     },
     {
-      "file": "story.png",
-      "source": "galaxy-s22-light-three-button-opening-story.png",
-      "caption": "Standalone episodes with word help",
-      "sha256": "c2fa9641af2f35056d16c867b4726dc30d1377832d9c025fe28b7cd9f1a0a64b"
+      "filename": "story.png",
+      "screen": "story",
+      "description": "A standalone reading episode with vocabulary support",
+      "theme": "light",
+      "profile": {
+        "name": "clean-app-portrait",
+        "width": 384,
+        "height": 1271,
+        "deviceScaleFactor": 1,
+        "insets": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "keyboard": false
+      },
+      "simulated": true,
+      "firstGeneratedVersion": "1.7.0",
+      "refreshedInVersion": "1.7.0",
+      "reviewedForVersion": "1.7.0",
+      "sha256": "32370db568e10d16319cf3bed3f6a8292d7ea91a8eec64278bfd9c075e84d793",
+      "layout": {
+        "width": 384,
+        "height": 1271,
+        "scrollY": 0,
+        "overflow": false,
+        "keyboard": false,
+        "insets": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "navigationLabels": [],
+        "navBottom": null,
+        "navTop": 1271,
+        "targetBottom": 1262.046875,
+        "popupFits": true,
+        "animations": 0
+      }
     },
     {
-      "file": "feedback.png",
-      "source": "s24-dark-buttons-structured-feedback-v13.png",
-      "caption": "Compare your answer and learn why",
-      "sha256": "8786b15fea925608a2b5e890fd4ad2b0847e718a04c3d6fac29629a2efda78a6"
+      "filename": "feedback.png",
+      "screen": "feedback",
+      "description": "Understand a mistake and compare natural Spanish",
+      "theme": "dark",
+      "profile": {
+        "name": "clean-app-portrait",
+        "width": 384,
+        "height": 1439,
+        "deviceScaleFactor": 1,
+        "insets": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "keyboard": false
+      },
+      "simulated": true,
+      "firstGeneratedVersion": "1.7.0",
+      "refreshedInVersion": "1.7.0",
+      "reviewedForVersion": "1.7.0",
+      "sha256": "dd8cfa195cdd9b8d3052898f3b659c42aba2aa971dbe260a52d26e424a2a719f",
+      "layout": {
+        "width": 384,
+        "height": 1439,
+        "scrollY": 0,
+        "overflow": false,
+        "keyboard": false,
+        "insets": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "navigationLabels": [],
+        "navBottom": null,
+        "navTop": 1439,
+        "targetBottom": 1430.1875,
+        "popupFits": true,
+        "animations": 0
+      }
     },
     {
-      "file": "games.png",
-      "source": "s24-dark-buttons-practice-hub.png",
-      "caption": "The Practice hub",
-      "sha256": "08000708ffed0e8161b6a136f936c13cb63ba44cc3500aab82b1d44778ae6ac6"
+      "filename": "games.png",
+      "screen": "practice",
+      "description": "The Practice hub and optional activities",
+      "theme": "light",
+      "profile": {
+        "name": "clean-app-portrait",
+        "width": 384,
+        "height": 982,
+        "deviceScaleFactor": 1,
+        "insets": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "keyboard": false
+      },
+      "simulated": true,
+      "firstGeneratedVersion": "1.7.0",
+      "refreshedInVersion": "1.7.0",
+      "reviewedForVersion": "1.7.0",
+      "sha256": "cff609c6f51c15d94acba7b3407aec586c4a7e78a649a3463ded5f08e44223ce",
+      "layout": {
+        "width": 384,
+        "height": 982,
+        "scrollY": 0,
+        "overflow": false,
+        "keyboard": false,
+        "insets": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "navigationLabels": [
+          "Home",
+          "Learn",
+          "Practice",
+          "Review",
+          "Profile"
+        ],
+        "active": "Practice",
+        "navBottom": 982,
+        "navTop": 897,
+        "targetBottom": 888.578125,
+        "popupFits": true,
+        "animations": 0
+      }
     },
     {
-      "file": "conjugations.png",
-      "source": "s24-dark-buttons-round.png",
-      "caption": "Verb in Context",
-      "sha256": "2ab054da5a4456640485a45a0629e925b24c7876fd03255a1af9cafe15d0a458"
+      "filename": "conjugations.png",
+      "screen": "context",
+      "description": "Verb in Context with separate answers for each blank",
+      "theme": "dark",
+      "profile": {
+        "name": "clean-app-portrait",
+        "width": 384,
+        "height": 743,
+        "deviceScaleFactor": 1,
+        "insets": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "keyboard": false
+      },
+      "simulated": true,
+      "firstGeneratedVersion": "1.7.0",
+      "refreshedInVersion": "1.7.0",
+      "reviewedForVersion": "1.7.0",
+      "sha256": "fe1bcc77a25c18d80e2682d43ce36baaf6863cb2836e3f4aed170a8a488d485d",
+      "layout": {
+        "width": 384,
+        "height": 743,
+        "scrollY": 0,
+        "overflow": false,
+        "keyboard": false,
+        "insets": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "navigationLabels": [],
+        "navBottom": null,
+        "navTop": 743,
+        "targetBottom": 734.703125,
+        "popupFits": true,
+        "animations": 0
+      }
     },
     {
-      "file": "review.png",
-      "source": "s24-dark-buttons-review-v13.png",
-      "caption": "Scheduled review and weak areas",
-      "sha256": "d3ab953e593a6c23b1f64a44e9daf62900a9b13cafe4888d3b2c558c04d1ad87"
+      "filename": "review.png",
+      "screen": "review",
+      "description": "Due Today, Weak Areas and Past Mistakes",
+      "theme": "light",
+      "profile": {
+        "name": "clean-app-portrait",
+        "width": 384,
+        "height": 862,
+        "deviceScaleFactor": 1,
+        "insets": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "keyboard": false
+      },
+      "simulated": true,
+      "firstGeneratedVersion": "1.7.0",
+      "refreshedInVersion": "1.7.0",
+      "reviewedForVersion": "1.7.0",
+      "sha256": "89b661222006fe9de3b18416ef13db60ef4284bc4c4618cf6d4fe824d1fa1543",
+      "layout": {
+        "width": 384,
+        "height": 862,
+        "scrollY": 0,
+        "overflow": false,
+        "keyboard": false,
+        "insets": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "navigationLabels": [
+          "Home",
+          "Learn",
+          "Practice",
+          "Review",
+          "Profile"
+        ],
+        "active": "↻Review1",
+        "navBottom": 862,
+        "navTop": 777,
+        "targetBottom": 768.96875,
+        "popupFits": true,
+        "animations": 0
+      }
     },
     {
-      "file": "profile.png",
-      "source": "s24-dark-buttons-profile-v13.png",
-      "caption": "Level, progress and Vocabulary",
-      "sha256": "e364a9714cc8874c46a30a6fbbb05c37c0bd65f11f1a64c7893b1bca250b1ca9"
+      "filename": "profile.png",
+      "screen": "profile",
+      "description": "Your level, streak and Vocabulary tools",
+      "theme": "dark",
+      "profile": {
+        "name": "clean-app-portrait",
+        "width": 384,
+        "height": 1099,
+        "deviceScaleFactor": 1,
+        "insets": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "keyboard": false
+      },
+      "simulated": true,
+      "firstGeneratedVersion": "1.7.0",
+      "refreshedInVersion": "1.7.0",
+      "reviewedForVersion": "1.7.0",
+      "sha256": "a06bc340077495b9c4036d2cc6dd7d396d3f9ab830b2da5f930dfe40a8293539",
+      "layout": {
+        "width": 384,
+        "height": 1099,
+        "scrollY": 0,
+        "overflow": false,
+        "keyboard": false,
+        "insets": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "navigationLabels": [
+          "Home",
+          "Learn",
+          "Practice",
+          "Review",
+          "Profile"
+        ],
+        "active": "☺Profile",
+        "navBottom": 1099,
+        "navTop": 1014,
+        "targetBottom": 1006,
+        "popupFits": true,
+        "animations": 0
+      }
     },
     {
-      "file": "saved-words.png",
-      "source": "galaxy-s22-light-three-button-saved-words.png",
-      "caption": "Your personal vocabulary",
-      "sha256": "40b992879b42965b215dca0be84a1ba398bdb57e80e19768cd6b7f4f66c1b252"
+      "filename": "saved-words.png",
+      "screen": "saved",
+      "description": "Your personal saved vocabulary",
+      "theme": "light",
+      "profile": {
+        "name": "clean-app-portrait",
+        "width": 384,
+        "height": 703,
+        "deviceScaleFactor": 1,
+        "insets": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "keyboard": false
+      },
+      "simulated": true,
+      "firstGeneratedVersion": "1.7.0",
+      "refreshedInVersion": "1.7.0",
+      "reviewedForVersion": "1.7.0",
+      "sha256": "6769b5d51beea16c2c8bc1118469ad9abb43b6fa18f4a6782d6bacb007740b33",
+      "layout": {
+        "width": 384,
+        "height": 703,
+        "scrollY": 0,
+        "overflow": false,
+        "keyboard": false,
+        "insets": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "navigationLabels": [],
+        "navBottom": null,
+        "navTop": 703,
+        "targetBottom": 694.78125,
+        "popupFits": true,
+        "animations": 0
+      }
     },
     {
-      "file": "learner-dictionary.png",
-      "source": "s24-dark-buttons-dictionary-search.png",
-      "caption": "Search English or Spanish",
-      "sha256": "cbf0bb2b08ee4a1ce9a91460bbcb3959f62c89b1fe06d1c27a9864cb34f824aa"
+      "filename": "recommendations.png",
+      "screen": "content",
+      "description": "Content for Your Level with editorial guidance",
+      "theme": "light",
+      "profile": {
+        "name": "clean-app-portrait",
+        "width": 384,
+        "height": 925,
+        "deviceScaleFactor": 1,
+        "insets": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "keyboard": false
+      },
+      "simulated": true,
+      "firstGeneratedVersion": "1.7.0",
+      "refreshedInVersion": "1.7.0",
+      "reviewedForVersion": "1.7.0",
+      "sha256": "fa1386ae41113956e67508fb489e2a401bc5f57d563cd395964eb5fba48c2100",
+      "layout": {
+        "width": 384,
+        "height": 925,
+        "scrollY": 0,
+        "overflow": false,
+        "keyboard": false,
+        "insets": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "navigationLabels": [],
+        "navBottom": null,
+        "navTop": 925,
+        "targetBottom": 916.46875,
+        "popupFits": true,
+        "animations": 0
+      }
     },
     {
-      "file": "lesson-complete.png",
-      "source": "s24-dark-buttons-completion-v13.png",
-      "caption": "Continue straight to the next activity",
-      "sha256": "32bff867900b0cbbdd837b65615f50d202a5ac7d2b1b16881c488b0323c515e1"
+      "filename": "lesson-complete.png",
+      "screen": "completion",
+      "description": "Continue directly to the next required activity",
+      "theme": "dark",
+      "profile": {
+        "name": "clean-app-portrait",
+        "width": 384,
+        "height": 871,
+        "deviceScaleFactor": 1,
+        "insets": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "keyboard": false
+      },
+      "simulated": true,
+      "firstGeneratedVersion": "1.7.0",
+      "refreshedInVersion": "1.7.0",
+      "reviewedForVersion": "1.7.0",
+      "sha256": "f06442e86341d44aced6432de7ce28e2410c87a9e66a0ee3c72ee655455c5d72",
+      "layout": {
+        "width": 384,
+        "height": 871,
+        "scrollY": 0,
+        "overflow": false,
+        "keyboard": false,
+        "insets": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "navigationLabels": [],
+        "navBottom": null,
+        "navTop": 871,
+        "targetBottom": 862.15625,
+        "popupFits": true,
+        "animations": 0
+      }
     }
   ],
-  "webAssets": {
-    "a1-practice.js": "0d39beec2d894ac4ca60cd8d5ba3f46dbe8238900d5a7627128ca3aaaba78644",
-    "a1-review.js": "a29b80594cce69e291416325da5bd107adfa9802becd5e57d57c1800495f50ea",
-    "a12-stories.js": "6468a83f9f9b8407ea501f6e587ac9e4a7047eb31dd0bd05cfeb42c1739b3b28",
-    "a12.js": "eab2c0facea80dc8fdb78437f069f011a9a32fb3b121bbf7e4757f8d44284665",
-    "a21-conjugations.js": "4891d6525f8ec49ccde6e080e25c4bad09bcbcac08333d152277381adc874fd8",
-    "a21-data.js": "75e6fdeb2ec614c9968a9bb89584d2024792dd45c4567bdcf0992e7775ef25f8",
-    "a21-ids.js": "34a65f11415d0e866bb88333b1d9393e01d8721fe0e2e7f2bfe74d54ee42a444",
-    "a21.js": "65f74f58f5de7df1148a26f2026669fe5ceab56a524f38127eaa66cd8d338bda",
-    "a22-conjugations.js": "8c5b5d4a6987f7cc5809329a0effb553c983231692f316902bc377d2f2882416",
-    "a22-data.js": "41b329ec6cc634cc73955c4c74f47f0071a4650f1ce9f0918496f1d554b32e16",
-    "a22-focused-data.js": "9c1156ff39656843f50b64bae1e15d62886a2419637d8ba097ee954d6cd5673b",
-    "a22-stories.js": "2d5a5a794ac358c3cda171ed56dc18163e01461f9b3ba6c2b32e4cb19693c04c",
-    "a22-targets.js": "f9ffb625e4b68033fc857b81411b3aeaa434c34480f60bfabf3f65c54668e19a",
-    "a22.js": "7c1f4837610069f23908cf8ec3e6467322ff34996b70885a6e4aebbb6e8caaf1",
-    "answer-feedback.js": "f206b05c31b14f8598878749b0fda8b32e4c55fac771cbc26fceff2beb9b4f1f",
-    "app.js": "393f31d6c87adcef7814e7e1d3570911e73aa1b3ddc9e0c2169949c2228dcc4f",
-    "assessment-policy.js": "86859060160c31dcf62a2409755705f77eb5c517aa8d9b52e715abc9cdce8e0e",
-    "audio/failure.mp3": "ba30af47a229b4652517c2997aca074d23db368cf5e9091f1fd5d698abdb3805",
-    "audio/success.mp3": "d01036a8585a6a0f18ddb10c078c0b189b7d416f4ea12710eca0d4ef59730e42",
-    "b-conjugations-data.js": "94acb7241df729b051677493329343e469579fe8b94ee4ee43d5805bfbf241f9",
-    "b-course.js": "2a9623e0a2d534cc50bcf60af9bf92e441a46fe92fb2f09373203f0a66458325",
-    "b-focused-data.js": "ca6b922b4a60714cb25108edd5bb04ad5ab932887541dad2d343cb95b3b36d1a",
-    "b-targets.js": "7ca111a566f6fcbfd4db1688e51310872f5a48eb732bdc1a4767253f976a31ae",
-    "b11-data.js": "c88a2b8a91df0974cfb3fe4819e0ed78f748a23f4d1a40961f390c01a06d5c26",
-    "b12-data.js": "39f2eed70c70ce8e0e3bbe9b4c1b1f947085d11e925c75dbc2d50b790690e9e5",
-    "b21-data.js": "e7c946375e206bc7030a5dc113745113dc6275ef428990537db2cbacc9e34398",
-    "b22-data.js": "4981f7d409bcfe2195c5f7374100a0fc240f382c38528fb1ee60b224f609df19",
-    "blanks.js": "01b31ca00e1108a9ab970426449b3e7391342e558a86c63fb395cd978804e6f2",
-    "conjugation-targets.js": "693cec7a919ca3f6c4dfbeb2df0277c640ecd408b00ab1165d985604b0a19b9e",
-    "conjugations-bank.js": "e247605018a7d35da30f6feab68e2e7f6ef4ef88defbd4da0f0f7bfdc46609d5",
-    "course-language-data.js": "8096d735944200f619c8c9f45b57523d5d698f035c3fedd2a5452116af674a15",
-    "course-language.js": "1f37270f8efa0d763abfeec1dd46ff4e591caa6bb0637337fd05ad3e59d87326",
-    "course-path.js": "744d64acf465c106a228532b04afddb677b33faac6404a485e805025064c6ec2",
-    "curriculum.js": "2272876005301b8e57131fc738d8ee34f6590dc78e773162aa2e86e98e29ee42",
-    "dictionary-ui.js": "87ac830242711931e78b268ad20a58c2a5e1f2cf5244f267431915a6dbd2395b",
-    "dictionary.css": "9a0312b5606d1aa284f4997859762910748ca2c8cf1862fed0b54eb4fa82b32b",
-    "engine.js": "e28594303018faec00306b6f037b436c1a86078482bc352896c18a323fd85388",
-    "focused-bank-data.js": "ca617671d3deb1d739c8507b24e4789d26ba71131a31895af10f56cc36474320",
-    "focused-bank.js": "d9fb7ed95eb5129dd3211d932176cb735ad67c041c7c9c9b8702b1c50fa02823",
-    "focused-practice.js": "19fbe9063cb1d7e40bc99a427164788df651b6b869573aa87918d62441ba465b",
-    "focused-view.js": "5230e2213fc43ff805a9536bea3b6f0a1637fa4df790491cbb5cec76bb44096a",
-    "games-view.js": "4f9f68ecb83c7a2f007284f666910e2f618237a6b5714038238e3179c3709ad6",
-    "games.js": "e43c66678350ced336671519190cd263817ccbd55f2bafb4af6f6806b0dfa2a5",
-    "grammar-syllabus.js": "ef4326e50a0064b0d9f8577106fe0860881d5f92c0c216ffec31cd5132bdfc10",
-    "images/lesson-bulls.webp": "a6f888db34d0f7332dda8515b09c2e85f1d0b8dd1b210d422272dfd7b74fc749",
-    "index.html": "c321c31fe8937197d44feddd2c94a1ba221a950007ef6e6da2d2d6d5e0a527bb",
-    "learner-clarity.js": "db98092255dae0c59cd9d8c9c3a1d94ef8d7d632b7e64c8dcafbb33d9c47029e",
-    "learner-dictionary-data.js": "0f5e2692467cc99165dcbe278ed0690041a08ffddcc0a462fee5262a8c7e0c4c",
-    "learner-dictionary.js": "d5e5c9ab4d57f41d37deef2cc92e5d07a840a8962324116029e7828faf615bbe",
-    "learner-experience.js": "45dedcff8962b1369ec2a73f0f58a64db74db182f8f1fb793d437525e6935558",
-    "learning-practice.js": "c477c7599e7bbd4f82d3c905773e543a21be0f9d1c58e7761774a1480447f514",
-    "learning-quality.js": "dd381029b82c570cba661dd6661e6275185fc5e177597d6d02573211ba326b71",
-    "mastery.js": "c16a7ae0edb96ead07a5b5c3b2fea650b881c99c597ca8a369082ba22764f824",
-    "practice-errors.js": "4ab9fa06c4fb56653fd4c9dff4c17f868591f645b6eb1acb8481640c5f01101f",
-    "practice-hub.js": "f5669291f03a72e6d577808c1423cb199188dfc66e3ec47458cb52835962b9be",
-    "practice-numbers.js": "ae6a62d3c0c9e773017b56988f0eb9fd87849c01e45d6dbd7b0caf7ab428564a",
-    "practice-skills.js": "7f9638ed3ae8a93b00ec489f988410415d7dc3ca686d18ecbbf575b1185c9f2d",
-    "practice-view.js": "a6c0d14b2a84803edc771fce2e58ded9fc97aa8693c9b3db6af03cb607169b4e",
-    "quality-view.js": "c26b5082513bed6d672c2f04e93c5c5328e8c6eb773478a24eea7b8040e732a5",
-    "question-ids.js": "6e8ba0cd046e0e617f997a4f5964b439eeffe22be691152b22e37499547ec520",
-    "quiz-view.js": "baeb89c213c784f144e1c70e2d1107a6fc35e64da6f873917d69ca88b4a51cfb",
-    "recommendations.js": "55b498e278d4bfb9275543ded9bb9561846030399984cf5bc1d55c2a7b9c96a4",
-    "screens.js": "7ff41b2fa56d5160e2add6c4620f9e239dfd25c8b8aac7fb1c226c40b4df0c49",
-    "spanish-forms.js": "e494d107d1199332e8352a2f46e00750b5ca1751bff0b851d4cc85103b642d75",
-    "spanish-fragments.js": "a2b3b282e90f7c7b698e3447d8c87f61a18c487de73d2780be21ffe95418ce16",
-    "speech.js": "d91666644892a209debcf671031109f3fb44c0a5b0f5b32f45688886a62e2819",
-    "storage.js": "013127f3cd6dbd38f9ef3326db2b71b7962428d1b43e69084954b05dbc3bce50",
-    "stories.js": "9ff2d21d2b1b2e7b24f5d7dce5c023e1235e5b82ece6bc379452d4001ab0aa01",
-    "story-editions.js": "e21b84389a60b3c20ae48bf57a58e137b6d4f500bce540a965b7c11e84f974bd",
-    "story-vocabulary.js": "7b69ec88f6878fd5133f95a225439c38784f77f96ef419e2ad6602c3fffac077",
-    "structured.js": "441849cc0b6c7ecd11b85135ca3305710379c09be70771697c74a35fe9d92667",
-    "style.css": "da9ba6819e948f1433dab571ff987e79c7eda3482d997f15d74a5348a81ffac5",
-    "verb-diagnostics.js": "8e4f5c42e168003a98e107d50c5e50980ab48b67c9109f4750e7b9aa85149e3a",
-    "viewport.js": "478c8e84dd3fa7a7e7b33d915abb52da44fa324acaa2e845476e9fd674aa7d1c",
-    "writing-audit.js": "7616f15474d66e631a5ce626c0b642652ecb29eb2acb5d8cde0e635fc1511e04",
-    "writing-rules.js": "ea74ac8efdc9438e57137e1ea0a548783d9910be83e4b527392e807ab3c5408e",
-    "writing.js": "5e526db59755aaf663091155c28f5d09e3026a4f4128648817687beb8d21d03f"
+  "manualReview": {
+    "status": "approved",
+    "images": {
+      "home.png": "c50f945b142514dff7079ae4cd6dda8c6b0c42322e214909d084ef47ded855ae",
+      "learn.png": "2f571af6abc3913fda73a64d48194febdfc5d923f81c5a2386c9acf7634bf7ff",
+      "beginner.png": "f40038c790e68c3220b2071383a591f6c93fb51514df33de92b6599b34807204",
+      "cloze.png": "46624abbdc108ef8b855526fc715688fff276a62ec4d6910197d63e9de78eb52",
+      "sentence-building.png": "ee9e8a347ec133eb55332cb6518a43cbc2bcce1ebbcaa8727e751cb48c2f0968",
+      "dictionary.png": "ed0f22c77951699588050f4dca6cd61bc26bc062c949d746f650c6eac8786279",
+      "story.png": "32370db568e10d16319cf3bed3f6a8292d7ea91a8eec64278bfd9c075e84d793",
+      "feedback.png": "dd8cfa195cdd9b8d3052898f3b659c42aba2aa971dbe260a52d26e424a2a719f",
+      "games.png": "cff609c6f51c15d94acba7b3407aec586c4a7e78a649a3463ded5f08e44223ce",
+      "conjugations.png": "fe1bcc77a25c18d80e2682d43ce36baaf6863cb2836e3f4aed170a8a488d485d",
+      "review.png": "89b661222006fe9de3b18416ef13db60ef4284bc4c4618cf6d4fe824d1fa1543",
+      "profile.png": "a06bc340077495b9c4036d2cc6dd7d396d3f9ab830b2da5f930dfe40a8293539",
+      "saved-words.png": "6769b5d51beea16c2c8bc1118469ad9abb43b6fa18f4a6782d6bacb007740b33",
+      "recommendations.png": "fa1386ae41113956e67508fb489e2a401bc5f57d563cd395964eb5fba48c2100",
+      "lesson-complete.png": "f06442e86341d44aced6432de7ce28e2410c87a9e66a0ee3c72ee655455c5d72"
+    },
+    "reviewer": "Codex — rendered-browser visual review",
+    "reviewedAt": "2026-10-27T00:03:49.489Z",
+    "appVersion": "1.7.0",
+    "sourceFingerprint": "432935d3c942e69813cb821b67b6e7fc6f6063a3d39f4ccfc204b0827769415e",
+    "report": "docs/release/SHOWCASE_HARDENING_REPORT.md"
   }
 }

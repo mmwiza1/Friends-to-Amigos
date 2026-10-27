@@ -16,4 +16,4 @@ Complete this for **every published image**, not only Profile. Store the results
 
 For retained images also record the unchanged UI fingerprint, version reviewed and specific retention reason. For a regenerated but byte-identical image record the new actual capture; do not force cosmetic pixel changes.
 
-Report the screenshot count, source profiles, all filenames, automated validation, manual reviewer/date, source fingerprint marker and known limitations. Browser simulation is not physical-device validation. Native build/unit/lint success is not acoustic or native-speaker review.
+Report the screenshot count, source profiles, all filenames with full PNG SHA-256 hashes, automated validation, manual reviewer/date, source fingerprint marker and known limitations. Browser simulation is not physical-device validation. Native build/unit/lint success is not acoustic or native-speaker review.
