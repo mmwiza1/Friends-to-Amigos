@@ -104,6 +104,7 @@ public class MainActivity extends Activity {
                 });
             }
             @JavascriptInterface public void exportProgress(String json){exportJsonDocument(json,"friends-to-amigos-progress.json");}
+            @JavascriptInterface public void exportDiagnostics(String json){exportJsonDocument(json,"friends-to-amigos-beta-diagnostics.json");}
             @JavascriptInterface public void exportAnswerReports(String json){exportJsonDocument(json,"friends-to-amigos-answer-reports.json");}
         },"AndroidSpeech");
         web.loadUrl("file:///android_asset/index.html");

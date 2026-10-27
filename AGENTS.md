@@ -33,3 +33,14 @@ Read and follow [docs/SCREENSHOT_POLICY.md](docs/SCREENSHOT_POLICY.md) and [the 
 - Capture clean usable app viewports. Do not fake Samsung status/navigation UI or expose page content in an artificial system-bar gap. Keep native-inset/keyboard stress captures separate from public showcase images.
 - Update release reporting with screenshot count, manifest app version, regenerated/retained files and reasons, profiles, automated validation and manual visual-review result. Include remaining human-judgement/device limitations honestly.
 - When adding a renderer or moving visible UI into another module, update `scripts/showcase/config.cjs` so its source participates in the freshness fingerprint. Do not bypass freshness checks by editing hashes without a new capture or permitted unchanged-UI review.
+
+## Consolidation and content governance
+
+Read [the consolidation strategy](docs/CONSOLIDATION_STRATEGY.md), [content policy](docs/CONTENT_REVIEW_POLICY.md), [incremental schema](docs/LINGUISTIC_CONTENT_SCHEMA.md) and [manual accessibility checklist](docs/MANUAL_ACCESSIBILITY.md).
+
+- Keep the visible Practice tab and existing offline-first journey. Current development prioritises quality over more stages/games.
+- A textbox means genuine expression; finite targets use structured interactions. Keep conservative writing and honest self-assessed speaking claims.
+- Prefer natural Spain Spanish and vosotros/as; preserve valid regional alternatives and input accent tolerance, with ñ distinct.
+- Permanent IDs and historical question/passage snapshots are production data. Never regenerate an old attempt from changed live content.
+- Run language/content checks for new Spanish. Automated validation/agent review is not independent native or educator approval.
+- Actual visual inspection supplements geometry tests. Report automated, agent/manual, native build and real-device/TalkBack validation separately and truthfully.

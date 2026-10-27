@@ -29,6 +29,7 @@ jobs:
       - run: npm run check
       - run: npm run check:screenshots
       - run: npm run audit:recommendations
+      - run: npm run audit:language
       - run: npm run audit:learning
       - run: npm run audit:stories
       - run: npm run audit:practice-depth

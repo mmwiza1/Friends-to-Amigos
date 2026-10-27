@@ -1,6 +1,6 @@
 # Friends to Amigos
 
-**1.7.0 · Deeper practice, not more activities.** Learn new Spanish, strengthen skills in Practice, and retrieve it later in Review. Offline dictionary, standalone stories and the existing A1.1–B2.2 course remain.
+**1.8.0 · Consolidation, clarity and quality.** Learn new Spanish, strengthen skills in Practice, and retrieve it later in Review. Offline dictionary, standalone stories and the existing A1.1–B2.2 course remain.
 
 An offline-first Android Spanish-learning app in a vanilla HTML/CSS/JavaScript WebView. European Spanish is the primary variety, including vosotros/as. No account, backend, runtime API, cloud grader or runtime npm dependency is required.
 
@@ -18,7 +18,11 @@ Showcase UI: **1.7.0** · Android versionCode 18. Clean browser-simulated app vi
 | <img src="docs/screenshots/saved-words.png" width="180" alt="Your personal saved vocabulary"><br>Your personal saved vocabulary | <img src="docs/screenshots/recommendations.png" width="180" alt="Content for Your Level with editorial guidance"><br>Content for Your Level with editorial guidance | <img src="docs/screenshots/lesson-complete.png" width="180" alt="Continue directly to the next required activity"><br>Continue directly to the next required activity |
 <!-- app-showcase:end -->
 
-[Build results and device-testing limits](BUILD_STATUS.md) · [Release details](docs/release/V1_7_REPORT.md) · [Showcase policy and release gate](docs/SCREENSHOT_POLICY.md)
+[Build results and device-testing limits](BUILD_STATUS.md) · [Release details](docs/release/V1_8_REPORT.md) · [Showcase policy and release gate](docs/SCREENSHOT_POLICY.md)
+
+## v1.8 consolidation
+
+The existing course and eleven Practice modes are under a major-feature freeze. See [consolidation strategy](docs/CONSOLIDATION_STRATEGY.md), [content governance](docs/CONTENT_REVIEW_POLICY.md), [incremental canonical schema](docs/LINGUISTIC_CONTENT_SCHEMA.md) and [local beta diagnostics](docs/BETA_DIAGNOSTICS.md). Meaning-first A1.1 support, beginner Practice disclosure and reached-source recommendations improve the existing journey. Schema-v2 snapshots/IDs remain authoritative. Language linting flags editorial work; it never supplies native-speaker approval. Manual visual/accessibility review remains separate from geometric checks. No external participant study or KPI framework is introduced.
 
 ## Full course for user testing
 

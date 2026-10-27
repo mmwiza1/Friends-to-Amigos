@@ -1,3 +1,7 @@
+## v1.8 consolidation
+
+The existing course and eleven Practice modes are under a major-feature freeze. See [consolidation strategy](../docs/CONSOLIDATION_STRATEGY.md), [content governance](../docs/CONTENT_REVIEW_POLICY.md), [incremental canonical schema](../docs/LINGUISTIC_CONTENT_SCHEMA.md) and [local beta diagnostics](../docs/BETA_DIAGNOSTICS.md). Meaning-first A1.1 support, beginner Practice disclosure and reached-source recommendations improve the existing journey. Schema-v2 snapshots/IDs remain authoritative. Language linting flags editorial work; it never supplies native-speaker approval. Manual visual/accessibility review remains separate from geometric checks. No external participant study or KPI framework is introduced.
+
 # State, question and media contracts
 
 ## Schema and discovery

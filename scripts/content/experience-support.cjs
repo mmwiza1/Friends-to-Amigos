@@ -2,6 +2,8 @@
 // Test/developer contract inverse only. Never loaded by the app or save migration.
 const {isDeepStrictEqual}=require('node:util'),assert=require('node:assert/strict'),manifest=require('../../docs/release/v15-content-changes.json'),episodes=require('../../www/story-editions');
 function beforeExperience(item,kind='course'){
+ if(kind==='games'||kind==='focused')item=require('../../www/consolidation').externalPrior(item);
+ if(kind==='course'&&item.reading)item={...item,reading:require('../../www/consolidation').readingPrior(item.reading)};
  if(kind==='focused'){const row=manifest.focused?.find(r=>r.id===item.id);if(!row)return item;assert.deepEqual(item,row.after,'Unapproved focused distractor edit');return JSON.parse(JSON.stringify(row.before));}if(kind!=='course')return item;
  const copy=JSON.parse(JSON.stringify(item));
  for(const reading of [copy.reading,...(copy.questions||[]).map(q=>q.reading)].filter(Boolean))if(reading.episode){assert.deepEqual(reading.episode,episodes.catalogue[item.id],'Unapproved story metadata: '+item.id);delete reading.episode;}

@@ -22,7 +22,7 @@ async function capture({send,evaluate,fixture,sessionId,output}){
    dictionary:"actions.lesson({dataset:{id:'u0l0'}});quiz.index=3;quiz.answers=[true,true,true];",
    story:"actions.lesson({dataset:{id:'u0story0'}});",
    feedback:"const l=C.lessons.find(l=>l.id==='u0l1');startQuiz('lesson',l.questions,l);quiz.index=4;quiz.answers=Array(4).fill(true);quiz.selected=JSON.stringify(Structured.selection(Structured.canonical(currentQuestion())).reverse());actions.check();",
-   practice:"actions.practiceHub();",
+   practice:"actions.practiceHub();render();document.querySelector('.practice-catalogue summary')?.click();",
    context:"state.completed=C.lessons.filter(l=>l.stage==='A1.1').map(l=>l.id);state.grammarLevel='A1.1';state.games=G.empty();actions.gameNew();const a=state.games.active,i=a.questions.findIndex(q=>q.blanks.length===1);if(i<0)throw Error('No single-blank game fixture');[a.questions[0],a.questions[i]]=[a.questions[i],a.questions[0]];a.selected=[null];",
    review:"E.recordAnswer(state,C.lessons[0].questions[0],false);actions.reviewHome();",
    profile:"actions.profile();",

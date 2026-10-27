@@ -19,5 +19,6 @@ for(const stage of C.playableStages.filter(s=>s.startsWith('A')))for(let unit=0;
  for(const [key,prompt,model,alternative] of source.speaking[stage][unit])items.push(attach({id:`focus-speak-${code(stage)}-u${unit}-${key}`,type:'speaking',mode:'speaking',prompt,answer:model,spanish:model,models:[model,...(alternative?[alternative]:[])],explanation:'This is one possible response. Compare the message and useful phrase; pronunciation is not assessed.'},'speaking','response',/[Bb]ecause|[Ee]xplain/.test(prompt)?'reason':/[Tt]hen|[Aa]nd|[Bb]ut/.test(prompt)?'connected':'contextual'));
 }
 items.push(...(typeof module!=='undefined'?require('./b-focused-data.js'):root.BFocusedData));
+for(let i=0;i<items.length;i++)items[i]=(typeof module!=='undefined'?require('./consolidation'):root.Consolidation).polishExternal(items[i]);
 root.FocusedBank={items};if(typeof module!=='undefined')module.exports=root.FocusedBank;
 })(typeof window==='undefined'?globalThis:window);

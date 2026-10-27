@@ -1,6 +1,6 @@
 {
   "name": "friends-to-amigos",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "private": true,
   "scripts": {
     "start": "python3 -m http.server 4173 --directory www",
@@ -15,6 +15,7 @@
     "check:screenshots": "node scripts/check-screenshots.cjs",
     "capture:showcase": "node scripts/capture-showcase.cjs",
     "showcase:adopt": "node scripts/showcase/adopt.cjs",
-    "check:release": "npm run check && npm run audit && npm run audit:recommendations && npm run audit:learning && npm run audit:stories && npm run audit:practice-depth && node scripts/learner-release-audit.cjs && npm test && npm run check:browser"
+    "check:release": "npm run check && npm run audit && npm run audit:language && npm run audit:recommendations && npm run audit:learning && npm run audit:stories && npm run audit:practice-depth && node scripts/learner-release-audit.cjs && npm test && npm run check:browser",
+    "audit:language": "node scripts/audit-language.cjs"
   }
 }

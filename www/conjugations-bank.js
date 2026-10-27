@@ -313,6 +313,6 @@ const extra=typeof module!=='undefined'?require('./a21-conjugations.js'):root.A2
 bank.push(...extra.create());
 const a22=typeof module!=='undefined'?require('./a22-conjugations.js'):root.A22Conjugations;bank.push(...a22.create());
 bank.push(...(typeof module!=='undefined'?require('./b-conjugations-data.js'):root.BConjugationsData));
-root.ConjugationsBank={questions:bank,persons,definitions};
+root.ConjugationsBank={questions:bank.map(q=>q.id==='conj-b11-007'?(typeof module!=='undefined'?require('./consolidation'):root.Consolidation).polishExternal(q):q),persons,definitions};
 if(typeof module!=='undefined')module.exports=root.ConjugationsBank;
 })(typeof window==='undefined'?globalThis:window);

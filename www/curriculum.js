@@ -309,6 +309,7 @@ for(const [stage,content] of Object.entries(bCourse.create())){data.stageUnits[s
 root.Curriculum=data;const language=typeof module!=='undefined'?require('./course-language.js'):root.CourseLanguage;language.apply(data);
 const writingAudit=typeof module!=='undefined'?require('./writing-audit.js'):root.WritingAudit;data.writingAudit=writingAudit.apply(data);
 const episodes=typeof module!=='undefined'?require('./story-editions'):root.StoryEditions;episodes.apply(data);
+const consolidation=typeof module!=='undefined'?require('./consolidation'):root.Consolidation;consolidation.apply(data);
 const policy=typeof module!=='undefined'?require('./assessment-policy.js'):root.AssessmentPolicy;policy.apply(data);
 if(typeof module!=='undefined')module.exports=data;
 })(typeof window==='undefined'?globalThis:window);

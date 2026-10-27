@@ -11,7 +11,7 @@ function reached(state,C,l){if(!l)return false;const start=C.playableStages.inde
 function lessons(state,C){return C.lessons.filter(l=>reached(state,C,l));}
 // A bounded starter reuses only the greeting/name chunks of the first lesson.
 // It supplies usable recognition/reconstruction before the larger taught banks unlock.
-const starter=[['Hola','Hello'],['Adiós','Goodbye'],['Hasta luego','See you later'],['¿Cómo te llamas?','What is your name?'],['Me llamo Ana','My name is Ana'],['Me llamo Luis','My name is Luis'],['Hola, Ana','Hello, Ana'],['Hola, Luis','Hello, Luis'],['Adiós, Ana','Goodbye, Ana'],['Adiós, Luis','Goodbye, Luis'],['Hasta luego, Ana','See you later, Ana'],['Hasta luego, Luis','See you later, Luis'],['Hola, me llamo Ana','Hello, my name is Ana'],['Hola, me llamo Luis','Hello, my name is Luis']];
+const starter=dep('linguistic-content','LinguisticContent').starters.map(r=>[r.canonicalSpanish,r.englishSupport]);
 const shuffle=(a,rng=Math.random)=>{const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;};
 function base(id,prompt,answer,explanation,topic='Greetings'){return {id,type:'choice',prompt,answer,explanation,topic,mode:'recognition'};}
 const poolCache=new WeakMap();
