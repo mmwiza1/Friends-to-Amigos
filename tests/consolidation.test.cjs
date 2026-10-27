@@ -39,3 +39,5 @@ test('self-assessed diagnostics never export verified correctness or wrong count
 test('a modified external item cannot bypass the approved historical inverse',()=>{const q=clone(require('../www/conjugations-bank').questions.find(q=>q.id==='conj-b11-007'));q.sentence+=' Unapproved.';assert.throws(()=>Con.externalPrior(q),/Unapproved/);});
 
 test('beta event release tags match the app and survive reload',()=>{assert.equal(B.APP_VERSION,require('../package.json').version);const storage=store(),d=B.create(storage,C,()=>now);d.record('lesson_opened');assert.equal(B.create(storage,C,()=>now).snapshot().events[0].appVersion,B.APP_VERSION);});
+
+test('revision of an earlier optional lesson is not logged as stage progression',()=>{const s=fresh();s.stage=s.startStage='A2.1';const a=app({},s);a.click('lesson',{id:'u0l0'});for(let i=0;i<5;i++){a.answer();a.click('check');a.click('next');}const rows=JSON.parse(a.storage[B.KEY]).events;assert.ok(rows.some(r=>r.type==='lesson_completed'));assert.ok(!rows.some(r=>r.type==='stage_progressed'));});
