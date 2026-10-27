@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "appVersion": "1.8.0",
   "androidVersionCode": 19,
-  "generatedAt": "2026-10-27T16:02:22.782Z",
-  "sourceCommit": "795814634b207850f4f109c9bb6f1409bd90bca4",
-  "validationRun": 40536864998,
+  "generatedAt": "2026-10-27T17:00:34.617Z",
+  "sourceCommit": "716b2756c4b6d377647ce758f4c963de05c88e8b",
+  "validationRun": 40546362976,
   "captureMode": "clean-app-viewport",
   "sourceFingerprint": {
     "algorithm": "sha256",
@@ -26,7 +26,7 @@
       "www/a22-targets.js": "f9ffb625e4b68033fc857b81411b3aeaa434c34480f60bfabf3f65c54668e19a",
       "www/a22.js": "7c1f4837610069f23908cf8ec3e6467322ff34996b70885a6e4aebbb6e8caaf1",
       "www/answer-feedback.js": "f206b05c31b14f8598878749b0fda8b32e4c55fac771cbc26fceff2beb9b4f1f",
-      "www/app.js": "bf910a7547e53af314d49153dc4ece7c6c687e97b863db0c66c960202dfcee9a",
+      "www/app.js": "b89be83edd72aa3f1025a49172242a08a72c0c9aae0858b71518191beae916ef",
       "www/assessment-policy.js": "86859060160c31dcf62a2409755705f77eb5c517aa8d9b52e715abc9cdce8e0e",
       "www/audio/failure.mp3": "ba30af47a229b4652517c2997aca074d23db368cf5e9091f1fd5d698abdb3805",
       "www/audio/success.mp3": "d01036a8585a6a0f18ddb10c078c0b189b7d416f4ea12710eca0d4ef59730e42",
@@ -38,10 +38,10 @@
       "www/b12-data.js": "39f2eed70c70ce8e0e3bbe9b4c1b1f947085d11e925c75dbc2d50b790690e9e5",
       "www/b21-data.js": "e7c946375e206bc7030a5dc113745113dc6275ef428990537db2cbacc9e34398",
       "www/b22-data.js": "4981f7d409bcfe2195c5f7374100a0fc240f382c38528fb1ee60b224f609df19",
-      "www/beta-diagnostics.js": "f3f77891503158856a6338726fe047e206861d7fb91e94fd3d7239e28ab1cad3",
+      "www/beta-diagnostics.js": "90c88a79cb22addab6ce5ae44704a6636e5c12bd2b1e46bf14c2cb3710921700",
       "www/conjugation-targets.js": "693cec7a919ca3f6c4dfbeb2df0277c640ecd408b00ab1165d985604b0a19b9e",
       "www/conjugations-bank.js": "3dadb70841b22a04c40b59c3c3fa2691115960baa6f27faa2e091784ffd1fb23",
-      "www/consolidation.js": "e54986bcc327710ccf0ae2323b64a72cb01c3e0f21ac86be70740eccbda628da",
+      "www/consolidation.js": "9ea040e9c3d6102eb62b650d1044cff0d0f8a54062446f011b2fdee2b73fef63",
       "www/course-language-data.js": "8096d735944200f619c8c9f45b57523d5d698f035c3fedd2a5452116af674a15",
       "www/course-language.js": "1f37270f8efa0d763abfeec1dd46ff4e591caa6bb0637337fd05ad3e59d87326",
       "www/course-path.js": "744d64acf465c106a228532b04afddb677b33faac6404a485e805025064c6ec2",
@@ -49,7 +49,7 @@
       "www/dictionary-ui.js": "87ac830242711931e78b268ad20a58c2a5e1f2cf5244f267431915a6dbd2395b",
       "www/dictionary.css": "9a0312b5606d1aa284f4997859762910748ca2c8cf1862fed0b54eb4fa82b32b",
       "www/focused-bank-data.js": "ca617671d3deb1d739c8507b24e4789d26ba71131a31895af10f56cc36474320",
-      "www/focused-bank.js": "ef59ff5d97aa9529abde6843ac15383d4dc7e8c8abe59e5d4809bd4347ba55a5",
+      "www/focused-bank.js": "279cd5737c1ff843ea4529e2624571bd6204cfd3d55f5b1178c53033b1332dc4",
       "www/focused-practice.js": "19fbe9063cb1d7e40bc99a427164788df651b6b869573aa87918d62441ba465b",
       "www/focused-view.js": "5230e2213fc43ff805a9536bea3b6f0a1637fa4df790491cbb5cec76bb44096a",
       "www/games-view.js": "4f9f68ecb83c7a2f007284f666910e2f618237a6b5714038238e3179c3709ad6",
@@ -62,7 +62,7 @@
       "www/learner-experience.js": "45dedcff8962b1369ec2a73f0f58a64db74db182f8f1fb793d437525e6935558",
       "www/linguistic-content.js": "d242f70b7da3218f857b2ec84987059b772dc237b314a253653baf938bc0874b",
       "www/practice-errors.js": "4ab9fa06c4fb56653fd4c9dff4c17f868591f645b6eb1acb8481640c5f01101f",
-      "www/practice-hub.js": "29812aa893bccc875d6dbd6dcdc54d1180bdf2a5745867be9de3d6162d3a52ee",
+      "www/practice-hub.js": "f1be61a913e629279b300a006fc70fd4e31914b7924373069c9cd3d356665d94",
       "www/practice-view.js": "a6c0d14b2a84803edc771fce2e58ded9fc97aa8693c9b3db6af03cb607169b4e",
       "www/quality-view.js": "c26b5082513bed6d672c2f04e93c5c5328e8c6eb773478a24eea7b8040e732a5",
       "www/question-ids.js": "6e8ba0cd046e0e617f997a4f5964b439eeffe22be691152b22e37499547ec520",
@@ -82,7 +82,7 @@
       "www/writing-rules.js": "ea74ac8efdc9438e57137e1ea0a548783d9910be83e4b527392e807ab3c5408e",
       "www/writing.js": "5e526db59755aaf663091155c28f5d09e3026a4f4128648817687beb8d21d03f"
     },
-    "sha256": "f96a160c10db2902218e5183d48e605645566e12f4cd5f05fbb4d7f582002fdd"
+    "sha256": "2f5bb251e7a5cc799a57b3b51b49d17979f20a061bbc2a9f8dcd84060b22b736"
   },
   "screenshotCount": 15,
   "navigationLabels": [
@@ -165,7 +165,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.8.0",
       "reviewedForVersion": "1.8.0",
-      "sha256": "ae122c50c78b8200a1c67c07966c2a51f020a80072814c0df1765ac41ab5e8ad",
+      "sha256": "4fab9ee66dab083515a7df20f32c47202db1461f91cf53931f147b5563010e44",
       "layout": {
         "width": 384,
         "height": 839,
@@ -215,7 +215,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.8.0",
       "reviewedForVersion": "1.8.0",
-      "sha256": "703da7a732a92c87bbadbe4af3d47905eff2aa58a53f22ae8a338d20235f46bb",
+      "sha256": "cbff37926dc9b220eeb65e76a8e7ba5577515549a2745eb6662cdbb04dd1148f",
       "layout": {
         "width": 384,
         "height": 888,
@@ -258,7 +258,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.8.0",
       "reviewedForVersion": "1.8.0",
-      "sha256": "ed7d85d7a7aa3ffe02680e56272fc125bcd9f45a57c1bbfd3173323665594934",
+      "sha256": "0d0977aa61c5a5e7282b037f35fdd8c5152edbd1ac75c5050d6887b3a0bed6b5",
       "layout": {
         "width": 384,
         "height": 1421,
@@ -301,7 +301,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.8.0",
       "reviewedForVersion": "1.8.0",
-      "sha256": "b3d1a8320f3941de3b644ab9aaa2094e81ce59ab0bc625295bbdfc50e4c1b60f",
+      "sha256": "35116c022c205fa4c676c0442e434255f1584ddf3c82dfdc44d4cda417a8a999",
       "layout": {
         "width": 384,
         "height": 943,
@@ -344,7 +344,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.8.0",
       "reviewedForVersion": "1.8.0",
-      "sha256": "ed0f22c77951699588050f4dca6cd61bc26bc062c949d746f650c6eac8786279",
+      "sha256": "3129d762f2ca8116dd352b15f0614bb2d03ed9261510bc4cdfb6df49c8fb7dc5",
       "layout": {
         "width": 384,
         "height": 953,
@@ -387,7 +387,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.8.0",
       "reviewedForVersion": "1.8.0",
-      "sha256": "32370db568e10d16319cf3bed3f6a8292d7ea91a8eec64278bfd9c075e84d793",
+      "sha256": "b549e90e58d9fbaadb7358225eb4ce0b893a30556875d4557ce7bf4e79349382",
       "layout": {
         "width": 384,
         "height": 1271,
@@ -523,7 +523,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.8.0",
       "reviewedForVersion": "1.8.0",
-      "sha256": "d9cc4d0c1b7510302686e35ebe261487e17fc814232d75400b4fa84a0ae6a1b8",
+      "sha256": "fe1bcc77a25c18d80e2682d43ce36baaf6863cb2836e3f4aed170a8a488d485d",
       "layout": {
         "width": 384,
         "height": 743,
@@ -566,7 +566,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.8.0",
       "reviewedForVersion": "1.8.0",
-      "sha256": "6c16db3686a9edd00983c4d3f051bea42d5a02bb8f53bbd6ceac5e10147ec7f5",
+      "sha256": "89b661222006fe9de3b18416ef13db60ef4284bc4c4618cf6d4fe824d1fa1543",
       "layout": {
         "width": 384,
         "height": 862,
@@ -709,7 +709,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.8.0",
       "reviewedForVersion": "1.8.0",
-      "sha256": "c9f765331746c8b13169db8ecb91b035c00586797e546561dd81188e8fa63421",
+      "sha256": "3e7ebde0c4e8cb4328b69f55720a66aedf37edd9c7b69918aaebf61053990264",
       "layout": {
         "width": 384,
         "height": 925,
@@ -752,7 +752,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.8.0",
       "reviewedForVersion": "1.8.0",
-      "sha256": "92005f98d64230d8fb31f5d87745c2de459ad8c9c5f536414de382b02348c373",
+      "sha256": "1f2bf5be21c335433e73910d0372915710abd1017d689114e6ace0fd5224703d",
       "layout": {
         "width": 384,
         "height": 871,
@@ -778,25 +778,25 @@
     "status": "approved",
     "images": {
       "home.png": "c50f945b142514dff7079ae4cd6dda8c6b0c42322e214909d084ef47ded855ae",
-      "learn.png": "ae122c50c78b8200a1c67c07966c2a51f020a80072814c0df1765ac41ab5e8ad",
-      "beginner.png": "703da7a732a92c87bbadbe4af3d47905eff2aa58a53f22ae8a338d20235f46bb",
-      "cloze.png": "ed7d85d7a7aa3ffe02680e56272fc125bcd9f45a57c1bbfd3173323665594934",
-      "sentence-building.png": "b3d1a8320f3941de3b644ab9aaa2094e81ce59ab0bc625295bbdfc50e4c1b60f",
-      "dictionary.png": "ed0f22c77951699588050f4dca6cd61bc26bc062c949d746f650c6eac8786279",
-      "story.png": "32370db568e10d16319cf3bed3f6a8292d7ea91a8eec64278bfd9c075e84d793",
+      "learn.png": "4fab9ee66dab083515a7df20f32c47202db1461f91cf53931f147b5563010e44",
+      "beginner.png": "cbff37926dc9b220eeb65e76a8e7ba5577515549a2745eb6662cdbb04dd1148f",
+      "cloze.png": "0d0977aa61c5a5e7282b037f35fdd8c5152edbd1ac75c5050d6887b3a0bed6b5",
+      "sentence-building.png": "35116c022c205fa4c676c0442e434255f1584ddf3c82dfdc44d4cda417a8a999",
+      "dictionary.png": "3129d762f2ca8116dd352b15f0614bb2d03ed9261510bc4cdfb6df49c8fb7dc5",
+      "story.png": "b549e90e58d9fbaadb7358225eb4ce0b893a30556875d4557ce7bf4e79349382",
       "feedback.png": "8e361420655f1b9ad878a5d2767690c0ac1e546b5dcbd56da48e75edb20fecba",
       "games.png": "20184ec8ce6fe36b58d99d86d898b5bb897415a2fab523955c365af6f91475c0",
-      "conjugations.png": "d9cc4d0c1b7510302686e35ebe261487e17fc814232d75400b4fa84a0ae6a1b8",
-      "review.png": "6c16db3686a9edd00983c4d3f051bea42d5a02bb8f53bbd6ceac5e10147ec7f5",
+      "conjugations.png": "fe1bcc77a25c18d80e2682d43ce36baaf6863cb2836e3f4aed170a8a488d485d",
+      "review.png": "89b661222006fe9de3b18416ef13db60ef4284bc4c4618cf6d4fe824d1fa1543",
       "profile.png": "a06bc340077495b9c4036d2cc6dd7d396d3f9ab830b2da5f930dfe40a8293539",
       "saved-words.png": "6769b5d51beea16c2c8bc1118469ad9abb43b6fa18f4a6782d6bacb007740b33",
-      "recommendations.png": "c9f765331746c8b13169db8ecb91b035c00586797e546561dd81188e8fa63421",
-      "lesson-complete.png": "92005f98d64230d8fb31f5d87745c2de459ad8c9c5f536414de382b02348c373"
+      "recommendations.png": "3e7ebde0c4e8cb4328b69f55720a66aedf37edd9c7b69918aaebf61053990264",
+      "lesson-complete.png": "1f2bf5be21c335433e73910d0372915710abd1017d689114e6ace0fd5224703d"
     },
-    "reviewer": "Codex — individually inspected exact rendered PNGs",
-    "reviewedAt": "2026-10-27T16:03:51.526Z",
+    "reviewer": "Codex — inspected exact rendered PNGs",
+    "reviewedAt": "2026-10-27T17:02:20.343Z",
     "appVersion": "1.8.0",
-    "sourceFingerprint": "f96a160c10db2902218e5183d48e605645566e12f4cd5f05fbb4d7f582002fdd",
+    "sourceFingerprint": "2f5bb251e7a5cc799a57b3b51b49d17979f20a061bbc2a9f8dcd84060b22b736",
     "report": "docs/release/V1_8_REPORT.md"
   }
 }
