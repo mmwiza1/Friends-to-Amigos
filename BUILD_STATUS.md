@@ -1,3 +1,9 @@
+# v1.8.0 consolidation — Android versionCode 19
+
+Starting main: `7504f49d740d13fbfd60237e510cf6716f534923`. A1.1–B2.2, 576 activities and all eleven Practice activities remain. This release adds beginner support, targeted recommendations, surgical language/glossary polish and private bounded beta diagnostics; no major feature expansion, participant programme or KPI framework.
+
+The current [implementation/report](docs/release/V1_8_REPORT.md), [GitHub-style release notes](docs/release/V1_8_RELEASE_NOTES.md) and [manual QA](docs/release/V1_8_MANUAL_QA.md) distinguish automated, agent visual/editorial and outstanding actual-device/native review. All fifteen 1.8 screenshots have a current manifest/fingerprint and recorded image review. Final performed test/native totals will be recorded after the complete gate succeeds. Historical evidence below does not substitute for that gate.
+
 # Current GitHub showcase process hardening — app 1.7.0
 
 The app/runtime remains 1.7.0 / Android versionCode 18, based on main `37761ab9e8375f6476dbb950f83918f589b8d5f2`. All fifteen public images were regenerated and visually reviewed as clean, simulated app viewports. The permanent manifest gate binds UI/capture source fingerprints, versions, image bytes and manual review. See the [performed validation and per-image review](docs/release/SHOWCASE_HARDENING_REPORT.md), [policy](docs/SCREENSHOT_POLICY.md) and [checklist](docs/RELEASE_SHOWCASE_CHECKLIST.md).

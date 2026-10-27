@@ -7,7 +7,7 @@ An offline-first Android Spanish-learning app in a vanilla HTML/CSS/JavaScript W
 ## App preview
 
 <!-- app-showcase:start -->
-Showcase UI: **1.7.0** · Android versionCode 18. Clean browser-simulated app viewports with illustrative learner data; no Android system UI or physical-device capture is claimed.
+Showcase UI: **1.8.0** · Android versionCode 19. Clean browser-simulated app viewports with illustrative learner data; no Android system UI or physical-device capture is claimed.
 
 | Learn with support | Build and explore | Keep progressing |
 | --- | --- | --- |
