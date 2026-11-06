@@ -1,65 +1,54 @@
 (function(root){
-
-
   'use strict';
-
-// Explicit injected capabilities; no controller-owned learner progress.
-
+  // Explicit injected capabilities; no controller-owned learner progress.
   const dependencies=["C","X","actions","dictionaryUI","focusedResult","grammarMicro","lastInteraction","media","quiz","quizReturn","render","reviewFollowup","save","screen","state","tab","todaySession","topicFilter","viewStage"];
-
-
   function create(ctx){
-
-
-
     const handlers={
-weakAreas:()=>{
-      ctx.quiz=null;
-      ctx.screen='weak';
-      ctx.tab='Review';
-    },
-reviewHome:()=>{
-      ctx.screen='main';
-      ctx.tab='Review';
-    },
-viewStage:el=>{
-      if(!ctx.C.playableStages.includes(el.dataset.stage))return;
-      ctx.quiz=null;
-      ctx.todaySession=null;
-      ctx.viewStage=el.dataset.stage;
-      ctx.tab='Learn';
-      ctx.screen='main';
-    },
-tab:el=>{
-      if(!['Home','Learn','Games','Review','Profile'].includes(el.dataset.tab))return;
-      ctx.quiz=null;
-      ctx.todaySession=null;
-      ctx.tab=el.dataset.tab;
-      if(ctx.tab==='Games'&&!ctx.state.grammarLevel){
-        ctx.state.grammarLevel=ctx.X.recommended(ctx.state,ctx.C);
-        ctx.save();
+      weakAreas:()=>{
+        ctx.quiz=null;
+        ctx.screen='weak';
+        ctx.tab='Review';
+      },
+      reviewHome:()=>{
+        ctx.screen='main';
+        ctx.tab='Review';
+      },
+      viewStage:el=>{
+        if(!ctx.C.playableStages.includes(el.dataset.stage))return;
+        ctx.quiz=null;
+        ctx.todaySession=null;
+        ctx.viewStage=el.dataset.stage;
+        ctx.tab='Learn';
+        ctx.screen='main';
+      },
+      tab:el=>{
+        if(!['Home','Learn','Games','Review','Profile'].includes(el.dataset.tab))return;
+        ctx.quiz=null;
+        ctx.todaySession=null;
+        ctx.tab=el.dataset.tab;
+        if(ctx.tab==='Games'&&!ctx.state.grammarLevel){
+          ctx.state.grammarLevel=ctx.X.recommended(ctx.state,ctx.C);
+          ctx.save();
+        }
+        ctx.screen='main';
+        ctx.topicFilter=null;
+      },
+      home:()=>{
+        ctx.reviewFollowup='';
+        ctx.quiz=null;
+        ctx.todaySession=null;
+        ctx.tab='Home';
+        ctx.screen='main';
+      },
+      profile:()=>{
+        ctx.tab='Profile';
+        ctx.screen='main';
+      },
+      goal:()=>{
+        ctx.tab='Learn';
+        ctx.screen='main';
       }
-      ctx.screen='main';
-      ctx.topicFilter=null;
-    },
-home:()=>{
-      ctx.reviewFollowup='';
-      ctx.quiz=null;
-      ctx.todaySession=null;
-      ctx.tab='Home';
-      ctx.screen='main';
-    },
-profile:()=>{
-      ctx.tab='Profile';
-      ctx.screen='main';
-    },
-goal:()=>{
-      ctx.tab='Learn';
-      ctx.screen='main';
-    }
-};
-
-
+    };
     function handleBack(){
       ctx.lastInteraction=Date.now();
       if(ctx.dictionaryUI.back()){
@@ -152,16 +141,8 @@ goal:()=>{
       }
       return false;
     }
-
-
     return {handleBack,actions:handlers};
-
-
   }
-
-
   root.NavigationController={dependencies,create};
   if(typeof module!=='undefined')module.exports=root.NavigationController;
-
-
 })(typeof window==='undefined'?globalThis:window);
