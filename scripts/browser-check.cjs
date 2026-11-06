@@ -22,6 +22,7 @@ async function run(){ // Wait for the browser process before creating its first 
  }
  browser.assertNoExceptions();
  await require('./capture-showcase.cjs').capture({send,evaluate,fixture,sessionId,output});
+ browser.assertNoExceptions();
  if(!process.argv.includes('--showcase-only'))console.log('Browser checks passed: '+scenarios.length+' layouts, '+totalChecks+' layout/interaction assertions. Native insets/keyboard are simulated, not device-tested.');
 }
 run().catch(error=>{console.error(error.stack);process.exitCode=1;}).finally(async()=>{

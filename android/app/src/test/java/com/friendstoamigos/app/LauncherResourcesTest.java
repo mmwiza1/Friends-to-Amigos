@@ -11,6 +11,10 @@ public class LauncherResourcesTest {
     private Path resource(String relative) { return Path.of("src/main/res", relative); }
 
     @Test public void adaptiveIconsUseMascotAndThemedLayer() throws Exception {
+        String gradle = Files.readString(Path.of("build.gradle"));
+        java.util.regex.Matcher min = java.util.regex.Pattern.compile("minSdk\\s+(\\d+)").matcher(gradle);
+        assertTrue("Base adaptive icons require minSdk 26 or higher", min.find());
+        assertTrue(Integer.parseInt(min.group(1)) >= 26);
         for (String name : new String[]{"ic_launcher", "ic_launcher_round"}) {
             for (int api : new int[]{26, 33}) {
                 String xml = new String(Files.readAllBytes(resource((api == 26 ? "mipmap-anydpi" : "mipmap-anydpi-v33") + "/" + name + ".xml")), StandardCharsets.UTF_8);
