@@ -4,7 +4,7 @@ Starting main: `0820c40f981531b4c923c68c40fada6d84e1ccae`, app 1.8.0 / Android 1
 
 ## Architecture and state
 
-The [architecture contract](../ARCHITECTURE.md) records the pre-change map, module responsibilities, authoritative state, dependency direction, loading order, code placement and remaining debt. App.js began at 59,509 bytes / 238 dense lines. Its final size is **14,818 bytes / 143 lines** (about 75% fewer bytes); it now owns bootstrap, live state/dependency wiring and top-level render/start, with thin compatibility hooks.
+The [architecture contract](../ARCHITECTURE.md) records the pre-change map, module responsibilities, authoritative state, dependency direction, loading order, code placement and remaining debt. App.js began at 59,509 bytes / 238 dense lines. Its final size is **14,869 bytes / 144 lines** (about 75% fewer bytes); it now owns bootstrap, live state/dependency wiring and top-level render/start, with thin compatibility hooks.
 
 Ten controller/support modules cover capability wiring, navigation/Back, lesson/Today, quiz, Practice, Profile, data transfer, diagnostics, input and lifecycle. Completion markup is a view; recommendation policy is a pure domain separate from hub markup. Factories receive only declared live capabilities; no duplicated progress store. Import/reset replacements propagate through getters. Diagnostics receive only a narrow observation context and their own bounded store; they do not drive learning. Input/lifecycle mount/dispose is explicit and idempotent.
 
@@ -67,3 +67,28 @@ All fifteen official images were freshly captured from the final v1.9 runtime, c
 | `saved-words.png` | light | 384 × 703 | `cf4a05d3f8b1b05e8742f56667889c4975cb97a3e693880924990db14b12dbca` |
 | `recommendations.png` | light | 384 × 925 | `4ab9512f6efec17e9986a5a40de1584469e13b4c4284b415c0ff7521c6bb1cf3` |
 | `lesson-complete.png` | dark | 384 × 871 | `69235538d29a37768c12552ce35ca41409cb9499c7455f6c8bd9c2bfb69f7ad1` |
+
+## Additional rendered acceptance and compatibility
+
+The agent inspected final-runtime stress captures from run 42208680105: narrow-light-buttons Practice (320px), Galaxy S25 dark large-text/cutout Practice, Galaxy S24 dark gesture/overlay-IME writing, Galaxy S25 light landscape/cutout dictionary, Galaxy S22 light three-button Profile, S24 dark large-text diagnostics, and Galaxy S25 landscape Home. Text/control wrapping, primary action emphasis and theme hierarchy were checked. These stress views deliberately include simulated reserved system/keyboard space; they are separate from the clean public showcase. Scroll/reachability and exact inset handling are additionally exercised by the full browser matrix. This is agent visual review of rendered images, not actual OS/IME/TalkBack validation.
+
+Behaviour is characterised against the frozen v1.8 orchestration, while all existing historical payload/identity/save tests remain. ProgressStore schema v2/key, permanent IDs, active attempts, Review snapshots, all eleven Practice engines, placement, mastery and Saved Words retain their contracts. Diagnostics stay in their own bounded schema/store; import does not adopt diagnostic fields. Optional accents remain accepted and ñ remains distinct; writing and speaking retain conservative capability claims. Core learning adds no network dependency.
+
+## Remaining debt and external checks
+
+Classical global-script loading, the central live dependency adapter, large Practice coordination and the large browser interaction phase remain documented debt. Snapshot cloning and existing indexing are deliberately retained; no unsupported performance claim is made. The next dedicated engineering change can assess ES modules after these boundaries prove stable. Actual Android Back/IME/TTS, pause/resume, export/import and TalkBack still need physical-device checks. Independent native/educator review of wording/glossaries and learner usability validation remain outstanding; no such approval is implied by zero audit flags.
+
+## Files added and materially changed
+
+### Added
+
+`docs/ARCHITECTURE.md`, `docs/architecture/runtime-layers.json`, `docs/release/V1_9_MANUAL_QA.md`, `docs/release/V1_9_RELEASE_NOTES.md`, `docs/release/V1_9_REPORT.md`, `docs/release/v19-editorial-corrections.json`, `scripts/audit-architecture.cjs`, `scripts/audit-style.cjs`, `scripts/browser/devtools.cjs`, `scripts/browser/foundations-checks.cjs`, `scripts/browser/interaction-assertions.cjs`, `scripts/browser/profiles.cjs`, `scripts/browser/stress-captures.cjs`, `scripts/content/foundations-support.cjs`, `scripts/lib/css.cjs`, `tests/app-data.test.cjs`, `tests/app-platform.test.cjs`, `tests/app-practice.test.cjs`, `tests/fixtures/v18-app.js`, `tests/fixtures/v18-characterization.json`, `tests/fixtures/v18-dictionary.css`, `tests/fixtures/v18-style.css`, `tests/foundations.test.cjs`, `tests/helpers/app-scenarios.cjs`, `tests/helpers/css.cjs`, `www/completion-view.js`, `www/controllers/data-controller.js`, `www/controllers/diagnostics-controller.js`, `www/controllers/input-controller.js`, `www/controllers/lesson-controller.js`, `www/controllers/lifecycle-controller.js`, `www/controllers/navigation-controller.js`, `www/controllers/practice-controller.js`, `www/controllers/profile-controller.js`, `www/controllers/quiz-controller.js`, `www/controllers/runtime-context.js`, `www/practice-recommendation.js`, `www/tokens.css`.
+
+### Changed
+
+`.github/workflows/android.yml`, `AGENTS.md`, `BUILD_STATUS.md`, `COURSE_DESIGN.md`, `README.md`, `android/app/build.gradle`, `android/app/src/test/java/com/friendstoamigos/app/LauncherResourcesTest.java`, `docs/BETA_DIAGNOSTICS.md`, `docs/CONSOLIDATION_STRATEGY.md`, `docs/CONTENT_REVIEW_POLICY.md`, `docs/LINGUISTIC_CONTENT_SCHEMA.md`, `docs/MANUAL_ACCESSIBILITY.md`, `docs/STATE_AND_QUESTIONS.md`, `docs/resources/CODEX_REFERENCE.md`, `docs/screenshots/beginner.png`, `docs/screenshots/cloze.png`, `docs/screenshots/conjugations.png`, `docs/screenshots/dictionary.png`, `docs/screenshots/feedback.png`, `docs/screenshots/games.png`, `docs/screenshots/home.png`, `docs/screenshots/learn.png`, `docs/screenshots/lesson-complete.png`, `docs/screenshots/manifest.json`, `docs/screenshots/profile.png`, `docs/screenshots/recommendations.png`, `docs/screenshots/review.png`, `docs/screenshots/saved-words.png`, `docs/screenshots/sentence-building.png`, `docs/screenshots/story.png`, `package.json`, `scripts/audit-language.cjs`, `scripts/browser-check.cjs`, `scripts/content/build-learner-dictionary.cjs`, `scripts/content/experience-support.cjs`, `scripts/showcase/config.cjs`, `tests/app.test.cjs`, `tests/helpers/app.cjs`, `tests/icon.test.cjs`, `tests/mobile.test.cjs`, `tests/quality-release.test.cjs`, `tests/samsung-responsive.test.cjs`, `tests/screenshots.test.cjs`, `tests/viewport.test.cjs`, `www/app.js`, `www/b21-data.js`, `www/b22-data.js`, `www/beta-diagnostics.js`, `www/consolidation.js`, `www/dictionary.css`, `www/index.html`, `www/linguistic-content.js`, `www/practice-hub.js`, `www/style.css`.
+
+### Equivalent resource moves
+
+`android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml → android/app/src/main/res/mipmap-anydpi/ic_launcher.xml`, `android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml → android/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml`.
+

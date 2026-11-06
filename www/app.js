@@ -15,6 +15,7 @@ function toast(t){const el=document.createElement('div');el.className='toast';el
 function b(label,action,cls='pill',extra=''){return `<button class="${cls}" data-action="${action}" ${extra}>${label}</button>`;}
 // One live capability facade: getters never snapshot or duplicate progress/UI state.
 const runtime={
+ get AssessmentPolicy(){return AssessmentPolicy;},
  get AndroidSpeech(){return window.AndroidSpeech;},
  get B(){return B;},
  get Blob(){return Blob;},
