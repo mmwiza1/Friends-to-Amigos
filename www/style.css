@@ -661,10 +661,6 @@ summary:focus-visible {
     font-size: 34px;
   }
 
-  .primary {
-    font-size: 20px;
-  }
-
   .filters {
     flex-wrap: wrap;
   }
@@ -1648,22 +1644,18 @@ nav .practice-icon {
 
   .card {
     background: var(--surface);
-    border-color: var(--line);
   }
 
   .choice {
     background: var(--surface);
-    border-color: var(--line);
   }
 
   input {
     background: var(--surface);
-    border-color: var(--line);
   }
 
   select {
     background: var(--surface);
-    border-color: var(--line);
   }
 
   nav {
