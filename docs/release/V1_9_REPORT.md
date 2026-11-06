@@ -46,27 +46,27 @@ Pending final source, hosted browser/native execution, showcase recapture/adopti
 
 ## Recorded showcase visual review
 
-All fifteen official images were freshly captured from the final v1.9 runtime, commit `a4b21f0d983d808081866c19fe4cd5bf6d1daa1f`, run 42208680105. Capture passed 191 semantic/geometry assertions. The agent individually inspected all fifteen exact PNGs after the final semantic-theme cleanup: cream/navy hierarchy, restrained teal, Practice pastels, light/dark surfaces, error feedback and current public navigation. No clipped controls/text, horizontal overflow, fake system-bar gaps or navigation overlap were observed. Dictionary fits before answering; Profile ends above navigation; completion keeps Continue prominent. These are Chromium simulations at 384 CSS px / DPR 1 with recorded heights, not physical-device captures. All were recaptured; Saved Words happens to be byte-identical to the earlier candidate. No old release screenshot was merely relabelled.
+All fifteen official images were freshly captured from the final v1.9 runtime, commit `9fce254d4e3d513e8b969a5fc67b9bb011f1ddaf`, run 42210217352. Capture passed 191 semantic/geometry assertions. The agent individually inspected all fifteen exact PNGs after the final semantic-theme cleanup and explicit completion-policy wiring: cream/navy hierarchy, restrained teal, Practice pastels, light/dark surfaces, error feedback and current public navigation. No clipped controls/text, horizontal overflow, fake system-bar gaps or navigation overlap were observed. Dictionary fits before answering; Profile ends above navigation; completion keeps Continue prominent. These are Chromium simulations at 384 CSS px / DPR 1 with recorded heights, not physical-device captures. All were recaptured; Beginner and Saved Words are byte-identical to the immediately preceding reviewed candidate; other images differ only in the four-pixel native browser scrollbar strip, verified by pixel comparison and re-inspected visually. No old release screenshot was merely relabelled.
 
-<!-- showcase-review: 722676a15a8f2d7b8a415f5619af01e3687b54e6b4d20683426338c1e5b2ceda -->
+<!-- showcase-review: 5db7a5cd20e9b9ea60b37aba9b21d37490d4332ba5e9ad41dbe73cf6748051f9 -->
 
 | Image | Theme | Viewport | Reviewed PNG SHA-256 |
 | --- | --- | --- | --- |
-| `home.png` | dark | 384 × 1012 | `64600e2c170881ba5129ff915e50c2dc5a3f54646dc3c62c6c168eea89345f76` |
-| `learn.png` | light | 384 × 839 | `cb098c2ea381931c6ad8df4200ea0f4d5b9976f63a7eed666371030f5c83920c` |
+| `home.png` | dark | 384 × 1012 | `4dc6a04f38c8649c52b951af69b341ea00451251ad3e773346007de078fffb58` |
+| `learn.png` | light | 384 × 839 | `23a19567055ea80314da46e3f805e6247dc8cdc2e0855820854c0cb8ed2596fe` |
 | `beginner.png` | light | 384 × 888 | `8b871ba285ea4afe3f35d096778db5ddc56cdb83003008fc5990200599dfb224` |
-| `cloze.png` | dark | 384 × 1421 | `f497d9645342ccceac25e8c4fa3817ab8ab03ae4d7f08d3eb987dac582666e79` |
-| `sentence-building.png` | light | 384 × 943 | `7c7af1c4258f620aafe801b2561bdaa2e1162cd5c64d3e961ef2a6a77cb9cf9f` |
-| `dictionary.png` | light | 384 × 953 | `a1faa3a2a5833cd21d672918cc0fb45c1c5bb0d0b07de7c3cd68738d9016875e` |
-| `story.png` | light | 384 × 1271 | `b27dcc15efba6f52486d8b68dde85359f1f18b881955a6146bad1c27faccabfa` |
-| `feedback.png` | dark | 384 × 1439 | `f8f4436087b8906b9ce660fc55b560cdc9cedebf8a4ac059a865939494047ef0` |
-| `games.png` | light | 384 × 982 | `fecc5def753a7304373c7c3d37e496df58c5f4dd7860c60c51931062170df6b1` |
-| `conjugations.png` | dark | 384 × 743 | `e03a1793db9031be113eb0f93332e702bf375409fc03984e1c6952aeb6ade4a0` |
-| `review.png` | light | 384 × 862 | `846954a9f0738a8d513fc0e687732b6a74fb52af044a16a50bffff4f4c4d8f1b` |
-| `profile.png` | dark | 384 × 1099 | `c77e8134d728db0dd5b91f593c275bb79bad14c4bf56d003967663cd728f5713` |
+| `cloze.png` | dark | 384 × 1421 | `b1769bb816a31b12014eaec09c6608b9430e0006fc4db9cc009855411e073dfb` |
+| `sentence-building.png` | light | 384 × 943 | `599852ad1b25e9de8706712e8b8a7addf709ecd80dc7d406006940f6d2d57fec` |
+| `dictionary.png` | light | 384 × 953 | `04ce9851872c3075eb7687812bc1c1eb1bd64fad07d57c18f2fc8378386eff11` |
+| `story.png` | light | 384 × 1271 | `6b960218ce6e1148b323a7d840bcf5a54be81969bb1b122901f530af06e619b1` |
+| `feedback.png` | dark | 384 × 1439 | `6f93ff7a9bc8c14a2d42af19e304e57226a9a72fde95f6159c5bf98bb3648980` |
+| `games.png` | light | 384 × 982 | `a8de66c8f806989b304ec6c655e6baef29aa9ffe59136019c075035d74174300` |
+| `conjugations.png` | dark | 384 × 743 | `47cb6e843f052497d56eb4f2662dba5ac0ca7c7d52f7cacfcce47064196d1f4a` |
+| `review.png` | light | 384 × 862 | `0965bd6203de1c2423573323482a06ad8b1ed6d740d07dd6961a59a5a08fd394` |
+| `profile.png` | dark | 384 × 1099 | `225af8bac0d86f34e72ace170cfbc37b2bf4660516d21c0eed4328c40bdf053b` |
 | `saved-words.png` | light | 384 × 703 | `cf4a05d3f8b1b05e8742f56667889c4975cb97a3e693880924990db14b12dbca` |
-| `recommendations.png` | light | 384 × 925 | `4ab9512f6efec17e9986a5a40de1584469e13b4c4284b415c0ff7521c6bb1cf3` |
-| `lesson-complete.png` | dark | 384 × 871 | `69235538d29a37768c12552ce35ca41409cb9499c7455f6c8bd9c2bfb69f7ad1` |
+| `recommendations.png` | light | 384 × 925 | `9f74ce86cf0d30f858e3a3335735a63b288ed2e10558d5efde4767c4660fe039` |
+| `lesson-complete.png` | dark | 384 × 871 | `1ee497d291020a7446acac5a9ffea96c6060f89a9b40bc8d3ab18daebd9f563e` |
 
 ## Additional rendered acceptance and compatibility
 
@@ -91,4 +91,3 @@ Classical global-script loading, the central live dependency adapter, large Prac
 ### Equivalent resource moves
 
 `android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml → android/app/src/main/res/mipmap-anydpi/ic_launcher.xml`, `android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml → android/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml`.
-

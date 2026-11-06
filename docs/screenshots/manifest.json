@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "appVersion": "1.9.0",
   "androidVersionCode": 20,
-  "generatedAt": "2026-11-06T11:14:09.422Z",
-  "sourceCommit": "a4b21f0d983d808081866c19fe4cd5bf6d1daa1f",
-  "validationRun": 42208680105,
+  "generatedAt": "2026-11-06T11:26:25.188Z",
+  "sourceCommit": "9fce254d4e3d513e8b969a5fc67b9bb011f1ddaf",
+  "validationRun": 42210217352,
   "captureMode": "clean-app-viewport",
   "sourceFingerprint": {
     "algorithm": "sha256",
@@ -27,7 +27,7 @@
       "www/a22-targets.js": "f9ffb625e4b68033fc857b81411b3aeaa434c34480f60bfabf3f65c54668e19a",
       "www/a22.js": "7c1f4837610069f23908cf8ec3e6467322ff34996b70885a6e4aebbb6e8caaf1",
       "www/answer-feedback.js": "f206b05c31b14f8598878749b0fda8b32e4c55fac771cbc26fceff2beb9b4f1f",
-      "www/app.js": "bc552b34487bd5cf01a70b253307c2e3ff15962011a10aab73e4f4982426bc0b",
+      "www/app.js": "01f98a5279d85f040344c0297dd6ded17172fdeb49847c327befad52f56b66c0",
       "www/assessment-policy.js": "86859060160c31dcf62a2409755705f77eb5c517aa8d9b52e715abc9cdce8e0e",
       "www/audio/failure.mp3": "ba30af47a229b4652517c2997aca074d23db368cf5e9091f1fd5d698abdb3805",
       "www/audio/success.mp3": "d01036a8585a6a0f18ddb10c078c0b189b7d416f4ea12710eca0d4ef59730e42",
@@ -40,7 +40,7 @@
       "www/b21-data.js": "bddb98bfa4597fa3e67954a168960c33afd3684405330389389a78647205240a",
       "www/b22-data.js": "8cd5ac237434dff0c63860dedcf145227bf70925ce87bfd7f9c6ba730f96561b",
       "www/beta-diagnostics.js": "fc25d435b484faca054f987c5b939b6443109f34e6bd6fac041148cf0408cec7",
-      "www/completion-view.js": "7083c27641c8466d6de5fdfe3a985d70e8adbb60b96c2907961a2371c1c8324a",
+      "www/completion-view.js": "ccf17d174d98cde7f515637f8d8da25962d1bdfeb13887499991a744f9757025",
       "www/conjugation-targets.js": "693cec7a919ca3f6c4dfbeb2df0277c640ecd408b00ab1165d985604b0a19b9e",
       "www/conjugations-bank.js": "3dadb70841b22a04c40b59c3c3fa2691115960baa6f27faa2e091784ffd1fb23",
       "www/consolidation.js": "d73119c3e1344e1b91a04f0f286a0787a564153c6c77472ded5eaefd089416da",
@@ -96,7 +96,7 @@
       "www/writing-rules.js": "ea74ac8efdc9438e57137e1ea0a548783d9910be83e4b527392e807ab3c5408e",
       "www/writing.js": "5e526db59755aaf663091155c28f5d09e3026a4f4128648817687beb8d21d03f"
     },
-    "sha256": "722676a15a8f2d7b8a415f5619af01e3687b54e6b4d20683426338c1e5b2ceda"
+    "sha256": "5db7a5cd20e9b9ea60b37aba9b21d37490d4332ba5e9ad41dbe73cf6748051f9"
   },
   "screenshotCount": 15,
   "navigationLabels": [
@@ -129,7 +129,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.9.0",
       "reviewedForVersion": "1.9.0",
-      "sha256": "64600e2c170881ba5129ff915e50c2dc5a3f54646dc3c62c6c168eea89345f76",
+      "sha256": "4dc6a04f38c8649c52b951af69b341ea00451251ad3e773346007de078fffb58",
       "layout": {
         "width": 384,
         "height": 1012,
@@ -179,7 +179,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.9.0",
       "reviewedForVersion": "1.9.0",
-      "sha256": "cb098c2ea381931c6ad8df4200ea0f4d5b9976f63a7eed666371030f5c83920c",
+      "sha256": "23a19567055ea80314da46e3f805e6247dc8cdc2e0855820854c0cb8ed2596fe",
       "layout": {
         "width": 384,
         "height": 839,
@@ -272,7 +272,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.9.0",
       "reviewedForVersion": "1.9.0",
-      "sha256": "f497d9645342ccceac25e8c4fa3817ab8ab03ae4d7f08d3eb987dac582666e79",
+      "sha256": "b1769bb816a31b12014eaec09c6608b9430e0006fc4db9cc009855411e073dfb",
       "layout": {
         "width": 384,
         "height": 1421,
@@ -315,7 +315,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.9.0",
       "reviewedForVersion": "1.9.0",
-      "sha256": "7c7af1c4258f620aafe801b2561bdaa2e1162cd5c64d3e961ef2a6a77cb9cf9f",
+      "sha256": "599852ad1b25e9de8706712e8b8a7addf709ecd80dc7d406006940f6d2d57fec",
       "layout": {
         "width": 384,
         "height": 943,
@@ -358,7 +358,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.9.0",
       "reviewedForVersion": "1.9.0",
-      "sha256": "a1faa3a2a5833cd21d672918cc0fb45c1c5bb0d0b07de7c3cd68738d9016875e",
+      "sha256": "04ce9851872c3075eb7687812bc1c1eb1bd64fad07d57c18f2fc8378386eff11",
       "layout": {
         "width": 384,
         "height": 953,
@@ -401,7 +401,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.9.0",
       "reviewedForVersion": "1.9.0",
-      "sha256": "b27dcc15efba6f52486d8b68dde85359f1f18b881955a6146bad1c27faccabfa",
+      "sha256": "6b960218ce6e1148b323a7d840bcf5a54be81969bb1b122901f530af06e619b1",
       "layout": {
         "width": 384,
         "height": 1271,
@@ -444,7 +444,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.9.0",
       "reviewedForVersion": "1.9.0",
-      "sha256": "f8f4436087b8906b9ce660fc55b560cdc9cedebf8a4ac059a865939494047ef0",
+      "sha256": "6f93ff7a9bc8c14a2d42af19e304e57226a9a72fde95f6159c5bf98bb3648980",
       "layout": {
         "width": 384,
         "height": 1439,
@@ -487,7 +487,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.9.0",
       "reviewedForVersion": "1.9.0",
-      "sha256": "fecc5def753a7304373c7c3d37e496df58c5f4dd7860c60c51931062170df6b1",
+      "sha256": "a8de66c8f806989b304ec6c655e6baef29aa9ffe59136019c075035d74174300",
       "layout": {
         "width": 384,
         "height": 982,
@@ -537,7 +537,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.9.0",
       "reviewedForVersion": "1.9.0",
-      "sha256": "e03a1793db9031be113eb0f93332e702bf375409fc03984e1c6952aeb6ade4a0",
+      "sha256": "47cb6e843f052497d56eb4f2662dba5ac0ca7c7d52f7cacfcce47064196d1f4a",
       "layout": {
         "width": 384,
         "height": 743,
@@ -580,7 +580,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.9.0",
       "reviewedForVersion": "1.9.0",
-      "sha256": "846954a9f0738a8d513fc0e687732b6a74fb52af044a16a50bffff4f4c4d8f1b",
+      "sha256": "0965bd6203de1c2423573323482a06ad8b1ed6d740d07dd6961a59a5a08fd394",
       "layout": {
         "width": 384,
         "height": 862,
@@ -630,7 +630,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.9.0",
       "reviewedForVersion": "1.9.0",
-      "sha256": "c77e8134d728db0dd5b91f593c275bb79bad14c4bf56d003967663cd728f5713",
+      "sha256": "225af8bac0d86f34e72ace170cfbc37b2bf4660516d21c0eed4328c40bdf053b",
       "layout": {
         "width": 384,
         "height": 1099,
@@ -723,7 +723,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.9.0",
       "reviewedForVersion": "1.9.0",
-      "sha256": "4ab9512f6efec17e9986a5a40de1584469e13b4c4284b415c0ff7521c6bb1cf3",
+      "sha256": "9f74ce86cf0d30f858e3a3335735a63b288ed2e10558d5efde4767c4660fe039",
       "layout": {
         "width": 384,
         "height": 925,
@@ -766,7 +766,7 @@
       "firstGeneratedVersion": "1.7.0",
       "refreshedInVersion": "1.9.0",
       "reviewedForVersion": "1.9.0",
-      "sha256": "69235538d29a37768c12552ce35ca41409cb9499c7455f6c8bd9c2bfb69f7ad1",
+      "sha256": "1ee497d291020a7446acac5a9ffea96c6060f89a9b40bc8d3ab18daebd9f563e",
       "layout": {
         "width": 384,
         "height": 871,
@@ -791,26 +791,26 @@
   "manualReview": {
     "status": "approved",
     "images": {
-      "home.png": "64600e2c170881ba5129ff915e50c2dc5a3f54646dc3c62c6c168eea89345f76",
-      "learn.png": "cb098c2ea381931c6ad8df4200ea0f4d5b9976f63a7eed666371030f5c83920c",
+      "home.png": "4dc6a04f38c8649c52b951af69b341ea00451251ad3e773346007de078fffb58",
+      "learn.png": "23a19567055ea80314da46e3f805e6247dc8cdc2e0855820854c0cb8ed2596fe",
       "beginner.png": "8b871ba285ea4afe3f35d096778db5ddc56cdb83003008fc5990200599dfb224",
-      "cloze.png": "f497d9645342ccceac25e8c4fa3817ab8ab03ae4d7f08d3eb987dac582666e79",
-      "sentence-building.png": "7c7af1c4258f620aafe801b2561bdaa2e1162cd5c64d3e961ef2a6a77cb9cf9f",
-      "dictionary.png": "a1faa3a2a5833cd21d672918cc0fb45c1c5bb0d0b07de7c3cd68738d9016875e",
-      "story.png": "b27dcc15efba6f52486d8b68dde85359f1f18b881955a6146bad1c27faccabfa",
-      "feedback.png": "f8f4436087b8906b9ce660fc55b560cdc9cedebf8a4ac059a865939494047ef0",
-      "games.png": "fecc5def753a7304373c7c3d37e496df58c5f4dd7860c60c51931062170df6b1",
-      "conjugations.png": "e03a1793db9031be113eb0f93332e702bf375409fc03984e1c6952aeb6ade4a0",
-      "review.png": "846954a9f0738a8d513fc0e687732b6a74fb52af044a16a50bffff4f4c4d8f1b",
-      "profile.png": "c77e8134d728db0dd5b91f593c275bb79bad14c4bf56d003967663cd728f5713",
+      "cloze.png": "b1769bb816a31b12014eaec09c6608b9430e0006fc4db9cc009855411e073dfb",
+      "sentence-building.png": "599852ad1b25e9de8706712e8b8a7addf709ecd80dc7d406006940f6d2d57fec",
+      "dictionary.png": "04ce9851872c3075eb7687812bc1c1eb1bd64fad07d57c18f2fc8378386eff11",
+      "story.png": "6b960218ce6e1148b323a7d840bcf5a54be81969bb1b122901f530af06e619b1",
+      "feedback.png": "6f93ff7a9bc8c14a2d42af19e304e57226a9a72fde95f6159c5bf98bb3648980",
+      "games.png": "a8de66c8f806989b304ec6c655e6baef29aa9ffe59136019c075035d74174300",
+      "conjugations.png": "47cb6e843f052497d56eb4f2662dba5ac0ca7c7d52f7cacfcce47064196d1f4a",
+      "review.png": "0965bd6203de1c2423573323482a06ad8b1ed6d740d07dd6961a59a5a08fd394",
+      "profile.png": "225af8bac0d86f34e72ace170cfbc37b2bf4660516d21c0eed4328c40bdf053b",
       "saved-words.png": "cf4a05d3f8b1b05e8742f56667889c4975cb97a3e693880924990db14b12dbca",
-      "recommendations.png": "4ab9512f6efec17e9986a5a40de1584469e13b4c4284b415c0ff7521c6bb1cf3",
-      "lesson-complete.png": "69235538d29a37768c12552ce35ca41409cb9499c7455f6c8bd9c2bfb69f7ad1"
+      "recommendations.png": "9f74ce86cf0d30f858e3a3335735a63b288ed2e10558d5efde4767c4660fe039",
+      "lesson-complete.png": "1ee497d291020a7446acac5a9ffea96c6060f89a9b40bc8d3ab18daebd9f563e"
     },
-    "reviewer": "Codex — individually inspected exact final-source PNGs",
-    "reviewedAt": "2026-11-06T11:21:51.336Z",
+    "reviewer": "Codex — individually inspected final source images",
+    "reviewedAt": "2026-11-06T11:27:21.292Z",
     "appVersion": "1.9.0",
-    "sourceFingerprint": "722676a15a8f2d7b8a415f5619af01e3687b54e6b4d20683426338c1e5b2ceda",
+    "sourceFingerprint": "5db7a5cd20e9b9ea60b37aba9b21d37490d4332ba5e9ad41dbe73cf6748051f9",
     "report": "docs/release/V1_9_REPORT.md"
   }
 }
