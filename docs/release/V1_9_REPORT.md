@@ -46,24 +46,24 @@ Pending final source, hosted browser/native execution, showcase recapture/adopti
 
 ## Recorded showcase visual review
 
-All fifteen official images were regenerated from the v1.9 UI, commit `4ed91f72d530ce9b09c70588df0882ef2d09b2e9`, run 42204239693. Capture passed 191 semantic/geometry assertions. Every exact PNG was individually inspected by the agent: cream/navy hierarchy, modest stronger teal, four Practice pastels, readable light/dark surfaces, clear error feedback and unchanged public navigation. Approved: no clipped card/control/text, horizontal overflow, fake system-bar space, navigation overlap or misleading framing. Profile ends cleanly above navigation; dictionary fits without selecting an answer; completion keeps Continue prominent. All images are real Chromium simulations at 384 CSS px / DPR 1 with recorded semantic heights; no physical-device capture is claimed. No old release image was merely relabelled.
+All fifteen official images were freshly captured from the final v1.9 runtime, commit `a4b21f0d983d808081866c19fe4cd5bf6d1daa1f`, run 42208680105. Capture passed 191 semantic/geometry assertions. The agent individually inspected all fifteen exact PNGs after the final semantic-theme cleanup: cream/navy hierarchy, restrained teal, Practice pastels, light/dark surfaces, error feedback and current public navigation. No clipped controls/text, horizontal overflow, fake system-bar gaps or navigation overlap were observed. Dictionary fits before answering; Profile ends above navigation; completion keeps Continue prominent. These are Chromium simulations at 384 CSS px / DPR 1 with recorded heights, not physical-device captures. All were recaptured; Saved Words happens to be byte-identical to the earlier candidate. No old release screenshot was merely relabelled.
 
-<!-- showcase-review: ed197160413ac7cf259b368c495482dba38d655684f407c6924e33121c632efa -->
+<!-- showcase-review: 722676a15a8f2d7b8a415f5619af01e3687b54e6b4d20683426338c1e5b2ceda -->
 
 | Image | Theme | Viewport | Reviewed PNG SHA-256 |
 | --- | --- | --- | --- |
-| `home.png` | dark | 384 × 1012 | `4dc6a04f38c8649c52b951af69b341ea00451251ad3e773346007de078fffb58` |
-| `learn.png` | light | 384 × 839 | `a0f52bde36e431c2e4ea2c8773c55b968dcb58f0b88df73fb25c7a438cf1e9b9` |
-| `beginner.png` | light | 384 × 888 | `873ffdef9b55ac3cc12c98293eb18ec10d07bc75260c7f4aba6ef69048a7853a` |
-| `cloze.png` | dark | 384 × 1421 | `b17e4ea6f0315c194b8b13f434380b260d55bed9ca2523f1ed8c8d3aaef06268` |
-| `sentence-building.png` | light | 384 × 943 | `57afc2d40bde396a7aa953b640784df1af959eb02cad49d34ca0173673250f4f` |
-| `dictionary.png` | light | 384 × 953 | `af4393c5a8f84dcc002c455f7af92abacbe96ea75bc10238d4e9d44bf5da45cf` |
-| `story.png` | light | 384 × 1271 | `5426f271a0b816a0a469e9ff51bf514ea4e1471258d1d82914a5f1832e86c54a` |
-| `feedback.png` | dark | 384 × 1439 | `837e906b9678a8a651283dbed59ab6cb415d92dc918993eefd03c0e949164d9e` |
-| `games.png` | light | 384 × 982 | `9f393f976a917302c092059166a0d3a6f3becb5e23ab9020d9cb6a0bbd3b1993` |
-| `conjugations.png` | dark | 384 × 743 | `0b9e0555d05206f2141d7385f5e556d693f180b67adc01771556bffeb138769c` |
-| `review.png` | light | 384 × 862 | `3eb4df08885f1024f9bcfbd0444c9a0ed5e1bc3871e12d459d6735d3abf4e78e` |
-| `profile.png` | dark | 384 × 1099 | `e4d8f95b9bdc85ae703bd7ae3660b0b575210eccb9100806d1739733771210b8` |
+| `home.png` | dark | 384 × 1012 | `64600e2c170881ba5129ff915e50c2dc5a3f54646dc3c62c6c168eea89345f76` |
+| `learn.png` | light | 384 × 839 | `cb098c2ea381931c6ad8df4200ea0f4d5b9976f63a7eed666371030f5c83920c` |
+| `beginner.png` | light | 384 × 888 | `8b871ba285ea4afe3f35d096778db5ddc56cdb83003008fc5990200599dfb224` |
+| `cloze.png` | dark | 384 × 1421 | `f497d9645342ccceac25e8c4fa3817ab8ab03ae4d7f08d3eb987dac582666e79` |
+| `sentence-building.png` | light | 384 × 943 | `7c7af1c4258f620aafe801b2561bdaa2e1162cd5c64d3e961ef2a6a77cb9cf9f` |
+| `dictionary.png` | light | 384 × 953 | `a1faa3a2a5833cd21d672918cc0fb45c1c5bb0d0b07de7c3cd68738d9016875e` |
+| `story.png` | light | 384 × 1271 | `b27dcc15efba6f52486d8b68dde85359f1f18b881955a6146bad1c27faccabfa` |
+| `feedback.png` | dark | 384 × 1439 | `f8f4436087b8906b9ce660fc55b560cdc9cedebf8a4ac059a865939494047ef0` |
+| `games.png` | light | 384 × 982 | `fecc5def753a7304373c7c3d37e496df58c5f4dd7860c60c51931062170df6b1` |
+| `conjugations.png` | dark | 384 × 743 | `e03a1793db9031be113eb0f93332e702bf375409fc03984e1c6952aeb6ade4a0` |
+| `review.png` | light | 384 × 862 | `846954a9f0738a8d513fc0e687732b6a74fb52af044a16a50bffff4f4c4d8f1b` |
+| `profile.png` | dark | 384 × 1099 | `c77e8134d728db0dd5b91f593c275bb79bad14c4bf56d003967663cd728f5713` |
 | `saved-words.png` | light | 384 × 703 | `cf4a05d3f8b1b05e8742f56667889c4975cb97a3e693880924990db14b12dbca` |
-| `recommendations.png` | light | 384 × 925 | `33455a574a96f7feaabb3fa0ba4ccc56db49900d5a4b480585eb5e7d2ba42707` |
-| `lesson-complete.png` | dark | 384 × 871 | `295153b0b8244f7d662655f5e066ebdcf0eafa1c6f67fb8a569ec34952fd13ac` |
+| `recommendations.png` | light | 384 × 925 | `4ab9512f6efec17e9986a5a40de1584469e13b4c4284b415c0ff7521c6bb1cf3` |
+| `lesson-complete.png` | dark | 384 × 871 | `69235538d29a37768c12552ce35ca41409cb9499c7455f6c8bd9c2bfb69f7ad1` |
