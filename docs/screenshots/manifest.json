@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "appVersion": "1.9.0",
-  "androidVersionCode": 20,
-  "generatedAt": "2026-11-06T11:26:25.188Z",
-  "sourceCommit": "9fce254d4e3d513e8b969a5fc67b9bb011f1ddaf",
-  "validationRun": 42210217352,
+  "appVersion": "1.10.0",
+  "androidVersionCode": 21,
+  "generatedAt": "2026-11-06T12:33:12.043Z",
+  "sourceCommit": "3bc063eba9d9587548632e1824d3708735a4ddb1",
+  "validationRun": 42218488931,
   "captureMode": "clean-app-viewport",
   "sourceFingerprint": {
     "algorithm": "sha256",
@@ -27,7 +27,7 @@
       "www/a22-targets.js": "f9ffb625e4b68033fc857b81411b3aeaa434c34480f60bfabf3f65c54668e19a",
       "www/a22.js": "7c1f4837610069f23908cf8ec3e6467322ff34996b70885a6e4aebbb6e8caaf1",
       "www/answer-feedback.js": "f206b05c31b14f8598878749b0fda8b32e4c55fac771cbc26fceff2beb9b4f1f",
-      "www/app.js": "01f98a5279d85f040344c0297dd6ded17172fdeb49847c327befad52f56b66c0",
+      "www/app.js": "6b1379705441ded2fcdd3d2770a6f2c5c7901ce75d6c388eb1b7fae7794a6ed3",
       "www/assessment-policy.js": "86859060160c31dcf62a2409755705f77eb5c517aa8d9b52e715abc9cdce8e0e",
       "www/audio/failure.mp3": "ba30af47a229b4652517c2997aca074d23db368cf5e9091f1fd5d698abdb3805",
       "www/audio/success.mp3": "d01036a8585a6a0f18ddb10c078c0b189b7d416f4ea12710eca0d4ef59730e42",
@@ -39,7 +39,7 @@
       "www/b12-data.js": "39f2eed70c70ce8e0e3bbe9b4c1b1f947085d11e925c75dbc2d50b790690e9e5",
       "www/b21-data.js": "bddb98bfa4597fa3e67954a168960c33afd3684405330389389a78647205240a",
       "www/b22-data.js": "8cd5ac237434dff0c63860dedcf145227bf70925ce87bfd7f9c6ba730f96561b",
-      "www/beta-diagnostics.js": "fc25d435b484faca054f987c5b939b6443109f34e6bd6fac041148cf0408cec7",
+      "www/beta-diagnostics.js": "7ee82ad1bcdad6d435ecbaedf29cd57e903db814cbd3e72d6b23f3602078c9ba",
       "www/completion-view.js": "ccf17d174d98cde7f515637f8d8da25962d1bdfeb13887499991a744f9757025",
       "www/conjugation-targets.js": "693cec7a919ca3f6c4dfbeb2df0277c640ecd408b00ab1165d985604b0a19b9e",
       "www/conjugations-bank.js": "3dadb70841b22a04c40b59c3c3fa2691115960baa6f27faa2e091784ffd1fb23",
@@ -59,7 +59,7 @@
       "www/course-path.js": "744d64acf465c106a228532b04afddb677b33faac6404a485e805025064c6ec2",
       "www/curriculum.js": "b16b5d2aaf01a5eda80513b3d21854066b5a2c3e463c7e036ced74d0c6ec3b3c",
       "www/dictionary-ui.js": "87ac830242711931e78b268ad20a58c2a5e1f2cf5244f267431915a6dbd2395b",
-      "www/dictionary.css": "e059a0641fd7d19f44b7e19c43258b9f1c85ab0f0a47939e69cfbdadb7d71a0b",
+      "www/dictionary.css": "f20b4b0ae35de076dc44b5ea81f00046c6211aa2fd2633dd327bc0caf828b7ac",
       "www/focused-bank-data.js": "ca617671d3deb1d739c8507b24e4789d26ba71131a31895af10f56cc36474320",
       "www/focused-bank.js": "279cd5737c1ff843ea4529e2624571bd6204cfd3d55f5b1178c53033b1332dc4",
       "www/focused-practice.js": "19fbe9063cb1d7e40bc99a427164788df651b6b869573aa87918d62441ba465b",
@@ -88,15 +88,15 @@
       "www/story-editions.js": "e21b84389a60b3c20ae48bf57a58e137b6d4f500bce540a965b7c11e84f974bd",
       "www/story-vocabulary.js": "7b69ec88f6878fd5133f95a225439c38784f77f96ef419e2ad6602c3fffac077",
       "www/structured.js": "441849cc0b6c7ecd11b85135ca3305710379c09be70771697c74a35fe9d92667",
-      "www/style.css": "8a730b24611906625b5a4618446eff8f3697e9938b8e5dd9b5d55e1fad129ce9",
-      "www/tokens.css": "45b9e7994c6a9b02c922e4f21577a1c812f7da7e5dd088de2105d142efd6c4d2",
+      "www/style.css": "b30e055596e7adb71f4a36de755ad2aa04a09cca9ca4d76e71e377446bc6d602",
+      "www/tokens.css": "b46ca9859abf7aadb600770b016ae53f635995332c6b22e8d98e3b4b4dd2575d",
       "www/verb-diagnostics.js": "8e4f5c42e168003a98e107d50c5e50980ab48b67c9109f4750e7b9aa85149e3a",
       "www/viewport.js": "478c8e84dd3fa7a7e7b33d915abb52da44fa324acaa2e845476e9fd674aa7d1c",
       "www/writing-audit.js": "7616f15474d66e631a5ce626c0b642652ecb29eb2acb5d8cde0e635fc1511e04",
       "www/writing-rules.js": "ea74ac8efdc9438e57137e1ea0a548783d9910be83e4b527392e807ab3c5408e",
       "www/writing.js": "5e526db59755aaf663091155c28f5d09e3026a4f4128648817687beb8d21d03f"
     },
-    "sha256": "5db7a5cd20e9b9ea60b37aba9b21d37490d4332ba5e9ad41dbe73cf6748051f9"
+    "sha256": "6a711d4547181120b6fa2783104744871b50678b365be891a1e388500ab5c91a"
   },
   "screenshotCount": 15,
   "navigationLabels": [
@@ -115,7 +115,7 @@
       "profile": {
         "name": "clean-app-portrait",
         "width": 384,
-        "height": 1012,
+        "height": 1059,
         "deviceScaleFactor": 1,
         "insets": {
           "top": 0,
@@ -127,12 +127,12 @@
       },
       "simulated": true,
       "firstGeneratedVersion": "1.7.0",
-      "refreshedInVersion": "1.9.0",
-      "reviewedForVersion": "1.9.0",
-      "sha256": "4dc6a04f38c8649c52b951af69b341ea00451251ad3e773346007de078fffb58",
+      "refreshedInVersion": "1.10.0",
+      "reviewedForVersion": "1.10.0",
+      "sha256": "0902aea98d43b2ee0f8e1a1bbb8432379facda79be465646a0b9c9c9ef3aa9c6",
       "layout": {
         "width": 384,
-        "height": 1012,
+        "height": 1059,
         "scrollY": 0,
         "overflow": false,
         "keyboard": false,
@@ -150,9 +150,9 @@
           "Profile"
         ],
         "active": "⌂Home",
-        "navBottom": 1012,
-        "navTop": 927,
-        "targetBottom": 918.53125,
+        "navBottom": 1059,
+        "navTop": 978,
+        "targetBottom": 969.09375,
         "popupFits": true,
         "animations": 0
       }
@@ -165,7 +165,7 @@
       "profile": {
         "name": "clean-app-portrait",
         "width": 384,
-        "height": 839,
+        "height": 887,
         "deviceScaleFactor": 1,
         "insets": {
           "top": 0,
@@ -177,12 +177,12 @@
       },
       "simulated": true,
       "firstGeneratedVersion": "1.7.0",
-      "refreshedInVersion": "1.9.0",
-      "reviewedForVersion": "1.9.0",
-      "sha256": "23a19567055ea80314da46e3f805e6247dc8cdc2e0855820854c0cb8ed2596fe",
+      "refreshedInVersion": "1.10.0",
+      "reviewedForVersion": "1.10.0",
+      "sha256": "db3f0b41727f12529aca9c65e030f6e1a0cff60a429c627a2e1586e45e01542d",
       "layout": {
         "width": 384,
-        "height": 839,
+        "height": 887,
         "scrollY": 0,
         "overflow": false,
         "keyboard": false,
@@ -200,9 +200,9 @@
           "Profile"
         ],
         "active": "▤Learn",
-        "navBottom": 839,
-        "navTop": 754,
-        "targetBottom": 745.78125,
+        "navBottom": 887,
+        "navTop": 806,
+        "targetBottom": 797.453125,
         "popupFits": true,
         "animations": 0
       }
@@ -215,7 +215,7 @@
       "profile": {
         "name": "clean-app-portrait",
         "width": 384,
-        "height": 888,
+        "height": 915,
         "deviceScaleFactor": 1,
         "insets": {
           "top": 0,
@@ -227,12 +227,12 @@
       },
       "simulated": true,
       "firstGeneratedVersion": "1.7.0",
-      "refreshedInVersion": "1.9.0",
-      "reviewedForVersion": "1.9.0",
-      "sha256": "8b871ba285ea4afe3f35d096778db5ddc56cdb83003008fc5990200599dfb224",
+      "refreshedInVersion": "1.10.0",
+      "reviewedForVersion": "1.10.0",
+      "sha256": "aeb30c56509a9bb9154a59712b6919accd8a3f8f98543375a50ea995d8fb174c",
       "layout": {
         "width": 384,
-        "height": 888,
+        "height": 915,
         "scrollY": 0,
         "overflow": false,
         "keyboard": false,
@@ -244,8 +244,8 @@
         ],
         "navigationLabels": [],
         "navBottom": null,
-        "navTop": 888,
-        "targetBottom": 879.1875,
+        "navTop": 915,
+        "targetBottom": 906.1875,
         "popupFits": true,
         "animations": 0
       }
@@ -258,7 +258,7 @@
       "profile": {
         "name": "clean-app-portrait",
         "width": 384,
-        "height": 1421,
+        "height": 1490,
         "deviceScaleFactor": 1,
         "insets": {
           "top": 0,
@@ -270,12 +270,12 @@
       },
       "simulated": true,
       "firstGeneratedVersion": "1.7.0",
-      "refreshedInVersion": "1.9.0",
-      "reviewedForVersion": "1.9.0",
-      "sha256": "b1769bb816a31b12014eaec09c6608b9430e0006fc4db9cc009855411e073dfb",
+      "refreshedInVersion": "1.10.0",
+      "reviewedForVersion": "1.10.0",
+      "sha256": "c2a83c13184a1756dfb87d19f131ba67503c850bda0592d85311e7ef6128ece5",
       "layout": {
         "width": 384,
-        "height": 1421,
+        "height": 1490,
         "scrollY": 0,
         "overflow": false,
         "keyboard": false,
@@ -287,8 +287,8 @@
         ],
         "navigationLabels": [],
         "navBottom": null,
-        "navTop": 1421,
-        "targetBottom": 1412.1875,
+        "navTop": 1490,
+        "targetBottom": 1481.1875,
         "popupFits": true,
         "animations": 0
       }
@@ -301,7 +301,7 @@
       "profile": {
         "name": "clean-app-portrait",
         "width": 384,
-        "height": 943,
+        "height": 966,
         "deviceScaleFactor": 1,
         "insets": {
           "top": 0,
@@ -313,12 +313,12 @@
       },
       "simulated": true,
       "firstGeneratedVersion": "1.7.0",
-      "refreshedInVersion": "1.9.0",
-      "reviewedForVersion": "1.9.0",
-      "sha256": "599852ad1b25e9de8706712e8b8a7addf709ecd80dc7d406006940f6d2d57fec",
+      "refreshedInVersion": "1.10.0",
+      "reviewedForVersion": "1.10.0",
+      "sha256": "c87f421e3833365bb740067e61bed9bbf1797948d68ae69ea3760c856d3de9a6",
       "layout": {
         "width": 384,
-        "height": 943,
+        "height": 966,
         "scrollY": 0,
         "overflow": false,
         "keyboard": false,
@@ -330,8 +330,8 @@
         ],
         "navigationLabels": [],
         "navBottom": null,
-        "navTop": 943,
-        "targetBottom": 934.1875,
+        "navTop": 966,
+        "targetBottom": 957.1875,
         "popupFits": true,
         "animations": 0
       }
@@ -344,7 +344,7 @@
       "profile": {
         "name": "clean-app-portrait",
         "width": 384,
-        "height": 953,
+        "height": 980,
         "deviceScaleFactor": 1,
         "insets": {
           "top": 0,
@@ -356,12 +356,12 @@
       },
       "simulated": true,
       "firstGeneratedVersion": "1.7.0",
-      "refreshedInVersion": "1.9.0",
-      "reviewedForVersion": "1.9.0",
-      "sha256": "04ce9851872c3075eb7687812bc1c1eb1bd64fad07d57c18f2fc8378386eff11",
+      "refreshedInVersion": "1.10.0",
+      "reviewedForVersion": "1.10.0",
+      "sha256": "cf6e99d747eb7e76120a04d6892a69b2f994c90b5d238455cd6d6fbc3422848d",
       "layout": {
         "width": 384,
-        "height": 953,
+        "height": 980,
         "scrollY": 0,
         "overflow": false,
         "keyboard": false,
@@ -373,8 +373,8 @@
         ],
         "navigationLabels": [],
         "navBottom": null,
-        "navTop": 953,
-        "targetBottom": 944.1875,
+        "navTop": 980,
+        "targetBottom": 971.1875,
         "popupFits": true,
         "animations": 0
       }
@@ -387,7 +387,7 @@
       "profile": {
         "name": "clean-app-portrait",
         "width": 384,
-        "height": 1271,
+        "height": 1287,
         "deviceScaleFactor": 1,
         "insets": {
           "top": 0,
@@ -399,12 +399,12 @@
       },
       "simulated": true,
       "firstGeneratedVersion": "1.7.0",
-      "refreshedInVersion": "1.9.0",
-      "reviewedForVersion": "1.9.0",
-      "sha256": "6b960218ce6e1148b323a7d840bcf5a54be81969bb1b122901f530af06e619b1",
+      "refreshedInVersion": "1.10.0",
+      "reviewedForVersion": "1.10.0",
+      "sha256": "54c78069f9dfe3119a2c1e2ee43c59a77e57d4dea1106afebcf54703046f2948",
       "layout": {
         "width": 384,
-        "height": 1271,
+        "height": 1287,
         "scrollY": 0,
         "overflow": false,
         "keyboard": false,
@@ -416,8 +416,8 @@
         ],
         "navigationLabels": [],
         "navBottom": null,
-        "navTop": 1271,
-        "targetBottom": 1262.046875,
+        "navTop": 1287,
+        "targetBottom": 1278.046875,
         "popupFits": true,
         "animations": 0
       }
@@ -430,7 +430,7 @@
       "profile": {
         "name": "clean-app-portrait",
         "width": 384,
-        "height": 1439,
+        "height": 1500,
         "deviceScaleFactor": 1,
         "insets": {
           "top": 0,
@@ -442,12 +442,12 @@
       },
       "simulated": true,
       "firstGeneratedVersion": "1.7.0",
-      "refreshedInVersion": "1.9.0",
-      "reviewedForVersion": "1.9.0",
-      "sha256": "6f93ff7a9bc8c14a2d42af19e304e57226a9a72fde95f6159c5bf98bb3648980",
+      "refreshedInVersion": "1.10.0",
+      "reviewedForVersion": "1.10.0",
+      "sha256": "873e7ec0370da846ed2bfd01122150f271a5c6f2d36967ed3f6ddd4e57bf607a",
       "layout": {
         "width": 384,
-        "height": 1439,
+        "height": 1500,
         "scrollY": 0,
         "overflow": false,
         "keyboard": false,
@@ -459,8 +459,8 @@
         ],
         "navigationLabels": [],
         "navBottom": null,
-        "navTop": 1439,
-        "targetBottom": 1430.1875,
+        "navTop": 1500,
+        "targetBottom": 1491.375,
         "popupFits": true,
         "animations": 0
       }
@@ -473,7 +473,7 @@
       "profile": {
         "name": "clean-app-portrait",
         "width": 384,
-        "height": 982,
+        "height": 988,
         "deviceScaleFactor": 1,
         "insets": {
           "top": 0,
@@ -485,12 +485,12 @@
       },
       "simulated": true,
       "firstGeneratedVersion": "1.7.0",
-      "refreshedInVersion": "1.9.0",
-      "reviewedForVersion": "1.9.0",
-      "sha256": "a8de66c8f806989b304ec6c655e6baef29aa9ffe59136019c075035d74174300",
+      "refreshedInVersion": "1.10.0",
+      "reviewedForVersion": "1.10.0",
+      "sha256": "adc107855eafcb62d47fe02a7ed88961781c0f6eb6fdd980763a11376b8df12c",
       "layout": {
         "width": 384,
-        "height": 982,
+        "height": 988,
         "scrollY": 0,
         "overflow": false,
         "keyboard": false,
@@ -508,9 +508,9 @@
           "Profile"
         ],
         "active": "Practice",
-        "navBottom": 982,
-        "navTop": 897,
-        "targetBottom": 888.578125,
+        "navBottom": 988,
+        "navTop": 907,
+        "targetBottom": 898.78125,
         "popupFits": true,
         "animations": 0
       }
@@ -523,7 +523,7 @@
       "profile": {
         "name": "clean-app-portrait",
         "width": 384,
-        "height": 743,
+        "height": 767,
         "deviceScaleFactor": 1,
         "insets": {
           "top": 0,
@@ -535,12 +535,12 @@
       },
       "simulated": true,
       "firstGeneratedVersion": "1.7.0",
-      "refreshedInVersion": "1.9.0",
-      "reviewedForVersion": "1.9.0",
-      "sha256": "47cb6e843f052497d56eb4f2662dba5ac0ca7c7d52f7cacfcce47064196d1f4a",
+      "refreshedInVersion": "1.10.0",
+      "reviewedForVersion": "1.10.0",
+      "sha256": "5ea2f825187fc12081d69e443d537038756484909be79bf1bc0ffb7f73b645f8",
       "layout": {
         "width": 384,
-        "height": 743,
+        "height": 767,
         "scrollY": 0,
         "overflow": false,
         "keyboard": false,
@@ -552,8 +552,8 @@
         ],
         "navigationLabels": [],
         "navBottom": null,
-        "navTop": 743,
-        "targetBottom": 734.703125,
+        "navTop": 767,
+        "targetBottom": 758.703125,
         "popupFits": true,
         "animations": 0
       }
@@ -566,7 +566,7 @@
       "profile": {
         "name": "clean-app-portrait",
         "width": 384,
-        "height": 862,
+        "height": 890,
         "deviceScaleFactor": 1,
         "insets": {
           "top": 0,
@@ -578,12 +578,12 @@
       },
       "simulated": true,
       "firstGeneratedVersion": "1.7.0",
-      "refreshedInVersion": "1.9.0",
-      "reviewedForVersion": "1.9.0",
-      "sha256": "0965bd6203de1c2423573323482a06ad8b1ed6d740d07dd6961a59a5a08fd394",
+      "refreshedInVersion": "1.10.0",
+      "reviewedForVersion": "1.10.0",
+      "sha256": "9b647aa3273b65fd3096a52b4c607ce768c7738a345805429b78888df1c25598",
       "layout": {
         "width": 384,
-        "height": 862,
+        "height": 890,
         "scrollY": 0,
         "overflow": false,
         "keyboard": false,
@@ -601,9 +601,9 @@
           "Profile"
         ],
         "active": "↻Review1",
-        "navBottom": 862,
-        "navTop": 777,
-        "targetBottom": 768.96875,
+        "navBottom": 890,
+        "navTop": 809,
+        "targetBottom": 800.828125,
         "popupFits": true,
         "animations": 0
       }
@@ -616,7 +616,7 @@
       "profile": {
         "name": "clean-app-portrait",
         "width": 384,
-        "height": 1099,
+        "height": 1151,
         "deviceScaleFactor": 1,
         "insets": {
           "top": 0,
@@ -628,12 +628,12 @@
       },
       "simulated": true,
       "firstGeneratedVersion": "1.7.0",
-      "refreshedInVersion": "1.9.0",
-      "reviewedForVersion": "1.9.0",
-      "sha256": "225af8bac0d86f34e72ace170cfbc37b2bf4660516d21c0eed4328c40bdf053b",
+      "refreshedInVersion": "1.10.0",
+      "reviewedForVersion": "1.10.0",
+      "sha256": "d5997260a945edefc6e97ab221a9da99eb27a27aeadc8dc18454ee6f31d6b486",
       "layout": {
         "width": 384,
-        "height": 1099,
+        "height": 1151,
         "scrollY": 0,
         "overflow": false,
         "keyboard": false,
@@ -651,9 +651,9 @@
           "Profile"
         ],
         "active": "☺Profile",
-        "navBottom": 1099,
-        "navTop": 1014,
-        "targetBottom": 1006,
+        "navBottom": 1151,
+        "navTop": 1070,
+        "targetBottom": 1061.96875,
         "popupFits": true,
         "animations": 0
       }
@@ -666,7 +666,7 @@
       "profile": {
         "name": "clean-app-portrait",
         "width": 384,
-        "height": 703,
+        "height": 745,
         "deviceScaleFactor": 1,
         "insets": {
           "top": 0,
@@ -678,12 +678,12 @@
       },
       "simulated": true,
       "firstGeneratedVersion": "1.7.0",
-      "refreshedInVersion": "1.9.0",
-      "reviewedForVersion": "1.9.0",
-      "sha256": "cf4a05d3f8b1b05e8742f56667889c4975cb97a3e693880924990db14b12dbca",
+      "refreshedInVersion": "1.10.0",
+      "reviewedForVersion": "1.10.0",
+      "sha256": "14e671922406062d5f3906a909a4aa80512fefda8312a05f4d3e93e66a492012",
       "layout": {
         "width": 384,
-        "height": 703,
+        "height": 745,
         "scrollY": 0,
         "overflow": false,
         "keyboard": false,
@@ -695,8 +695,8 @@
         ],
         "navigationLabels": [],
         "navBottom": null,
-        "navTop": 703,
-        "targetBottom": 694.78125,
+        "navTop": 745,
+        "targetBottom": 736.65625,
         "popupFits": true,
         "animations": 0
       }
@@ -709,7 +709,7 @@
       "profile": {
         "name": "clean-app-portrait",
         "width": 384,
-        "height": 925,
+        "height": 957,
         "deviceScaleFactor": 1,
         "insets": {
           "top": 0,
@@ -721,12 +721,12 @@
       },
       "simulated": true,
       "firstGeneratedVersion": "1.7.0",
-      "refreshedInVersion": "1.9.0",
-      "reviewedForVersion": "1.9.0",
-      "sha256": "9f74ce86cf0d30f858e3a3335735a63b288ed2e10558d5efde4767c4660fe039",
+      "refreshedInVersion": "1.10.0",
+      "reviewedForVersion": "1.10.0",
+      "sha256": "e7653abe84078abcdcb019457b4933ae44a6600d5330649814a41949ca19d496",
       "layout": {
         "width": 384,
-        "height": 925,
+        "height": 957,
         "scrollY": 0,
         "overflow": false,
         "keyboard": false,
@@ -738,8 +738,8 @@
         ],
         "navigationLabels": [],
         "navBottom": null,
-        "navTop": 925,
-        "targetBottom": 916.46875,
+        "navTop": 957,
+        "targetBottom": 948.328125,
         "popupFits": true,
         "animations": 0
       }
@@ -752,7 +752,7 @@
       "profile": {
         "name": "clean-app-portrait",
         "width": 384,
-        "height": 871,
+        "height": 909,
         "deviceScaleFactor": 1,
         "insets": {
           "top": 0,
@@ -764,12 +764,12 @@
       },
       "simulated": true,
       "firstGeneratedVersion": "1.7.0",
-      "refreshedInVersion": "1.9.0",
-      "reviewedForVersion": "1.9.0",
-      "sha256": "1ee497d291020a7446acac5a9ffea96c6060f89a9b40bc8d3ab18daebd9f563e",
+      "refreshedInVersion": "1.10.0",
+      "reviewedForVersion": "1.10.0",
+      "sha256": "7ed19837465411ed4c65998006f2ba06cbe0ef5bb82ac61de7059b1e3d5a3561",
       "layout": {
         "width": 384,
-        "height": 871,
+        "height": 909,
         "scrollY": 0,
         "overflow": false,
         "keyboard": false,
@@ -781,8 +781,8 @@
         ],
         "navigationLabels": [],
         "navBottom": null,
-        "navTop": 871,
-        "targetBottom": 862.15625,
+        "navTop": 909,
+        "targetBottom": 900.53125,
         "popupFits": true,
         "animations": 0
       }
@@ -791,26 +791,26 @@
   "manualReview": {
     "status": "approved",
     "images": {
-      "home.png": "4dc6a04f38c8649c52b951af69b341ea00451251ad3e773346007de078fffb58",
-      "learn.png": "23a19567055ea80314da46e3f805e6247dc8cdc2e0855820854c0cb8ed2596fe",
-      "beginner.png": "8b871ba285ea4afe3f35d096778db5ddc56cdb83003008fc5990200599dfb224",
-      "cloze.png": "b1769bb816a31b12014eaec09c6608b9430e0006fc4db9cc009855411e073dfb",
-      "sentence-building.png": "599852ad1b25e9de8706712e8b8a7addf709ecd80dc7d406006940f6d2d57fec",
-      "dictionary.png": "04ce9851872c3075eb7687812bc1c1eb1bd64fad07d57c18f2fc8378386eff11",
-      "story.png": "6b960218ce6e1148b323a7d840bcf5a54be81969bb1b122901f530af06e619b1",
-      "feedback.png": "6f93ff7a9bc8c14a2d42af19e304e57226a9a72fde95f6159c5bf98bb3648980",
-      "games.png": "a8de66c8f806989b304ec6c655e6baef29aa9ffe59136019c075035d74174300",
-      "conjugations.png": "47cb6e843f052497d56eb4f2662dba5ac0ca7c7d52f7cacfcce47064196d1f4a",
-      "review.png": "0965bd6203de1c2423573323482a06ad8b1ed6d740d07dd6961a59a5a08fd394",
-      "profile.png": "225af8bac0d86f34e72ace170cfbc37b2bf4660516d21c0eed4328c40bdf053b",
-      "saved-words.png": "cf4a05d3f8b1b05e8742f56667889c4975cb97a3e693880924990db14b12dbca",
-      "recommendations.png": "9f74ce86cf0d30f858e3a3335735a63b288ed2e10558d5efde4767c4660fe039",
-      "lesson-complete.png": "1ee497d291020a7446acac5a9ffea96c6060f89a9b40bc8d3ab18daebd9f563e"
+      "home.png": "0902aea98d43b2ee0f8e1a1bbb8432379facda79be465646a0b9c9c9ef3aa9c6",
+      "learn.png": "db3f0b41727f12529aca9c65e030f6e1a0cff60a429c627a2e1586e45e01542d",
+      "beginner.png": "aeb30c56509a9bb9154a59712b6919accd8a3f8f98543375a50ea995d8fb174c",
+      "cloze.png": "c2a83c13184a1756dfb87d19f131ba67503c850bda0592d85311e7ef6128ece5",
+      "sentence-building.png": "c87f421e3833365bb740067e61bed9bbf1797948d68ae69ea3760c856d3de9a6",
+      "dictionary.png": "cf6e99d747eb7e76120a04d6892a69b2f994c90b5d238455cd6d6fbc3422848d",
+      "story.png": "54c78069f9dfe3119a2c1e2ee43c59a77e57d4dea1106afebcf54703046f2948",
+      "feedback.png": "873e7ec0370da846ed2bfd01122150f271a5c6f2d36967ed3f6ddd4e57bf607a",
+      "games.png": "adc107855eafcb62d47fe02a7ed88961781c0f6eb6fdd980763a11376b8df12c",
+      "conjugations.png": "5ea2f825187fc12081d69e443d537038756484909be79bf1bc0ffb7f73b645f8",
+      "review.png": "9b647aa3273b65fd3096a52b4c607ce768c7738a345805429b78888df1c25598",
+      "profile.png": "d5997260a945edefc6e97ab221a9da99eb27a27aeadc8dc18454ee6f31d6b486",
+      "saved-words.png": "14e671922406062d5f3906a909a4aa80512fefda8312a05f4d3e93e66a492012",
+      "recommendations.png": "e7653abe84078abcdcb019457b4933ae44a6600d5330649814a41949ca19d496",
+      "lesson-complete.png": "7ed19837465411ed4c65998006f2ba06cbe0ef5bb82ac61de7059b1e3d5a3561"
     },
-    "reviewer": "Codex — individually inspected final source images",
-    "reviewedAt": "2026-11-06T11:27:21.292Z",
-    "appVersion": "1.9.0",
-    "sourceFingerprint": "5db7a5cd20e9b9ea60b37aba9b21d37490d4332ba5e9ad41dbe73cf6748051f9",
-    "report": "docs/release/V1_9_REPORT.md"
+    "reviewer": "Codex — individually inspected final Material UI PNGs",
+    "reviewedAt": "2026-11-06T12:34:59.193Z",
+    "appVersion": "1.10.0",
+    "sourceFingerprint": "6a711d4547181120b6fa2783104744871b50678b365be891a1e388500ab5c91a",
+    "report": "docs/release/V1_10_REPORT.md"
   }
 }
