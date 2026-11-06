@@ -4,7 +4,7 @@ const app=require('./helpers/app.cjs'),E=require('../www/engine'),C=require('../
 const stamp=Date.UTC(2026,10,6,12);class Clock extends Date{constructor(...args){super(...(args.length?args:[stamp]));}static now(){return stamp;}}
 function runtime(initial,baseline=false){let seed=91;const math=Object.create(Math);math.random=()=>((seed=(seed*1664525+1013904223)>>>0)/4294967296);return app({Date:Clock,Math:math},initial,baseline?{sourceFile:'tests/fixtures/v18-app.js'}:{});}
 function pair(initial=E.fresh()){return [runtime(initial,true),runtime(initial)];}
-function observable(a){return {state:JSON.parse(vm.runInContext('JSON.stringify(state)',a.ctx)),ui:JSON.parse(vm.runInContext('JSON.stringify({tab,screen,viewStage,quiz,todaySession,quizReturn})',a.ctx)),html:a.el.innerHTML,diagnostics:JSON.parse(vm.runInContext('diagnostics.export()',a.ctx))};}
+function observable(a){return {state:JSON.parse(vm.runInContext('JSON.stringify(state)',a.ctx)),ui:JSON.parse(vm.runInContext('JSON.stringify({tab,screen,viewStage,quiz,todaySession,quizReturn})',a.ctx)),html:a.el.innerHTML.replace(/ aria-current="page"/g,'').replace(/ aria-label="(?:Home|Learn|Practice|Review|Profile)"/g,''),diagnostics:JSON.parse(vm.runInContext('diagnostics.export()',a.ctx))};}
 function equal(p){assert.deepEqual(observable(p[1]),observable(p[0]));}
 function both(p,fn){p.forEach(fn);equal(p);}
 function answer(a,correct=true){const q=a.current();if(q.shadowing)a.click('listen');a.answer(correct);a.click('check');if(a.ctx.Writing.open(q))a.click('writingReflect',{result:'got'});a.click('next');}

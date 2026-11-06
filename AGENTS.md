@@ -48,3 +48,7 @@ Read [the consolidation strategy](docs/CONSOLIDATION_STRATEGY.md), [content poli
 ## Foundations architecture
 
 Read [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) before adding runtime logic. Keep one progress owner, inject controller capabilities, keep domains independent of controllers and keep views free of learning mutations. Diagnostics observe through a narrow capability and remain separate from schema v2. Consolidation is transitional; prefer reviewed canonical source edits with snapshot compatibility. Semantic colours belong in `tokens.css`; run `audit:architecture` and `audit:style` with all existing release gates. Do not add domain/session logic to bootstrap by default. No ES-module/framework migration is implied.
+
+## Mandatory Material 3 design standard
+
+All future user-facing UI development, bug fixes, feature additions, redesigns and refactoring **must follow [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md)** and applicable current official Google Material 3 guidance. This applies to every release from main. Reuse semantic tokens/components; do not introduce conflicting visual conventions. Support light/dark themes, accessibility, the existing five-tab navigation and responsive/native-inset behaviour. Include design-system regression testing, supplement geometry with actual visual review, and update the design contract when adding a reusable pattern. Do not claim Material certification or TalkBack compliance from automated checks.

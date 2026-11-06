@@ -23,7 +23,7 @@ function luminance(hex){const c=hex.match(/[\da-f]{2}/gi).map(v=>parseInt(v,16)/
 function contrast(a,b){const x=luminance(a),y=luminance(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05);}
 test('system dark CSS preserves the existing light rules and supplies readable dark controls and feedback',()=>{
  const {parse,split}=require('../scripts/lib/css.cjs'),rules=parse(fs.readFileSync('www/style.css','utf8'));assert.ok(parse(fs.readFileSync('www/tokens.css','utf8')).some(r=>r.at.some(a=>a.includes('prefers-color-scheme: dark'))));for(const selector of ['.card','.choice','input','select','nav','.primary','.feedback.wrong','.notice','.toast'])assert.ok(rules.some(r=>split(r.selector,',').includes(selector)));assert.ok(!rules.some(r=>r.at.some(a=>a.includes('prefers-color-scheme:dark'))),'component colours follow semantic tokens in both themes');
- const audit=require('../scripts/audit-style.cjs').audit();assert.deepEqual(audit.errors,[]);assert.equal(audit.contrastPairs.length,38);for(const row of audit.contrastPairs)assert.ok(row.ratio>=row.minimum,JSON.stringify(row));
+ const audit=require('../scripts/audit-style.cjs').audit();assert.deepEqual(audit.errors,[]);assert.equal(audit.contrastPairs.length,50);for(const row of audit.contrastPairs)assert.ok(row.ratio>=row.minimum,JSON.stringify(row));
  const html=fs.readFileSync('www/index.html','utf8');assert.match(html,/theme-color.*prefers-color-scheme: dark/);
 });
 test('Android delegates Back to app state and packages local icons and day/night splash themes',()=>{

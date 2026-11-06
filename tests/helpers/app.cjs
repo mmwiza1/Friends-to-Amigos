@@ -9,7 +9,7 @@ function app(extra={},initial=null,options={}){
   URL:class extends URL{static createObjectURL(blob){effects.blobs.push(blob);return 'blob:backup';}static revokeObjectURL(){}},
   setInterval:()=>{},setTimeout:()=>{},confirm:()=>true,
   localStorage:{getItem:k=>storage[k]||null,setItem:(k,v)=>storage[k]=v},
-  document:{hidden:false,getElementById:id=>nodes[id]||null,addEventListener:()=>{},createElement:tag=>({className:'',textContent:'',remove(){},click(){effects.links.push(this);}}),body:{append(el){effects.toasts.push(el);}}}
+  document:{hidden:false,getElementById:id=>nodes[id]||null,addEventListener:()=>{},createElement:tag=>({className:'',textContent:'',attributes:{},setAttribute(k,v){this.attributes[k]=v;},remove(){},click(){effects.links.push(this);}}),body:{append(el){effects.toasts.push(el);}}}
  };
  const {testLegacyCurriculum,...runtimeExtra}=extra;Object.assign(ctx,runtimeExtra);
  // The current Android wrapper acknowledges actual TTS start by request ID.

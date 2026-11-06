@@ -1,0 +1,19 @@
+'use strict';
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),A=require('../scripts/audit-style.cjs'),app=require('./helpers/app.cjs'),{properties}=require('./helpers/css.cjs');
+test('Material semantic roles and both themes meet measured contrast contracts',()=>{const r=A.audit();assert.deepEqual(r.errors,[]);assert.equal(r.contrastPairs.length,50);});
+for(const [name,css,message]of [
+ ['undefined role','.card{color:var(--undefined-role)}','undefined design token'],
+ ['component colour','.card{color:#123456}','literal colour'],
+ ['small control','.primary{min-height:32px}','Undersized interactive'],
+ ['unshared shape','.card{border-radius:37px}','Use shape tokens'],
+ ['conflicting declaration','.card{padding:8px;padding:12px}','duplicate cascade']
+])test('design audit rejects '+name,()=>assert.ok(A.audit({styles:[{file:'fixture.css',text:css}]}).errors.some(e=>e.includes(message))));
+test('reducing the central Android target below 48 fails the design audit',()=>assert.ok(A.audit({tokens:fs.readFileSync('www/tokens.css','utf8').replace('--target-min: 48px','--target-min: 40px')}).errors.some(e=>e.includes('at least 48'))));
+test('headings, body and learning instructions use scalable role typography',()=>{for(const [s,k]of [['h1','--type-display'],['h2','--type-headline'],['h3','--type-title'],['.question','--type-question']]){const source=fs.readFileSync('www/style.css','utf8');assert.ok(source.includes('font-size: var('+k+')'));assert.ok(properties('www/style.css',s)['font-size'].endsWith('rem'));}});
+test('current navigation is explicit and existing routes stay backward compatible',()=>{const a=app();for(const tab of ['Home','Learn','Games','Review','Profile']){a.click('tab',{tab});const nav=a.el.innerHTML.match(/<nav[\s\S]*?<\/nav>/)[0];assert.equal((nav.match(/aria-current="page"/g)||[]).length,1);assert.ok(nav.includes('data-tab="'+tab+'" aria-label="'+(tab==='Games'?'Practice':tab)+'" aria-current="page"'));}});
+test('status messages are politely announced without moving focus',()=>{const a=app();vm.runInContext("toast('Saved')",a.ctx);const t=a.effects.toasts.at(-1);assert.equal(t.attributes.role,'status');assert.equal(t.attributes['aria-live'],'polite');assert.equal(t.textContent,'Saved');});
+test('native system dialog accents match the branded WebView in both themes',()=>{for(const [dir,hex]of [['values','#0f7166'],['values-night','#87d7c2']]){const base='android/app/src/main/res/'+dir+'/';assert.ok(fs.readFileSync(base+'colors.xml','utf8').includes('<color name="brand_primary">'+hex+'</color>'));for(const variant of [dir,dir+'-v31'])assert.ok(fs.readFileSync('android/app/src/main/res/'+variant+'/styles.xml','utf8').includes('name="android:colorAccent">@color/brand_primary'));}});
+test('permanent agent guidance requires the design contract and keeps release governance',()=>{const s=fs.readFileSync('AGENTS.md','utf8');assert.match(s,/docs\/DESIGN_SYSTEM.md/);assert.match(s,/RELEASE_NOTES_TEMPLATE/);assert.match(s,/SCREENSHOT_POLICY/);});
+
+test('removing the dark scheme fails even when the light palette passes contrast',()=>{const t=fs.readFileSync('www/tokens.css','utf8').split('@media (prefers-color-scheme: dark)')[0];assert.ok(A.audit({tokens:t}).errors.some(e=>e.includes('Missing explicit dark')));});
+test('renderers cannot bypass token ownership using inline hex colours',()=>assert.ok(A.audit({uiSources:[{file:'fixture.js',text:'style="color:#123456"'}]}).errors.some(e=>e.includes('inline literal colour'))));

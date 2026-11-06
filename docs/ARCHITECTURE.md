@@ -97,3 +97,7 @@ The immutable `tests/fixtures/v18-app.js` is pre-extraction orchestration at the
 No general speed-up is claimed. Snapshot JSON cloning is retained where it protects owned attempts; source indexes in storage/dictionary/mastery remain in their existing domains. No new per-question curriculum copy/index or DOM listener is introduced. Capability selection is once per controller bootstrap; event registration is bounded/idempotent. Recommendation algorithms and render/save timing are preserved rather than optimized speculatively.
 
 Remaining debt: classical globals/load order; a central live capability adapter; a large Practice coordinator and a large browser interaction phase; existing mixed catalogue/read-only-render modules; legacy aliases for CSS and internal Games routes. Bootstrap still dispatches top-level render routes. These are explicit future migration boundaries, not reasons to add a framework or rewrite storage/content now.
+
+## Material design contract
+
+[DESIGN_SYSTEM.md](DESIGN_SYSTEM.md) is authoritative for all UI work. The existing tokens/component styles remain the implementation; no Material framework, Compose, font service or palette bridge is introduced. Navigation/status semantics stay in bootstrap rendering; native theme accent resources mirror the branded web primary. No learning domain or storage contract changes are permitted for styling. The v1.10 browser acceptance intentionally allows scalable typography and larger vertical touch space, rather than demanding v1.8 pixel equality.

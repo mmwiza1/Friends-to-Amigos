@@ -1,3 +1,7 @@
+# v1.10.0 Material design consistency — Android versionCode 21
+
+Based on main `b0c46adf5bf665d77abdf481ec1367c601884fbd`. Shared Material-inspired roles, scalable typography, shapes, 48px controls and navigation semantics preserve the existing WebView architecture and learning contracts. See [design standards](docs/DESIGN_SYSTEM.md), [report](docs/release/V1_10_REPORT.md) and [release notes](docs/release/V1_10_RELEASE_NOTES.md). Final validation/showcase adoption is pending; historical results below are not v1.10 results.
+
 # v1.9.0 foundations — Android versionCode 20
 
 Starting main `0820c40f981531b4c923c68c40fada6d84e1ccae`. Same A1.1–B2.2 / 576 activities / 3,328 slots / eleven Practice activities; schema v2 and separate private diagnostics preserved. [Architecture](docs/ARCHITECTURE.md), [report](docs/release/V1_9_REPORT.md), [release notes](docs/release/V1_9_RELEASE_NOTES.md) and [manual QA](docs/release/V1_9_MANUAL_QA.md) document controller/state boundaries, semantic tokens and the bounded canonical/glossary work.

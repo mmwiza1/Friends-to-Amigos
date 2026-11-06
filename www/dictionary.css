@@ -1,7 +1,6 @@
-/* Component/layout rules. Theme colours are owned exclusively by tokens.css. */
 .dictionary-word {
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: var(--shape-xs);
   text-decoration: underline;
   text-decoration-style: dotted;
   text-decoration-color: color-mix(in srgb,var(--primary) 45%,transparent);
@@ -31,8 +30,8 @@
   overscroll-behavior: contain;
   width: 340px;
   max-width: calc(100vw - 20px);
-  padding: 16px;
-  border-radius: 20px;
+  padding: var(--space-4);
+  border-radius: var(--shape-popover);
   border: 1px solid var(--border-subtle);
   background: var(--popup-surface);
   color: var(--text-primary);
@@ -64,8 +63,8 @@
 
 .dictionary-close {
   flex: none;
-  min-width: 44px;
-  min-height: 44px;
+  min-width: var(--target-min);
+  min-height: var(--target-min);
   margin: -7px -7px -7px 0;
   padding: 0;
   background: transparent;
@@ -95,14 +94,14 @@
 }
 
 .dictionary-meaning {
-  font-size: 1.125rem;
+  font-size: var(--type-title);
   font-weight: 650;
 }
 
 .dictionary-context {
-  font-size: .875rem;
+  font-size: var(--type-label);
   background: var(--selected-surface);
-  border-radius: 10px;
+  border-radius: var(--shape-small);
   padding: 9px 10px;
 }
 
@@ -116,7 +115,7 @@
 
 .dictionary-actions button {
   font-size: .8125rem;
-  min-height: 44px;
+  min-height: var(--target-min);
   padding: 10px 12px;
 }
 
@@ -133,7 +132,7 @@
 
 .dictionary-more h4 {
   margin: 14px 0 6px;
-  font-size: .875rem;
+  font-size: var(--type-label);
 }
 
 .dictionary-more ul {
@@ -151,7 +150,7 @@
 
 .dictionary-popup .dictionary-example-meaning {
   color: var(--text-secondary);
-  font-size: 13px;
+  font-size: var(--type-meta);
   margin-top: 2px;
 }
 
@@ -170,7 +169,7 @@
 
 .saved-word-filters button {
   flex: 1 1 40%;
-  min-height: 44px;
+  min-height: var(--target-min);
 }
 
 .saved-word-filters [aria-pressed="true"] {
@@ -179,7 +178,7 @@
 }
 
 .saved-word-row h3 {
-  font-size: 21px;
+  font-size: var(--type-title-large);
   margin-bottom: 6px;
 }
 
@@ -194,13 +193,13 @@
 .saved-word-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-2);
   margin-top: 12px;
 }
 
 .saved-word-actions button {
-  min-height: 44px;
-  font-size: 14px;
+  min-height: var(--target-min);
+  font-size: var(--type-label);
 }
 
 .saved-word-list {
@@ -237,7 +236,7 @@
   }
 
   .saved-word-row {
-    padding: 16px;
+    padding: var(--space-4);
   }
 
   .saved-word-actions {

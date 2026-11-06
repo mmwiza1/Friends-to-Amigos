@@ -1,4 +1,3 @@
-/* Component/layout rules. Theme colours are owned exclusively by tokens.css. */
 :root {
   --safe-top: env(safe-area-inset-top,0px);
   --safe-bottom: env(safe-area-inset-bottom,0px);
@@ -16,13 +15,16 @@ body {
   margin: 0;
   background: var(--outer-background);
   color: var(--text-primary);
-  font: 16px system-ui,sans-serif;
+  font: var(--type-body)/var(--line-body) system-ui,sans-serif;
 }
 
 button {
   font: inherit;
   cursor: pointer;
   touch-action: manipulation;
+  min-height: var(--target-min);
+  min-width: var(--target-min);
+  font-weight: 600;
 }
 
 input {
@@ -30,12 +32,12 @@ input {
   width: 100%;
   padding: 14px;
   border: 1px solid var(--border-subtle);
-  border-radius: 12px;
+  border-radius: var(--shape-small);
   background: var(--surface-primary);
   color: var(--text-primary);
   scroll-margin-block: 24px;
-  min-height: 50px;
-  border-color: var(--border-subtle);
+  min-height: var(--target-min);
+  border-color: var(--outline);
 }
 
 select {
@@ -43,10 +45,11 @@ select {
   width: 100%;
   padding: 14px;
   border: 1px solid var(--border-subtle);
-  border-radius: 12px;
+  border-radius: var(--shape-small);
   background: var(--surface-primary);
   color: var(--text-primary);
-  border-color: var(--border-subtle);
+  border-color: var(--outline);
+  min-height: var(--target-min);
 }
 
 a:focus-visible {
@@ -64,36 +67,38 @@ button:disabled {
   min-height: 100dvh;
   background: var(--app-background);
   margin: auto;
-  padding: calc(28px + var(--safe-top)) calc(22px + var(--safe-right)) calc(24px + var(--app-nav-height) + var(--safe-bottom) + var(--android-keyboard-overlap)) calc(22px + var(--safe-left));
+  padding: calc(28px + var(--safe-top)) calc(var(--screen-margin) + var(--safe-right)) calc(24px + var(--app-nav-height) + var(--safe-bottom) + var(--android-keyboard-overlap)) calc(var(--screen-margin) + var(--safe-left));
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  margin-bottom: 24px;
+  margin-bottom: var(--space-6);
 }
 
 h1 {
-  font-size: 38px;
-  line-height: 1.05;
+  font-size: var(--type-display);
+  line-height: var(--line-display);
   letter-spacing: -1.5px;
   margin: 0;
   font-weight: 850;
 }
 
 h2 {
-  font-size: 23px;
+  font-size: var(--type-headline);
   margin: 25px 0 13px;
+  line-height: var(--line-headline);
 }
 
 h3 {
   margin: 0 0 8px;
-  font-size: 18px;
+  font-size: var(--type-title);
+  line-height: var(--line-title);
 }
 
 p {
-  line-height: 1.5;
+  line-height: var(--line-body);
 }
 
 small {
@@ -115,8 +120,8 @@ small {
 
 .card {
   background: var(--surface-primary);
-  padding: 20px;
-  border-radius: 22px;
+  padding: var(--space-5);
+  border-radius: var(--shape-large);
   box-shadow: var(--shadow-card);
   margin-bottom: 14px;
   border: 1px solid var(--border-subtle);
@@ -127,13 +132,13 @@ small {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: var(--space-3);
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: var(--space-3);
 }
 
 .grid .card {
@@ -144,13 +149,13 @@ small {
   background: var(--primary);
   color: var(--primary-text);
   border: 0;
-  border-radius: 19px;
-  padding: 20px;
+  border-radius: var(--shape-full);
+  padding: var(--space-5);
   width: 100%;
   text-align: left;
   margin: 8px 0;
   font-weight: 700;
-  font-size: 1.125rem;
+  font-size: var(--type-title);
   line-height: 1.4;
   min-height: 52px;
 }
@@ -158,7 +163,7 @@ small {
 .primary small {
   display: block;
   color: var(--primary-text);
-  font-size: 15px;
+  font-size: var(--type-body-small);
   font-weight: 400;
   margin-top: 6px;
 }
@@ -168,7 +173,7 @@ small {
   background: var(--selected-surface);
   color: var(--primary);
   padding: 11px 17px;
-  border-radius: 30px;
+  border-radius: var(--shape-full);
   font-weight: 650;
 }
 
@@ -176,7 +181,7 @@ small {
   background: transparent;
   border: 0;
   color: var(--primary);
-  padding: 8px;
+  padding: var(--space-2);
 }
 
 .days {
@@ -187,7 +192,7 @@ small {
 
 .day {
   text-align: center;
-  font-size: 12px;
+  font-size: var(--type-label-small);
   color: var(--text-secondary);
 }
 
@@ -214,7 +219,7 @@ progress {
   width: 100%;
   height: 12px;
   border: 0;
-  border-radius: 10px;
+  border-radius: var(--shape-small);
   margin: 10px 0 15px;
   overflow: hidden;
   background: var(--progress-track);
@@ -235,8 +240,8 @@ progress::-moz-progress-bar {
 .milestone {
   padding: 15px;
   background: var(--milestone-surface);
-  border-radius: 17px;
-  font-size: 14px;
+  border-radius: var(--shape-medium);
+  font-size: var(--type-label);
   text-align: left;
   width: 100%;
   border: 0;
@@ -250,10 +255,11 @@ nav {
   transform: translateX(-50%);
   width: min(500px,calc(100% - var(--safe-left) - var(--safe-right)));
   display: flex;
-  background: var(--app-background);
+  background: var(--surface-container);
   border-top: 1px solid var(--border-subtle);
-  padding: 10px 6px 14px;
+  padding: 8px 6px;
   z-index: 5;
+  min-height: 80px;
 }
 
 nav button {
@@ -261,18 +267,25 @@ nav button {
   border: 0;
   background: none;
   color: var(--text-secondary);
-  font-size: .6875rem;
-  padding: 7px 3px;
+  font-size: var(--type-navigation);
+  padding: 4px 0;
   position: relative;
   min-width: 0;
-  min-height: 56px;
+  min-height: 64px;
   overflow-wrap: normal;
+  line-height: var(--line-label);
+  border-radius: var(--shape-medium);
 }
 
 nav button span {
-  display: block;
-  font-size: 25px;
+  display: grid;
+  font-size: 24px;
   margin-bottom: 4px;
+  place-items: center;
+  width: min(56px,100%);
+  height: 32px;
+  margin: 0 auto 4px;
+  border-radius: var(--shape-full);
 }
 
 nav button.active {
@@ -286,40 +299,40 @@ nav button.active {
   right: 22%;
   background: var(--primary);
   color: var(--primary-text);
-  border-radius: 15px;
+  border-radius: var(--shape-full);
   padding: 2px 6px;
   font-size: 11px;
 }
 
 .icon {
-  font-size: 30px;
-  margin-bottom: 8px;
+  font-size: var(--type-display-small);
+  margin-bottom: var(--space-2);
 }
 
 .stat {
-  font-size: 30px;
+  font-size: var(--type-display-small);
   font-weight: 750;
   color: var(--primary);
 }
 
 .statlabel {
-  font-size: 13px;
+  font-size: var(--type-meta);
   color: var(--text-secondary);
 }
 
 .choices {
   display: grid;
-  gap: 12px;
+  gap: var(--space-3);
 }
 
 .choice {
   border: 2px solid var(--border-subtle);
   background: var(--surface-primary);
   padding: 17px;
-  border-radius: 16px;
+  border-radius: var(--shape-medium);
   text-align: left;
   color: var(--text-primary);
-  border-color: var(--border-subtle);
+  border-color: var(--outline);
 }
 
 .choice.selected {
@@ -329,7 +342,7 @@ nav button.active {
 
 .feedback {
   padding: 18px;
-  border-radius: 18px;
+  border-radius: var(--shape-medium);
   margin-top: 18px;
   background: var(--success-surface);
 }
@@ -352,12 +365,12 @@ nav button.active {
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: var(--primary);
-  font-size: 12px;
+  font-size: var(--type-label-small);
   font-weight: bold;
 }
 
 .question {
-  font-size: 1.5625rem;
+  font-size: var(--type-question);
   line-height: 1.3;
   overflow-wrap: break-word;
 }
@@ -400,16 +413,16 @@ nav button.active {
 }
 
 .notice {
-  font-size: 13px;
+  font-size: var(--type-meta);
   background: var(--surface-secondary);
-  border-radius: 12px;
-  padding: 12px;
+  border-radius: var(--shape-small);
+  padding: var(--space-3);
   color: var(--text-secondary);
 }
 
 .lessonhead {
   display: flex;
-  gap: 12px;
+  gap: var(--space-3);
   align-items: center;
 }
 
@@ -424,7 +437,7 @@ nav button.active {
 }
 
 .filters button {
-  font-size: 12px;
+  font-size: var(--type-label-small);
   flex: 1;
 }
 
@@ -444,7 +457,7 @@ nav button.active {
   background: var(--toast-surface);
   color: var(--toast-text);
   padding: 13px 20px;
-  border-radius: 15px;
+  border-radius: var(--shape-small);
   z-index: 20;
   max-width: calc(100% - var(--safe-left) - var(--safe-right) - 24px);
   overflow-wrap: anywhere;
@@ -497,7 +510,7 @@ nav button.active {
 }
 
 .story p {
-  font-size: 1.25rem;
+  font-size: var(--type-reading);
   line-height: 1.85;
   white-space: pre-line;
 }
@@ -514,14 +527,14 @@ nav button.active {
 }
 
 .glossary {
-  font-size: 15px;
+  font-size: var(--type-body-small);
   margin: 12px 0;
 }
 
 .glossary div {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: var(--space-3);
   padding: 8px 0;
   border-bottom: 1px solid var(--border-subtle);
 }
@@ -589,7 +602,7 @@ summary:focus-visible {
 }
 
 .exercise-instruction {
-  font-size: 14px;
+  font-size: var(--type-label);
   color: var(--primary);
   font-weight: 650;
   margin: 12px 0;
@@ -598,11 +611,11 @@ summary:focus-visible {
 .quiz-choices .choice {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: var(--space-2);
   min-height: 56px;
   cursor: pointer;
   min-width: 0;
-  font-size: 1rem;
+  font-size: var(--type-body);
 }
 
 .option-indicator {
@@ -644,7 +657,7 @@ summary:focus-visible {
 
 .feedback-label {
   display: block;
-  font-size: 12px;
+  font-size: var(--type-label-small);
   font-weight: 700;
   letter-spacing: .8px;
   text-transform: uppercase;
@@ -708,7 +721,7 @@ summary:focus-visible {
   align-items: center;
   gap: 14px;
   min-height: 56px;
-  font-size: 1rem;
+  font-size: var(--type-body);
 }
 
 .conjugation-table {
@@ -760,7 +773,7 @@ summary:focus-visible {
 }
 
 .conjugation-row button {
-  min-height: 44px;
+  min-height: var(--target-min);
 }
 
 .sr-only {
@@ -821,12 +834,13 @@ textarea {
   resize: vertical;
   padding: 14px;
   border: 2px solid var(--primary);
-  border-radius: 14px;
+  border-radius: var(--shape-medium);
   background: var(--app-background);
   color: var(--text-primary);
   font: inherit;
   line-height: 1.5;
   box-sizing: border-box;
+  border-color: var(--outline);
 }
 
 .writing-response {
@@ -844,7 +858,7 @@ textarea {
 }
 
 .writing-why summary {
-  min-height: 44px;
+  min-height: var(--target-min);
   display: list-item;
   padding: 10px 0;
   cursor: pointer;
@@ -853,12 +867,12 @@ textarea {
 
 .filters[aria-label="Choose playable stage"] {
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-2);
 }
 
 .filters[aria-label="Choose playable stage"] button {
   flex: 1 1 20%;
-  min-height: 44px;
+  min-height: var(--target-min);
   white-space: nowrap;
 }
 
@@ -870,13 +884,13 @@ textarea {
   display: grid;
   place-items: center;
   flex: none;
-  width: 44px;
-  min-width: 44px;
+  width: var(--target-min);
+  min-width: var(--target-min);
   height: 44px;
-  min-height: 44px;
+  min-height: var(--target-min);
   padding: 0;
   border: 0;
-  border-radius: 10px;
+  border-radius: var(--shape-small);
   background: transparent;
   color: inherit;
   touch-action: manipulation;
@@ -900,7 +914,7 @@ textarea {
 }
 
 .dictionary-discovery-tip {
-  font-size: .875rem;
+  font-size: var(--type-label);
   line-height: 1.4;
   margin: 10px 0;
   color: var(--text-secondary);
@@ -932,7 +946,7 @@ textarea {
 .summary-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(85px,1fr));
-  gap: 16px;
+  gap: var(--space-4);
   margin: 16px 0;
 }
 
@@ -976,7 +990,7 @@ textarea {
   background: var(--success-surface);
   color: var(--text-primary);
   padding: 16px 12px;
-  border-radius: 16px;
+  border-radius: var(--shape-medium);
   text-align: left;
   min-height: 72px;
   font-weight: 700;
@@ -995,7 +1009,7 @@ textarea {
 }
 
 .card summary {
-  min-height: 44px;
+  min-height: var(--target-min);
   padding: 10px 0;
   cursor: pointer;
 }
@@ -1021,9 +1035,9 @@ textarea {
 .up-next {
   text-align: left;
   margin: 18px 0;
-  padding: 16px;
+  padding: var(--space-4);
   border: 1px solid var(--border-subtle);
-  border-radius: 14px;
+  border-radius: var(--shape-medium);
 }
 
 .structured-task {
@@ -1034,7 +1048,7 @@ textarea {
 .tile-bank {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-2);
   max-width: 100%;
   padding: 10px 0;
 }
@@ -1042,7 +1056,7 @@ textarea {
 .built-sentence {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-2);
   max-width: 100%;
   padding: 10px 0;
   list-style: none;
@@ -1057,7 +1071,7 @@ textarea {
   gap: 6px;
   max-width: 100%;
   border: 1px solid var(--border-subtle);
-  border-radius: 12px;
+  border-radius: var(--shape-small);
   padding: 5px 8px;
   background: var(--surface-primary);
   overflow-wrap: anywhere;
@@ -1069,7 +1083,7 @@ textarea {
   gap: 6px;
   max-width: 100%;
   border: 1px solid var(--border-subtle);
-  border-radius: 12px;
+  border-radius: var(--shape-small);
   padding: 5px 8px;
   background: var(--success-surface);
   overflow-wrap: anywhere;
@@ -1093,18 +1107,18 @@ textarea {
 
 .tile-control {
   flex-shrink: 0;
-  min-width: 44px;
-  min-height: 44px;
+  min-width: var(--target-min);
+  min-height: var(--target-min);
   border: 0;
-  border-radius: 9px;
+  border-radius: var(--shape-small);
   background: var(--success-surface);
   color: var(--primary);
-  font-size: .875rem;
+  font-size: var(--type-label);
   font-weight: 700;
 }
 
 .cloze-passage {
-  font-size: 1.125rem;
+  font-size: var(--type-title);
   line-height: 2;
   overflow-wrap: anywhere;
 }
@@ -1118,8 +1132,8 @@ textarea {
 .cloze-blank {
   min-width: 0;
   border: 1px solid var(--border-subtle);
-  border-radius: 14px;
-  padding: 12px;
+  border-radius: var(--shape-medium);
+  padding: var(--space-3);
   margin: 12px 0;
 }
 
@@ -1132,7 +1146,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: var(--space-3);
   padding: 5px 0;
 }
 
@@ -1143,7 +1157,7 @@ textarea {
 
 .cloze-option .pill {
   flex-shrink: 0;
-  min-height: 44px;
+  min-height: var(--target-min);
 }
 
 .cloze-option [aria-pressed=true] {
@@ -1164,20 +1178,20 @@ textarea {
   }
 
   .cloze-option {
-    gap: 8px;
+    gap: var(--space-2);
   }
 }
 
 button.pill {
-  min-height: 44px;
+  min-height: var(--target-min);
 }
 
 button.plain {
-  min-height: 44px;
+  min-height: var(--target-min);
 }
 
 button.back {
-  min-height: 44px;
+  min-height: var(--target-min);
 }
 
 .period-stats {
@@ -1230,21 +1244,21 @@ button.back {
 }
 
 .question-purpose summary {
-  min-height: 44px;
+  min-height: var(--target-min);
   padding: 10px 0;
   cursor: pointer;
 }
 
 .support-tools summary {
-  min-height: 44px;
+  min-height: var(--target-min);
   padding: 10px 0;
   cursor: pointer;
 }
 
 .confidence {
   border: 1px solid var(--border-subtle);
-  border-radius: 14px;
-  padding: 12px;
+  border-radius: var(--shape-medium);
+  padding: var(--space-3);
   margin: 12px 0;
   min-width: 0;
 }
@@ -1283,7 +1297,7 @@ article dd {
 }
 
 .compact-resume {
-  padding: 12px;
+  padding: var(--space-3);
 }
 
 .current-unit {
@@ -1291,7 +1305,7 @@ article dd {
 }
 
 .journey-unit details summary {
-  min-height: 44px;
+  min-height: var(--target-min);
   padding: 10px 0;
 }
 
@@ -1313,12 +1327,12 @@ article dd {
 
 .practice-more summary {
   padding: 12px 0;
-  min-height: 44px;
+  min-height: var(--target-min);
 }
 
 .completion-more summary {
   padding: 12px 0;
-  min-height: 44px;
+  min-height: var(--target-min);
 }
 
 .dictionary-result {
@@ -1400,7 +1414,7 @@ article dd {
   display: flex;
   align-items: center;
   gap: 9px;
-  font-size: 1.125rem;
+  font-size: var(--type-title);
   line-height: 1.35;
   margin: 0 0 7px;
 }
@@ -1409,7 +1423,7 @@ article dd {
   display: flex;
   align-items: center;
   gap: 9px;
-  font-size: 1.125rem;
+  font-size: var(--type-title);
   line-height: 1.35;
   margin: 0 0 7px;
 }
@@ -1431,8 +1445,8 @@ article dd {
 .practice-hero {
   background: var(--practice-hero-surface);
   border-color: var(--practice-hero-border);
-  border-radius: 24px;
-  padding: 20px;
+  border-radius: var(--shape-large);
+  padding: var(--space-5);
   margin-top: 12px;
 }
 
@@ -1451,22 +1465,22 @@ article dd {
 }
 
 .practice-hub .primary {
-  border-radius: 16px;
-  font-size: 1rem;
+  border-radius: var(--shape-medium);
+  font-size: var(--type-body);
   padding: 15px 18px;
   min-height: 48px;
 }
 
 .practice-shortcut .primary {
-  border-radius: 16px;
-  font-size: 1rem;
+  border-radius: var(--shape-medium);
+  font-size: var(--type-body);
   padding: 15px 18px;
   min-height: 48px;
 }
 
 #app.practice-activity-screen .primary {
-  border-radius: 16px;
-  font-size: 1rem;
+  border-radius: var(--shape-medium);
+  font-size: var(--type-body);
   padding: 15px 18px;
   min-height: 48px;
 }
@@ -1474,7 +1488,7 @@ article dd {
 .practice-activity-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(min(100%,9rem),1fr));
-  gap: 12px;
+  gap: var(--space-3);
 }
 
 .practice-activity-grid.practice-wide {
@@ -1483,7 +1497,7 @@ article dd {
 
 .practice-activity {
   border: 1px solid var(--border-subtle);
-  border-radius: 20px;
+  border-radius: var(--shape-popover);
   padding: 16px 14px;
   text-align: left;
   display: flex;
@@ -1501,13 +1515,13 @@ article dd {
   place-items: center;
   width: 36px;
   height: 36px;
-  border-radius: 12px;
+  border-radius: var(--shape-small);
   background: var(--icon-surface);
   color: var(--primary);
 }
 
 .practice-name {
-  font-size: 1rem;
+  font-size: var(--type-body);
   font-weight: 750;
   line-height: 1.35;
   text-wrap: balance;
@@ -1546,7 +1560,7 @@ article dd {
 
 .practice-resumes summary {
   padding: 12px 0;
-  min-height: 44px;
+  min-height: var(--target-min);
 }
 
 .practice-resumes button {
@@ -1560,7 +1574,7 @@ article dd {
 }
 
 .practice-shortcut .plain {
-  min-height: 44px;
+  min-height: var(--target-min);
 }
 
 .word-match-task {
@@ -1573,7 +1587,7 @@ article dd {
 }
 
 .word-match-task .option-text {
-  font-size: 1rem;
+  font-size: var(--type-body);
 }
 
 .skill-results .pill {
@@ -1604,7 +1618,7 @@ nav .practice-icon {
 .match-source {
   background: var(--practice-hero-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: 16px;
+  border-radius: var(--shape-medium);
   padding: 14px;
   margin: 0 0 14px;
 }
@@ -1629,13 +1643,13 @@ nav .practice-icon {
 .practice-catalogue>summary {
   padding: 1rem;
   border: 1px solid var(--border-subtle);
-  border-radius: 1rem;
+  border-radius: var(--shape-medium);
   font-weight: 700;
   min-height: 48px;
 }
 
 .beta-diagnostics button {
-  min-height: 44px;
+  min-height: var(--target-min);
 }
 
 @media (hover: hover) {
@@ -1646,4 +1660,64 @@ nav .practice-icon {
 
 .primary:not(:disabled):active {
   background: var(--primary-pressed);
+  filter: none;
+}
+
+nav button.active span {
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+}
+
+nav button[aria-current="page"] {
+  font-weight: 750;
+}
+
+summary {
+  min-height: var(--target-min);
+  padding-block: var(--space-2);
+}
+
+button:not(:disabled):active {
+  filter: brightness(.92);
+}
+
+button[aria-pressed="true"] {
+  outline: 2px solid var(--selected-border);
+  outline-offset: -2px;
+}
+
+.type-display {
+  font-size: var(--type-display);
+  line-height: var(--line-display);
+}
+
+.type-headline {
+  font-size: var(--type-headline);
+  line-height: var(--line-headline);
+}
+
+.type-title {
+  font-size: var(--type-title);
+  line-height: var(--line-title);
+}
+
+.type-body {
+  font-size: var(--type-body);
+  line-height: var(--line-body);
+}
+
+.type-label {
+  font-size: var(--type-label);
+  line-height: var(--line-label);
+}
+
+@media(prefers-reduced-motion:no-preference) {
+  button {
+    transition: background-color var(--motion-duration) var(--motion-easing),box-shadow var(--motion-duration) var(--motion-easing);
+  }
+}
+
+select:focus-visible,textarea:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
 }

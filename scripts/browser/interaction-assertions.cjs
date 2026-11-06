@@ -1,5 +1,5 @@
 'use strict';
-const fs=require('node:fs'),foundations=require('./foundations-checks.cjs'),styles=['tests/fixtures/v18-style.css','tests/fixtures/v18-dictionary.css'].map(f=>fs.readFileSync(f,'utf8'));
+const fs=require('node:fs'),foundations=require('./foundations-checks.cjs'),material=require('./material-checks.cjs'),styles=['tests/fixtures/v18-style.css','tests/fixtures/v18-dictionary.css'].map(f=>fs.readFileSync(f,'utf8'));
 // One private page scope preserves historical/current phase setup and every assertion.
 module.exports=(config,historicalEpisodeSources)=>`(async()=>{
    const liveCourse={numbers:C.numbers,time:C.time,lessons:C.lessons,listeningPractice:C.listeningPractice,speakingPractice:C.speakingPractice,assessmentChanges:C.assessmentChanges};delete C.assessmentChanges;C.numbers=C.numbers.map(q=>Consolidation.prior(AssessmentPolicy.prior(q)));C.time=C.time.map(q=>Consolidation.prior(AssessmentPolicy.prior(q)));const oldEpisodes=${JSON.stringify(historicalEpisodeSources)};C.lessons=C.lessons.map(l=>oldEpisodes[l.id]||JSON.parse(JSON.stringify({...l,reading:Consolidation.readingPrior(l.reading),questions:l.questions.map(q=>Consolidation.prior(AssessmentPolicy.prior(q)))})));for(const l of C.lessons){for(const r of [l.reading,...l.questions.map(q=>q.reading)].filter(Boolean))delete r.episode;if(l.reading)for(const q of l.questions)if(q.reading&&q.reading.text===l.reading.text)q.reading=l.reading;}C.listeningPractice=C.listeningPractice.map(q=>Consolidation.prior(AssessmentPolicy.prior(q)));C.speakingPractice=C.speakingPractice.map(q=>Consolidation.prior(AssessmentPolicy.prior(q)));
@@ -402,5 +402,6 @@ module.exports=(config,historicalEpisodeSources)=>`(async()=>{
    quiz=null;actions.home();render();window.scrollTo(0,0);
 
    await (${foundations.toString()})({assert,frame,styles:${JSON.stringify(styles)}});
+   await (${material.toString()})({assert,frame});
    return {scenario:config.name,width:innerWidth,height:innerHeight,dark:config.dark,nativeInsets:true,simulatedKeyboard:Boolean(config.keyboard),insets:{top:config.top||24,bottom:config.bottom,left:config.left||0,right:config.right||0},fontScale:config.fontScale||1,checks};
   })()`;

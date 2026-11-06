@@ -15,3 +15,7 @@ Record platform/device, build, method, result and limitations separately from au
 - [ ] Review, beginner Practice disclosure and diagnostics data controls have clear next actions and no inaccessible hidden state.
 
 The repository browser suite exercises real DOM keyboard/focus, wrapping, controls, modal dismissal and geometry across existing profiles. It does not run TalkBack or validate a physical Samsung/Pixel keyboard. Actual-device TalkBack and manual motor/vision testing remain required beta checks until a recorded result exists.
+
+## Material 3 acceptance (v1.10 onward)
+
+Use DESIGN_SYSTEM.md. On device, inspect native confirmation accent/labels in both themes; TalkBack current destination, radio/tiles/cloze and dictionary reading order/focus return; polite status announcements; system font/display enlargement; 48px controls and inline-word exceptions; contrast and state distinction; landscape/IME/cutout/system bars. Browser simulation and source/unit checks do not mark these actual-device items passed. Wallpaper dynamic colour is deferred, not an untested enabled feature.

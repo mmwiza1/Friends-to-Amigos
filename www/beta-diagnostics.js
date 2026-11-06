@@ -1,6 +1,6 @@
 (function(root){
 'use strict';
-const APP_VERSION='1.9.0',indexes=new WeakMap();
+const APP_VERSION='1.10.0',indexes=new WeakMap();
 const KEY='friends-to-amigos-beta-diagnostics-v1',LIMIT=500,DAYS=30;
 const types=['lesson_opened','lesson_completed','activity_left','answer_checked','support_used','dictionary_opened','review_started','review_completed','practice_opened','practice_completed','stage_progressed','session_duration'];
 const skills=['context','trainer','builder','spot','numbers','match','rapid','fix','listening','speaking','shadowing'];
