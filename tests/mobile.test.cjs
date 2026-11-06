@@ -30,7 +30,7 @@ test('Android delegates Back to app state and packages local icons and day/night
  const java=fs.readFileSync('android/app/src/main/java/com/friendstoamigos/app/MainActivity.java','utf8');assert.match(java,/FriendsToAmigos.handleBack/);assert.doesNotMatch(java,/querySelector/);assert.match(java,/registerOnBackInvokedCallback/);assert.match(java,/moveTaskToBack\(true\)/);assert.match(java,/onStart\(String id\).*speechResult\(id,true\)/);assert.match(java,/onError\(String id\).*speechResult\(id,false\)/);
  const manifest=fs.readFileSync('android/app/src/main/AndroidManifest.xml','utf8');assert.match(manifest,/@mipmap\/ic_launcher_round/);assert.match(manifest,/@string\/app_name/);assert.match(manifest,/@style\/AppTheme/);assert.doesNotMatch(manifest,/android.permission.INTERNET|RECORD_AUDIO/);
  for(const path of ['values-v31','values-night-v31'])assert.match(fs.readFileSync('android/app/src/main/res/'+path+'/styles.xml','utf8'),/windowSplashScreenAnimatedIcon/);
- assert.match(fs.readFileSync('android/app/src/main/res/mipmap-anydpi/ic_launcher.xml','utf8'),/adaptive-icon/);
+ assert.match(fs.readFileSync('android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml','utf8'),/adaptive-icon/);
  const workflow=fs.readFileSync('.github/workflows/android.yml','utf8');assert.match(workflow,/assembleDebug lintDebug testDebugUnitTest/);assert.doesNotMatch(workflow,/if: github.event_name == 'workflow_dispatch'/);
 });
 

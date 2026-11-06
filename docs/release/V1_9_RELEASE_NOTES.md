@@ -34,7 +34,7 @@ Progress keeps schema v2 and the existing storage key. No account or microphone 
 - Three stale B-level glossary entries now explain expressions actually used in their passages.
 - Glossary validation recognises visible title vocabulary and valid discontinuous phrases, retaining correct learner support instead of rewriting it automatically.
 - Superseded CSS definitions and obsolete game-card styles were consolidated; final-source showcase screenshots are required by the existing release gate.
-- Redundant API-26 launcher resource qualification is removed while keeping the same adaptive icons and API-33 monochrome overrides.
+- Existing adaptive icons, API-33 monochrome overrides and native layout/Back policies are preserved.
 
 ## Previous release highlights
 

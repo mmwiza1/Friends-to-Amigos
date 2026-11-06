@@ -36,9 +36,9 @@ All 117 original app test bodies are preserved, grouped into course (50), Practi
 
 ## Android warning review
 
-All twelve baseline lint findings were inspected. The redundant `mipmap-anydpi-v26` qualifier is removed safely because minSdk is 26; the same two XML files now live in `mipmap-anydpi`, and API-33 monochrome resources remain unchanged. Existing resource tests retain all assertions and follow the equivalent path.
+All twelve baseline lint findings were inspected. No speculative production/native change is retained. Removing the redundant API-26 qualifier introduced two IconXmlAndPng findings, so the original qualifier and identical resources are retained. The existing launcher tests keep every original assertion and add an explicit minSdk floor check.
 
-Retained intentionally: OldTargetApi (target upgrade requires separate platform QA); UnusedAttribute for API-33 Back opt-in (correct on supported systems); SetJavaScriptEnabled (local JS is the app, with existing navigation/WebView policy); DataExtractionRules (backup policy is deliberately disabled; no speculative migration); five IconLauncherShape findings (existing brand artwork needs deliberate design/device review); two base MonochromeLauncherIcon warnings (the API-33 variants already supply the actual monochrome layer). No warning suppression was added. Exact final lint/native totals remain pending validation.
+Retained intentionally: the redundant API qualifier (removal causes new overlap warnings); OldTargetApi (target upgrade needs platform QA); UnusedAttribute for API-33 Back opt-in; SetJavaScriptEnabled (local JS is the app, with existing navigation policy); DataExtractionRules (backup deliberately disabled); five IconLauncherShape findings (existing brand artwork needs deliberate design/device review); two base MonochromeLauncherIcon warnings (API-33 variants already supply the monochrome layer). No suppression was added. Final totals are recorded below after validation.
 
 ## Validation / release gate
 
@@ -88,6 +88,6 @@ Classical global-script loading, the central live dependency adapter, large Prac
 
 `.github/workflows/android.yml`, `AGENTS.md`, `BUILD_STATUS.md`, `COURSE_DESIGN.md`, `README.md`, `android/app/build.gradle`, `android/app/src/test/java/com/friendstoamigos/app/LauncherResourcesTest.java`, `docs/BETA_DIAGNOSTICS.md`, `docs/CONSOLIDATION_STRATEGY.md`, `docs/CONTENT_REVIEW_POLICY.md`, `docs/LINGUISTIC_CONTENT_SCHEMA.md`, `docs/MANUAL_ACCESSIBILITY.md`, `docs/STATE_AND_QUESTIONS.md`, `docs/resources/CODEX_REFERENCE.md`, `docs/screenshots/beginner.png`, `docs/screenshots/cloze.png`, `docs/screenshots/conjugations.png`, `docs/screenshots/dictionary.png`, `docs/screenshots/feedback.png`, `docs/screenshots/games.png`, `docs/screenshots/home.png`, `docs/screenshots/learn.png`, `docs/screenshots/lesson-complete.png`, `docs/screenshots/manifest.json`, `docs/screenshots/profile.png`, `docs/screenshots/recommendations.png`, `docs/screenshots/review.png`, `docs/screenshots/saved-words.png`, `docs/screenshots/sentence-building.png`, `docs/screenshots/story.png`, `package.json`, `scripts/audit-language.cjs`, `scripts/browser-check.cjs`, `scripts/content/build-learner-dictionary.cjs`, `scripts/content/experience-support.cjs`, `scripts/showcase/config.cjs`, `tests/app.test.cjs`, `tests/helpers/app.cjs`, `tests/icon.test.cjs`, `tests/mobile.test.cjs`, `tests/quality-release.test.cjs`, `tests/samsung-responsive.test.cjs`, `tests/screenshots.test.cjs`, `tests/viewport.test.cjs`, `www/app.js`, `www/b21-data.js`, `www/b22-data.js`, `www/beta-diagnostics.js`, `www/consolidation.js`, `www/dictionary.css`, `www/index.html`, `www/linguistic-content.js`, `www/practice-hub.js`, `www/style.css`.
 
-### Equivalent resource moves
+### Native resources
 
-`android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml → android/app/src/main/res/mipmap-anydpi/ic_launcher.xml`, `android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml → android/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml`.
+Original launcher resources and qualifiers are retained unchanged.
