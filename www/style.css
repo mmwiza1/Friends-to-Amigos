@@ -24,7 +24,6 @@ button {
   touch-action: manipulation;
   min-height: var(--target-min);
   min-width: var(--target-min);
-  font-weight: 600;
 }
 
 input {
