@@ -1,6 +1,8 @@
 # v1.9.0 foundations — Android versionCode 20
 
-Starting main `0820c40f981531b4c923c68c40fada6d84e1ccae`. Same A1.1–B2.2 / 576 activities / 3,328 slots / eleven Practice activities; schema v2 and separate private diagnostics preserved. [Architecture](docs/ARCHITECTURE.md), [report](docs/release/V1_9_REPORT.md), [release notes](docs/release/V1_9_RELEASE_NOTES.md) and [manual QA](docs/release/V1_9_MANUAL_QA.md) describe the foundations change. Final source/showcase and full hosted validation are pending; historical results below are not the v1.9 gate.
+Starting main `0820c40f981531b4c923c68c40fada6d84e1ccae`. Same A1.1–B2.2 / 576 activities / 3,328 slots / eleven Practice activities; schema v2 and separate private diagnostics preserved. [Architecture](docs/ARCHITECTURE.md), [report](docs/release/V1_9_REPORT.md), [release notes](docs/release/V1_9_RELEASE_NOTES.md) and [manual QA](docs/release/V1_9_MANUAL_QA.md) document controller/state boundaries, semantic tokens and the bounded canonical/glossary work.
+
+Performed complete runtime gate [42211408735](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/42211408735): **2,228 JS tests passed / 0 failed or skipped; 17 browser layouts / 55,273 assertions; 15 public captures / 191 assertions; Android build successful, 15 JVM tests / 0 failures, lint 0 errors / exactly the same 12 existing warnings; all 93 APK web assets match source**. All course/showcase/language/recommendation/learning/story/depth/identity and new architecture/style gates passed. Language has zero blocking errors or glossary flags; automated checks do not imply native approval. All fifteen final-source showcase images were individually reviewed. The documentation-only release commit repeats the full hosted gate before main promotion. No physical-device/TalkBack or independent native/educator validation is claimed. Historical evidence below does not substitute for this gate.
 
 # v1.8.0 consolidation — Android versionCode 19
 

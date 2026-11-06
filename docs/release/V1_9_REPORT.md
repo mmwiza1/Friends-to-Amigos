@@ -32,17 +32,45 @@ Passages, teaching targets, IDs/order and valid answers are unchanged. Shared ch
 
 ## Test architecture and equivalence
 
-All 117 original app test bodies are preserved, grouped into course (50), Practice (18), platform (37) and data (12), with scenario helpers. Browser CDP transport, 17 profiles, interaction assertions and stress-capture recipes are separated without deleting cases. A frozen v1.8 orchestration fixture, fixed clock and seeded randomness compare observable markup, progress, attempts, diagnostics and navigation across old/new implementations. Baseline CSS additionally supports real-browser layout comparison. Guard tests exercise dependency/capability, view, diagnostics, bootstrap and colour failures.
+All 117 original app test bodies are preserved (AST/source comparison: 117 found, zero changed or missing), grouped into course (50), Practice (18), platform (37) and data (12), with scenario helpers. Browser CDP transport, 17 profiles, interaction assertions and stress-capture recipes are separated without deleting cases. A frozen v1.8 orchestration fixture, fixed clock and seeded randomness compare observable markup, progress, attempts, diagnostics and navigation across old/new implementations. Baseline CSS additionally supports real-browser layout comparison. Guard tests exercise dependency/capability, view, diagnostics, bootstrap and colour failures.
 
 ## Android warning review
 
 All twelve baseline lint findings were inspected. No speculative production/native change is retained. Removing the redundant API-26 qualifier introduced two IconXmlAndPng findings, so the original qualifier and identical resources are retained. The existing launcher tests keep every original assertion and add an explicit minSdk floor check.
 
-Retained intentionally: the redundant API qualifier (removal causes new overlap warnings); OldTargetApi (target upgrade needs platform QA); UnusedAttribute for API-33 Back opt-in; SetJavaScriptEnabled (local JS is the app, with existing navigation policy); DataExtractionRules (backup deliberately disabled); five IconLauncherShape findings (existing brand artwork needs deliberate design/device review); two base MonochromeLauncherIcon warnings (API-33 variants already supply the monochrome layer). No suppression was added. Final totals are recorded below after validation.
+Retained intentionally: ObsoleteSdkInt for the redundant API qualifier (removal causes new overlap warnings); OldTargetApi (target upgrade needs platform QA); UnusedAttribute for API-33 Back opt-in; SetJavaScriptEnabled (local JS is the app, with existing navigation policy); DataExtractionRules (backup deliberately disabled); five IconLauncherShape findings (existing brand artwork needs deliberate design/device review); two base MonochromeLauncherIcon warnings (API-33 variants already supply the monochrome layer). No suppression was added. Final totals are recorded below after validation.
 
-## Validation / release gate
+## Performed validation / release gate
 
-Pending final source, hosted browser/native execution, showcase recapture/adoption and visual inspection. Local Chromium cannot start under the executor sandbox (EPERM socket operation); the established GitHub Actions environment provides real Chromium and Android validation. No physical-device, TalkBack, emulator, acoustic, independent native/educator or external learner-study validation is claimed.
+The complete runtime gate passed in [run 42211408735](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/42211408735), commit `9cdfe27691ad1531a944f90ed55b7ff0737eeb4e`. The final documentation-only commit repeats the full hosted gate before main promotion. No runtime or captured UI is changed by that documentation commit.
+
+| Gate | Actual result |
+| --- | --- |
+| `npm run check` / `check:screenshots` | Passed: 576 activities, 3,328 slots, 3,367 permanent IDs; 15 current, reviewed screenshots |
+| `npm test` (hosted Node 22) | **2,228 passed; 0 failed/cancelled/skipped/todo** |
+| `npm run audit` | Passed locally; existing course/identity/anchor report retained |
+| `audit:architecture` | Passed: 86 registered runtime JS modules, zero boundary errors |
+| `audit:style` | Passed: zero errors; 38 important light/dark contrast pairs, minimum text ratio 4.79:1 |
+| `audit:language` | Passed: 40 canonical records, zero errors or glossary flags |
+| `audit:recommendations` | Passed: 30 entries, zero metadata warnings; provider verification dates remain 2026-10-26, not falsely refreshed by an offline audit |
+| `audit:learning` | Passed: 360 later-stage activities / 160 stories / 44 reference concepts, zero flags |
+| `audit:stories` | Passed: all 256 stories; no new story bank or rewrite claim |
+| `audit:practice-depth` | Passed: 4,800 served questions across three activities/eight stages; Builder and Numbers zero exact repeats; full-eligibility B2.2 Spot exhausts 185 items before 15 necessary repeats over 200 questions |
+| `node scripts/learner-release-audit.cjs` | Passed: all stages, existing structured/writing/focused/recommendation contracts retained |
+| `npm run check:browser` | **17 layouts, 55,273 layout/interaction assertions, zero failed layouts and no uncaught runtime exceptions** |
+| Public showcase capture | **15 clean viewports / 191 semantic/geometry assertions**, all individually visually reviewed |
+| `gradle -p android assembleDebug lintDebug testDebugUnitTest` | **BUILD SUCCESSFUL** |
+| Downloaded JUnit XML | **15 tests; 0 failures/errors/skips**: launcher 2, insets 8, native policy 5; these are JVM tests, not device instrumentation |
+| Downloaded lint XML | **0 errors/fatal issues; 12 existing warnings; zero new warnings** |
+| Downloaded APK | **All 93 web assets byte-identical to current source; no extra web assets** |
+
+Local Node 24 also completed all 41 file-isolated test suites with zero failed/skipped/cancelled suites. The hosted result above is the exact individual-test count. The 39 added cases comprise 38 foundations/equivalence/boundary cases and one capture-fingerprint regression; all previous cases remain. Course, report, language, recommendation, learning, story, depth, architecture, style and learner-release commands also passed locally. `git diff --check` is clean.
+
+Lint was compared against the downloaded v1.8 XML, not just its total: OldTargetApi 1; UnusedAttribute 1; SetJavaScriptEnabled 1; DataExtractionRules 1; ObsoleteSdkInt 1; IconLauncherShape 5; MonochromeLauncherIcon 2. None was suppressed. Warning fixes retained: zero; all twelve retained for the reasons above.
+
+APK SHA-256 for that exact run: `19873a6d4e4d2d1c032edf9439ff24238b33b80c409866c2c157dbd99b296414`. Deterministic sorted source-asset SHA map fingerprint: `06e080abe7f9d69d50f4eddb0fa6653bafa0a6ae5acba35b61af5c9d1f83b878`. Debug signatures may differ between runners; every final APK must still contain the same source assets.
+
+Local Chromium cannot start under the executor sandbox (EPERM socket operation); established GitHub Actions supplied real Chromium and Android tooling. No physical-device, TalkBack, emulator, acoustic, independent native/educator or external learner-study validation is claimed. The debug APK is ready for those checks; it is not claimed to have passed them.
 
 ## Recorded showcase visual review
 
@@ -70,7 +98,7 @@ All fifteen official images were freshly captured from the final v1.9 runtime, c
 
 ## Additional rendered acceptance and compatibility
 
-The agent inspected final-runtime stress captures from run 42208680105: narrow-light-buttons Practice (320px), Galaxy S25 dark large-text/cutout Practice, Galaxy S24 dark gesture/overlay-IME writing, Galaxy S25 light landscape/cutout dictionary, Galaxy S22 light three-button Profile, S24 dark large-text diagnostics, and Galaxy S25 landscape Home. Text/control wrapping, primary action emphasis and theme hierarchy were checked. These stress views deliberately include simulated reserved system/keyboard space; they are separate from the clean public showcase. Scroll/reachability and exact inset handling are additionally exercised by the full browser matrix. This is agent visual review of rendered images, not actual OS/IME/TalkBack validation.
+The agent inspected final-runtime stress captures from run 42208680105: narrow-light-buttons Practice (320px), Galaxy S25 dark large-text/cutout Practice, Galaxy S24 dark gesture/overlay-IME writing, Galaxy S25 light landscape/cutout dictionary, Galaxy S22 light three-button Profile, S24 dark large-text diagnostics, Galaxy S25 landscape Home, and Pixel-class portrait/large-text plus resized-keyboard frames for gross geometry. Text/control wrapping, primary action emphasis and theme hierarchy were checked. These stress views deliberately include simulated reserved system/keyboard space; they are separate from the clean public showcase. Scroll/reachability and exact inset handling are additionally exercised by the full browser matrix. This is agent visual review of rendered images, not actual OS/IME/TalkBack validation.
 
 Behaviour is characterised against the frozen v1.8 orchestration, while all existing historical payload/identity/save tests remain. ProgressStore schema v2/key, permanent IDs, active attempts, Review snapshots, all eleven Practice engines, placement, mastery and Saved Words retain their contracts. Diagnostics stay in their own bounded schema/store; import does not adopt diagnostic fields. Optional accents remain accepted and ñ remains distinct; writing and speaking retain conservative capability claims. Core learning adds no network dependency.
 
@@ -86,8 +114,6 @@ Classical global-script loading, the central live dependency adapter, large Prac
 
 ### Changed
 
-`.github/workflows/android.yml`, `AGENTS.md`, `BUILD_STATUS.md`, `COURSE_DESIGN.md`, `README.md`, `android/app/build.gradle`, `android/app/src/test/java/com/friendstoamigos/app/LauncherResourcesTest.java`, `docs/BETA_DIAGNOSTICS.md`, `docs/CONSOLIDATION_STRATEGY.md`, `docs/CONTENT_REVIEW_POLICY.md`, `docs/LINGUISTIC_CONTENT_SCHEMA.md`, `docs/MANUAL_ACCESSIBILITY.md`, `docs/STATE_AND_QUESTIONS.md`, `docs/resources/CODEX_REFERENCE.md`, `docs/screenshots/beginner.png`, `docs/screenshots/cloze.png`, `docs/screenshots/conjugations.png`, `docs/screenshots/dictionary.png`, `docs/screenshots/feedback.png`, `docs/screenshots/games.png`, `docs/screenshots/home.png`, `docs/screenshots/learn.png`, `docs/screenshots/lesson-complete.png`, `docs/screenshots/manifest.json`, `docs/screenshots/profile.png`, `docs/screenshots/recommendations.png`, `docs/screenshots/review.png`, `docs/screenshots/saved-words.png`, `docs/screenshots/sentence-building.png`, `docs/screenshots/story.png`, `package.json`, `scripts/audit-language.cjs`, `scripts/browser-check.cjs`, `scripts/content/build-learner-dictionary.cjs`, `scripts/content/experience-support.cjs`, `scripts/showcase/config.cjs`, `tests/app.test.cjs`, `tests/helpers/app.cjs`, `tests/icon.test.cjs`, `tests/mobile.test.cjs`, `tests/quality-release.test.cjs`, `tests/samsung-responsive.test.cjs`, `tests/screenshots.test.cjs`, `tests/viewport.test.cjs`, `www/app.js`, `www/b21-data.js`, `www/b22-data.js`, `www/beta-diagnostics.js`, `www/consolidation.js`, `www/dictionary.css`, `www/index.html`, `www/linguistic-content.js`, `www/practice-hub.js`, `www/style.css`.
+`.github/workflows/android.yml`, `AGENTS.md`, `BUILD_STATUS.md`, `COURSE_DESIGN.md`, `README.md`, `android/app/build.gradle`, `android/app/src/test/java/com/friendstoamigos/app/LauncherResourcesTest.java`, `docs/BETA_DIAGNOSTICS.md`, `docs/CONSOLIDATION_STRATEGY.md`, `docs/CONTENT_REVIEW_POLICY.md`, `docs/LINGUISTIC_CONTENT_SCHEMA.md`, `docs/MANUAL_ACCESSIBILITY.md`, `docs/STATE_AND_QUESTIONS.md`, `docs/resources/CODEX_REFERENCE.md`, `docs/screenshots/beginner.png`, `docs/screenshots/cloze.png`, `docs/screenshots/conjugations.png`, `docs/screenshots/dictionary.png`, `docs/screenshots/feedback.png`, `docs/screenshots/games.png`, `docs/screenshots/home.png`, `docs/screenshots/learn.png`, `docs/screenshots/lesson-complete.png`, `docs/screenshots/manifest.json`, `docs/screenshots/profile.png`, `docs/screenshots/recommendations.png`, `docs/screenshots/review.png`, `docs/screenshots/saved-words.png`, `docs/screenshots/sentence-building.png`, `docs/screenshots/story.png`, `package.json`, `scripts/audit-language.cjs`, `scripts/browser-check.cjs`, `scripts/content/build-learner-dictionary.cjs`, `scripts/content/experience-support.cjs`, `scripts/showcase/config.cjs`, `tests/app.test.cjs`, `tests/helpers/app.cjs`, `tests/mobile.test.cjs`, `tests/quality-release.test.cjs`, `tests/samsung-responsive.test.cjs`, `tests/screenshots.test.cjs`, `tests/viewport.test.cjs`, `www/app.js`, `www/b21-data.js`, `www/b22-data.js`, `www/beta-diagnostics.js`, `www/consolidation.js`, `www/dictionary.css`, `www/index.html`, `www/linguistic-content.js`, `www/practice-hub.js`, `www/style.css`.
 
-### Native resources
-
-Original launcher resources and qualifiers are retained unchanged.
+Original native launcher resources/qualifiers are unchanged. Only Android version metadata and the additional JVM guard are retained.
