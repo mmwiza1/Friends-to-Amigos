@@ -11,7 +11,7 @@ public class LauncherResourcesTest {
     private Path resource(String relative) { return Path.of("src/main/res", relative); }
 
     @Test public void adaptiveIconsUseMascotAndThemedLayer() throws Exception {
-        String gradle = Files.readString(Path.of("build.gradle"));
+        String gradle = new String(Files.readAllBytes(Path.of("build.gradle")), StandardCharsets.UTF_8);
         java.util.regex.Matcher min = java.util.regex.Pattern.compile("minSdk\\s+(\\d+)").matcher(gradle);
         assertTrue("Base adaptive icons require minSdk 26 or higher", min.find());
         assertTrue(Integer.parseInt(min.group(1)) >= 26);

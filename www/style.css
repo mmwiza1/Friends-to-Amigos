@@ -1,4 +1,4 @@
-/* Component/layout rules. Semantic colours are defined only in tokens.css. */
+/* Component/layout rules. Theme colours are owned exclusively by tokens.css. */
 :root {
   --safe-top: env(safe-area-inset-top,0px);
   --safe-bottom: env(safe-area-inset-bottom,0px);
@@ -15,7 +15,7 @@
 body {
   margin: 0;
   background: var(--outer-background);
-  color: var(--ink);
+  color: var(--text-primary);
   font: 16px system-ui,sans-serif;
 }
 
@@ -29,24 +29,24 @@ input {
   font: inherit;
   width: 100%;
   padding: 14px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border-subtle);
   border-radius: 12px;
-  background: var(--surface);
-  color: var(--ink);
+  background: var(--surface-primary);
+  color: var(--text-primary);
   scroll-margin-block: 24px;
   min-height: 50px;
-  border-color: var(--line);
+  border-color: var(--border-subtle);
 }
 
 select {
   font: inherit;
   width: 100%;
   padding: 14px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border-subtle);
   border-radius: 12px;
-  background: var(--surface);
-  color: var(--ink);
-  border-color: var(--line);
+  background: var(--surface-primary);
+  color: var(--text-primary);
+  border-color: var(--border-subtle);
 }
 
 a:focus-visible {
@@ -62,7 +62,7 @@ button:disabled {
 #app {
   max-width: 500px;
   min-height: 100dvh;
-  background: var(--cream);
+  background: var(--app-background);
   margin: auto;
   padding: calc(28px + var(--safe-top)) calc(22px + var(--safe-right)) calc(24px + var(--app-nav-height) + var(--safe-bottom) + var(--android-keyboard-overlap)) calc(22px + var(--safe-left));
 }
@@ -97,16 +97,16 @@ p {
 }
 
 small {
-  color: var(--muted);
+  color: var(--text-secondary);
 }
 
 .muted {
-  color: var(--muted);
+  color: var(--text-secondary);
 }
 
 .tagline {
   margin: 12px 0 0;
-  color: var(--muted);
+  color: var(--text-secondary);
 }
 
 .flag {
@@ -114,13 +114,13 @@ small {
 }
 
 .card {
-  background: var(--surface);
+  background: var(--surface-primary);
   padding: 20px;
   border-radius: 22px;
   box-shadow: var(--shadow-card);
   margin-bottom: 14px;
   border: 1px solid var(--border-subtle);
-  border-color: var(--line);
+  border-color: var(--border-subtle);
 }
 
 .row {
@@ -141,7 +141,7 @@ small {
 }
 
 .primary {
-  background: var(--teal);
+  background: var(--primary);
   color: var(--primary-text);
   border: 0;
   border-radius: 19px;
@@ -175,7 +175,7 @@ small {
 .plain {
   background: transparent;
   border: 0;
-  color: var(--teal);
+  color: var(--primary);
   padding: 8px;
 }
 
@@ -188,7 +188,7 @@ small {
 .day {
   text-align: center;
   font-size: 12px;
-  color: var(--muted);
+  color: var(--text-secondary);
 }
 
 .circle {
@@ -202,12 +202,12 @@ small {
 }
 
 .circle.done {
-  background: var(--teal);
+  background: var(--primary);
   color: var(--primary-text);
 }
 
 .circle.today {
-  outline: 2px solid var(--coral);
+  outline: 2px solid var(--attention);
 }
 
 progress {
@@ -217,6 +217,7 @@ progress {
   border-radius: 10px;
   margin: 10px 0 15px;
   overflow: hidden;
+  background: var(--progress-track);
 }
 
 progress::-webkit-progress-bar {
@@ -224,22 +225,22 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background: var(--teal);
+  background: var(--primary);
 }
 
 progress::-moz-progress-bar {
-  background: var(--teal);
+  background: var(--primary);
 }
 
 .milestone {
   padding: 15px;
-  background: var(--success-surface);
+  background: var(--milestone-surface);
   border-radius: 17px;
   font-size: 14px;
   text-align: left;
   width: 100%;
   border: 0;
-  color: var(--ink);
+  color: var(--text-primary);
 }
 
 nav {
@@ -249,8 +250,8 @@ nav {
   transform: translateX(-50%);
   width: min(500px,calc(100% - var(--safe-left) - var(--safe-right)));
   display: flex;
-  background: var(--cream);
-  border-top: 1px solid var(--line);
+  background: var(--app-background);
+  border-top: 1px solid var(--border-subtle);
   padding: 10px 6px 14px;
   z-index: 5;
 }
@@ -259,7 +260,7 @@ nav button {
   flex: 1;
   border: 0;
   background: none;
-  color: var(--muted);
+  color: var(--text-secondary);
   font-size: .6875rem;
   padding: 7px 3px;
   position: relative;
@@ -275,7 +276,7 @@ nav button span {
 }
 
 nav button.active {
-  color: var(--teal);
+  color: var(--primary);
   font-weight: bold;
 }
 
@@ -283,7 +284,7 @@ nav button.active {
   position: absolute;
   top: 0;
   right: 22%;
-  background: var(--teal);
+  background: var(--primary);
   color: var(--primary-text);
   border-radius: 15px;
   padding: 2px 6px;
@@ -298,12 +299,12 @@ nav button.active {
 .stat {
   font-size: 30px;
   font-weight: 750;
-  color: var(--teal);
+  color: var(--primary);
 }
 
 .statlabel {
   font-size: 13px;
-  color: var(--muted);
+  color: var(--text-secondary);
 }
 
 .choices {
@@ -312,13 +313,13 @@ nav button.active {
 }
 
 .choice {
-  border: 2px solid var(--line);
-  background: var(--surface);
+  border: 2px solid var(--border-subtle);
+  background: var(--surface-primary);
   padding: 17px;
   border-radius: 16px;
   text-align: left;
-  color: var(--ink);
-  border-color: var(--line);
+  color: var(--text-primary);
+  border-color: var(--border-subtle);
 }
 
 .choice.selected {
@@ -341,7 +342,7 @@ nav button.active {
   border: 0;
   background: none;
   padding: 0;
-  color: var(--teal);
+  color: var(--primary);
   margin-bottom: 22px;
   display: inline-flex;
   align-items: center;
@@ -350,7 +351,7 @@ nav button.active {
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: var(--teal);
+  color: var(--primary);
   font-size: 12px;
   font-weight: bold;
 }
@@ -365,7 +366,7 @@ nav button.active {
   width: 100%;
   text-align: left;
   display: block;
-  color: var(--ink);
+  color: var(--text-primary);
   cursor: pointer;
 }
 
@@ -386,11 +387,11 @@ nav button.active {
   justify-content: end;
   align-items: center;
   font-size: 11px;
-  color: var(--muted);
+  color: var(--text-secondary);
 }
 
 .bar {
-  background: var(--teal);
+  background: var(--primary);
   width: 100%;
   max-width: 30px;
   border-radius: 5px 5px 0 0;
@@ -403,7 +404,7 @@ nav button.active {
   background: var(--surface-secondary);
   border-radius: 12px;
   padding: 12px;
-  color: var(--muted);
+  color: var(--text-secondary);
 }
 
 .lessonhead {
@@ -507,7 +508,7 @@ nav button.active {
 
 .story-reference summary {
   cursor: pointer;
-  color: var(--teal);
+  color: var(--primary);
   font-weight: 650;
   padding: 12px 0;
 }
@@ -522,7 +523,7 @@ nav button.active {
   grid-template-columns: 1fr 1fr;
   gap: 12px;
   padding: 8px 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .glossary dt {
@@ -531,19 +532,19 @@ nav button.active {
 
 .glossary dd {
   margin: 0;
-  color: var(--muted);
+  color: var(--text-secondary);
 }
 
 .unit-reference summary {
   cursor: pointer;
-  color: var(--teal);
+  color: var(--primary);
   font-weight: 650;
   padding: 8px 0;
 }
 
 .story summary {
   cursor: pointer;
-  color: var(--teal);
+  color: var(--primary);
   font-weight: 650;
   padding: 8px 0;
 }
@@ -589,7 +590,7 @@ summary:focus-visible {
 
 .exercise-instruction {
   font-size: 14px;
-  color: var(--teal);
+  color: var(--primary);
   font-weight: 650;
   margin: 12px 0;
 }
@@ -609,20 +610,20 @@ summary:focus-visible {
   width: 22px;
   height: 22px;
   flex: none;
-  border: 2px solid var(--muted);
+  border: 2px solid var(--text-secondary);
   border-radius: 50%;
   position: relative;
 }
 
 .choice.selected .option-indicator {
-  border-color: var(--teal);
+  border-color: var(--primary);
 }
 
 .choice.selected .option-indicator::after {
   content: "";
   position: absolute;
   inset: 4px;
-  background: var(--teal);
+  background: var(--primary);
   border-radius: 50%;
 }
 
@@ -636,7 +637,7 @@ summary:focus-visible {
   color: inherit;
   text-decoration: underline;
   text-decoration-thickness: 2px;
-  text-decoration-color: var(--teal);
+  text-decoration-color: var(--primary);
   text-underline-offset: 4px;
   font-weight: 700;
 }
@@ -648,7 +649,7 @@ summary:focus-visible {
   letter-spacing: .8px;
   text-transform: uppercase;
   margin-top: 12px;
-  color: var(--muted);
+  color: var(--text-secondary);
 }
 
 @media(max-width:350px) {
@@ -676,18 +677,18 @@ summary:focus-visible {
 .game-options legend {
   font-weight: 700;
   margin-bottom: 10px;
-  color: var(--teal);
+  color: var(--primary);
 }
 
 .game-blank {
   display: inline-block;
-  border-bottom: 2px solid var(--teal);
+  border-bottom: 2px solid var(--primary);
   padding: 0 5px;
-  color: var(--teal);
+  color: var(--primary);
 }
 
 .game-feedback {
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border-subtle);
   margin-top: 14px;
   padding-top: 4px;
 }
@@ -720,7 +721,7 @@ summary:focus-visible {
   grid-template-columns: minmax(95px, .9fr) minmax(0,1.1fr);
   gap: 10px;
   padding: 10px 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .conjugation-row .person {
@@ -783,7 +784,7 @@ summary:focus-visible {
 
 .compact-media {
   padding: 0 0 12px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border-subtle);
   margin-bottom: 14px;
 }
 
@@ -819,10 +820,10 @@ textarea {
   min-height: 160px;
   resize: vertical;
   padding: 14px;
-  border: 2px solid var(--teal);
+  border: 2px solid var(--primary);
   border-radius: 14px;
-  background: var(--cream);
-  color: var(--ink);
+  background: var(--app-background);
+  color: var(--text-primary);
   font: inherit;
   line-height: 1.5;
   box-sizing: border-box;
@@ -902,11 +903,11 @@ textarea {
   font-size: .875rem;
   line-height: 1.4;
   margin: 10px 0;
-  color: var(--muted);
+  color: var(--text-secondary);
 }
 
 .continue-card {
-  background: var(--positive);
+  background: var(--success-surface);
   border-color: var(--success-border);
 }
 
@@ -920,12 +921,12 @@ textarea {
 }
 
 .attention-card {
-  background: var(--attention);
+  background: var(--attention-surface);
   border-color: var(--attention-border);
 }
 
 .attention-card h2 {
-  color: var(--coral);
+  color: var(--attention);
 }
 
 .summary-stats {
@@ -940,7 +941,7 @@ textarea {
 }
 
 .summary-stats dt {
-  color: var(--muted);
+  color: var(--text-secondary);
   font-size: .85rem;
   line-height: 1.4;
 }
@@ -953,11 +954,11 @@ textarea {
 }
 
 .gold-stat dd {
-  color: var(--gold);
+  color: var(--milestone);
 }
 
 .today-card dd:first-letter {
-  color: var(--gold);
+  color: var(--milestone);
 }
 
 .progress-stats {
@@ -971,9 +972,9 @@ textarea {
 }
 
 .practice-tile {
-  border: 1px solid var(--line);
-  background: var(--positive);
-  color: var(--ink);
+  border: 1px solid var(--border-subtle);
+  background: var(--success-surface);
+  color: var(--text-primary);
   padding: 16px 12px;
   border-radius: 16px;
   text-align: left;
@@ -1021,7 +1022,7 @@ textarea {
   text-align: left;
   margin: 18px 0;
   padding: 16px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border-subtle);
   border-radius: 14px;
 }
 
@@ -1046,7 +1047,7 @@ textarea {
   padding: 10px 0;
   list-style: none;
   min-height: 66px;
-  border-bottom: 2px solid var(--teal);
+  border-bottom: 2px solid var(--primary);
   margin: 12px 0;
 }
 
@@ -1055,10 +1056,10 @@ textarea {
   align-items: center;
   gap: 6px;
   max-width: 100%;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border-subtle);
   border-radius: 12px;
   padding: 5px 8px;
-  background: var(--surface);
+  background: var(--surface-primary);
   overflow-wrap: anywhere;
 }
 
@@ -1067,10 +1068,10 @@ textarea {
   align-items: center;
   gap: 6px;
   max-width: 100%;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border-subtle);
   border-radius: 12px;
   padding: 5px 8px;
-  background: var(--positive);
+  background: var(--success-surface);
   overflow-wrap: anywhere;
 }
 
@@ -1096,8 +1097,8 @@ textarea {
   min-height: 44px;
   border: 0;
   border-radius: 9px;
-  background: var(--positive);
-  color: var(--teal);
+  background: var(--success-surface);
+  color: var(--primary);
   font-size: .875rem;
   font-weight: 700;
 }
@@ -1109,14 +1110,14 @@ textarea {
 }
 
 .cloze-value {
-  border-bottom: 2px solid var(--teal);
+  border-bottom: 2px solid var(--primary);
   padding: 0 3px;
   overflow-wrap: anywhere;
 }
 
 .cloze-blank {
   min-width: 0;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border-subtle);
   border-radius: 14px;
   padding: 12px;
   margin: 12px 0;
@@ -1187,7 +1188,7 @@ button.back {
 
 .period-stats caption {
   text-align: left;
-  color: var(--muted);
+  color: var(--text-secondary);
   font-size: .8rem;
   line-height: 1.5;
   padding: 8px 0;
@@ -1195,7 +1196,7 @@ button.back {
 
 .period-stats th {
   padding: 9px 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border-subtle);
   overflow-wrap: anywhere;
   text-align: left;
   font-weight: 500;
@@ -1203,7 +1204,7 @@ button.back {
 
 .period-stats td {
   padding: 9px 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border-subtle);
   overflow-wrap: anywhere;
   text-align: right;
   padding-left: 12px;
@@ -1241,7 +1242,7 @@ button.back {
 }
 
 .confidence {
-  border: 1px solid var(--line);
+  border: 1px solid var(--border-subtle);
   border-radius: 14px;
   padding: 12px;
   margin: 12px 0;
@@ -1286,7 +1287,7 @@ article dd {
 }
 
 .current-unit {
-  border-color: var(--teal);
+  border-color: var(--primary);
 }
 
 .journey-unit details summary {
@@ -1302,7 +1303,7 @@ article dd {
 
 .course-position {
   font-size: .78rem;
-  color: var(--muted);
+  color: var(--text-secondary);
   line-height: 1.5;
 }
 
@@ -1335,7 +1336,7 @@ article dd {
 
 .story .episode-meta {
   font-size: .8rem;
-  color: var(--muted);
+  color: var(--text-secondary);
 }
 
 .story .episode-hook {
@@ -1343,7 +1344,7 @@ article dd {
 }
 
 .story-message {
-  border-left: 3px solid var(--teal);
+  border-left: 3px solid var(--primary);
   padding-left: 14px;
 }
 
@@ -1379,7 +1380,7 @@ article dd {
 }
 
 .practice-subtitle {
-  color: var(--muted);
+  color: var(--text-secondary);
   margin: 12px 0 24px;
 }
 
@@ -1414,22 +1415,22 @@ article dd {
 }
 
 .practice-section h2 .practice-icon {
-  color: var(--practice-blue);
+  color: var(--primary);
 }
 
 .practice-recommended>h2 .practice-icon {
-  color: var(--practice-blue);
+  color: var(--primary);
 }
 
 .section-subtitle {
   font-size: .9rem;
-  color: var(--muted);
+  color: var(--text-secondary);
   margin: 0 0 13px;
 }
 
 .practice-hero {
-  background: var(--practice-hero);
-  border-color: var(--practice-hero-line);
+  background: var(--practice-hero-surface);
+  border-color: var(--practice-hero-border);
   border-radius: 24px;
   padding: 20px;
   margin-top: 12px;
@@ -1481,7 +1482,7 @@ article dd {
 }
 
 .practice-activity {
-  border: 1px solid var(--line);
+  border: 1px solid var(--border-subtle);
   border-radius: 20px;
   padding: 16px 14px;
   text-align: left;
@@ -1491,7 +1492,7 @@ article dd {
   gap: 9px;
   min-width: 0;
   min-height: 145px;
-  color: var(--ink);
+  color: var(--text-primary);
   box-shadow: var(--shadow-tile);
 }
 
@@ -1516,23 +1517,23 @@ article dd {
 .practice-description {
   font-size: .85rem;
   line-height: 1.45;
-  color: var(--muted);
+  color: var(--text-secondary);
 }
 
 .pastel-0 {
-  background: var(--practice-mint);
+  background: var(--pastel-mint);
 }
 
 .pastel-1 {
-  background: var(--practice-lilac);
+  background: var(--pastel-blue);
 }
 
 .pastel-2 {
-  background: var(--practice-pink);
+  background: var(--pastel-terracotta);
 }
 
 .pastel-3 {
-  background: var(--practice-peach);
+  background: var(--pastel-gold);
 }
 
 .practice-wide .practice-activity {
@@ -1563,7 +1564,7 @@ article dd {
 }
 
 .word-match-task {
-  border-left: 4px solid var(--practice-blue);
+  border-left: 4px solid var(--primary);
   padding-left: 14px;
 }
 
@@ -1580,7 +1581,7 @@ article dd {
 }
 
 .practice-activity:focus-visible {
-  outline: 3px solid var(--practice-blue);
+  outline: 3px solid var(--primary);
   outline-offset: 3px;
 }
 
@@ -1597,12 +1598,12 @@ nav .practice-icon {
   max-width: 100%;
   height: auto;
   margin: 18px auto;
-  color: var(--ink);
+  color: var(--text-primary);
 }
 
 .match-source {
-  background: var(--practice-hero);
-  border: 1px solid var(--line);
+  background: var(--practice-hero-surface);
+  border: 1px solid var(--border-subtle);
   border-radius: 16px;
   padding: 14px;
   margin: 0 0 14px;
@@ -1627,7 +1628,7 @@ nav .practice-icon {
 
 .practice-catalogue>summary {
   padding: 1rem;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border-subtle);
   border-radius: 1rem;
   font-weight: 700;
   min-height: 48px;
@@ -1635,120 +1636,6 @@ nav .practice-icon {
 
 .beta-diagnostics button {
   min-height: 44px;
-}
-
-@media(prefers-color-scheme:dark) {
-  body {
-    background: var(--outer-background);
-  }
-
-  .card {
-    background: var(--surface);
-  }
-
-  .choice {
-    background: var(--surface);
-  }
-
-  input {
-    background: var(--surface);
-  }
-
-  select {
-    background: var(--surface);
-  }
-
-  nav {
-    background: var(--cream);
-  }
-
-  .primary {
-    color: var(--primary-text);
-  }
-
-  .primary small {
-    color: var(--primary-text);
-  }
-
-  .badge {
-    color: var(--primary-text);
-  }
-
-  .pill {
-    background: var(--positive);
-    color: var(--primary);
-  }
-
-  .choice.selected {
-    background: var(--positive);
-    color: var(--ink);
-  }
-
-  .feedback {
-    background: var(--success-surface);
-    color: var(--ink);
-  }
-
-  .feedback.wrong {
-    background: var(--error-surface);
-  }
-
-  .milestone {
-    background: var(--success-surface);
-  }
-
-  .notice {
-    background: var(--surface-secondary);
-    color: var(--muted);
-  }
-
-  .circle {
-    background: var(--neutral-chip);
-  }
-
-  .circle.done {
-    color: var(--primary-text);
-  }
-
-  progress {
-    background: var(--progress-track);
-  }
-
-  progress::-webkit-progress-bar {
-    background: var(--progress-track);
-  }
-
-  .danger {
-    color: var(--error);
-  }
-
-  .toast {
-    background: var(--toast-surface);
-    color: var(--toast-text);
-  }
-
-  .continue-card {
-    background: var(--positive);
-    border-color: var(--success-border);
-  }
-
-  .attention-card {
-    background: var(--attention);
-    border-color: var(--attention-border);
-  }
-
-  .practice-art {
-    background: var(--icon-surface);
-    color: var(--primary);
-  }
-
-  .practice-section h2 .practice-icon {
-    color: var(--primary);
-  }
-
-  .practice-recommended>h2 .practice-icon {
-    color: var(--primary);
-  }
 }
 
 @media (hover: hover) {

@@ -22,7 +22,7 @@ test('Today caps due review, ignores future dates, respects placement and priori
 function luminance(hex){const c=hex.match(/[\da-f]{2}/gi).map(v=>parseInt(v,16)/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);return .2126*c[0]+.7152*c[1]+.0722*c[2];}
 function contrast(a,b){const x=luminance(a),y=luminance(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05);}
 test('system dark CSS preserves the existing light rules and supplies readable dark controls and feedback',()=>{
- const {parse,split}=require('../scripts/lib/css.cjs'),dark=parse(fs.readFileSync('www/style.css','utf8')).filter(r=>r.at.some(a=>a.includes('prefers-color-scheme:dark'))).flatMap(r=>split(r.selector,','));for(const selector of ['.card','.choice','input','select','nav','.primary','.feedback.wrong','.notice','.toast'])assert.ok(dark.includes(selector));
+ const {parse,split}=require('../scripts/lib/css.cjs'),rules=parse(fs.readFileSync('www/style.css','utf8'));assert.ok(parse(fs.readFileSync('www/tokens.css','utf8')).some(r=>r.at.some(a=>a.includes('prefers-color-scheme: dark'))));for(const selector of ['.card','.choice','input','select','nav','.primary','.feedback.wrong','.notice','.toast'])assert.ok(rules.some(r=>split(r.selector,',').includes(selector)));assert.ok(!rules.some(r=>r.at.some(a=>a.includes('prefers-color-scheme:dark'))),'component colours follow semantic tokens in both themes');
  const audit=require('../scripts/audit-style.cjs').audit();assert.deepEqual(audit.errors,[]);assert.equal(audit.contrastPairs.length,38);for(const row of audit.contrastPairs)assert.ok(row.ratio>=row.minimum,JSON.stringify(row));
  const html=fs.readFileSync('www/index.html','utf8');assert.match(html,/theme-color.*prefers-color-scheme: dark/);
 });

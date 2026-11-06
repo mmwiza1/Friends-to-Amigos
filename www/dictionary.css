@@ -1,10 +1,10 @@
-/* Component/layout rules. Semantic colours are defined only in tokens.css. */
+/* Component/layout rules. Theme colours are owned exclusively by tokens.css. */
 .dictionary-word {
   cursor: pointer;
   border-radius: 3px;
   text-decoration: underline;
   text-decoration-style: dotted;
-  text-decoration-color: color-mix(in srgb,var(--teal) 45%,transparent);
+  text-decoration-color: color-mix(in srgb,var(--primary) 45%,transparent);
   text-underline-offset: 4px;
   touch-action: manipulation;
   box-decoration-break: clone;
@@ -14,7 +14,7 @@
 .dictionary-word:focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 3px;
-  background: var(--cream);
+  background: var(--app-background);
 }
 
 .dictionary-layer {
@@ -33,9 +33,9 @@
   max-width: calc(100vw - 20px);
   padding: 16px;
   border-radius: 20px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border-subtle);
   background: var(--popup-surface);
-  color: var(--ink);
+  color: var(--text-primary);
   box-shadow: var(--shadow-popup);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -70,7 +70,7 @@
   padding: 0;
   background: transparent;
   border: 0;
-  color: var(--muted);
+  color: var(--text-secondary);
   font-size: 28px;
   border-radius: 50%;
 }
@@ -80,17 +80,17 @@
 }
 
 .dictionary-lemma {
-  color: var(--muted);
+  color: var(--text-secondary);
   font-size: .8125rem;
 }
 
 .dictionary-grammar {
-  color: var(--muted);
+  color: var(--text-secondary);
   font-size: .8125rem;
 }
 
 .dictionary-note {
-  color: var(--muted);
+  color: var(--text-secondary);
   font-size: .8125rem;
 }
 
@@ -121,12 +121,12 @@
 }
 
 .dictionary-actions [aria-pressed="true"] {
-  color: var(--ink);
+  color: var(--text-primary);
   background: var(--selected-surface);
 }
 
 .dictionary-more {
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border-subtle);
   margin-top: 12px;
   padding-top: 2px;
 }
@@ -150,7 +150,7 @@
 }
 
 .dictionary-popup .dictionary-example-meaning {
-  color: var(--muted);
+  color: var(--text-secondary);
   font-size: 13px;
   margin-top: 2px;
 }
@@ -246,36 +246,5 @@
 }
 
 .dictionary-word[aria-expanded="true"] {
-  background: var(--cream);
-}
-
-@media(prefers-color-scheme:dark) {
-  .dictionary-popup {
-    background: var(--popup-surface);
-    box-shadow: var(--shadow-popup);
-  }
-
-  .dictionary-context {
-    background: var(--selected-surface);
-  }
-
-  .dictionary-actions [aria-pressed="true"] {
-    background: var(--selected-surface);
-  }
-
-  .dictionary-actions .plain {
-    color: var(--teal);
-  }
-
-  .saved-word-actions .plain:not(.danger) {
-    color: var(--teal);
-  }
-}
-
-@media(prefers-reduced-transparency:reduce) {
-  @media(prefers-color-scheme:dark) {
-    .dictionary-popup {
-      background: var(--surface-elevated);
-    }
-  }
+  background: var(--app-background);
 }
