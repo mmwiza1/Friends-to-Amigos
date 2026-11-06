@@ -29,9 +29,49 @@ All previous test cases and immutable fixtures remain. The older dictionary navi
 
 Native day/night/API-31 accents now match the web primary; splash/background/system-icon appearance is retained. Target SDK 35, minSdk 26, Back, IME, edge-to-edge/cutout and pause/resume logic are unchanged. Wallpaper-derived colour is deferred: raw OS accents are not a complete contrast-safe WebView scheme; a native palette bridge/lifecycle/preferences and real-device validation would outweigh this incremental benefit. No dynamic-colour capability is claimed.
 
-## Validation
+## Performed validation
 
-Pending focused/full JS, browser, final showcase review/adoption and Android build/lint/unit/asset checks. Local browser socket restrictions require the established hosted Chromium/Android environment. No physical-device, TalkBack, native/educator validation or Material certification is claimed.
+The complete source gate passed in [run 42219350998](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/42219350998), commit `4f36efef3dfb818e1770a2132282e087be7c4b89`. The final report/guard commit repeats the complete gate before main promotion. It additionally checks the compact dictionary dismiss target and derives native accent parity directly from CSS tokens. No captured web asset or native implementation changes in that final commit.
+
+| Gate | Actual result |
+| --- | --- |
+| `npm run check` / `check:screenshots` | Passed: 576 activities, 3,328 course slots, 3,367 permanent IDs; 15 current reviewed images |
+| `npm test` | **2,242 passed, 0 failed/cancelled/skipped/todo**, hosted Node 22; 14 new design cases |
+| `npm run audit` | Passed locally; course, vocabulary and identity reports retained |
+| `audit:architecture` | Passed: 86 runtime JS modules; no new domain/controller coupling |
+| `audit:style` | Passed: 50 contrast pairs, zero errors; minimum text-pair ratio 4.79:1 |
+| `audit:language` | Passed: zero errors/flags; educational sources unchanged |
+| `audit:recommendations` | Passed: 30 entries, zero metadata warnings; no new live-provider verification claimed |
+| `audit:learning` | Passed: 360 later-stage activities / 160 stories / 44 reference concepts; zero flags |
+| `audit:stories` | Passed: 256 existing stories; no rewrite/expansion |
+| `audit:practice-depth` | Passed: 4,800 replay questions across three activities/eight stages; existing pools/selection unchanged |
+| `node scripts/learner-release-audit.cjs` | Passed: all stages/interaction/writing/focused/recommendation contracts |
+| `npm run check:browser` | **17 layouts / 60,645 assertions**, zero failed layouts and no uncaught runtime exceptions |
+| Public capture | **15 clean viewports / 191 assertions**, all fifteen PNGs individually visually inspected |
+| `gradle -p android assembleDebug lintDebug testDebugUnitTest` | **BUILD SUCCESSFUL** |
+| Downloaded JVM XML | **15 tests / 0 failures/errors/skips**: launcher 2, native insets 8, native policy 5 |
+| Downloaded lint XML | **0 errors/fatal issues / 12 existing warnings**, same identities/counts as v1.9 |
+| Downloaded APK | **All 93 web assets byte-identical to frozen source**, no extra web assets |
+
+The initial local full test run passed 41/42 file-isolated suites; its sole failure was the old cross-destination navigation equality test. After the intentional semantics correction all 18 dictionary cases passed, and the hosted complete suite above passed. Focused foundations/mobile/viewport/design runs and all individual audits also passed. No immutable fixture or original learning case was deleted. `git diff --check` is clean. CI already runs the enhanced audit:style, discovers the new test file and executes Material checks through the existing browser runner; no parallel toolchain or duplicate workflow job is needed.
+
+Lint identities retained: OldTargetApi 1, UnusedAttribute 1, SetJavaScriptEnabled 1, DataExtractionRules 1, ObsoleteSdkInt 1, IconLauncherShape 5, MonochromeLauncherIcon 2. No warning was suppressed. Target-SDK, launcher artwork, backup and WebView/lifecycle policies were not changed speculatively.
+
+That exact run's APK SHA-256: `28364a4da9820bd59de6b7a372d4bbc187dbea4a0abd258582ecf1716978a5d8`. Sorted source-asset SHA-map fingerprint: `122f2cc35777c18bf83d2699000ffebff7170264270d69e6a5a5877f3a2c857a`. Debug signing varies by runner; verify source assets for each attached APK.
+
+Local Chromium cannot start under the executor's socket restrictions; the established hosted environment supplied real Chromium and Android tooling. JVM/browser results are not physical Android, native-prompt, TalkBack, independent educator or Material certification.
+
+## Additional visual/accessibility review
+
+Agent inspection included the final-source 320px Practice hub, S25 dark 135% text/cutout Practice, S24 dark gesture/IME writing focus, S25 light landscape dictionary, S22 light three-button Profile, S24 large-text diagnostics, and Pixel-class portrait/large-text frames for gross geometry. Stress captures include reserved simulated OS/keyboard areas and are not public showcase images. Existing scroll/reachability tests cover lower content; a viewport capture is not a claim that all content fits without scrolling.
+
+Additional S24 dark renders reviewed: Builder, Spot the Mistake, Numbers, Word Match, Rapid Recall, Verb Trainer, Listening, Speaking, Shadowing, weak refresher/reference and B2 writing feedback; Verb in Context is in the official gallery. Fix My Mistakes uses the same reviewed quiz components and is exercised in automated flows. Readability, control emphasis, wrapping and focus improved without changing learning outcomes. Independent learner/native-language review was not conducted.
+
+Automated scaling reaches 135% in the established matrix. Actual OEM font/display scaling, 200%/extreme enlargement, TalkBack reading/current-state/status announcements, native prompts, TTS and real Back/IME/cutout handling remain physical-device checklist items. WCAG AA is the design target, not a completed accessibility audit or certification. Dynamic wallpaper colour remains unimplemented with the documented trade-off; no network dependency, new permission or learner-data preference was introduced.
+
+## Principal changed files
+
+Tokens/components: `www/tokens.css`, `style.css`, `dictionary.css`; navigation/status markup: `www/app.js`; release-only diagnostics version: `www/beta-diagnostics.js`. Native: branded colour and day/night/API-31 theme resources plus version metadata; no Java/inset/Back changes. Governance: AGENTS, DESIGN_SYSTEM, architecture/accessibility/reference links, current release report/notes/checklist, README/showcase manifest and fifteen PNGs. Safeguards: existing style audit, shared browser Material/foundations contracts, design tests and precise accessibility/size expectations in existing tests. Full paths are in the commit diff.
 
 ## Recorded final showcase visual acceptance
 

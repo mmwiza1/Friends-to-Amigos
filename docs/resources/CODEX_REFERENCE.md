@@ -1,3 +1,7 @@
+## Mandatory UI design contract
+
+All UI work follows [DESIGN_SYSTEM.md](../DESIGN_SYSTEM.md), existing semantic components and current applicable official Material guidance. Preserve learning/snapshot boundaries; use style/browser/showcase regression gates rather than adding a framework.
+
 ## v1.9 foundations
 
 Before new runtime work, read docs/ARCHITECTURE.md. It defines controller/state/layer placement, semantic tokens, diagnostics isolation and deferred ES modules. See the [architecture contract](../../docs/ARCHITECTURE.md).

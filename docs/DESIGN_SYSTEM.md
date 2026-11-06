@@ -45,7 +45,7 @@ These are Material-inspired roles adapted to the existing narrow learning UI, no
 
 Shape roles: xs 4px, small 12px (fields/status), medium 16px (choices/tiles), large 24px (cards), xl 28px, full 999px (filled/pill buttons and selected navigation), popover 20px (compact anchored dictionary). Circles/clock geometry use percentages where appropriate; they are not new component shapes. Do not add raw px/rem corner radii to component CSS.
 
-Spacing tokens follow 4px steps through 32px. Reuse them. The 22px optical screen margin and some existing compact field/internal offsets are deliberate compatibility exceptions; inset and viewport geometry stay in platform tokens. Never substitute a static space token for a safe area. Cards have subtle outlines/shadows; clickable cards remain real controls with a focus state, not clickable divs with hidden behaviour.
+Spacing tokens follow 4px steps through 32px. Reuse them. The existing multi-corner desktop canvas cap, 22px optical screen margin and some compact field/internal offsets are deliberate compatibility exceptions; inset and viewport geometry stay in platform tokens. Never substitute a static space token for a safe area. Cards have subtle outlines/shadows; clickable cards remain real controls with a focus state, not clickable divs with hidden behaviour.
 
 ## Components and states
 

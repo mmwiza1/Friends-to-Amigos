@@ -32,6 +32,10 @@ Progress retains schema v2 and the existing key; no migration or new permission 
 - Existing audits now check more contrast pairs, missing roles, undefined tokens, shared shapes and touch minima. Real-browser checks cover navigation semantics, accessible names and sizing alongside all existing flows.
 - Final-source showcase images and release validation remain required.
 
+### Validated source build
+
+The full source gate passed 2,242 JavaScript tests, 17 browser layouts / 60,645 assertions, Android build and 15 JVM tests. Lint has zero errors and the same twelve existing warnings. All 93 packaged web assets match source; all fifteen current showcase images were visually reviewed. The release report links the evidence and distinguishes simulations from pending physical-device/TalkBack checks.
+
 ## Previous release highlights
 
 ### New in v1.9

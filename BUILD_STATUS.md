@@ -1,6 +1,8 @@
 # v1.10.0 Material design consistency — Android versionCode 21
 
-Based on main `b0c46adf5bf665d77abdf481ec1367c601884fbd`. Shared Material-inspired roles, scalable typography, shapes, 48px controls and navigation semantics preserve the existing WebView architecture and learning contracts. See [design standards](docs/DESIGN_SYSTEM.md), [report](docs/release/V1_10_REPORT.md) and [release notes](docs/release/V1_10_RELEASE_NOTES.md). Final validation/showcase adoption is pending; historical results below are not v1.10 results.
+Starting main `b0c46adf5bf665d77abdf481ec1367c601884fbd`. Same A1.1–B2.2 / 576 activities / 3,328 slots / eleven Practice activities and schema v2. See [design standards](docs/DESIGN_SYSTEM.md), [report and before/after matrix](docs/release/V1_10_REPORT.md), [release notes](docs/release/V1_10_RELEASE_NOTES.md) and [manual QA](docs/release/V1_10_MANUAL_QA.md).
+
+Performed source gate [42219350998](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/42219350998): **2,242 JS tests / 0 failures or skips; 17 browser layouts / 60,645 assertions; 15 public captures / 191 assertions; Android build successful; 15 JVM tests / 0 failures; lint 0 errors / exactly the same 12 existing warnings; all 93 APK web assets match source**. All course/content/language/recommendation/learning/story/depth/architecture/style and screenshot checks passed. Fifty important contrast pairs pass; all fifteen final-source images were visually reviewed. The final report/guard commit repeats the complete workflow before main promotion. No Material certification, physical-device or TalkBack claim is made. Wallpaper colour is explicitly deferred; branded native accents are fixed. Historical results below remain separate.
 
 # v1.9.0 foundations — Android versionCode 20
 
