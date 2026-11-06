@@ -24,7 +24,7 @@ Preserve the teal identity, cream/navy surfaces, mascot, course and eleven Pract
 | error / error-container / on-error-container | Genuine mistakes/danger; always accompanied by words/icons/state |
 | success / success-surface | Positive feedback, distinct from error |
 
-Keep the four repeating Practice pastel families. Do not invent an activity-specific palette. Native `brand_primary` resources mirror primary in light/dark and are regression-tested. Legacy `brand_coral` is retained for resource compatibility, not used as the dialog accent.
+Keep the four repeating Practice pastel families. Do not invent an activity-specific palette. Native `brand_primary` resources mirror primary in light/dark and are regression-tested. The unused/misnamed native `brand_coral` resource is retired; no learner state refers to native colour resources.
 
 ## Typography
 
