@@ -23,7 +23,7 @@ const screens=[
 ].map(([filename,screen,description,theme,end,active])=>({filename,screen,description,theme,end,active}));
 function files(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?files(path.join(dir,e.name)):[path.join(dir,e.name)]);}
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
-function inputs(root){return [...files(path.join(root,'www')).filter(f=>!internal.has(path.relative(path.join(root,'www'),f))),...['scripts/showcase/config.cjs','scripts/capture-showcase.cjs'].map(f=>path.join(root,f))].sort().map(f=>path.relative(root,f).replaceAll(path.sep,'/'));}
+function inputs(root){return [...files(path.join(root,'www')).filter(f=>!internal.has(path.relative(path.join(root,'www'),f))),...['scripts/showcase/config.cjs','scripts/capture-showcase.cjs','scripts/browser/devtools.cjs'].map(f=>path.join(root,f))].sort().map(f=>path.relative(root,f).replaceAll(path.sep,'/'));}
 function fingerprint(root){const sources=Object.fromEntries(inputs(root).map(f=>[f,hash(fs.readFileSync(path.join(root,f)))]));return {algorithm:'sha256',sources,sha256:hash(JSON.stringify(sources))};}
 function versions(root){const appVersion=JSON.parse(fs.readFileSync(path.join(root,'package.json'))).version,g=fs.readFileSync(path.join(root,'android/app/build.gradle'),'utf8'),androidVersionCode=Number(g.match(/versionCode\s+(\d+)/)?.[1]);if(!androidVersionCode||g.match(/versionName\s+'([^']+)'/)?.[1]!==appVersion)throw Error('Package and Android release versions disagree.');return {appVersion,androidVersionCode};}
 module.exports={navigation,screens,hash,inputs,fingerprint,versions,files};

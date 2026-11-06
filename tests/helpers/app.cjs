@@ -1,5 +1,5 @@
 const vm=require('node:vm'),fs=require('node:fs');
-function app(extra={},initial=null){
+function app(extra={},initial=null,options={}){
  const handlers={},lifecycle={},storage=initial?{'friends-to-amigos-v1':JSON.stringify(initial)}:{},effects={blobs:[],links:[],toasts:[],focused:[]};
  const el={innerHTML:'',addEventListener:(type,fn)=>handlers[type]=fn,querySelector:selector=>{const match=selector.match(/^\[data-action="answer"\]\[data-index="(\d+)"\]\[role="radio"\]$/);return match?{focus(){effects.focused.push(match[1]);}}:null;}};
  const nodes={app:el,stage:{value:'A2.2'},'check-answer':{disabled:true},importfile:{click(){}}};
@@ -15,7 +15,7 @@ function app(extra={},initial=null){
  // The current Android wrapper acknowledges actual TTS start by request ID.
  if(ctx.AndroidSpeech?.speak&&!ctx.AndroidSpeech.listen){ctx.AndroidSpeech={...ctx.AndroidSpeech,isReady:ctx.AndroidSpeech.isReady||(()=>true),listen(text,rate,id){this.speak(text);ctx.FriendsToAmigosSpeechResult(id,true);}};}
  ctx.window=ctx;ctx.globalThis=ctx;ctx.addEventListener=(name,fn)=>lifecycle[name]=fn;vm.createContext(ctx);
- for(const f of [...fs.readFileSync('www/index.html','utf8').matchAll(/<script src="([^"]+)"/g)].map(m=>m[1])){vm.runInContext(fs.readFileSync('www/'+f,'utf8'),ctx);if(testLegacyCurriculum&&f==='assessment-policy.js')vm.runInContext('AssessmentPolicy.apply=()=>[]',ctx);if(testLegacyCurriculum&&f==='curriculum.js'){const historical=require('./v12-course.cjs');vm.runInContext('Curriculum.lessons='+JSON.stringify(historical.lessons),ctx);}}
+ for(const f of [...fs.readFileSync('www/index.html','utf8').matchAll(/<script src="([^"]+)"/g)].map(m=>m[1])){vm.runInContext(fs.readFileSync(f==='app.js'&&options.sourceFile?options.sourceFile:'www/'+f,'utf8'),ctx);if(testLegacyCurriculum&&f==='assessment-policy.js')vm.runInContext('AssessmentPolicy.apply=()=>[]',ctx);if(testLegacyCurriculum&&f==='curriculum.js'){const historical=require('./v12-course.cjs');vm.runInContext('Curriculum.lessons='+JSON.stringify(historical.lessons),ctx);}}
  const api={el,ctx,effects,nodes,storage,lifecycle,click:(action,data={})=>handlers.click({target:{closest:()=>({dataset:{action,...data}})}}),
   change:target=>handlers.change({target}),
   input:value=>handlers.input({target:{id:'written-answer',value}}),

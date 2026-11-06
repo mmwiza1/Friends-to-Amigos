@@ -1,3 +1,7 @@
+## v1.9 foundations
+
+The v1.9 foundations phase keeps the feature freeze. Architecture/design-token work improves maintainability without another mode or stage. See the [architecture contract](ARCHITECTURE.md).
+
 # Consolidation phase — v1.8
 
 Temporary major-feature freeze: improve beginner clarity, adaptive Practice, natural Spanish, content governance, maintainability, visual/accessibility QA and offline reliability before expanding breadth. A1.1–B2.2 and the eleven existing Practice activities are the ceiling. An empty roadmap slot is not permission to add another feature.

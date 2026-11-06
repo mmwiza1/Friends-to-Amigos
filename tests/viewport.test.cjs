@@ -24,9 +24,9 @@ test('native safe areas remain CSS-pixel values with one source of layout paddin
  const java=fs.readFileSync('android/app/src/main/java/com/friendstoamigos/app/MainActivity.java','utf8'),manifest=fs.readFileSync('android/app/src/main/AndroidManifest.xml','utf8'),css=fs.readFileSync('www/style.css','utf8');
  assert.doesNotMatch(java,/\.setPadding\(/);assert.match(java,/FriendsToAmigosInsets/);assert.match(java,/setDecorFitsSystemWindows\(false\)/);assert.match(java,/WindowInsets.Type.displayCutout/);
  assert.match(manifest,/windowSoftInputMode="adjustResize"/);
- assert.match(css,/:root\.android-insets\{[^}]*--safe-top:var\(--android-inset-top/);
- assert.match(css,/nav\{bottom:var\(--safe-bottom\)/);
- assert.match(css,/\.toast\{top:calc\(12px \+ var\(--safe-top\)\)/);
+ assert.equal(require('./helpers/css.cjs').properties('www/style.css',':root.android-insets')['--safe-top'],'var(--android-inset-top,0px)');
+ assert.equal(require('./helpers/css.cjs').properties('www/style.css','nav').bottom,'var(--safe-bottom)');
+ assert.equal(require('./helpers/css.cjs').properties('www/style.css','.toast').top,'calc(12px + var(--safe-top))');
 });
 
 test('native keyboard overlap hides app navigation and closing it restores the measured layout',()=>{

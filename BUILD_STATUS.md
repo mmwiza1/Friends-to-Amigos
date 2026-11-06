@@ -1,3 +1,7 @@
+# v1.9.0 foundations — Android versionCode 20
+
+Starting main `0820c40f981531b4c923c68c40fada6d84e1ccae`. Same A1.1–B2.2 / 576 activities / 3,328 slots / eleven Practice activities; schema v2 and separate private diagnostics preserved. [Architecture](docs/ARCHITECTURE.md), [report](docs/release/V1_9_REPORT.md), [release notes](docs/release/V1_9_RELEASE_NOTES.md) and [manual QA](docs/release/V1_9_MANUAL_QA.md) describe the foundations change. Final source/showcase and full hosted validation are pending; historical results below are not the v1.9 gate.
+
 # v1.8.0 consolidation — Android versionCode 19
 
 Starting main: `7504f49d740d13fbfd60237e510cf6716f534923`. A1.1–B2.2, 576 activities and all eleven Practice activities remain. This release adds beginner support, targeted recommendations, surgical language/glossary polish and private bounded beta diagnostics; no major feature expansion, participant programme or KPI framework.

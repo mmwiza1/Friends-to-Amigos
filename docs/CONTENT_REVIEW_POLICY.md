@@ -1,3 +1,7 @@
+## v1.9 foundations
+
+Consolidation is a controlled transitional amendment layer, not the preferred canonical authoring source. See the architecture contract for source migration, strict developer inverses and historical snapshot safety. See the [architecture contract](ARCHITECTURE.md).
+
 # Content review policy
 
 Authoring → automated validation → native-language/editorial review → learner-experience review → release.

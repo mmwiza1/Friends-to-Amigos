@@ -1,3 +1,7 @@
+## v1.9 foundations
+
+The registry now also owns the 26 existing A1 introduction models, unchanged, with sourceQuestionId and intendedTask metadata. Consolidation consumes them. This is a bounded 40-record canonical area, not a bulk migration. See the [architecture contract](ARCHITECTURE.md).
+
 # Incremental linguistic content schema — version 1
 
 The current JS generators, permanent question manifests and historical snapshots remain authoritative. This is an incremental path, not a replacement migration.

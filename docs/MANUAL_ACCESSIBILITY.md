@@ -1,3 +1,7 @@
+## v1.9 foundations
+
+For v1.9, inspect semantic teal/attention/gold/error/success in both themes, radio/tile/cloze focus, idempotent event handling and Back/pause/import after controller extraction. Static contrast and baseline-geometry comparison do not substitute for actual TalkBack/device checks. See the [architecture contract](ARCHITECTURE.md).
+
 # Manual accessibility acceptance
 
 Record platform/device, build, method, result and limitations separately from automated browser assertions. No full accessibility certification is claimed.

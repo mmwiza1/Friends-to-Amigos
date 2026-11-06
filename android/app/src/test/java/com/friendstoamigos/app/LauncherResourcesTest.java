@@ -13,7 +13,7 @@ public class LauncherResourcesTest {
     @Test public void adaptiveIconsUseMascotAndThemedLayer() throws Exception {
         for (String name : new String[]{"ic_launcher", "ic_launcher_round"}) {
             for (int api : new int[]{26, 33}) {
-                String xml = new String(Files.readAllBytes(resource("mipmap-anydpi-v" + api + "/" + name + ".xml")), StandardCharsets.UTF_8);
+                String xml = new String(Files.readAllBytes(resource((api == 26 ? "mipmap-anydpi" : "mipmap-anydpi-v33") + "/" + name + ".xml")), StandardCharsets.UTF_8);
                 assertTrue(xml.contains("@drawable/ic_launcher_foreground"));
                 assertTrue(xml.contains("@drawable/ic_launcher_background"));
                 if (api == 33) assertTrue(xml.contains("@drawable/ic_launcher_monochrome"));

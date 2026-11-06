@@ -1,6 +1,6 @@
 # Friends to Amigos
 
-**1.8.0 · Consolidation, clarity and quality.** Learn new Spanish, strengthen skills in Practice, and retrieve it later in Review. Offline dictionary, standalone stories and the existing A1.1–B2.2 course remain.
+**1.9.0 · Foundations and visual consistency.** Learn new Spanish, strengthen skills in Practice, and retrieve it later in Review. Offline dictionary, standalone stories and the existing A1.1–B2.2 course remain.
 
 An offline-first Android Spanish-learning app in a vanilla HTML/CSS/JavaScript WebView. European Spanish is the primary variety, including vosotros/as. No account, backend, runtime API, cloud grader or runtime npm dependency is required.
 
@@ -18,7 +18,11 @@ Showcase UI: **1.8.0** · Android versionCode 19. Clean browser-simulated app vi
 | <img src="docs/screenshots/saved-words.png" width="180" alt="Your personal saved vocabulary"><br>Your personal saved vocabulary | <img src="docs/screenshots/recommendations.png" width="180" alt="Content for Your Level with editorial guidance"><br>Content for Your Level with editorial guidance | <img src="docs/screenshots/lesson-complete.png" width="180" alt="Continue directly to the next required activity"><br>Continue directly to the next required activity |
 <!-- app-showcase:end -->
 
-[Build results and device-testing limits](BUILD_STATUS.md) · [Release details](docs/release/V1_8_REPORT.md) · [Showcase policy and release gate](docs/SCREENSHOT_POLICY.md)
+[Build results and device-testing limits](BUILD_STATUS.md) · [Release details](docs/release/V1_9_REPORT.md) · [Showcase policy and release gate](docs/SCREENSHOT_POLICY.md)
+
+## v1.9 foundations
+
+The same learning journey and eleven Practice modes now use explicit session/navigation/data controllers, one authoritative state owner and semantic light/dark colours. See the [architecture/code-placement contract](docs/ARCHITECTURE.md), [implementation report](docs/release/V1_9_REPORT.md) and [release notes](docs/release/V1_9_RELEASE_NOTES.md). No new learner feature, stage or network service was added.
 
 ## v1.8 consolidation
 

@@ -1824,19 +1824,19 @@ const data={
      "title": "Una respuesta sin atacar",
      "text": "Elena escribe una propuesta para reducir el tiempo de una reunión. Un compañero responde que acortarla significa no escuchar a la gente. Elena no rechaza la preocupación: también quiere participación. Explica que propone enviar información antes y reservar la sesión para preguntas, no eliminar el diálogo. Da un ejemplo de la última reunión, donde leyeron datos que todos tenían en un correo. El compañero reconoce esa diferencia, pero pide conservar un turno para asuntos nuevos. Elena incorpora la idea. La respuesta funciona porque aclara el alcance y acepta una modificación relevante. No busca demostrar que el compañero entendió todo mal. Al final comparan un formato concreto en vez de discutir sobre palabras generales como «participación». La propuesta se vuelve más defendible porque describe qué cambiará y qué se mantendrá.",
      "glossary": [
-      [
-       "desde mi punto de vista",
-       "from my point of view"
-      ],
-      [
-       "defendible",
-       "defensible"
-      ],
-      [
-       "incorpora",
-       "incorporates"
-      ]
-     ],
+  [
+    "acortarla",
+    "shorten it"
+  ],
+  [
+    "defendible",
+    "defensible"
+  ],
+  [
+    "incorpora",
+    "incorporates"
+  ]
+],
      "questions": [
       [
        "¿Qué propone eliminar Elena?",

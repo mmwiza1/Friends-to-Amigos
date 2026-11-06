@@ -2632,19 +2632,19 @@ const data={
      "title": "El resumen que cambió una condición",
      "text": "Elena presenta una propuesta para ampliar una actividad. Dice que sería útil si se consiguiera apoyo para preparar la sala. Luis toma notas y después escribe al grupo que Elena quiere ampliar la actividad. La frase no es falsa, pero elimina una condición importante. Marta pregunta quién se ocupará de la preparación. Luis revisa sus notas y añade lo que faltaba. Elena agradece la corrección: no propuso ampliar a cualquier coste ni confirmó recursos que aún no tenían. El grupo distingue su posición de la decisión pendiente. Ana explica que ella apoya estudiar la opción, aunque necesita conocer el esfuerzo. Esa opinión tampoco se convierte en acuerdo definitivo. Preparan un resumen con tres apartados: propuesta, condiciones y preguntas abiertas. Antes de enviarlo, lo leen quienes intervinieron. No intentan copiar cada palabra, pero comprueban que la reformulación conserva el alcance de las afirmaciones. El siguiente encuentro empieza con información más clara. Luis entiende que resumir consiste en reducir palabras sin borrar relaciones importantes entre una idea, su autor y las condiciones bajo las que la defiende.",
      "glossary": [
-      [
-       "desde mi punto de vista",
-       "from my point of view"
-      ],
-      [
-       "la reformulación",
-       "rephrasing"
-      ],
-      [
-       "los recursos",
-       "resources"
-      ]
-     ],
+  [
+    "a cualquier coste",
+    "at any cost"
+  ],
+  [
+    "la reformulación",
+    "rephrasing"
+  ],
+  [
+    "los recursos",
+    "resources"
+  ]
+],
      "questions": [
       [
        "¿Qué perdió el primer resumen?",
@@ -3711,19 +3711,19 @@ const data={
      "title": "La presentación y la pregunta difícil",
      "text": "Elena presenta el proyecto de un paseo accesible. Cuenta cómo empezó la idea, qué rutas compararon y por qué eligieron una ruta base con extensión voluntaria. Apoya su conclusión con tiempos y comentarios, pero aclara que la prueba tuvo pocos participantes. Una persona pregunta si el plan sirve para cualquiera. Elena no promete acceso universal: explica qué condiciones comprobaron y cuáles faltan. Luis añade que todavía necesitan revisar el punto de reunión con personas que no hicieron la prueba. Otra pregunta señala que dividir el grupo aumenta la organización. Marta reconoce el coste y describe quién se encargará de cada parte si consiguen apoyo. No presenta ese apoyo como confirmado. Al final proponen una segunda prueba y piden dos colaboraciones concretas. Ana escucha la grabación de una explicación anterior y detecta que hablaban demasiado de gustos personales. En la nueva presentación los gustos siguen visibles, pero no sustituyen los criterios. La respuesta a las preguntas no obliga a abandonar el proyecto. Ayuda a reducir su alcance, explicar sus condiciones y convertir una propuesta atractiva en un plan que puede comprobarse. Después envían un resumen fiel para quienes no asistieron.",
      "glossary": [
-      [
-       "desde mi punto de vista",
-       "from my point of view"
-      ],
-      [
-       "los criterios",
-       "criteria"
-      ],
-      [
-       "las colaboraciones",
-       "contributions of help"
-      ]
-     ],
+  [
+    "extensión voluntaria",
+    "optional extension"
+  ],
+  [
+    "los criterios",
+    "criteria"
+  ],
+  [
+    "las colaboraciones",
+    "contributions of help"
+  ]
+],
      "questions": [
       [
        "¿Qué límite reconoce Elena?",

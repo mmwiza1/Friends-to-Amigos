@@ -44,3 +44,7 @@ Read [the consolidation strategy](docs/CONSOLIDATION_STRATEGY.md), [content poli
 - Permanent IDs and historical question/passage snapshots are production data. Never regenerate an old attempt from changed live content.
 - Run language/content checks for new Spanish. Automated validation/agent review is not independent native or educator approval.
 - Actual visual inspection supplements geometry tests. Report automated, agent/manual, native build and real-device/TalkBack validation separately and truthfully.
+
+## Foundations architecture
+
+Read [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) before adding runtime logic. Keep one progress owner, inject controller capabilities, keep domains independent of controllers and keep views free of learning mutations. Diagnostics observe through a narrow capability and remain separate from schema v2. Consolidation is transitional; prefer reviewed canonical source edits with snapshot compatibility. Semantic colours belong in `tokens.css`; run `audit:architecture` and `audit:style` with all existing release gates. Do not add domain/session logic to bootstrap by default. No ES-module/framework migration is implied.

@@ -1,0 +1,6 @@
+{
+  "commit": "0820c40f981531b4c923c68c40fada6d84e1ccae",
+  "file": "v18-app.js",
+  "sha256": "b89be83edd72aa3f1025a49172242a08a72c0c9aae0858b71518191beae916ef",
+  "note": "Immutable pre-extraction orchestration. Uses unchanged current domain modules to isolate observable controller equivalence; not a second authored curriculum."
+}

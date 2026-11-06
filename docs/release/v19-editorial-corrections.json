@@ -1,0 +1,113 @@
+{
+  "startingCommit": "0820c40f981531b4c923c68c40fada6d84e1ccae",
+  "corrections": [
+    {
+      "activity": "b21u3story3",
+      "file": "www/b21-data.js",
+      "title": "Una respuesta sin atacar",
+      "passageSHA256": "ca609dea2eb61b0c6f4c3e9f25f0d330586d4038c5912b98a04fa94e76dc1206",
+      "before": [
+        [
+          "desde mi punto de vista",
+          "from my point of view"
+        ],
+        [
+          "defendible",
+          "defensible"
+        ],
+        [
+          "incorpora",
+          "incorporates"
+        ]
+      ],
+      "after": [
+        [
+          "acortarla",
+          "shorten it"
+        ],
+        [
+          "defendible",
+          "defensible"
+        ],
+        [
+          "incorpora",
+          "incorporates"
+        ]
+      ],
+      "reason": "Replace a stale generic viewpoint glossary with an expression actually used in the passage.",
+      "editorialStatus": "Internal contextual review; independent native/educator review pending"
+    },
+    {
+      "activity": "b22u5story0",
+      "file": "www/b22-data.js",
+      "title": "El resumen que cambió una condición",
+      "passageSHA256": "66bc3565eb43d1c9852a8e6dc132d072898c07c1be73c73aa3d22f08dec5d470",
+      "before": [
+        [
+          "desde mi punto de vista",
+          "from my point of view"
+        ],
+        [
+          "la reformulación",
+          "rephrasing"
+        ],
+        [
+          "los recursos",
+          "resources"
+        ]
+      ],
+      "after": [
+        [
+          "a cualquier coste",
+          "at any cost"
+        ],
+        [
+          "la reformulación",
+          "rephrasing"
+        ],
+        [
+          "los recursos",
+          "resources"
+        ]
+      ],
+      "reason": "Replace a stale generic viewpoint glossary with an expression actually used in the passage.",
+      "editorialStatus": "Internal contextual review; independent native/educator review pending"
+    },
+    {
+      "activity": "b22u7story1",
+      "file": "www/b22-data.js",
+      "title": "La presentación y la pregunta difícil",
+      "passageSHA256": "4129dfda5dc7d4464ef355e82990caba559203c7f3cca6e4633a7c46f92b7a64",
+      "before": [
+        [
+          "desde mi punto de vista",
+          "from my point of view"
+        ],
+        [
+          "los criterios",
+          "criteria"
+        ],
+        [
+          "las colaboraciones",
+          "contributions of help"
+        ]
+      ],
+      "after": [
+        [
+          "extensión voluntaria",
+          "optional extension"
+        ],
+        [
+          "los criterios",
+          "criteria"
+        ],
+        [
+          "las colaboraciones",
+          "contributions of help"
+        ]
+      ],
+      "reason": "Replace a stale generic viewpoint glossary with an expression actually used in the passage.",
+      "editorialStatus": "Internal contextual review; independent native/educator review pending"
+    }
+  ]
+}

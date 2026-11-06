@@ -22,15 +22,15 @@ test('Today caps due review, ignores future dates, respects placement and priori
 function luminance(hex){const c=hex.match(/[\da-f]{2}/gi).map(v=>parseInt(v,16)/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);return .2126*c[0]+.7152*c[1]+.0722*c[2];}
 function contrast(a,b){const x=luminance(a),y=luminance(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05);}
 test('system dark CSS preserves the existing light rules and supplies readable dark controls and feedback',()=>{
- const css=fs.readFileSync('www/style.css','utf8'),dark=css.split('@media(prefers-color-scheme:dark)')[1];assert.ok(dark);for(const selector of ['.card','.choice','input','select','nav','.primary','.feedback.wrong','.notice','.toast'])assert.ok(dark.includes(selector));
- for(const [fg,bg] of [['#f1f4f8','#151c26'],['#f1f4f8','#202a38'],['#b5c0ce','#263140'],['#67d1c7','#173d3b'],['#f1f4f8','#4b2a2a'],['#152338','#ff7669']])assert.ok(contrast(fg,bg)>=4.5,`${fg} on ${bg}`);
+ const {parse,split}=require('../scripts/lib/css.cjs'),dark=parse(fs.readFileSync('www/style.css','utf8')).filter(r=>r.at.some(a=>a.includes('prefers-color-scheme:dark'))).flatMap(r=>split(r.selector,','));for(const selector of ['.card','.choice','input','select','nav','.primary','.feedback.wrong','.notice','.toast'])assert.ok(dark.includes(selector));
+ const audit=require('../scripts/audit-style.cjs').audit();assert.deepEqual(audit.errors,[]);assert.equal(audit.contrastPairs.length,38);for(const row of audit.contrastPairs)assert.ok(row.ratio>=row.minimum,JSON.stringify(row));
  const html=fs.readFileSync('www/index.html','utf8');assert.match(html,/theme-color.*prefers-color-scheme: dark/);
 });
 test('Android delegates Back to app state and packages local icons and day/night splash themes',()=>{
  const java=fs.readFileSync('android/app/src/main/java/com/friendstoamigos/app/MainActivity.java','utf8');assert.match(java,/FriendsToAmigos.handleBack/);assert.doesNotMatch(java,/querySelector/);assert.match(java,/registerOnBackInvokedCallback/);assert.match(java,/moveTaskToBack\(true\)/);assert.match(java,/onStart\(String id\).*speechResult\(id,true\)/);assert.match(java,/onError\(String id\).*speechResult\(id,false\)/);
  const manifest=fs.readFileSync('android/app/src/main/AndroidManifest.xml','utf8');assert.match(manifest,/@mipmap\/ic_launcher_round/);assert.match(manifest,/@string\/app_name/);assert.match(manifest,/@style\/AppTheme/);assert.doesNotMatch(manifest,/android.permission.INTERNET|RECORD_AUDIO/);
  for(const path of ['values-v31','values-night-v31'])assert.match(fs.readFileSync('android/app/src/main/res/'+path+'/styles.xml','utf8'),/windowSplashScreenAnimatedIcon/);
- assert.match(fs.readFileSync('android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml','utf8'),/adaptive-icon/);
+ assert.match(fs.readFileSync('android/app/src/main/res/mipmap-anydpi/ic_launcher.xml','utf8'),/adaptive-icon/);
  const workflow=fs.readFileSync('.github/workflows/android.yml','utf8');assert.match(workflow,/assembleDebug lintDebug testDebugUnitTest/);assert.doesNotMatch(workflow,/if: github.event_name == 'workflow_dispatch'/);
 });
 

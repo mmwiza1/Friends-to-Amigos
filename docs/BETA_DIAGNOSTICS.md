@@ -1,3 +1,7 @@
+## v1.9 foundations
+
+DiagnosticsController now owns observation/duration/UI orchestration through a narrow getContext capability, separate store and download callback. It has no progress/domain authority. Existing event allowlist, privacy exclusions, retention and controls remain. See the [architecture contract](ARCHITECTURE.md).
+
 # Local beta diagnostics — schema 1
 
 Optional local technical evidence for manual beta evaluation; not analytics sent to a provider, a KPI/OKR system or a formal participant-study programme.
