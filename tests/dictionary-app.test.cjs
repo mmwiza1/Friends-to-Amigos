@@ -23,7 +23,9 @@ test('Saved Words is additive inside Profile; existing navigation labels, order 
  const before=nav(a.el.innerHTML),tabs=[...before.matchAll(/data-tab="([^"]+)"/g)].map(m=>m[1]);
  assert.deepEqual(tabs,['Home','Learn','Games','Review','Profile']);assert.match(before,/data-tab="Review"[\s\S]*?<strong class="badge">1<\/strong>/);
  a.click('tab',{tab:'Profile'});assert.match(a.el.innerHTML,/Saved Words/);assert.match(a.el.innerHTML,/data-action="savedWords"/);
- assert.equal(nav(a.el.innerHTML).replace('class="active"','class=""'),before.replace('class="active"','class=""'));
+ assert.match(before,/data-tab="Home"[^>]*aria-current="page"/);assert.match(nav(a.el.innerHTML),/data-tab="Profile"[^>]*aria-current="page"/);
+ const destinations=html=>html.replace('class="active"','class=""').replace(/ aria-current="page"/g,'');
+ assert.equal(destinations(nav(a.el.innerHTML)),destinations(before));
  a.click('savedWords');assert.equal(evaluate(a,'screen'),'savedWords');assert.equal(evaluate(a,'tab'),'Profile');assert.doesNotMatch(a.el.innerHTML,/<nav/);
  assert.equal(a.ctx.FriendsToAmigos.handleBack(),true);assert.equal(evaluate(a,'screen'),'main');assert.equal(evaluate(a,'tab'),'Profile');
  a.click('tab',{tab:'Review'});assert.match(a.el.innerHTML,/Review &amp; grow|Review & grow/);assert.match(a.el.innerHTML,/Start review/);
