@@ -1,6 +1,6 @@
 # Friends to Amigos
 
-**1.10.0 · Material 3 design consistency.** Learn new Spanish, strengthen skills in Practice, and retrieve it later in Review. Offline dictionary, standalone stories and the existing A1.1–B2.2 course remain.
+**1.11.0 · Learning integrity.** Learn new Spanish, strengthen skills in Practice, and retrieve it later in Review. Offline dictionary, standalone stories and the existing A1.1–B2.2 course remain.
 
 An offline-first Android Spanish-learning app in a vanilla HTML/CSS/JavaScript WebView. European Spanish is the primary variety, including vosotros/as. No account, backend, runtime API, cloud grader or runtime npm dependency is required.
 
@@ -19,6 +19,10 @@ Showcase UI: **1.10.0** · Android versionCode 21. Clean browser-simulated app v
 <!-- app-showcase:end -->
 
 [Build results and device-testing limits](BUILD_STATUS.md) · [Release details](docs/release/V1_10_REPORT.md) · [Showcase policy and release gate](docs/SCREENSHOT_POLICY.md)
+
+## v1.11 learning integrity
+
+Multiple-choice options now display in a stable shuffled order, spaced review extends to 60 and 120 days, and 38 course questions plus 3 Practice items gain explanations that match their own answer. Practice adds **Write from Memory** and **Listen & Write** (13 activities), typed retrieval from completed lessons with accent tolerance and ñ kept distinct. Android keeps the page through rotation, completes exports after an app restart and starts about 29% faster in simulation. Core lessons, IDs, schema and the A1.1–B2.2 course are unchanged. [Release notes](docs/release/V1_11_RELEASE_NOTES.md) · [course design](COURSE_DESIGN.md) · [explanation corrections](docs/release/v111-explanation-corrections.json).
 
 ## v1.10 Material design standards
 

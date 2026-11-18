@@ -1,6 +1,6 @@
 (function (root) {
   'use strict';
-  const APP_VERSION = '1.10.0',
+  const APP_VERSION = '1.11.0',
     indexes = new WeakMap();
   const KEY = 'friends-to-amigos-beta-diagnostics-v1',
     LIMIT = 500,

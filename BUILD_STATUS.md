@@ -1,3 +1,11 @@
+# v1.11.0 learning integrity — Android versionCode 22
+
+Starting main `73a89cd8ec8f602c376f50f455e902a16d7e14f6`. Same A1.1–B2.2 / 576 activities / 3,328 slots and schema v2; Practice grows from eleven to thirteen activities (Write from Memory, Listen & Write). See [release notes](docs/release/V1_11_RELEASE_NOTES.md), [course design](COURSE_DESIGN.md), [architecture](docs/ARCHITECTURE.md) and [showcase review](docs/release/V1_11_SHOWCASE_REVIEW.md).
+
+<!-- v111-validation:start -->
+Pending the final release-commit CI run.
+<!-- v111-validation:end -->
+
 # v1.10.0 Material design consistency — Android versionCode 21
 
 Starting main `b0c46adf5bf665d77abdf481ec1367c601884fbd`. Same A1.1–B2.2 / 576 activities / 3,328 slots / eleven Practice activities and schema v2. See [design standards](docs/DESIGN_SYSTEM.md), [report and before/after matrix](docs/release/V1_10_REPORT.md), [release notes](docs/release/V1_10_RELEASE_NOTES.md) and [manual QA](docs/release/V1_10_MANUAL_QA.md).
