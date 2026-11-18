@@ -1,0 +1,332 @@
+{
+ "startingCommit": "0187608a860c1fa14ee3dbcbd93a8ef118d246ed",
+ "policy": "English explanations only. Spanish models, prompts, options, answers, IDs, order and historical snapshots are unchanged. Checkpoint copies inherit their source item correction.",
+ "reason": "The production item reused an explanation written for a different model sentence; the new explanation describes this item’s own model.",
+ "editorialStatus": "Internal agent review; independent native/educator review pending",
+ "course": [
+  {
+   "id": "a22u0l2-q4",
+   "activity": "a22u0l2",
+   "stage": "A2.2",
+   "model": "Era tranquilo",
+   "before": "Era and tenía give childhood description and possession, not a sequence of finished actions. Agree pequeña with Ana.",
+   "after": "Era describes what the neighbourhood was like: past background description, not a finished event."
+  },
+  {
+   "id": "a22u0l2-q5",
+   "activity": "a22u0l2",
+   "stage": "A2.2",
+   "model": "Cuando era pequeña, iba al parque. Hacía buen tiempo.",
+   "before": "Era and tenía give childhood description and possession, not a sequence of finished actions. Agree pequeña with Ana.",
+   "after": "Era, iba and hacía describe a childhood memory: who you were, what you used to do and the usual weather. Agree pequeña with Ana."
+  },
+  {
+   "id": "a22u0check-q7",
+   "activity": "a22u0check",
+   "stage": "A2.2",
+   "model": "Era tranquilo",
+   "before": "Era and tenía give childhood description and possession, not a sequence of finished actions. Agree pequeña with Ana.",
+   "after": "Era describes what the neighbourhood was like: past background description, not a finished event."
+  },
+  {
+   "id": "a22u0check-q8",
+   "activity": "a22u0check",
+   "stage": "A2.2",
+   "model": "Cuando era pequeña, iba al parque. Hacía buen tiempo.",
+   "before": "Era and tenía give childhood description and possession, not a sequence of finished actions. Agree pequeña with Ana.",
+   "after": "Era, iba and hacía describe a childhood memory: who you were, what you used to do and the usual weather. Agree pequeña with Ana."
+  },
+  {
+   "id": "a22u1l2-q4",
+   "activity": "a22u1l2",
+   "stage": "A2.2",
+   "model": "Luis vino al café",
+   "before": "Hacía sets the weather scene; salimos is the completed outing in this past context. The same salimos form can also be present, so context matters.",
+   "after": "Vino is the irregular preterite of venir: Luis’s arrival is a completed event that happened while you were working."
+  },
+  {
+   "id": "a22u1l2-q5",
+   "activity": "a22u1l2",
+   "stage": "A2.2",
+   "model": "Estaba en casa. Después salí al parque.",
+   "before": "Hacía sets the weather scene; salimos is the completed outing in this past context. The same salimos form can also be present, so context matters.",
+   "after": "Estaba sets the background at home; salí reports the completed action that followed. Después marks the order."
+  },
+  {
+   "id": "a22u1check-q7",
+   "activity": "a22u1check",
+   "stage": "A2.2",
+   "model": "Luis vino al café",
+   "before": "Hacía sets the weather scene; salimos is the completed outing in this past context. The same salimos form can also be present, so context matters.",
+   "after": "Vino is the irregular preterite of venir: Luis’s arrival is a completed event that happened while you were working."
+  },
+  {
+   "id": "a22u1check-q8",
+   "activity": "a22u1check",
+   "stage": "A2.2",
+   "model": "Estaba en casa. Después salí al parque.",
+   "before": "Hacía sets the weather scene; salimos is the completed outing in this past context. The same salimos form can also be present, so context matters.",
+   "after": "Estaba sets the background at home; salí reports the completed action that followed. Después marks the order."
+  },
+  {
+   "id": "a22u2l0-q4",
+   "activity": "a22u2l0",
+   "stage": "A2.2",
+   "model": "Perdí el autobús",
+   "before": "Perdí reports the missed train, and llegué gives its cause. Regular -ER preterite uses -í for yo.",
+   "after": "Perdí reports one finished event: you missed the bus. Regular -ER preterite uses -í for yo."
+  },
+  {
+   "id": "a22u2l2-q4",
+   "activity": "a22u2l2",
+   "stage": "A2.2",
+   "model": "Primero sigue recto y después gira a la derecha",
+   "before": "No pude reports failure to leave on that occasion. Estaba parado supplies the train’s ongoing condition, not another event.",
+   "after": "Sigue and gira give friendly tú instructions. Primero and después put the two steps in order."
+  },
+  {
+   "id": "a22u2check-q7",
+   "activity": "a22u2check",
+   "stage": "A2.2",
+   "model": "Primero sigue recto y después gira a la derecha",
+   "before": "No pude reports failure to leave on that occasion. Estaba parado supplies the train’s ongoing condition, not another event.",
+   "after": "Sigue and gira give friendly tú instructions. Primero and después put the two steps in order."
+  },
+  {
+   "id": "a22u3l2-q4",
+   "activity": "a22u3l2",
+   "stage": "A2.2",
+   "model": "Falta un café, por favor",
+   "before": "Dijo is the irregular completed form of decir. Faltaba describes the missing item in the situation he reported.",
+   "after": "Falta un café names the missing item; por favor makes it a polite request. Falta is singular because one coffee is missing."
+  },
+  {
+   "id": "a22u3l2-q5",
+   "activity": "a22u3l2",
+   "stage": "A2.2",
+   "model": "Pedí dos cafés y falta uno. ¿Puede traer el otro, por favor?",
+   "before": "Dijo is the irregular completed form of decir. Faltaba describes the missing item in the situation he reported.",
+   "after": "Pedí reports your completed order; falta uno states the current problem. ¿Puede traer…? is a polite usted request."
+  },
+  {
+   "id": "a22u3check-q7",
+   "activity": "a22u3check",
+   "stage": "A2.2",
+   "model": "Falta un café, por favor",
+   "before": "Dijo is the irregular completed form of decir. Faltaba describes the missing item in the situation he reported.",
+   "after": "Falta un café names the missing item; por favor makes it a polite request. Falta is singular because one coffee is missing."
+  },
+  {
+   "id": "a22u3check-q8",
+   "activity": "a22u3check",
+   "stage": "A2.2",
+   "model": "Pedí dos cafés y falta uno. ¿Puede traer el otro, por favor?",
+   "before": "Dijo is the irregular completed form of decir. Faltaba describes the missing item in the situation he reported.",
+   "after": "Pedí reports your completed order; falta uno states the current problem. ¿Puede traer…? is a polite usted request."
+  },
+  {
+   "id": "a22u5l0-q4",
+   "activity": "a22u5l0",
+   "stage": "A2.2",
+   "model": "Voy a llegar a las ocho",
+   "before": "Estuve reports the bounded stay for yo. Estaba would present being there as the background at another moment.",
+   "after": "Voy a + infinitive gives your planned arrival; a las ocho answers when."
+  },
+  {
+   "id": "a22u6l2-q4",
+   "activity": "a22u6l2",
+   "stage": "A2.2",
+   "model": "Prefiero el parque porque es tranquilo",
+   "before": "Ver uses vi without a written accent. Me gustó reports the response to one completed film; the film controls the singular verb.",
+   "after": "Prefiero gives your choice and porque introduces the reason. Es tranquilo describes what the park is like."
+  },
+  {
+   "id": "a22u6check-q7",
+   "activity": "a22u6check",
+   "stage": "A2.2",
+   "model": "Prefiero el parque porque es tranquilo",
+   "before": "Ver uses vi without a written accent. Me gustó reports the response to one completed film; the film controls the singular verb.",
+   "after": "Prefiero gives your choice and porque introduces the reason. Es tranquilo describes what the park is like."
+  },
+  {
+   "id": "a22u7l0-q4",
+   "activity": "a22u7l0",
+   "stage": "A2.2",
+   "model": "El autobús estaba parado. Después tomé el tren.",
+   "before": "Hacía sets the ongoing weather; perdí advances the completed event. Cuando connects them without making both tenses identical.",
+   "after": "Estaba parado describes the bus’s ongoing state; tomé reports what you did next. Después marks the sequence."
+  },
+  {
+   "id": "a22u7l2-q4",
+   "activity": "a22u7l2",
+   "stage": "A2.2",
+   "model": "Estoy cansada, por eso voy a descansar",
+   "before": "Estaba supplies the disruption; tomé is the completed response. Así que expresses the consequence, not a separate unrelated fact.",
+   "after": "Estoy cansada describes how you feel now; por eso introduces the consequence, and voy a descansar gives the plan."
+  },
+  {
+   "id": "a22u7l2-q5",
+   "activity": "a22u7l2",
+   "stage": "A2.2",
+   "model": "Hacía frío. Perdí el autobús. Después tomé el tren. Ahora voy a descansar en casa.",
+   "before": "Estaba supplies the disruption; tomé is the completed response. Así que expresses the consequence, not a separate unrelated fact.",
+   "after": "Hacía sets the weather background; perdí and tomé report completed events in order; voy a descansar gives the plan for now."
+  },
+  {
+   "id": "a22u7check-q7",
+   "activity": "a22u7check",
+   "stage": "A2.2",
+   "model": "Estoy cansada, por eso voy a descansar",
+   "before": "Estaba supplies the disruption; tomé is the completed response. Así que expresses the consequence, not a separate unrelated fact.",
+   "after": "Estoy cansada describes how you feel now; por eso introduces the consequence, and voy a descansar gives the plan."
+  },
+  {
+   "id": "a22u7check-q8",
+   "activity": "a22u7check",
+   "stage": "A2.2",
+   "model": "Hacía frío. Perdí el autobús. Después tomé el tren. Ahora voy a descansar en casa.",
+   "before": "Estaba supplies the disruption; tomé is the completed response. Así que expresses the consequence, not a separate unrelated fact.",
+   "after": "Hacía sets the weather background; perdí and tomé report completed events in order; voy a descansar gives the plan for now."
+  },
+  {
+   "id": "b11u0l0-q5",
+   "activity": "b11u0l0",
+   "stage": "B1.1",
+   "model": "Estaba esperando el tren cuando llegó Marta.",
+   "before": "Estaba frames the ongoing scene; empezó introduces a new event.",
+   "after": "Estaba esperando frames the ongoing scene; llegó introduces the new event that interrupts it."
+  },
+  {
+   "id": "b11u0check-q5",
+   "activity": "b11u0check",
+   "stage": "B1.1",
+   "model": "Estaba esperando el tren cuando llegó Marta.",
+   "before": "Estaba frames the ongoing scene; empezó introduces a new event.",
+   "after": "Estaba esperando frames the ongoing scene; llegó introduces the new event that interrupts it."
+  },
+  {
+   "id": "b11u6l2-q4",
+   "activity": "b11u6l2",
+   "stage": "B1.1",
+   "model": "La vi en el tren antes de cambiar.",
+   "before": "Perdí presents the loss; mientras cambiaba supplies the ongoing situation.",
+   "after": "Vi reports the last completed moment you saw it; antes de + infinitive places it before you changed trains."
+  },
+  {
+   "id": "b11u6l2-q5",
+   "activity": "b11u6l2",
+   "stage": "B1.1",
+   "model": "Perdí las llaves mientras salía del café.",
+   "before": "Perdí presents the loss; mientras cambiaba supplies the ongoing situation.",
+   "after": "Perdí presents the loss; mientras salía supplies the ongoing situation when it happened."
+  },
+  {
+   "id": "b11u6check-q7",
+   "activity": "b11u6check",
+   "stage": "B1.1",
+   "model": "La vi en el tren antes de cambiar.",
+   "before": "Perdí presents the loss; mientras cambiaba supplies the ongoing situation.",
+   "after": "Vi reports the last completed moment you saw it; antes de + infinitive places it before you changed trains."
+  },
+  {
+   "id": "b11u6check-q8",
+   "activity": "b11u6check",
+   "stage": "B1.1",
+   "model": "Perdí las llaves mientras salía del café.",
+   "before": "Perdí presents the loss; mientras cambiaba supplies the ongoing situation.",
+   "after": "Perdí presents the loss; mientras salía supplies the ongoing situation when it happened."
+  },
+  {
+   "id": "b12u0l1-q4",
+   "activity": "b12u0l1",
+   "stage": "B1.2",
+   "model": "Perdona, interpreté mal tu silencio.",
+   "before": "Pensé reports an interpretation, not proof of the other person’s feelings.",
+   "after": "Interpreté mal admits that your reading of the silence was wrong, without claiming to know Marta’s feelings; perdona softens the repair."
+  },
+  {
+   "id": "b12u0l1-q5",
+   "activity": "b12u0l1",
+   "stage": "B1.2",
+   "model": "Perdona, interpreté mal tu mensaje.",
+   "before": "Pensé reports an interpretation, not proof of the other person’s feelings.",
+   "after": "Interpreté mal acknowledges your misunderstanding of the message; perdona makes the repair polite."
+  },
+  {
+   "id": "b12u0check-q6",
+   "activity": "b12u0check",
+   "stage": "B1.2",
+   "model": "Perdona, interpreté mal tu mensaje.",
+   "before": "Pensé reports an interpretation, not proof of the other person’s feelings.",
+   "after": "Interpreté mal acknowledges your misunderstanding of the message; perdona makes the repair polite."
+  },
+  {
+   "id": "b12u5l1-q4",
+   "activity": "b12u5l1",
+   "stage": "B1.2",
+   "model": "Iría al museo y cocinaría con Marta.",
+   "before": "Con más tiempo frames a hypothetical circumstance; podría is conditional possibility.",
+   "after": "Iría and cocinaría are conditional: they describe what you would do in an imagined free afternoon."
+  },
+  {
+   "id": "b12u5l1-q5",
+   "activity": "b12u5l1",
+   "stage": "B1.2",
+   "model": "Con un fin de semana libre, iría a visitar a mi hermana.",
+   "before": "Con más tiempo frames a hypothetical circumstance; podría is conditional possibility.",
+   "after": "Con un fin de semana libre frames a hypothetical circumstance; iría is the conditional result."
+  },
+  {
+   "id": "b12u5check-q6",
+   "activity": "b12u5check",
+   "stage": "B1.2",
+   "model": "Con un fin de semana libre, iría a visitar a mi hermana.",
+   "before": "Con más tiempo frames a hypothetical circumstance; podría is conditional possibility.",
+   "after": "Con un fin de semana libre frames a hypothetical circumstance; iría is the conditional result."
+  },
+  {
+   "id": "b21u4l0-q4",
+   "activity": "b21u4l0",
+   "stage": "B2.1",
+   "model": "Quisiera confirmar las fechas y el precio total.",
+   "before": "A conditional polite request can take imperfect subjunctive: agradecería que comprobara. The request is bounded and practical.",
+   "after": "Quisiera softens the request politely; confirmar las fechas y el precio total keeps it specific and practical."
+  },
+  {
+   "id": "b21u6l0-q5",
+   "activity": "b21u6l0",
+   "stage": "B2.1",
+   "model": "Si tuviera más dinero, compraría un ordenador.",
+   "before": "An imagined present condition uses si tuviera; the result uses conditional haría. Si tengo can express an open real condition.",
+   "after": "An imagined present condition uses si tuviera; the result uses conditional compraría. Si tengo would express an open, real condition."
+  },
+  {
+   "id": "b21u6check-q5",
+   "activity": "b21u6check",
+   "stage": "B2.1",
+   "model": "Si tuviera más dinero, compraría un ordenador.",
+   "before": "An imagined present condition uses si tuviera; the result uses conditional haría. Si tengo can express an open real condition.",
+   "after": "An imagined present condition uses si tuviera; the result uses conditional compraría. Si tengo would express an open, real condition."
+  }
+ ],
+ "focused": [
+  {
+   "id": "focus-speak-b11u6l2-q6",
+   "model": "Perdí las llaves mientras salía del café.",
+   "before": "Perdí presents the loss; mientras cambiaba supplies the ongoing situation.",
+   "after": "Perdí presents the loss; mientras salía supplies the ongoing situation when it happened."
+  },
+  {
+   "id": "focus-listen-b21u4-exchange",
+   "model": "Quisiera confirmar las fechas y el precio total.",
+   "before": "A conditional polite request can take imperfect subjunctive: agradecería que comprobara. The request is bounded and practical.",
+   "after": "Quisiera softens the request politely; confirmar las fechas y el precio total keeps it specific and practical."
+  },
+  {
+   "id": "focus-listen-b21u6-exchange",
+   "model": "Si tuviera tiempo, visitaría el museo.",
+   "before": "An imagined present condition uses si tuviera; the result uses conditional haría. Si tengo can express an open real condition.",
+   "after": "An imagined present condition uses si tuviera; the result uses conditional visitaría. Si tengo would express an open, real condition."
+  }
+ ]
+}

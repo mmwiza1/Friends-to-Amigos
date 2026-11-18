@@ -30,3 +30,14 @@ test('well-established concepts are retrieved again after one and two months',()
  for(let i=0;i<7;i++){M.record(state,[{key:'concept:sentence-building'}],true,{recall:true,item:'q'+i},now);const r=Object.values(state.mastery.records)[0];gaps.push(Math.round((r.due-now)/DAY));now+=2*DAY;}
  assert.deepEqual(gaps,[1,7,7,14,30,60,60]);
 });
+test('v1.11 explanation corrections are live, explanation-only and describe their own model',()=>{
+ const rows=require('../docs/release/v111-explanation-corrections.json'),byId=new Map(C.lessons.flatMap(l=>l.questions.map(q=>[q.id,q])));
+ const focused=new Map(require('../www/b-focused-data.js').map(x=>[x.id,x]));
+ const spanishWords=text=>(text.match(/\b[a-záéíóúñü]+(?:é|ó|í|aba|ía|ría|aste|amos)\b/gi)||[]).map(w=>w.toLowerCase());
+ for(const [row,live] of [...rows.course.map(r=>[r,byId.get(r.id)]),...rows.focused.map(r=>[r,focused.get(r.id)])]){
+  assert.ok(live,row.id);assert.equal(live.explanation,row.after,row.id);assert.notEqual(row.before,row.after);
+  // Quoted verb forms in the new explanation must occur in the model (contrast forms are no longer cited).
+  const model=String(live.answer).toLowerCase();
+  for(const w of spanishWords(row.after))if(!['sí','así','allí','aquí'].includes(w))assert.ok(model.includes(w),row.id+': '+w);
+ }
+});

@@ -3047,7 +3047,7 @@
   "instructionLanguage": "es",
   "answer": "Perdí las llaves mientras salía del café.",
   "spanish": "Perdí las llaves mientras salía del café.",
-  "explanation": "Perdí presents the loss; mientras cambiaba supplies the ongoing situation.",
+  "explanation": "Perdí presents the loss; mientras salía supplies the ongoing situation when it happened.",
   "mode": "speaking",
   "id": "focus-speak-b11u6l2-q6",
   "sourceQuestionId": "b11u6l2-q6",
@@ -10241,7 +10241,7 @@
    "Exijo cualquier cosa sin datos.",
    "Quiero que sabes todo."
   ],
-  "explanation": "A conditional polite request can take imperfect subjunctive: agradecería que comprobara. The request is bounded and practical.",
+  "explanation": "Quisiera softens the request politely; confirmar las fechas y el precio total keeps it specific and practical.",
   "spanish": "Empresa: «¿Qué necesita?» «Quisiera confirmar las fechas y el precio total.».",
   "listening": {
    "transcript": "Empresa: «¿Qué necesita?» «Quisiera confirmar las fechas y el precio total.».",
@@ -11228,7 +11228,7 @@
    "Si tuve mañana, fui.",
    "Si tendría tiempo, visitaría."
   ],
-  "explanation": "An imagined present condition uses si tuviera; the result uses conditional haría. Si tengo can express an open real condition.",
+  "explanation": "An imagined present condition uses si tuviera; the result uses conditional visitaría. Si tengo would express an open, real condition.",
   "spanish": "Ana: «¿Qué harías con una tarde libre?» «Si tuviera tiempo, visitaría el museo.».",
   "listening": {
    "transcript": "Ana: «¿Qué harías con una tarde libre?» «Si tuviera tiempo, visitaría el museo.».",

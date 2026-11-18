@@ -39,7 +39,7 @@ const data={
       "Respond to the Spanish situation using the taught language.",
       "Estaba esperando el tren cuando llegó Marta.",
       [],
-      "Estaba frames the ongoing scene; empezó introduces a new event."
+      "Estaba esperando frames the ongoing scene; llegó introduces the new event that interrupts it."
      ]
     },
     {
@@ -3020,14 +3020,14 @@ const data={
        "La veré ayer.",
        "No tengo ninguna información."
       ],
-      "Perdí presents the loss; mientras cambiaba supplies the ongoing situation."
+      "Vi reports the last completed moment you saw it; antes de + infinitive places it before you changed trains."
      ],
      "transfer": [
       "Perdiste las llaves mientras salías del café. Cuenta la situación.",
       "Respond to the Spanish situation using the taught language.",
       "Perdí las llaves mientras salía del café.",
       [],
-      "Perdí presents the loss; mientras cambiaba supplies the ongoing situation."
+      "Perdí presents the loss; mientras salía supplies the ongoing situation when it happened."
      ]
     }
    ],

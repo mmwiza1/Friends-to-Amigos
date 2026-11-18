@@ -65,14 +65,14 @@ const data={
        "No, yo conozco tus sentimientos mejor.",
        "No tengo que escuchar."
       ],
-      "Pensé reports an interpretation, not proof of the other person’s feelings."
+      "Interpreté mal admits that your reading of the silence was wrong, without claiming to know Marta’s feelings; perdona softens the repair."
      ],
      "transfer": [
       "Interpretaste mal un mensaje corto. Reconoce el malentendido.",
       "Respond to the Spanish situation using the taught language.",
       "Perdona, interpreté mal tu mensaje.",
       [],
-      "Pensé reports an interpretation, not proof of the other person’s feelings."
+      "Interpreté mal acknowledges your misunderstanding of the message; perdona makes the repair polite."
      ]
     },
     {
@@ -2491,14 +2491,14 @@ const data={
        "Fui mañana.",
        "Eso ya ha pasado necesariamente."
       ],
-      "Con más tiempo frames a hypothetical circumstance; podría is conditional possibility."
+      "Iría and cocinaría are conditional: they describe what you would do in an imagined free afternoon."
      ],
      "transfer": [
       "Imagina un fin de semana libre: visitarías a tu hermana.",
       "Respond to the Spanish situation using the taught language.",
       "Con un fin de semana libre, iría a visitar a mi hermana.",
       [],
-      "Con más tiempo frames a hypothetical circumstance; podría is conditional possibility."
+      "Con un fin de semana libre frames a hypothetical circumstance; iría is the conditional result."
      ]
     },
     {

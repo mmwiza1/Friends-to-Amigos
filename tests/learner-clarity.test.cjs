@@ -8,7 +8,8 @@ function beforeClarity(){
  vm.runInNewContext(beforeRequestedSourceCorrections('a1-review.js',fs.readFileSync('www/a1-review.js','utf8')),reviewBox);
  const box={module:{exports:{}},require:name=>name==='./a1-review.js'?reviewBox.module.exports:originalRequire(name)};vm.runInNewContext(source,box);return clone(box.module.exports);
 }
-const before=beforeClarity(),questions=c=>c.lessons.flatMap(l=>l.questions),find=id=>questions(C).find(q=>q.id===id);
+// Source-built content already carries the v1.11 explanation corrections; reverse them like the live side.
+const before=(c=>({...c,lessons:c.lessons.map(l=>require('../scripts/content/explanation-support.cjs').beforeExplanations(l))}))(beforeClarity()),questions=c=>c.lessons.flatMap(l=>l.questions),find=id=>questions(C).find(q=>q.id===id);
 const historicalClarity=clone(before);historicalClarity.lessons=historicalClarity.lessons.filter(l=>['A1.1','A1.2'].includes(l.stage));historicalClarity.getUnit=lesson=>historicalClarity.stageUnits[lesson.stage][lesson.unit];Clarity.apply(historicalClarity);
 const preRamp={...C,lessons:C.lessons.map(l=>beforeLearnerExperienceCorrections(l))};
 test('learner wording audit covers every playable A1 question, including reading, writing, listening and speaking',()=>{

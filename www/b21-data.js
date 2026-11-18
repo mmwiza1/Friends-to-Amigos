@@ -2042,7 +2042,7 @@ const data={
        "Exijo cualquier cosa sin datos.",
        "Quiero que sabes todo."
       ],
-      "A conditional polite request can take imperfect subjunctive: agradecería que comprobara. The request is bounded and practical."
+      "Quisiera softens the request politely; confirmar las fechas y el precio total keeps it specific and practical."
      ],
      "transfer": [
       "Pide formalmente confirmar la dirección.",
@@ -3058,7 +3058,7 @@ const data={
       "Respond to the Spanish situation using the taught language.",
       "Si tuviera más dinero, compraría un ordenador.",
       [],
-      "An imagined present condition uses si tuviera; the result uses conditional haría. Si tengo can express an open real condition."
+      "An imagined present condition uses si tuviera; the result uses conditional compraría. Si tengo would express an open, real condition."
      ]
     },
     {

@@ -2,6 +2,8 @@
 // Test/developer contract inverse only. Never loaded by the app or save migration.
 const {isDeepStrictEqual}=require('node:util'),assert=require('node:assert/strict'),manifest=require('../../docs/release/v15-content-changes.json'),episodes=require('../../www/story-editions');
 function beforeExperience(item,kind='course'){
+ // Newest inverse first: v1.11 explanations, then v1.9 foundations.
+ if(kind==='course'||kind==='focused')item=require('./explanation-support.cjs').beforeExplanations(item,kind);
  if(kind==='course')item=require('./foundations-support.cjs').beforeFoundations(item);
  if(kind==='games'||kind==='focused')item=require('../../www/consolidation').externalPrior(item);
  if(kind==='course'&&item.reading)item={...item,reading:require('../../www/consolidation').readingPrior(item.reading)};
