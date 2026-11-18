@@ -38,3 +38,17 @@ test('base themes support Android 8.0 without referencing the API-27 light navig
  for(const name of ['values','values-night'])assert.doesNotMatch(fs.readFileSync('android/app/src/main/res/'+name+'/styles.xml','utf8'),/windowLightNavigationBar/);
  for(const name of ['values-v31','values-night-v31'])assert.match(fs.readFileSync('android/app/src/main/res/'+name+'/styles.xml','utf8'),/windowLightNavigationBar/);
 });
+
+test('Android keeps an export or file pick alive across rotation and activity recreation',()=>{
+ const java=fs.readFileSync('android/app/src/main/java/com/friendstoamigos/app/MainActivity.java','utf8'),manifest=fs.readFileSync('android/app/src/main/AndroidManifest.xml','utf8');
+ const changes=(manifest.match(/android:configChanges="([^"]+)"/)||[])[1]?.split('|')||[];
+ // Size/orientation changes are handled in place; theme and density still recreate so the WebView restyles.
+ for(const change of ['orientation','screenSize','screenLayout','smallestScreenSize','keyboardHidden'])assert.ok(changes.includes(change),change);
+ for(const change of ['uiMode','density','locale'])assert.ok(!changes.includes(change),change);
+ assert.match(java,/onConfigurationChanged\(Configuration config\)[\s\S]*legacyFullHeight=0/);
+ // The pending export is staged on disk, never only in a field lost with the activity.
+ assert.doesNotMatch(java,/private String exportData/);assert.match(java,/new File\(getCacheDir\(\),"pending-export\.json"\)/);
+ assert.match(java,/request==11[\s\S]*pending\.delete\(\)/);
+ assert.match(java,/request==10[\s\S]*Please choose the file again/);
+ assert.match(java,/onPause\(\)\{[^}]*if\(web!=null\)/);
+});

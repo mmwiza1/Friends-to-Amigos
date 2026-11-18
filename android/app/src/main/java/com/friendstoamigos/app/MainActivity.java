@@ -8,6 +8,13 @@ import android.speech.tts.Voice;
 import android.speech.tts.UtteranceProgressListener;
 import android.os.Build;
 import android.content.res.Configuration;
+import android.view.WindowInsetsController;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import android.view.WindowInsets;
 import android.view.View;
 import android.view.WindowManager;
@@ -18,6 +25,7 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.webkit.WebResourceRequest;
 import android.webkit.JsResult;
 import android.webkit.ValueCallback;
 import android.net.Uri;
@@ -44,10 +52,9 @@ public class MainActivity extends Activity {
         web.getSettings().setJavaScriptEnabled(true);
         web.getSettings().setDomStorageEnabled(true);
         web.getSettings().setAllowFileAccess(true);
-        web.getSettings().setAllowFileAccessFromFileURLs(false);
-        web.getSettings().setAllowUniversalAccessFromFileURLs(false);
+        denyFileUrlAccess();
         web.setWebViewClient(new WebViewClient(){
-            @Override public boolean shouldOverrideUrlLoading(WebView view, String url){return !url.startsWith("file:///android_asset/");}
+            @Override public boolean shouldOverrideUrlLoading(WebView view,WebResourceRequest request){return !request.getUrl().toString().startsWith("file:///android_asset/");}
             @Override public void onPageFinished(WebView view,String url){view.requestApplyInsets();publishInsets();}
             @Override public void onScaleChanged(WebView view,float oldScale,float newScale){cssScale=NativeInsets.validScale(newScale,getResources().getDisplayMetrics().density);publishInsets();}
         });
@@ -69,11 +76,12 @@ public class MainActivity extends Activity {
         });
         speech=new TextToSpeech(this,status->{
             if(status==TextToSpeech.SUCCESS){
-                speech.setLanguage(new Locale("es","ES"));
+                speech.setLanguage(Locale.forLanguageTag("es-ES"));
                 speech.setOnUtteranceProgressListener(new UtteranceProgressListener(){
                     @Override public void onStart(String id){speechResult(id,true);}
                     @Override public void onDone(String id){}
-                    @Override public void onError(String id){speechResult(id,false);}
+                    @SuppressWarnings("deprecation") @Override public void onError(String id){speechResult(id,false);}
+                    @Override public void onError(String id,int code){speechResult(id,false);}
                     @Override public void onStop(String id,boolean interrupted){speechResult(id,false);}
                 });
                 // Prefer a deterministic installed voice; never require a network voice.
@@ -110,8 +118,12 @@ public class MainActivity extends Activity {
         web.loadUrl("file:///android_asset/index.html");
         web.requestApplyInsets();
     }
+    // The JSON waiting for a destination is staged in private cache, not a field,
+    // so it survives the activity being recreated or killed while the picker is open.
+    private File pendingExport(){return new File(getCacheDir(),"pending-export.json");}
     private void exportJsonDocument(String json,String filename){runOnUiThread(()->{
-        exportData=json;
+        try(OutputStream stream=new FileOutputStream(pendingExport())){stream.write(json.getBytes(StandardCharsets.UTF_8));}
+        catch(Exception error){Toast.makeText(MainActivity.this,"Could not prepare the export.",Toast.LENGTH_LONG).show();return;}
         Intent intent=new Intent(Intent.ACTION_CREATE_DOCUMENT).addCategory(Intent.CATEGORY_OPENABLE).setType("application/json").putExtra(Intent.EXTRA_TITLE,filename);
         startActivityForResult(intent,11);
     });}
@@ -126,12 +138,17 @@ public class MainActivity extends Activity {
     private void applyAppearance(){
         boolean dark=(getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK)==Configuration.UI_MODE_NIGHT_YES;
         int background=getColor(R.color.app_background);web.setBackgroundColor(background);
-        getWindow().setStatusBarColor(background);getWindow().setNavigationBarColor(background);
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-        int appearance=View.SYSTEM_UI_FLAG_LAYOUT_STABLE|View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
-        if(!dark)appearance|=View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR|View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
-        if(Build.VERSION.SDK_INT>=30)getWindow().setDecorFitsSystemWindows(false);
-        getWindow().getDecorView().setSystemUiVisibility(appearance);
+        // adjustResize comes from the manifest; Android 15+ always draws edge-to-edge with
+        // transparent bars, so bar colours are only set where the platform still uses them.
+        if(Build.VERSION.SDK_INT<35)legacyBarColours(background);
+        if(Build.VERSION.SDK_INT>=30){
+            // Android 15+ is always edge-to-edge; the call is only needed on 11-14.
+            if(Build.VERSION.SDK_INT<35)legacyEdgeToEdge();
+            // The decor view queues this until it is attached, so it is safe before setContentView.
+            WindowInsetsController controller=getWindow().getInsetsController();
+            int light=WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS|WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS;
+            if(controller!=null)controller.setSystemBarsAppearance(dark?0:light,light);
+        }else legacySystemUi(dark);
         if(Build.VERSION.SDK_INT>=28){WindowManager.LayoutParams params=getWindow().getAttributes();params.layoutInDisplayCutoutMode=WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;getWindow().setAttributes(params);}
         // CSS owns all safe-area padding. Never also pad this WebView.
         web.setOnApplyWindowInsetsListener((view,insets)->{
@@ -140,14 +157,7 @@ public class MainActivity extends Activity {
                 insetTop=bars.top;insetBottom=bars.bottom;insetLeft=bars.left;insetRight=bars.right;
                 imeBottom=insets.getInsets(WindowInsets.Type.ime()).bottom;
                 keyboardVisible=insets.isVisible(WindowInsets.Type.ime())&&imeBottom>0;
-            }else{
-                insetTop=Math.max(insets.getStableInsetTop(),insets.getSystemWindowInsetTop());
-                insetBottom=insets.getStableInsetBottom();insetLeft=Math.max(insets.getStableInsetLeft(),insets.getSystemWindowInsetLeft());insetRight=Math.max(insets.getStableInsetRight(),insets.getSystemWindowInsetRight());
-                if(Build.VERSION.SDK_INT>=28&&insets.getDisplayCutout()!=null){android.view.DisplayCutout cutout=insets.getDisplayCutout();insetTop=Math.max(insetTop,cutout.getSafeInsetTop());insetBottom=Math.max(insetBottom,cutout.getSafeInsetBottom());insetLeft=Math.max(insetLeft,cutout.getSafeInsetLeft());insetRight=Math.max(insetRight,cutout.getSafeInsetRight());}
-                int bottom=insets.getSystemWindowInsetBottom();
-                keyboardVisible=NativeInsets.isKeyboard(bottom,insetBottom,getResources().getDisplayMetrics().density);
-                imeBottom=keyboardVisible?bottom:0;
-            }
+            }else legacyInsets(insets);
             view.post(this::publishInsets);
             return insets;
         });
@@ -168,6 +178,30 @@ public class MainActivity extends Activity {
             publishInsets();
         });
     }
+    // Android 8-10 only: these inset getters and system UI flags are the only APIs available there.
+    @SuppressWarnings("deprecation")
+    private void legacyInsets(WindowInsets insets){
+        insetTop=Math.max(insets.getStableInsetTop(),insets.getSystemWindowInsetTop());
+        insetBottom=insets.getStableInsetBottom();insetLeft=Math.max(insets.getStableInsetLeft(),insets.getSystemWindowInsetLeft());insetRight=Math.max(insets.getStableInsetRight(),insets.getSystemWindowInsetRight());
+        if(Build.VERSION.SDK_INT>=28&&insets.getDisplayCutout()!=null){android.view.DisplayCutout cutout=insets.getDisplayCutout();insetTop=Math.max(insetTop,cutout.getSafeInsetTop());insetBottom=Math.max(insetBottom,cutout.getSafeInsetBottom());insetLeft=Math.max(insetLeft,cutout.getSafeInsetLeft());insetRight=Math.max(insetRight,cutout.getSafeInsetRight());}
+        int bottom=insets.getSystemWindowInsetBottom();
+        keyboardVisible=NativeInsets.isKeyboard(bottom,insetBottom,getResources().getDisplayMetrics().density);
+        imeBottom=keyboardVisible?bottom:0;
+    }
+    @SuppressWarnings("deprecation")
+    private void legacySystemUi(boolean dark){
+        int appearance=View.SYSTEM_UI_FLAG_LAYOUT_STABLE|View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
+        if(!dark)appearance|=View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR|View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
+        getWindow().getDecorView().setSystemUiVisibility(appearance);
+    }
+    @SuppressWarnings("deprecation")
+    private void legacyEdgeToEdge(){getWindow().setDecorFitsSystemWindows(false);}
+    // Already false by default; kept explicit so file pages can never read other files or origins.
+    @SuppressWarnings("deprecation")
+    private void denyFileUrlAccess(){web.getSettings().setAllowFileAccessFromFileURLs(false);web.getSettings().setAllowUniversalAccessFromFileURLs(false);}
+    // Android 14 and lower: bars are drawn with these colours. Ignored from Android 15.
+    @SuppressWarnings("deprecation")
+    private void legacyBarColours(int background){getWindow().setStatusBarColor(background);getWindow().setNavigationBarColor(background);}
     private void publishInsets(){
         if(web==null||web.getWidth()==0||web.getHeight()==0||isDestroyed())return;
         int height;
@@ -179,22 +213,39 @@ public class MainActivity extends Activity {
         String values=NativeInsets.cssPixels(insetTop,scale)+","+NativeInsets.cssPixels(insetBottom,scale)+","+NativeInsets.cssPixels(insetLeft,scale)+","+NativeInsets.cssPixels(insetRight,scale)+","+keyboardVisible+","+NativeInsets.cssPixels(overlap,scale);
         web.evaluateJavascript("window.FriendsToAmigosInsets && window.FriendsToAmigosInsets("+values+")",null);
     }
-    private String exportData;
     @Override protected void onActivityResult(int request,int result,Intent data){
         super.onActivityResult(request,result,data);
-        if(request==10 && fileCallback!=null){fileCallback.onReceiveValue(result==RESULT_OK&&data!=null?new Uri[]{data.getData()}:null);fileCallback=null;}
-        if(request==11 && result==RESULT_OK && data!=null && exportData!=null){
-            try(java.io.OutputStream stream=getContentResolver().openOutputStream(data.getData())){stream.write(exportData.getBytes(java.nio.charset.StandardCharsets.UTF_8));}
-            catch(Exception error){Toast.makeText(this,"Could not export progress.",Toast.LENGTH_LONG).show();}
-            exportData=null;
+        if(request==10){
+            if(fileCallback!=null){fileCallback.onReceiveValue(result==RESULT_OK&&data!=null?new Uri[]{data.getData()}:null);fileCallback=null;}
+            // A recreated activity has a fresh page with no waiting file input; say so rather than drop the file silently.
+            else if(result==RESULT_OK)Toast.makeText(this,"The app restarted while the file picker was open. Please choose the file again.",Toast.LENGTH_LONG).show();
         }
+        if(request==11){
+            File pending=pendingExport();
+            if(result==RESULT_OK && data!=null && data.getData()!=null && pending.isFile()){
+                try(InputStream in=new FileInputStream(pending);OutputStream out=getContentResolver().openOutputStream(data.getData())){
+                    if(out==null)throw new java.io.IOException("No output stream");
+                    byte[] buffer=new byte[16384];int read;while((read=in.read(buffer))>0)out.write(buffer,0,read);
+                }
+                catch(Exception error){Toast.makeText(this,"Could not export progress.",Toast.LENGTH_LONG).show();}
+            }
+            if(pending.exists() && !pending.delete())pending.deleteOnExit();
+        }
+    }
+    // Rotation, folding and window resizing are handled in place (see the manifest), so
+    // the page, any in-progress answer and an open file picker are not reloaded.
+    @Override public void onConfigurationChanged(Configuration config){
+        super.onConfigurationChanged(config);
+        legacyFullHeight=0;
+        if(web!=null){web.requestApplyInsets();web.post(this::publishInsets);}
     }
     private void handleBack(){
         if(backPending)return;backPending=true;
         web.evaluateJavascript("Boolean(window.FriendsToAmigos && window.FriendsToAmigos.handleBack())",result->{backPending=false;if(!NativePolicy.handled(result))moveTaskToBack(true);});
     }
+    @SuppressWarnings("deprecation") // Pre-API 33 only; newer versions use OnBackInvokedDispatcher.
     @Override public void onBackPressed(){handleBack();}
-    @Override protected void onPause(){if(speech!=null)speech.stop();web.evaluateJavascript("window.dispatchEvent(new Event('fta-pause'))",null);web.onPause();web.pauseTimers();super.onPause();}
+    @Override protected void onPause(){if(speech!=null)speech.stop();if(web!=null){web.evaluateJavascript("window.dispatchEvent(new Event('fta-pause'))",null);web.onPause();web.pauseTimers();}super.onPause();}
     @Override protected void onResume(){super.onResume();if(web!=null){web.onResume();web.resumeTimers();web.evaluateJavascript("window.dispatchEvent(new Event('fta-resume'))",null);}}
-    @Override protected void onDestroy(){if(speech!=null){speech.stop();speech.shutdown();}web.destroy();super.onDestroy();}
+    @Override protected void onDestroy(){if(speech!=null){speech.stop();speech.shutdown();}if(web!=null){web.destroy();web=null;}super.onDestroy();}
 }
