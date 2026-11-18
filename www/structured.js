@@ -1,6 +1,9 @@
 (function(root){
 'use strict';
-const normalize=s=>String(s??'').normalize('NFC').toLowerCase().replace(/[áéíóúü]/g,c=>({á:'a',é:'e',í:'i',ó:'o',ú:'u',ü:'u'}[c])).replace(/[¿?¡!.,;:”“"']/g,' ').replace(/[-–—]/g,' ').replace(/\s+/g,' ').trim();
+const normalizeText=text=>text.normalize('NFC').toLowerCase().replace(/[áéíóúü]/g,c=>({á:'a',é:'e',í:'i',ó:'o',ú:'u',ü:'u'}[c])).replace(/[¿?¡!.,;:”“"']/g,' ').replace(/[-–—]/g,' ').replace(/\s+/g,' ').trim();
+// Pure and called for the same authored strings many times while the course is built; cache with a bound.
+const normalized=new Map();
+const normalize=s=>{const text=String(s??'');let value=normalized.get(text);if(value===undefined){if(normalized.size>=20000)normalized.clear();value=normalizeText(text);normalized.set(text,value);}return value;};
 const active=q=>q?.type==='tiles'||q?.type==='cloze';
 function selection(value){try{const a=JSON.parse(value);return Array.isArray(a)&&a.length<=100&&a.every(x=>Number.isInteger(x)&&x>=0)?a:[];}catch{return [];}}
 function response(q,value){const picked=selection(value);if(q.type==='tiles')return picked.map(i=>q.tiles[i]||'').join(' ');if(q.type==='cloze')return q.cloze.segments.map((s,i)=>s+(i<q.cloze.blanks.length?(q.cloze.blanks[i].options[picked[i]]||'___'):'')).join('');return String(value||'');}
