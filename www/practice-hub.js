@@ -65,7 +65,8 @@
       [
         ['listening', 'Listening', 'Understand spoken Spanish.', 'headphones'],
         ['speaking', 'Speaking', 'Say your answer aloud.', 'speech'],
-        ['shadowing', 'Shadowing', 'Listen, repeat, match the rhythm.', 'headphones']
+        ['shadowing', 'Shadowing', 'Listen, repeat, match the rhythm.', 'headphones'],
+        ['dictation', 'Listen & Write', 'Type the Spanish you hear.', 'headphones']
       ]
     ],
     [
@@ -82,7 +83,8 @@
       'star',
       [
         ['match', 'Word Match', 'Match Spanish and English.', 'tiles'],
-        ['rapid', 'Rapid Recall', 'Choose the correct meaning.', 'star']
+        ['rapid', 'Rapid Recall', 'Choose the correct meaning.', 'star'],
+        ['write', 'Write from Memory', 'Type the Spanish yourself.', 'star']
       ]
     ],
     [
@@ -165,7 +167,9 @@
         : '') +
       '</section>' +
       (beginner
-        ? '<details class="practice-catalogue"><summary>Browse all 11 activities</summary>'
+        ? '<details class="practice-catalogue"><summary>Browse all ' +
+          sections.reduce((n, section) => n + section[4].length, 0) +
+          ' activities</summary>'
         : '') +
       sections
         .map(

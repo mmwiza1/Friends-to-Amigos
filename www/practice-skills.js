@@ -8,7 +8,8 @@
     Q = dep('learning-quality', 'LearningQuality'),
     Path = dep('course-path', 'CoursePath'),
     Errors = dep('practice-errors', 'PracticeErrors'),
-    Numbers = dep('practice-numbers', 'PracticeNumbers');
+    Numbers = dep('practice-numbers', 'PracticeNumbers'),
+    Policy = dep('assessment-policy', 'AssessmentPolicy');
   const kinds = [
     'builder',
     'spot',
@@ -18,7 +19,9 @@
     'fix',
     'listening',
     'speaking',
-    'shadowing'
+    'shadowing',
+    'write',
+    'dictation'
   ];
   const names = {
     context: 'Verb in Context',
@@ -31,7 +34,9 @@
     trainer: 'Verb Trainer',
     match: 'Word Match',
     rapid: 'Rapid Recall',
-    fix: 'Fix My Mistakes'
+    fix: 'Fix My Mistakes',
+    write: 'Write from Memory',
+    dictation: 'Listen & Write'
   };
   const clone = x => JSON.parse(JSON.stringify(x)),
     object = x => x && typeof x === 'object' && !Array.isArray(x),
@@ -452,6 +457,125 @@
       dates: i > 2 || (i === 2 && has('a21u2l0'))
     });
   }
+  // Typed retrieval for reached material. Sources are the course's own authored short Spanish
+  // answers (the original typed-recall versions kept by AssessmentPolicy.prior, with their
+  // accepted variants and common mistakes) and short course audio transcripts. Only whitelisted
+  // fields are copied so no model, teaching support or transcript is rendered before answering.
+  const shortSpanish = (text, max) =>
+    typeof text === 'string' &&
+    text.trim().split(/\s+/).length <= max &&
+    !/[0-9:«»_…]/.test(text) &&
+    !/\n/.test(text);
+  // Typing from memory needs taught material: completed lessons or stages below the placement,
+  // never the next not-yet-taught lesson that other activities may preview.
+  function taughtLessons(state, C) {
+    const start = C.playableStages.indexOf(Path.inferStart(state, C));
+    return C.lessons.filter(
+      l => state.completed.includes(l.id) || C.playableStages.indexOf(l.stage) < start
+    );
+  }
+  function typedSources(state, C) {
+    const out = [];
+    for (const l of taughtLessons(state, C))
+      for (const q of l.questions) {
+        const p = Policy.prior(q);
+        if (
+          p.type === 'text' &&
+          p.language === 'es' &&
+          !p.writing &&
+          !p.listening &&
+          !p.reading &&
+          Array.isArray(p.accepted) &&
+          p.accepted.length &&
+          shortSpanish(p.answer, 9)
+        )
+          out.push({ lesson: l, source: q, authored: p });
+      }
+    return out;
+  }
+  function uniqueBy(items, key) {
+    const seen = new Set();
+    return items.filter(x => {
+      const k = S.normalize(key(x));
+      if (seen.has(k)) return false;
+      seen.add(k);
+      return true;
+    });
+  }
+  function writePool(state, C) {
+    const course = typedSources(state, C).map(({ lesson, source, authored }) => ({
+      id: 'skill-write-' + source.id,
+      sourceQuestionId: source.id,
+      type: 'text',
+      language: 'es',
+      mode: 'recall',
+      prompt: authored.prompt,
+      answer: authored.answer,
+      accepted: [...new Set(authored.accepted)],
+      ...(Array.isArray(authored.mistakes) && authored.mistakes.length
+        ? { mistakes: clone(authored.mistakes) }
+        : {}),
+      explanation: authored.explanation,
+      topic: authored.topic || C.getUnit(lesson).title
+    }));
+    const starters = starter.map(([es, en], i) => ({
+      id: 'skill-write-starter-' + String(i + 1).padStart(2, '0'),
+      type: 'text',
+      language: 'es',
+      mode: 'recall',
+      prompt: 'From memory, write in Spanish: “' + en + '”.',
+      answer: es,
+      accepted: [es],
+      explanation: 'This starter uses greetings and names from the opening unit.',
+      topic: 'Greetings'
+    }));
+    return uniqueBy([...course, ...starters], q => q.answer);
+  }
+  function dictationPool(state, C) {
+    const item = (id, sourceQuestionId, sentence, topic, rate) => ({
+      id,
+      ...(sourceQuestionId ? { sourceQuestionId } : {}),
+      type: 'text',
+      language: 'es',
+      mode: 'listening',
+      prompt: 'Listen, then write what you hear in Spanish.',
+      answer: sentence,
+      accepted: [sentence],
+      explanation:
+        'Compare your spelling with the Spanish you heard. Missing accents and punctuation are accepted; ñ must be written as ñ.',
+      topic,
+      listening: { transcript: sentence, lang: 'es-ES', rate }
+    });
+    const heard = [],
+      typed = [];
+    for (const l of taughtLessons(state, C))
+      for (const q of l.questions)
+        if (q.listening && shortSpanish(q.listening.transcript, 10))
+          heard.push(
+            item(
+              'skill-dictation-' + q.id,
+              q.id,
+              q.listening.transcript.trim(),
+              C.getUnit(l).title,
+              0.8
+            )
+          );
+    for (const { lesson, source, authored } of typedSources(state, C))
+      if (shortSpanish(authored.answer, 8))
+        typed.push(
+          item(
+            'skill-dictation-model-' + source.id,
+            source.id,
+            authored.answer,
+            authored.topic || C.getUnit(lesson).title,
+            0.85
+          )
+        );
+    const starters = starter.map(([es], i) =>
+      item('skill-dictation-starter-' + String(i + 1).padStart(2, '0'), null, es, 'Greetings', 0.85)
+    );
+    return uniqueBy([...heard, ...typed, ...starters], q => q.answer);
+  }
   function starterMedia(kind) {
     return starter.map(([es, en], i) => {
       const id = 'skill-' + kind + '-starter-' + String(i + 1).padStart(2, '0'),
@@ -626,6 +750,8 @@
     if (kind === 'match' || kind === 'rapid') return vocabPool(state, C, D, kind);
     if (kind === 'fix') return fixPool(state, C, D);
     if (['listening', 'speaking', 'shadowing'].includes(kind)) return starterMedia(kind);
+    if (kind === 'write') return writePool(state, C);
+    if (kind === 'dictation') return dictationPool(state, C);
     return [];
   }
   function family(q, kind) {
@@ -634,6 +760,8 @@
     if (kind === 'numbers' || q.id.startsWith('skill-numbers-')) return 'numbers-time';
     if (q.type === 'speaking') return 'speaking-a11-0';
     if (kind === 'listening') return 'listening-a11-0';
+    if (kind === 'write' || q.id.startsWith('skill-write-')) return 'typed-recall';
+    if (kind === 'dictation' || q.id.startsWith('skill-dictation-')) return 'dictation';
     if (kind === 'spot' || q.id.startsWith('skill-spot-')) return 'spot-correction';
     return S.active(q) ? 'sentence-building' : '';
   }
@@ -778,7 +906,7 @@
       kind: 'skill',
       skillKind: kind,
       skillStage:
-        ['listening', 'speaking', 'shadowing', 'numbers'].includes(kind) &&
+        ['listening', 'speaking', 'shadowing', 'numbers', 'dictation'].includes(kind) &&
         questions.every(q => levelOf(q, C) === 'A1.1')
           ? 'A1.1'
           : current,
@@ -975,6 +1103,8 @@
               q.type === 'speaking' && (q.shadowing === true) === (a.skillKind === 'shadowing')
             );
           if (a.skillKind === 'listening') return !!q.listening && q.type !== 'speaking';
+          if (a.skillKind === 'write') return q.type === 'text' && !q.listening && !q.practice;
+          if (a.skillKind === 'dictation') return q.type === 'text' && !!q.listening && !q.practice;
           if (a.skillKind === 'builder') return q.type === 'tiles' && !q.listening;
           if (['spot', 'match', 'rapid'].includes(a.skillKind))
             return q.type === 'choice' && !q.listening;
