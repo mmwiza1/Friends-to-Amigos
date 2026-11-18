@@ -27,7 +27,10 @@ test('answer card radios and vocabulary regions are siblings, with no nested int
   assert.ok(radio);assert.doesNotMatch(radio[1],/<button|data-dictionary|role="button"/);
   assert.match(match[1],/<\/button><span class="option-text">/);
   assert.match(match[1],/aria-checked="false"/);
-  assert.match(match[1],new RegExp('aria-label="'+question.options[i]+'"'));
+  // Cards follow the stable shuffled display order; the first visible card is the tab stop.
+  const shown=require('../www/structured.js').optionOrder(question)[i];
+  assert.match(match[0],new RegExp('data-index="'+shown+'"'));
+  assert.match(match[1],new RegExp('aria-label="'+question.options[shown]+'"'));
   assert.match(match[1],new RegExp('tabindex="'+(i===0?0:-1)+'"'));
  }
 });
@@ -125,6 +128,6 @@ test('Spanish token labels expose useful individual words without flattening the
 
 test('Spanish gap options use their established task contract even for English homographs',()=>{
  const gap={...question,type:'gap',prompt:'Complete the Spanish sentence.',options:['Soy','Ha','He'],answer:'He',spanish:'He comido hoy.'};
- const html=rendered(gap);assert.deepEqual(tokens(html),['Soy','Ha','He']);
+ const html=rendered(gap);assert.deepEqual(tokens(html),require('../www/structured.js').optionOrder(gap).map(i=>gap.options[i]));
  const English={...question,options:['Yes','No'],answer:'Yes'};assert.equal(tokens(rendered(English)).filter(x=>x==='No').length,0);
 });

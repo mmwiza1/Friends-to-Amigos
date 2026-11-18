@@ -22,7 +22,8 @@
     'save',
     'savedQuery',
     'screen',
-    'state'
+    'state',
+    'Structured'
   ];
   function create(ctx) {
     let mounted = false;
@@ -172,14 +173,18 @@
         const keys = ['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft', 'Home', 'End'];
         if (!keys.includes(event.key)) return;
         event.preventDefault();
-        const count = ctx.currentQuestion().options.length,
-          old = Number(option.dataset.index);
+        // Arrow keys follow the visible (shuffled) order, not the authored option index.
+        const order = ctx.Structured.optionOrder(ctx.currentQuestion()),
+          count = order.length,
+          old = Math.max(0, order.indexOf(Number(option.dataset.index)));
         const index =
-          event.key === 'Home'
-            ? 0
-            : event.key === 'End'
-              ? count - 1
-              : (old + (['ArrowUp', 'ArrowLeft'].includes(event.key) ? -1 : 1) + count) % count;
+          order[
+            event.key === 'Home'
+              ? 0
+              : event.key === 'End'
+                ? count - 1
+                : (old + (['ArrowUp', 'ArrowLeft'].includes(event.key) ? -1 : 1) + count) % count
+          ];
         ctx.actions.answer({ dataset: { index: String(index) } });
         ctx.render();
         ctx.app

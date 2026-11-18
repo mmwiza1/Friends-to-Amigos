@@ -466,8 +466,26 @@
       '</section>'
     );
   }
+  // Display order for multiple-choice options. Authored options often put the answer first, so
+  // learners see a stable per-question permutation instead. Stored options, answers, IDs and
+  // historical snapshots are untouched: callers still select by the original option index.
+  function optionOrder(q) {
+    const indexes = (q?.options || []).map((_, i) => i);
+    // Own Fisher-Yates using the high LCG bits: the shared shuffle's low bits are periodic, which
+    // would rarely place an answer last. (shuffle stays unchanged: tile/cloze contracts depend on it.)
+    let n = 2166136261;
+    for (const c of 'options:' + (q.id || q.prompt || ''))
+      n = Math.imul(n ^ c.charCodeAt(0), 16777619);
+    for (let i = indexes.length - 1; i > 0; i--) {
+      n = (Math.imul(n, 1664525) + 1013904223) >>> 0;
+      const j = Math.floor((n / 4294967296) * (i + 1));
+      [indexes[i], indexes[j]] = [indexes[j], indexes[i]];
+    }
+    return indexes;
+  }
   root.Structured = {
     active,
+    optionOrder,
     normalize,
     selection,
     response,
