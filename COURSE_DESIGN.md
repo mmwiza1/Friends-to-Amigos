@@ -1,3 +1,14 @@
+## Learning integrity (unreleased, after v1.10)
+
+A learning review found four issues; the fixes keep permanent IDs, the 416-slot stage structure and historical snapshots unchanged.
+
+- **Guessable choices.** Authored options put the correct answer first in 130/260 A1.1 questions. Options now display in a stable per-question permutation (`Structured.optionOrder`); selection still uses the authored index, so stored options and attempts are untouched. Answer positions are now near uniform across the course.
+- **Short review horizon.** Corrected mistakes settled into a fixed 30-day loop and concept retrieval capped at 14 days. Mistake reviews now expand 1, 3, 7, 14, 30, 60, 120 days; concept retrieval 1, 7, 14, 30, 60 days.
+- **Mismatched explanations.** 22 production items (38 live questions with checkpoint copies) and 3 focused-bank copies showed an explanation written for a different sentence. Each now explains its own model; only English explanation text changed. See `docs/release/v111-explanation-corrections.json`. Internal agent review only; independent native/educator review pending.
+- **No recall from memory before A2.2.** Core lessons stay structured (a textbox still means genuine expression). Practice adds *Write from Memory*, reusing the course's original authored typed-recall items with their accepted variants, and *Listen & Write*, dictation of short taught transcripts behind the existing audio-first lock. Both use only completed material; accents and punctuation are tolerated and ñ stays distinct. Mistakes return in Review as the same typed question.
+
+Not addressed: the correct option is still the uniquely longest in about 47% of choice questions, which needs reviewed distractor rewriting rather than a mechanical change; listening and speaking remain device text-to-speech, and recorded native audio would be the larger quality step.
+
 ## v1.9 foundations
 
 The foundations release changes orchestration/visual semantics, not curriculum progression. Twenty-six A1 models moved unchanged into canonical records; three B story glossary entries were corrected at source. Historical attempts remain snapshots. See the [architecture contract](docs/ARCHITECTURE.md).
