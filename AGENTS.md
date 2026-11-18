@@ -2,6 +2,12 @@
 
 These instructions apply to all future work in this repository.
 
+## Branches and pull requests
+
+- Never commit or push directly to `main`. Do all work on a feature branch and open a pull request into `main`.
+- A pull request merges only after its CI run is green (checks, showcase capture and Android build) and the owner has approved it. Agents do not merge their own pull requests unless the owner explicitly asks in that conversation.
+- Releases are published by pushing a `vX.Y.Z` tag on a `main` commit that already contains the release notes; the `release` job in `.github/workflows/android.yml` publishes the GitHub Release only after every gate passes. Tag only when the owner asks for a release.
+
 ## Releases from main
 
 Whenever work includes preparing, tagging, publishing, or documenting a user-facing release from `main`, read and follow `docs/RELEASE_NOTES_TEMPLATE.md`.
