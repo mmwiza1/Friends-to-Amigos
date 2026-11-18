@@ -100,7 +100,8 @@
         normalizeAnswer(q.type === 'speaking' ? q.spanish : q.answer)
     ) {
       r.success++;
-      r.due = now + [1, 3, 7, 14, 30][Math.min(r.success - 1, 4)] * 86400000;
+      // Expanding intervals keep corrected mistakes returning after months, not monthly forever.
+      r.due = now + [1, 3, 7, 14, 30, 60, 120][Math.min(r.success - 1, 6)] * 86400000;
       if (r.success >= 3 && !r.corrected) {
         r.corrected = true;
         s.events.push({

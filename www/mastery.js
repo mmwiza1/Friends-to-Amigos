@@ -142,7 +142,11 @@
           r.spaced++;
           r.lastRecall = now;
         }
-        r.due = now + DAY * (r.spaced >= 4 ? 14 : r.spaced >= 2 ? 7 : 1);
+        // Long-term retrieval: well-established concepts resurface at one and two months.
+        r.due =
+          now +
+          DAY *
+            (r.spaced >= 6 ? 60 : r.spaced >= 5 ? 30 : r.spaced >= 4 ? 14 : r.spaced >= 2 ? 7 : 1);
       } else {
         r.errors++;
         r.strength = Math.max(0, r.strength - 0.8);

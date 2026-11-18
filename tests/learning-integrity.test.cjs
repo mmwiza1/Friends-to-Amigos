@@ -17,3 +17,16 @@ test('display order is a stable permutation and never alters authored options',(
  }
  assert.deepEqual(S.optionOrder({id:'x',options:['only']}),[0]);assert.deepEqual(S.optionOrder({}),[]);
 });
+const E=require('../www/engine.js'),M=require('../www/mastery.js');
+const DAY=86400000;
+test('corrected mistakes keep spacing out to two and four months instead of returning monthly',()=>{
+ const q=C.lessons[0].questions[0],s=E.fresh();let now=Date.UTC(2026,0,1);
+ E.recordAnswer(s,q,false,now);const key=Object.keys(s.reviews)[0],gaps=[];
+ for(let i=0;i<8;i++){now=s.reviews[key].due;E.recordAnswer(s,q,true,now);gaps.push((s.reviews[key].due-now)/DAY);}
+ assert.deepEqual(gaps,[1,3,7,14,30,60,120,120]);assert.equal(s.reviews[key].corrected,true);
+});
+test('well-established concepts are retrieved again after one and two months',()=>{
+ const state={},gaps=[];let now=Date.UTC(2026,0,1);
+ for(let i=0;i<7;i++){M.record(state,[{key:'concept:sentence-building'}],true,{recall:true,item:'q'+i},now);const r=Object.values(state.mastery.records)[0];gaps.push(Math.round((r.due-now)/DAY));now+=2*DAY;}
+ assert.deepEqual(gaps,[1,7,7,14,30,60,60]);
+});
