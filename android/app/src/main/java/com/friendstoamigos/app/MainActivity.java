@@ -194,6 +194,8 @@ public class MainActivity extends Activity {
         if(!dark)appearance|=View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR|View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
         getWindow().getDecorView().setSystemUiVisibility(appearance);
     }
+    // Called only on Android 11-14 (API 30-34), inside the SDK_INT check in applyAppearance.
+    @android.annotation.TargetApi(Build.VERSION_CODES.R)
     @SuppressWarnings("deprecation")
     private void legacyEdgeToEdge(){getWindow().setDecorFitsSystemWindows(false);}
     // Already false by default; kept explicit so file pages can never read other files or origins.
