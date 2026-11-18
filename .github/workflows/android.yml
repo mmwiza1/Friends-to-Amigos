@@ -73,3 +73,46 @@ jobs:
         with:
           name: friends-to-amigos-android
           path: android/app/build/outputs/apk/debug/app-debug.apk
+  # Publishes a GitHub Release only for a pushed vX.Y.Z tag, and only after every
+  # check, the showcase capture and the Android build above have passed. The APK is
+  # the one this run built from the tagged commit; the page text is the reviewed
+  # docs/release/VX_Y_RELEASE_NOTES.md (docs/RELEASE_NOTES_TEMPLATE.md format).
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [showcase-capture, checks, build]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: friends-to-amigos-android
+          path: release-apk
+      - name: Verify tag, app version and release notes
+        id: meta
+        run: |
+          set -euo pipefail
+          tag="${GITHUB_REF_NAME}"
+          version="${tag#v}"
+          [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "::error::Tag $tag is not vX.Y.Z"; exit 1; }
+          [ "$(node -p "require('./package.json').version")" = "$version" ] || { echo "::error::package.json version differs from $tag"; exit 1; }
+          grep -q "versionName '$version'" android/app/build.gradle || { echo "::error::Android versionName differs from $tag"; exit 1; }
+          notes="docs/release/V$(echo "$version" | cut -d. -f1-2 | tr . _)_RELEASE_NOTES.md"
+          [ -f "$notes" ] || { echo "::error::Missing $notes"; exit 1; }
+          [ "$(head -n1 "$notes")" = "# Friends to Amigos $tag" ] || { echo "::error::$notes title does not match $tag"; exit 1; }
+          tail -n +2 "$notes" > release-body.md
+          apk="friends-to-amigos-$tag.apk"
+          mv release-apk/app-debug.apk "$apk"
+          sha256sum "$apk" > "$apk.sha256"
+          cat "$apk.sha256"
+          echo "apk=$apk" >> "$GITHUB_OUTPUT"
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            "${{ steps.meta.outputs.apk }}" "${{ steps.meta.outputs.apk }}.sha256" \
+            --title "Friends to Amigos $GITHUB_REF_NAME" \
+            --notes-file release-body.md \
+            --verify-tag

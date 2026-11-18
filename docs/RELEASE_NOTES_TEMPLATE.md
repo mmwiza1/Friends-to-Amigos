@@ -102,3 +102,7 @@ If there are no known user-facing issues worth calling out, omit this section ra
 6. Write the GitHub Release page using this standard.
 7. Include known issues or upgrade notes where relevant.
 8. Publish the release only after the notes match the shipped build.
+
+## How a release is published
+
+Merge the release pull request (version bump, `docs/release/VX_Y_RELEASE_NOTES.md` titled `# Friends to Amigos vX.Y.Z`, refreshed showcase) into `main`, then push the tag `vX.Y.Z` on that `main` commit. The workflow's `release` job runs only for such tags and only after checks, showcase capture and the Android build pass. It verifies that the tag matches `package.json` and the Android `versionName`, uses the notes file (without its title line) as the release page, and attaches `friends-to-amigos-vX.Y.Z.apk`, built in that same run, with its `.sha256` file.
