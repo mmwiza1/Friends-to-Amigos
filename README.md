@@ -7,7 +7,7 @@ An offline-first Android Spanish-learning app in a vanilla HTML/CSS/JavaScript W
 ## App preview
 
 <!-- app-showcase:start -->
-Showcase UI: **1.10.0** · Android versionCode 21. Clean browser-simulated app viewports with illustrative learner data; no Android system UI or physical-device capture is claimed.
+Showcase UI: **1.11.0** · Android versionCode 22. Clean browser-simulated app viewports with illustrative learner data; no Android system UI or physical-device capture is claimed.
 
 | Learn with support | Build and explore | Keep progressing |
 | --- | --- | --- |
@@ -18,7 +18,7 @@ Showcase UI: **1.10.0** · Android versionCode 21. Clean browser-simulated app v
 | <img src="docs/screenshots/saved-words.png" width="180" alt="Your personal saved vocabulary"><br>Your personal saved vocabulary | <img src="docs/screenshots/recommendations.png" width="180" alt="Content for Your Level with editorial guidance"><br>Content for Your Level with editorial guidance | <img src="docs/screenshots/lesson-complete.png" width="180" alt="Continue directly to the next required activity"><br>Continue directly to the next required activity |
 <!-- app-showcase:end -->
 
-[Build results and device-testing limits](BUILD_STATUS.md) · [Release details](docs/release/V1_10_REPORT.md) · [Showcase policy and release gate](docs/SCREENSHOT_POLICY.md)
+[Build results and device-testing limits](BUILD_STATUS.md) · [Release notes](docs/release/V1_11_RELEASE_NOTES.md) · [Showcase policy and release gate](docs/SCREENSHOT_POLICY.md)
 
 ## v1.11 learning integrity
 
