@@ -3,7 +3,12 @@
 Starting main `73a89cd8ec8f602c376f50f455e902a16d7e14f6`. Same A1.1–B2.2 / 576 activities / 3,328 slots and schema v2; Practice grows from eleven to thirteen activities (Write from Memory, Listen & Write). See [release notes](docs/release/V1_11_RELEASE_NOTES.md), [course design](COURSE_DESIGN.md), [architecture](docs/ARCHITECTURE.md) and [showcase review](docs/release/V1_11_SHOWCASE_REVIEW.md).
 
 <!-- v111-validation:start -->
-Pending the final release-commit CI run.
+CI run [44314175238](https://github.com/mmwiza1/Friends-to-Amigos/actions/runs/44314175238) on release commit `dc2a172` passed all three jobs:
+
+- **Checks:** format check, course/content checks, screenshot gate (15 images, app 1.11.0 / Android 22), all recommendation, architecture, style, language, learning, story, practice-depth and learner-release audits; **2,261 JavaScript tests passed, 0 failed or skipped**; **17 browser layouts / 60,866 layout and interaction assertions**; 15 showcase captures / 191 assertions.
+- **Android:** `assembleDebug lintDebug testDebugUnitTest` **BUILD SUCCESSFUL**. Lint reports **0 errors**; the warning count is **12**, unchanged from v1.10, as printed by run 44302178128 on the same Android sources before the one-line annotation that fixed its only error (a passing lint run does not print the count). The JVM unit-test task passed; no JVM test was added or removed (15 in v1.10).
+- **APK artifact:** `friends-to-amigos-android` (artifact zip digest `sha256:8e7fb87cf66a9a5295c5632fc255ee8b0872d3d57d18cf36ae08b0db195e1f0d`), built from the same web sources as this release; the following documentation-only commit does not change the app.
+- Browser and JVM checks are simulations and unit tests, not physical-device or TalkBack testing.
 <!-- v111-validation:end -->
 
 # v1.10.0 Material design consistency — Android versionCode 21
