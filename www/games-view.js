@@ -1,18 +1,87 @@
-(function(root){
-'use strict';
-const Bank=typeof module!=='undefined'?require('./conjugations-bank.js'):root.ConjugationsBank;
-function hub(ctx){return (typeof module!=='undefined'?require('./practice-hub'):root.PracticeHub).render(ctx);}
-function config({state,C,G,b,esc}){const info=G.available(state,C),Hub=typeof module!=='undefined'?require('./practice-hub'):root.PracticeHub,K=typeof module!=='undefined'?require('./practice-skills'):root.PracticeSkills;return b('‹ Back to Practice','gameLeave','back')+'<h2>Verb in Context</h2><p>Complete real sentences. Learn from the explanation for every verb.</p><section class="card"><h3>'+ (Hub.contextReady(state,C)?'Recommended practice':'Optional level practice')+'</h3><p>10 questions · ~4 minutes · '+esc(K.stage(state,C))+'</p>'+(!Hub.contextReady(state,C)?'<p>This level can preview forms from later course units. Sentence Builder follows material you have already reached.</p>':'')+b('Start','contextRecommended','primary')+'</section><details class="card"><summary>Custom practice</summary><label for="grammar-level">Grammar level · '+esc(info.stage)+'</label><select id="grammar-level">'+C.playableStages.map(stage=>'<option'+(stage===info.stage?' selected':'')+'>'+esc(stage)+'</option>').join('')+'</select>'+b('Change level','grammarLevel','pill')+'<p id="grammar-level-help">'+(root.LearnerExperience.ahead(state,C,info.stage)?'This includes grammar you haven’t learned yet. You can still practise it if you want.':'Choose any grammar level. Course progress is unchanged.')+'</p>'+b('Play at this level','gameNew','primary')+(info.challenge?b('Challenge me','gameChallenge','pill'):'')+(state.games?.active?b('Resume saved game','gameResume','pill'):'')+'</details>';}
+(function (root) {
+  'use strict';
+  const Bank =
+    typeof module !== 'undefined' ? require('./conjugations-bank.js') : root.ConjugationsBank;
+  function hub(ctx) {
+    return (typeof module !== 'undefined' ? require('./practice-hub') : root.PracticeHub).render(
+      ctx
+    );
+  }
+  function config({ state, C, G, b, esc }) {
+    const info = G.available(state, C),
+      Hub = typeof module !== 'undefined' ? require('./practice-hub') : root.PracticeHub,
+      K = typeof module !== 'undefined' ? require('./practice-skills') : root.PracticeSkills;
+    return (
+      b('‹ Back to Practice', 'gameLeave', 'back') +
+      '<h2>Verb in Context</h2><p>Complete real sentences. Learn from the explanation for every verb.</p><section class="card"><h3>' +
+      (Hub.contextReady(state, C) ? 'Recommended practice' : 'Optional level practice') +
+      '</h3><p>10 questions · ~4 minutes · ' +
+      esc(K.stage(state, C)) +
+      '</p>' +
+      (!Hub.contextReady(state, C)
+        ? '<p>This level can preview forms from later course units. Sentence Builder follows material you have already reached.</p>'
+        : '') +
+      b('Start', 'contextRecommended', 'primary') +
+      '</section><details class="card"><summary>Custom practice</summary><label for="grammar-level">Grammar level · ' +
+      esc(info.stage) +
+      '</label><select id="grammar-level">' +
+      C.playableStages
+        .map(
+          stage =>
+            '<option' + (stage === info.stage ? ' selected' : '') + '>' + esc(stage) + '</option>'
+        )
+        .join('') +
+      '</select>' +
+      b('Change level', 'grammarLevel', 'pill') +
+      '<p id="grammar-level-help">' +
+      (root.LearnerExperience.ahead(state, C, info.stage)
+        ? 'This includes grammar you haven’t learned yet. You can still practise it if you want.'
+        : 'Choose any grammar level. Course progress is unchanged.') +
+      '</p>' +
+      b('Play at this level', 'gameNew', 'primary') +
+      (info.challenge ? b('Challenge me', 'gameChallenge', 'pill') : '') +
+      (state.games?.active ? b('Resume saved game', 'gameResume', 'pill') : '') +
+      '</details>'
+    );
+  }
 
-function round({attempt:a,b,esc}){
- const q=a.questions[a.index],result=a.checked?a.results.at(-1):null;
- let n=0;const sentence=q.sentence.split('___').map((part,i,array)=>esc(part)+(i<array.length-1?`<strong class="game-blank">${i+1}: ${esc(a.selected[i]||'…')}</strong>`:'')).join('');
- return `${b('‹ Save & return to Practice','gameLeave','back')}<div class="eyebrow">Verb in Context · ${esc(a.stage)}${a.mode==='challenge'?' · Challenge':a.mode==='mistakes'?' · Mistake practice':''}</div><p>Question ${a.index+1} of ${a.questions.length}</p><progress aria-label="Current game question" value="${a.index+1}" max="${a.questions.length}"></progress><h2 class="question" lang="es" data-dictionary>${sentence}</h2><p class="instruction">Choose a verb for each blank, then check the sentence.</p>${q.blanks.map((blank,i)=>`<fieldset class="game-options"><legend>Blank ${i+1}${q.stage.startsWith('B')?' · '+esc(blank.tense.replace(/-/g,' ')):''}${blank.infinitive?' · '+esc(blank.infinitive)+(q.stage==='A1.1'&&q.unit<4?' · '+esc(Bank.persons[blank.person]):''):''}</legend><div class="choices" role="radiogroup" aria-label="Verb for blank ${i+1}">${blank.options.map((value,j)=>b(`<span class="option-indicator" aria-hidden="true"></span><span lang="es">${esc(value)}</span>`,'gameAnswer','choice'+(a.selected[i]===value?' selected':''),`role="radio" aria-checked="${a.selected[i]===value}" aria-label="Blank ${i+1}: ${esc(value)}" tabindex="${a.selected[i]===value||!a.selected[i]&&j===0?0:-1}" data-blank="${i}" data-index="${j}" ${a.checked?'disabled':''}`)).join('')}</div></fieldset>`).join('')}${a.checked?`<section class="feedback ${result.correct?'':'wrong'}" role="status" aria-label="Game answer feedback"><h3>${result.correct?'Well done!':'Let’s learn from this'}</h3>${result.details.map((d,i)=>`<div class="game-feedback"><h4>Blank ${i+1} · ${d.correct?'✓ Correct':'✗ Needs practice'}</h4><p>You chose: <strong lang="es">${esc(d.selected)}</strong>${d.correct?'':`<br>A natural answer: <strong lang="es" data-dictionary>${esc(d.answer)}</strong>`}</p><p>${esc(d.explanation)}</p></div>`).join('')}${b(a.index+1===a.questions.length?'See results':'Next question','gameNext','primary')}</section>`:b('Check sentence','gameCheck','primary',a.selected.some(v=>v===null)?'disabled':'')}`;
-}
-function result({state,C,G,round:r,b,esc}){
- const info=G.available(state,C),higher=C.playableStages.indexOf(info.stage)>C.playableStages.indexOf(r.stage);
- const data=state.games,others=data.rounds.filter(x=>x.mode===r.mode&&x.difficulty===r.difficulty&&x.total===r.total),previous=others.at(-2),best=Math.max(data.bests?.[G.bestKey(r)]||0,...others.map(x=>x.score));
- return `<section class="card empty"><div class="lesson-bull happy" role="img" aria-label="Happy bull encouraging your practice"></div><h2>Round complete</h2><p class="stat" role="status">${r.score} / ${r.total} correct</p><p>${esc(r.difficulty)}</p><p>Best at this practice level: ${best} / ${r.total}</p>${previous&&r.score>previous.score?`<p>+${r.score-previous.score} compared with your previous ${r.mode==='normal'?'round':'practice'}.</p>`:''}<p>Practice helps you learn. Game scores do not complete course lessons.</p><ul class="game-summary">${G.summary(data,r).map(x=>`<li><strong>${esc(x.label)}</strong>: ${esc(x.status)} <small>(${x.attempts} practice ${x.attempts===1?'item':'items'} so far)</small></li>`).join('')}</ul><p class="muted">These are practice signals, not proof of mastery.</p>${b('Play another round','gameNew','primary')}${higher?b('Practise current grammar level','gameNew','pill'):''}${r.mistakes.length?b('Practise my mistakes','gameMistakes','pill'):''}${b('Back to Practice','gameLeave','pill')}</section>`;
-}
-root.GamesView={hub,config,round,result};if(typeof module!=='undefined')module.exports=root.GamesView;
-})(typeof window==='undefined'?globalThis:window);
+  function round({ attempt: a, b, esc }) {
+    const q = a.questions[a.index],
+      result = a.checked ? a.results.at(-1) : null;
+    let n = 0;
+    const sentence = q.sentence
+      .split('___')
+      .map(
+        (part, i, array) =>
+          esc(part) +
+          (i < array.length - 1
+            ? `<strong class="game-blank">${i + 1}: ${esc(a.selected[i] || '…')}</strong>`
+            : '')
+      )
+      .join('');
+    return `${b('‹ Save & return to Practice', 'gameLeave', 'back')}<div class="eyebrow">Verb in Context · ${esc(a.stage)}${a.mode === 'challenge' ? ' · Challenge' : a.mode === 'mistakes' ? ' · Mistake practice' : ''}</div><p>Question ${a.index + 1} of ${a.questions.length}</p><progress aria-label="Current game question" value="${a.index + 1}" max="${a.questions.length}"></progress><h2 class="question" lang="es" data-dictionary>${sentence}</h2><p class="instruction">Choose a verb for each blank, then check the sentence.</p>${q.blanks.map((blank, i) => `<fieldset class="game-options"><legend>Blank ${i + 1}${q.stage.startsWith('B') ? ' · ' + esc(blank.tense.replace(/-/g, ' ')) : ''}${blank.infinitive ? ' · ' + esc(blank.infinitive) + (q.stage === 'A1.1' && q.unit < 4 ? ' · ' + esc(Bank.persons[blank.person]) : '') : ''}</legend><div class="choices" role="radiogroup" aria-label="Verb for blank ${i + 1}">${blank.options.map((value, j) => b(`<span class="option-indicator" aria-hidden="true"></span><span lang="es">${esc(value)}</span>`, 'gameAnswer', 'choice' + (a.selected[i] === value ? ' selected' : ''), `role="radio" aria-checked="${a.selected[i] === value}" aria-label="Blank ${i + 1}: ${esc(value)}" tabindex="${a.selected[i] === value || (!a.selected[i] && j === 0) ? 0 : -1}" data-blank="${i}" data-index="${j}" ${a.checked ? 'disabled' : ''}`)).join('')}</div></fieldset>`).join('')}${a.checked ? `<section class="feedback ${result.correct ? '' : 'wrong'}" role="status" aria-label="Game answer feedback"><h3>${result.correct ? 'Well done!' : 'Let’s learn from this'}</h3>${result.details.map((d, i) => `<div class="game-feedback"><h4>Blank ${i + 1} · ${d.correct ? '✓ Correct' : '✗ Needs practice'}</h4><p>You chose: <strong lang="es">${esc(d.selected)}</strong>${d.correct ? '' : `<br>A natural answer: <strong lang="es" data-dictionary>${esc(d.answer)}</strong>`}</p><p>${esc(d.explanation)}</p></div>`).join('')}${b(a.index + 1 === a.questions.length ? 'See results' : 'Next question', 'gameNext', 'primary')}</section>` : b('Check sentence', 'gameCheck', 'primary', a.selected.some(v => v === null) ? 'disabled' : '')}`;
+  }
+  function result({ state, C, G, round: r, b, esc }) {
+    const info = G.available(state, C),
+      higher = C.playableStages.indexOf(info.stage) > C.playableStages.indexOf(r.stage);
+    const data = state.games,
+      others = data.rounds.filter(
+        x => x.mode === r.mode && x.difficulty === r.difficulty && x.total === r.total
+      ),
+      previous = others.at(-2),
+      best = Math.max(data.bests?.[G.bestKey(r)] || 0, ...others.map(x => x.score));
+    return `<section class="card empty"><div class="lesson-bull happy" role="img" aria-label="Happy bull encouraging your practice"></div><h2>Round complete</h2><p class="stat" role="status">${r.score} / ${r.total} correct</p><p>${esc(r.difficulty)}</p><p>Best at this practice level: ${best} / ${r.total}</p>${previous && r.score > previous.score ? `<p>+${r.score - previous.score} compared with your previous ${r.mode === 'normal' ? 'round' : 'practice'}.</p>` : ''}<p>Practice helps you learn. Game scores do not complete course lessons.</p><ul class="game-summary">${G.summary(
+      data,
+      r
+    )
+      .map(
+        x =>
+          `<li><strong>${esc(x.label)}</strong>: ${esc(x.status)} <small>(${x.attempts} practice ${x.attempts === 1 ? 'item' : 'items'} so far)</small></li>`
+      )
+      .join(
+        ''
+      )}</ul><p class="muted">These are practice signals, not proof of mastery.</p>${b('Play another round', 'gameNew', 'primary')}${higher ? b('Practise current grammar level', 'gameNew', 'pill') : ''}${r.mistakes.length ? b('Practise my mistakes', 'gameMistakes', 'pill') : ''}${b('Back to Practice', 'gameLeave', 'pill')}</section>`;
+  }
+  root.GamesView = { hub, config, round, result };
+  if (typeof module !== 'undefined') module.exports = root.GamesView;
+})(typeof window === 'undefined' ? globalThis : window);

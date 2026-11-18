@@ -27,7 +27,7 @@ test('choice wrapping and selection targets retain fixed touch size with flexibl
 });
 test('dictionary large-text and keyboard behaviour retain a scrollable compact overlay',()=>{
  const {properties}=require('./helpers/css.cjs'),popup=properties('www/dictionary.css','.dictionary-popup');assert.equal(popup.overflow,'auto');assert.equal(popup['font-size'],'.9375rem');assert.equal(properties('www/dictionary.css','.dictionary-actions button')['min-height'],'48px');assert.equal(properties('www/dictionary.css','#saved-word-search')['margin-top'],'.5rem','search focus ring has scalable clearance from its label');
- const source=fs.readFileSync('www/dictionary-ui.js','utf8');assert.match(source,/--android-keyboard-overlap/);assert.match(source,/visualViewport/);assert.match(source,/maxHeight=availableHeight/);
+ const source=fs.readFileSync('www/dictionary-ui.js','utf8');assert.match(source,/--android-keyboard-overlap/);assert.match(source,/visualViewport/);assert.match(source,/maxHeight\s*=\s*availableHeight/);
 });
 test('rendered profiles vary usable geometry without changing permanent five-tab navigation',()=>{
  const source=['scripts/browser-check.cjs','scripts/browser/profiles.cjs','scripts/browser/interaction-assertions.cjs','scripts/browser/stress-captures.cjs','scripts/browser/devtools.cjs'].map(f=>fs.readFileSync(f,'utf8')).join('\n');for(const name of ['galaxy-s22-light-three-button','galaxy-s24-dark-gesture-overlay-ime','galaxy-s25-dark-large-text-cutout','galaxy-s25-light-landscape-cutout'])assert.ok(source.includes(name));assert.match(source,/Home\|Learn\|Games\|Review\|Profile/);assert.match(source,/simulatedKeyboard:Boolean\(config.keyboard\)/);

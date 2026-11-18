@@ -1,16 +1,266 @@
-(function(root){
-'use strict';
-const K=typeof module!=='undefined'?require('./practice-skills'):root.PracticeSkills;
-const {contextReady,eligibleWeak,recommendation}=typeof module!=='undefined'?require('./practice-recommendation'):root.PracticeRecommendation;
-const paths={target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/><path d="m14 10 7-7m-4 0h4v4"/>',controller:'<path d="M7 7h10c3 0 5 10 3 12-1 1-4-3-5-3H9c-1 0-4 4-5 3C2 17 4 7 7 7Z"/><path d="M6 11h5m-2.5-2.5v5"/><circle cx="16" cy="11" r=".6"/><circle cx="18" cy="13" r=".6"/>',headphones:'<path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="12" width="5" height="9" rx="2"/><rect x="16" y="12" width="5" height="9" rx="2"/>',book:'<path d="M12 5c-3-3-7-2-10-1v15c4-1 7-1 10 1 3-2 6-2 10-1V4c-3-1-7-2-10 1Zm0 0v15"/>',star:'<path d="m12 2 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1Z"/>',tools:'<path d="M20 3a6 6 0 0 0-7 7L3 20l2 2 10-10a6 6 0 0 0 7-7l-4 4-3-3Z"/>',tiles:'<rect x="2" y="4" width="9" height="7" rx="2"/><rect x="13" y="4" width="9" height="7" rx="2"/><rect x="5" y="14" width="14" height="7" rx="2"/>',speech:'<path d="M4 4h16v12H9l-5 5Z"/><path d="M8 8h8m-8 4h5"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/>'};
-function icon(name){return '<svg class="practice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'+(paths[name]||paths.star)+'</svg>';}
-function flag(){return '<svg class="practice-flag" viewBox="0 0 30 20" role="img" aria-label="Spanish"><rect width="30" height="20" rx="3" fill="#ad2637"/><path fill="#f9cd4b" d="M0 5h30v10H0z"/><path fill="#ad2637" d="M8 8h4v5H8z"/></svg>';}
+(function (root) {
+  'use strict';
+  const K = typeof module !== 'undefined' ? require('./practice-skills') : root.PracticeSkills;
+  const { contextReady, eligibleWeak, recommendation } =
+    typeof module !== 'undefined'
+      ? require('./practice-recommendation')
+      : root.PracticeRecommendation;
+  const paths = {
+    target:
+      '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/><path d="m14 10 7-7m-4 0h4v4"/>',
+    controller:
+      '<path d="M7 7h10c3 0 5 10 3 12-1 1-4-3-5-3H9c-1 0-4 4-5 3C2 17 4 7 7 7Z"/><path d="M6 11h5m-2.5-2.5v5"/><circle cx="16" cy="11" r=".6"/><circle cx="18" cy="13" r=".6"/>',
+    headphones:
+      '<path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="12" width="5" height="9" rx="2"/><rect x="16" y="12" width="5" height="9" rx="2"/>',
+    book: '<path d="M12 5c-3-3-7-2-10-1v15c4-1 7-1 10 1 3-2 6-2 10-1V4c-3-1-7-2-10 1Zm0 0v15"/>',
+    star: '<path d="m12 2 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1Z"/>',
+    tools: '<path d="M20 3a6 6 0 0 0-7 7L3 20l2 2 10-10a6 6 0 0 0 7-7l-4 4-3-3Z"/>',
+    tiles:
+      '<rect x="2" y="4" width="9" height="7" rx="2"/><rect x="13" y="4" width="9" height="7" rx="2"/><rect x="5" y="14" width="14" height="7" rx="2"/>',
+    speech: '<path d="M4 4h16v12H9l-5 5Z"/><path d="M8 8h8m-8 4h5"/>',
+    clock: '<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/>'
+  };
+  function icon(name) {
+    return (
+      '<svg class="practice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
+      (paths[name] || paths.star) +
+      '</svg>'
+    );
+  }
+  function flag() {
+    return '<svg class="practice-flag" viewBox="0 0 30 20" role="img" aria-label="Spanish"><rect width="30" height="20" rx="3" fill="#ad2637"/><path fill="#f9cd4b" d="M0 5h30v10H0z"/><path fill="#ad2637" d="M8 8h4v5H8z"/></svg>';
+  }
 
-
-
-function shortcut({state,C,b,esc}){const r=recommendation(state,C);return '<section class="card practice-shortcut" data-home-section="practice"><h2>Recommended practice</h2><h3>'+esc(r.title)+'</h3><p>'+esc(r.reason)+'</p>'+b('Start 5-minute practice','practiceRecommended','primary')+b('Browse all practice →','practiceHub','plain')+'</section>';}
-const sections=[['games','Games','Make practice fun while you learn.','controller',[['context','Verb in Context','Complete real sentences.','controller'],['builder','Sentence Builder','Put the words in order.','tiles'],['spot','Spot the Mistake',"Find what's wrong.",'target'],['numbers','Numbers & Time','Times, prices & dates.','clock']]],['media','Listen & Speak','Build your listening and speaking skills.','headphones',[['listening','Listening','Understand spoken Spanish.','headphones'],['speaking','Speaking','Say your answer aloud.','speech'],['shadowing','Shadowing','Listen, repeat, match the rhythm.','headphones']]],['grammar','Grammar Training','Master the key verb forms.','book',[['trainer','Verb Trainer','Build verb forms until you can recall them.','book']]],['vocabulary','Vocabulary','Grow your Spanish vocabulary.','star',[['match','Word Match','Match Spanish and English.','tiles'],['rapid','Rapid Recall','Choose the correct meaning.','star']]],['mistakes','Mistakes','Turn your mistakes into progress.','tools',[['fix','Fix My Mistakes','Practise the things you get wrong.','tools']]]];
-function render({state,C,b,esc}){const r=recommendation(state,C),saved=state.practiceHub?.active,beginner=K.stage(state,C)==='A1.1'&&state.completed.length<3,quick=[['builder','Sentence Builder'],['listening','Listening'],['numbers','Numbers & Time']].filter(([kind])=>kind!=='numbers'||K.lessons(state,C).some(l=>l.id==='u3l0')); return '<div class="practice-hub"><div class="practice-heading">'+flag()+'<h1>Practice</h1></div><p class="practice-subtitle">Strengthen what you\'re learning with short activities.</p><section data-practice-section="recommended" class="practice-recommended"><h2>'+icon('target')+'Recommended for you</h2><div class="card practice-hero"><h3>'+esc(r.title)+'</h3><p>'+esc(r.reason)+'</p><small>'+esc(r.meta)+'</small>'+b(r.kind.includes('Resume')||r.kind==='resume'?'Continue':'Start','practiceRecommended','primary')+'</div>'+(beginner?'<p class="muted">Start with familiar words. Everything else is optional.</p><div class="beginner-practice" aria-label="Simple practice choices">'+quick.map(([kind,name])=>b(esc(name),'practiceLaunch','pill','data-kind="'+kind+'"')).join('')+'</div>':'')+((state.games?.active||state.blanks?.active||saved)?'<details class="practice-resumes"><summary>Continue playing</summary>'+(state.games?.active?b('Verb in Context · '+(state.games.active.index+1)+' of 10','practiceResume','pill','data-kind="context"'):'')+(state.blanks?.active?b('Verb Trainer · '+(state.blanks.active.index+1)+' of '+state.blanks.active.tables.length,'practiceResume','pill','data-kind="trainer"'):'')+(saved?b(esc(K.names[saved.skillKind])+' · '+(saved.index+1)+' of '+saved.questions.length,'skillResume','pill'):'')+'</details>':'')+'</section>'+(beginner?'<details class="practice-catalogue"><summary>Browse all 11 activities</summary>':'')+sections.map(([id,title,sub,symbol,items])=>'<section class="practice-section" data-practice-section="'+id+'"><h2>'+icon(symbol)+esc(title)+'</h2><p class="section-subtitle">'+esc(sub)+'</p><div class="practice-activity-grid'+(items.length===1?' practice-wide':'')+'">'+items.map(([kind,name,description,art],i)=>b('<span class="practice-art">'+icon(art)+'</span><span class="practice-name">'+esc(name)+'</span><span class="practice-description">'+esc(description)+'</span>','practiceLaunch','practice-activity pastel-'+(i%4),'data-kind="'+kind+'"')).join('')+'</div></section>').join('')+(beginner?'</details>':'')+'<p class="muted">Practice signals strengthen your learning. They do not complete course lessons or certify mastery.</p></div>';}
-function result({quiz,round:r,b,esc,C}){const self=r.selfAssessed,labels=(k)=>{const S=typeof module!=='undefined'?require('./grammar-syllabus'):root.GrammarSyllabus;return S.concepts.find(c=>c.id===k)?.label||k;},strong=Object.entries(r.topics).filter(([,v])=>v.total>=2&&v.correct/v.total>=.8),weak=Object.entries(r.topics).filter(([,v])=>v.correct<v.total);return '<section class="card skill-results"><p class="eyebrow">'+esc(K.names[r.kind])+' · '+esc(r.stage)+'</p><h2>Practice complete</h2><p class="stat" role="status">'+(self?r.score+' “I got it” · '+(r.total-r.score)+' “Needs practice”':r.score+' / '+r.total+' correct')+'</p>'+(strong.length?'<h3>Strong today</h3><ul>'+strong.slice(0,3).map(([k])=>'<li>'+esc(labels(k))+'</li>').join('')+'</ul>':'')+(weak.length?'<h3>Keep practising</h3><ul>'+weak.slice(0,3).map(([k])=>'<li>'+esc(labels(k))+'</li>').join('')+'</ul>':'<p>Return on another day to strengthen retrieval.</p>')+'<p>'+ (self?'Speaking is self-assessed; no pronunciation or grammar accuracy was verified.':'These are practice signals, not proof of lasting mastery.')+'</p>'+b('Play another round','skillAgain','primary')+(r.mistakes.length?b('Fix My Mistakes','skillMistakes','pill'):'')+b('Back to Practice','practiceHub','pill')+'</section>';}
-root.PracticeHub={icon,flag,sections,contextReady,eligibleWeak,recommendation,shortcut,render,result};if(typeof module!=='undefined')module.exports=root.PracticeHub;
-})(typeof window==='undefined'?globalThis:window);
+  function shortcut({ state, C, b, esc }) {
+    const r = recommendation(state, C);
+    return (
+      '<section class="card practice-shortcut" data-home-section="practice"><h2>Recommended practice</h2><h3>' +
+      esc(r.title) +
+      '</h3><p>' +
+      esc(r.reason) +
+      '</p>' +
+      b('Start 5-minute practice', 'practiceRecommended', 'primary') +
+      b('Browse all practice →', 'practiceHub', 'plain') +
+      '</section>'
+    );
+  }
+  const sections = [
+    [
+      'games',
+      'Games',
+      'Make practice fun while you learn.',
+      'controller',
+      [
+        ['context', 'Verb in Context', 'Complete real sentences.', 'controller'],
+        ['builder', 'Sentence Builder', 'Put the words in order.', 'tiles'],
+        ['spot', 'Spot the Mistake', "Find what's wrong.", 'target'],
+        ['numbers', 'Numbers & Time', 'Times, prices & dates.', 'clock']
+      ]
+    ],
+    [
+      'media',
+      'Listen & Speak',
+      'Build your listening and speaking skills.',
+      'headphones',
+      [
+        ['listening', 'Listening', 'Understand spoken Spanish.', 'headphones'],
+        ['speaking', 'Speaking', 'Say your answer aloud.', 'speech'],
+        ['shadowing', 'Shadowing', 'Listen, repeat, match the rhythm.', 'headphones']
+      ]
+    ],
+    [
+      'grammar',
+      'Grammar Training',
+      'Master the key verb forms.',
+      'book',
+      [['trainer', 'Verb Trainer', 'Build verb forms until you can recall them.', 'book']]
+    ],
+    [
+      'vocabulary',
+      'Vocabulary',
+      'Grow your Spanish vocabulary.',
+      'star',
+      [
+        ['match', 'Word Match', 'Match Spanish and English.', 'tiles'],
+        ['rapid', 'Rapid Recall', 'Choose the correct meaning.', 'star']
+      ]
+    ],
+    [
+      'mistakes',
+      'Mistakes',
+      'Turn your mistakes into progress.',
+      'tools',
+      [['fix', 'Fix My Mistakes', 'Practise the things you get wrong.', 'tools']]
+    ]
+  ];
+  function render({ state, C, b, esc }) {
+    const r = recommendation(state, C),
+      saved = state.practiceHub?.active,
+      beginner = K.stage(state, C) === 'A1.1' && state.completed.length < 3,
+      quick = [
+        ['builder', 'Sentence Builder'],
+        ['listening', 'Listening'],
+        ['numbers', 'Numbers & Time']
+      ].filter(([kind]) => kind !== 'numbers' || K.lessons(state, C).some(l => l.id === 'u3l0'));
+    return (
+      '<div class="practice-hub"><div class="practice-heading">' +
+      flag() +
+      '<h1>Practice</h1></div><p class="practice-subtitle">Strengthen what you\'re learning with short activities.</p><section data-practice-section="recommended" class="practice-recommended"><h2>' +
+      icon('target') +
+      'Recommended for you</h2><div class="card practice-hero"><h3>' +
+      esc(r.title) +
+      '</h3><p>' +
+      esc(r.reason) +
+      '</p><small>' +
+      esc(r.meta) +
+      '</small>' +
+      b(
+        r.kind.includes('Resume') || r.kind === 'resume' ? 'Continue' : 'Start',
+        'practiceRecommended',
+        'primary'
+      ) +
+      '</div>' +
+      (beginner
+        ? '<p class="muted">Start with familiar words. Everything else is optional.</p><div class="beginner-practice" aria-label="Simple practice choices">' +
+          quick
+            .map(([kind, name]) =>
+              b(esc(name), 'practiceLaunch', 'pill', 'data-kind="' + kind + '"')
+            )
+            .join('') +
+          '</div>'
+        : '') +
+      (state.games?.active || state.blanks?.active || saved
+        ? '<details class="practice-resumes"><summary>Continue playing</summary>' +
+          (state.games?.active
+            ? b(
+                'Verb in Context · ' + (state.games.active.index + 1) + ' of 10',
+                'practiceResume',
+                'pill',
+                'data-kind="context"'
+              )
+            : '') +
+          (state.blanks?.active
+            ? b(
+                'Verb Trainer · ' +
+                  (state.blanks.active.index + 1) +
+                  ' of ' +
+                  state.blanks.active.tables.length,
+                'practiceResume',
+                'pill',
+                'data-kind="trainer"'
+              )
+            : '') +
+          (saved
+            ? b(
+                esc(K.names[saved.skillKind]) +
+                  ' · ' +
+                  (saved.index + 1) +
+                  ' of ' +
+                  saved.questions.length,
+                'skillResume',
+                'pill'
+              )
+            : '') +
+          '</details>'
+        : '') +
+      '</section>' +
+      (beginner
+        ? '<details class="practice-catalogue"><summary>Browse all 11 activities</summary>'
+        : '') +
+      sections
+        .map(
+          ([id, title, sub, symbol, items]) =>
+            '<section class="practice-section" data-practice-section="' +
+            id +
+            '"><h2>' +
+            icon(symbol) +
+            esc(title) +
+            '</h2><p class="section-subtitle">' +
+            esc(sub) +
+            '</p><div class="practice-activity-grid' +
+            (items.length === 1 ? ' practice-wide' : '') +
+            '">' +
+            items
+              .map(([kind, name, description, art], i) =>
+                b(
+                  '<span class="practice-art">' +
+                    icon(art) +
+                    '</span><span class="practice-name">' +
+                    esc(name) +
+                    '</span><span class="practice-description">' +
+                    esc(description) +
+                    '</span>',
+                  'practiceLaunch',
+                  'practice-activity pastel-' + (i % 4),
+                  'data-kind="' + kind + '"'
+                )
+              )
+              .join('') +
+            '</div></section>'
+        )
+        .join('') +
+      (beginner ? '</details>' : '') +
+      '<p class="muted">Practice signals strengthen your learning. They do not complete course lessons or certify mastery.</p></div>'
+    );
+  }
+  function result({ quiz, round: r, b, esc, C }) {
+    const self = r.selfAssessed,
+      labels = k => {
+        const S =
+          typeof module !== 'undefined' ? require('./grammar-syllabus') : root.GrammarSyllabus;
+        return S.concepts.find(c => c.id === k)?.label || k;
+      },
+      strong = Object.entries(r.topics).filter(
+        ([, v]) => v.total >= 2 && v.correct / v.total >= 0.8
+      ),
+      weak = Object.entries(r.topics).filter(([, v]) => v.correct < v.total);
+    return (
+      '<section class="card skill-results"><p class="eyebrow">' +
+      esc(K.names[r.kind]) +
+      ' · ' +
+      esc(r.stage) +
+      '</p><h2>Practice complete</h2><p class="stat" role="status">' +
+      (self
+        ? r.score + ' “I got it” · ' + (r.total - r.score) + ' “Needs practice”'
+        : r.score + ' / ' + r.total + ' correct') +
+      '</p>' +
+      (strong.length
+        ? '<h3>Strong today</h3><ul>' +
+          strong
+            .slice(0, 3)
+            .map(([k]) => '<li>' + esc(labels(k)) + '</li>')
+            .join('') +
+          '</ul>'
+        : '') +
+      (weak.length
+        ? '<h3>Keep practising</h3><ul>' +
+          weak
+            .slice(0, 3)
+            .map(([k]) => '<li>' + esc(labels(k)) + '</li>')
+            .join('') +
+          '</ul>'
+        : '<p>Return on another day to strengthen retrieval.</p>') +
+      '<p>' +
+      (self
+        ? 'Speaking is self-assessed; no pronunciation or grammar accuracy was verified.'
+        : 'These are practice signals, not proof of lasting mastery.') +
+      '</p>' +
+      b('Play another round', 'skillAgain', 'primary') +
+      (r.mistakes.length ? b('Fix My Mistakes', 'skillMistakes', 'pill') : '') +
+      b('Back to Practice', 'practiceHub', 'pill') +
+      '</section>'
+    );
+  }
+  root.PracticeHub = {
+    icon,
+    flag,
+    sections,
+    contextReady,
+    eligibleWeak,
+    recommendation,
+    shortcut,
+    render,
+    result
+  };
+  if (typeof module !== 'undefined') module.exports = root.PracticeHub;
+})(typeof window === 'undefined' ? globalThis : window);

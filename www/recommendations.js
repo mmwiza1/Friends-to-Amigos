@@ -1,47 +1,438 @@
-(function(root){
-'use strict';
-const stages=['A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2'];
-const categories=['Films / TV','Books','Audiobooks','Steam games','YouTube'];
-// First-party editorial descriptions. Links only: no third-party media is bundled.
-const catalogue=[];
-function add(id,title,category,url,reason,note,advanced=false,comfortableFrom='A2.1'){
- catalogue.push({id,title,category,url,reason,note,minimumStage:advanced?'B1.1':'A1.1',maximumStage:advanced?'B2.2':'A2.2',comfortableFrom,verified:'2026-10-26',suitability:'Editorial judgement; not CEFR certification'});
-}
-add('pocoyo','Pocoyó','Films / TV','https://www.rtve.es/play/clan/pocoyo/','Try a one-minute scene: visual actions support greetings and everyday words.','Spain Spanish; availability and subtitles vary by episode.','', 'A1.2');
-add('cleo','Cleo','Films / TV','https://www.rtve.es/play/clan/cleo/','Follow one short animated scene about familiar feelings and everyday actions. Replay with visual support.','Spain Spanish; free catalogue, regional access may vary. Provider currently lists availability to December 2030.');
-add('muzzy','MUZZY BBC Spanish','Films / TV','https://www.muzzybbc.com/collections/spanish','Animated stories deliberately introduce useful beginner language. Try a short sample before subscribing.','Paid subscription and account; check Spanish edition, samples and local price before buying. Native variety is not promised.');
-add('vacaciones','Vacaciones al sol · Lola Lago','Books','https://difusion.com/tienda/producto/vacaciones-al-sol','A short graded detective reader. Begin with one page and a dictionary.','Publisher A1 reader; optional purchase.','', 'A1.2');
-add('sin-noticias','Sin noticias · Lola Lago & asociados','Books','https://difusion.com/tienda/producto/sin-noticias','Short chapters, a glossary and a familiar everyday setting support reading.','Publisher A1 reader; optional purchase; chapter audio is offered.','', 'A1.2');
-add('madrid-reader','Un día en Madrid','Books','https://difusion.com/tienda/producto/un-dia-en-madrid','A short city story with visual vocabulary support. Read one scene and recognise familiar places.','Publisher A1 reader; optional purchase; sample a page before buying.','', 'A1.2');
-add('hen','La gallinita roja · narrated story','Audiobooks','https://www.thefablecottage.com/fables/la-gallinita-roja','Listen to a short section while following the bilingual text. Repetition supports familiar verbs.','Narrated short story, not a full-length book. Regional forms vary; some access may require membership.');
-add('wind','El viento y el sol · narrated story','Audiobooks','https://www.thefablecottage.com/fables/el-viento-y-el-sol','Weather and comparisons in a short narrated fable; use text support.','Native narration with bilingual text. Regional forms vary; access conditions may change.');
-add('lion','El león miedoso · narrated story','Audiobooks','https://www.thefablecottage.com/fables/el-leon-miedoso','A short audio story about feelings; listen in small sections and read along.','Narrated short story; native vocabulary exceeds the earliest course.');
-add('dorf','Dorfromantik','Steam games','https://store.steampowered.com/app/1455840/Dorfromantik/','Low-pressure menus and recurring task words; switch the interface to Spanish.','Spanish (Spain) interface supported; no spoken Spanish. Paid PC game.','', 'A1.2');
-add('unpacking','Unpacking','Steam games','https://store.steampowered.com/app/1135690/Unpacking/','Try its Spanish menus and name familiar household objects yourself. Language exposure is limited.','Latin-American Spanish interface/subtitles; no Spanish voice. Paid PC game.','', 'A1.2');
-add('stardew','Stardew Valley','Steam games','https://store.steampowered.com/app/413150/Stardew_Valley/','Optional exposure to shops, routines and everyday conversations. Start with menus.','Spain Spanish interface; substantial unfamiliar reading, no Spanish narration. Paid PC game.','', 'B1.1');
-add('afterhours','Spanish After Hours','YouTube','https://www.youtube.com/@SpanishAfterHours','Choose beginner-labelled visual stories and repeat a short familiar segment.','Spain Spanish; subtitles vary. Some videos are much harder than others.','', 'A1.2');
-add('dreaming-beginner','Dreaming Spanish · beginner videos','YouTube','https://www.dreaming.com/spanish','Start with superbeginner visual stories rather than the whole channel.','Speakers from Spain and Latin America; filter by difficulty.','', 'A1.1');
-add('easy-beginner','Easy Spanish · Super Easy Spanish','YouTube','https://www.easy-spanish.org/','Choose the slower Super Easy episodes and use bilingual subtitles.','Spain and Latin-American speakers; ordinary street interviews are harder.');
-add('ministerio','El Ministerio del Tiempo','Films / TV','https://www.rtve.es/play/videos/el-ministerio-del-tiempo/','Follow a short scene, then retell the problem and next step.','Spain Spanish; historical vocabulary, native pace; check subtitles and regional access.',true,'B2.1');
-add('cuentame','Cuéntame cómo pasó','Films / TV','https://www.rtve.es/play/videos/cuentame-como-paso/','Family exchanges and social change offer narrative and opinion practice.','Spain Spanish; colloquial speech, native pace; availability varies.',true,'B2.1');
-add('tierra','Aquí la Tierra','Films / TV','https://www.rtve.es/play/videos/aqui-la-tierra/','Short factual segments support summarising and explaining causes.','Spain Spanish; choose one familiar topic; subtitle availability varies.',true,'B1.2');
-add('manolito','Manolito Gafotas · Elvira Lindo','Books','https://www.planetadelibros.com/libro-manolito-gafotas/69663','Read a short chapter and notice the narrator’s viewpoint and everyday dialogue.','Spain setting; colloquial jokes need support. Publisher offers samples; optional purchase.',true,'B2.1');
-add('niebla','El príncipe de la niebla · Carlos Ruiz Zafón','Books','https://www.planetadelibros.cl/libro-el-principe-de-la-niebla/127758','A compact mystery for practising narrative sequence and descriptions.','Spanish original; literary vocabulary is a stretch. Publisher page; optional purchase.',true,'B2.2');
-add('lola-advanced','Una nota falsa · rereading for fluency','Books','https://difusion.com/tienda/producto/una-nota-falsa','An easier graded reader for fluent reading: retell each chapter without translating.','Publisher A2 reader intentionally reused as comfortable retrieval, not a B-level text.',true,'B1.1');
-add('rtve-audio','RTVE Audiolibros','Audiobooks','https://www.rtve.es/play/audios/rtve-audiolibros/','Choose a short work and summarise the main idea before replaying.','Spain and Latin-American literature; native narration; literary language.',true,'B2.1');
-add('alba','AlbaLearning · short audiobooks','Audiobooks','https://albalearning.com/default.aspx','Read alongside a short narrated work, then explain its situation.','Different authors and varieties; listen on the provider site only. No audio is included in this app.',true,'B2.1');
-add('librivox','LibriVox · Spanish catalogue','Audiobooks','https://librivox.org/search?primary_key=5&search_category=language&search_page=1&search_form=get_results','Choose a familiar short story and compare your summary after listening.','Volunteer accents and recording quality vary; older literary language can be difficult.',true,'B2.2');
-add('hike','A Short Hike','Steam games','https://store.steampowered.com/app/1055540/A_Short_Hike/','Short conversations and requests provide manageable connected reading.','Latin-American Spanish text; no Spanish voice. Paid PC game.',true,'B1.2');
-add('firewatch','Firewatch','Steam games','https://store.steampowered.com/app/383870/Firewatch/','Read Spanish dialogue choices and subtitles, then explain a character’s concern.','Spain Spanish text/subtitles; English audio only. Mature themes. Paid PC game.',true,'B2.1');
-add('monkey','Return to Monkey Island','Steam games','https://store.steampowered.com/app/2060130/Return_to_Monkey_Island/','Practise inference through humorous exchanges and puzzle clues.','Spain Spanish text/subtitles; no Spanish voice. Wordplay is challenging. Paid PC game.',true,'B2.2');
-add('juan','Español con Juan','YouTube','https://1001reasonstolearnspanish.com/','Connected stories and explanations support listening beyond isolated phrases.','Spain Spanish; choose intermediate videos and check available subtitles.',true,'B1.1');
-add('spanish-coach','Spanish Language Coach','YouTube','https://www.spanishlanguagecoach.com/','Choose a familiar intermediate or advanced listening topic and explain its main point.','Official creator resource site; Spanish listening with text support. Free samples and optional paid resources; check the current catalogue.',true,'B1.2');
-add('dreaming-advanced','Dreaming Spanish · intermediate / advanced','YouTube','https://www.dreaming.com/spanish','Choose a familiar topic and gradually remove visual or subtitle support.','Spain and Latin-American speakers; difficulty varies by video.',true,'B1.1');
-const accessByCategory={'Films / TV':'Free public catalogue; region/account restrictions may apply','Books':'Paid book; stock, editions and delivery vary','Audiobooks':'Public samples/catalogue; some narrated stories require membership','Steam games':'Paid PC game; Steam account and compatible computer required','YouTube':'Free public material; optional paid transcripts/courses may be offered'};
-for(const r of catalogue){r.reviewed='2026-10-26';r.variety=/Latin-American/.test(r.note)?'Latin-American Spanish':/Spain Spanish|Spain dub|Spain setting|Spanish original/.test(r.note)?'Spain Spanish':'Spanish; varieties/narrators vary, check provider';r.relevance=r.category==='Books'||r.category==='Steam games'?['reading']:['listening','reading'];r.access=r.id==='muzzy'?'Paid subscription and account':accessByCategory[r.category];r.reusedBecause='Start with short supported samples; later use the same material for retelling and independent comprehension.';r.verification=['vacaciones','sin-noticias','madrid-reader','lola-advanced'].includes(r.id)?'Official publisher index corroborates title; direct crawler access is blocked, stock not verified':r.id==='afterhours'?'Official creator video and channel identity corroborated; channel inventory not exhaustively retrievable':'Official provider/catalogue reviewed';if(r.id==='pocoyo')r.expires='2027-04-30';if(r.id==='cleo')r.expires='2030-12-31';}
-for(const r of catalogue){r.lastVerified=r.reviewed;r.provider=new URL(r.url).hostname;r.verificationSource=r.url;}
-function safeURL(url){try{const u=new URL(url);return u.protocol==='https:'&&!u.username&&!u.password&&!u.port&&['www.muzzybbc.com','www.dreaming.com','www.easy-spanish.org','1001reasonstolearnspanish.com','www.spanishlanguagecoach.com','www.rtve.es','difusion.com','www.thefablecottage.com','store.steampowered.com','www.youtube.com','www.planetadelibros.com','www.planetadelibros.cl','albalearning.com','librivox.org'].includes(u.hostname);}catch{return false;}}
-function forStage(stage){if(!stages.includes(stage))return [];const i=stages.indexOf(stage);return categories.flatMap(category=>catalogue.filter(r=>r.category===category&&i>=stages.indexOf(r.minimumStage)&&i<=stages.indexOf(r.maximumStage)&&safeURL(r.url)).slice(0,3).map(r=>({...r,difficulty:i>=stages.indexOf(r.comfortableFrom)?'Comfortable':'Stretch'})));}
-function render(stage,{esc,b}){return b('‹ Back to Profile','profile','back')+'<h2>Content for Your Level</h2><p>Recommended for '+esc(stage)+' learners</p><p class="notice">Editorial suggestions, not official CEFR ratings. Comfortable: likely accessible with your course knowledge. Stretch: expect unfamiliar language; try a short sample with support. External sites need internet and may require payment, registration or regional access. Check age ratings before buying.</p>'+categories.map(category=>'<section class="recommendation-category"><h3>'+category+'</h3>'+forStage(stage).filter(r=>r.category===category).map(r=>'<article class="card recommendation"><h3>'+esc(r.title)+'</h3><span class="pill difficulty">'+esc(stage+' · '+r.difficulty)+'</span><p>'+esc(r.reason)+'</p><p class="muted">'+esc(r.note)+'</p><details><summary>Language &amp; access</summary><p>'+esc(r.variety)+' · '+esc(r.access)+'</p><p>'+esc(r.reusedBecause)+'</p><p>Reviewed '+esc(r.lastVerified)+'. '+esc(r.verification)+'</p></details>'+b('Open externally ↗','externalContent','pill','data-id="'+esc(r.id)+'"')+'</article>').join('')+'</section>').join('');}
-root.Recommendations={stages,categories,catalogue,forStage,safeURL,render};if(typeof module!=='undefined')module.exports=root.Recommendations;
-})(typeof window==='undefined'?globalThis:window);
+(function (root) {
+  'use strict';
+  const stages = ['A1.1', 'A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2', 'B2.1', 'B2.2'];
+  const categories = ['Films / TV', 'Books', 'Audiobooks', 'Steam games', 'YouTube'];
+  // First-party editorial descriptions. Links only: no third-party media is bundled.
+  const catalogue = [];
+  function add(id, title, category, url, reason, note, advanced = false, comfortableFrom = 'A2.1') {
+    catalogue.push({
+      id,
+      title,
+      category,
+      url,
+      reason,
+      note,
+      minimumStage: advanced ? 'B1.1' : 'A1.1',
+      maximumStage: advanced ? 'B2.2' : 'A2.2',
+      comfortableFrom,
+      verified: '2026-10-26',
+      suitability: 'Editorial judgement; not CEFR certification'
+    });
+  }
+  add(
+    'pocoyo',
+    'Pocoyó',
+    'Films / TV',
+    'https://www.rtve.es/play/clan/pocoyo/',
+    'Try a one-minute scene: visual actions support greetings and everyday words.',
+    'Spain Spanish; availability and subtitles vary by episode.',
+    '',
+    'A1.2'
+  );
+  add(
+    'cleo',
+    'Cleo',
+    'Films / TV',
+    'https://www.rtve.es/play/clan/cleo/',
+    'Follow one short animated scene about familiar feelings and everyday actions. Replay with visual support.',
+    'Spain Spanish; free catalogue, regional access may vary. Provider currently lists availability to December 2030.'
+  );
+  add(
+    'muzzy',
+    'MUZZY BBC Spanish',
+    'Films / TV',
+    'https://www.muzzybbc.com/collections/spanish',
+    'Animated stories deliberately introduce useful beginner language. Try a short sample before subscribing.',
+    'Paid subscription and account; check Spanish edition, samples and local price before buying. Native variety is not promised.'
+  );
+  add(
+    'vacaciones',
+    'Vacaciones al sol · Lola Lago',
+    'Books',
+    'https://difusion.com/tienda/producto/vacaciones-al-sol',
+    'A short graded detective reader. Begin with one page and a dictionary.',
+    'Publisher A1 reader; optional purchase.',
+    '',
+    'A1.2'
+  );
+  add(
+    'sin-noticias',
+    'Sin noticias · Lola Lago & asociados',
+    'Books',
+    'https://difusion.com/tienda/producto/sin-noticias',
+    'Short chapters, a glossary and a familiar everyday setting support reading.',
+    'Publisher A1 reader; optional purchase; chapter audio is offered.',
+    '',
+    'A1.2'
+  );
+  add(
+    'madrid-reader',
+    'Un día en Madrid',
+    'Books',
+    'https://difusion.com/tienda/producto/un-dia-en-madrid',
+    'A short city story with visual vocabulary support. Read one scene and recognise familiar places.',
+    'Publisher A1 reader; optional purchase; sample a page before buying.',
+    '',
+    'A1.2'
+  );
+  add(
+    'hen',
+    'La gallinita roja · narrated story',
+    'Audiobooks',
+    'https://www.thefablecottage.com/fables/la-gallinita-roja',
+    'Listen to a short section while following the bilingual text. Repetition supports familiar verbs.',
+    'Narrated short story, not a full-length book. Regional forms vary; some access may require membership.'
+  );
+  add(
+    'wind',
+    'El viento y el sol · narrated story',
+    'Audiobooks',
+    'https://www.thefablecottage.com/fables/el-viento-y-el-sol',
+    'Weather and comparisons in a short narrated fable; use text support.',
+    'Native narration with bilingual text. Regional forms vary; access conditions may change.'
+  );
+  add(
+    'lion',
+    'El león miedoso · narrated story',
+    'Audiobooks',
+    'https://www.thefablecottage.com/fables/el-leon-miedoso',
+    'A short audio story about feelings; listen in small sections and read along.',
+    'Narrated short story; native vocabulary exceeds the earliest course.'
+  );
+  add(
+    'dorf',
+    'Dorfromantik',
+    'Steam games',
+    'https://store.steampowered.com/app/1455840/Dorfromantik/',
+    'Low-pressure menus and recurring task words; switch the interface to Spanish.',
+    'Spanish (Spain) interface supported; no spoken Spanish. Paid PC game.',
+    '',
+    'A1.2'
+  );
+  add(
+    'unpacking',
+    'Unpacking',
+    'Steam games',
+    'https://store.steampowered.com/app/1135690/Unpacking/',
+    'Try its Spanish menus and name familiar household objects yourself. Language exposure is limited.',
+    'Latin-American Spanish interface/subtitles; no Spanish voice. Paid PC game.',
+    '',
+    'A1.2'
+  );
+  add(
+    'stardew',
+    'Stardew Valley',
+    'Steam games',
+    'https://store.steampowered.com/app/413150/Stardew_Valley/',
+    'Optional exposure to shops, routines and everyday conversations. Start with menus.',
+    'Spain Spanish interface; substantial unfamiliar reading, no Spanish narration. Paid PC game.',
+    '',
+    'B1.1'
+  );
+  add(
+    'afterhours',
+    'Spanish After Hours',
+    'YouTube',
+    'https://www.youtube.com/@SpanishAfterHours',
+    'Choose beginner-labelled visual stories and repeat a short familiar segment.',
+    'Spain Spanish; subtitles vary. Some videos are much harder than others.',
+    '',
+    'A1.2'
+  );
+  add(
+    'dreaming-beginner',
+    'Dreaming Spanish · beginner videos',
+    'YouTube',
+    'https://www.dreaming.com/spanish',
+    'Start with superbeginner visual stories rather than the whole channel.',
+    'Speakers from Spain and Latin America; filter by difficulty.',
+    '',
+    'A1.1'
+  );
+  add(
+    'easy-beginner',
+    'Easy Spanish · Super Easy Spanish',
+    'YouTube',
+    'https://www.easy-spanish.org/',
+    'Choose the slower Super Easy episodes and use bilingual subtitles.',
+    'Spain and Latin-American speakers; ordinary street interviews are harder.'
+  );
+  add(
+    'ministerio',
+    'El Ministerio del Tiempo',
+    'Films / TV',
+    'https://www.rtve.es/play/videos/el-ministerio-del-tiempo/',
+    'Follow a short scene, then retell the problem and next step.',
+    'Spain Spanish; historical vocabulary, native pace; check subtitles and regional access.',
+    true,
+    'B2.1'
+  );
+  add(
+    'cuentame',
+    'Cuéntame cómo pasó',
+    'Films / TV',
+    'https://www.rtve.es/play/videos/cuentame-como-paso/',
+    'Family exchanges and social change offer narrative and opinion practice.',
+    'Spain Spanish; colloquial speech, native pace; availability varies.',
+    true,
+    'B2.1'
+  );
+  add(
+    'tierra',
+    'Aquí la Tierra',
+    'Films / TV',
+    'https://www.rtve.es/play/videos/aqui-la-tierra/',
+    'Short factual segments support summarising and explaining causes.',
+    'Spain Spanish; choose one familiar topic; subtitle availability varies.',
+    true,
+    'B1.2'
+  );
+  add(
+    'manolito',
+    'Manolito Gafotas · Elvira Lindo',
+    'Books',
+    'https://www.planetadelibros.com/libro-manolito-gafotas/69663',
+    'Read a short chapter and notice the narrator’s viewpoint and everyday dialogue.',
+    'Spain setting; colloquial jokes need support. Publisher offers samples; optional purchase.',
+    true,
+    'B2.1'
+  );
+  add(
+    'niebla',
+    'El príncipe de la niebla · Carlos Ruiz Zafón',
+    'Books',
+    'https://www.planetadelibros.cl/libro-el-principe-de-la-niebla/127758',
+    'A compact mystery for practising narrative sequence and descriptions.',
+    'Spanish original; literary vocabulary is a stretch. Publisher page; optional purchase.',
+    true,
+    'B2.2'
+  );
+  add(
+    'lola-advanced',
+    'Una nota falsa · rereading for fluency',
+    'Books',
+    'https://difusion.com/tienda/producto/una-nota-falsa',
+    'An easier graded reader for fluent reading: retell each chapter without translating.',
+    'Publisher A2 reader intentionally reused as comfortable retrieval, not a B-level text.',
+    true,
+    'B1.1'
+  );
+  add(
+    'rtve-audio',
+    'RTVE Audiolibros',
+    'Audiobooks',
+    'https://www.rtve.es/play/audios/rtve-audiolibros/',
+    'Choose a short work and summarise the main idea before replaying.',
+    'Spain and Latin-American literature; native narration; literary language.',
+    true,
+    'B2.1'
+  );
+  add(
+    'alba',
+    'AlbaLearning · short audiobooks',
+    'Audiobooks',
+    'https://albalearning.com/default.aspx',
+    'Read alongside a short narrated work, then explain its situation.',
+    'Different authors and varieties; listen on the provider site only. No audio is included in this app.',
+    true,
+    'B2.1'
+  );
+  add(
+    'librivox',
+    'LibriVox · Spanish catalogue',
+    'Audiobooks',
+    'https://librivox.org/search?primary_key=5&search_category=language&search_page=1&search_form=get_results',
+    'Choose a familiar short story and compare your summary after listening.',
+    'Volunteer accents and recording quality vary; older literary language can be difficult.',
+    true,
+    'B2.2'
+  );
+  add(
+    'hike',
+    'A Short Hike',
+    'Steam games',
+    'https://store.steampowered.com/app/1055540/A_Short_Hike/',
+    'Short conversations and requests provide manageable connected reading.',
+    'Latin-American Spanish text; no Spanish voice. Paid PC game.',
+    true,
+    'B1.2'
+  );
+  add(
+    'firewatch',
+    'Firewatch',
+    'Steam games',
+    'https://store.steampowered.com/app/383870/Firewatch/',
+    'Read Spanish dialogue choices and subtitles, then explain a character’s concern.',
+    'Spain Spanish text/subtitles; English audio only. Mature themes. Paid PC game.',
+    true,
+    'B2.1'
+  );
+  add(
+    'monkey',
+    'Return to Monkey Island',
+    'Steam games',
+    'https://store.steampowered.com/app/2060130/Return_to_Monkey_Island/',
+    'Practise inference through humorous exchanges and puzzle clues.',
+    'Spain Spanish text/subtitles; no Spanish voice. Wordplay is challenging. Paid PC game.',
+    true,
+    'B2.2'
+  );
+  add(
+    'juan',
+    'Español con Juan',
+    'YouTube',
+    'https://1001reasonstolearnspanish.com/',
+    'Connected stories and explanations support listening beyond isolated phrases.',
+    'Spain Spanish; choose intermediate videos and check available subtitles.',
+    true,
+    'B1.1'
+  );
+  add(
+    'spanish-coach',
+    'Spanish Language Coach',
+    'YouTube',
+    'https://www.spanishlanguagecoach.com/',
+    'Choose a familiar intermediate or advanced listening topic and explain its main point.',
+    'Official creator resource site; Spanish listening with text support. Free samples and optional paid resources; check the current catalogue.',
+    true,
+    'B1.2'
+  );
+  add(
+    'dreaming-advanced',
+    'Dreaming Spanish · intermediate / advanced',
+    'YouTube',
+    'https://www.dreaming.com/spanish',
+    'Choose a familiar topic and gradually remove visual or subtitle support.',
+    'Spain and Latin-American speakers; difficulty varies by video.',
+    true,
+    'B1.1'
+  );
+  const accessByCategory = {
+    'Films / TV': 'Free public catalogue; region/account restrictions may apply',
+    Books: 'Paid book; stock, editions and delivery vary',
+    Audiobooks: 'Public samples/catalogue; some narrated stories require membership',
+    'Steam games': 'Paid PC game; Steam account and compatible computer required',
+    YouTube: 'Free public material; optional paid transcripts/courses may be offered'
+  };
+  for (const r of catalogue) {
+    r.reviewed = '2026-10-26';
+    r.variety = /Latin-American/.test(r.note)
+      ? 'Latin-American Spanish'
+      : /Spain Spanish|Spain dub|Spain setting|Spanish original/.test(r.note)
+        ? 'Spain Spanish'
+        : 'Spanish; varieties/narrators vary, check provider';
+    r.relevance =
+      r.category === 'Books' || r.category === 'Steam games'
+        ? ['reading']
+        : ['listening', 'reading'];
+    r.access = r.id === 'muzzy' ? 'Paid subscription and account' : accessByCategory[r.category];
+    r.reusedBecause =
+      'Start with short supported samples; later use the same material for retelling and independent comprehension.';
+    r.verification = ['vacaciones', 'sin-noticias', 'madrid-reader', 'lola-advanced'].includes(r.id)
+      ? 'Official publisher index corroborates title; direct crawler access is blocked, stock not verified'
+      : r.id === 'afterhours'
+        ? 'Official creator video and channel identity corroborated; channel inventory not exhaustively retrievable'
+        : 'Official provider/catalogue reviewed';
+    if (r.id === 'pocoyo') r.expires = '2027-04-30';
+    if (r.id === 'cleo') r.expires = '2030-12-31';
+  }
+  for (const r of catalogue) {
+    r.lastVerified = r.reviewed;
+    r.provider = new URL(r.url).hostname;
+    r.verificationSource = r.url;
+  }
+  function safeURL(url) {
+    try {
+      const u = new URL(url);
+      return (
+        u.protocol === 'https:' &&
+        !u.username &&
+        !u.password &&
+        !u.port &&
+        [
+          'www.muzzybbc.com',
+          'www.dreaming.com',
+          'www.easy-spanish.org',
+          '1001reasonstolearnspanish.com',
+          'www.spanishlanguagecoach.com',
+          'www.rtve.es',
+          'difusion.com',
+          'www.thefablecottage.com',
+          'store.steampowered.com',
+          'www.youtube.com',
+          'www.planetadelibros.com',
+          'www.planetadelibros.cl',
+          'albalearning.com',
+          'librivox.org'
+        ].includes(u.hostname)
+      );
+    } catch {
+      return false;
+    }
+  }
+  function forStage(stage) {
+    if (!stages.includes(stage)) return [];
+    const i = stages.indexOf(stage);
+    return categories.flatMap(category =>
+      catalogue
+        .filter(
+          r =>
+            r.category === category &&
+            i >= stages.indexOf(r.minimumStage) &&
+            i <= stages.indexOf(r.maximumStage) &&
+            safeURL(r.url)
+        )
+        .slice(0, 3)
+        .map(r => ({
+          ...r,
+          difficulty: i >= stages.indexOf(r.comfortableFrom) ? 'Comfortable' : 'Stretch'
+        }))
+    );
+  }
+  function render(stage, { esc, b }) {
+    return (
+      b('‹ Back to Profile', 'profile', 'back') +
+      '<h2>Content for Your Level</h2><p>Recommended for ' +
+      esc(stage) +
+      ' learners</p><p class="notice">Editorial suggestions, not official CEFR ratings. Comfortable: likely accessible with your course knowledge. Stretch: expect unfamiliar language; try a short sample with support. External sites need internet and may require payment, registration or regional access. Check age ratings before buying.</p>' +
+      categories
+        .map(
+          category =>
+            '<section class="recommendation-category"><h3>' +
+            category +
+            '</h3>' +
+            forStage(stage)
+              .filter(r => r.category === category)
+              .map(
+                r =>
+                  '<article class="card recommendation"><h3>' +
+                  esc(r.title) +
+                  '</h3><span class="pill difficulty">' +
+                  esc(stage + ' · ' + r.difficulty) +
+                  '</span><p>' +
+                  esc(r.reason) +
+                  '</p><p class="muted">' +
+                  esc(r.note) +
+                  '</p><details><summary>Language &amp; access</summary><p>' +
+                  esc(r.variety) +
+                  ' · ' +
+                  esc(r.access) +
+                  '</p><p>' +
+                  esc(r.reusedBecause) +
+                  '</p><p>Reviewed ' +
+                  esc(r.lastVerified) +
+                  '. ' +
+                  esc(r.verification) +
+                  '</p></details>' +
+                  b('Open externally ↗', 'externalContent', 'pill', 'data-id="' + esc(r.id) + '"') +
+                  '</article>'
+              )
+              .join('') +
+            '</section>'
+        )
+        .join('')
+    );
+  }
+  root.Recommendations = { stages, categories, catalogue, forStage, safeURL, render };
+  if (typeof module !== 'undefined') module.exports = root.Recommendations;
+})(typeof window === 'undefined' ? globalThis : window);

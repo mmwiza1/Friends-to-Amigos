@@ -1,0 +1,39 @@
+# Formatting applies to hand-written runtime logic, views and controllers.
+# Course content and data stay byte-for-byte as authored: several are pinned by
+# SHA-256 in tests/mobile.test.cjs, and content edits belong in reviewed source
+# changes rather than formatter diffs.
+www/a1-practice.js
+www/a1-review.js
+www/a12-stories.js
+www/a12.js
+www/a21-conjugations.js
+www/a21-data.js
+www/a21-ids.js
+www/a21.js
+www/a22-conjugations.js
+www/a22-data.js
+www/a22-focused-data.js
+www/a22-stories.js
+www/a22-targets.js
+www/a22.js
+www/b-conjugations-data.js
+www/b-focused-data.js
+www/b-targets.js
+www/b11-data.js
+www/b12-data.js
+www/b21-data.js
+www/b22-data.js
+www/conjugation-targets.js
+www/conjugations-bank.js
+www/consolidation.js
+www/course-language-data.js
+www/curriculum.js
+www/focused-bank-data.js
+www/grammar-syllabus.js
+www/learner-clarity.js
+www/learner-dictionary-data.js
+www/linguistic-content.js
+www/practice-errors.js
+www/question-ids.js
+www/stories.js
+www/story-editions.js

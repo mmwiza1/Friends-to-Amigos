@@ -13,7 +13,8 @@ test('all permanent course question IDs retain exactly the latest-main activity 
  assert.deepEqual(Object.fromEntries(C.lessons.map(l=>[l.id,l.questions.map(q=>q.id)])),baseline.questions);
 });
 test('the approved Practice label change preserves internal five-tab routes and all immutable compatibility fixtures',()=>{
- const nav=fs.readFileSync('www/app.js','utf8').split('\n').find(line=>line.startsWith('function nav(){'));assert.equal(sha(fs.readFileSync('docs/release/v16-navigation-baseline.txt','utf8').trim()),baseline.navigation);assert.ok(nav.includes("['Home','Learn','Games','Review','Profile']"));assert.ok(nav.includes("t==='Games'?'Practice':t"));assert.ok(nav.includes("t==='Review'&&due().length"));
+ // Whitespace-insensitive: the bootstrap is formatted, so the function spans several lines.
+ const app=fs.readFileSync('www/app.js','utf8'),start=app.search(/^function nav\(\)\s*\{/m),end=app.indexOf('\nfunction ',start+1),nav=app.slice(start,end<0?undefined:end).replace(/\s+/g,'');assert.ok(start>=0);assert.equal(sha(fs.readFileSync('docs/release/v16-navigation-baseline.txt','utf8').trim()),baseline.navigation);assert.ok(nav.includes("['Home','Learn','Games','Review','Profile']"));assert.ok(nav.includes("t==='Games'?'Practice':t"));assert.ok(nav.includes("t==='Review'&&due().length"));
  for(const [file,expected] of Object.entries(baseline.fixtures))assert.equal(sha(fs.readFileSync('tests/fixtures/'+file)),expected,file);
 });
 test('the approved content inverse rejects unexpected edits rather than blessing changed snapshots',()=>{
